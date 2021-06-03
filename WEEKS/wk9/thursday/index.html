@@ -1,0 +1,1376 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\bryan\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.18\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+  <div class="mume markdown-preview  ">
+      <p><strong>Module Materials:</strong><br>
+Module Project:&#xA0;<a href="https://github.com/LambdaSchool/web-module-project-custom-hook">https://github.com/LambdaSchool/web-module-project-custom-hook</a>&#xA0;GP Slides :&#xA0;<a href="https://docs.google.com/presentation/d/1Pd0GyIx-DMmtruuAz3ZWuXkV3N5K_Z6SNZftcN3T8Z8/edit?usp=sharing">https://docs.google.com/presentation/d/1Pd0GyIx-DMmtruuAz3ZWuXkV3N5K_Z6SNZftcN3T8Z8/edit?usp=sharing</a><br>
+Yesterday&apos;s Module Project Review:&#xA0;<a href="https://www.loom.com/share/a9c6c6230a33452ea67e3e484671b25f">https://www.loom.com/share/a9c6c6230a33452ea67e3e484671b25f</a>&#xA0;PW: klt31T4<br>
+Alternative Lecture Video:&#xA0;<a href="https://youtu.be/KcpbY22WqP8">Dustin Myers</a>&#xA0;|&#xA0;<a href="https://youtu.be/_FoezSN1YRE">Josh Jacobson</a>&#xA0;|&#xA0;<a href="https://youtu.be/UrCq44RxhrE">Warren C. Longmire</a>&#xA0;|&#xA0;<a href="https://youtu.be/p5O4XD-5hes">Brian Kirkby</a><strong>Key Terminology:</strong></p>
+<ul>
+<li><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f4dd%402x.png" alt=":memo:">&#xA0;<em>localStorage</em>&#xA0;-&#xA0;<a href="https://blog.logrocket.com/localstorage-javascript-complete-guide/#whereislocalstoragestored">a javascript module for saving persistant data within your application</a></li>
+<li><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f4dd%402x.png" alt=":memo:">&#xA0;<em>the JSON library</em>&#xA0;-&#xA0;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">Used for working with JSON objects. Used in this lesson specifically to convert between objects and strings using JSON.parse and JSON.stringify</a></li>
+<li><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f4dd%402x.png" alt=":memo:">&#xA0;<em>custom hook</em>&#xA0;-&#xA0;<a href="https://reactjs.org/docs/hooks-custom.html">a function used in functional React components for seperating business logic</a></li>
+<li><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f4dd%402x.png" alt=":memo:">&#xA0;<em>composing hooks</em>&#xA0;-&#xA0;<a href="https://medium.com/better-programming/compose-react-hooks-like-composing-react-components-892c23530432">the process of wrapping and modifying the functionality of one hook with another</a></li>
+</ul>
+<p><strong>Key Concepts:</strong></p>
+<ul>
+<li><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f4dd%402x.png" alt=":memo:">&#xA0;<em>Stateful Logic</em>&#xA0;-&#xA0;<a href="https://www.cronj.com/blog/learn-stateful-and-stateless-components-in-reactjs/">Application logic related to the manipulation of data</a></li>
+<li><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f4dd%402x.png" alt=":memo:">&#xA0;<em>Seperation of Concerns</em>&#xA0;-&#xA0;<a href="https://www.springboottutorial.com/software-design-seperation-of-concerns-with-examples">The programming principle related to developing small, focused, modular and interconnected code.</a></li>
+<li><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f4dd%402x.png" alt=":memo:">&#xA0;<em>object bracket notation</em>&#xA0;-&#xA0;<a href="https://ui.dev/computed-property-names/">Also called &quot;Computed properties.&quot; A piece of javascript syntax that allows for the key of an object to be passed dynamicly</a></li>
+</ul>
+<p><strong>Stretch Tutorials:</strong></p>
+<ul>
+<li>Model Custom Hook -&#xA0;<a href="https://upmostly.com/tutorials/modal-components-react-custom-hooks">https://upmostly.com/tutorials/modal-components-react-custom-hooks</a></li>
+</ul>
+<hr>
+<p><a href="https://www.youtube.com/watch?v=b--jKWmIA8A">wed lecture</a></p>
+<hr>
+<p>Here are your setup instructions for module 4:</p>
+<ol>
+<li>Clone without forking the following repo:&#xA0;<a href="https://github.com/LambdaSchool/web-guided-project-testing-web-apps">https://github.com/LambdaSchool/web-guided-project-testing-web-apps</a></li>
+<li>Navigate into the root folder and run npm i to load dependences.</li>
+</ol>
+<p><img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f449%402x.png" alt=":point_right:">&#xA0;Technical issues spinning up the project? Please head over to the help channel!<br>
+<img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f449%402x.png" alt=":point_right:">&#xA0;If you fall behind during lecture and wish to catch up:<br>
+<code>git fetch &amp;&amp; git reset --hard origin/lecture</code><br>
+<img src="https://slack-imgs.com/?c=1&amp;o1=gu&amp;url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f449%402x.png" alt=":point_right:">&#xA0;Slido event:&#xA0;<a href="https://app.sli.do/event/msea4w8q">https://app.sli.do/event/msea4w8q</a></p>
+<p>LambdaSchool/web-guided-project-testing-web-apps</p>
+<p>Language</p>
+<p>JavaScript</p>
+<p>Advanced React<br>
+Unit 3: Advanced Web Apps</p>
+<p>Advanced React</p>
+<ul>
+<li>Class Components</li>
+<li>The React Lifecycle</li>
+<li>Composing Non-Visual Behaviors</li>
+<li>Testing Web Applications<br>
+Advanced React<br>
+Composing Non-Visual Behaviors</li>
+<li>Understanding Separation of Concerns</li>
+<li>Understanding Stateful Logic</li>
+<li>Use custom hooks to add behaviors<br>
+New focus...<br>
+Component Architecture<br>
+What is Stateful Logic?<br>
+What is Stateful Logic?<br>
+Any code that is used to manipulate data.<br>
+Why is Stateful Logic?<br>
+Why is Stateful Logic?<br>
+Because Separation of Concerns<br>
+Separation of Concerns<br>
+Each component/module/function should be as small as possible and do ONE thing.<br>
+Separation of Concerns<br>
+Each component/module/function should be as small as possible and do ONE thing.<br>
+Keeps your code DRY and reusable.<br>
+Separation of Concerns<br>
+Each component/module/function should be as small as possible and do ONE thing.<br>
+Keeps your code DRY and reusable.<br>
+Make each piece easy to test.<br>
+How can we break down our<br>
+components into smaller,<br>
+focused, reusable parts?<br>
+How can we break down our components<br>
+into smaller, focused, reusable parts?<br>
+&#x25CF; Identify the code that can be modularized.<br>
+&#x25CF; Move that code into its own file.<br>
+&#x25CF; Identify the dependances and connect them to module.<br>
+&#x25CF; Replace hard code with module.<br>
+&#x25CF; Test that app works the same as before.<br>
+Modularizing our components:</li>
+<li>Subcomponents (Presentation Logic )</li>
+<li>Services (Data Logic)</li>
+<li>Custom Hooks (Stateful Logic)<br>
+Stateful logic just means code<br>
+that manipulates state...<br>
+Stateful logic just means code<br>
+that manipulates state...<br>
+...but not the state itself!<br>
+Takeaways:</li>
+<li>Separation of Concerns is good!</li>
+<li>Component Code can be separated into</li>
+<li>Presentation Logic</li>
+<li>Data Logic</li>
+<li>Stateful Logic</li>
+<li>Break them up to help keep things dry, reusable, efficient and<br>
+testable.<br>
+Break</li>
+</ul>
+<p><img src="testing1.png" alt></p>
+<p><img src="integration-tests.png" alt></p>
+<p><img src="whatwetest.png" alt></p>
+<blockquote>
+<p>i.e. pushing a button... or sliding a slider...</p>
+</blockquote>
+
+      </div>
+      <div class="md-sidebar-toc"></div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    <div class="mume markdown-preview  ">
+      <p>Advanced React<br>
+Unit 3: Advanced Web Apps</p>
+<p>Advanced React</p>
+<ul>
+<li>Class Components</li>
+<li>The React Lifecycle</li>
+<li>Composing Non-Visual Behaviors</li>
+<li>Testing Web Applications<br>
+Advanced React<br>
+Composing Non-Visual Behaviors</li>
+<li>Understanding Separation of Concerns</li>
+<li>Understanding Stateful Logic</li>
+<li>Use custom hooks to add behaviors<br>
+New focus...<br>
+Component Architecture<br>
+What is Stateful Logic?<br>
+What is Stateful Logic?<br>
+Any code that is used to manipulate data.<br>
+Why is Stateful Logic?<br>
+Why is Stateful Logic?<br>
+Because Separation of Concerns<br>
+Separation of Concerns<br>
+Each component/module/function should be as small as possible and do ONE thing.<br>
+Separation of Concerns<br>
+Each component/module/function should be as small as possible and do ONE thing.<br>
+Keeps your code DRY and reusable.<br>
+Separation of Concerns<br>
+Each component/module/function should be as small as possible and do ONE thing.<br>
+Keeps your code DRY and reusable.<br>
+Make each piece easy to test.<br>
+How can we break down our<br>
+components into smaller,<br>
+focused, reusable parts?<br>
+How can we break down our components<br>
+into smaller, focused, reusable parts?<br>
+&#x25CF; Identify the code that can be modularized.<br>
+&#x25CF; Move that code into its own file.<br>
+&#x25CF; Identify the dependances and connect them to module.<br>
+&#x25CF; Replace hard code with module.<br>
+&#x25CF; Test that app works the same as before.<br>
+Modularizing our components:</li>
+<li>Subcomponents (Presentation Logic )</li>
+<li>Services (Data Logic)</li>
+<li>Custom Hooks (Stateful Logic)<br>
+Stateful logic just means code<br>
+that manipulates state...<br>
+Stateful logic just means code<br>
+that manipulates state...<br>
+...but not the state itself!<br>
+Takeaways:</li>
+<li>Separation of Concerns is good!</li>
+<li>Component Code can be separated into</li>
+<li>Presentation Logic</li>
+<li>Data Logic</li>
+<li>Stateful Logic</li>
+<li>Break them up to help keep things dry, reusable, efficient and<br>
+testable.<br>
+Break</li>
+</ul>
+<hr>
+<hr>
+<h2 class="mume-header" id="toc">TOC:</h2>
+
+<hr>
+<ul>
+<li><a href="#localstorage-in-javascript-a-complete-guide---logrocket-blog">localStorage in JavaScript: A complete guide - LogRocket Blog</a>
+<ul>
+<li><a href="#what-is-the-web-storage-api">What is the Web Storage API?</a>
+<ul>
+<li><a href="#what-is-the-difference-between-sessionstorage-and-localstorage">What is the difference between <code>sessionStorage</code> and <code>localStorage</code>?</a></li>
+</ul>
+</li>
+<li><a href="#what-is-localstorage-in-javascript">What is <code>localStorage</code> in JavaScript?</a>
+<ul>
+<li><a href="#where-is-localstorage-stored">Where is <code>localStorage</code> stored?</a></li>
+</ul>
+</li>
+<li><a href="#what-is-windowlocalstorage">What is <code>Window.localStorage</code>?</a></li>
+<li><a href="#how-does-localstorage-work">How does <code>localStorage</code> work?</a>
+<ul>
+<li><a href="#setitem-how-to-store-values-in-localstorage"><code>setItem()</code>: How to store values in <code>localStorage</code></a></li>
+<li><a href="#getitem-how-to-get-items-from-localstorage"><code>getItem()</code>: How to get items from <code>localStorage</code></a></li>
+<li><a href="#removeitem-how-to-delete-localstorage-sessions"><code>removeItem()</code>: How to delete <code>localStorage</code> sessions</a></li>
+<li><a href="#clear-how-to-delete-all-items-in-localstorage"><code>clear()</code>: How to delete all items in <code>localStorage</code></a></li>
+<li><a href="#key-how-to-get-the-name-of-a-key-in-localstorage"><code>key()</code>: How to get the name of a key in <code>localStorage</code></a></li>
+</ul>
+</li>
+<li><a href="#localstorage-browser-support"><code>localStorage</code> browser support</a></li>
+<li><a href="#localstorage-limitations"><code>localStorage</code> limitations</a></li>
+<li><a href="#local-storage-debug-javascript-errors-easier-by-understanding-the-context">Local Storage: Debug JavaScript errors easier by understanding the context</a></li>
+</ul>
+</li>
+<li><a href="#json---javascript--mdn">JSON - JavaScript | MDN</a>
+<ul>
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#javascript-and-json-differences">JavaScript and JSON differences</a></li>
+<li><a href="#full-json-syntax">Full JSON syntax</a></li>
+</ul>
+</li>
+<li><a href="#static-methods">Static methods</a></li>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#example-json">Example JSON</a></li>
+</ul>
+</li>
+<li><a href="#specifications">Specifications</a></li>
+<li><a href="#browser-compatibility">Browser compatibility</a></li>
+</ul>
+</li>
+<li><a href="#building-your-own-hooks--react">Building Your Own Hooks &#x2013; React</a>
+<ul>
+<li><a href="#using-a-custom-hook">Using a Custom Hook</a>
+<ul>
+<li><a href="#tip-pass-information-between-hooks">Tip: Pass Information Between Hooks</a></li>
+</ul>
+</li>
+<li><a href="#useyourimagination"><code>useYourImagination()</code></a></li>
+</ul>
+</li>
+<li><a href="#compose-react-hooks-like-composing-react-components">Compose React hooks like composing React components</a>
+<ul>
+<li><a href="#why-custom-hooks-are-so-powerful">Why custom hooks are so powerful</a></li>
+</ul>
+</li>
+<li><a href="#learn-stateful-and-stateless-components-in-reactjs---cronj">Learn Stateful and Stateless components in ReactJS - CronJ</a>
+<ul>
+<li><a href="#state"><strong>State</strong></a></li>
+<li><a href="#components"><strong>Components</strong></a>
+<ul>
+<li><a href="#stateful-components"><strong>Stateful Components</strong></a></li>
+<li><a href="#stateless-components"><strong>Stateless Components</strong></a></li>
+<li><a href="#stateful-vs-stateless"><strong>Stateful vs. Stateless</strong></a></li>
+</ul>
+</li>
+<li><a href="#when-should-i-make-a-component-stateful-or-stateless"><strong>When should I make a component stateful or stateless?</strong></a>
+<ul>
+<li><a href="#conclusion"><strong>Conclusion</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#software-design---separation-of-concerns---with-examples">Software Design - Separation Of Concerns - with examples</a>
+<ul>
+<li><a href="#you-will-learn">You will learn</a></li>
+<li><a href="#free-courses---learn-in-10-steps">Free Courses - Learn in 10 Steps</a>
+<ul>
+<li><a href="#software-design-principles">Software Design Principles</a></li>
+<li><a href="#what-is-separation-of-concerns">What Is Separation Of Concerns?</a></li>
+<li><a href="#separation-of-concerns-in-action">Separation Of Concerns In Action</a>
+<ul>
+<li><a href="#layered-architecture">Layered Architecture</a></li>
+<li><a href="#organizing-microservices">Organizing Microservices</a></li>
+<li><a href="#identifying-common-components">Identifying Common Components</a></li>
+</ul>
+</li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#computed-property-names-in-javascript---uidev">Computed Property Names in JavaScript - ui.dev</a>
+<ul>
+<li><a href="#one-more-thing">One more thing</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<h1 class="mume-header" id="localstorage-in-javascript-a-complete-guide-logrocket-blog">localStorage in JavaScript: A complete guide - LogRocket Blog</h1>
+
+<blockquote>
+<p>Arm yourself with the knowledge and power of localStorage in JavaScript applications with these five different storage methods.</p>
+</blockquote>
+<p><em><strong>Editor&#x2019;s note: This post was updated on 29 December 2020.</strong></em></p>
+<p>In this tutorial, we&#x2019;ll show you how to use the <code>localStorage</code> mechanism and <code>Window.localStorage</code> property and review the basics of web storage in JavaScript.</p>
+<p>We&#x2019;ll cover the following in detail:</p>
+<ul>
+<li><a href="#localstorage-in-javascript-a-complete-guide---logrocket-blog">localStorage in JavaScript: A complete guide - LogRocket Blog</a>
+<ul>
+<li><a href="#what-is-the-web-storage-api">What is the Web Storage API?</a>
+<ul>
+<li><a href="#what-is-the-difference-between-sessionstorage-and-localstorage">What is the difference between <code>sessionStorage</code> and <code>localStorage</code>?</a></li>
+</ul>
+</li>
+<li><a href="#what-is-localstorage-in-javascript">What is <code>localStorage</code> in JavaScript?</a>
+<ul>
+<li><a href="#where-is-localstorage-stored">Where is <code>localStorage</code> stored?</a></li>
+</ul>
+</li>
+<li><a href="#what-is-windowlocalstorage">What is <code>Window.localStorage</code>?</a></li>
+<li><a href="#how-does-localstorage-work">How does <code>localStorage</code> work?</a>
+<ul>
+<li><a href="#setitem-how-to-store-values-in-localstorage"><code>setItem()</code>: How to store values in <code>localStorage</code></a></li>
+<li><a href="#getitem-how-to-get-items-from-localstorage"><code>getItem()</code>: How to get items from <code>localStorage</code></a></li>
+<li><a href="#removeitem-how-to-delete-localstorage-sessions"><code>removeItem()</code>: How to delete <code>localStorage</code> sessions</a></li>
+<li><a href="#clear-how-to-delete-all-items-in-localstorage"><code>clear()</code>: How to delete all items in <code>localStorage</code></a></li>
+<li><a href="#key-how-to-get-the-name-of-a-key-in-localstorage"><code>key()</code>: How to get the name of a key in <code>localStorage</code></a></li>
+</ul>
+</li>
+<li><a href="#localstorage-browser-support"><code>localStorage</code> browser support</a></li>
+<li><a href="#localstorage-limitations"><code>localStorage</code> limitations</a></li>
+<li><a href="#local-storage-debug-javascript-errors-easier-by-understanding-the-context">Local Storage: Debug JavaScript errors easier by understanding the context</a></li>
+</ul>
+</li>
+<li><a href="#json---javascript--mdn">JSON - JavaScript | MDN</a>
+<ul>
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#javascript-and-json-differences">JavaScript and JSON differences</a></li>
+<li><a href="#full-json-syntax">Full JSON syntax</a></li>
+</ul>
+</li>
+<li><a href="#static-methods">Static methods</a></li>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#example-json">Example JSON</a></li>
+</ul>
+</li>
+<li><a href="#specifications">Specifications</a></li>
+<li><a href="#browser-compatibility">Browser compatibility</a></li>
+</ul>
+</li>
+<li><a href="#building-your-own-hooks--react">Building Your Own Hooks &#x2013; React</a>
+<ul>
+<li><a href="#using-a-custom-hook">Using a Custom Hook</a>
+<ul>
+<li><a href="#tip-pass-information-between-hooks">Tip: Pass Information Between Hooks</a></li>
+</ul>
+</li>
+<li><a href="#useyourimagination"><code>useYourImagination()</code></a></li>
+</ul>
+</li>
+<li><a href="#compose-react-hooks-like-composing-react-components">Compose React hooks like composing React components</a>
+<ul>
+<li><a href="#why-custom-hooks-are-so-powerful">Why custom hooks are so powerful</a></li>
+</ul>
+</li>
+<li><a href="#learn-stateful-and-stateless-components-in-reactjs---cronj">Learn Stateful and Stateless components in ReactJS - CronJ</a>
+<ul>
+<li><a href="#state"><strong>State</strong></a></li>
+<li><a href="#components"><strong>Components</strong></a>
+<ul>
+<li><a href="#stateful-components"><strong>Stateful Components</strong></a></li>
+<li><a href="#stateless-components"><strong>Stateless Components</strong></a></li>
+<li><a href="#stateful-vs-stateless"><strong>Stateful vs. Stateless</strong></a></li>
+</ul>
+</li>
+<li><a href="#when-should-i-make-a-component-stateful-or-stateless"><strong>When should I make a component stateful or stateless?</strong></a>
+<ul>
+<li><a href="#conclusion"><strong>Conclusion</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#software-design---separation-of-concerns---with-examples">Software Design - Separation Of Concerns - with examples</a>
+<ul>
+<li><a href="#you-will-learn">You will learn</a></li>
+<li><a href="#free-courses---learn-in-10-steps">Free Courses - Learn in 10 Steps</a>
+<ul>
+<li><a href="#software-design-principles">Software Design Principles</a></li>
+<li><a href="#what-is-separation-of-concerns">What Is Separation Of Concerns?</a></li>
+<li><a href="#separation-of-concerns-in-action">Separation Of Concerns In Action</a>
+<ul>
+<li><a href="#layered-architecture">Layered Architecture</a></li>
+<li><a href="#organizing-microservices">Organizing Microservices</a></li>
+<li><a href="#identifying-common-components">Identifying Common Components</a></li>
+</ul>
+</li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#computed-property-names-in-javascript---uidev">Computed Property Names in JavaScript - ui.dev</a>
+<ul>
+<li><a href="#one-more-thing">One more thing</a></li>
+</ul>
+</li>
+</ul>
+<h2>What is the Web Storage API?</h2>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API">Web Storage API</a> is a set of mechanisms that enable browsers to store key-value pairs. It is designed to be much more intuitive than using cookies.</p>
+<p>The key-value pairs represent storage objects, which are similar to objects except they remain intact during page loads, and are always strings. You can access these values like an object or using the <code>getItem()</code> method (more on that later).</p>
+<h3 class="mume-header" id="what-is-the-difference-between-sessionstorage-and-localstorage">What is the difference between <code>sessionStorage</code> and <code>localStorage</code>?</h3>
+
+<p>The Web Storage API consists of two mechanisms: <code>sessionStorage</code> and <code>localStorage</code>. Both <code>sessionStorage</code> and <code>localStorage</code> maintain a separate storage area for each available origin for the duration of the page session.</p>
+<p>The main difference between <code>sessionStorage</code> and <code>localStorage</code> is that <code>sessionStorage</code> only maintains a storage area while the browser is open (including when the page reloads or restores) while <code>localStorage</code> continues to store data after the browser is closed. In other words, whereas data stored in <code>sessionStorage</code> is cleared when the page is closed, data stored in <code>localStorage</code> does not expire.</p>
+<p>In this tutorial, we&#x2019;ll focus on how to use <code>localStorage</code> in JavaScript.</p>
+<h2>What is <code>localStorage</code> in JavaScript?</h2>
+<p><code>localStorage</code> is a property that allows JavaScript sites and apps to save key-value pairs in a web browser with no expiration date. This means the data stored in the browser will persist even after the browser window is closed.</p>
+<p>For a visual refresher on how to use <code>localStorage</code> in JavaScript, check out the video tutorial below:</p>
+<h3 class="mume-header" id="where-is-localstorage-stored">Where is <code>localStorage</code> stored?</h3>
+
+<p>In Google Chrome, <a href="https://en.wikipedia.org/wiki/Web_storage">web storage</a> data is saved in an SQLite file in a subfolder in the user&#x2019;s profile. The subfolder is located at <code>\AppData\Local\Google\Chrome\User Data\Default\Local Storage</code> on Windows machines and <code>~/Library/Application Support/Google/Chrome/Default/Local Storage</code> on macOS</p>
+<p>Firefox saves storage objects in an SQLite file called <code>webappsstore.sqlite</code>, which is also located in the user&#x2019;s profile folder.</p>
+<h2>What is <code>Window.localStorage</code>?</h2>
+<p>The <code>localStorage</code> mechanism is available via the <code>[Window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)</code> property. <code>Window.localStorage</code> is part of the <code>[Window](https://developer.mozilla.org/en-US/docs/Web/API/Window)</code> interface in JavaScript, which represents a window containing a DOM document.</p>
+<p>The <code>Window</code> interface features a wide range of functions, constructors, objects, and namespaces. <code>Window.localStorage</code> is a read-only property that returns a reference to the local storage object used to store data that is only accessible to the origin that created it.</p>
+<h2>How does <code>localStorage</code> work?</h2>
+<p>To use <code>localStorage</code> in your web applications, there are five methods to choose from:</p>
+<ol>
+<li><code>setItem()</code>: Add key and value to <code>localStorage</code></li>
+<li><code>getItem()</code>: This is how you get items from <code>localStorage</code></li>
+<li><code>removeItem()</code>: Remove an item by key from <code>localStorage</code></li>
+<li><code>clear()</code>: Clear all <code>localStorage</code></li>
+<li><code>key()</code>: Passed a number to retrieve the key of a <code>localStorage</code></li>
+</ol>
+<h3 class="mume-header" id="setitem-how-to-store-values-in-localstorage"><code>setItem()</code>: How to store values in <code>localStorage</code></h3>
+
+<p>Just as the name implies, this method allows you to store values in the <code>localStorage</code> object.</p>
+<p>It takes two parameters: a key and a value. The key can be referenced later to fetch the value attached to it.</p>
+<p>window.localStorage.setItem(&apos;name&apos;, &apos;Obaseki Nosa&apos;);</p>
+<p>Where <code>name</code> is the key and <code>Obaseki Nosa</code> is the value. Also note that <code>localStorage</code> can only store strings.</p>
+<p>To store arrays or objects, you would have to convert them to strings.</p>
+<p>To do this, we use the <code>JSON.stringify()</code> method before passing to <code>setItem()</code>.</p>
+<p>const person = { name: &quot;Obaseki Nosa&quot;, location: &quot;Lagos&quot;, } window.localStorage.setItem(&apos;user&apos;, JSON.stringify(person));</p>
+<h3 class="mume-header" id="getitem-how-to-get-items-from-localstorage"><code>getItem()</code>: How to get items from <code>localStorage</code></h3>
+
+<p>To get items from localStorage, use the <code>getItem()</code> method. <code>getItem()</code>&#xA0;allows you to access the data stored in the browser&#x2019;s <code>localStorage</code> object.</p>
+<p><code>getItem()</code> accepts only one parameter, which is the <code>key</code>, and returns the <code>value</code> as a string.</p>
+<p>To retrieve a user key:</p>
+<p>window.localStorage.getItem(&apos;user&apos;);</p>
+<p>This returns a string with value as:</p>
+<p>&#x201C;{&#x201C;name&#x201D;:&#x201D;Obaseki Nosa&#x201D;,&#x201D;location&#x201D;:&#x201D;Lagos&#x201D;}&#x201D;</p>
+<p>To use this value, you would have to convert it back to an object.</p>
+<p>To do this, we make use of the <code>JSON.parse()</code> method, which converts a JSON string into a JavaScript object.</p>
+<p>JSON.parse(window.localStorage.getItem(&apos;user&apos;));</p>
+<h3 class="mume-header" id="removeitem-how-to-delete-localstorage-sessions"><code>removeItem()</code>: How to delete <code>localStorage</code> sessions</h3>
+
+<p>To delete local storage sessions, use the <code>removeItem()</code> method.</p>
+<p>When passed a key name, the <code>removeItem()</code> method removes that key from the storage if it exists. If there is no item associated with the given key, this method will do nothing.</p>
+<p>window.localStorage.removeItem(&apos;name&apos;);</p>
+<h3 class="mume-header" id="clear-how-to-delete-all-items-in-localstorage"><code>clear()</code>: How to delete all items in <code>localStorage</code></h3>
+
+<p>Use the <code>clear()</code> method to delete all items in <code>localStorage</code>.</p>
+<p>This method, when invoked, clears the entire storage of all records for that domain. It does not receive any parameters.</p>
+<p>window.localStorage.clear();</p>
+<h3 class="mume-header" id="key-how-to-get-the-name-of-a-key-in-localstorage"><code>key()</code>: How to get the name of a key in <code>localStorage</code></h3>
+
+<p>The <code>key()</code> method comes in handy in situations where you need to loop through keys and allows you to pass a number or index to <code>localStorage</code> to retrieve the name of the key.</p>
+<p>var KeyName = window.localStorage.key(index);</p>
+<h2><code>localStorage</code> browser support</h2>
+<p><code>localStorage</code> as a type of web storage is an HTML5 specification. It is supported by major browsers including IE8. To be sure the browser supports <code>localStorage</code>, you can check using the following snippet:</p>
+<p>if (typeof(Storage) !== &quot;undefined&quot;) {  } else {  }</p>
+<h2><code>localStorage</code> limitations</h2>
+<p>As easy as it is to use <code>localStorage</code>, it is also easy to misuse it. The following are limitations, and also ways to NOT use <code>localStorage</code>:</p>
+<ul>
+<li>Do not store sensitive user information in <code>localStorage</code></li>
+<li>It is not a substitute for a server based database as information is only stored on the browser</li>
+<li><code>localStorage</code> is limited to 5MB across all major browsers</li>
+<li><code>localStorage</code> is quite insecure as it has no form of data protection and can be accessed by any code on your web page</li>
+<li><code>localStorage</code> is synchronous, meaning each operation called would only execute one after the other</li>
+</ul>
+<p>With these, we have been armed with the power of <code>[localStorage](https://blog.logrocket.com/web-storage-made-simple-use-local-storage-state/)</code> in our web applications.</p>
+<h2><a href="https://logrocket.com/signup/">Local Storage</a>: Debug JavaScript errors easier by understanding the context</h2>
+<p>Debugging code is always a tedious task. But the more you understand your errors the easier it is to fix them.</p>
+<p><a href="https://logrocket.com/signup/">Local Storage</a> allows you to understand these errors in new and unique ways. Our frontend monitoring solution tracks user engagement with your JavaScript frontends to give you the ability to find out exactly what the user did that led to an error.</p>
+<p><a href="https://logrocket.com/signup/"><img src="https://blog.logrocket.com/wp-content/uploads/2020/06/reproduce-javascript-errors.gif" alt="Local Storage Dashboard Free Trial Banner"></a></p>
+<p>LogRocket records console logs, page load times, stacktraces, slow network requests/responses with headers + bodies, browser metadata, and custom logs. Understanding the impact of your JavaScript code will never be easier!</p>
+<p><a href="https://logrocket.com/signup/">Try it for free</a>.</p>
+<h1 class="mume-header" id="json-javascript-mdn">JSON - JavaScript | MDN</h1>
+
+<blockquote>
+<p>The JSON object contains methods<br>
+for parsing JavaScript Object<br>
+Notation (JSON) and converting values to JSON. It can&apos;t be<br>
+called or constructed, and aside from its two method properties, it has no interesting<br>
+functionality of its own.</p>
+</blockquote>
+<p>The <strong><code>JSON</code></strong> object contains methods for parsing <a href="https://json.org/">JavaScript Object Notation</a> (<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/JSON">JSON</a>) and converting values to JSON. It can&apos;t be called or constructed, and aside from its two method properties, it has no interesting functionality of its own.</p>
+<h2><a href="#description" title="Permalink to Description">Description</a></h2>
+<h3 class="mume-header" id="javascript-and-json-differencesjavascript_and_json_differences-permalink-to-javascript-and-json-differences"><a href="#javascript_and_json_differences" title="Permalink to JavaScript and JSON differences">JavaScript and JSON differences</a></h3>
+
+<p>JSON is a syntax for serializing objects, arrays, numbers, strings, booleans, and <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/null"><code>null</code></a>. It is based upon JavaScript syntax but is distinct from it: some JavaScript is <em>not</em> JSON.</p>
+<p><strong>Objects and Arrays</strong></p>
+<p>Property names must be double-quoted strings; <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Trailing_commas">trailing commas</a> are forbidden.</p>
+<p><strong>Numbers</strong></p>
+<p>Leading zeros are prohibited. A decimal point must be followed by at least one digit. <code>NaN</code> and <code>Infinity</code> are unsupported.</p>
+<p><strong>Any JSON text is a valid JavaScript expression...</strong></p>
+<p>...But only in JavaScript engines that have implemented the <a href="https://github.com/tc39/proposal-json-superset">proposal to make all JSON text valid ECMA-262</a>. In engines that haven&apos;t implemented the proposal, U+2028 LINE SEPARATOR and U+2029 PARAGRAPH SEPARATOR are allowed in string literals and property keys in JSON; but their use in these features in JavaScript string literals is a <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError"><code>SyntaxError</code></a>.</p>
+<p>Consider this example where <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"><code>JSON.parse()</code></a> parses the string as JSON and <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"><code>Global_Objects/eval</code></a> executes the string as JavaScript:</p>
+<pre class="language-text">let code = &apos;&quot;\u2028\u2029&quot;&apos;
+JSON.parse(code)  
+eval(code)        
+</pre>
+<p>Other differences include allowing only double-quoted strings and having no provisions for <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a> or comments. For those who wish to use a more human-friendly configuration format based on JSON, there is <a href="https://json5.org/">JSON5</a>, used by the Babel compiler, and the more commonly used <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>.</p>
+<h3 class="mume-header" id="full-json-syntaxfull_json_syntax-permalink-to-full-json-syntax"><a href="#full_json_syntax" title="Permalink to Full JSON syntax">Full JSON syntax</a></h3>
+
+<p>The full JSON syntax is as follows:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json">    JSON = <span class="token null keyword">null</span>
+        or <span class="token boolean">true</span> or <span class="token boolean">false</span>
+        or JSONNumber
+        or JSONString
+        or JSONObject
+        or JSONArray
+    
+    JSONNumber = - PositiveNumber
+              or PositiveNumber
+    PositiveNumber = DecimalNumber
+                  or DecimalNumber . Digits
+                  or DecimalNumber . Digits ExponentPart
+                  or DecimalNumber ExponentPart
+    DecimalNumber = <span class="token number">0</span>
+                 or OneToNine Digits
+    ExponentPart = e Exponent
+                or E Exponent
+    Exponent = Digits
+            or + Digits
+            or - Digits
+    Digits = Digit
+          or Digits Digit
+    Digit = <span class="token number">0</span> through <span class="token number">9</span>
+    OneToNine = <span class="token number">1</span> through <span class="token number">9</span>
+    
+    JSONString = <span class="token string">&quot;&quot;</span>
+              or <span class="token string">&quot; StringCharacters &quot;</span>
+    StringCharacters = StringCharacter
+                    or StringCharacters StringCharacter
+    StringCharacter = any character
+                      except &quot; or \ or U+<span class="token number">0000</span> through U+001F
+                   or EscapeSequence
+    EscapeSequence = \&quot; or \/ or \\ or \b or \f or \n or \r or \t
+                  or \u HexDigit HexDigit HexDigit HexDigit
+    HexDigit = <span class="token number">0</span> through <span class="token number">9</span>
+            or A through F
+            or a through f
+    
+    JSONObject = <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+              or <span class="token punctuation">{</span> Members <span class="token punctuation">}</span>
+    Members = JSONString <span class="token operator">:</span> JSON
+           or Members <span class="token punctuation">,</span> JSONString <span class="token operator">:</span> JSON
+    
+    JSONArray = <span class="token punctuation">[</span> <span class="token punctuation">]</span>
+             or <span class="token punctuation">[</span> ArrayElements <span class="token punctuation">]</span>
+    ArrayElements = JSON
+                 or ArrayElements <span class="token punctuation">,</span> JSON
+</pre><p>Insignificant <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/Whitespace">whitespace</a> may be present anywhere except within a <code>JSONNumber</code> (numbers must contain no whitespace) or <code>JSONString</code> (where it is interpreted as the corresponding character in the string, or would cause an error). The tab character (<a href="https://unicode-table.com/en/0009/">U+0009</a>), carriage return (<a href="https://unicode-table.com/en/000D/">U+000D</a>), line feed (<a href="https://unicode-table.com/en/000A/">U+000A</a>), and space (<a href="https://unicode-table.com/en/0020/">U+0020</a>) characters are the only valid whitespace characters.</p>
+<h2><a href="#static_methods" title="Permalink to Static methods">Static methods</a></h2>
+<p><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"><code>JSON.parse(text[, reviver])</code></a></p>
+<p>Parse the string <code>text</code> as JSON, optionally transform the produced value and its properties, and return the value. Any violations of the JSON syntax, including those pertaining to the differences between JavaScript and JSON, cause a <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError"><code>SyntaxError</code></a> to be thrown. The <code>reviver</code> option allows for interpreting what the <code>replacer</code> has used to stand in for other datatypes.</p>
+<p><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"><code>JSON.stringify(value[, replacer[, space]])</code></a></p>
+<p>Return a JSON string corresponding to the specified value, optionally including only certain properties or replacing property values in a user-defined manner. By default, all instances of <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a> are replaced with <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/null"><code>null</code></a>, and other unsupported native data types are censored. The <code>replacer</code> option allows for specifying other behavior.</p>
+<h2><a href="#examples" title="Permalink to Examples">Examples</a></h2>
+<h3 class="mume-header" id="example-jsonexample_json-permalink-to-example-json"><a href="#example_json" title="Permalink to Example JSON">Example JSON</a></h3>
+
+<pre class="language-text">{
+  &quot;browsers&quot;: {
+    &quot;firefox&quot;: {
+      &quot;name&quot;: &quot;Firefox&quot;,
+      &quot;pref_url&quot;: &quot;about:config&quot;,
+      &quot;releases&quot;: {
+        &quot;1&quot;: {
+          &quot;release_date&quot;: &quot;2004-11-09&quot;,
+          &quot;status&quot;: &quot;retired&quot;,
+          &quot;engine&quot;: &quot;Gecko&quot;,
+          &quot;engine_version&quot;: &quot;1.7&quot;
+        }
+      }
+    }
+  }
+}
+</pre>
+<h2><a href="#specifications" title="Permalink to Specifications">Specifications</a></h2>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Unknown specification</td>
+</tr>
+<tr>
+<td># sec-json-object](<a href="https://tc39.es/ecma262/#sec-json-object">https://tc39.es/ecma262/#sec-json-object</a>)</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#browser_compatibility" title="Permalink to Browser compatibility">Browser compatibility</a></h2>
+<h1 class="mume-header" id="building-your-own-hooks-react">Building Your Own Hooks &#x2013; React</h1>
+
+<blockquote>
+<p>A JavaScript library for building user interfaces</p>
+</blockquote>
+<p><em>Hooks</em> are a new addition in React 16.8. They let you use state and other React features without writing a class.</p>
+<p>Building your own Hooks lets you extract component logic into reusable functions.</p>
+<p>When we were learning about <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/hooks-effect.html#example-using-hooks-1">using the Effect Hook</a>, we saw this component from a chat application that displays a message indicating whether a friend is online or offline:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">React</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">FriendStatus</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">[</span>isOnline<span class="token punctuation">,</span> setIsOnline<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>    <span class="token keyword">function</span> <span class="token function">handleStatusChange</span><span class="token punctuation">(</span><span class="token parameter">status</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>      <span class="token function">setIsOnline</span><span class="token punctuation">(</span>status<span class="token punctuation">.</span><span class="token property-access">isOnline</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token maybe-class-name">ChatAPI</span><span class="token punctuation">.</span><span class="token method function property-access">subscribeToFriendStatus</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span> handleStatusChange<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>      <span class="token maybe-class-name">ChatAPI</span><span class="token punctuation">.</span><span class="token method function property-access">unsubscribeFromFriendStatus</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span> handleStatusChange<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>isOnline <span class="token operator">===</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token string">&apos;Loading...&apos;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword control-flow">return</span> isOnline <span class="token operator">?</span> <span class="token string">&apos;Online&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;Offline&apos;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>Now let&#x2019;s say that our chat application also has a contact list, and we want to render names of online users with a green color. We could copy and paste similar logic above into our <code>FriendListItem</code> component but it wouldn&#x2019;t be ideal:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">React</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">FriendListItem</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">[</span>isOnline<span class="token punctuation">,</span> setIsOnline<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>    <span class="token keyword">function</span> <span class="token function">handleStatusChange</span><span class="token punctuation">(</span><span class="token parameter">status</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>      <span class="token function">setIsOnline</span><span class="token punctuation">(</span>status<span class="token punctuation">.</span><span class="token property-access">isOnline</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token maybe-class-name">ChatAPI</span><span class="token punctuation">.</span><span class="token method function property-access">subscribeToFriendStatus</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span> handleStatusChange<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>      <span class="token maybe-class-name">ChatAPI</span><span class="token punctuation">.</span><span class="token method function property-access">unsubscribeFromFriendStatus</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span> handleStatusChange<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>li style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> color<span class="token operator">:</span> isOnline <span class="token operator">?</span> <span class="token string">&apos;green&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;black&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+          <span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>Instead, we&#x2019;d like to share this logic between <code>FriendStatus</code> and <code>FriendListItem</code>.</p>
+<p>Traditionally in React, we&#x2019;ve had two popular ways to share stateful logic between components: <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/render-props.html">render props</a> and <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/higher-order-components.html">higher-order components</a>. We will now look at how Hooks solve many of the same problems without forcing you to add more components to the tree.</p>
+<p>When we want to share logic between two JavaScript functions, we extract it to a third function. Both components and Hooks are functions, so this works for them too!</p>
+<p><strong>A custom Hook is a JavaScript function whose name starts with &#x201D;<code>use</code>&#x201D; and that may call other Hooks.</strong> For example, <code>useFriendStatus</code> below is our first custom Hook:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">function</span> <span class="token function">useFriendStatus</span><span class="token punctuation">(</span><span class="token parameter">friendID</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">const</span> <span class="token punctuation">[</span>isOnline<span class="token punctuation">,</span> setIsOnline<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+      <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">function</span> <span class="token function">handleStatusChange</span><span class="token punctuation">(</span><span class="token parameter">status</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">setIsOnline</span><span class="token punctuation">(</span>status<span class="token punctuation">.</span><span class="token property-access">isOnline</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token maybe-class-name">ChatAPI</span><span class="token punctuation">.</span><span class="token method function property-access">subscribeToFriendStatus</span><span class="token punctuation">(</span>friendID<span class="token punctuation">,</span> handleStatusChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token maybe-class-name">ChatAPI</span><span class="token punctuation">.</span><span class="token method function property-access">unsubscribeFromFriendStatus</span><span class="token punctuation">(</span>friendID<span class="token punctuation">,</span> handleStatusChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+      <span class="token keyword control-flow">return</span> isOnline<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>There&#x2019;s nothing new inside of it &#x2014; the logic is copied from the components above. Just like in a component, make sure to only call other Hooks unconditionally at the top level of your custom Hook.</p>
+<p>Unlike a React component, a custom Hook doesn&#x2019;t need to have a specific signature. We can decide what it takes as arguments, and what, if anything, it should return. In other words, it&#x2019;s just like a normal function. Its name should always start with <code>use</code> so that you can tell at a glance that the <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/hooks-rules.html">rules of Hooks</a> apply to it.</p>
+<p>The purpose of our <code>useFriendStatus</code> Hook is to subscribe us to a friend&#x2019;s status. This is why it takes <code>friendID</code> as an argument, and returns whether this friend is online:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">function</span> <span class="token function">useFriendStatus</span><span class="token punctuation">(</span><span class="token parameter">friendID</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">[</span>isOnline<span class="token punctuation">,</span> setIsOnline<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+      
+    
+      <span class="token keyword control-flow">return</span> isOnline<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>Now let&#x2019;s see how we can use our custom Hook.</p>
+<h2><a href="#using-a-custom-hook"></a>Using a Custom Hook</h2>
+<p>In the beginning, our stated goal was to remove the duplicated logic from the <code>FriendStatus</code> and <code>FriendListItem</code> components. Both of them want to know whether a friend is online.</p>
+<p>Now that we&#x2019;ve extracted this logic to a <code>useFriendStatus</code> hook, we can <em>just use it:</em></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">FriendStatus</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> isOnline <span class="token operator">=</span> <span class="token function">useFriendStatus</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>isOnline <span class="token operator">===</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token string">&apos;Loading...&apos;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword control-flow">return</span> isOnline <span class="token operator">?</span> <span class="token string">&apos;Online&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;Offline&apos;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">FriendListItem</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> isOnline <span class="token operator">=</span> <span class="token function">useFriendStatus</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>li style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> color<span class="token operator">:</span> isOnline <span class="token operator">?</span> <span class="token string">&apos;green&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;black&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+          <span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">friend</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p><strong>Is this code equivalent to the original examples?</strong> Yes, it works in exactly the same way. If you look closely, you&#x2019;ll notice we didn&#x2019;t make any changes to the behavior. All we did was to extract some common code between two functions into a separate function. <strong>Custom Hooks are a convention that naturally follows from the design of Hooks, rather than a React feature.</strong></p>
+<p><strong>Do I have to name my custom Hooks starting with &#x201C;<code>use</code>&#x201D;?</strong> Please do. This convention is very important. Without it, we wouldn&#x2019;t be able to automatically check for violations of <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/hooks-rules.html">rules of Hooks</a> because we couldn&#x2019;t tell if a certain function contains calls to Hooks inside of it.</p>
+<p><strong>Do two components using the same Hook share state?</strong> No. Custom Hooks are a mechanism to reuse <em>stateful logic</em> (such as setting up a subscription and remembering the current value), but every time you use a custom Hook, all state and effects inside of it are fully isolated.</p>
+<p><strong>How does a custom Hook get isolated state?</strong> Each <em>call</em> to a Hook gets isolated state. Because we call <code>useFriendStatus</code> directly, from React&#x2019;s point of view our component just calls <code>useState</code> and <code>useEffect</code>. And as we <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/hooks-state.html#tip-using-multiple-state-variables">learned</a> <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns">earlier</a>, we can call <code>useState</code> and <code>useEffect</code> many times in one component, and they will be completely independent.</p>
+<h3 class="mume-header" id="tip-pass-information-between-hookstip-pass-information-between-hooks"><a href="#tip-pass-information-between-hooks"></a>Tip: Pass Information Between Hooks</h3>
+
+<p>Since Hooks are functions, we can pass information between them.</p>
+<p>To illustrate this, we&#x2019;ll use another component from our hypothetical chat example. This is a chat message recipient picker that displays whether the currently selected friend is online:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">const</span> friendList <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">&apos;Phoebe&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">&apos;Rachel&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">&apos;Ross&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">ChatRecipientPicker</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">[</span>recipientID<span class="token punctuation">,</span> setRecipientID<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">const</span> isRecipientOnline <span class="token operator">=</span> <span class="token function">useFriendStatus</span><span class="token punctuation">(</span>recipientID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span><span class="token maybe-class-name">Circle</span> color<span class="token operator">=</span><span class="token punctuation">{</span>isRecipientOnline <span class="token operator">?</span> <span class="token string">&apos;green&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;red&apos;</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>      <span class="token operator">&lt;</span>select
+            value<span class="token operator">=</span><span class="token punctuation">{</span>recipientID<span class="token punctuation">}</span>
+            onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">e</span> <span class="token arrow operator">=&gt;</span> <span class="token function">setRecipientID</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Number</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+          <span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span>friendList<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token parameter">friend</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span>
+              <span class="token operator">&lt;</span>option key<span class="token operator">=</span><span class="token punctuation">{</span>friend<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">}</span> value<span class="token operator">=</span><span class="token punctuation">{</span>friend<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+                <span class="token punctuation">{</span>friend<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span>
+              <span class="token operator">&lt;</span><span class="token operator">/</span>option<span class="token operator">&gt;</span>
+            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>select<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>We keep the currently chosen friend ID in the <code>recipientID</code> state variable, and update it if the user chooses a different friend in the <code>&lt;select&gt;</code> picker.</p>
+<p>Because the <code>useState</code> Hook call gives us the latest value of the <code>recipientID</code> state variable, we can pass it to our custom <code>useFriendStatus</code> Hook as an argument:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">      <span class="token keyword">const</span> <span class="token punctuation">[</span>recipientID<span class="token punctuation">,</span> setRecipientID<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> isRecipientOnline <span class="token operator">=</span> <span class="token function">useFriendStatus</span><span class="token punctuation">(</span>recipientID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>This lets us know whether the <em>currently selected</em> friend is online. If we pick a different friend and update the <code>recipientID</code> state variable, our <code>useFriendStatus</code> Hook will unsubscribe from the previously selected friend, and subscribe to the status of the newly selected one.</p>
+<h2><a href="#useyourimagination"></a><code>useYourImagination()</code></h2>
+<p>Custom Hooks offer the flexibility of sharing logic that wasn&#x2019;t possible in React components before. You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven&#x2019;t considered. What&#x2019;s more, you can build Hooks that are just as easy to use as React&#x2019;s built-in features.</p>
+<p>Try to resist adding abstraction too early. Now that function components can do more, it&#x2019;s likely that the average function component in your codebase will become longer. This is normal &#x2014; don&#x2019;t feel like you <em>have to</em> immediately split it into Hooks. But we also encourage you to start spotting cases where a custom Hook could hide complex logic behind a simple interface, or help untangle a messy component.</p>
+<p>For example, maybe you have a complex component that contains a lot of local state that is managed in an ad-hoc way. <code>useState</code> doesn&#x2019;t make centralizing the update logic any easier so you might prefer to write it as a <a href="https://redux.js.org/">Redux</a> reducer:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">function</span> <span class="token function">todosReducer</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token string">&apos;add&apos;</span><span class="token operator">:</span>
+          <span class="token keyword control-flow">return</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>state<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            text<span class="token operator">:</span> action<span class="token punctuation">.</span><span class="token property-access">text</span><span class="token punctuation">,</span>
+            completed<span class="token operator">:</span> <span class="token boolean">false</span>
+          <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword module">default</span><span class="token operator">:</span>
+          <span class="token keyword control-flow">return</span> state<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</pre><p>Reducers are very convenient to test in isolation, and scale to express complex update logic. You can further break them apart into smaller reducers if necessary. However, you might also enjoy the benefits of using React local state, or might not want to install another library.</p>
+<p>So what if we could write a <code>useReducer</code> Hook that lets us manage the <em>local</em> state of our component with a reducer? A simplified version of it might look like this:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">function</span> <span class="token function">useReducer</span><span class="token punctuation">(</span><span class="token parameter">reducer<span class="token punctuation">,</span> initialState</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">[</span>state<span class="token punctuation">,</span> setState<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>initialState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+      <span class="token keyword">function</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> nextState <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setState</span><span class="token punctuation">(</span>nextState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    
+      <span class="token keyword control-flow">return</span> <span class="token punctuation">[</span>state<span class="token punctuation">,</span> dispatch<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</pre><p>Now we could use it in our component, and let the reducer drive its state management:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Todos</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">[</span>todos<span class="token punctuation">,</span> dispatch<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useReducer</span><span class="token punctuation">(</span>todosReducer<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">function</span> <span class="token function">handleAddClick</span><span class="token punctuation">(</span><span class="token parameter">text</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">&apos;add&apos;</span><span class="token punctuation">,</span> text <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    
+      
+    <span class="token punctuation">}</span>
+
+</pre><p>The need to manage local state with a reducer in a complex component is common enough that we&#x2019;ve built the <code>useReducer</code> Hook right into React. You&#x2019;ll find it together with other built-in Hooks in the <a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/docs/hooks-reference.html">Hooks API reference</a>.</p>
+<h1 class="mume-header" id="compose-react-hooks-like-composing-react-components">Compose React hooks like composing React components</h1>
+
+<blockquote>
+<p>Why custom hooks are so powerful</p>
+</blockquote>
+<h2>Why custom hooks are so powerful</h2>
+<p><img src="https://miro.medium.com/max/2476/1*zC_n4m8fnaQe255fTX3GyA.png" alt></p>
+<p>This short article shows code examples how <a href="https://reactjs.org/docs/hooks-intro.html">React Hooks</a> are analogous to components in terms of composition. Let&#x2019;s jump into the code:</p>
+<p>Let&#x2019;s use a minimalistic example. Here&#x2019;s a component:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> <span class="token operator">**</span><span class="token maybe-class-name">Person</span><span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> person <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span>  
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;personFirstName&quot;</span><span class="token operator">&gt;</span>  
+      <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token maybe-class-name">First</span> <span class="token maybe-class-name">Name</span><span class="token operator">:</span><span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>  
+      <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>person<span class="token punctuation">.</span><span class="token property-access">firstName</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;personLastName&quot;</span><span class="token operator">&gt;</span>  
+      <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token maybe-class-name">Last</span> <span class="token maybe-class-name">Name</span><span class="token operator">:</span><span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>  
+      <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>person<span class="token punctuation">.</span><span class="token property-access">lastName</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</pre><p>Well, this component is a little bit big, so let&#x2019;s split it into functions and compose them:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> <span class="token operator">**</span><span class="token maybe-class-name">FirstName</span><span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span>  
+  <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;personFirstName&quot;</span><span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token maybe-class-name">First</span> <span class="token maybe-class-name">Name</span><span class="token operator">:</span><span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>  
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token operator">**</span><span class="token maybe-class-name">LastName</span><span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span>  
+  <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;personLastName&quot;</span><span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token maybe-class-name">Last</span> <span class="token maybe-class-name">Name</span><span class="token operator">:</span><span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>  
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token operator">**</span><span class="token maybe-class-name">Person</span><span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> person <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span>  
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span><span class="token operator">**</span><span class="token maybe-class-name">FirstName</span><span class="token operator">**</span> name<span class="token operator">=</span><span class="token punctuation">{</span>person<span class="token punctuation">.</span><span class="token operator">**</span>firstName<span class="token operator">**</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>  
+    <span class="token operator">&lt;</span><span class="token operator">**</span><span class="token maybe-class-name">LastName</span><span class="token operator">**</span> name<span class="token operator">=</span><span class="token punctuation">{</span>person<span class="token punctuation">.</span><span class="token operator">**</span>lastName<span class="token operator">**</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>  
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</pre><p>Now, it looks organized. Why did we do this? Because, now we can use the <code>FirstName</code> component in other components. In short, reusability.</p>
+<p>What about React Hooks? Let&#x2019;s suppose we have <code>usePerson</code> hook, which returns the <code>Person</code> object. It&#x2019;s not important how it&#x2019;s implemented, but for example, we can assume it&#x2019;s with <code>useContext</code> as a simple concrete case.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> <span class="token operator">**</span><span class="token maybe-class-name">Person</span><span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>  
+  <span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token operator">**</span>usePerson<span class="token operator">**</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token keyword">const</span> firstName <span class="token operator">=</span> person<span class="token punctuation">.</span><span class="token property-access">firstName</span><span class="token punctuation">;</span>  
+  <span class="token keyword">const</span> lastName <span class="token operator">=</span> person<span class="token punctuation">.</span><span class="token property-access">lastName</span><span class="token punctuation">;</span>  
+  <span class="token keyword control-flow">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>firstName<span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token string">&apos; &apos;</span><span class="token punctuation">}</span><span class="token punctuation">{</span>lastName<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</pre><p>This is over-simplified, but let us split it into functions and compose them.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> <span class="token operator">**</span>useFirstName<span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>  
+  <span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token operator">**</span>usePerson<span class="token operator">**</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token keyword control-flow">return</span> person<span class="token punctuation">.</span><span class="token property-access">firstName</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token operator">**</span>useLastName<span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>  
+  <span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token operator">**</span>usePerson<span class="token operator">**</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token keyword control-flow">return</span> person<span class="token punctuation">.</span><span class="token property-access">lastName</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token operator">**</span><span class="token maybe-class-name">Person</span><span class="token operator">**</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>  
+  <span class="token keyword">const</span> firstName <span class="token operator">=</span> <span class="token operator">**</span>useFirstName<span class="token operator">**</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token keyword">const</span> lastName <span class="token operator">=</span> <span class="token operator">**</span>useLastName<span class="token operator">**</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token keyword control-flow">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>firstName<span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token string">&apos; &apos;</span><span class="token punctuation">}</span><span class="token punctuation">{</span>lastName<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</pre><p>I hope you get the idea. Now, you can reuse <code>useFirstName</code> hook in other components.</p>
+<p>Composition matters. A component can be built with other components, so can a hook be built with other Hooks.</p>
+<h1 class="mume-header" id="learn-stateful-and-stateless-components-in-reactjs-cronj">Learn Stateful and Stateless components in ReactJS - CronJ</h1>
+
+<blockquote>
+<p>Have you ever encountered the question of what stateful components are? What&#xA0; stateless components are? When should I make a component stateful or stateless?</p>
+</blockquote>
+<p>Have you ever encountered the question of what stateful components are? What&#xA0; stateless components are? When should I make a component stateful or stateless?</p>
+<p>If so, don&#x2019;t worry, you&#x2019;ve come to the right place. So, let&#x2019;s first try to understand what state and components are before we talk about stateful vs. stateless?</p>
+<h2><strong>State</strong></h2>
+<p>A State is an object inside the constructor method of a class which is a must in the stateful components. It is used for internal communication inside a component. It allows you to create components that are interactive and reusable. It is mutable and can only be changed by using setState() method.</p>
+<p><strong>Simple Example of Stateful Component which has two properties.</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">React</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Component</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">class</span> <span class="token class-name">StateExample</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    
+       <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    
+           <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+           <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token operator">=</span><span class="token punctuation">{</span>
+    
+               first_name<span class="token operator">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span>
+    
+               last_name<span class="token operator">:</span> <span class="token string">&apos;&apos;</span>
+    
+           <span class="token punctuation">}</span>
+    
+       <span class="token punctuation">}</span>
+    
+       <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    
+          <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    
+    <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token maybe-class-name">State</span> <span class="token maybe-class-name">Component</span> <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    
+       <span class="token punctuation">}</span>
+    
+    <span class="token punctuation">}</span>
+    <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token maybe-class-name">StateExample</span><span class="token punctuation">;</span>
+</pre><h2><strong>Components</strong></h2>
+<p>A React application is divided into smaller molecules, and each <a href="https://www.cronj.com/blog/react-js-tutorial/topics/react-component/">molecule represents a component</a>. In other words, a component is the basic building of a React application. It can be either a class component or a functional component.</p>
+<p>React components are independent and reusable and contains JSX(JavaScript XML Syntax) which a combination of JS + HTML. It may take props as the parameter and returns a Document Object Model(DOM) element that describes how the User Interface(UI) should appear.</p>
+<p><strong>Class Component(Stateful)</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">React</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Component</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">class</span> <span class="token class-name">StateExample</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    
+       <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    
+           <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+           <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token operator">=</span><span class="token punctuation">{</span>
+    
+               first_name<span class="token operator">:</span> <span class="token string">&apos;Shruti&apos;</span><span class="token punctuation">,</span>
+    
+               last_name<span class="token operator">:</span> <span class="token string">&apos;Priya&apos;</span>
+    
+           <span class="token punctuation">}</span>
+    
+       <span class="token punctuation">}</span>
+    
+       <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    
+           <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+    
+               <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    
+        <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span> <span class="token maybe-class-name">Class</span> <span class="token maybe-class-name">Component</span> <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+                   <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">first_name</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+                   <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">last_name</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+               <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    
+           <span class="token punctuation">)</span>
+    
+       <span class="token punctuation">}</span>
+    
+    <span class="token punctuation">}</span>
+    <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token maybe-class-name">StateExample</span><span class="token punctuation">;</span>
+</pre><p><strong>Functional Component(Stateless)</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">React</span></span> <span class="token keyword module">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Example</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+        <span class="token keyword control-flow">return</span><span class="token punctuation">(</span>
+    
+            <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    
+            <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">first_name</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+            <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">last_name</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    
+        <span class="token punctuation">)</span>
+    
+    <span class="token punctuation">}</span>
+    <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token maybe-class-name">Example</span><span class="token punctuation">;</span>
+</pre><h3><strong>Stateful Components</strong></h3>
+<p>Stateful components are those <a href="https://www.cronj.com/blog/difference-container-component-react-js/">components</a> which have a state. The state gets initialized in the constructor. It stores information about the component&#x2019;s state change in memory. It may get changed depending upon the action of the component or child components.</p>
+<h3><strong>Stateless Components</strong></h3>
+<p>Stateless components are those components which don&#x2019;t have any state at all, which means you can&#x2019;t use <em>this.setState</em> inside these components. It is like a normal function with no render method. It has no lifecycle, so it is not possible to use lifecycle methods such as <em>componentDidMount</em> and other hooks. When react renders our stateless component, all that it needs to do is just call the stateless component and pass down the props.</p>
+<h3><strong>Stateful vs. Stateless</strong></h3>
+<p>A stateless component can render props, whereas a stateful component can render both props and state. A significant thing to note here is to comprehend the syntax distinction. In stateless components, the props are displayed like <em>{<a href="http://props.name">props.name</a>}</em> but in stateful components, the props and state are rendered like <em>{<a href="http://this.props.name">this.props.name</a>}</em> and <em>{<a href="http://this.state.name">this.state.name</a>}</em> respectively. A stateless component renders output which depends upon props value, but a stateful component render depends upon the value of the state. A functional component is always a stateless component, but the class component can be stateless or stateful.</p>
+<p>There are many distinct names to stateful and stateless components.</p>
+<p>&#x2013; Container components vs Presentational components</p>
+<p>&#x2013; Smart components vs Dumb components</p>
+<p>I&#x2019;m sure you guys must have guessed by just looking at the names which are stateful and stateless. Haven&#x2019;t you?</p>
+<p><strong>State and Props used in stateful component</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">React</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Component</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">class</span> <span class="token class-name">StateAndProps</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    
+       <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    
+           <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+           <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token operator">=</span><span class="token punctuation">{</span>
+    
+           value<span class="token operator">:</span> <span class="token string">&apos;50&apos;</span>
+    
+           <span class="token punctuation">}</span>
+    
+       <span class="token punctuation">}</span>
+    
+       <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    
+          <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+    
+               <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    
+                   <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+                   <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    
+                   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    
+           <span class="token punctuation">)</span>
+    
+       <span class="token punctuation">}</span>
+    
+    <span class="token punctuation">}</span>
+    <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token maybe-class-name">StateAndProps</span><span class="token punctuation">;</span>
+</pre><h2><strong>When should I make a component stateful or stateless?</strong></h2>
+<p>It&#x2019;s pretty straightforward that you should make your component stateful whenever you want to have a dynamic output (means that the output will change whenever the state changes), and you want to share the properties of parent component with the children components. On the other side, if there is no state necessity, you should make the component stateless.</p>
+<h3><strong>Conclusion</strong></h3>
+<p>Stateless components are more elegant and usually are the right choice for building the presentational components because they are just functions, you won&#x2019;t find it challenging to write and understand them, and moreover, they are very straightforward to test.</p>
+<p>There is no need for <em>&#x2018;this&#x2019;</em> keyword that has always been a significant cause of confusion. Stateful components are difficult to test. Moreover, it tends to combine logic and presentation together in one single class, which is again a wrong choice for the separation issues.</p>
+<h1>Software Design - Separation Of Concerns - with examples</h1>
+<blockquote>
+<p>Spring Boot Tutorials. Hands-on examples. - Basics of Spring Boot. Covers Spring Boot Starter Projects, Spring Initializr, Creating REST Services, Unit and Integration tests, Profiles, Spring Boot Data JPA, Actuator and Security</p>
+</blockquote>
+<p><a href="https://links.in28minutes.com/in28minutes-Microservices"><img src="https://www.springboottutorial.com/images/Course-Master-Microservices-with-Spring-Boot-and-Spring-Cloud.png" alt="Image" title="Master Microservices with Spring Boot and Spring Cloud"></a> <a href="https://www.udemy.com/course/google-cloud-platform-for-aws-professionals/"><img src="https://www.springboottutorial.com/images/Course-gcp-aws.png" alt="Image" title="Google Cloud Certification"></a></p>
+<p>Software architects and programmers love having Separation of Concerns. What is it? Why is it important? Let&#x2019;s get started.</p>
+<h3>You will learn</h3>
+<ul>
+<li>What is Separation Of Concerns?</li>
+<li>What are common examples of implementing Separation Of Concerns in software?</li>
+</ul>
+<h2>Free Courses - Learn in 10 Steps</h2>
+<ul>
+<li><a href="https://links.in28minutes.com/SBT-Page-Top-LearningChallenge-SpringBoot">FREE 5 DAY CHALLENGE - Learn Spring and Spring Boot</a></li>
+<li><a href="https://links.in28minutes.com/in28minutes-10steps-springboot">Learn Spring Boot in 10 Steps</a></li>
+<li><a href="https://links.in28minutes.com/in28minutes-10steps-docker">Learn Docker in 10 Steps</a></li>
+<li><a href="https://links.in28minutes.com/in28minutes-10steps-k8s">Learn Kubernetes in 10 Steps</a></li>
+<li><a href="https://links.in28minutes.com/in28minutes-10steps-aws-beanstalk">Learn AWS in 10 Steps</a></li>
+</ul>
+<h3>Software Design Principles</h3>
+<p>This is the second article in a series of articles on important Software Design Principles:</p>
+<ul>
+<li><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/four-principles-of-simple-design">1 - Introduction to Four Principles Of Simple Design</a></li>
+<li><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/software-design-seperation-of-concerns-with-examples">2 - Software Design - Separation Of Concerns - with examples</a></li>
+<li><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/software-design-solid-principles">3 - Object Oriented Software Design - Solid Principles - with examples</a></li>
+<li><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/software-design-single-responsibility-principle">4 - Software Design - Single Responsibility Principle - with examples</a></li>
+<li><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/software-design-open-closed-principle">5 - Software Design - Open Closed Principle - with examples</a></li>
+<li><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/software-design-dependency-inversion-principle">6 - Software Design - What is Dependency Inversion Principle?</a></li>
+</ul>
+<h3>What Is Separation Of Concerns?</h3>
+<p>Separation Of Concerns is an important design and architectural principle.</p>
+<blockquote>
+<p>Every element of a software application - a component, a layer,a package,a class or a method should have one concern and implement it well.</p>
+</blockquote>
+<p>All methods with similar concerns will grouped into a class.</p>
+<p>All classes with similar concerns will be grouped into packages.</p>
+<p>So on and so forth.</p>
+<h3>Separation Of Concerns In Action</h3>
+<h4>Layered Architecture</h4>
+<p>Organizing an application into separate layers is one way of separating out concerns.</p>
+<p>For example, the following is the typical architecture of a web application:</p>
+<p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/Capture-039-02.png" alt="image info"></p>
+<p>Here are some of the important responsibilities of each of these layers</p>
+<ul>
+<li>The Web layer only bothers about how to present data to its users</li>
+<li>The Business layer focuses on implementing the core application logic, correctly and efficiently</li>
+<li>The Data layer takes responsibility of talking to the data store.</li>
+</ul>
+<p>You can see that each layer has a concern and implements it well.</p>
+<h4>Organizing Microservices</h4>
+<p>Another good example of Separation Of Concerns is how you split your microservices. Have a look at the diagram below:</p>
+<p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/Capture-039-03.png" alt="image info"></p>
+<p>All the microservices shown are part of a movie application. But each one of them has its own independent concern.</p>
+<h4>Identifying Common Components</h4>
+<p>Separation of concerns is also an important factor in building common application and infrastructure components.</p>
+<p>Since a large part of the functionality of microservices is common to all of them, it makes sense to extract out the common components. Here is an example:</p>
+<p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/Capture-039-04.png" alt="image info"></p>
+<p>All microservices need features such as security and logging. By identifying common components in your service such as Security and Logging, and providing well defined interfaces with each microservice, the implementation of the microservices gets simpler.</p>
+<p>The same is the case with common infrastructure components. Any microservice can interact with them and use their functionality.</p>
+<p>A few examples of Separation of Concern in infrastructure components</p>
+<ul>
+<li>Naming Server - Microservice3 can locate the identity of Microservice2.</li>
+<li>API Gateway - Centralized access to all microservices. You can implement cross cutting microservice concerns here.</li>
+<li>Distributed Tracing and Centralized Logging - You can trace microservices and find out what&#x2019;s happening behind the scenes.</li>
+</ul>
+<p>Do check out our video on this:</p>
+<p><a href="https://www.youtube.com/watch?v=GRTQ896UWaI"><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/Capture-039-01.png" alt="image info"></a></p>
+<h3>Summary</h3>
+<p>In this article, we looked at separation of concerns, and several examples of it in action - such as in a layered architecture, in the way microservices are split and organized, and in the way common components and infrastructure are identified and extracted out in a microservices architecture.</p>
+<hr>
+<h1>Computed Property Names in JavaScript - ui.dev</h1>
+<blockquote>
+<p>In this post you&apos;ll learn how to have an expression be computed as a property name on an object in JavaScript using ES6&apos;s (ES2015) Computed Property Names feature.</p>
+</blockquote>
+<p>ES6&#x2019;s &#x201C;Computed Property Names&#x201D; feature allows you to have an expression (a piece of code that results in a single value like a variable or function invocation) be computed as a property name on an object.</p>
+<p>For example, say you wanted to create a function that took in two arguments (<code>key</code>, <code>value</code>) and returned an object using those arguments. Before Computed Property Names, because the property name on the object was a variable (<code>key</code>), you&#x2019;d have to create the object first, then use bracket notation to assign that property to the value.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">function</span> <span class="token function">objectify</span> <span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value
+      <span class="token keyword control-flow">return</span> obj
+    <span class="token punctuation">}</span>
+    
+    <span class="token function">objectify</span><span class="token punctuation">(</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Tyler&apos;</span><span class="token punctuation">)</span> 
+</pre><p>However, now with Computed Property Names, you can use object literal notation to assign the expression as a property on the object without having to create it first. So the code above can now be rewritten like this.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">    <span class="token keyword">function</span> <span class="token function">objectify</span> <span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">:</span> value
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token function">objectify</span><span class="token punctuation">(</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Tyler&apos;</span><span class="token punctuation">)</span> 
+</pre><p>Where <code>key</code> can be any expression as long as it&#x2019;s wrapped in brackets, <code>[]</code>.</p>
+<hr>
+<h3>One more thing</h3>
+<p>Hear me out - most JavaScript newsletters suck. That&apos;s why we made <a href="https://bytes.dev/?s=ui.dev">Bytes</a>.</p>
+<p>The goal was to create a JavaScript newsletter that was both insightful and entertaining. Over 80,000 subscribers later and well, <a href="https://twitter.com/search?q=%22ui.dev%22%20%22bytes%22&amp;src=typed_query">reviews don&apos;t lie</a></p>
+<p>I pinky promise you&apos;ll love it, but <a href="https://bytes.dev/sample?s=ui.dev">here&apos;s a recent issue</a> so you can decide for yourself.</p>
+<p>Delivered to over 80,000 developers every Monday</p>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#toc">TOC:</a></li>
+<li><a href="#localstorage-in-javascript-a-complete-guide-logrocket-blog">localStorage in JavaScript: A complete guide - LogRocket Blog</a>
+<ul>
+<li><a href="#what-is-the-difference-between-sessionstorage-and-localstorage">What is the difference between <code>sessionStorage</code> and <code>localStorage</code>?</a></li>
+<li><a href="#where-is-localstorage-stored">Where is <code>localStorage</code> stored?</a></li>
+<li><a href="#setitem-how-to-store-values-in-localstorage"><code>setItem()</code>: How to store values in <code>localStorage</code></a></li>
+<li><a href="#getitem-how-to-get-items-from-localstorage"><code>getItem()</code>: How to get items from <code>localStorage</code></a></li>
+<li><a href="#removeitem-how-to-delete-localstorage-sessions"><code>removeItem()</code>: How to delete <code>localStorage</code> sessions</a></li>
+<li><a href="#clear-how-to-delete-all-items-in-localstorage"><code>clear()</code>: How to delete all items in <code>localStorage</code></a></li>
+<li><a href="#key-how-to-get-the-name-of-a-key-in-localstorage"><code>key()</code>: How to get the name of a key in <code>localStorage</code></a></li>
+</ul>
+</li>
+<li><a href="#json-javascript-mdn">JSON - JavaScript | MDN</a>
+<ul>
+<li><a href="#javascript-and-json-differencesjavascript_and_json_differences-permalink-to-javascript-and-json-differences">JavaScript and JSON differences</a></li>
+<li><a href="#full-json-syntaxfull_json_syntax-permalink-to-full-json-syntax">Full JSON syntax</a></li>
+<li><a href="#example-jsonexample_json-permalink-to-example-json">Example JSON</a></li>
+</ul>
+</li>
+<li><a href="#building-your-own-hooks-react">Building Your Own Hooks &#x2013; React</a>
+<ul>
+<li><a href="#tip-pass-information-between-hookstip-pass-information-between-hooks">Tip: Pass Information Between Hooks</a></li>
+</ul>
+</li>
+<li><a href="#compose-react-hooks-like-composing-react-components">Compose React hooks like composing React components</a></li>
+<li><a href="#learn-stateful-and-stateless-components-in-reactjs-cronj">Learn Stateful and Stateless components in ReactJS - CronJ</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+   <iframe src="./LectureSlides.html" style="align-self:center;text-align:center;display:block;margin:auto;width:50%;" height="800px" width="800px"></iframe>
+    
+    
+    
+
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      </body>
+      </html>
