@@ -40,3 +40,77 @@ LambdaSchool/web-guided-project-testing-web-apps
 Language
 
 JavaScript
+
+
+
+
+Advanced React
+Unit 3: Advanced Web Apps
+
+Advanced React
+- Class Components
+- The React Lifecycle
+- Composing Non-Visual Behaviors
+- Testing Web Applications
+Advanced React
+Composing Non-Visual Behaviors
+- Understanding Separation of Concerns
+- Understanding Stateful Logic
+- Use custom hooks to add behaviors
+New focus...
+Component Architecture
+What is Stateful Logic?
+What is Stateful Logic?
+Any code that is used to manipulate data.
+Why is Stateful Logic?
+Why is Stateful Logic?
+Because Separation of Concerns
+Separation of Concerns
+Each component/module/function should be as small as possible and do ONE thing.
+Separation of Concerns
+Each component/module/function should be as small as possible and do ONE thing.
+Keeps your code DRY and reusable.
+Separation of Concerns
+Each component/module/function should be as small as possible and do ONE thing.
+Keeps your code DRY and reusable.
+Make each piece easy to test.
+How can we break down our
+components into smaller,
+focused, reusable parts?
+How can we break down our components
+into smaller, focused, reusable parts?
+● Identify the code that can be modularized.
+● Move that code into its own file.
+● Identify the dependances and connect them to module.
+● Replace hard code with module.
+● Test that app works the same as before.
+Modularizing our components:
+- Subcomponents (Presentation Logic )
+- Services (Data Logic)
+- Custom Hooks (Stateful Logic)
+Stateful logic just means code
+that manipulates state...
+Stateful logic just means code
+that manipulates state...
+...but not the state itself!
+Takeaways:
+- Separation of Concerns is good!
+- Component Code can be separated into
+- Presentation Logic
+- Data Logic
+- Stateful Logic
+- Break them up to help keep things dry, reusable, efficient and
+testable.
+Break
+
+
+![](testing1.png)
+
+
+![](integration-tests.png)
+
+
+![](whatwetest.png)
+
+> i.e. pushing a button... or sliding a slider...
+
