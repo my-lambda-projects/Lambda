@@ -2,15 +2,13 @@
 
 ## Objectives
 
-* Learn how to represent a graph as an adjacency list
-* Learn how to represent a graph as an adjacency matrix
-* Learn the tradeoffs of the respective representations
+- Learn how to represent a graph as an adjacency list
+- Learn how to represent a graph as an adjacency matrix
+- Learn the tradeoffs of the respective representations
 
 ## Graph Representations
 
-
 ![Different ways to represent a graph](img/representations.PNG)
-
 
 The two most common ways to represent graphs in code are adjacency lists and adjacency matrices, each with its own strengths and weaknesses. When deciding on a graph implementation, it's important to understand the type of data and operations you will be using.
 
@@ -58,7 +56,6 @@ We represent this matrix as a two-dimensional array, or a list of lists. With th
 
 In practice, both of these would probably contain more information by including Vertex or Edge classes.
 
-
 ## Tradeoffs
 
 Both adjacency matrices and adjacency lists have their own strengths and weaknesses. Let's explore their tradeoffs.
@@ -73,22 +70,21 @@ e: Average number of edges per vertex
 
 ### Space Complexity
 
-* **Adjacency Matrix**: O(V ^ 2)
+- **Adjacency Matrix**: O(V ^ 2)
 
-* **Adjacency List**: O(V + E)
+- **Adjacency List**: O(V + E)
 
 Consider a sparse graph with 100 vertices and only one edge. An adjacency list would have to store all 100 vertices but only needs to keep track of that single edge. The adjacency matrix would need to store 100x100=10,000 possible connections, even though all but one would be 0.
 
 Now consider a dense graph where each vertex points to each other vertex. In this case, the total number of edges will approach V^2 so the space complexities of each are comparable. However, dictionaries and sets are less space efficient than lists so for dense graphs, the adjacency matrix is more efficient.
 
-Takeaway: Adjacency lists are more space efficient for __sparse__ graphs while adjacency matrices become efficient for __dense__ graphs.
-
+Takeaway: Adjacency lists are more space efficient for **sparse** graphs while adjacency matrices become efficient for **dense** graphs.
 
 ### Add Vertex
 
-* **Adjacency Matrix**: O(V)
+- **Adjacency Matrix**: O(V)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Adding a vertex is extremely simple in an adjacency list:
 
@@ -110,12 +106,11 @@ Remember that with Python lists, appending to the end of a list is usually O(1) 
 
 Takeaway: Adding vertices is very efficient in adjacency lists but very inefficient for adjacency matrices.
 
-
 ### Remove Vertex
 
-* **Adjacency Matrix**: O(V ^ 2)
+- **Adjacency Matrix**: O(V ^ 2)
 
-* **Adjacency List**: O(V)
+- **Adjacency List**: O(V)
 
 Removing vertices is pretty inefficient in both representations. In an adjacency matrix, we need to remove the removed vertex's row, then remove that column from each other row. Removing an element from a list requires moving everything after that element over by one slot which takes an average of V/2 operations. Since we need to do that for every single row in our matrix, that results in a V^2 time complexity. On top of that, we need to reduce the index of each vertex after our removed index by 1 as well which doesn't add to our quadratic time complexity, but does add extra operations.
 
@@ -123,12 +118,11 @@ For an adjacency list, we need to visit each vertex and remove all edges pointin
 
 Takeaway: Removing vertices is inefficient in both adjacency matrices and lists but more inefficient in matrices.
 
-
 ### Add Edge
 
-* **Adjacency Matrix**: O(1)
+- **Adjacency Matrix**: O(1)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Adding an edge in an adjacency matrix is quite simple:
 
@@ -146,12 +140,11 @@ Both are constant-time operations.
 
 Takeaway: Adding edges to both adjacency lists and matrices is very efficient.
 
-
 ### Remove Edge
 
-* **Adjacency Matrix**: O(1)
+- **Adjacency Matrix**: O(1)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Removing an edge from an adjacency matrix is quite simple:
 
@@ -169,12 +162,11 @@ Both are constant-time operations.
 
 Takeaway: Removing edges from both adjacency lists and matrices is very efficient.
 
-
 ### Find Edge
 
-* **Adjacency Matrix**: O(1)
+- **Adjacency Matrix**: O(1)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Finding an edge in an adjacency matrix is quite simple:
 
@@ -192,12 +184,11 @@ Both are constant-time operations.
 
 Takeaway: Finding edges from both adjacency lists and matrices is very efficient.
 
-
 ### Get All Edges from Vertex
 
-* **Adjacency Matrix**: O(V)
+- **Adjacency Matrix**: O(V)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Say you want to know all the edges originating from a particular vertex. With an adjacency list, this is as simple as returning the value from the vertex dictionary:
 
@@ -216,13 +207,3 @@ return v_edges
 ```
 
 Takeaway: Fetching all edges is more efficient in an adjacency list than an adjacency matrix.
-
-
-
-
-
-
-
-
-
-

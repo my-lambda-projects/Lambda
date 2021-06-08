@@ -2,9 +2,8 @@
 
 ## Objectives
 
-* Learn the difference between randomness and pseudorandomness
-* Learn how how to shuffle an array in O(n) time and space complexity
-
+- Learn the difference between randomness and pseudorandomness
+- Learn how how to shuffle an array in O(n) time and space complexity
 
 ## What is randomness?
 
@@ -14,7 +13,7 @@ What is Randomness? This seems like a simple question but randomness is actually
 Randomness is the lack of pattern or predictability in events. A random sequence of events, symbols or steps has no order and does not follow an intelligible pattern or combination.
 ```
 
-Coin flips are random: If you flip a coin 9 times and get 9 __heads__ in a row, the probability of hitting __heads__ a 10th time is still exactly 50%.
+Coin flips are random: If you flip a coin 9 times and get 9 **heads** in a row, the probability of hitting **heads** a 10th time is still exactly 50%.
 
 Rock-Paper-Scissors is NOT random when played with humans. It turns out, people are quite poor at randomizing which makes it possible to gain an edge over opponents using [psychological analysis](https://priceonomics.com/the-world-of-competitive-rock-paper-scissors/).
 
@@ -106,7 +105,7 @@ This will generate a list of n random numbers then count how many of each there 
 
 Statistically, you would expect each number to show up exactly 10% of the time. As you can see, the larger the n, the closer the results get to that expected percentage. This is how casinos work: they may lose a large amount of money on a single roll of the roulette wheel but over thousands of spins, the house always comes out ahead in the long run.
 
-Computers are quite good at producing statistical randomness like this. But is it __actually__ random? Turns out, the answer is no.
+Computers are quite good at producing statistical randomness like this. But is it **actually** random? Turns out, the answer is no.
 
 ## What is pseudorandomness?
 
@@ -114,7 +113,7 @@ Computers are machines that take some input, run a set of operations on that inp
 
 You can think of computers like powerful calculators: inputting `5+5` will always return 10 and `123 * 456` will always return 56088 but there's no way to generate a truly random value.
 
-While computers are physically incapable of generating random numbers, they are quite adept at generating __pseudorandom__ numbers. This involves taking an arbitrary input value called a __seed__ and scrambling it with a deterministic algorithm. Let's take a look at this in action in Python.
+While computers are physically incapable of generating random numbers, they are quite adept at generating **pseudorandom** numbers. This involves taking an arbitrary input value called a **seed** and scrambling it with a deterministic algorithm. Let's take a look at this in action in Python.
 
 ```python
 >>> import random
@@ -163,7 +162,6 @@ Nothing out of the ordinary. Now, let's reset the seed and try again:
 ```
 
 As you can see, we get the exact same values! This is useful if you want to get a predictable chain of "random" numbers, like if you wanted to recreate a particular [Minecraft map](https://www.pcgamesn.com/minecraft/30-best-minecraft-seeds). With pseudorandom number generators, an entire world can be contained in one simple integer.
-
 
 # Shuffling an Array
 
