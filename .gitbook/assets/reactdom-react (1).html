@@ -1,77 +1,288 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>reactdom-react (1)</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p>If you load React from a <code>&lt;script&gt;</code> tag, these top-level APIs are available on the <code>ReactDOM</code> global. If you use ES6 with npm, you can write <code>import ReactDOM from 'react-dom'</code>. If you use ES5 with npm, you can write <code>var ReactDOM = require('react-dom')</code>.</p>
-<h2 id="overview"><a href="https://reactjs.org/docs/react-dom.html#overview"></a>Overview</h2>
-<p>The <code>react-dom</code> package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.</p>
-<ul>
-<li><a href="https://reactjs.org/docs/react-dom.html#render"><code>render()</code></a></li>
-<li><a href="https://reactjs.org/docs/react-dom.html#hydrate"><code>hydrate()</code></a></li>
-<li><a href="https://reactjs.org/docs/react-dom.html#unmountcomponentatnode"><code>unmountComponentAtNode()</code></a></li>
-<li><a href="https://reactjs.org/docs/react-dom.html#finddomnode"><code>findDOMNode()</code></a></li>
-<li><a href="https://reactjs.org/docs/react-dom.html#createportal"><code>createPortal()</code></a></li>
-</ul>
-<h3 id="browser-support"><a href="https://reactjs.org/docs/react-dom.html#browser-support"></a>Browser Support</h3>
-<p>React supports all popular browsers, including Internet Explorer 9 and above, although <a href="https://reactjs.org/docs/javascript-environment-requirements.html">some polyfills are required</a> for older browsers such as IE 9 and IE 10.</p>
-<blockquote>
-<p>Note</p>
-<p>We don’t support older browsers that don’t support ES5 methods, but you may find that your apps do work in older browsers if polyfills such as <a href="https://github.com/es-shims/es5-shim">es5-shim and es5-sham</a> are included in the page. You’re on your own if you choose to take this path.</p>
-</blockquote>
-<hr />
-<h2 id="reference"><a href="https://reactjs.org/docs/react-dom.html#reference"></a>Reference</h2>
-<h3 id="render"><a href="https://reactjs.org/docs/react-dom.html#render"></a><code>render()</code></h3>
-<pre><code>ReactDOM.render(element, container[, callback])</code></pre>
-<p>Render a React element into the DOM in the supplied <code>container</code> and return a <a href="https://reactjs.org/docs/more-about-refs.html">reference</a> to the component (or returns <code>null</code> for <a href="https://reactjs.org/docs/components-and-props.html#function-and-class-components">stateless components</a>).</p>
-<p>If the React element was previously rendered into <code>container</code>, this will perform an update on it and only mutate the DOM as necessary to reflect the latest React element.</p>
-<p>If the optional callback is provided, it will be executed after the component is rendered or updated.</p>
-<blockquote>
-<p>Note:</p>
-<p><code>ReactDOM.render()</code> controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.</p>
-<p><code>ReactDOM.render()</code> does not modify the container node (only modifies the children of the container). It may be possible to insert a component to an existing DOM node without overwriting the existing children.</p>
-<p><code>ReactDOM.render()</code> currently returns a reference to the root <code>ReactComponent</code> instance. However, using this return value is legacy and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root <code>ReactComponent</code> instance, the preferred solution is to attach a <a href="https://reactjs.org/docs/more-about-refs.html#the-ref-callback-attribute">callback ref</a> to the root element.</p>
-<p>Using <code>ReactDOM.render()</code> to hydrate a server-rendered container is deprecated and will be removed in React 17. Use <a href="https://reactjs.org/docs/react-dom.html#hydrate"><code>hydrate()</code></a> instead.</p>
-</blockquote>
-<hr />
-<h3 id="hydrate"><a href="https://reactjs.org/docs/react-dom.html#hydrate"></a><code>hydrate()</code></h3>
-<pre><code>ReactDOM.hydrate(element, container[, callback])</code></pre>
-<p>Same as <a href="https://reactjs.org/docs/react-dom.html#render"><code>render()</code></a>, but is used to hydrate a container whose HTML contents were rendered by <a href="https://reactjs.org/docs/react-dom-server.html"><code>ReactDOMServer</code></a>. React will attempt to attach event listeners to the existing markup.</p>
-<p>React expects that the rendered content is identical between the server and the client. It can patch up differences in text content, but you should treat mismatches as bugs and fix them. In development mode, React warns about mismatches during hydration. There are no guarantees that attribute differences will be patched up in case of mismatches. This is important for performance reasons because in most apps, mismatches are rare, and so validating all markup would be prohibitively expensive.</p>
-<p>If a single element’s attribute or text content is unavoidably different between the server and the client (for example, a timestamp), you may silence the warning by adding <code>suppressHydrationWarning={true}</code> to the element. It only works one level deep, and is intended to be an escape hatch. Don’t overuse it. Unless it’s text content, React still won’t attempt to patch it up, so it may remain inconsistent until future updates.</p>
-<p>If you intentionally need to render something different on the server and the client, you can do a two-pass rendering. Components that render something different on the client can read a state variable like <code>this.state.isClient</code>, which you can set to <code>true</code> in <code>componentDidMount()</code>. This way the initial render pass will render the same content as the server, avoiding mismatches, but an additional pass will happen synchronously right after hydration. Note that this approach will make your components slower because they have to render twice, so use it with caution.</p>
-<p>Remember to be mindful of user experience on slow connections. The JavaScript code may load significantly later than the initial HTML render, so if you render something different in the client-only pass, the transition can be jarring. However, if executed well, it may be beneficial to render a “shell” of the application on the server, and only show some of the extra widgets on the client. To learn how to do this without getting the markup mismatch issues, refer to the explanation in the previous paragraph.</p>
-<hr />
-<h3 id="unmountcomponentatnode"><a href="https://reactjs.org/docs/react-dom.html#unmountcomponentatnode"></a><code>unmountComponentAtNode()</code></h3>
-<pre><code>ReactDOM.unmountComponentAtNode(container)</code></pre>
-<p>Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns <code>true</code> if a component was unmounted and <code>false</code> if there was no component to unmount.</p>
-<hr />
-<h3 id="finddomnode"><a href="https://reactjs.org/docs/react-dom.html#finddomnode"></a><code>findDOMNode()</code></h3>
-<blockquote>
-<p>Note:</p>
-<p><code>findDOMNode</code> is an escape hatch used to access the underlying DOM node. In most cases, use of this escape hatch is discouraged because it pierces the component abstraction. <a href="https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage">It has been deprecated in <code>StrictMode</code>.</a></p>
-</blockquote>
-<pre><code>ReactDOM.findDOMNode(component)</code></pre>
-<p>If this component has been mounted into the DOM, this returns the corresponding native browser DOM element. This method is useful for reading values out of the DOM, such as form field values and performing DOM measurements. <strong>In most cases, you can attach a ref to the DOM node and avoid using <code>findDOMNode</code> at all.</strong></p>
-<p>When a component renders to <code>null</code> or <code>false</code>, <code>findDOMNode</code> returns <code>null</code>. When a component renders to a string, <code>findDOMNode</code> returns a text DOM node containing that value. As of React 16, a component may return a fragment with multiple children, in which case <code>findDOMNode</code> will return the DOM node corresponding to the first non-empty child.</p>
-<blockquote>
-<p>Note:</p>
-<p><code>findDOMNode</code> only works on mounted components (that is, components that have been placed in the DOM). If you try to call this on a component that has not been mounted yet (like calling <code>findDOMNode()</code> in <code>render()</code> on a component that has yet to be created) an exception will be thrown.</p>
-<p><code>findDOMNode</code> cannot be used on function components.</p>
-</blockquote>
-<hr />
-<h3 id="createportal"><a href="https://reactjs.org/docs/react-dom.html#createportal"></a><code>createPortal()</code></h3>
-<pre><code>ReactDOM.createPortal(child, container)</code></pre>
-<p>Creates a portal. Portals provide a way to <a href="https://reactjs.org/docs/portals.html">render children into a DOM node that exists outside the hierarchy of the DOM component</a>.</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>reactdom-react (1)</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      If you load React from a <code>&lt;script&gt;</code> tag, these top-level
+      APIs are available on the <code>ReactDOM</code> global. If you use ES6
+      with npm, you can write <code>import ReactDOM from 'react-dom'</code>. If
+      you use ES5 with npm, you can write
+      <code>var ReactDOM = require('react-dom')</code>.
+    </p>
+    <h2 id="overview">
+      <a href="https://reactjs.org/docs/react-dom.html#overview"></a>Overview
+    </h2>
+    <p>
+      The <code>react-dom</code> package provides DOM-specific methods that can
+      be used at the top level of your app and as an escape hatch to get outside
+      of the React model if you need to. Most of your components should not need
+      to use this module.
+    </p>
+    <ul>
+      <li>
+        <a href="https://reactjs.org/docs/react-dom.html#render"
+          ><code>render()</code></a
+        >
+      </li>
+      <li>
+        <a href="https://reactjs.org/docs/react-dom.html#hydrate"
+          ><code>hydrate()</code></a
+        >
+      </li>
+      <li>
+        <a href="https://reactjs.org/docs/react-dom.html#unmountcomponentatnode"
+          ><code>unmountComponentAtNode()</code></a
+        >
+      </li>
+      <li>
+        <a href="https://reactjs.org/docs/react-dom.html#finddomnode"
+          ><code>findDOMNode()</code></a
+        >
+      </li>
+      <li>
+        <a href="https://reactjs.org/docs/react-dom.html#createportal"
+          ><code>createPortal()</code></a
+        >
+      </li>
+    </ul>
+    <h3 id="browser-support">
+      <a href="https://reactjs.org/docs/react-dom.html#browser-support"></a
+      >Browser Support
+    </h3>
+    <p>
+      React supports all popular browsers, including Internet Explorer 9 and
+      above, although
+      <a
+        href="https://reactjs.org/docs/javascript-environment-requirements.html"
+        >some polyfills are required</a
+      >
+      for older browsers such as IE 9 and IE 10.
+    </p>
+    <blockquote>
+      <p>Note</p>
+      <p>
+        We don’t support older browsers that don’t support ES5 methods, but you
+        may find that your apps do work in older browsers if polyfills such as
+        <a href="https://github.com/es-shims/es5-shim">es5-shim and es5-sham</a>
+        are included in the page. You’re on your own if you choose to take this
+        path.
+      </p>
+    </blockquote>
+    <hr />
+    <h2 id="reference">
+      <a href="https://reactjs.org/docs/react-dom.html#reference"></a>Reference
+    </h2>
+    <h3 id="render">
+      <a href="https://reactjs.org/docs/react-dom.html#render"></a
+      ><code>render()</code>
+    </h3>
+    <pre><code>ReactDOM.render(element, container[, callback])</code></pre>
+    <p>
+      Render a React element into the DOM in the supplied
+      <code>container</code> and return a
+      <a href="https://reactjs.org/docs/more-about-refs.html">reference</a> to
+      the component (or returns <code>null</code> for
+      <a
+        href="https://reactjs.org/docs/components-and-props.html#function-and-class-components"
+        >stateless components</a
+      >).
+    </p>
+    <p>
+      If the React element was previously rendered into <code>container</code>,
+      this will perform an update on it and only mutate the DOM as necessary to
+      reflect the latest React element.
+    </p>
+    <p>
+      If the optional callback is provided, it will be executed after the
+      component is rendered or updated.
+    </p>
+    <blockquote>
+      <p>Note:</p>
+      <p>
+        <code>ReactDOM.render()</code> controls the contents of the container
+        node you pass in. Any existing DOM elements inside are replaced when
+        first called. Later calls use React’s DOM diffing algorithm for
+        efficient updates.
+      </p>
+      <p>
+        <code>ReactDOM.render()</code> does not modify the container node (only
+        modifies the children of the container). It may be possible to insert a
+        component to an existing DOM node without overwriting the existing
+        children.
+      </p>
+      <p>
+        <code>ReactDOM.render()</code> currently returns a reference to the root
+        <code>ReactComponent</code> instance. However, using this return value
+        is legacy and should be avoided because future versions of React may
+        render components asynchronously in some cases. If you need a reference
+        to the root <code>ReactComponent</code> instance, the preferred solution
+        is to attach a
+        <a
+          href="https://reactjs.org/docs/more-about-refs.html#the-ref-callback-attribute"
+          >callback ref</a
+        >
+        to the root element.
+      </p>
+      <p>
+        Using <code>ReactDOM.render()</code> to hydrate a server-rendered
+        container is deprecated and will be removed in React 17. Use
+        <a href="https://reactjs.org/docs/react-dom.html#hydrate"
+          ><code>hydrate()</code></a
+        >
+        instead.
+      </p>
+    </blockquote>
+    <hr />
+    <h3 id="hydrate">
+      <a href="https://reactjs.org/docs/react-dom.html#hydrate"></a
+      ><code>hydrate()</code>
+    </h3>
+    <pre><code>ReactDOM.hydrate(element, container[, callback])</code></pre>
+    <p>
+      Same as
+      <a href="https://reactjs.org/docs/react-dom.html#render"
+        ><code>render()</code></a
+      >, but is used to hydrate a container whose HTML contents were rendered by
+      <a href="https://reactjs.org/docs/react-dom-server.html"
+        ><code>ReactDOMServer</code></a
+      >. React will attempt to attach event listeners to the existing markup.
+    </p>
+    <p>
+      React expects that the rendered content is identical between the server
+      and the client. It can patch up differences in text content, but you
+      should treat mismatches as bugs and fix them. In development mode, React
+      warns about mismatches during hydration. There are no guarantees that
+      attribute differences will be patched up in case of mismatches. This is
+      important for performance reasons because in most apps, mismatches are
+      rare, and so validating all markup would be prohibitively expensive.
+    </p>
+    <p>
+      If a single element’s attribute or text content is unavoidably different
+      between the server and the client (for example, a timestamp), you may
+      silence the warning by adding
+      <code>suppressHydrationWarning={true}</code> to the element. It only works
+      one level deep, and is intended to be an escape hatch. Don’t overuse it.
+      Unless it’s text content, React still won’t attempt to patch it up, so it
+      may remain inconsistent until future updates.
+    </p>
+    <p>
+      If you intentionally need to render something different on the server and
+      the client, you can do a two-pass rendering. Components that render
+      something different on the client can read a state variable like
+      <code>this.state.isClient</code>, which you can set to
+      <code>true</code> in <code>componentDidMount()</code>. This way the
+      initial render pass will render the same content as the server, avoiding
+      mismatches, but an additional pass will happen synchronously right after
+      hydration. Note that this approach will make your components slower
+      because they have to render twice, so use it with caution.
+    </p>
+    <p>
+      Remember to be mindful of user experience on slow connections. The
+      JavaScript code may load significantly later than the initial HTML render,
+      so if you render something different in the client-only pass, the
+      transition can be jarring. However, if executed well, it may be beneficial
+      to render a “shell” of the application on the server, and only show some
+      of the extra widgets on the client. To learn how to do this without
+      getting the markup mismatch issues, refer to the explanation in the
+      previous paragraph.
+    </p>
+    <hr />
+    <h3 id="unmountcomponentatnode">
+      <a
+        href="https://reactjs.org/docs/react-dom.html#unmountcomponentatnode"
+      ></a
+      ><code>unmountComponentAtNode()</code>
+    </h3>
+    <pre><code>ReactDOM.unmountComponentAtNode(container)</code></pre>
+    <p>
+      Remove a mounted React component from the DOM and clean up its event
+      handlers and state. If no component was mounted in the container, calling
+      this function does nothing. Returns <code>true</code> if a component was
+      unmounted and <code>false</code> if there was no component to unmount.
+    </p>
+    <hr />
+    <h3 id="finddomnode">
+      <a href="https://reactjs.org/docs/react-dom.html#finddomnode"></a
+      ><code>findDOMNode()</code>
+    </h3>
+    <blockquote>
+      <p>Note:</p>
+      <p>
+        <code>findDOMNode</code> is an escape hatch used to access the
+        underlying DOM node. In most cases, use of this escape hatch is
+        discouraged because it pierces the component abstraction.
+        <a
+          href="https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage"
+          >It has been deprecated in <code>StrictMode</code>.</a
+        >
+      </p>
+    </blockquote>
+    <pre><code>ReactDOM.findDOMNode(component)</code></pre>
+    <p>
+      If this component has been mounted into the DOM, this returns the
+      corresponding native browser DOM element. This method is useful for
+      reading values out of the DOM, such as form field values and performing
+      DOM measurements.
+      <strong
+        >In most cases, you can attach a ref to the DOM node and avoid using
+        <code>findDOMNode</code> at all.</strong
+      >
+    </p>
+    <p>
+      When a component renders to <code>null</code> or <code>false</code>,
+      <code>findDOMNode</code> returns <code>null</code>. When a component
+      renders to a string, <code>findDOMNode</code> returns a text DOM node
+      containing that value. As of React 16, a component may return a fragment
+      with multiple children, in which case <code>findDOMNode</code> will return
+      the DOM node corresponding to the first non-empty child.
+    </p>
+    <blockquote>
+      <p>Note:</p>
+      <p>
+        <code>findDOMNode</code> only works on mounted components (that is,
+        components that have been placed in the DOM). If you try to call this on
+        a component that has not been mounted yet (like calling
+        <code>findDOMNode()</code> in <code>render()</code> on a component that
+        has yet to be created) an exception will be thrown.
+      </p>
+      <p><code>findDOMNode</code> cannot be used on function components.</p>
+    </blockquote>
+    <hr />
+    <h3 id="createportal">
+      <a href="https://reactjs.org/docs/react-dom.html#createportal"></a
+      ><code>createPortal()</code>
+    </h3>
+    <pre><code>ReactDOM.createPortal(child, container)</code></pre>
+    <p>
+      Creates a portal. Portals provide a way to
+      <a href="https://reactjs.org/docs/portals.html"
+        >render children into a DOM node that exists outside the hierarchy of
+        the DOM component</a
+      >.
+    </p>
+  </body>
 </html>
