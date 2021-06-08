@@ -1,11 +1,11 @@
 import React from 'react';
 
 type Props = {
-  align?: "left" | "center" | "right" | "justify",
-  left?: boolean,
-  center?: boolean,
-  right?: boolean,
-  justify?: boolean,
+  align?: 'left' | 'center' | 'right' | 'justify';
+  left?: boolean;
+  center?: boolean;
+  right?: boolean;
+  justify?: boolean;
 };
 
 /**

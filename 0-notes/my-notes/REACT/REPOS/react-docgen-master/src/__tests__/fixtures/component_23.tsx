@@ -10,16 +10,16 @@ import React, { Component } from 'react';
 
 interface BaseProps {
   /** Optional prop */
-  foo?: string,
+  foo?: string;
   /** Required prop */
-  bar: number
+  bar: number;
 }
 
-type TransitionDuration = number | { enter?: number, exit?: number } | 'auto';
+type TransitionDuration = number | { enter?: number; exit?: number } | 'auto';
 
 interface Props extends BaseProps, OtherProps {
   /** Complex union prop */
-  baz: TransitionDuration
+  baz: TransitionDuration;
 }
 
 /**

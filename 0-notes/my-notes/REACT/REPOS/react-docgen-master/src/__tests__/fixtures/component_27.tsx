@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 
 export interface Props {
-  foo: string
+  foo: string;
 }
 
 /**

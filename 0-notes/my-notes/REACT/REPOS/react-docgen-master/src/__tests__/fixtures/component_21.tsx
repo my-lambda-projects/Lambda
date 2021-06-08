@@ -10,17 +10,17 @@ import React, { Component } from 'react';
 
 type BaseProps = {
   /** Optional prop */
-  foo?: string,
+  foo?: string;
   /** Required prop */
-  bar: number
+  bar: number;
 };
 
-type TransitionDuration = number | { enter?: number, exit?: number } | 'auto';
+type TransitionDuration = number | { enter?: number; exit?: number } | 'auto';
 
 type Props = BaseProps & {
   /** Complex union prop */
-  baz: TransitionDuration
-}
+  baz: TransitionDuration;
+};
 
 /**
  * This is a typescript class component

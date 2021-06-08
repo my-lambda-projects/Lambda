@@ -42,13 +42,13 @@ Now the problem arises: How do we store and change component information we want
 
 - Incorrect
   ```javascript
-  this.state.message = 'new message';
+  this.state.message = "new message";
   ```
 - Correct
 
   ```javascript
   this.setState({
-    message: 'new message'
+    message: "new message",
   });
   ```
 
@@ -56,12 +56,12 @@ Now the problem arises: How do we store and change component information we want
 
 - Incorrect
   ```javascript
-  this.props.message = 'new message';
+  this.props.message = "new message";
   ```
   - Correct
   ```javascript
   this.setState({
-    message: 'new message'
+    message: "new message",
   });
   ```
 
@@ -84,12 +84,12 @@ Now the problem arises: How do we store and change component information we want
 - State should not be mutated directly. A copy of state should be created and then updated using `this.setState`
   - Incorrect way -
     ```javascript
-    this.state.message = 'new message';
+    this.state.message = "new message";
     ```
   - Correct way -
     ```javascript
     this.setState({
-      message: 'new message'
+      message: "new message",
     });
     ```
 - The important thing to remember about `setState` is that it causes the component to re-render. Well, in introduction to React, we have learnt that React follows a special path called the **React cycle**. So, when state is updated using `setState`, React goes into the **React cycle** and then the changes are compared to the previous **React virtual DOM element** and the changes are made accordingly and are reflected in the UI.
@@ -127,7 +127,7 @@ constructor(){
 ```javascript
 addValue = () => {
   this.setState({
-    value: this.state.value + 1
+    value: this.state.value + 1,
   });
 };
 ```
@@ -141,7 +141,7 @@ addValue = () => {
 addValue = () => {
   this.setState((prevState) => {
     return {
-      value: prevState.value + 1
+      value: prevState.value + 1,
     };
   });
 };
@@ -154,7 +154,7 @@ For now, let us use the object instance only.
 ```javascript
 subtractValue = () => {
   this.setState({
-    value: this.state.value - 1
+    value: this.state.value - 1,
   });
 };
 ```
@@ -203,25 +203,25 @@ class Message extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: 'Hello'
+      value: "Hello",
     };
   }
   // Function which will change the state of Message Component
   changeState = () => {
     this.setState({
-      value: 'World'
+      value: "World",
     });
   };
   // Function which will change the message prop
   changeProp = () => {
-    this.props.message = 'Change Prop message';
+    this.props.message = "Change Prop message";
   };
   render() {
     return (
       <div>
         <button onClick={this.changeState}> Change Message Comp state </button>
         <button onClick={this.changeProp}> Change prop by Message Comp </button>
-        <p>Prop display {this.props.message}</p>{' '}
+        <p>Prop display {this.props.message}</p>{" "}
         <p> Value display {this.state.value}</p>
       </div>
     );
@@ -237,20 +237,20 @@ class App extends React.Component {
     //Constructor
     super();
     this.state = {
-      message: 'message' // message property defined in state
+      message: "message", // message property defined in state
     };
   }
   // This function will change the state of App Component
   changeState = () => {
     this.setState({
-      message: 'New Message'
+      message: "New Message",
     });
   };
   render() {
     return (
       <div>
         <button type="button" onClick={this.changeState}>
-          {' '}
+          {" "}
           Change App Comp State
         </button>
         <Message message={this.state.message} />
@@ -285,8 +285,7 @@ UI should contain -
 - A hidden text which will only be displayed when correct button is clicked.
 - A message tag which will display the status of the game whether the person has _won_ or _lost_ the game.
 - A reset button which will reset the state of the game.  
-  \*\*Hint:-1.Onlythosetagswhosestateischangingwillbekeptinstate.
-  2. Use of conditions in React.\*\*
+  \*\*Hint:-1.Onlythosetagswhosestateischangingwillbekeptinstate. 2. Use of conditions in React.\*\*
 
 ### Supplemental Materials
 
