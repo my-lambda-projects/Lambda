@@ -24,7 +24,6 @@
 $grey: #616161;
 $grey-light: #bdbdbd;
 
-
 // react
 @import '@material/react-chips/index';
 @import '@material/react-top-app-bar/index';
@@ -68,7 +67,9 @@ body {
 .mdc-chip {
   // TODO update line to use mixin when
   // @include mdc-chip-shape-radius(10px);
-  @include mdc-shape-radius(mdc-shape-resolve-percentage-radius($mdc-chip-height-default, 4px));
+  @include mdc-shape-radius(
+    mdc-shape-resolve-percentage-radius($mdc-chip-height-default, 4px)
+  );
   @include mdc-chip-selected-ink-color(primary);
   @include mdc-chip-fill-color(white);
   @include mdc-chip-outline(1px, solid, $grey-light);

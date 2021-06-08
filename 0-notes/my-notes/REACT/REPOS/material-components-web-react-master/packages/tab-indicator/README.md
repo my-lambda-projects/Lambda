@@ -13,11 +13,13 @@ npm install @material/react-tab-indicator
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-tab-indicator/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-tab-indicator/dist/tab-indicator.css';
 ```
@@ -43,7 +45,6 @@ class MyApp extends React.Component {
 }
 ```
 
-
 #### With Icon
 
 If you want the underline instead of an icon, pass the icon element as a child
@@ -60,10 +61,7 @@ class MyApp extends React.Component {
   render() {
     return (
       <div>
-        <TabIndicator
-          active={this.state.active}
-          icon
-        >
+        <TabIndicator active={this.state.active} icon>
           <MaterialIcon icon='star' />
         </TabIndicator>
       </div>
@@ -74,14 +72,14 @@ class MyApp extends React.Component {
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-active | boolean | If true will activate the indicator.
-className | string | Classes to appear on className attribute of root element.
-fade | boolean | If enabled will use the fade animation for transitioning to other tabs.
-icon | boolean | Indicates that the indicator is an icon instead of an underline.
-previousIndicatorClientRect | ClientRect | The indicator's clientRect that was previously activated.
-onTransitionEnd | function | transitionend event callback handler.
+| Prop Name                   | Type       | Description                                                             |
+| --------------------------- | ---------- | ----------------------------------------------------------------------- |
+| active                      | boolean    | If true will activate the indicator.                                    |
+| className                   | string     | Classes to appear on className attribute of root element.               |
+| fade                        | boolean    | If enabled will use the fade animation for transitioning to other tabs. |
+| icon                        | boolean    | Indicates that the indicator is an icon instead of an underline.        |
+| previousIndicatorClientRect | ClientRect | The indicator's clientRect that was previously activated.               |
+| onTransitionEnd             | function   | transitionend event callback handler.                                   |
 
 ## Sass Mixins
 

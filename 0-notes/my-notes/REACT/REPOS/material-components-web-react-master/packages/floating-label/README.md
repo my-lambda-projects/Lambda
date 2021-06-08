@@ -13,11 +13,13 @@ npm install @material/react-floating-label
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-floating-label/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-floating-label/dist/floating-label.css';
 ```
@@ -60,20 +62,18 @@ class MyComponent extends React.Component {
 Label width is set during mount, and is calculated from the `offsetWidth` property. The Component will call `handleWidthChange()` when mounted. `handleWidthChange()` will execute with a new width value if `this.props.children` changes.
 
 ```js
-<FloatingLabel
-  handleWidthChange={(width) => this.setState({width})}
->
+<FloatingLabel handleWidthChange={(width) => this.setState({width})}>
   My Label
 </FloatingLabel>
 ```
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the root element.
-handleWidthChange | Function | Callback method to pass the width to a parent Component.
-float | Boolean | Floats label depending on value passed.
+| Prop Name         | Type     | Description                                              |
+| ----------------- | -------- | -------------------------------------------------------- |
+| className         | String   | Classes to be applied to the root element.               |
+| handleWidthChange | Function | Callback method to pass the width to a parent Component. |
+| float             | Boolean  | Floats label depending on value passed.                  |
 
 ## Sass Mixins
 

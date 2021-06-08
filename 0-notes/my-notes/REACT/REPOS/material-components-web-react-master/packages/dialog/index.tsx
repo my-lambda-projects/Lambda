@@ -57,7 +57,8 @@ export interface DialogProps<
     | (
         | React.ReactElement<TitleProps>
         | React.ReactElement<ContentProps>
-        | React.ReactElement<FooterProps>)[]
+        | React.ReactElement<FooterProps>
+      )[]
     | React.ReactElement<FooterProps>
     | React.ReactElement<ContentProps>
     | React.ReactElement<TitleProps>;
@@ -112,12 +113,8 @@ class Dialog<T extends HTMLElement = HTMLElement> extends React.Component<
   state: DialogState = {classList: new Set()};
 
   componentDidMount() {
-    const {
-      open,
-      autoStackButtons,
-      escapeKeyAction,
-      scrimClickAction,
-    } = this.props;
+    const {open, autoStackButtons, escapeKeyAction, scrimClickAction} =
+      this.props;
     this.foundation = new MDCDialogFoundation(this.adapter);
     this.foundation.init();
 
@@ -144,12 +141,8 @@ class Dialog<T extends HTMLElement = HTMLElement> extends React.Component<
   }
 
   componentDidUpdate(prevProps: DialogProps<T>) {
-    const {
-      open,
-      autoStackButtons,
-      escapeKeyAction,
-      scrimClickAction,
-    } = this.props;
+    const {open, autoStackButtons, escapeKeyAction, scrimClickAction} =
+      this.props;
 
     if (prevProps.autoStackButtons !== autoStackButtons) {
       this.foundation.setAutoStackButtons(autoStackButtons!);
@@ -315,9 +308,8 @@ class Dialog<T extends HTMLElement = HTMLElement> extends React.Component<
       /* eslint-enable @typescript-eslint/no-unused-vars */
     } = this.props;
 
-    const container:
-      | React.ReactElement<HTMLDivElement>
-      | undefined = this.renderContainer(children as ChildTypes[]);
+    const container: React.ReactElement<HTMLDivElement> | undefined =
+      this.renderContainer(children as ChildTypes[]);
     return (
       // @ts-ignore Tag does not have any construct https://github.com/Microsoft/TypeScript/issues/28892
       <Tag
@@ -340,9 +332,7 @@ class Dialog<T extends HTMLElement = HTMLElement> extends React.Component<
   renderContainer = (
     children?: ChildTypes[]
   ): React.ReactElement<HTMLDivElement> | undefined =>
-    !children ? (
-      undefined
-    ) : (
+    !children ? undefined : (
       <div className={cssClasses.CONTAINER}>
         <div className={cssClasses.SURFACE}>
           {React.Children.map(children as ChildTypes[], this.renderChild)}

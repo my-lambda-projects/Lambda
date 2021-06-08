@@ -13,13 +13,15 @@ npm install @material/react-chips
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-chips/index.scss';
 ```
 
 with CSS:
+
 ```js
-import "@material/react-chips/dist/chips.css";
+import '@material/react-chips/dist/chips.css';
 ```
 
 ### Javascript Instantiation
@@ -32,8 +34,8 @@ class MyApp extends Component {
   render() {
     return (
       <ChipSet>
-        <Chip id='summer' label='Summer'/>
-        <Chip id='winter' label='Winter'/>
+        <Chip id='summer' label='Summer' />
+        <Chip id='winter' label='Winter' />
       </ChipSet>
     );
   }
@@ -115,7 +117,7 @@ class MyInputChips extends React.Component {
     // If you have a more complex input, you may want to store the value in the state.
     const label = e.target.value;
     if (!!label && e.key === 'Enter') {
-      const id = label.replace(/\s/g,'');
+      const id = label.replace(/\s/g, '');
       // Create a new chips array to ensure that a re-render occurs.
       // See: https://reactjs.org/docs/state-and-lifecycle.html#do-not-modify-state-directly
       const chips = [...this.state.chips];
@@ -132,19 +134,16 @@ class MyInputChips extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" onKeyDown={this.handleKeyDown} />
-        <ChipSet
-          input
-          updateChips={(chips) => this.setState({chips})}
-        >
-          {this.state.chips.map((chip) =>
+        <input type='text' onKeyDown={this.handleKeyDown} />
+        <ChipSet input updateChips={(chips) => this.setState({chips})}>
+          {this.state.chips.map((chip) => (
             <Chip
               id={chip.id}
               key={chip.id} // The chip's key cannot be its index, because its index may change.
               label={chip.label}
               trailingIcon={<MaterialIcon icon='cancel' />}
             />
-          )}
+          ))}
         </ChipSet>
       </div>
     );
@@ -156,34 +155,34 @@ class MyInputChips extends React.Component {
 
 ### Chip Set
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the chip set element
-selectedChipIds | Array | Array of ids of chips that are selected
-handleSelect | Function(selectedChipIds: string[]) => void | Callback when Chips are Selected
-updateChips | Function(chips: Array{chipProps}) => void | Callback when the ChipSet updates its chips
-choice | Boolean | Indicates that the chips in the set are choice chips, which allow single selection from a set of options
-filter | Boolean | Indicates that the chips in the set are filter chips, which allow multiple selection from a set of options
-input | Boolean | Indicates that the chips in the set are input chips, where chips can be added or removed
-
+| Prop Name       | Type                                        | Description                                                                                                |
+| --------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| className       | String                                      | Classes to be applied to the chip set element                                                              |
+| selectedChipIds | Array                                       | Array of ids of chips that are selected                                                                    |
+| handleSelect    | Function(selectedChipIds: string[]) => void | Callback when Chips are Selected                                                                           |
+| updateChips     | Function(chips: Array{chipProps}) => void   | Callback when the ChipSet updates its chips                                                                |
+| choice          | Boolean                                     | Indicates that the chips in the set are choice chips, which allow single selection from a set of options   |
+| filter          | Boolean                                     | Indicates that the chips in the set are filter chips, which allow multiple selection from a set of options |
+| input           | Boolean                                     | Indicates that the chips in the set are input chips, where chips can be added or removed                   |
 
 ### Chip
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the chip element
-id | Number | Required. Unique identifier for the chip
-label | String | Text to be shown on the chip
-leadingIcon | Element | An icon element that appears as the leading icon.
-trailingIcon | Element | An icon element that appears as the remove icon. Clicking on it should remove the chip.
-selected | Boolean | Indicates whether the chip is selected
-handleSelect | Function(id: string, selected: boolean) => void | Callback for selecting the chip with the given id
-handleInteraction | Function(id: string) => void | Callback for interaction of chip (`onClick` | `onKeyDown`)
-handleTrailingIconInteraction | Function(id: string) => void | Callback for interaction with trailing icon
-shouldRemoveOnTrailingIconClick | Boolean | indicates if interaction with trailing icon should remove chip. defaults to `true`
+| Prop Name                       | Type                                            | Description                                                                             |
+| ------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ |
+| className                       | String                                          | Classes to be applied to the chip element                                               |
+| id                              | Number                                          | Required. Unique identifier for the chip                                                |
+| label                           | String                                          | Text to be shown on the chip                                                            |
+| leadingIcon                     | Element                                         | An icon element that appears as the leading icon.                                       |
+| trailingIcon                    | Element                                         | An icon element that appears as the remove icon. Clicking on it should remove the chip. |
+| selected                        | Boolean                                         | Indicates whether the chip is selected                                                  |
+| handleSelect                    | Function(id: string, selected: boolean) => void | Callback for selecting the chip with the given id                                       |
+| handleInteraction               | Function(id: string) => void                    | Callback for interaction of chip (`onClick`                                             | `onKeyDown`) |
+| handleTrailingIconInteraction   | Function(id: string) => void                    | Callback for interaction with trailing icon                                             |
+| shouldRemoveOnTrailingIconClick | Boolean                                         | indicates if interaction with trailing icon should remove chip. defaults to `true`      |
+
 > Note: `handleTrailingIconInteraction` will execute before `handleRemove`.
 > Without explicitly setting shouldRemoveOnTrailingIconClick to false both
-> callbacks will fire on trailingIcon interaction 
+> callbacks will fire on trailingIcon interaction
 
 ## Sass Mixins
 

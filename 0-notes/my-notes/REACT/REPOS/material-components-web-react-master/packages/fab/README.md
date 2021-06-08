@@ -13,11 +13,13 @@ npm install @material/react-fab
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-fab/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-fab/dist/fab.css';
 ```
@@ -26,6 +28,7 @@ import '@material/react-fab/dist/fab.css';
 
 The Fab can be used with the `span`, `i`, `img` or `svg` elements. It can also be used with the
 [Material Icon](../material-icon) react component.
+
 ```html
 <Fab icon={<span className="material-icons">favorite</span>}/>
 
@@ -44,13 +47,13 @@ The Fab can be used with the `span`, `i`, `img` or `svg` elements. It can also b
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the root element.
-exited | Boolean | When true animates the FAB out of view. When this false, the FAB will return to view.
-mini | Boolean |  Enables the mini variant. 
-icon | Element | The icon.
-textLabel | String | The label, which makes the FAB extended.
+| Prop Name | Type    | Description                                                                           |
+| --------- | ------- | ------------------------------------------------------------------------------------- |
+| className | String  | Classes to be applied to the root element.                                            |
+| exited    | Boolean | When true animates the FAB out of view. When this false, the FAB will return to view. |
+| mini      | Boolean | Enables the mini variant.                                                             |
+| icon      | Element | The icon.                                                                             |
+| textLabel | String  | The label, which makes the FAB extended.                                              |
 
 ## Sass Mixins
 

@@ -13,17 +13,18 @@ npm install @material/react-drawer
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-drawer/index.scss';
 ```
 
 with CSS:
+
 ```js
-import "@material/react-drawer/dist/drawer.css";
+import '@material/react-drawer/dist/drawer.css';
 ```
 
 ### Javascript Instantiation
-
 
 #### Basic Usage
 
@@ -61,16 +62,24 @@ class MyApp extends Component {
   render() {
     return (
       <Drawer>
-        <DrawerHeader> {/*defaults to div*/}
-          <DrawerTitle tag='h2'> {/*defaults to h3*/}
+        <DrawerHeader>
+          {' '}
+          {/*defaults to div*/}
+          <DrawerTitle tag='h2'>
+            {' '}
+            {/*defaults to h3*/}
             Inbox
           </DrawerTitle>
-          <DrawerSubtitle> {/*defaults to h6*/}
+          <DrawerSubtitle>
+            {' '}
+            {/*defaults to h6*/}
             matt@email.com
           </DrawerSubtitle>
         </DrawerHeader>
 
-        <DrawerContent tag='main'>  {/*defaults to div*/}
+        <DrawerContent tag='main'>
+          {' '}
+          {/*defaults to div*/}
           <SomeDrawerContent />
         </DrawerContent>
       </Drawer>
@@ -95,10 +104,7 @@ class MyApp extends Component {
   render() {
     return (
       <div>
-        <Drawer
-          dismissible
-          open={this.state.open}
-        >
+        <Drawer dismissible open={this.state.open}>
           <SomeDrawerContent />
         </Drawer>
         <DrawerAppContent>
@@ -124,9 +130,18 @@ If you want the dismissible drawer or permanent drawer to appear to the side of 
 ```js
 import React, {Component} from 'react';
 import TopAppBar, {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
-import Drawer, {DrawerAppContent, DrawerContent, DrawerHeader, DrawerTitle} from '@material/react-drawer';
+import Drawer, {
+  DrawerAppContent,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+} from '@material/react-drawer';
 import MaterialIcon from '@material/react-material-icon';
-import List, {ListItem, ListItemGraphic, ListItemText} from '@material/react-list';
+import List, {
+  ListItem,
+  ListItemGraphic,
+  ListItemText,
+} from '@material/react-list';
 
 // includes imports for drawer, list, material icon and top app bar styles
 import './App.scss';
@@ -139,15 +154,13 @@ export default class App extends Component {
       <div className='drawer-container'>
         <Drawer>
           <DrawerHeader>
-            <DrawerTitle tag='h2'>
-              jane.smith@gmail.com
-            </DrawerTitle>
+            <DrawerTitle tag='h2'>jane.smith@gmail.com</DrawerTitle>
           </DrawerHeader>
 
           <DrawerContent>
             <List singleSelection selectedIndex={this.state.selectedIndex}>
               <ListItem>
-                <ListItemGraphic graphic={<MaterialIcon icon='folder'/>} />
+                <ListItemGraphic graphic={<MaterialIcon icon='folder' />} />
                 <ListItemText primaryText='Mail' />
               </ListItem>
             </List>
@@ -160,21 +173,17 @@ export default class App extends Component {
             navigationIcon={<MaterialIcon icon='menu' />}
           />
 
-          <TopAppBarFixedAdjust>
-            Your inbox content
-          </TopAppBarFixedAdjust>
+          <TopAppBarFixedAdjust>Your inbox content</TopAppBarFixedAdjust>
         </DrawerAppContent>
       </div>
     );
   }
 }
-
 ```
 
 You will also need these styles:
 
 ```css
-
 .drawer-container {
   display: flex;
   flex-direction: row;
@@ -197,9 +206,18 @@ If you want the dismissible drawer or permanent drawer to appear below the top a
 ```js
 import React, {Component} from 'react';
 import TopAppBar, {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
-import Drawer, {DrawerAppContent, DrawerContent, DrawerHeader, DrawerTitle} from '@material/react-drawer';
+import Drawer, {
+  DrawerAppContent,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+} from '@material/react-drawer';
 import MaterialIcon from '@material/react-material-icon';
-import List, {ListItem, ListItemGraphic, ListItemText} from '@material/react-list';
+import List, {
+  ListItem,
+  ListItemGraphic,
+  ListItemText,
+} from '@material/react-list';
 
 // includes imports for drawer, list, material icon and top app bar styles
 import './App.scss';
@@ -210,20 +228,18 @@ export default class App extends Component {
   render() {
     return (
       <div className='drawer-container'>
-        <TopAppBar title='Inbox'/>
+        <TopAppBar title='Inbox' />
 
         <TopAppBarFixedAdjust className='top-app-bar-fix-adjust'>
           <Drawer>
             <DrawerHeader>
-              <DrawerTitle tag='h2'>
-                jane.smith@gmail.com
-              </DrawerTitle>
+              <DrawerTitle tag='h2'>jane.smith@gmail.com</DrawerTitle>
             </DrawerHeader>
 
             <DrawerContent>
               <List singleSelection selectedIndex={this.state.selectedIndex}>
                 <ListItem>
-                  <ListItemGraphic graphic={<MaterialIcon icon='folder'/>} />
+                  <ListItemGraphic graphic={<MaterialIcon icon='folder' />} />
                   <ListItemText primaryText='Mail' />
                 </ListItem>
               </List>
@@ -238,7 +254,6 @@ export default class App extends Component {
     );
   }
 }
-
 ```
 
 You will also need these styles:
@@ -271,7 +286,6 @@ There is a known issue with the dismissible drawer styles when putting the drawe
 ```
 
 > _NOTE_: Ordering of the markup is imperative.
-
 
 #### Modal Variant
 
@@ -332,22 +346,17 @@ class Drawer extends Component {
 
   focusFirstFocusableItem = () => {
     this.mainContentEl.current.querySelector('input, button').focus();
-  }
+  };
 
   onDrawerClose = () => {
     this.setState({open: false});
     this.focusFirstFocusableItem();
-  }
+  };
 
   render() {
-
     return (
       <div>
-        <Drawer
-          modal
-          open={this.state.open}
-          onClose={this.drawerOnClose}
-        >
+        <Drawer modal open={this.state.open} onClose={this.drawerOnClose}>
           <List>
             <ListItem onClick={this.focusFirstFocusableItem}>
               <ListItemText primaryText='list item' />
@@ -378,19 +387,14 @@ class Drawer extends Component {
   onDrawerClose = () => {
     this.setState({open: false});
     this.mainContentEl.current.querySelector('input, button').focus();
-  }
+  };
 
   onListItemClick = () => this.onDrawerClose();
 
   render() {
-
     return (
       <div>
-        <Drawer
-          modal
-          open={this.state.open}
-          onClose={this.drawerOnClose}
-        >
+        <Drawer modal open={this.state.open} onClose={this.drawerOnClose}>
           <List>
             <ListItem onClick={this.onListItemClick}>
               <ListItemText primaryText='list item' />
@@ -410,16 +414,16 @@ class Drawer extends Component {
 
 ### Drawer
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the drawer element.
-onOpen | Function() => void | Callback after the drawer has opened.
-onClose | Function() => void | Callback after the drawer has closed.
-modal | Boolean | Indicates that the drawer is of type modal.
-dismissible | Boolean | Indicates that the drawer is of type dismissible.
-tag | String | Customizes the drawer tag type (default to `<aside>`).
-open | boolean | If true, opens drawer. If false, closes drawer.
-innerRef | RefObject | Root drawer element ref.
+| Prop Name   | Type               | Description                                            |
+| ----------- | ------------------ | ------------------------------------------------------ |
+| className   | String             | Classes to be applied to the drawer element.           |
+| onOpen      | Function() => void | Callback after the drawer has opened.                  |
+| onClose     | Function() => void | Callback after the drawer has closed.                  |
+| modal       | Boolean            | Indicates that the drawer is of type modal.            |
+| dismissible | Boolean            | Indicates that the drawer is of type dismissible.      |
+| tag         | String             | Customizes the drawer tag type (default to `<aside>`). |
+| open        | boolean            | If true, opens drawer. If false, closes drawer.        |
+| innerRef    | RefObject          | Root drawer element ref.                               |
 
 ## Sass Mixins
 

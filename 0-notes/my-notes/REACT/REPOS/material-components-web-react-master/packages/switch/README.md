@@ -13,13 +13,15 @@ npm install @material/react-switch
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-switch/index.scss';
 ```
 
 with CSS:
+
 ```js
-import "@material/react-switch/dist/switch.css";
+import '@material/react-switch/dist/switch.css';
 ```
 
 ### Javascript Instantiation
@@ -37,7 +39,8 @@ class MyApp extends React.Component {
         <Switch
           nativeControlId='my-switch'
           checked={this.state.checked}
-          onChange={(e) => this.setState({checked: e.target.checked})} />
+          onChange={(e) => this.setState({checked: e.target.checked})}
+        />
         <label htmlFor='my-switch'>My Switch</label>
       </React.Fragment>
     );
@@ -49,12 +52,12 @@ class MyApp extends React.Component {
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the switch element
-checked | Boolean | Indicates whether the switch is checked ("on")
-disabled | Boolean | Indicates whether the switch is disabled
-nativeControlId | String | Id attached to the native control for relationship with the label
+| Prop Name       | Type    | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| className       | String  | Classes to be applied to the switch element                       |
+| checked         | Boolean | Indicates whether the switch is checked ("on")                    |
+| disabled        | Boolean | Indicates whether the switch is disabled                          |
+| nativeControlId | String  | Id attached to the native control for relationship with the label |
 
 ## Sass Mixins
 

@@ -19,6 +19,7 @@ SETX SASS_PATH .\node_modules
 ## Mac OS X
 
 #### Open your `bash_profile`
+
 You can add an environment variable to your system by updating your `~/.bash_profile`. Open a terminal window and follow these steps:
 
 ```sh
@@ -66,7 +67,5 @@ source ~/.bash_profile
 ## Linux
 
 Linux is pretty similar to Mac OS X if you're familiar with that operating system. The steps are identical, with the exception that your environment configuration lives in the `~/.bashrc` file.
-
-
 
 You can add an environment variable to your system by updating your `~/.bash_profile` (on OS X) or `~/.bashrc` (on Linux). If you're on Windows please read

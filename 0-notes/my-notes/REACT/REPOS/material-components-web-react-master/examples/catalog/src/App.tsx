@@ -25,7 +25,7 @@ class App extends React.Component {
     this.setState({
       menu: {
         ...menu,
-        isOpen: menu.isOpen = isOpen,
+        isOpen: (menu.isOpen = isOpen),
       },
     });
   };
@@ -35,7 +35,7 @@ class App extends React.Component {
     this.setState({
       menu: {
         ...menu,
-        selectedIndex: menu.selectedIndex = selectedIndex,
+        selectedIndex: (menu.selectedIndex = selectedIndex),
       },
     });
   };

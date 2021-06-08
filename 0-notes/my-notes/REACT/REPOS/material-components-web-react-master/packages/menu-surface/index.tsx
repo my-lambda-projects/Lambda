@@ -96,13 +96,8 @@ class MenuSurface extends React.Component<MenuSurfaceProps, MenuSurfaceState> {
   };
 
   componentDidMount() {
-    const {
-      anchorCorner,
-      anchorMargin,
-      coordinates,
-      fixed,
-      quickOpen,
-    } = this.props;
+    const {anchorCorner, anchorMargin, coordinates, fixed, quickOpen} =
+      this.props;
     this.handleWindowClick = (evt: MouseEvent) =>
       this.foundation.handleBodyClick(evt);
     this.registerWindowClickListener = () =>
@@ -313,9 +308,10 @@ class MenuSurface extends React.Component<MenuSurfaceProps, MenuSurfaceState> {
   open_ = (): void => {
     if (this.props.open) {
       if (!this.menuSurfaceElement.current) return;
-      const focusableElements = this.menuSurfaceElement.current.querySelectorAll(
-        MDCMenuSurfaceFoundation.strings.FOCUSABLE_ELEMENTS
-      );
+      const focusableElements =
+        this.menuSurfaceElement.current.querySelectorAll(
+          MDCMenuSurfaceFoundation.strings.FOCUSABLE_ELEMENTS
+        );
       this.firstFocusableElement =
         focusableElements.length > 0
           ? (focusableElements[0] as HTMLElement)

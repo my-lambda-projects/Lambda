@@ -27,13 +27,7 @@ test('renders thumb underlay and native control', () => {
   const ThumbUnderlay = require('../../../packages/switch/ThumbUnderlay');
   const NativeControl = require('../../../packages/switch/NativeControl');
   assert.equal(wrapper.childAt(1).type(), ThumbUnderlay.default);
-  assert.equal(
-    wrapper
-      .childAt(1)
-      .childAt(0)
-      .type(),
-    NativeControl.default
-  );
+  assert.equal(wrapper.childAt(1).childAt(0).type(), NativeControl.default);
 });
 
 test('classNames adds classes', () => {
@@ -53,18 +47,16 @@ test('has checked class when props.checked is true', () => {
 
 test('#foundation.setChecked gets called when prop.checked updates', () => {
   const wrapper = shallow<Switch>(<Switch />);
-  wrapper.instance().foundation.setChecked = td.func<
-    (setChecked: boolean) => null
-  >();
+  wrapper.instance().foundation.setChecked =
+    td.func<(setChecked: boolean) => null>();
   wrapper.setProps({checked: true});
   td.verify(wrapper.instance().foundation.setChecked(true), {times: 1});
 });
 
 test('#foundation.setDisabled gets called when prop.disabled updates', () => {
   const wrapper = shallow<Switch>(<Switch />);
-  wrapper.instance().foundation.setDisabled = td.func<
-    (disabled: boolean) => null
-  >();
+  wrapper.instance().foundation.setDisabled =
+    td.func<(disabled: boolean) => null>();
   wrapper.setProps({disabled: true});
   td.verify(wrapper.instance().foundation.setDisabled(true), {times: 1});
 });

@@ -13,45 +13,44 @@ npm install @material/react-button
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-button/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-button/dist/button.css';
 ```
 
 ### Javascript Instantiation
+
 ```js
 import React from 'react';
 import Button from '@material/react-button';
 
 class MyApp extends React.Component {
   render() {
-    return (
-      <Button>
-        Click Me!
-      </Button>
-    );
+    return <Button>Click Me!</Button>;
   }
 }
 ```
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the root element.
-raised | Boolean | Enables raised variant.
-unelevated | Boolean | Enables unelevated variant.
-outlined | Boolean | Enables outlined variant.
-dense | Boolean | Enables dense variant.
-icon | Element | Icon to render within root element.
-trailingIcon | Element | Icon to render on the right side of the element
-children | String | Text to be displayed within root element.
-disabled | Boolean | Disables button if true.
-href | String | Sets a hyperlink & uses anchor tag instead of a button.
+| Prop Name    | Type    | Description                                             |
+| ------------ | ------- | ------------------------------------------------------- |
+| className    | String  | Classes to be applied to the root element.              |
+| raised       | Boolean | Enables raised variant.                                 |
+| unelevated   | Boolean | Enables unelevated variant.                             |
+| outlined     | Boolean | Enables outlined variant.                               |
+| dense        | Boolean | Enables dense variant.                                  |
+| icon         | Element | Icon to render within root element.                     |
+| trailingIcon | Element | Icon to render on the right side of the element         |
+| children     | String  | Text to be displayed within root element.               |
+| disabled     | Boolean | Disables button if true.                                |
+| href         | String  | Sets a hyperlink & uses anchor tag instead of a button. |
 
 ## Sass Mixins
 

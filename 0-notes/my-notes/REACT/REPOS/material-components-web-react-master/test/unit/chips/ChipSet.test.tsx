@@ -211,19 +211,9 @@ test('#handleSelect calls updates parent component with selectedChipIds correctl
     <TestChipParentComponent handleSelect={handleChipSelection} />
   );
   const chipSet = wrapper.childAt(0);
-  chipSet
-    .children()
-    .children()
-    .first()
-    .children()
-    .simulate('click');
+  chipSet.children().children().first().children().simulate('click');
   td.verify(handleChipSelection([], ['chip1']), {times: 1});
-  chipSet
-    .children()
-    .children()
-    .last()
-    .children()
-    .simulate('click');
+  chipSet.children().children().last().children().simulate('click');
   td.verify(handleChipSelection(['chip1'], ['chip1', 'chip2']), {times: 1});
 });
 

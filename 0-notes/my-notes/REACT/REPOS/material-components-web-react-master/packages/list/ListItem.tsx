@@ -115,13 +115,8 @@ export class ListItemBase<
   }
 
   get classes() {
-    const {
-      className,
-      activated,
-      disabled,
-      selected,
-      getClassNamesFromList,
-    } = this.props;
+    const {className, activated, disabled, selected, getClassNamesFromList} =
+      this.props;
     let classesFromList = [''];
     if (this.listItemElement.current) {
       const index = this.getIndex(this.listItemElement.current);

@@ -8,29 +8,27 @@ MDC React Text Field Character Counter is a React Component which uses [MDC Text
 import CharacterCounter from '@material/react-text-field/character-counter/index.js';
 
 const MyComponent = () => {
-  return (
-    <CharacterCounter />
-  );
-}
+  return <CharacterCounter />;
+};
 ```
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | CSS classes for element.
-template | String | You can set custom template. [See below](#custom-template)
+| Prop Name | Type   | Description                                                |
+| --------- | ------ | ---------------------------------------------------------- |
+| className | String | CSS classes for element.                                   |
+| template  | String | You can set custom template. [See below](#custom-template) |
 
 ## Custom Template
 
 CharacterCounter provides customization with the `template` prop in CharacterCounter.
 The `template` prop accepts the `${count}` and `${maxLength}` arguments.  
 The default template is `${count} / ${maxLength}`, so it appears `0 / 140`.  
-If you set template as `${count} : ${maxLength}`, it appears as `0 : 140`.  
+If you set template as `${count} : ${maxLength}`, it appears as `0 : 140`.
 
 ### Sample
 
-``` js
+```js
 import React from 'react';
 import TextField, {CharacterCounter, Input} from '@material/react-text-field';
 
@@ -39,7 +37,11 @@ class MyApp extends React.Component {
 
   render() {
     return (
-      <TextField characterCounter={<CharacterCounter template='${count} : ${maxLength}' />}>
+      <TextField
+        characterCounter={
+          <CharacterCounter template='${count} : ${maxLength}' />
+        }
+      >
         <Input
           maxLength={140}
           value={this.state.value}

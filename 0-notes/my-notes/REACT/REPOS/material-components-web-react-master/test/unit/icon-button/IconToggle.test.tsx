@@ -26,13 +26,7 @@ test('renders icon', () => {
       <i className='test-icon' />
     </IconToggle>
   );
-  assert.equal(
-    wrapper
-      .children()
-      .first()
-      .type(),
-    'i'
-  );
+  assert.equal(wrapper.children().first().type(), 'i');
 });
 
 test('renders svg', () => {
@@ -41,13 +35,7 @@ test('renders svg', () => {
       <svg className='test-svg' />
     </IconToggle>
   );
-  assert.equal(
-    wrapper
-      .children()
-      .first()
-      .type(),
-    'svg'
-  );
+  assert.equal(wrapper.children().first().type(), 'svg');
 });
 
 test('renders img', () => {
@@ -56,11 +44,5 @@ test('renders img', () => {
       <img className='test-img' />
     </IconToggle>
   );
-  assert.equal(
-    wrapper
-      .children()
-      .first()
-      .type(),
-    'img'
-  );
+  assert.equal(wrapper.children().first().type(), 'img');
 });

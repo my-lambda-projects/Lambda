@@ -238,11 +238,8 @@ export default class TabScroller extends React.Component<
   };
 
   render() {
-    const {
-      areaClassList,
-      scrollAreaStyleProperty,
-      scrollContentStyleProperty,
-    } = this.state;
+    const {areaClassList, scrollAreaStyleProperty, scrollContentStyleProperty} =
+      this.state;
     const {
       children,
       /* eslint-disable */

@@ -54,7 +54,7 @@ interface DrawerState {
   classList: Set<string>;
 }
 
-const isRefObject = function(
+const isRefObject = function (
   ref: DrawerProps['innerRef']
 ): ref is React.RefObject<HTMLElement> {
   return typeof ref !== 'function';

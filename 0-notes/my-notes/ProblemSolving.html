@@ -1,158 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="./prism.css">
-<script async defer src="./prism.js"></script>
-</head>
-<body>;
-<h1 id="problem-solving">Problem Solving</h1>
-<h2 id="polyas-problem-solving-technique">Polya’s Problem Solving Technique</h2>
-<ul>
-<li>Understand</li>
-<li>Plan</li>
-<li>Execute</li>
-<li>Reflect</li>
-</ul>
-<h3 id="understand">Understand</h3>
-<ul>
-<li>What are inputs code receives?</li>
-<li>What is the range of input?</li>
-<li>How big can input be (how much data)?</li>
-<li>What are outputs your code produces?</li>
-<li>What is range of output?</li>
-<li>How big can output be? How much data?</li>
-<li>How performant must code be?</li>
-<li>What’s missing from task description?</li>
-<li>Are there third-party stakeholders we should consult?</li>
-<li>What assumptions are you making?</li>
-<li>Does anyone else on team need to validate these assumptions?</li>
-</ul>
-<h4 id="most-important-thing-is-to-ask-questions">Most important thing is to ask questions</h4>
-<ul>
-<li>Be as specific as possible.</li>
-<li>Be clear and concise.</li>
-<li>Use unambiguous language.</li>
-<li>Include only necessary details.</li>
-</ul>
-<h4 id="tips-for-solving-a-larger-problem">Tips For Solving A Larger Problem</h4>
-<ul>
-<li>identify smaller components that make up larger problem</li>
-<li>digest and comprehend problem by rewriting in your own words how you would describe it to someone else</li>
-<li>diagram how data flows through problem</li>
-<li>think about each stage of journey of data and what will happen as it travels through program</li>
-<li>what inputs would break your program</li>
-<li>where is description of problem incomplete</li>
-</ul>
-<h4 id="step-1-is-complete-when">Step 1 is complete when</h4>
-<ul>
-<li>Explanation is thorough enough that they can skip to planning stages.</li>
-</ul>
-<h3 id="plan">Plan</h3>
-<p>What steps will I take to solve the problem Transform description into complete actionable plan to solve it If you find shortcomings, drop back to step one to reinforce When interviewing, it’s very important to do this step aloud Write pseudocode during this step</p>
-<h4 id="some-questions-to-ask-answer-in-this-step">Some Questions To Ask &amp; Answer In This Step</h4>
-<ul>
-<li>Do you know the answer to a similar problem with similar inputs &amp; outputs?</li>
-<li>What does this problem remind you of?</li>
-<li>Can you bring that knowledge to bear here?</li>
-<li>Does the plan meet the performance requirements?</li>
-<li>What’s the time &amp; space complexity?</li>
-<li>How big can my input data be?</li>
-<li>Can sorting input data ahead of time lead to any improvements in time complexity?</li>
-<li>Does recursion help?</li>
-<li>Is problem made up of identical subproblems?</li>
-<li>Can you state problem with itself in its own definition?</li>
-<li>Does your plan cover edge cases?</li>
-</ul>
-<h4 id="what-are-some-tips-on-successfully-planning">What Are Some Tips On Successfully Planning</h4>
-<ul>
-<li>Solve problem like human</li>
-<li>break steps into small enough pieces for computer to understand</li>
-<li>approach problem from many angles</li>
-<li>get brute-force solution ASAP even if it’s not performant enough</li>
-<li>come up with as many attack plans as you can</li>
-<li>try to solve a simpler version of the problem</li>
-<li>if input is a 2D array, can you solve it for a 1D array?</li>
-<li>solution to simpler may lead to insights on more complex problem</li>
-<li>list nouns and verbs in problem description
-<ul>
-<li>map each one to algorithm, process, data structure, object, method, etc.</li>
-</ul></li>
-<li>perfect can be the enemy of the good</li>
-<li>premature optimization is the root of all evil</li>
-</ul>
-<h4 id="step-2-is-complete-when">Step 2 is complete when</h4>
-<ul>
-<li>you have enough pseudocode detailed enough to convert to real code</li>
-<li>you should be convinced it represents a legit working solution</li>
-</ul>
-<h3 id="execute">Execute</h3>
-<p>Take your plan and convert it to actual working code. The better you do with steps 1 and 2, the easier this is. Drop back steps as necessary.</p>
-<h4 id="questions-to-ask-in-step-3">Questions To Ask In Step 3</h4>
-<ul>
-<li>Does your implementation handle all inputs?</li>
-<li>What language is best to solve this problem technically?<br />
-</li>
-<li>What language is best to solve this problem for the company?</li>
-<li>What is best way to split code into functional modules?</li>
-<li>Are any modules reusable for later projects?</li>
-<li>Does this functionality exist?</li>
-<li>Built-in libraries, third-party libraries, compatible licenses with our needs?</li>
-</ul>
-<h4 id="actions">Actions</h4>
-<ul>
-<li>start source code control repo</li>
-<li>convert pseudocode &amp; outlines into real code</li>
-<li>DRY = remove redundant code as you write it</li>
-<li>document code as you write it
-<ul>
-<li>header blocks &amp; comments where necessary</li>
-</ul></li>
-<li>follow style guide for company
-<ul>
-<li>if none available, follow codebase</li>
-<li>if no existing base or style, choose best you can find</li>
-</ul></li>
-<li>write unit &amp; end-to-end tests as required</li>
-</ul>
-<h4 id="step-3-is-complete-when-program">Step 3 is complete when program</h4>
-<ul>
-<li>Works on good data</li>
-<li>doesn’t fail on bad data or edge cases</li>
-<li>passes all tests</li>
-</ul>
-<h3 id="reflect">Reflect</h3>
-<h4 id="questions-to-ask-in-step-4">Questions To Ask In Step 4</h4>
-<ul>
-<li>Is this implementation as good as i can make it?</li>
-<li>Does your solution work in all cases, main &amp; edge?</li>
-<li>Is your solution performant enough?</li>
-<li>Is code documented?</li>
-<li>In retrospect, what would you do differently?
-<ul>
-<li>What will you do differently?</li>
-<li>What went right and wrong?</li>
-</ul></li>
-</ul>
-<h4 id="actions-1">Actions</h4>
-<ul>
-<li>document or implement any changes to be made</li>
-<li>document or remove redundant code</li>
-<li>remove unused code</li>
-<li>document future shortcomings in medium/long term</li>
-<li>ID &amp; document algorithms with better time complexity</li>
-<li>ID &amp; document or remove redundant computation</li>
-<li>document embarrassing code to fix
-<ul>
-<li>why not right way</li>
-<li>what to do to make it right</li>
-</ul></li>
-</ul>
-<h4 id="step-4-is-complete-when">Step 4 is complete when</h4>
-<ul>
-<li>there is nothing else to reflect on</li>
-</ul>
-</body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./prism.css" />
+    <script async defer src="./prism.js"></script>
+  </head>
+  <body>
+    ;
+    <h1 id="problem-solving">Problem Solving</h1>
+    <h2 id="polyas-problem-solving-technique">
+      Polya’s Problem Solving Technique
+    </h2>
+    <ul>
+      <li>Understand</li>
+      <li>Plan</li>
+      <li>Execute</li>
+      <li>Reflect</li>
+    </ul>
+    <h3 id="understand">Understand</h3>
+    <ul>
+      <li>What are inputs code receives?</li>
+      <li>What is the range of input?</li>
+      <li>How big can input be (how much data)?</li>
+      <li>What are outputs your code produces?</li>
+      <li>What is range of output?</li>
+      <li>How big can output be? How much data?</li>
+      <li>How performant must code be?</li>
+      <li>What’s missing from task description?</li>
+      <li>Are there third-party stakeholders we should consult?</li>
+      <li>What assumptions are you making?</li>
+      <li>Does anyone else on team need to validate these assumptions?</li>
+    </ul>
+    <h4 id="most-important-thing-is-to-ask-questions">
+      Most important thing is to ask questions
+    </h4>
+    <ul>
+      <li>Be as specific as possible.</li>
+      <li>Be clear and concise.</li>
+      <li>Use unambiguous language.</li>
+      <li>Include only necessary details.</li>
+    </ul>
+    <h4 id="tips-for-solving-a-larger-problem">
+      Tips For Solving A Larger Problem
+    </h4>
+    <ul>
+      <li>identify smaller components that make up larger problem</li>
+      <li>
+        digest and comprehend problem by rewriting in your own words how you
+        would describe it to someone else
+      </li>
+      <li>diagram how data flows through problem</li>
+      <li>
+        think about each stage of journey of data and what will happen as it
+        travels through program
+      </li>
+      <li>what inputs would break your program</li>
+      <li>where is description of problem incomplete</li>
+    </ul>
+    <h4 id="step-1-is-complete-when">Step 1 is complete when</h4>
+    <ul>
+      <li>
+        Explanation is thorough enough that they can skip to planning stages.
+      </li>
+    </ul>
+    <h3 id="plan">Plan</h3>
+    <p>
+      What steps will I take to solve the problem Transform description into
+      complete actionable plan to solve it If you find shortcomings, drop back
+      to step one to reinforce When interviewing, it’s very important to do this
+      step aloud Write pseudocode during this step
+    </p>
+    <h4 id="some-questions-to-ask-answer-in-this-step">
+      Some Questions To Ask &amp; Answer In This Step
+    </h4>
+    <ul>
+      <li>
+        Do you know the answer to a similar problem with similar inputs &amp;
+        outputs?
+      </li>
+      <li>What does this problem remind you of?</li>
+      <li>Can you bring that knowledge to bear here?</li>
+      <li>Does the plan meet the performance requirements?</li>
+      <li>What’s the time &amp; space complexity?</li>
+      <li>How big can my input data be?</li>
+      <li>
+        Can sorting input data ahead of time lead to any improvements in time
+        complexity?
+      </li>
+      <li>Does recursion help?</li>
+      <li>Is problem made up of identical subproblems?</li>
+      <li>Can you state problem with itself in its own definition?</li>
+      <li>Does your plan cover edge cases?</li>
+    </ul>
+    <h4 id="what-are-some-tips-on-successfully-planning">
+      What Are Some Tips On Successfully Planning
+    </h4>
+    <ul>
+      <li>Solve problem like human</li>
+      <li>break steps into small enough pieces for computer to understand</li>
+      <li>approach problem from many angles</li>
+      <li>get brute-force solution ASAP even if it’s not performant enough</li>
+      <li>come up with as many attack plans as you can</li>
+      <li>try to solve a simpler version of the problem</li>
+      <li>if input is a 2D array, can you solve it for a 1D array?</li>
+      <li>solution to simpler may lead to insights on more complex problem</li>
+      <li>
+        list nouns and verbs in problem description
+        <ul>
+          <li>
+            map each one to algorithm, process, data structure, object, method,
+            etc.
+          </li>
+        </ul>
+      </li>
+      <li>perfect can be the enemy of the good</li>
+      <li>premature optimization is the root of all evil</li>
+    </ul>
+    <h4 id="step-2-is-complete-when">Step 2 is complete when</h4>
+    <ul>
+      <li>
+        you have enough pseudocode detailed enough to convert to real code
+      </li>
+      <li>you should be convinced it represents a legit working solution</li>
+    </ul>
+    <h3 id="execute">Execute</h3>
+    <p>
+      Take your plan and convert it to actual working code. The better you do
+      with steps 1 and 2, the easier this is. Drop back steps as necessary.
+    </p>
+    <h4 id="questions-to-ask-in-step-3">Questions To Ask In Step 3</h4>
+    <ul>
+      <li>Does your implementation handle all inputs?</li>
+      <li>What language is best to solve this problem technically?<br /></li>
+      <li>What language is best to solve this problem for the company?</li>
+      <li>What is best way to split code into functional modules?</li>
+      <li>Are any modules reusable for later projects?</li>
+      <li>Does this functionality exist?</li>
+      <li>
+        Built-in libraries, third-party libraries, compatible licenses with our
+        needs?
+      </li>
+    </ul>
+    <h4 id="actions">Actions</h4>
+    <ul>
+      <li>start source code control repo</li>
+      <li>convert pseudocode &amp; outlines into real code</li>
+      <li>DRY = remove redundant code as you write it</li>
+      <li>
+        document code as you write it
+        <ul>
+          <li>header blocks &amp; comments where necessary</li>
+        </ul>
+      </li>
+      <li>
+        follow style guide for company
+        <ul>
+          <li>if none available, follow codebase</li>
+          <li>if no existing base or style, choose best you can find</li>
+        </ul>
+      </li>
+      <li>write unit &amp; end-to-end tests as required</li>
+    </ul>
+    <h4 id="step-3-is-complete-when-program">
+      Step 3 is complete when program
+    </h4>
+    <ul>
+      <li>Works on good data</li>
+      <li>doesn’t fail on bad data or edge cases</li>
+      <li>passes all tests</li>
+    </ul>
+    <h3 id="reflect">Reflect</h3>
+    <h4 id="questions-to-ask-in-step-4">Questions To Ask In Step 4</h4>
+    <ul>
+      <li>Is this implementation as good as i can make it?</li>
+      <li>Does your solution work in all cases, main &amp; edge?</li>
+      <li>Is your solution performant enough?</li>
+      <li>Is code documented?</li>
+      <li>
+        In retrospect, what would you do differently?
+        <ul>
+          <li>What will you do differently?</li>
+          <li>What went right and wrong?</li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="actions-1">Actions</h4>
+    <ul>
+      <li>document or implement any changes to be made</li>
+      <li>document or remove redundant code</li>
+      <li>remove unused code</li>
+      <li>document future shortcomings in medium/long term</li>
+      <li>ID &amp; document algorithms with better time complexity</li>
+      <li>ID &amp; document or remove redundant computation</li>
+      <li>
+        document embarrassing code to fix
+        <ul>
+          <li>why not right way</li>
+          <li>what to do to make it right</li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="step-4-is-complete-when">Step 4 is complete when</h4>
+    <ul>
+      <li>there is nothing else to reflect on</li>
+    </ul>
+  </body>
+</html>

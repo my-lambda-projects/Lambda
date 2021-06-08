@@ -109,7 +109,8 @@ export function withRipple<
         RippledComponentProps<Surface>,
       RippledComponentState
     >
-    implements RippledComponentInterface<Surface, Activator> {
+    implements RippledComponentInterface<Surface, Activator>
+  {
     foundation!: MDCRippleFoundation;
     isComponentMounted: boolean = true;
     isTouched: boolean = false;
@@ -348,19 +349,19 @@ export function withRipple<
 
     render() {
       const {
-      /* eslint-disable */
-      unbounded,
-      style,
-      className,
-      onMouseDown,
-      onMouseUp,
-      onTouchStart,
-      onTouchEnd,
-      onKeyDown,
-      onKeyUp,
-      onFocus,
-      onBlur,
-      /* eslint-enable */
+        /* eslint-disable */
+        unbounded,
+        style,
+        className,
+        onMouseDown,
+        onMouseUp,
+        onTouchStart,
+        onTouchEnd,
+        onKeyDown,
+        onKeyUp,
+        onFocus,
+        onBlur,
+        /* eslint-enable */
         ...otherProps
       } = this.props as P;
 

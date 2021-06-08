@@ -59,10 +59,7 @@ class InputChips extends React.Component {
   };
 
   getUUID(label: string) {
-    return (
-      label.replace(/\s/g, '') +
-      Math.random().toString().slice(2)
-    );
+    return label.replace(/\s/g, '') + Math.random().toString().slice(2);
   }
 
   handleKeyDown = (e: any) => {

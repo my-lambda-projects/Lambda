@@ -1,4 +1,4 @@
-@import "../../../packages/checkbox/index.scss";
+@import '../../../packages/checkbox/index.scss';
 
 .custom-checkbox {
   @include mdc-checkbox-container-colors(primary, white, primary, primary);

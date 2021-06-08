@@ -13,6 +13,7 @@ npm install @material/react-tab-bar
 ### Styles
 
 with Sass:
+
 ```scss
 import '@material/react-tab-bar/index.scss';
 import '@material/react-tab-scroller/index.scss';
@@ -21,6 +22,7 @@ import '@material/react-tab-indicator/index.scss';
 ```
 
 with CSS:
+
 ```css
 import '@material/react-tab-bar/dist/tab-bar.css';
 import '@material/react-tab-scroller/dist/tab-scroller.css';
@@ -62,13 +64,13 @@ class MyApp extends React.Component {
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-activeIndex | number | Index of the active tab.
-indexInView | number | Index of the tab to be scrolled into view.
-handleActiveIndexUpdate | Function(activeIndex: number) => void | Callback after the active index is updated.
-className | string | Classes to appear on className attribute of root element.
-isRtl | Boolean |  Whether the direction of the tab bar is RTL.
+| Prop Name               | Type                                  | Description                                               |
+| ----------------------- | ------------------------------------- | --------------------------------------------------------- |
+| activeIndex             | number                                | Index of the active tab.                                  |
+| indexInView             | number                                | Index of the tab to be scrolled into view.                |
+| handleActiveIndexUpdate | Function(activeIndex: number) => void | Callback after the active index is updated.               |
+| className               | string                                | Classes to appear on className attribute of root element. |
+| isRtl                   | Boolean                               | Whether the direction of the tab bar is RTL.              |
 
 ## Sass Mixins
 
