@@ -1,7 +1,4 @@
-
 ![Image]()
-
-
 
 # 14 Patterns to Ace Any Coding Interview Question
 
@@ -34,7 +31,7 @@ Following are some ways you can identify that the given problem might require a 
 
 Two Pointers is a pattern where two pointers iterate through the data structure in tandem until one or both of the pointers hit a certain condition.Two Pointers is often useful when searching pairs in a sorted array or linked list; for example, when you have to compare each element of an array to its other elements.
 
-Two pointers are needed because with just pointer, you would have to continually loop back through the array to find the answer. This back and forth with a single iterator is inefficient for time and space complexity — a concept referred to as asymptotic analysis. 
+Two pointers are needed because with just pointer, you would have to continually loop back through the array to find the answer. This back and forth with a single iterator is inefficient for time and space complexity — a concept referred to as asymptotic analysis.
 
 While the brute force or naive solution with 1 pointer would work, it will produce something along the lines of O(n²). In many cases, two pointers can help you find a solution with better space or runtime complexity.
 
@@ -256,6 +253,7 @@ The pattern looks like this:
 - Repeat steps 2 and 3 to populate the merged list in sorted order.
 
 How to identify the K-way Merge pattern:
+
 - The problem will feature sorted arrays, lists, or a matrix
 - If the problem asks you to merge sorted lists, find the smallest element in a sorted list.
 
@@ -273,8 +271,8 @@ This pattern defines an easy way to understand the technique for performing topo
 The pattern works like this:
 
 - Initialization
-  -  Store the graph in adjacency lists by using a HashMap
-  -  To find all sources, use a HashMap to keep the count of in-degreesBuild the graph and find in-degrees of all vertices
+  - Store the graph in adjacency lists by using a HashMap
+  - To find all sources, use a HashMap to keep the count of in-degreesBuild the graph and find in-degrees of all vertices
 - Build the graph from the input and populate the in-degrees HashMap.
 - Find all sources
   - All vertices with ‘0’ in-degrees will be sources and are stored in a Queue.

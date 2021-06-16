@@ -34,12 +34,12 @@ This command opens a container based from the `mdcreact/screenshots` image you c
 
 #### Breaking it down
 
-Option | Description
---- | ---
-`-it` | Allow CLI interaction with the container
-`--rm` | When the container is closed, remove it from memory
-`--cap-add=SYS_ADMIN` | Run container with system admin privileges
-`-e MDC_...="${MDC_...}"` | Set MDC_GCLOUD_SERVICE_ACCOUNT_KEY env variable
+| Option                    | Description                                         |
+| ------------------------- | --------------------------------------------------- |
+| `-it`                     | Allow CLI interaction with the container            |
+| `--rm`                    | When the container is closed, remove it from memory |
+| `--cap-add=SYS_ADMIN`     | Run container with system admin privileges          |
+| `-e MDC_...="${MDC_...}"` | Set MDC_GCLOUD_SERVICE_ACCOUNT_KEY env variable     |
 
 ### STEP 3: Run Tests
 

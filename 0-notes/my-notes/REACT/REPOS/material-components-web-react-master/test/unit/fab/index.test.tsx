@@ -74,10 +74,7 @@ test('a tag is rendered', () => {
 test('i tag is rendered with mdc-fab__icon class', () => {
   const wrapper = mount(<Fab icon={<i className='test-class-1' />} />);
   assert.isTrue(
-    wrapper
-      .find('button')
-      .find('.test-class-1')
-      .hasClass('mdc-fab__icon')
+    wrapper.find('button').find('.test-class-1').hasClass('mdc-fab__icon')
   );
 });
 

@@ -52,25 +52,26 @@ const NavigationIconWithRipple = withRipple<RippleProps, HTMLAnchorElement>(
   NavigationIcon
 );
 const title: string = 'Miami, FL';
-const TopAppBarStandardWithNavigationIconElementScreenshotTest: React.FunctionComponent = () => {
-  return (
-    <div className='top-app-bar-container'>
-      <TopAppBar>
-        <TopAppBarRow>
-          <TopAppBarSection align='start'>
-            <TopAppBarIcon navIcon tabIndex={0}>
-              <NavigationIconWithRipple unbounded />
-            </TopAppBarIcon>
-            <TopAppBarTitle>{title}</TopAppBarTitle>
-          </TopAppBarSection>
-          <TopAppBarSection align='end' role='toolbar'>
-            {actionItems.map(mapActionItem)}
-          </TopAppBarSection>
-        </TopAppBarRow>
-      </TopAppBar>
-      <MainTopAppBarContent />
-    </div>
-  );
-};
+const TopAppBarStandardWithNavigationIconElementScreenshotTest: React.FunctionComponent =
+  () => {
+    return (
+      <div className='top-app-bar-container'>
+        <TopAppBar>
+          <TopAppBarRow>
+            <TopAppBarSection align='start'>
+              <TopAppBarIcon navIcon tabIndex={0}>
+                <NavigationIconWithRipple unbounded />
+              </TopAppBarIcon>
+              <TopAppBarTitle>{title}</TopAppBarTitle>
+            </TopAppBarSection>
+            <TopAppBarSection align='end' role='toolbar'>
+              {actionItems.map(mapActionItem)}
+            </TopAppBarSection>
+          </TopAppBarRow>
+        </TopAppBar>
+        <MainTopAppBarContent />
+      </div>
+    );
+  };
 
 export default TopAppBarStandardWithNavigationIconElementScreenshotTest;

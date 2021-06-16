@@ -7,9 +7,7 @@
     "expect": true,
     "sinon": true
   },
-  "plugins": [
-    "mocha"
-  ],
+  "plugins": ["mocha"],
   "rules": {
     "no-unused-expressions": 0,
     "mocha/no-exclusive-tests": 2,

@@ -13,10 +13,10 @@ Please refer to [screenshot tests](../screenshot-tests.md).
 
 We use:
 
-* [Enzyme](https://airbnb.io/enzyme/)
-* [Karma](https://karma-runner.github.io/latest/index.html)
-* [Mocha](https://mochajs.org/)
-* [Chai Assert](https://www.chaijs.com/api/assert/)
+- [Enzyme](https://airbnb.io/enzyme/)
+- [Karma](https://karma-runner.github.io/latest/index.html)
+- [Mocha](https://mochajs.org/)
+- [Chai Assert](https://www.chaijs.com/api/assert/)
 
 To run a single instance of the tests, run:
 
@@ -42,10 +42,10 @@ We use [Istanbul](https://istanbul.js.org/) to report and check code coverage. T
 
 We aim for:
 
-* Statements: 95%
-* Branches: 95%
-* Functions: 95%
-* Lines: 95%
+- Statements: 95%
+- Branches: 95%
+- Functions: 95%
+- Lines: 95%
 
 If they do not meet these requirements, we will ask to increase test coverage.
 
@@ -53,8 +53,8 @@ If they do not meet these requirements, we will ask to increase test coverage.
 
 Below is a list of the Eslint standards:
 
-* [Google Eslint](https://github.com/google/eslint-config-google)
-* [React Eslint](https://github.com/yannickcr/eslint-plugin-react)
+- [Google Eslint](https://github.com/google/eslint-config-google)
+- [React Eslint](https://github.com/yannickcr/eslint-plugin-react)
 
 To run lint:
 

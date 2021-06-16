@@ -13,13 +13,15 @@ npm install @material/react-checkbox
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-checkbox/index.scss';
 ```
 
 with CSS:
+
 ```js
-import "@material/react-checkbox/dist/checkbox.css";
+import '@material/react-checkbox/dist/checkbox.css';
 ```
 
 ### Javascript Instantiation
@@ -38,9 +40,11 @@ class MyApp extends React.Component {
           nativeControlId='my-checkbox'
           checked={this.state.checked}
           indeterminate={this.state.indeterminate}
-          onChange={(e) => this.setState({
-            checked: e.target.checked,
-            indeterminate: e.target.indeterminate})
+          onChange={(e) =>
+            this.setState({
+              checked: e.target.checked,
+              indeterminate: e.target.indeterminate,
+            })
           }
         />
         <label htmlFor='my-checkbox'>My Checkbox</label>
@@ -54,13 +58,13 @@ class MyApp extends React.Component {
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the checkbox element
-checked | Boolean | Indicates whether the checkbox is checked ("on")
-indeterminate | Boolean | Indicates whether the checkbox is indeterminate
-disabled | Boolean | Indicates whether the checkbox is disabled
-nativeControlId | String | Id attached to the native control for relationship with the label
+| Prop Name       | Type    | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| className       | String  | Classes to be applied to the checkbox element                     |
+| checked         | Boolean | Indicates whether the checkbox is checked ("on")                  |
+| indeterminate   | Boolean | Indicates whether the checkbox is indeterminate                   |
+| disabled        | Boolean | Indicates whether the checkbox is disabled                        |
+| nativeControlId | String  | Id attached to the native control for relationship with the label |
 
 ## Sass Mixins
 

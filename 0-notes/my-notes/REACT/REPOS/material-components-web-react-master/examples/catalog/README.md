@@ -3,6 +3,7 @@
 This is an example that looks like catalog using mdc-react.
 
 ## Running example
+
 > starting from root directory (`/material-components-web-react`)
 
 1. `cd ./examples/catalog`
@@ -11,6 +12,7 @@ This is an example that looks like catalog using mdc-react.
 4. in web browser, head to `localhost:4200`
 
 ## Building example
+
 > starting from root directory (`/material-components-web-react`)
 
 1. `cd ./examples/catalog`

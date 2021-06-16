@@ -91,9 +91,8 @@ test(
     'props.isValid updates',
   () => {
     const wrapper = shallow<HelperText>(<HelperText>Helper Text</HelperText>);
-    wrapper.instance().foundation.setValidity = td.func<
-      (isValidity: boolean) => void
-    >();
+    wrapper.instance().foundation.setValidity =
+      td.func<(isValidity: boolean) => void>();
     wrapper.setProps({isValid: false});
     td.verify(wrapper.instance().foundation.setValidity(false), {times: 1});
   }
@@ -101,9 +100,8 @@ test(
 
 test('#componentDidUpdate calls setValidation to true if props.isValidationMessage updates', () => {
   const wrapper = shallow<HelperText>(<HelperText>Helper Text</HelperText>);
-  wrapper.instance().foundation.setValidation = td.func<
-    (isValidation: boolean) => void
-  >();
+  wrapper.instance().foundation.setValidation =
+    td.func<(isValidation: boolean) => void>();
   wrapper.setProps({isValidationMessage: true});
   td.verify(wrapper.instance().foundation.setValidation(true), {times: 1});
 });
@@ -113,12 +111,10 @@ test(
   () => {
     const wrapper = shallow<HelperText>(<HelperText>Helper Text</HelperText>);
     wrapper.instance().foundation.showToScreenReader = td.func<() => void>();
-    wrapper.instance().foundation.setValidity = td.func<
-      (isValidity: boolean) => void
-    >();
-    wrapper.instance().foundation.setValidation = td.func<
-      (isValidation: boolean) => void
-    >();
+    wrapper.instance().foundation.setValidity =
+      td.func<(isValidity: boolean) => void>();
+    wrapper.instance().foundation.setValidation =
+      td.func<(isValidation: boolean) => void>();
     wrapper.setProps({persistent: true});
     td.verify(wrapper.instance().foundation.showToScreenReader(), {times: 0});
     td.verify(

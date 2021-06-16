@@ -243,18 +243,8 @@ test('#adapter.setTabIndexForListItemChildren updates the button and anchor tag 
   );
   wrapper.instance().adapter.setTabIndexForListItemChildren(0, '0');
   const listItem = wrapper.childAt(0).childAt(0);
-  assert.isTrue(
-    listItem
-      .find('a')
-      .html()
-      .includes('tabindex="0"')
-  );
-  assert.isTrue(
-    listItem
-      .find('button')
-      .html()
-      .includes('tabindex="0"')
-  );
+  assert.isTrue(listItem.find('a').html().includes('tabindex="0"'));
+  assert.isTrue(listItem.find('button').html().includes('tabindex="0"'));
 });
 
 test('#adapter.focusItemAtIndex calls focus on the listitem', () => {
@@ -349,10 +339,7 @@ test('#adapter.isFocusInsideList returns true if the list element has focus insi
     </List>,
     options
   );
-  wrapper
-    .instance()
-    .listElements[0].querySelector('button')!
-    .focus();
+  wrapper.instance().listElements[0].querySelector('button')!.focus();
   assert.isTrue(wrapper.instance().adapter.isFocusInsideList());
   div.remove();
 });
@@ -369,9 +356,8 @@ test('#adapter.isFocusInsideList returns true if the list element has focus insi
 });
 
 test('#adapter.notifyAction calls props.handleSelect with args', () => {
-  const handleSelect = td.func<
-    (selectedIndex: number, selected: MDCListIndex) => void
-  >();
+  const handleSelect =
+    td.func<(selectedIndex: number, selected: MDCListIndex) => void>();
   const wrapper = mount<List>(
     <List handleSelect={handleSelect}>
       <ListItem />

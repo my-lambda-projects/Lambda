@@ -102,10 +102,11 @@ Correct, the majority of the complexity was due to the logistics of managing hun
 
 **I’m going to attempt to re-state the process in my own words.**
 
-***   We have lots of websites. For some of them, we control their DNS settings via GoDaddy. For others, the client retains control, via their domain name registrar of choice.
-*   We used Fake, humans, and API calls to manage the domain pointing and setting. For domains out of our control, we had to wrangle our clients via several rounds of email, sent to a list gathered via CRM and Whois.
-*   No worries about media file urls or anything because of the simple fact that with CloudFlare, you change your nameservers to point to them.
-*   The difficulty for a single site would be trivial. Any appreciable hardship on this move came as a result of our high domain:staff ratio.**
+\*\*\* We have lots of websites. For some of them, we control their DNS settings via GoDaddy. For others, the client retains control, via their domain name registrar of choice.
+
+- We used Fake, humans, and API calls to manage the domain pointing and setting. For domains out of our control, we had to wrangle our clients via several rounds of email, sent to a list gathered via CRM and Whois.
+- No worries about media file urls or anything because of the simple fact that with CloudFlare, you change your nameservers to point to them.
+- The difficulty for a single site would be trivial. Any appreciable hardship on this move came as a result of our high domain:staff ratio.\*\*
 
 **Is that accurate? Anything to add or take away?**
 
@@ -125,8 +126,8 @@ They claim in the video, which is about a minute long, that the video takes long
 
 I suppose the more interesting topic, is _so what_? Is my site any faster? Unlike most of our sites at work, my site has tons of large images. It’s basically a high-res photo gallery. Pre CloudFlare, this page took about 3.1 seconds to load, uncached: [http://scottfennell.com/turkey/suphan-dagi/](http://scottfennell.com/turkey/suphan-dagi/). With CloudFlare active, it’s taking about 2.2. Pages with more media are even more accelerated, and where I’ve enabled page-caching, I’m getting to DOM ready in about 300ms. If you’re curious to inspect the network panel yourself:
 
-*   Has page-caching: [http://scottfennell.com/turkey/](http://scottfennell.com/turkey/)
-*   Does not have page-caching: [http://scottfennell.com/japan/](http://scottfennell.com/japan/)
+- Has page-caching: [http://scottfennell.com/turkey/](http://scottfennell.com/turkey/)
+- Does not have page-caching: [http://scottfennell.com/japan/](http://scottfennell.com/japan/)
 
 Check out these analytics, after just a few days behind CloudFlare:
 
@@ -160,9 +161,8 @@ I’ve gone from being vaguely aware and happy that we moved to CloudFlare, to b
 
 Aside from the business case for CDN’s, there’s also an opportunity for skill development. If you’re like me, you spend a lot of time off on an island in your text-editor, and it’s easy to become divorced from the process of actually serving that code in production. Spending some time learning my DNS vocab words has been a refreshing chance of pace. If that sounds like you, and you don’t have your sites behind a CDN, take a break from code for a while, and audit CloudFlare.
 
-* * *
+---
 
 _[Scott Fennell](http://scottfennell.org/) is a WordPress theme and plugin developer in Anchorage, Alaska._
-
 
 [Source](https://css-tricks.com/moving-to-a-cdn/)

@@ -13,11 +13,13 @@ npm install @material/react-list
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-list/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-list/dist/list.css';
 ```
@@ -33,13 +35,13 @@ class MyApp extends Component {
     return (
       <List>
         <ListItem>
-          <ListItemText primaryText='Photos'/>
+          <ListItemText primaryText='Photos' />
         </ListItem>
         <ListItem>
-          <ListItemText primaryText='Recipes'/>
+          <ListItemText primaryText='Recipes' />
         </ListItem>
         <ListItem>
-          <ListItemText primaryText='Work'/>
+          <ListItemText primaryText='Work' />
         </ListItem>
       </List>
     );
@@ -66,19 +68,13 @@ class MyApp extends Component {
     return (
       <List twoLine>
         <ListItem>
-          <ListItemText
-            primaryText='Photos'
-            secondaryText='Jan 9, 2018' />
+          <ListItemText primaryText='Photos' secondaryText='Jan 9, 2018' />
         </ListItem>
         <ListItem>
-          <ListItemText
-            primaryText='Recipes'
-            secondaryText='Jan 17, 2018' />
+          <ListItemText primaryText='Recipes' secondaryText='Jan 17, 2018' />
         </ListItem>
         <ListItem>
-          <ListItemText
-            primaryText='Work'
-            secondaryText='Jan 28, 2018' />
+          <ListItemText primaryText='Work' secondaryText='Jan 28, 2018' />
         </ListItem>
       </List>
     );
@@ -93,14 +89,19 @@ You may add a leading visuals or trailing metadata to a list item using `ListIte
 ```js
 import React, {Component} from 'react';
 import MaterialIcon from '@material/react-material-icon';
-import List, {ListItem, ListItemGraphic, ListItemText, ListItemMeta} from '@material/react-list';
+import List, {
+  ListItem,
+  ListItemGraphic,
+  ListItemText,
+  ListItemMeta,
+} from '@material/react-list';
 
 class MyApp extends Component {
   render() {
     return (
       <List>
         <ListItem>
-          <ListItemGraphic graphic={<MaterialIcon icon='folder'/>} />
+          <ListItemGraphic graphic={<MaterialIcon icon='folder' />} />
           <ListItemText primaryText='Photos' />
           <ListItemMeta meta='info' />
         </ListItem>
@@ -109,7 +110,6 @@ class MyApp extends Component {
     );
   }
 }
-
 ```
 
 ### List groups and list dividers
@@ -119,8 +119,11 @@ Multiple related lists can be grouped together using the `ListGroup` component. 
 ```js
 import React, {Component} from 'react';
 import List, {
-  ListItem, ListItemText, ListGroup,
-  ListGroupSubheader,ListDivider
+  ListItem,
+  ListItemText,
+  ListGroup,
+  ListGroupSubheader,
+  ListDivider,
 } from '@material/react-list';
 
 class MyApp extends Component {
@@ -134,7 +137,7 @@ class MyApp extends Component {
           </ListItem>
           ...
         </List>
-        <ListDivider tag="div" />
+        <ListDivider tag='div' />
         <ListGroupSubheader tag='h2'>Recent Files</ListGroupSubheader>
         <List>
           <ListItem>
@@ -171,13 +174,13 @@ class MyApp extends Component {
         handleSelect={(selectedIndex) => this.setState({selectedIndex})}
       >
         <ListItem>
-          <ListItemText primaryText='Photos'/>
+          <ListItemText primaryText='Photos' />
         </ListItem>
         <ListItem>
-          <ListItemText primaryText='Recipes'/>
+          <ListItemText primaryText='Recipes' />
         </ListItem>
         <ListItem>
-          <ListItemText primaryText='Work'/>
+          <ListItemText primaryText='Work' />
         </ListItem>
       </List>
     );
@@ -204,19 +207,21 @@ class MyApp extends Component {
       <List
         checkboxList
         selectedIndex={this.state.selectedIndex}
-        handleSelect={(activatedIndex, allSelected) => this.setState({selectedIndex: allSelected})}
+        handleSelect={(activatedIndex, allSelected) =>
+          this.setState({selectedIndex: allSelected})
+        }
       >
         <ListItem>
           <Checkbox />
-          <ListItemText primaryText='Photos'/>
+          <ListItemText primaryText='Photos' />
         </ListItem>
         <ListItem>
           <Checkbox checked />
-          <ListItemText primaryText='Recipes'/>
+          <ListItemText primaryText='Recipes' />
         </ListItem>
         <ListItem>
           <Checkbox />
-          <ListItemText primaryText='Work'/>
+          <ListItemText primaryText='Work' />
         </ListItem>
       </List>
     );
@@ -228,7 +233,7 @@ class MyApp extends Component {
 
 You can use the `radioList` Boolean prop for `List` to enable the radio list logic. Set `selectedIndex` to the index of the listItem initially selected to accurately setup the component for a11y. Changing `selectedIndex` programatically will not affect the radio element -- you must instead programatically change the radio via it's `checked` prop. Interactions (click/arrow keys) will update the radios as expected. To get the selectedIndex, setup the radio's `onChange` method as shown below. See the [Radio Readme](../radio/README.md) for more details.
 
-> Note: We know this API is inconsistent with checkbox list. This is because the implementations of radio and checkbox differ. In the coming months, we will try to normalize the design. 
+> Note: We know this API is inconsistent with checkbox list. This is because the implementations of radio and checkbox differ. In the coming months, we will try to normalize the design.
 
 ```jsx
 import React, {Component} from 'react';
@@ -242,34 +247,29 @@ class MyApp extends Component {
 
   handleChange = (e) => {
     this.setState({selectedItem: e.target.value});
-  }
+  };
 
   render() {
     const listItems = ['Photos', 'Recipes', 'Work'];
 
     return (
-      <List
-        radioList
-        selectedIndex={0}
-      >
-        {
-          listItems.map((item, index) => {
-            return (
-              <ListItem key={index}>
-                <Radio>
-                  <NativeRadioControl
-                    name={item}
-                    checked={this.state.selectedItem === item}
-                    value={item}
-                    id={`${index}-${item}`}
-                    onChange={this.handleChange}
-                  />
-                </Radio>
-                <ListItemText primaryText='Photos'/>
-              </ListItem>
-            );
-          })
-        }
+      <List radioList selectedIndex={0}>
+        {listItems.map((item, index) => {
+          return (
+            <ListItem key={index}>
+              <Radio>
+                <NativeRadioControl
+                  name={item}
+                  checked={this.state.selectedItem === item}
+                  value={item}
+                  id={`${index}-${item}`}
+                  onChange={this.handleChange}
+                />
+              </Radio>
+              <ListItemText primaryText='Photos' />
+            </ListItem>
+          );
+        })}
       </List>
     );
   }
@@ -280,56 +280,56 @@ class MyApp extends Component {
 
 ### List
 
-| Prop Name        | Type                                    | Description                                                                                                                       |
-| ---------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| className        | String                                  | Classes to be applied to the list element                                                                                         |
-| nonInteractive   | Boolean                                 | Disables interactivity affordances                                                                                                |
-| dense            | Boolean                                 | Styles the density of the list, making it appear more compact                                                                     |
-| avatarList       | Boolean                                 | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger |
-| twoLine          | Boolean                                 | Styles the list with two lines                                                                                                    |
-| singleSelection  | Boolean                                 | Allows for single selection of list items                                                                                         |
-| wrapFocus        | Boolean                                 | Sets the list to allow the up arrow on the first element to focus the last element of the list and vice versa                     |
-| checkboxList     | Boolean                                 | Set the list to act as a checkbox list |
-| radioList        | Boolean                                 | Set the list to act as a radio list |
-| selectedIndex    | Number | Array<Number>       | Toggles the selected state of the list item at the given index. Behaves differently for checkboxList and radioList (see sections above for more detail). |
-| handleSelect     | Function(activatedItemIndex: Number, selected: Number | Array<Number>) => void | Callback for handling a list item selection event. `selected` will be an Array,Number> for checkbox lists. |
-| orientation | `'vertical'` \| `'horizontal'` | Indicates the list orientation (defaults to `'vertical'`). |
-| tag              | String                                  | Customizes the list tag type (defaults to `'ul'`)                                                                                 |
+| Prop Name       | Type                                                  | Description                                                                                                                       |
+| --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| className       | String                                                | Classes to be applied to the list element                                                                                         |
+| nonInteractive  | Boolean                                               | Disables interactivity affordances                                                                                                |
+| dense           | Boolean                                               | Styles the density of the list, making it appear more compact                                                                     |
+| avatarList      | Boolean                                               | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger |
+| twoLine         | Boolean                                               | Styles the list with two lines                                                                                                    |
+| singleSelection | Boolean                                               | Allows for single selection of list items                                                                                         |
+| wrapFocus       | Boolean                                               | Sets the list to allow the up arrow on the first element to focus the last element of the list and vice versa                     |
+| checkboxList    | Boolean                                               | Set the list to act as a checkbox list                                                                                            |
+| radioList       | Boolean                                               | Set the list to act as a radio list                                                                                               |
+| selectedIndex   | Number                                                | Array<Number>                                                                                                                     | Toggles the selected state of the list item at the given index. Behaves differently for checkboxList and radioList (see sections above for more detail). |
+| handleSelect    | Function(activatedItemIndex: Number, selected: Number | Array<Number>) => void                                                                                                            | Callback for handling a list item selection event. `selected` will be an Array,Number> for checkbox lists.                                               |
+| orientation     | `'vertical'` \| `'horizontal'`                        | Indicates the list orientation (defaults to `'vertical'`).                                                                        |
+| tag             | String                                                | Customizes the list tag type (defaults to `'ul'`)                                                                                 |
 
 ### ListItem
 
-| Prop Name            | Type                         | Description                                                                         |
-| -------------------- | ---------------------------- | ----------------------------------------------------------------------------------- |
-| tag                  | String                       | Customizes the list tag type (defaults to `'li'`)                                   |
-| checkboxList | Boolean | Set the list item to act as a checkbox list |
-| radioList | Boolean | Set the list item to act as a radio list |
-| activated | Boolean | Sets the list item to the activated state |
-| selected | Boolean | Sets the list item to the selected state |
+| Prop Name    | Type    | Description                                       |
+| ------------ | ------- | ------------------------------------------------- |
+| tag          | String  | Customizes the list tag type (defaults to `'li'`) |
+| checkboxList | Boolean | Set the list item to act as a checkbox list       |
+| radioList    | Boolean | Set the list item to act as a radio list          |
+| activated    | Boolean | Sets the list item to the activated state         |
+| selected     | Boolean | Sets the list item to the selected state          |
 
 ### ListItemText
 
-| Prop Name               | Type    | Description                                                                                                       |
-| ----------------------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
-| className               | String  | Classes to be applied to the list item text element                                                               |
-| tabIndex                | Number  | Tab index of the list item text                                                                                   |
-| primaryText             | String  | Primary text for the list item                                                                                    |
-| secondaryText           | String  | Secondary text for the list item                                                                                  |
+| Prop Name     | Type   | Description                                         |
+| ------------- | ------ | --------------------------------------------------- |
+| className     | String | Classes to be applied to the list item text element |
+| tabIndex      | Number | Tab index of the list item text                     |
+| primaryText   | String | Primary text for the list item                      |
+| secondaryText | String | Secondary text for the list item                    |
 
 ### ListItemGraphic
 
-| Prop Name               | Type    | Description                                                                                                          |
-| ----------------------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
-| className               | String  | Classes to be applied to the list item graphic element                                                               |
-| tabIndex                | Number  | Tab index of the list item graphic                                                                                   |
-| graphic                 | Element | The graphic element to be displayed in front of list item text                                                       |
+| Prop Name | Type    | Description                                                    |
+| --------- | ------- | -------------------------------------------------------------- |
+| className | String  | Classes to be applied to the list item graphic element         |
+| tabIndex  | Number  | Tab index of the list item graphic                             |
+| graphic   | Element | The graphic element to be displayed in front of list item text |
 
 ### ListItemMeta
 
-| Prop Name               | Type              | Description                                                                                                       |
-| ----------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
-| className               | String            | Classes to be applied to the list item meta element                                                               |
-| tabIndex                | Number            | Tab index of the list item meta                                                                                   |
-| meta                    | Element or String | The meta element or string to be displayed behind list item text                                                  |
+| Prop Name | Type              | Description                                                      |
+| --------- | ----------------- | ---------------------------------------------------------------- |
+| className | String            | Classes to be applied to the list item meta element              |
+| tabIndex  | Number            | Tab index of the list item meta                                  |
+| meta      | Element or String | The meta element or string to be displayed behind list item text |
 
 ### ListDivider
 
@@ -345,7 +345,6 @@ class MyApp extends Component {
 | --------- | ------ | ------------------------------------------------ |
 | className | String | Classes to be applied to the list group          |
 | tag       | String | Element tag of the list group, defaults to `div` |
-
 
 ### ListGroupSubheader
 

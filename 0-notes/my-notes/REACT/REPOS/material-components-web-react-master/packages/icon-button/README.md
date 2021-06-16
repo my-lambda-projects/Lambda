@@ -10,15 +10,16 @@ npm install @material/react-icon-button
 
 ## Usage
 
-
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-icon-button/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-icon-button/dist/icon-button.css';
 ```
@@ -64,7 +65,7 @@ class MyApp extends React.Component {
         <IconToggle>
           <MaterialIcon icon='favorite_border' />
         </IconToggle>
-      </IconButton>      
+      </IconButton>
     );
   }
 }
@@ -72,13 +73,13 @@ class MyApp extends React.Component {
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Element | Icon element or text to be displayed within root element.
-className | String | Classes to be applied to the root element.
-disabled | Boolean | Disables button if true.
-isLink | Boolean | Changes root element to an anchor tag (default button).
-onClick | Function | Click event handler. Event is passed as an argument
+| Prop Name | Type     | Description                                               |
+| --------- | -------- | --------------------------------------------------------- |
+| children  | Element  | Icon element or text to be displayed within root element. |
+| className | String   | Classes to be applied to the root element.                |
+| disabled  | Boolean  | Disables button if true.                                  |
+| isLink    | Boolean  | Changes root element to an anchor tag (default button).   |
+| onClick   | Function | Click event handler. Event is passed as an argument       |
 
 ## Sass Mixins
 

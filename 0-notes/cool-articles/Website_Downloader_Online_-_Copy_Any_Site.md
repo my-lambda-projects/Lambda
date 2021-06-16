@@ -2,9 +2,9 @@ Our website downloader is an online web crawler, which allows you to download co
 
 ## Why Are We The Best Website Copier?
 
--   Easy to use
--   No software installation; our site ripper is 100% webbased
--   Email support 24/7
+- Easy to use
+- No software installation; our site ripper is 100% webbased
+- Email support 24/7
 
 We also give away the first 10MB of data for free, which is enough for small websites and serves as a proof of concept for bigger customers.
 
@@ -12,10 +12,10 @@ We also give away the first 10MB of data for free, which is enough for small web
 
 You can choose to either download a full site or scrape only a selection of files. For example, you can choose to:
 
--   Save all data for offline browsing. This includes all HTML, CSS, javascript etc. This allows you to rip all content from another domain.
--   Download all images from a website. This only saves image files, such as .gif, jpeg/jpg and png.
--   Scrape all video files. This is a custom setting that sends you all video files, such as avi, mp4, flv, mov, etc.
--   Download all files from a website with a specific extension. This is a custom option for an extra price, depending on the file size and scope of the project. A common request is to download all PDF files from a specific domain.
+- Save all data for offline browsing. This includes all HTML, CSS, javascript etc. This allows you to rip all content from another domain.
+- Download all images from a website. This only saves image files, such as .gif, jpeg/jpg and png.
+- Scrape all video files. This is a custom setting that sends you all video files, such as avi, mp4, flv, mov, etc.
+- Download all files from a website with a specific extension. This is a custom option for an extra price, depending on the file size and scope of the project. A common request is to download all PDF files from a specific domain.
 
 It is also possible to use free web crawlers such as httrack, but they require extensive technical knowledge and have a steep learning curve. Neither are they web-based, so you have to install software on your own computer, and leave your computer on when scraping large websites.
 
@@ -27,10 +27,10 @@ Some people do not want to download a full website, but only need specific files
 
 ## Reasons To Use An Online Website Downloader
 
--   Copy a competitor's website
--   Download websites for offline browsing
--   An easy way to archive content and create backups for legal reasons
--   Migrate static HTML websites to another host
+- Copy a competitor's website
+- Download websites for offline browsing
+- An easy way to archive content and create backups for legal reasons
+- Migrate static HTML websites to another host
 
 If your website was written in HTML - and didn't use a Content Management System - then this is also an excellent migration tool. Simply scrape the entire website and move all the html files to your new web host.
 

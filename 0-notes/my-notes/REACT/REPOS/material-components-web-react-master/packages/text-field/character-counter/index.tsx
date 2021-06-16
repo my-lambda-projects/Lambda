@@ -37,9 +37,7 @@ export interface CharacterCounterProps extends React.HTMLProps<HTMLDivElement> {
   template?: string;
 }
 
-export default class CharacterCounter extends React.Component<
-  CharacterCounterProps
-> {
+export default class CharacterCounter extends React.Component<CharacterCounterProps> {
   foundation = new MDCTextFieldCharacterCounterFoundation(this.adapter);
 
   componentWillUnmount() {

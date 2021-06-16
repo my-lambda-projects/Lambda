@@ -13,14 +13,6 @@
     "react/no-did-update-set-state": "off",
     "flowtype/define-flow-type": 1
   },
-  "extends": [
-    "seatgeek-standard",
-    "seatgeek-react-standard"
-  ],
-  "plugins": [
-    "react",
-    "prettier",
-    "flowtype"
-  ]
+  "extends": ["seatgeek-standard", "seatgeek-react-standard"],
+  "plugins": ["react", "prettier", "flowtype"]
 }
-

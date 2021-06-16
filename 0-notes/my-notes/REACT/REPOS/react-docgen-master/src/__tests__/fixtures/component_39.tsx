@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 import { Props as ImportedProps } from './component_27';
 
 export default interface ExtendedProps extends ImportedProps {
-  bar: number
+  bar: number;
 }
 
 /**

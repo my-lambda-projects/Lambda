@@ -2,7 +2,7 @@
 
 Memory in a C/C++ program can either be allocated on stack or heap.
 
-## Prerequisite:  Memory layout of C program
+## Prerequisite: Memory layout of C program
 
 ## Stack Allocation
 
@@ -42,14 +42,14 @@ int main() {
 
 ## Comparison Chart
 
-|          PARAMETER          |                    STACK                   | HEAP                                     |
-|:---------------------------:|:------------------------------------------:|------------------------------------------|
+|          PARAMETER          |                   STACK                    | HEAP                                     |
+| :-------------------------: | :----------------------------------------: | ---------------------------------------- |
 |            Basic            | Memory is allocated in a contiguous block. | Memory is allocated in any random order. |
-| Allocation and Deallocation |     Automatic by compiler instructions.    | Manual by programmer.                    |
-|             Cost            |                    Less                    | More                                     |
-|        Implementation       |                    Hard                    | Easy                                     |
+| Allocation and Deallocation |    Automatic by compiler instructions.     | Manual by programmer.                    |
+|            Cost             |                    Less                    | More                                     |
+|       Implementation        |                    Hard                    | Easy                                     |
 |         Access time         |                   Faster                   | Slower                                   |
-|          Main Issue         |             Shortage of memory             | Memory fragmentation                     |
-|    Locality of reference    |                  Excellent                 | Adequate                                 |
+|         Main Issue          |             Shortage of memory             | Memory fragmentation                     |
+|    Locality of reference    |                 Excellent                  | Adequate                                 |
 |         Flexibility         |                 Fixed size                 | Resizing is possible                     |
 |     Data type structure     |                   Linear                   | Hierarchical                             |

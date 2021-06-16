@@ -89,14 +89,8 @@ class TopAppBar<
 
   get classes() {
     const {classList} = this.state;
-    const {
-      className,
-      dense,
-      fixed,
-      prominent,
-      short,
-      shortCollapsed,
-    } = this.props;
+    const {className, dense, fixed, prominent, short, shortCollapsed} =
+      this.props;
     return classnames(cssClasses.BASE, Array.from(classList), className, {
       [cssClasses.FIXED]: fixed,
       [cssClasses.SHORT]: shortCollapsed || short,

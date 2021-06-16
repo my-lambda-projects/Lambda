@@ -4,7 +4,7 @@ This is older documentation for [create-react-app v1](https://github.com/faceboo
 
 `create-react-app` is a popular CLI tool to getting started with React. If you're new to React or Webpack, you might be starting out here. This section will walk you through configuring `create-react-app` to install and use our components.
 
->  Recommended things to know
+> Recommended things to know
 
 > 1. node/npm
 > 2. JavaScript
@@ -12,7 +12,6 @@ This is older documentation for [create-react-app v1](https://github.com/faceboo
 > 4. ES6
 
 > _NOTE:_ If you haven't used `create-react-app` before, you may want to read the [Overview Guide](https://github.com/facebook/create-react-app#quick-overview).
-
 
 ### Step 1: Install create-react-app
 
@@ -93,7 +92,6 @@ Then rename `./src/App.css` --> `./src/App.scss`. The `build-css` and `watch-css
 }
 
 ```
-
 
 ### Step 3a: Use Compiled CSS
 

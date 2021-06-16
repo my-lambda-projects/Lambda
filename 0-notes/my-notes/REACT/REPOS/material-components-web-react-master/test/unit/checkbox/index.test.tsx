@@ -85,9 +85,8 @@ test('#foundation.handleChange gets called when prop.indeterminate updates', () 
 
 test('#foundation.setDisabled gets called when prop.disabled updates', () => {
   const wrapper = shallow<Checkbox>(<Checkbox />);
-  wrapper.instance().foundation.setDisabled = td.func<
-    (disabled: boolean) => null
-  >();
+  wrapper.instance().foundation.setDisabled =
+    td.func<(disabled: boolean) => null>();
   wrapper.setProps({disabled: true});
   td.verify(wrapper.instance().foundation.setDisabled(true), {times: 1});
 });

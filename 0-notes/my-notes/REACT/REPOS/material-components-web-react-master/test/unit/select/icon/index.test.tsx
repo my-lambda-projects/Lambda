@@ -18,9 +18,8 @@ test('renders with a test class name', () => {
 });
 
 test('calls setIconFoundation with foundation', () => {
-  const setIconFoundation = td.func<
-    (foundation?: MDCSelectIconFoundation) => void
-  >();
+  const setIconFoundation =
+    td.func<(foundation?: MDCSelectIconFoundation) => void>();
   shallow(<SelectIcon setIconFoundation={setIconFoundation} />);
   td.verify(setIconFoundation(td.matchers.isA(Object)), {times: 1});
 });

@@ -85,9 +85,8 @@ test('update to props.open from true to false will call foundation.close', () =>
 
 test('foundation.setAbsolutePosition is called when props.coordinates updates', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface />);
-  wrapper.instance().foundation.setAbsolutePosition = td.func<
-    (x: number, y: number) => void
-  >();
+  wrapper.instance().foundation.setAbsolutePosition =
+    td.func<(x: number, y: number) => void>();
   wrapper.setProps({coordinates: {x: 1, y: 11}});
   td.verify(wrapper.instance().foundation.setAbsolutePosition(1, 11), {
     times: 1,
@@ -96,9 +95,8 @@ test('foundation.setAbsolutePosition is called when props.coordinates updates', 
 
 test('foundation.setAnchorCorner is called when props.anchorCorner updates', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface />);
-  wrapper.instance().foundation.setAnchorCorner = td.func<
-    (corner: Corner) => void
-  >();
+  wrapper.instance().foundation.setAnchorCorner =
+    td.func<(corner: Corner) => void>();
   wrapper.setProps({anchorCorner: Corner.TOP_RIGHT});
   td.verify(wrapper.instance().foundation.setAnchorCorner(Corner.TOP_RIGHT), {
     times: 1,
@@ -107,9 +105,8 @@ test('foundation.setAnchorCorner is called when props.anchorCorner updates', () 
 
 test('foundation.setAnchorMargin is called when props.anchorMargin updates', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface />);
-  wrapper.instance().foundation.setAnchorMargin = td.func<
-    (margin: Partial<MDCMenuDistance>) => void
-  >();
+  wrapper.instance().foundation.setAnchorMargin =
+    td.func<(margin: Partial<MDCMenuDistance>) => void>();
   wrapper.setProps({anchorMargin: {top: 20}});
   td.verify(wrapper.instance().foundation.setAnchorMargin({top: 20}), {
     times: 1,
@@ -118,18 +115,16 @@ test('foundation.setAnchorMargin is called when props.anchorMargin updates', () 
 
 test('foundation.setQuickOpen is called when props.quickOpen updates to true', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface />);
-  wrapper.instance().foundation.setQuickOpen = td.func<
-    (quickOpen: boolean) => void
-  >();
+  wrapper.instance().foundation.setQuickOpen =
+    td.func<(quickOpen: boolean) => void>();
   wrapper.setProps({quickOpen: true});
   td.verify(wrapper.instance().foundation.setQuickOpen(true), {times: 1});
 });
 
 test('foundation.setQuickOpen is called when props.quickOpen updates to false', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface quickOpen />);
-  wrapper.instance().foundation.setQuickOpen = td.func<
-    (quickOpen: boolean) => void
-  >();
+  wrapper.instance().foundation.setQuickOpen =
+    td.func<(quickOpen: boolean) => void>();
   wrapper.setProps({quickOpen: false});
   td.verify(wrapper.instance().foundation.setQuickOpen(false), {times: 1});
 });
@@ -148,9 +143,8 @@ test('foundation.isOpen is false when props.open is false', () => {
 
 test('#registerWindowClickListener adds click event handler to window', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface />);
-  wrapper.instance().foundation.handleBodyClick = td.func<
-    (evt: MouseEvent) => void
-  >();
+  wrapper.instance().foundation.handleBodyClick =
+    td.func<(evt: MouseEvent) => void>();
   wrapper.instance().registerWindowClickListener!();
   const clickEvent = new MouseEvent('click');
   window.dispatchEvent(clickEvent);
@@ -161,9 +155,8 @@ test('#registerWindowClickListener adds click event handler to window', () => {
 
 test('#deregisterWindowClickListener removes click event handler to window', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface />);
-  wrapper.instance().foundation.handleBodyClick = td.func<
-    (evt: MouseEvent) => void
-  >();
+  wrapper.instance().foundation.handleBodyClick =
+    td.func<(evt: MouseEvent) => void>();
   wrapper.instance().registerWindowClickListener!();
   wrapper.instance().deregisterWindowClickListener!();
   const clickEvent = new MouseEvent('click');
@@ -227,9 +220,10 @@ test('#adapter.saveFocus saves the currently focused element', () => {
   );
   (wrapper.find('button').getDOMNode() as HTMLButtonElement).focus();
   getAdapter(wrapper.instance()).saveFocus();
-  assert.equal(wrapper.instance().previousFocus, wrapper
-    .find('button')
-    .getDOMNode() as HTMLButtonElement);
+  assert.equal(
+    wrapper.instance().previousFocus,
+    wrapper.find('button').getDOMNode() as HTMLButtonElement
+  );
   wrapper.unmount();
   div.remove();
 });
@@ -430,7 +424,7 @@ test('#adapter.hasAnchor calls returns false if there is no props.anchorElement'
 });
 
 test('#adapter.hasAnchor calls returns true if there is props.anchorElement', () => {
-  const anchorElement = (<div /> as unknown) as HTMLDivElement;
+  const anchorElement = (<div />) as unknown as HTMLDivElement;
   const wrapper = shallow<MenuSurface>(
     <MenuSurface anchorElement={anchorElement} />
   );
@@ -490,9 +484,9 @@ test('onKeyDown calls foundation.handleKeydown', () => {
   wrapper.instance().foundation.handleKeydown = td.func() as (
     event: KeyboardEvent
   ) => {};
-  const evt = {nativeEvent: {} as KeyboardEvent} as React.KeyboardEvent<
-    HTMLDivElement
-  >;
+  const evt = {
+    nativeEvent: {} as KeyboardEvent,
+  } as React.KeyboardEvent<HTMLDivElement>;
   wrapper.instance().handleKeydown(evt);
   td.verify(wrapper.instance().foundation.handleKeydown(evt.nativeEvent), {
     times: 1,
@@ -513,8 +507,8 @@ test('component styles is applied from this.styles', () => {
 test('#componentWillUnmount calls #deregisterWindowClickListener', () => {
   const wrapper = shallow<MenuSurface>(<MenuSurface />);
   wrapper.instance().deregisterWindowClickListener = td.func() as () => void;
-  const deregisterWindowClickListener = wrapper.instance()
-    .deregisterWindowClickListener;
+  const deregisterWindowClickListener =
+    wrapper.instance().deregisterWindowClickListener;
   wrapper.unmount();
   td.verify(deregisterWindowClickListener!(), {times: 1});
 });

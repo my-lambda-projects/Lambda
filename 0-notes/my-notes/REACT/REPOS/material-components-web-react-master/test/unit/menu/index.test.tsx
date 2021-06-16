@@ -103,10 +103,7 @@ test('adapter.elementContainsClass returns true if element contains class', () =
     </Menu>
   );
   const contains = getAdapter(wrapper).elementContainsClass(
-    wrapper
-      .find('div')
-      .last()
-      .getDOMNode(),
+    wrapper.find('div').last().getDOMNode(),
     'test-class-name-1'
   );
   assert.isTrue(contains);
@@ -125,10 +122,7 @@ test('adapter.elementContainsClass returns FALSE if element does not contains cl
     </Menu>
   );
   const contains = getAdapter(wrapper).elementContainsClass(
-    wrapper
-      .find('div')
-      .first()
-      .getDOMNode(),
+    wrapper.find('div').first().getDOMNode(),
     'test-class-name-1'
   );
   assert.isFalse(contains);
@@ -151,10 +145,7 @@ test('adapter.getElementIndex returns index of list item', () => {
       </MenuList>
     </Menu>
   );
-  const lastListItem = wrapper
-    .find('.mdc-list-item')
-    .last()
-    .getDOMNode();
+  const lastListItem = wrapper.find('.mdc-list-item').last().getDOMNode();
   const index = getAdapter(wrapper).getElementIndex(lastListItem);
   assert.equal(index, 1);
   wrapper.unmount();
@@ -169,10 +160,7 @@ test('adapter.getParentElement returns MenuList if called on list item', () => {
       </MenuList>
     </Menu>
   );
-  const lastListItem = wrapper
-    .find('.mdc-list-item')
-    .last()
-    .getDOMNode();
+  const lastListItem = wrapper.find('.mdc-list-item').last().getDOMNode();
   const menuList = getAdapter(wrapper).getParentElement(lastListItem);
   assert.equal(menuList, wrapper.find('.mdc-list').getDOMNode());
   wrapper.unmount();
@@ -190,9 +178,8 @@ test("adapter.getSelectedElementIndex returns selected list item's index", () =>
     </Menu>
   );
   const menuList = wrapper.find('.mdc-list').getDOMNode();
-  const selectedListItem = getAdapter(wrapper).getSelectedElementIndex(
-    menuList
-  );
+  const selectedListItem =
+    getAdapter(wrapper).getSelectedElementIndex(menuList);
   assert.equal(selectedListItem, 0);
   wrapper.unmount();
 });
@@ -207,9 +194,8 @@ test('adapter.getSelectedElementIndex returns -1 if no list item is selected', (
     </Menu>
   );
   const menuList = wrapper.find('.mdc-list').getDOMNode();
-  const selectedListItem = getAdapter(wrapper).getSelectedElementIndex(
-    menuList
-  );
+  const selectedListItem =
+    getAdapter(wrapper).getSelectedElementIndex(menuList);
   assert.equal(selectedListItem, -1);
   wrapper.unmount();
 });
@@ -227,13 +213,7 @@ test('adapter.notifySelected calls props.onSelected with the selectedindex and l
   const evtData = {index: 0};
   getAdapter(wrapper).notifySelected(evtData);
   td.verify(
-    onSelected(
-      0,
-      wrapper
-        .find('.mdc-list-item')
-        .first()
-        .getDOMNode()
-    ),
+    onSelected(0, wrapper.find('.mdc-list-item').first().getDOMNode()),
     {times: 1}
   );
   wrapper.unmount();

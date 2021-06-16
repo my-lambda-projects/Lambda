@@ -206,9 +206,9 @@ export class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
           checked={this.state.checked}
           disabled={this.state.disabled}
           aria-checked={
-            (this.state['aria-checked'] || this.state.checked!.toString()) as (
+            (this.state['aria-checked'] || this.state.checked!.toString()) as
               | 'true'
-              | 'false')
+              | 'false'
           }
           name={name}
           onChange={this.onChange}

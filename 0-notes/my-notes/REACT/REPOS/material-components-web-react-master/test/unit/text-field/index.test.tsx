@@ -312,8 +312,8 @@ test('#adapter.label.getLabelWidth returns offsetWidth of labelElement', () => {
     </TextField>,
     {attachTo: div}
   );
-  const labelElement = wrapper.instance().floatingLabelElement.current!
-    .labelElement;
+  const labelElement =
+    wrapper.instance().floatingLabelElement.current!.labelElement;
   assert.equal(
     wrapper.instance().adapter.getLabelWidth(),
     labelElement.current!.offsetWidth
@@ -463,10 +463,7 @@ test('onLeadingIconSelect is passed to leadingIcon if passed as prop', () => {
     </TextField>
   );
 
-  const leadingIcon = wrapper
-    .find('.test-class-name-icon')
-    .parent()
-    .props();
+  const leadingIcon = wrapper.find('.test-class-name-icon').parent().props();
   assert.isFunction(leadingIcon.onSelect);
   assert.strictEqual(leadingIcon.onSelect, onSelect);
 });
@@ -481,10 +478,7 @@ test('onLeadingIconSelect is not passed to leadingIcon if not passed as prop', (
     </TextField>
   );
 
-  const leadingIcon = wrapper
-    .find('.test-class-name-icon')
-    .parent()
-    .props();
+  const leadingIcon = wrapper.find('.test-class-name-icon').parent().props();
   assert.isNotFunction(leadingIcon.onSelect);
   assert.isUndefined(leadingIcon.onSelect);
 });
@@ -523,10 +517,7 @@ test('onTrailingIconSelect is passed to trailingIcon if passed as prop', () => {
     </TextField>
   );
 
-  const trailingIcon = wrapper
-    .find('.test-class-name-icon')
-    .parent()
-    .props();
+  const trailingIcon = wrapper.find('.test-class-name-icon').parent().props();
   assert.isFunction(trailingIcon.onSelect);
   assert.strictEqual(trailingIcon.onSelect, onSelect);
 });
@@ -541,10 +532,7 @@ test('onTrailingIconSelect is not passed to trailingIcon if not passed as prop',
     </TextField>
   );
 
-  const trailingIcon = wrapper
-    .find('.test-class-name-icon')
-    .parent()
-    .props();
+  const trailingIcon = wrapper.find('.test-class-name-icon').parent().props();
   assert.isNotFunction(trailingIcon.onSelect);
   assert.isUndefined(trailingIcon.onSelect);
 });
@@ -708,13 +696,7 @@ test('passing a ref to the <Input /> should return the instance of the Input', (
     </TextField>
   );
 
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(0)
-      .instance(),
-    inputInstance
-  );
+  assert.equal(wrapper.childAt(0).childAt(0).instance(), inputInstance);
 });
 
 test('#componentWillUnmount destroys foundation', () => {

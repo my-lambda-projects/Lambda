@@ -60,9 +60,8 @@ class SelectionListTest extends React.Component<{}, SelectionListTestState> {
 
   removeListItem = (e: React.MouseEvent) => {
     const listItemElement = e.currentTarget!.parentElement;
-    const listItemElements = listItemElement!.parentElement!.querySelectorAll(
-      '.mdc-list-item'
-    );
+    const listItemElements =
+      listItemElement!.parentElement!.querySelectorAll('.mdc-list-item');
     let interactionIndex = -1;
     listItemElements.forEach((item, index) => {
       if (item === listItemElement) {

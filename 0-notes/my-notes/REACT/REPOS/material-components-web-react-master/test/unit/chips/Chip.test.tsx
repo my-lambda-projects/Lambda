@@ -62,9 +62,8 @@ test(
     assert.isTrue(
       wrapper.instance().foundation.getShouldRemoveOnTrailingIconClick()
     );
-    wrapper.instance().foundation.setShouldRemoveOnTrailingIconClick = td.func<
-      (shouldRemove: boolean) => void
-    >();
+    wrapper.instance().foundation.setShouldRemoveOnTrailingIconClick =
+      td.func<(shouldRemove: boolean) => void>();
     wrapper.setProps({shouldRemoveOnTrailingIconClick: false});
     td.verify(
       wrapper.instance().foundation.setShouldRemoveOnTrailingIconClick(false),
@@ -83,9 +82,8 @@ test(
     assert.isFalse(
       wrapper.instance().foundation.getShouldRemoveOnTrailingIconClick()
     );
-    wrapper.instance().foundation.setShouldRemoveOnTrailingIconClick = td.func<
-      (shouldRemove: boolean) => void
-    >();
+    wrapper.instance().foundation.setShouldRemoveOnTrailingIconClick =
+      td.func<(shouldRemove: boolean) => void>();
     wrapper.setProps({shouldRemoveOnTrailingIconClick: true});
     td.verify(
       wrapper.instance().foundation.setShouldRemoveOnTrailingIconClick(true),
@@ -247,9 +245,8 @@ test('on click calls #props.onClick', () => {
 
 test('on click calls #foudation.handleInteraction', () => {
   const wrapper = shallow<Chip>(<Chip id='123' />);
-  wrapper.instance().foundation.handleInteraction = td.func<
-    (evt: MouseEvent | KeyboardEvent) => null
-  >();
+  wrapper.instance().foundation.handleInteraction =
+    td.func<(evt: MouseEvent | KeyboardEvent) => null>();
   const evt = coerceForTesting<React.MouseEvent>({
     nativeEvent: {},
   });
@@ -273,9 +270,8 @@ test('on keydown calls #props.onKeyDown', () => {
 
 test('on keydown calls #foudation.handleInteraction', () => {
   const wrapper = shallow<Chip>(<Chip id='123' />);
-  wrapper.instance().foundation.handleInteraction = td.func<
-    (evt: MouseEvent | KeyboardEvent) => null
-  >();
+  wrapper.instance().foundation.handleInteraction =
+    td.func<(evt: MouseEvent | KeyboardEvent) => null>();
   const evt = coerceForTesting<React.MouseEvent>({
     nativeEvent: {},
   });
@@ -288,41 +284,20 @@ test('on keydown calls #foudation.handleInteraction', () => {
 test('renders leading icon', () => {
   const leadingIcon = <i className='leading-icon' />;
   const wrapper = shallow(<Chip id='1' leadingIcon={leadingIcon} />);
-  assert.equal(
-    wrapper
-      .children()
-      .first()
-      .type(),
-    'i'
-  );
+  assert.equal(wrapper.children().first().type(), 'i');
 });
 
 test('renders leading icon with class name', () => {
   const leadingIcon = <i className='leading-icon' />;
   const wrapper = shallow(<Chip id='1' leadingIcon={leadingIcon} />);
-  assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('leading-icon')
-  );
+  assert.isTrue(wrapper.children().first().hasClass('leading-icon'));
 });
 
 test('renders leading icon with base class names', () => {
   const leadingIcon = <i className='leading-icon' />;
   const wrapper = shallow(<Chip id='1' leadingIcon={leadingIcon} />);
-  assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('mdc-chip__icon')
-  );
-  assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('mdc-chip__icon--leading')
-  );
+  assert.isTrue(wrapper.children().first().hasClass('mdc-chip__icon'));
+  assert.isTrue(wrapper.children().first().hasClass('mdc-chip__icon--leading'));
 });
 
 test('renders leadingIcon with state.leadingIconClassList', () => {
@@ -331,67 +306,37 @@ test('renders leadingIcon with state.leadingIconClassList', () => {
   wrapper.setState({
     leadingIconClassList: new Set(['test-leading-icon-class']),
   });
-  assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('test-leading-icon-class')
-  );
+  assert.isTrue(wrapper.children().first().hasClass('test-leading-icon-class'));
 });
 
 test('renders trailing icon', () => {
   const trailingIcon = <i className='remove-icon' />;
   const wrapper = shallow(<Chip id='1' trailingIcon={trailingIcon} />);
-  assert.equal(
-    wrapper
-      .children()
-      .last()
-      .type(),
-    'i'
-  );
+  assert.equal(wrapper.children().last().type(), 'i');
 });
 
 test('renders trailing icon with class name', () => {
   const trailingIcon = <i className='remove-icon' />;
   const wrapper = shallow(<Chip id='1' trailingIcon={trailingIcon} />);
-  assert.isTrue(
-    wrapper
-      .children()
-      .last()
-      .hasClass('remove-icon')
-  );
+  assert.isTrue(wrapper.children().last().hasClass('remove-icon'));
 });
 
 test('renders trailing icon with base class names', () => {
   const trailingIcon = <i className='remove-icon' />;
   const wrapper = shallow(<Chip id='1' trailingIcon={trailingIcon} />);
-  assert.isTrue(
-    wrapper
-      .children()
-      .last()
-      .hasClass('mdc-chip__icon')
-  );
-  assert.isTrue(
-    wrapper
-      .children()
-      .last()
-      .hasClass('mdc-chip__icon--trailing')
-  );
+  assert.isTrue(wrapper.children().last().hasClass('mdc-chip__icon'));
+  assert.isTrue(wrapper.children().last().hasClass('mdc-chip__icon--trailing'));
 });
 
 test('trailing icon click calls #foundation.handleTrailingIconInteraction', () => {
   const trailingIcon = <i className='remove-icon' />;
   const wrapper = shallow<Chip>(<Chip id='1' trailingIcon={trailingIcon} />);
-  wrapper.instance().foundation.handleTrailingIconInteraction = td.func<
-    (evt: MouseEvent | KeyboardEvent) => null
-  >();
+  wrapper.instance().foundation.handleTrailingIconInteraction =
+    td.func<(evt: MouseEvent | KeyboardEvent) => null>();
   const evt = coerceForTesting<React.MouseEvent>({
     nativeEvent: {},
   });
-  wrapper
-    .children()
-    .last()
-    .simulate('click', evt);
+  wrapper.children().last().simulate('click', evt);
   td.verify(
     wrapper
       .instance()
@@ -405,16 +350,12 @@ test('trailing icon click calls #foundation.handleTrailingIconInteraction', () =
 test('trailing icon keydown calls #foundation.handleTrailingIconInteraction', () => {
   const trailingIcon = <i className='remove-icon' />;
   const wrapper = shallow<Chip>(<Chip id='1' trailingIcon={trailingIcon} />);
-  wrapper.instance().foundation.handleTrailingIconInteraction = td.func<
-    (evt: MouseEvent | KeyboardEvent) => null
-  >();
+  wrapper.instance().foundation.handleTrailingIconInteraction =
+    td.func<(evt: MouseEvent | KeyboardEvent) => null>();
   const evt = coerceForTesting<React.MouseEvent>({
     nativeEvent: {},
   });
-  wrapper
-    .children()
-    .last()
-    .simulate('keydown', evt);
+  wrapper.children().last().simulate('keydown', evt);
   td.verify(
     wrapper
       .instance()
@@ -427,9 +368,8 @@ test('trailing icon keydown calls #foundation.handleTrailingIconInteraction', ()
 
 test('calls #foundation.handleTransitionEnd on transitionend event', () => {
   const wrapper = shallow<Chip>(<Chip id='1' />);
-  wrapper.instance().foundation.handleTransitionEnd = td.func<
-    (evt: TransitionEvent) => null
-  >();
+  wrapper.instance().foundation.handleTransitionEnd =
+    td.func<(evt: TransitionEvent) => null>();
   const evt = coerceForTesting<React.TransitionEvent>({
     nativeEvent: {
       target: {},

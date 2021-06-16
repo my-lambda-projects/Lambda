@@ -86,9 +86,8 @@ test('#foundation.setDeterminate gets called when the component mounts', () => {
     <LinearProgress indeterminate={true} />
   );
   const instance = wrapper.instance();
-  instance.foundation.setDeterminate = td.func<
-    (isDeterminate: boolean) => void
-  >();
+  instance.foundation.setDeterminate =
+    td.func<(isDeterminate: boolean) => void>();
   instance.componentDidMount();
   td.verify(instance.foundation.setDeterminate(false), {times: 1});
 });
@@ -142,27 +141,24 @@ test('#foundation.setDeterminate gets called when props.indeterminate updates', 
   const wrapper = mount<LinearProgress>(
     <LinearProgress indeterminate={false} />
   );
-  wrapper.instance().foundation.setDeterminate = td.func<
-    (isDeterminate: boolean) => void
-  >();
+  wrapper.instance().foundation.setDeterminate =
+    td.func<(isDeterminate: boolean) => void>();
   wrapper.setProps({indeterminate: true});
   td.verify(wrapper.instance().foundation.setDeterminate(false), {times: 1});
 });
 
 test('#foundation.setProgress gets called when props.progress updates', () => {
   const wrapper = mount<LinearProgress>(<LinearProgress progress={0.1} />);
-  wrapper.instance().foundation.setProgress = td.func<
-    (value: number) => void
-  >();
+  wrapper.instance().foundation.setProgress =
+    td.func<(value: number) => void>();
   wrapper.setProps({progress: 0.2});
   td.verify(wrapper.instance().foundation.setProgress(0.2), {times: 1});
 });
 
 test('#foundation.setReverse gets called when props.reversed updates', () => {
   const wrapper = mount<LinearProgress>(<LinearProgress reversed={false} />);
-  wrapper.instance().foundation.setReverse = td.func<
-    (isReversed: boolean) => void
-  >();
+  wrapper.instance().foundation.setReverse =
+    td.func<(isReversed: boolean) => void>();
   wrapper.setProps({reversed: true});
   td.verify(wrapper.instance().foundation.setReverse(true), {times: 1});
 });

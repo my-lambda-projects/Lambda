@@ -13,6 +13,7 @@ npm install @material/react-ripple
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-ripple/index.scss';
 ```
@@ -32,6 +33,7 @@ You'll also need to include these sass mixins on the element. Please also refer 
 ```
 
 with CSS:
+
 ```js
 import '@material/react-ripple/dist/ripple.css';
 ```
@@ -61,10 +63,7 @@ const Icon = (props) => {
   const classes = `ripple-icon-component ${className}`;
 
   return (
-    <div
-      className={classes}
-      ref={initRipple}
-      {...otherProps}>
+    <div className={classes} ref={initRipple} {...otherProps}>
       {children}
     </div>
   );
@@ -133,54 +132,47 @@ The `initRipple` callback prop can take in an extra `activator` argument for the
 import {withRipple} from '@material/react-ripple';
 
 const MyInput = (props) => {
-  const {
-    rippleActivator,
-    ...otherProps
-  } = props;
+  const {rippleActivator, ...otherProps} = props;
 
-  return (
-    <input ref={rippleActivator} {...otherProps} />
-  );
-}
+  return <input ref={rippleActivator} {...otherProps} />;
+};
 
 class MyComponent extends React.Component {
   rippleActivator = React.createRef();
 
   init = (el) => {
-    this.props.initRipple(el /* surface */, this.rippleActivator.current /* activator */);
-  }
+    this.props.initRipple(
+      el /* surface */,
+      this.rippleActivator.current /* activator */
+    );
+  };
 
   render() {
-    const {
-      className,
-      initRipple,
-      unbounded,
-      ...otherProps
-    } = this.props;
+    const {className, initRipple, unbounded, ...otherProps} = this.props;
 
     return (
       <div
         className={`my-component ${className}`}
         ref={this.init}
-        {...otherProps}>
+        {...otherProps}
+      >
         <MyInput rippleActivator={this.rippleActivator} />
       </div>
     );
   }
-};
+}
 
 const MyRippledComponent = withRipple(MyComponent);
 ```
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-unbounded | boolean | Ripple is unbounded if true.
-disabled | n/a | Disables ripple if true.
-style | object | Inline styles of root element.
-className | string | Classes to appear on className attribute of root element.
-
+| Prop Name | Type    | Description                                               |
+| --------- | ------- | --------------------------------------------------------- |
+| unbounded | boolean | Ripple is unbounded if true.                              |
+| disabled  | n/a     | Disables ripple if true.                                  |
+| style     | object  | Inline styles of root element.                            |
+| className | string  | Classes to appear on className attribute of root element. |
 
 ## Sass Mixins
 

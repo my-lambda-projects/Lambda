@@ -325,9 +325,8 @@ test('#getScrollContentWidth returns the contentElement offsetWidth', () => {
 
 test('#incrementScroll calls foundation.incrementScroll', () => {
   const wrapper = shallow<TabScroller>(<TabScroller />);
-  wrapper.instance().foundation.incrementScroll = td.func<
-    (scrollXIncrement: number) => null
-  >();
+  wrapper.instance().foundation.incrementScroll =
+    td.func<(scrollXIncrement: number) => null>();
   wrapper.instance().incrementScroll(50);
   td.verify(wrapper.instance().foundation.incrementScroll(50), {times: 1});
 });
@@ -448,9 +447,8 @@ test('keydown event triggers props.onKeyDown', () => {
 
 test('transitionend event triggers foundation.handleTransitionEnd', () => {
   const wrapper = shallow<TabScroller>(<TabScroller />);
-  wrapper.instance().foundation.handleTransitionEnd = td.func<
-    (evt: Event) => null
-  >();
+  wrapper.instance().foundation.handleTransitionEnd =
+    td.func<(evt: Event) => null>();
   const evt = coerceForTesting<React.TransitionEvent>({
     nativeEvent: {},
   });

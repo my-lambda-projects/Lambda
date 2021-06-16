@@ -121,17 +121,10 @@ test('calls props.initRipple', () => {
     </Radio>
   );
   const input = coerceForTesting<HTMLInputElement>(
-    wrapper
-      .childAt(0)
-      .childAt(0)
-      .childAt(0)
-      .getDOMNode()
+    wrapper.childAt(0).childAt(0).childAt(0).getDOMNode()
   );
   const radio = coerceForTesting<HTMLDivElement>(
-    wrapper
-      .childAt(0)
-      .childAt(0)
-      .getDOMNode()
+    wrapper.childAt(0).childAt(0).getDOMNode()
   );
   td.verify(initRipple(radio, input), {times: 1});
 });
@@ -176,13 +169,7 @@ test('calls foundation.setDisabled if children.props.disabled updates to false',
 test('updates state.nativeControlId if children.props.id updates', () => {
   const wrapper = mount(<NativeControlUpdate />);
   wrapper.setProps({id: '321'});
-  assert.equal(
-    wrapper
-      .find('label')
-      .getDOMNode()
-      .getAttribute('for'),
-    '321'
-  );
+  assert.equal(wrapper.find('label').getDOMNode().getAttribute('for'), '321');
 });
 
 test('#adapter.addClass adds to state.classList', () => {
@@ -234,13 +221,7 @@ test('renders nativeControl with updated disabled prop', () => {
     </Radio>
   );
   wrapper.setState({disabled: true});
-  assert.isTrue(
-    wrapper
-      .children()
-      .children()
-      .childAt(0)
-      .props().disabled
-  );
+  assert.isTrue(wrapper.children().children().childAt(0).props().disabled);
 });
 
 test('#componentWillUnmount destroys foundation', () => {

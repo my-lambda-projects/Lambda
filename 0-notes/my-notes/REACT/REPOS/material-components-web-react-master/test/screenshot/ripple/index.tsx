@@ -12,7 +12,7 @@ interface DivProps extends InjectedProps<HTMLDivElement> {
 /*eslint-disable */
 const Div: React.FunctionComponent<DivProps> = ({
   children,
-  className = "",
+  className = '',
   initRipple,
   unbounded,
   ...otherProps

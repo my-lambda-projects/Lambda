@@ -124,15 +124,8 @@ export default class Input<
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: InputState) {
-    const {
-      id,
-      foundation,
-      value,
-      disabled,
-      isValid,
-      setInputId,
-      setDisabled,
-    } = this.props;
+    const {id, foundation, value, disabled, isValid, setInputId, setDisabled} =
+      this.props;
 
     if (
       (!prevState.isMounted && this.state.isMounted && this.props.foundation) ||

@@ -77,11 +77,13 @@ test('#componentDidUpdate updating the children updates width', () => {
     options
   );
 
-  const firstLength = coerceForTesting<HTMLLabelElement>(wrapper.getDOMNode())
-    .offsetWidth;
+  const firstLength = coerceForTesting<HTMLLabelElement>(
+    wrapper.getDOMNode()
+  ).offsetWidth;
   wrapper.setProps({children: 'Test More Text'});
-  const secondLength = coerceForTesting<HTMLLabelElement>(wrapper.getDOMNode())
-    .offsetWidth;
+  const secondLength = coerceForTesting<HTMLLabelElement>(
+    wrapper.getDOMNode()
+  ).offsetWidth;
   td.verify(handleWidthChange(firstLength), {times: 1});
   td.verify(handleWidthChange(secondLength), {times: 1});
   div.remove();
