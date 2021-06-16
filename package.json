@@ -10,10 +10,11 @@
         "lebab": "^3.1.1",
         "prettier": "^2.3.0"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "jest": "^27.0.4"
+    },
     "scripts": {
         "pretty": "prettier --write \"./**/*.{js,jsx,html,css,py,md}\"",
-
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
