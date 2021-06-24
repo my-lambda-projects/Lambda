@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "452137388234",
+    "project_id": "systemstracker-45f88",
+    "storage_bucket": "systemstracker-45f88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452137388234:android:07f2fb9d5d4ae019270c33",
+        "android_client_info": {
+          "package_name": "com.altershorizon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452137388234-ipgh7hv7kl4kumrrukdjuqk6fg3rjl1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4Af8CodO6N55LUsUEuKaSMflObY1aQLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452137388234-ipgh7hv7kl4kumrrukdjuqk6fg3rjl1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

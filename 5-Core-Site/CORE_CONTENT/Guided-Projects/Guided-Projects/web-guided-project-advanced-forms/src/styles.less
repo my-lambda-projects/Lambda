@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(244, 244, 244);
+  color: rgb(65, 75, 60);
+  font-family: 'Bitter', serif;
+}
+.container {
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 6px;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  margin: 16px 8px;
+  padding: 16px;
+  background-color: white;
+}
+.container.form {
+  display: flex;
+  align-items: baseline;
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
+
+  .form-group {
+    padding: 0 24px 0 24px;
+    display: flex;
+    flex-direction: column;
+
+    &.submit {
+      flex: 2;
+      align-items: flex-start;
+    }
+    &.inputs {
+      flex: 2;
+    }
+    &.checkboxes {
+      flex: 1;
+    }
+  }
+}
+a {
+  font-size: 0.75em;
+}
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+h1, h2, h3, h4 {
+  color: crimson;
+}
+form {
+  h2, h4, h4 {
+    color: darkblue;
+  }
+}
+label {
+  display: flex;
+  margin-bottom: 16px;
+  justify-content: space-between;
+}
+input[type=text], select {
+  height: 1.5rem;
+}
+button {
+  height: 2rem;
+  width: 6rem;
+  border-radius: 8px;
+  color: rgb(30, 220, 20);
+  background-color: white;
+  border: 2px solid rgb(30, 220, 20);
+  &:hover {
+    cursor: pointer;
+  }
+  &:disabled {
+    color: crimson;
+    background-color: white;
+    border: 2px solid crimson;
+    cursor: not-allowed;
+  }
+}
+.errors {
+  margin: 8px;
+  font-size: 0.7em;
+  color: red;
+
+  div {
+    display: block;
+    margin-top: 4px;
+  }
+}

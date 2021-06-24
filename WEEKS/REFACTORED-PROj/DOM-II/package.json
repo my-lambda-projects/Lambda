@@ -1,0 +1,24 @@
+{
+  "name": "dom-2",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html",
+    "stretch": "parcel stretch-assignment/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/DOM-II.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/DOM-II/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/DOM-II#readme",
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "less": "^3.12.2",
+    "parcel-bundler": "^1.12.4"
+  }
+}

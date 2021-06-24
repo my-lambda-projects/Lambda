@@ -1,0 +1,10 @@
+{
+  "name": "AltersHorizon",
+  "displayName": "AltersHorizon",
+  "expo": {
+    "name": "AltersHorizon",
+    "slug": "AltersHorizon",
+    "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"]
+  }
+}

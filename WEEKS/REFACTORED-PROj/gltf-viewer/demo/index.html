@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"
+    />
+
+    <title>gltf-viewer demo</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link
+      rel="import"
+      href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html"
+    />
+    <link
+      rel="import"
+      href="../bower_components/iron-demo-helpers/demo-snippet.html"
+    />
+    <link rel="import" href="../gltf-viewer.html" />
+
+    <style is="custom-style" include="demo-pages-shared-styles"></style>
+  </head>
+
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Load a glTF model</h3>
+      <p>
+        Loads a glTF model from the URL given as the <code>src</code> attribute
+        and displays it.
+      </p>
+      <p>
+        By default the viewer will take the size of the surrounding container
+        and does not allow the user to move the camera or zoom.
+      </p>
+      <demo-snippet>
+        <template>
+          <gltf-viewer src="duck2.gltf"></gltf-viewer>
+        </template>
+      </demo-snippet>
+
+      <h3>Viewer dimensions</h3>
+      <p>
+        You can use the <code>width</code> and <code>height</code> attributes to
+        specify the size of the viewer.
+      </p>
+      <demo-snippet>
+        <template>
+          <gltf-viewer width="300" height="300" src="duck2.gltf"></gltf-viewer>
+        </template>
+      </demo-snippet>
+
+      <h3>Enabling camera controls</h3>
+      <p>
+        The viewer allows users to orbit around (drag) and zoom (scroll or
+        pinch) on the object as well as move it around (right click) when the
+        <code>interactive</code> property is present.
+      </p>
+      <p>
+        This behaviour can also be set dynamically by calling
+        <code
+          >document.querySelector('gltf-viewer').interactive = true // or
+          false</code
+        >
+      </p>
+      <demo-snippet>
+        <template>
+          <gltf-viewer
+            width="300"
+            height="300"
+            interactive
+            src="duck2.gltf"
+          ></gltf-viewer>
+        </template>
+      </demo-snippet>
+
+      <h3>Stopping and starting animations</h3>
+      <p>
+        If a model contains animations, they will automatically play and loop.
+      </p>
+      <p>
+        You can stop and start animations by calling the <code>stop</code> and
+        <code>stop</code> methods:
+      </p>
+      <demo-snippet>
+        <template>
+          <gltf-viewer
+            id="player"
+            width="300"
+            height="300"
+            interactive
+            src="CesiumMan.gltf"
+          ></gltf-viewer>
+          <button onclick="document.getElementById('player').start()">
+            Play
+          </button>
+          <button onclick="document.getElementById('player').stop()">
+            Stop
+          </button>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

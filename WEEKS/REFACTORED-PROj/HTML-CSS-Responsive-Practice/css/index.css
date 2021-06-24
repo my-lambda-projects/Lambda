@@ -1,0 +1,343 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%; /*you can never be bigger than your parent - this is going to stop that dreaded horizontal scroll bar*/
+  border: 1px solid grey;
+}
+/*general styles*/
+html {
+  font-size: 62.5%; /* 1 rem = 10px */
+}
+body {
+  line-height: 1.5;
+  font-size: 1.8rem;
+  color: #4f4f4f;
+}
+h1,
+h2,
+h3 {
+  letter-spacing: 3px;
+  text-align: center;
+}
+h1 {
+  font-size: 5rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+a {
+  text-decoration: none;
+  color: #4f4f4f;
+}
+section {
+  padding: 4% 0;
+}
+
+/*Header Section Styles*/
+header {
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  text-align: center;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.logo {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  width: 60%;
+}
+.links {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/*About Section Styles*/
+#about {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20% 0;
+  background-image: url("../images/about-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#about div {
+  width: 20%;
+  margin-right: 10%;
+}
+
+/*Shop Section Styles*/
+.container {
+  display: flex;
+  text-align: center;
+}
+.container p {
+  text-align: justify;
+}
+.container div {
+  width: 50%;
+}
+.container .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 0;
+}
+.bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.succulents {
+  background-image: url("../images/succulants.jpg");
+}
+.cacti {
+  background-image: url("../images/cacti.jpg");
+}
+.tropical {
+  background-image: url("../images/tropicals.jpg");
+}
+
+/**footer section styles **/
+footer {
+  padding: 4% 0;
+}
+.footer-parent {
+  display: flex;
+}
+.left,
+.right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-wrapper {
+  width: 50%;
+}
+footer h3 {
+  text-align: left;
+}
+.text-container {
+  line-height: 2;
+}
+.copyright {
+  text-align: right;
+  margin-right: 10%;
+}
+
+/*Media Queries*/
+@media (max-width: 800px) {
+  #about {
+    background-position: left top;
+  }
+  #about div {
+    margin-top: 5%;
+    width: 35%;
+  }
+  .container .text div {
+    width: 70%;
+  }
+  .img-wrapper {
+    width: 70%;
+  }
+  .container p {
+    text-align: left;
+  }
+} /*this closes the 800px media query*/
+
+/*phone*/
+@media (max-width: 500px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo {
+    width: 20%;
+  }
+  .links {
+    width: 100%;
+  }
+  #about {
+    justify-content: flex-start;
+  }
+  #about div {
+    margin-left: 10%;
+    width: 40%;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mobile {
+    flex-direction: column-reverse;
+  }
+  .container div {
+    width: 80%;
+  }
+  .bg {
+    height: 60vh;
+  }
+  .footer-parent {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .left,
+  .right {
+    width: 80%;
+    margin: 2% 0;
+  }
+  .copyright {
+    text-align: center;
+    margin-right: 0;
+    margin-top: 1%;
+  }
+}

@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "7.8.0"
+env:
+  global:
+    - secure: "U+wMMiAOTD4nsGnCFsL0sIjp+fWmj+C6GJyahRzflQRcE+YisAea2HM591TEvkqAg4R4Y2ODigPSINgYQjs4JQeilkB/fhcszvsQscY0LupJ6j/g2ak9bs57Z/SaS9FcW9t9rso2hfMn8zy+cZTmj/JJ9lyOqVHSTH3PCbsTDEhxUYPJJ4SujgwAFhD2OyJH7mJu3W0nqz12JEIvG9vkrF7koRM3+UFXejbJTQPmjwli3i0cFuvr2B0sCOZBssAywiv9ucwj25tPKiwIEnWoV57H0vryXDXATi6GM8eQ8hhsVLLTqSRM/jUiOtLsTEYaZwsPf/s5u5Zgkk8PTc/xTr0RSEQQlOttsH4+TKJGH5PlSfYq1gY6WicT6VmznoVUqOUyWEhWRVSDwI7Elxx5WEMkcnKwMl4oFGgX7NbRxv+wGmP/DJHWCNmT4moKA0Se/JKR04XVvCDPu7iCRsPZKRxsTwEe/BL75Ty3vMTLJ7AQOqFa03+PkrwBkrimp94biOSLrMHtW9kDUroHYRng+8DgFRmi2gq3LyTv1OPm8fDthmpTzPW9Bj9+VCa01bBNEktfuqWB3F/faFTC/DLMwIlF/j8b9seLhSrFThk1KJyNg0n0+rs3v1ULNbdjrDbW8wieXUrviWwlB2ja/HsgA4cY4ZrZNGxL9yJ3SlFepTo="
+    - secure: "o0EVea/lv9reVpgvxSp4xGFBszYj+8Sx4tZ6pwUarz19KgSXWjgNhMdD3ZgyJvmKQGoGKfLYN7s8joJM7GCAsJhfqAlVmNUzi68Gg19wotlJxQ2Q3wopAkFYZqqV0Sqf+tHQ/2X2W49bZM4iaGXlKSvzmZeHudQeyjM7xnI5/2TVsh6fi1OEd2O1+hmESFuEHgnvC55Io9iz/NUU80kFjTgemSV+KG8h1x+Buobh7CZWhdJ3bv0+59V7PrDJT4KO4HfVStE07yMW47Ds+ti/WxAwRN0gqVeCPAoG65AS3Ppe6xJqy+mxE5OTOIgrO8FEszeOaNQtqYzu65HLqA2tNnoKRYoTQp/zgzgicFUvq3oXGHjPquG4rii6duYrQHOHFrjNa77OE2FmCkt3FMUrXCRqD3XimWLTuhYfNXBmPK4cE69Lr/Blek5Sd6OKMnHLbmfK847MY8bFU/DxZiIIZwO6MP/BVKpIEtNT0Bog13+OExdlNZ/TwrEBQIrdTlb2Rhyf89o03OgsTZaKyzznSqVRFeEbMpVL/NC3IkWq39byp4BJMI4Xs19FP7nf0BRrzTqKP7h1PgfxTFOW4F8R9CWYcX5AM3OnxqUkZic3lAVJRrBnWeuYCzIC4r9scaAAD/8ttCq5xcozmIHHc9QvjKwGQg1xKkfhlOrkfDkwQns="
+before_install:
+  - "npm install -g polymer-cli bower"
+  - "bower install"
+addons:
+  browserstack:
+    username: "martin240"
+    access_key:
+      secure: "hgVNkQ0N8VBhWefIa7QaEqf+tjW9vI3Q5vAK7JpM1M+ggo6t61UmamIkgwOqeyiKHnFswuBmBcH7k+WSlu5yHnmhv9/o02r9eh8DSNh+tzKGnB3d16jXdbbt4YeW1oLYW5cIVuosecv7YIptoChPyzpsBOfqgbShL+/twm72dOWmIBuMy74JzoZEJusec1kgk5i1iBFADqJ2DbuiWuasK3VhJd2oH2etmLBfw9LweNJu1K7NfVj0FIuItGWAHlvKVcvmi9rNbrX0T2AYk5E7ffA8tQKr7tOCyZtfCd55YYsun0SmIE+sjSWd0XaIKmGoh02Gmb56aAAOS997ckpTPQtr/UqY5/Ge1GRJh6ZA++v7S6V8NHbq+qrpW+ru/fKCe6vrP5IrUIXI9hIrWG9iXAIaKQbrNlIVDyIk2DhUUHUT3+IXPjEfPKoSICknyxE/PSWoUcuenW6QqUyRpjauSZ1LcG+HL9ik+/wEJDgT1aJl3tAKerM8c4XO7v7tyDnESqIVa3KRlR+pfQLeLh+e52VFZFEKgQq2i/h50htYSgWz4Hc/O0kY+R5XgYcjEuxUZ1HlQxZ9XwmQdODFe8T8CjLGi3mimCSBtYmFD3r+4NIS1DGAuQ0Vu6hI2Wq8i2BiBZGx5/didv9JST4I6Zt/HlCS1+MzHOLuRx022heVlP4="
+    forcelocal: true
+  apt:
+    packages:
+      - oracle-java8-set-default
+script:
+  - "polymer test"
