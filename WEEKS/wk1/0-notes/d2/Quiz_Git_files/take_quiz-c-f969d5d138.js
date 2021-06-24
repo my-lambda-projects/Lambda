@@ -735,16 +735,14 @@
             .map((e) => e.href)
             .compact()
             .value();
-          o = r()("<div />")
-            .on("click", l)
-            .css({
-              "z-index": 1e3,
-              position: "fixed",
-              left: 0,
-              right: 0,
-              top: 0,
-              bottom: 0,
-            });
+          o = r()("<div />").on("click", l).css({
+            "z-index": 1e3,
+            position: "fixed",
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+          });
           if (this.options.sticky) {
             let e;
             this.on("login_failure.sticky", () => (e = true));
