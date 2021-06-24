@@ -7766,18 +7766,16 @@
             }),
             (e.prototype.getLinkOccurrence = function (e) {
               for (
-                var t = this.editor
-                    .getModel()
-                    .getDecorationsInRange(
-                      {
-                        startLineNumber: e.lineNumber,
-                        startColumn: e.column,
-                        endLineNumber: e.lineNumber,
-                        endColumn: e.column,
-                      },
-                      0,
-                      !0
-                    ),
+                var t = this.editor.getModel().getDecorationsInRange(
+                    {
+                      startLineNumber: e.lineNumber,
+                      startColumn: e.column,
+                      endLineNumber: e.lineNumber,
+                      endColumn: e.column,
+                    },
+                    0,
+                    !0
+                  ),
                   n = 0;
                 n < t.length;
                 n++
@@ -13256,16 +13254,14 @@
                 ((this._sessionDispose = Object(o.d)(this._sessionDispose)),
                 this._session && this._session.isDisconnectedFromFindController)
               ) {
-                this._session.findController
-                  .getState()
-                  .change(
-                    {
-                      wholeWordOverride: 0,
-                      matchCaseOverride: 0,
-                      isRegexOverride: 0,
-                    },
-                    !1
-                  );
+                this._session.findController.getState().change(
+                  {
+                    wholeWordOverride: 0,
+                    matchCaseOverride: 0,
+                    isRegexOverride: 0,
+                  },
+                  !1
+                );
               }
               this._session = null;
             }),
@@ -59051,14 +59047,12 @@
                     "textmate" === i.suggestion.snippetType ||
                     s - r !== i.suggestion.insertText.length ||
                     (a =
-                      e._editor
-                        .getModel()
-                        .getValueInRange({
-                          startLineNumber: o.lineNumber,
-                          startColumn: r,
-                          endLineNumber: o.lineNumber,
-                          endColumn: s,
-                        }) !== i.suggestion.insertText);
+                      e._editor.getModel().getValueInRange({
+                        startLineNumber: o.lineNumber,
+                        startColumn: r,
+                        endLineNumber: o.lineNumber,
+                        endColumn: s,
+                      }) !== i.suggestion.insertText);
                   n.set(a);
                 })
               ),
@@ -63555,64 +63549,62 @@
           (t = b([C(1, c.b)], t))
         );
       })(f.c);
-      h.a
-        .as(p.b.Configuration)
-        .registerConfiguration({
-          id: "workbench",
-          order: 7,
-          title: Object(d.a)("workbenchConfigurationTitle", "Workbench"),
-          type: "object",
-          properties:
-            ((i = {}),
-            (i[I] = {
-              type: "string",
-              enum: ["ctrlCmd", "alt"],
-              enumDescriptions: [
-                Object(d.a)(
-                  "multiSelectModifier.ctrlCmd",
-                  "Maps to `Control` on Windows and Linux and to `Command` on macOS."
-                ),
-                Object(d.a)(
-                  "multiSelectModifier.alt",
-                  "Maps to `Alt` on Windows and Linux and to `Option` on macOS."
-                ),
-              ],
-              default: "ctrlCmd",
-              description: Object(d.a)(
-                {
-                  key: "multiSelectModifier",
-                  comment: [
-                    "- `ctrlCmd` refers to a value the setting can take and should not be localized.",
-                    "- `Control` and `Command` refer to the modifier keys Ctrl or Cmd on the keyboard and can be localized.",
-                  ],
-                },
-                "The modifier to be used to add an item in trees and lists to a multi-selection with the mouse (for example in the explorer, open editors and scm view). The 'Open to Side' mouse gestures - if supported - will adapt such that they do not conflict with the multiselect modifier."
+      h.a.as(p.b.Configuration).registerConfiguration({
+        id: "workbench",
+        order: 7,
+        title: Object(d.a)("workbenchConfigurationTitle", "Workbench"),
+        type: "object",
+        properties:
+          ((i = {}),
+          (i[I] = {
+            type: "string",
+            enum: ["ctrlCmd", "alt"],
+            enumDescriptions: [
+              Object(d.a)(
+                "multiSelectModifier.ctrlCmd",
+                "Maps to `Control` on Windows and Linux and to `Command` on macOS."
               ),
-            }),
-            (i[D] = {
-              type: "string",
-              enum: ["singleClick", "doubleClick"],
-              default: "singleClick",
-              description: Object(d.a)(
-                {
-                  key: "openModeModifier",
-                  comment: [
-                    "`singleClick` and `doubleClick` refers to a value the setting can take and should not be localized.",
-                  ],
-                },
-                "Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable. "
+              Object(d.a)(
+                "multiSelectModifier.alt",
+                "Maps to `Alt` on Windows and Linux and to `Option` on macOS."
               ),
-            }),
-            (i[M] = {
-              type: "boolean",
-              default: !1,
-              description: Object(d.a)(
-                "horizontalScrolling setting",
-                "Controls whether trees support horizontal scrolling in the workbench."
-              ),
-            }),
-            i),
-        });
+            ],
+            default: "ctrlCmd",
+            description: Object(d.a)(
+              {
+                key: "multiSelectModifier",
+                comment: [
+                  "- `ctrlCmd` refers to a value the setting can take and should not be localized.",
+                  "- `Control` and `Command` refer to the modifier keys Ctrl or Cmd on the keyboard and can be localized.",
+                ],
+              },
+              "The modifier to be used to add an item in trees and lists to a multi-selection with the mouse (for example in the explorer, open editors and scm view). The 'Open to Side' mouse gestures - if supported - will adapt such that they do not conflict with the multiselect modifier."
+            ),
+          }),
+          (i[D] = {
+            type: "string",
+            enum: ["singleClick", "doubleClick"],
+            default: "singleClick",
+            description: Object(d.a)(
+              {
+                key: "openModeModifier",
+                comment: [
+                  "`singleClick` and `doubleClick` refers to a value the setting can take and should not be localized.",
+                ],
+              },
+              "Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable. "
+            ),
+          }),
+          (i[M] = {
+            type: "boolean",
+            default: !1,
+            description: Object(d.a)(
+              "horizontalScrolling setting",
+              "Controls whether trees support horizontal scrolling in the workbench."
+            ),
+          }),
+          i),
+      });
     },
     kYye: function (e, t, n) {
       "use strict";

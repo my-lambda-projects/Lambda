@@ -7087,11 +7087,9 @@
                         s > 1 && h(l),
                         s > 1 &&
                           f(
-                            e
-                              .slice(0, s - 1)
-                              .concat({
-                                value: " " === e[s - 2].type ? "*" : "",
-                              })
+                            e.slice(0, s - 1).concat({
+                              value: " " === e[s - 2].type ? "*" : "",
+                            })
                           ).replace(de, "$1"),
                         n,
                         i > s && _(e.slice(s, i)),
@@ -16088,14 +16086,12 @@
                   o = e.attributes.width,
                   r = Math.floor(o / 2),
                   a = Math.floor(i / 2);
-                t
-                  .addClass(LIGHTBOX_CSS_NAME)
-                  .css({
-                    top: "50%",
-                    left: "50%",
-                    "margin-top": -a,
-                    "margin-left": -r,
-                  }),
+                t.addClass(LIGHTBOX_CSS_NAME).css({
+                  top: "50%",
+                  left: "50%",
+                  "margin-top": -a,
+                  "margin-left": -r,
+                }),
                   dom("._pendo-guide-container_", t).css({
                     bottom: n,
                     right: n,

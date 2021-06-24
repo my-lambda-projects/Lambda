@@ -1957,16 +1957,14 @@
             var i = o.a.browser.msie && o.a.browser.version < 7,
               s = i ? 1 : 0,
               n = i ? 2 : -1;
-            this.helper
-              .addClass(this._helper)
-              .css({
-                width: this.element.outerWidth() + n,
-                height: this.element.outerHeight() + n,
-                position: "absolute",
-                left: this.elementOffset.left - s + "px",
-                top: this.elementOffset.top - s + "px",
-                zIndex: ++e.zIndex,
-              });
+            this.helper.addClass(this._helper).css({
+              width: this.element.outerWidth() + n,
+              height: this.element.outerHeight() + n,
+              position: "absolute",
+              left: this.elementOffset.left - s + "px",
+              top: this.elementOffset.top - s + "px",
+              zIndex: ++e.zIndex,
+            });
             this.helper.appendTo("body").disableSelection();
           } else this.helper = this.element;
         },

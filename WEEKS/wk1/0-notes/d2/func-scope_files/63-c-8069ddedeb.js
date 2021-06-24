@@ -598,13 +598,11 @@
             title: e.attributes.name || e.attributes.title,
           })),
         collectionToGroups(e, t, a = () => true) {
-          return e.models
-            .filter(a)
-            .map((e) => ({
-              id: e.attributes.id,
-              title: e.attributes.name || e.attributes.title,
-              items: this.collectionToItems(t(e)),
-            }));
+          return e.models.filter(a).map((e) => ({
+            id: e.attributes.id,
+            title: e.attributes.name || e.attributes.title,
+            items: this.collectionToItems(t(e)),
+          }));
         },
         reorderInCollection(e, t, a = t.collection) {
           e.forEach((e, t) => {
