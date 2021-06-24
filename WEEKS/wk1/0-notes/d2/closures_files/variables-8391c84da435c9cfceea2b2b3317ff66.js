@@ -29,20 +29,27 @@ CANVAS_ACTIVE_BRAND_VARIABLES = {
   "ic-brand-global-nav-menu-item__badge-bgd": "#1b212c",
   "ic-brand-global-nav-menu-item__badge-text": "#ffffff",
   "ic-brand-global-nav-logo-bgd": "#4d4d4d",
-  "ic-brand-header-image": "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/534/canvas-lambdalogo.svg",
-  "ic-brand-mobile-global-nav-logo": "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/535/lambda-logo-48.png",
+  "ic-brand-header-image":
+    "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/534/canvas-lambdalogo.svg",
+  "ic-brand-mobile-global-nav-logo":
+    "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/535/lambda-logo-48.png",
   "ic-brand-watermark": "",
   "ic-brand-watermark-opacity": "1.0",
-  "ic-brand-favicon": "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/536/favicon_lambda_32.png",
-  "ic-brand-apple-touch-icon": "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/537/logo-canvas.png",
+  "ic-brand-favicon":
+    "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/536/favicon_lambda_32.png",
+  "ic-brand-apple-touch-icon":
+    "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/537/logo-canvas.png",
   "ic-brand-msapplication-tile-color": "#EC3944",
-  "ic-brand-msapplication-tile-square": "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/538/logo2-canvas.jpg",
-  "ic-brand-msapplication-tile-wide": "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/539/logo-canvas2.png",
+  "ic-brand-msapplication-tile-square":
+    "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/538/logo2-canvas.jpg",
+  "ic-brand-msapplication-tile-wide":
+    "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/539/logo-canvas2.png",
   "ic-brand-right-sidebar-logo": "",
   "ic-brand-Login-body-bgd-color": "#ec3944",
   "ic-brand-Login-body-bgd-image": "",
   "ic-brand-Login-body-bgd-shadow-color": "#f2f2f2",
-  "ic-brand-Login-logo": "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/540/lambda-logo.png",
+  "ic-brand-Login-logo":
+    "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/540/lambda-logo.png",
   "ic-brand-Login-Content-bgd-color": "#ffffff",
   "ic-brand-Login-Content-border-color": "#efefef",
   "ic-brand-Login-Content-inner-bgd": "none",
@@ -53,5 +60,5 @@ CANVAS_ACTIVE_BRAND_VARIABLES = {
   "ic-brand-Login-Content-password-text-color": "#4571c9",
   "ic-brand-Login-footer-link-color": "#1b212c",
   "ic-brand-Login-footer-link-color-hover": "#4571c9",
-  "ic-brand-Login-instructure-logo": "#aaaaaa"
+  "ic-brand-Login-instructure-logo": "#aaaaaa",
 };

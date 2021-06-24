@@ -1,23 +1,22 @@
 .mark-done-labels span {
-  display: none
+  display: none;
 }
 
 .mark-done-labels .visible {
-  display: inline
+  display: inline;
 }
 
 .delete-wiki-pages-header {
   padding-bottom: 12px;
-  font-weight: bold
+  font-weight: bold;
 }
 
 @media (max-width: 767px) {
-
   .ic-Table.wiki-page-table th,
   .ic-Table.wiki-page-table td {
     vertical-align: top;
     padding-left: 4px;
-    padding-right: 4px
+    padding-right: 4px;
   }
 }
 
@@ -29,28 +28,27 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block
+  display: block;
 }
 
 .ic-Table.wiki-page-table th .hide-overflow .front-page,
 .ic-Table.wiki-page-table td .hide-overflow .front-page {
-  display: inline-block
+  display: inline-block;
 }
 
 @media (min-width: 768px) {
-
   .ic-Table.wiki-page-table th .mobile-column,
   .ic-Table.wiki-page-table td .mobile-column {
-    display: none
+    display: none;
   }
 }
 
 .ic-Table--striped tr:nth-child(odd) .wiki-page-link {
-  color: var(--ic-link-color-darkened-10)
+  color: var(--ic-link-color-darkened-10);
 }
 
 .ic-Table.wiki-page-table .header-row th {
-  padding-top: 0px
+  padding-top: 0px;
 }
 
 @media (max-width: 767px) {
@@ -63,35 +61,35 @@
     padding: 0;
     position: absolute;
     width: 1px;
-    transform: translatez(0)
+    transform: translatez(0);
   }
 }
 
 .pages-mobile-header {
-  display: none
+  display: none;
 }
 
 @media (max-width: 767px) {
   .pages-mobile-header {
     display: block;
-    font-weight: bold
+    font-weight: bold;
   }
 
   .pages-mobile-header li {
-    font-weight: normal
+    font-weight: normal;
   }
 
   .pages-mobile-header li.selected {
-    background-color: #d9edf9
+    background-color: #d9edf9;
   }
 
   .pages-mobile-header .pages-mobile-header-left {
     float: left;
-    padding-left: 4px
+    padding-left: 4px;
   }
 
   .pages-mobile-header .pages-mobile-header-right {
     float: right;
-    padding-right: 4px
+    padding-right: 4px;
   }
 }

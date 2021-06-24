@@ -2,7 +2,7 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   background: #574b90;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .col-xs-4 {
@@ -23,8 +23,8 @@ textarea {
   resize: none;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -47,11 +47,11 @@ button:active {
   background-color: #8393dd !important;
 }
 
-.ce_button .col-xs-4{
+.ce_button .col-xs-4 {
   width: 100%;
 }
 
-.ce_button .col-xs-4 .btn{
+.ce_button .col-xs-4 .btn {
   width: 100% !important;
 }
 
@@ -74,13 +74,13 @@ button:active {
 }
 
 .details {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   background-color: black;
   color: white;
-  font-size:12px;
+  font-size: 12px;
   font-weight: bold;
-  padding:5px 15px;
+  padding: 5px 15px;
 }
 
 .row {

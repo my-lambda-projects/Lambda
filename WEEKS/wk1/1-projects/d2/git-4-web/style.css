@@ -1,7 +1,7 @@
 body {
-  border: 20px solid #00CED1;
+  border: 20px solid #00ced1;
   font-size: 20px;
-  color: #2F4F4F;
+  color: #2f4f4f;
 }
 
 div.container {
@@ -15,26 +15,26 @@ h1 {
 }
 
 h1:hover {
-  color: #BC8F8F;
+  color: #bc8f8f;
 }
 
 div.info {
-  background-color: #7FFFD4;
+  background-color: #7fffd4;
   padding: 5%;
 }
 
 div.info:hover {
-  background-color: #DEB887;
+  background-color: #deb887;
 }
 
 .first-section {
-  color: #00CED1;
-  background-color: #2F4F4F;
+  color: #00ced1;
+  background-color: #2f4f4f;
   padding: 10%;
 }
 
 .first-section:hover {
-  color: #FFA07A;
+  color: #ffa07a;
   background-color: #696969;
 }
 
@@ -44,7 +44,7 @@ div.info:hover {
 }
 
 .second-section:hover {
-  color: #FF8C00;
+  color: #ff8c00;
 }
 
 .second-section h2 {
@@ -53,7 +53,7 @@ div.info:hover {
 }
 
 .second-section h2:hover {
-  color: #FF8C00;
+  color: #ff8c00;
   text-transform: capitalize;
 }
 
@@ -65,5 +65,5 @@ div.info:hover {
 }
 
 .gallery img:hover {
-  border: 10px dotted #DC143C;
+  border: 10px dotted #dc143c;
 }
