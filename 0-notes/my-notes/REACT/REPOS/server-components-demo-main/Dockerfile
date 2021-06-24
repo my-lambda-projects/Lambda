@@ -1,4 +1,5 @@
-FROM node:14.17
+FROM node:14.16.0
+
 
 WORKDIR /opt/notes-app
 
