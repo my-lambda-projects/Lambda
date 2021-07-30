@@ -1,0 +1,20 @@
+{
+  "name": "node-testing1-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "cross-env NODE_ENV=testing jest --watch --verbose"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.30.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/node-testing1-project.git"
+  }
+}

@@ -1,7 +1,7 @@
 import requests
 
-message = raw_input('Enter a Message: ')
-number = raw_input('Enter the phone number: ')
+message = raw_input('Enter a Message:hi ')
+number = raw_input('Enter the phone number: 5512545505')
 
 
 payload = {'number': number, 'message': message}

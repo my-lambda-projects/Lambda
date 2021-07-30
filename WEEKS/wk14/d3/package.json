@@ -1,0 +1,31 @@
+{
+  "name": "node-db3-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "resetdb": "npm run rollback && npm run migrate && npm run seed",
+    "test": "cross-env NODE_ENV=testing jest --watch --verbose --runInBand"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.30.0",
+    "jest": "^26.6.3",
+    "knex-cleaner": "^1.3.1",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.7",
+    "sqlite3": "^5.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/node-db3-project.git"
+  }
+}
