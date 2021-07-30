@@ -1,6 +1,6 @@
 # Callbacks
 
-### 
+###
 
 In JavaScript, a callback is a [function](https://www.javascripttutorial.net/javascript-function/) passed into another function as an argument to be executed later.
 
@@ -98,20 +98,19 @@ However, downloading a picture from a remote server takes time depending on the 
 
 The following code uses the `setTimeout()` function to simulate the `download()` function:
 
-
-
 ```javascript
-function download(url) { setTimeout(() => {   
-     console.log(`Downloading ${url} ...`);
-}, 3* 1000);
-};
+function download(url) {
+  setTimeout(() => {
+    console.log(`Downloading ${url} ...`);
+  }, 3 * 1000);
+}
 ```
 
 Code language: JavaScript \(javascript\)
 
 And this code emulates the `process()` function:
 
-``function process(picture) { console.log(`Processing ${picture}`); }``
+`` function process(picture) { console.log(`Processing ${picture}`); } ``
 
 Code language: JavaScript \(javascript\)
 
@@ -131,24 +130,20 @@ Code language: JavaScript \(javascript\)
 
 This is not what you expected because the `process()` function executes before the `download()` function. The correct sequence should be:
 
-* Download the picture, wait for it to complete.
-* Process the picture.
+- Download the picture, wait for it to complete.
+- Process the picture.
 
 To fix the issue above, you can pass the `process()` function to the `download()` function and execute the `process()` function inside the `download()` function once the download completes, like this:
 
-
-
 ```javascript
-function download(url, callback) { setTimeout(() => {
-        console.log(`Downloading ${url} ...`);
-
+function download(url, callback) {
+  setTimeout(() => {
+    console.log(`Downloading ${url} ...`);
 
     callback(url);
-}, 3000);
+  }, 3000);
 }
 ```
-
-
 
 function process\(picture\) { console.log\(`Processing ${picture}`\); }
 
@@ -172,21 +167,15 @@ By using asynchronous callbacks, you can register an action in advance without b
 
 To make the code cleaner, you can define the `process()` function as an anonymous function:
 
-
-
 ```javascript
-function download(url, callback) { setTimeout(() => {    
-    
-    
+function download(url, callback) {
+  setTimeout(() => {
     console.log(`Downloading ${url} ...`);
 
     callback(url);
-
-}, 3000);
+  }, 3000);
 }
 ```
-
-
 
 let url = '[https://www.javascripttutorial.net/pic.jpg](https://www.javascripttutorial.net/pic.jpg)'; download\(url, function\(picture\) { console.log\(`Processing ${picture}`\); }\);\`\`
 
@@ -196,20 +185,17 @@ Code language: JavaScript \(javascript\)
 
 The `download()` function assumes that everything works fine and does not consider any exceptions. The following code introduces two callbacks: `success` and `failure` to handle the success and failure cases respectively:
 
-
-
 ```javascript
-  function download(url, success, failure) { setTimeout(() => {
-      console.log(`Downloading ${url} ...`);
+function download(url, success, failure) {
+  setTimeout(() => {
+    console.log(`Downloading ${url} ...`);
 
-    let error = url.length === 0 || !url; 
+    let error = url.length === 0 || !url;
 
-    error ? failure(url) :  success(url);
-}, 3000);
+    error ? failure(url) : success(url);
+  }, 3000);
 }
 ```
-
-
 
 download\('', function\(picture\) { console.log\(`Processing the picture ${picture}`\); }, function\(picture\) { console.log\(`Handling error...`\); } \);\`\`
 
@@ -228,10 +214,6 @@ How do you download three pictures and process them sequentially? A typical appr
 }, 3000);
 }
 ```
-
-
-
-
 
 ```javascript
 const url1 = '
@@ -276,16 +258,16 @@ To avoid the pyramid of doom, you use [promises](https://www.javascripttutorial.
 
 ### Summary
 
-* A callback is a function passed into another function as an argument to be executed later.
-* Callback functions can be synchronous or asynchronous.
+- A callback is a function passed into another function as an argument to be executed later.
+- Callback functions can be synchronous or asynchronous.
 
-### 
+###
 
-### 
+###
 
-### 
+###
 
-### 
+###
 
 ### What is a Callback Function?
 
@@ -294,7 +276,7 @@ In JavaScript, functions are objects. Can we pass objects to functions as parame
 So, we can also pass functions as parameters to other functions and call them inside the outer functions. Sounds complicated? Let me show that in an example below:
 
 ```text
-function print(callback) {  
+function print(callback) {
     callback();
 }
 ```
@@ -316,9 +298,9 @@ In JavaScript, the way to create a callback function is to pass it as a paramete
 To understand what I’ve explained above, let me start with a simple example. We want to log a message to the console but it should be there after 3 seconds.
 
 ```javascript
-const message = function() {  
-    console.log("This message is shown after 3 seconds");
-}
+const message = function () {
+  console.log("This message is shown after 3 seconds");
+};
 
 setTimeout(message, 3000);
 ```
@@ -332,8 +314,8 @@ In other words, the message function is being called after something happened \(
 Alternatively, we can define a function directly inside another function, instead of calling it. It will look like this:
 
 ```javascript
-setTimeout(function() {  
-    console.log("This message is shown after 3 seconds");
+setTimeout(function () {
+  console.log("This message is shown after 3 seconds");
 }, 3000);
 ```
 
@@ -344,8 +326,8 @@ As we can see, the callback function here has no name and a function definition 
 If you prefer, you can also write the same callback function as an ES6 arrow function, which is a newer type of function in JavaScript:
 
 ```javascript
-setTimeout(() => { 
-    console.log("This message is shown after 3 seconds");
+setTimeout(() => {
+  console.log("This message is shown after 3 seconds");
 }, 3000);
 ```
 
@@ -358,13 +340,11 @@ Click here
 This time we will see a message on the console only when the user clicks on the button:
 
 ```javascript
-document.queryselector("#callback-btn")
-    .addEventListener("click", function() {    
-      console.log("User has clicked on the button!");
+document.queryselector("#callback-btn").addEventListener("click", function () {
+  console.log("User has clicked on the button!");
 });
 ```
 
 So here we select the button first with its id, and then we add an event listener with the addEventListener method. It takes 2 parameters. The first one is its type, “click”, and the second parameter is a callback function, which logs the message when the button is clicked.
 
 As you can see, callback functions are also used for event declarations in JavaScript.
-

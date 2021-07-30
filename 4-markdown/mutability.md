@@ -1,6 +1,6 @@
 # Mutability
 
-### 
+###
 
 ### Mutability && Primitive && Reference Examples
 
@@ -8,12 +8,12 @@ Objects are passed by reference, are mutable, and can be modified by our functio
 
 ```javascript
 function rotateLeft(arr, num) {
-    for (let i = 0 ; i < num; i++) {
-        let el = arr.pop();
-        arr.unshift(el);
-    }
+  for (let i = 0; i < num; i++) {
+    let el = arr.pop();
+    arr.unshift(el);
+  }
 }
-let myArr = [1, 2, 3, 4, 5,];
+let myArr = [1, 2, 3, 4, 5];
 rotateLeft(myArr, 2);
 console.log(myArr);
 ```
@@ -22,7 +22,7 @@ Strings are passed by value, are immutable, and a new array is constructedd and 
 
 ```javascript
 function rotateString(str, num) {
-    return str.slice(num) + str.slice(0, num);
+  return str.slice(num) + str.slice(0, num);
 }
 
 let str = "foobar";
@@ -38,7 +38,7 @@ console.log(ret);
 To dereference an array, use `let [var1, var2]` syntax.
 
 ```javascript
-let arr = ['one', 'two', 'three'];
+let arr = ["one", "two", "three"];
 
 let [first] = arr;
 console.log(first);
@@ -50,15 +50,19 @@ To dereference attributes from an object, use `let {}` syntax.
 
 ```javascript
 let me = {
-    name: "Ian",
-    instruments: ['bass', 'synth', 'guitar'],
-    siblings: {
-        brothers: ['Alistair'],
-        sisters: ['Meghan']
-    }
-}
+  name: "Ian",
+  instruments: ["bass", "synth", "guitar"],
+  siblings: {
+    brothers: ["Alistair"],
+    sisters: ["Meghan"],
+  },
+};
 
-let { name, instruments: musical_instruments, siblings: {sisters}} = me;
+let {
+  name,
+  instruments: musical_instruments,
+  siblings: { sisters },
+} = me;
 
 console.log(sisters);
 ```
@@ -130,4 +134,3 @@ let myCountries = {
 
 let newMe = {...me, ...countries}
 ```
-
