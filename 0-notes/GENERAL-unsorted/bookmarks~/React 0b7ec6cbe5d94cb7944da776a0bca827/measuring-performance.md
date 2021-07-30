@@ -33,13 +33,13 @@ With the `reportWebVitals` function, you can send any of results to an analytics
 ```js
 function sendToAnalytics(metric) {
   const body = JSON.stringify(metric);
-  const url = 'https://example.com/analytics';
+  const url = "https://example.com/analytics";
 
   // Use `navigator.sendBeacon()` if available, falling back to `fetch()`
   if (navigator.sendBeacon) {
     navigator.sendBeacon(url, body);
   } else {
-    fetch(url, { body, method: 'POST', keepalive: true });
+    fetch(url, { body, method: "POST", keepalive: true });
   }
 }
 
@@ -50,10 +50,10 @@ reportWebVitals(sendToAnalytics);
 >
 > ```js
 > function sendToAnalytics({ id, name, value }) {
->   ga('send', 'event', {
->     eventCategory: 'Web Vitals',
+>   ga("send", "event", {
+>     eventCategory: "Web Vitals",
 >     eventAction: name,
->     eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+>     eventValue: Math.round(name === "CLS" ? value * 1000 : value), // values must be integers
 >     eventLabel: id, // id unique to current page load
 >     nonInteraction: true, // avoids affecting bounce rate
 >   });

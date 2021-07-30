@@ -12,7 +12,7 @@ Here is an example:
 ## `moduleA.js`
 
 ```js
-const moduleA = 'Hello';
+const moduleA = "Hello";
 
 export { moduleA };
 ```
@@ -20,15 +20,15 @@ export { moduleA };
 ## `App.js`
 
 ```js
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class App extends Component {
   handleClick = () => {
-    import('./moduleA')
+    import("./moduleA")
       .then(({ moduleA }) => {
         // Use moduleA
       })
-      .catch(err => {
+      .catch((err) => {
         // Handle failure
       });
   };

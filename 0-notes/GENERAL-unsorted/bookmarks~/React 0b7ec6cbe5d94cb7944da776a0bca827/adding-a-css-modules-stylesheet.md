@@ -31,9 +31,9 @@ CSS Modules let you use the same CSS class name in different files without worry
 ## `Button.js`
 
 ```js
-import React, { Component } from 'react';
-import styles from './Button.module.css'; // Import css modules stylesheet as styles
-import './another-stylesheet.css'; // Import regular stylesheet
+import React, { Component } from "react";
+import styles from "./Button.module.css"; // Import css modules stylesheet as styles
+import "./another-stylesheet.css"; // Import regular stylesheet
 
 class Button extends Component {
   render() {

@@ -12,7 +12,7 @@ For example:
 ## `Button.js`
 
 ```js
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Button extends Component {
   render() {
@@ -26,8 +26,8 @@ export default Button; // Don’t forget to use export default!
 ## `DangerButton.js`
 
 ```js
-import React, { Component } from 'react';
-import Button from './Button'; // Import a component from another file
+import React, { Component } from "react";
+import Button from "./Button"; // Import a component from another file
 
 class DangerButton extends Component {
   render() {
@@ -70,7 +70,7 @@ If you're using TypeScript, you can configure the `baseUrl` setting inside the `
 Now that you've configured your project to support absolute imports, if you want to import a module located at `src/components/Button.js`, you can import the module like so:
 
 ```js
-import Button from 'components/Button';
+import Button from "components/Button";
 ```
 
 For more information on these configuration files, see the [jsconfig.json reference](https://code.visualstudio.com/docs/languages/jsconfig) and [tsconfig.json reference](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) documentation.

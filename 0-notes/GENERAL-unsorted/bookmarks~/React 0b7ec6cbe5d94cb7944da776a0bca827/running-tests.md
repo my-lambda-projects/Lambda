@@ -52,9 +52,9 @@ To create tests, add `it()` (or `test()`) blocks with the name of the test and i
 Jest provides a built-in `expect()` global function for making assertions. A basic test could look like this:
 
 ```js
-import sum from './sum';
+import sum from "./sum";
 
-it('sums numbers', () => {
+it("sums numbers", () => {
   expect(sum(1, 2)).toEqual(3);
   expect(sum(2, 2)).toEqual(4);
 });
@@ -71,12 +71,12 @@ There is a broad spectrum of component testing techniques. They range from a “
 Different projects choose different testing tradeoffs based on how often components change, and how much logic they contain. If you haven’t decided on a testing strategy yet, we recommend that you start with creating basic smoke tests for your components:
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
+it("renders without crashing", () => {
+  const div = document.createElement("div");
   ReactDOM.render(<App />, div);
 });
 ```
@@ -106,19 +106,19 @@ If you want to avoid boilerplate in your test files, you can create a [`src/setu
 ```js
 // react-testing-library renders your components to document.body,
 // this adds jest-dom's custom assertions
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 ```
 
 Here's an example of using `react-testing-library` and `jest-dom` for testing that the `<App />` component renders "Learn React".
 
 ```js
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-it('renders welcome message', () => {
+it("renders welcome message", () => {
   render(<App />);
-  expect(screen.getByText('Learn React')).toBeInTheDocument();
+  expect(screen.getByText("Learn React")).toBeInTheDocument();
 });
 ```
 
@@ -131,8 +131,8 @@ We recommend that you use `expect()` for assertions and `jest.fn()` for spies. I
 However, if you are used to other libraries, such as [Chai](https://www.chaijs.com/) and [Sinon](https://sinonjs.org/), or if you have existing code using them that you’d like to port over, you can import them normally like this:
 
 ```js
-import sinon from 'sinon';
-import { expect } from 'chai';
+import sinon from "sinon";
+import { expect } from "chai";
 ```
 
 and then use them in your tests like you normally do.

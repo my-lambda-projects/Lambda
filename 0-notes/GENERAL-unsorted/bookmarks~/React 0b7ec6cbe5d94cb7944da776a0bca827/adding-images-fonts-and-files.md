@@ -12,8 +12,8 @@ To reduce the number of requests to the server, importing images that are less t
 Here is an example:
 
 ```js
-import React from 'react';
-import logo from './logo.png'; // Tell webpack this JS file uses this image
+import React from "react";
+import logo from "./logo.png"; // Tell webpack this JS file uses this image
 
 console.log(logo); // /logo.84287d09.png
 
@@ -50,7 +50,7 @@ An alternative way of handling static assets is described in the next section.
 One way to add SVG files was described in the section above. You can also import SVGs directly as React components. You can use either of the two approaches. In your code it would look like this:
 
 ```js
-import { ReactComponent as Logo } from './logo.svg';
+import { ReactComponent as Logo } from "./logo.svg";
 
 function App() {
   return (

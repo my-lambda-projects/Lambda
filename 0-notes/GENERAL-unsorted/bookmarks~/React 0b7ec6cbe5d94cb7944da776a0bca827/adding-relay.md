@@ -20,7 +20,7 @@ yarn add babel-plugin-relay
 Then, wherever you use the `graphql` template tag, import the macro:
 
 ```js
-import graphql from 'babel-plugin-relay/macro';
+import graphql from "babel-plugin-relay/macro";
 // instead of:
 //   import { graphql } from "babel-plugin-relay"
 

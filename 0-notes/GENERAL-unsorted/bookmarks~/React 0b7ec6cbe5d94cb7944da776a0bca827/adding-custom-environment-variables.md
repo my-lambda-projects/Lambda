@@ -59,7 +59,7 @@ The above form is looking for a variable called `REACT_APP_NOT_SECRET_CODE` from
 Having access to the `NODE_ENV` is also useful for performing actions conditionally:
 
 ```js
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
   analytics.disable();
 }
 ```

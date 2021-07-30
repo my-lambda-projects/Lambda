@@ -20,7 +20,7 @@ yarn add bootstrap
 Import Bootstrap CSS and optionally Bootstrap theme CSS in the beginning of your `src/index.js` file:
 
 ```js
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 ```
@@ -52,7 +52,7 @@ To customize Bootstrap, create a file called `src/custom.scss` (or similar) and 
 $body-bg: #000;
 
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 ```
 
 > **Note:** You can prefix paths with `~`, as displayed above, to resolve modules from `node_modules`.
@@ -60,5 +60,5 @@ $body-bg: #000;
 Finally, import the newly created `.scss` file instead of the default Bootstrap `.css` in the beginning of your `src/index.js` file, for example:
 
 ```javascript
-import './custom.scss';
+import "./custom.scss";
 ```
