@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>react-enviorment</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="react-enviorment">REACT ENVIORMENT</h1>
-<p>First thing we need to do is setup our development environment and hook up React. Our end goal will be to get a basic message up on screen. Let’s create a new directory and download the packages we need.</p>
-<pre class="text"><code>mkdir starwars_api
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>react-enviorment</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="react-enviorment">REACT ENVIORMENT</h1>
+    <p>
+      First thing we need to do is setup our development environment and hook up
+      React. Our end goal will be to get a basic message up on screen. Let’s
+      create a new directory and download the packages we need.
+    </p>
+    <pre class="text"><code>mkdir starwars_api
 cd starwars_api
 npm init -y
 npm install --save react react-dom redux react-redux redux-thunk
 npm install --save-dev babel-core babel-preset-es2015 babel-preset-react webpack@2.1.0-beta.27 file-loader babel-loader webpack-dev-server@2.1.0-beta.11 react-hot-loader@3.0.0-beta.6</code></pre>
-<p>Now let’s create our entrance file. Create a file at <code>src/app.js</code> and put the following in it.</p>
-<pre class="text"><code>import React from &#39;react&#39;;
+    <p>
+      Now let’s create our entrance file. Create a file at
+      <code>src/app.js</code> and put the following in it.
+    </p>
+    <pre class="text"><code>import React from &#39;react&#39;;
 import ReactDOM from &#39;react-dom&#39;;
 import App from &#39;./components/App&#39;;
 import { AppContainer } from &#39;react-hot-loader&#39;;
@@ -50,8 +70,12 @@ if (module.hot) {
     );
   });
 }</code></pre>
-<p>We are displaying a central <code>App</code> component. So let’s create it! Create a file at <code>src/components/App.js</code> and put the following in it.</p>
-<pre class="text"><code>import React from &#39;react&#39;;
+    <p>
+      We are displaying a central <code>App</code> component. So let’s create
+      it! Create a file at <code>src/components/App.js</code> and put the
+      following in it.
+    </p>
+    <pre class="text"><code>import React from &#39;react&#39;;
 
 const App = () =&gt;
   &lt;div className=&#39;container&#39;&gt;
@@ -61,8 +85,12 @@ const App = () =&gt;
   &lt;/div&gt;;
 
 export default App;</code></pre>
-<p>We also need to create our <code>index.html</code> file that we are including in our <code>app.js</code> file. Create a file at <code>src/index.html</code> and put the following in it.</p>
-<pre class="text"><code>&lt;!DOCTYPE html&gt;
+    <p>
+      We also need to create our <code>index.html</code> file that we are
+      including in our <code>app.js</code> file. Create a file at
+      <code>src/index.html</code> and put the following in it.
+    </p>
+    <pre class="text"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -95,9 +123,19 @@ export default App;</code></pre>
   &lt;script src=&quot;app.bundle.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>This is a basic HTML page. We are including Bootstrap and its basic theme for some simple styles. We also are adding some styles in a <code>style</code> tag to help with the sizing of some elements. In the <code>body</code>, we are adding our container element and our main app bundle.</p>
-<p>Now that we have all that setup, let’s create a webpack config that we can use to build our project. Create a file in the root of your project called <code>webpack.config.js</code> and put the following in it.</p>
-<pre class="text"><code>const webpack = require(&#39;webpack&#39;);
+    <p>
+      This is a basic HTML page. We are including Bootstrap and its basic theme
+      for some simple styles. We also are adding some styles in a
+      <code>style</code> tag to help with the sizing of some elements. In the
+      <code>body</code>, we are adding our container element and our main app
+      bundle.
+    </p>
+    <p>
+      Now that we have all that setup, let’s create a webpack config that we can
+      use to build our project. Create a file in the root of your project called
+      <code>webpack.config.js</code> and put the following in it.
+    </p>
+    <pre class="text"><code>const webpack = require(&#39;webpack&#39;);
 const path = require(&#39;path&#39;);
 
 module.exports = {
@@ -126,9 +164,18 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
   ],
 };</code></pre>
-<p>Here we are exporting our config object like normal. We point webpack to start at our <code>app.js</code> file and tell everything to output to a <code>build</code> directory. We run all HTML files though the file loader. This essentially just moves the file to our <code>build</code> directory. Also, we run our JS files through the babel loader to make sure they are transpiled to code that most browsers these days understand. Lastly, we are including a plugin that will give us pretty output in the console.</p>
-<p>Let’s create a <code>.babelrc</code> file to configure babel.</p>
-<pre class="text"><code>{
+    <p>
+      Here we are exporting our config object like normal. We point webpack to
+      start at our <code>app.js</code> file and tell everything to output to a
+      <code>build</code> directory. We run all HTML files though the file
+      loader. This essentially just moves the file to our
+      <code>build</code> directory. Also, we run our JS files through the babel
+      loader to make sure they are transpiled to code that most browsers these
+      days understand. Lastly, we are including a plugin that will give us
+      pretty output in the console.
+    </p>
+    <p>Let’s create a <code>.babelrc</code> file to configure babel.</p>
+    <pre class="text"><code>{
   &quot;presets&quot;: [
     [&quot;es2015&quot;, { &quot;modules&quot;: false }],
     &quot;react&quot;
@@ -137,6 +184,11 @@ module.exports = {
     &quot;react-hot-loader/babel&quot;
   ]
 }</code></pre>
-<p>Last thing. Let’s create some npm scripts so that we don’t need to remember the commands we need to run our application. Add the following scripts to your <code>package.json</code> file in the <code>scripts</code> section.</p>
-</body>
+    <p>
+      Last thing. Let’s create some npm scripts so that we don’t need to
+      remember the commands we need to run our application. Add the following
+      scripts to your <code>package.json</code> file in the
+      <code>scripts</code> section.
+    </p>
+  </body>
 </html>

@@ -1432,13 +1432,16 @@ files=$(find .git/refs -type f)
 for f in $files; do
     id=$(cat "$f")
     if ! git rev-parse --quiet "$id" \
- >/dev/null 2>&1; then
-continue
-fi
-if ! git rev-parse --quiet --verify "$id^{commit}" \
-    >/dev/null 2>&1; then
+
+> /dev/null 2>&1; then
+> continue
+> fi
+> if ! git rev-parse --quiet --verify "$id^{commit}" \
+> /dev/null 2>&1; then
+
     echo "Removing ref $f with missing commit $id"
     rm "$f"
+
 fi
 done
 
@@ -1452,19 +1455,22 @@ packfiles=$(cat .git/packed-refs \
 
 for f in $packfiles; do
     if ! git rev-parse --quiet --verify "$f" \
- >/dev/null 2>&1; then
-continue
-fi
-id=$(git rev-parse "$f")
-if ! git rev-parse --quiet --verify "$id" \
-    >/dev/null 2>&1; then
+
+> /dev/null 2>&1; then
+> continue
+> fi
+> id=$(git rev-parse "$f")
+> if ! git rev-parse --quiet --verify "$id" \
+> /dev/null 2>&1; then
+
     continue
     fi
     if ! git rev-parse --quiet --verify "$id^{commit}" \
- >/dev/null 2>&1; then
-echo "Removing packed ref $f with missing commit $id"
-git update-ref -d $f
-fi
-done
+
+> /dev/null 2>&1; then
+> echo "Removing packed ref $f with missing commit $id"
+> git update-ref -d $f
+> fi
+> done
 
 git config --system core.longpaths true

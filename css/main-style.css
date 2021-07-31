@@ -82,8 +82,8 @@ h2::after {
 }
 
 .embed {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
     margin: 0 auto;
     overflow-y: scroll;
