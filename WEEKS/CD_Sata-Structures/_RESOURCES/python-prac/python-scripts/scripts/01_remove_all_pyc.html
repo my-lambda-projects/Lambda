@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>01_remove_all_pyc</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>I always forget this …</p>
+    <p>
+      To recursively remove all those pesky <em>.pyc</em> files from a git repo,
+      run this command:
+    </p>
+    <pre><code>$ find . -name &quot;*.pyc&quot; -exec git rm -f {} \;</code></pre>
+    <p>
+      Then make sure to add a <em>.gitignore</em> in the root of the repo and
+      add the line: <code>*.pyc</code>
+    </p>
+  </body>
+</html>

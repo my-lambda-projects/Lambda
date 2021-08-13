@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="tree-traversal">Tree Traversal</h1>
+    <p>
+      <strong>Tree traversal</strong> refers to the process of visiting each
+      node in a tree exactly once. The two most common methods of tree traversal
+      are:
+    </p>
+    <ul>
+      <li><a href="depth-first-search">Depth-First Search</a></li>
+      <li><a href="breadth-first-search">Breadth-First Search</a></li>
+    </ul>
+    <p>
+      Due to the non-linear structure of a tree (from a given node, there is
+      more than one possible <em>next</em> node), some nodes <em>must</em> be
+      deferred—stored in some way for later visiting. This is often done via a
+      <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)"
+        >stack</a
+      >
+      (LIFO) or
+      <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)"
+        >queue</a
+      >
+      (FIFO).
+    </p>
+    <p>
+      As a tree is a self-referential data structure, traversal can be done by
+      recursion or
+      <a href="https://en.wikipedia.org/wiki/Corecursion">corecursion</a>; in
+      these cases the deferred nodes are stored implicitly in the
+      <a href="https://en.wikipedia.org/wiki/Call_stack">call stack</a>.
+    </p>
+    <p>
+      <strong><a href="depth-first-search">Depth-first search</a></strong> is
+      easily implemented via a stack, including recursively (via the call
+      stack), while
+      <strong><a href="breadth-first-search">breadth-first search</a></strong>
+      is easily implemented via a queue, including corecursively.
+    </p>
+    <p>
+      <a href="../../data-structures/tree"
+        >← go back to data structures/trees</a
+      >
+    </p>
+  </body>
+</html>

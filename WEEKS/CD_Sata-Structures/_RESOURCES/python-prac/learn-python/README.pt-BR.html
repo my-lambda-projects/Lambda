@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README.pt-BR</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="playground-e-cheatsheet-para-aprender-python">
+      Playground e Cheatsheet Para Aprender Python
+    </h1>
+    <p>
+      <a href="https://travis-ci.org/trekhleb/learn-python"
+        ><img
+          src="https://travis-ci.org/trekhleb/learn-python.svg?branch=master"
+          alt="Build Status"
+      /></a>
+    </p>
+    <blockquote>
+      <p>
+        Essa é uma coleção de scripts Python dividida em
+        <a href="#índice">tópicos</a> que contém exemplos de código com
+        explicações, diferentes usos e links para outras leituras.
+      </p>
+    </blockquote>
+    <p>
+      <em>Ler em</em> <a href="README.md"><em>English</em></a
+      >.
+    </p>
+    <p>
+      É um <strong>playground</strong> porque você pode fazer alterações no
+      código para ver como ele se comporta, além de
+      <a href="#testando-o-código">testá-lo</a> usando asserções. Também é
+      possível <a href="#revisando-o-código">revisar o código</a> que você
+      escreveu automaticamente e verificar se ele se encaixa no guia de estilo
+      de código Python. Isso tudo pode tornar seu processo de aprendizagem mais
+      interativo e ajudar a manter a qualidade do código bastante alta desde o
+      início.
+    </p>
+    <p>
+      É um <strong>cheatsheet</strong> porque você pode voltar a esses exemplos
+      de código quando quiser recapitular a sintaxe das
+      <a href="#índice">estruturas padrão do Python</a>. O código está cheio de
+      asserções, então você poderá ver o retorno das funções sem precisar
+      executá-las.
+    </p>
+    <blockquote>
+      <p>
+        <em
+          >Você pode se interessar também por 🤖
+          <a href="https://github.com/trekhleb/machine-learning-experiments"
+            >Interactive Machine Learning Experiments</a
+          ></em
+        >
+      </p>
+    </blockquote>
+    <h2 id="como-usar-esse-repositório">Como Usar Esse Repositório</h2>
+    <p>Nesse repositório, cada script Python possui a seguinte estrutura:</p>
+    <pre><code>&quot;&quot;&quot;Lists  &lt;--- Nome do tópico
+
+# @see: https://www.learnpython.org/en/Lists  &lt;-- Link para outras leituras.
+
+A seguir, uma explicação mais detalhada do tópico atual (ex, informações gerais sobre listas (Lists)).
+&quot;&quot;&quot;
+
+
+def test_list_type():
+    &quot;&quot;&quot;Explicação do subtópico.
+
+    Cada arquivo contém funções de teste que ilustram subtópicos (ou seja, tipo de lista, métodos de lista).
+    &quot;&quot;&quot;
+
+    # Here is an example of how to build a list.  &lt;-- Comentários em inglês explicam a ação.
+    squares = [1, 4, 9, 16, 25]
+
+    # Lists can be indexed and sliced.
+    # Indexing returns the item.
+    assert squares[0] == 1  # &lt;-- As asserções ilustram o resultado.
+    # Slicing returns a new list.
+    assert squares[-3:] == [9, 16, 25]  # &lt;-- As asserções ilustram o resultado.</code></pre>
+    <p>Então você pode querer fazer o seguinte:</p>
+    <ul>
+      <li>
+        <a href="#índice">Encontrar o tópico</a> que deseja aprender ou
+        recapitular.
+      </li>
+      <li>
+        Ler os comentários e/ou a documentação vinculada em cada script (como no
+        exemplo acima).
+      </li>
+      <li>
+        Analisar os exemplos e asserções para ver exemplos de uso e saída
+        esperada das funções.
+      </li>
+      <li>
+        Alterar o código ou adicionar novas asserções para ver o que acontece.
+      </li>
+      <li>
+        <a href="#testando-o-código">Executar testes</a> e
+        <a href="#revisando-o-código">revisar o código</a> para ver se ele
+        funciona e para saber se está escrito corretamente.
+      </li>
+    </ul>
+    <h2 id="índice">Índice</h2>
+    <ol type="1">
+      <li>
+        <strong>Começando</strong>
+        <ul>
+          <li>
+            <a href="src/getting_started/what_is_python.md">O que é Python</a>
+          </li>
+          <li>
+            <a href="src/getting_started/python_syntax.md">Sintaxe Python</a>
+          </li>
+          <li><a href="src/getting_started/test_variables.py">Variáveis</a></li>
+        </ul>
+      </li>
+      <li>
+        <strong>Operadores</strong>
+        <ul>
+          <li>
+            <a href="src/operators/test_arithmetic.py"
+              >Operadores Aritméticos</a
+            >
+            (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>,
+            <code>//</code>, <code>%</code>, <code>**</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_bitwise.py">Operadores Bitwise</a>
+            (<code>&amp;</code>, <code>|</code>, <code>^</code>,
+            <code>&gt;&gt;</code>, <code>&lt;&lt;</code>, <code>~</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_assigment.py"
+              >Operadores de Atribuição</a
+            >
+            (<code>=</code>, <code>+=</code>, <code>-=</code>, <code>/=</code>,
+            <code>//=</code> etc.)
+          </li>
+          <li>
+            <a href="src/operators/test_comparison.py"
+              >Operadores de Comparação</a
+            >
+            (<code>==</code>, <code>!=</code>, <code>&gt;</code>,
+            <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_logical.py">Operadores Lógicos</a>
+            (<code>and</code>, <code>or</code>, <code>not</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_identity.py"
+              >Operadores de Indentidade</a
+            >
+            (<code>is</code>, <code>is not</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_membership.py"
+              >Operadores de Associação</a
+            >
+            (<code>in</code>, <code>not in</code>)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Tipos de Dados</strong>
+        <ul>
+          <li>
+            <a href="src/data_types/test_numbers.py">Números</a> (incluindo
+            boleanos)
+          </li>
+          <li>
+            <a href="src/data_types/test_strings.py">Strings</a> e seus métodos
+          </li>
+          <li>
+            <a href="src/data_types/test_lists.py">Listas</a> e seus métodos
+            (incluindo lista de compreensões)
+          </li>
+          <li><a href="src/data_types/test_tuples.py">Tuplas</a></li>
+          <li>
+            <a href="src/data_types/test_sets.py">Conjuntos</a> e seus métodos
+          </li>
+          <li><a href="src/data_types/test_dictionaries.py">Dicionários</a></li>
+          <li>
+            <a href="src/data_types/test_type_casting.py">Casting de Tipo</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Controles de Fluxo</strong>
+        <ul>
+          <li>
+            <a href="src/control_flow/test_if.py"
+              >A declaração <code>if</code></a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_for.py"
+              >A declaração <code>for</code></a
+            >
+            (e a função <code>range()</code>)
+          </li>
+          <li>
+            <a href="src/control_flow/test_while.py"
+              >A declaração <code>while</code></a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_try.py"
+              >A declaração <code>try</code></a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_break.py"
+              >A declaração <code>break</code></a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_continue.py"
+              >A declaração <code>continue</code></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Funções</strong>
+        <ul>
+          <li>
+            <a href="src/functions/test_function_definition.py"
+              >Definição de Função</a
+            >
+            (declaração <code>def</code> e <code>return</code>)
+          </li>
+          <li>
+            <a href="src/functions/test_function_scopes.py"
+              >Variáveis Dentro das Funções</a
+            >
+            (declaração <code>global</code> e <code>nonlocal</code>)
+          </li>
+          <li>
+            <a href="src/functions/test_function_default_arguments.py"
+              >Valores Padrão de Argumentos</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_keyword_arguments.py"
+              >Argumentos de palavras-chave</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_arbitrary_arguments.py"
+              >Listas de Argumento Arbitrárias</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_unpacking_arguments.py"
+              >Desfazendo Lista de Argumentos</a
+            >
+            (declaração <code>*</code> e <code>**</code>)
+          </li>
+          <li>
+            <a href="src/functions/test_lambda_expressions.py"
+              >Expressões Lambda</a
+            >
+            (declaração <code>lambda</code>)
+          </li>
+          <li>
+            <a href="src/functions/test_function_documentation_string.py"
+              >Documentação das Strings</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_annotations.py"
+              >Função de Anotações</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_decorators.py"
+              >Função de Decoradores</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Classes</strong>
+        <ul>
+          <li>
+            <a href="src/classes/test_class_definition.py"
+              >Definição de Classe</a
+            >
+            (declaração <code>class</code>)
+          </li>
+          <li>
+            <a href="src/classes/test_class_objects.py">Classes dos Objetos</a>
+          </li>
+          <li>
+            <a href="src/classes/test_instance_objects.py"
+              >Instância dos Objetos</a
+            >
+          </li>
+          <li>
+            <a href="src/classes/test_method_objects.py">Métodos de Objetos</a>
+          </li>
+          <li>
+            <a href="src/classes/test_class_and_instance_variables.py"
+              >Variável de Classe e Instância</a
+            >
+          </li>
+          <li><a href="src/classes/test_inheritance.py">Herança</a></li>
+          <li>
+            <a href="src/classes/test_multiple_inheritance.py"
+              >Herança Múltipla</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Módulos</strong>
+        <ul>
+          <li>
+            <a href="src/modules/test_modules.py">Módulos</a> (declaração
+            <code>import</code>)
+          </li>
+          <li><a href="src/modules/test_packages.py">Pacotes</a></li>
+        </ul>
+      </li>
+      <li>
+        <strong>Erros e Exceções</strong>
+        <ul>
+          <li>
+            <a href="src/exceptions/test_handle_exceptions.py"
+              >Tratando Exceções</a
+            >
+            (declaração <code>try</code>)
+          </li>
+          <li>
+            <a href="src/exceptions/test_raise_exceptions.py"
+              >Levantando Exceções</a
+            >
+            (declaração <code>raise</code>)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Arquivos</strong>
+        <ul>
+          <li>
+            <a href="src/files/test_file_reading.py">Lendo e Escrevendo</a>
+            (declaração <code>with</code>)
+          </li>
+          <li>
+            <a href="src/files/test_file_methods.py"
+              >Métodos de Objetos de Arquivos</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Adicional</strong>
+        <ul>
+          <li>
+            <a href="src/additions/test_pass.py"
+              >A declaração <code>pass</code></a
+            >
+          </li>
+          <li>
+            <a href="src/additions/test_generators.py">Geradores</a> (declaração
+            <code>yield</code>)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Algumas Bibliotecas Padrão</strong>
+        <ul>
+          <li>
+            <a href="src/standard_libraries/test_json.py">Serialization</a>
+            (biblioteca <code>json</code>)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_glob.py">File Wildcards</a>
+            (biblioteca <code>glob</code>)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_re.py"
+              >String Pattern Matching</a
+            >
+            (biblioteca <code>re</code>)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_math.py">Matemática</a>
+            (bibliotecas <code>math</code>, <code>random</code> e
+            <code>statistics</code>)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_datetime.py">Tempo e Datas</a>
+            (biblioteca <code>datetime</code>)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_zlib.py">Comprimindo Dados</a>
+            (biblioteca <code>zlib</code>)
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h2 id="pré-requisitos">Pré-requisitos</h2>
+    <p><strong>Instalando o Python</strong></p>
+    <p>
+      Certifique-se de ter o
+      <a href="https://realpython.com/installing-python/">Python3 instalado</a>
+      em sua máquina.
+    </p>
+    <p>
+      Você pode usar a biblioteca padrão do Python
+      <a href="https://docs.python.org/3/library/venv.html">venv</a> para criar
+      ambientes virtuais e ter o Python, pip e todos os outros pacotes a serem
+      instalados a partir do diretório local do projeto para evitar mexer com
+      pacotes externos ou do sistema.
+    </p>
+    <p>
+      Dependendo da sua instalação, você pode ter acesso ao interpretador
+      Python3 executando <code>python</code> ou <code>python3</code>. O mesmo
+      vale para o gerenciador de pacotes pip, você pode acessá-lo executando
+      <code>pip</code> ou <code>pip3</code>.
+    </p>
+    <p>Você pode ver a versão do seu Python executando:</p>
+    <pre><code>python --version</code></pre>
+    <p>
+      Observe que neste repositório sempre que você vê o <code>python</code>,
+      será assumido que é o Python <strong>3</strong>.
+    </p>
+    <p><strong>Instalando dependências</strong></p>
+    <p>Instale todas as dependências necessárias para o projeto executando:</p>
+    <pre><code>pip install -r requirements.txt</code></pre>
+    <h2 id="testando-o-código">Testando o Código</h2>
+    <p>
+      Testes são feitos usando o framework
+      <a href="https://docs.pytest.org/en/latest/">pytest</a>.
+    </p>
+    <p>
+      Você pode adicionar novos testes criando arquivos e funções com o prefixo
+      <code>test_</code> (ex. <code>test_topic.py</code> com a função
+      <code>def test_sub_topic()</code> dentro).
+    </p>
+    <p>
+      Para executar todos os testes, execute o seguinte comando na pasta raiz do
+      projeto:
+    </p>
+    <pre><code>pytest</code></pre>
+    <p>Para executar testes específicos, execute:</p>
+    <pre><code>pytest ./path/to/the/test_file.py</code></pre>
+    <h2 id="revisando-o-código">Revisando o Código</h2>
+    <p>
+      A revisão é feita usando as bibliotecas
+      <a href="http://pylint.pycqa.org/">pylint</a> e
+      <a href="http://flake8.pycqa.org/en/latest/">flake8</a>.
+    </p>
+    <h3 id="pylint">PyLint</h3>
+    <p>
+      Para verificar se o código está escrito de acordo com o guia de estilo do
+      <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>, execute:
+    </p>
+    <pre><code>pylint ./src/</code></pre>
+    <p>
+      Caso o pylint detecte um erro (ex. <code>missing-docstring</code>), convém
+      ler mais sobre erros específicos executando:
+    </p>
+    <pre><code>pylint --help-msg=missing-docstring</code></pre>
+    <p><a href="http://pylint.pycqa.org/">Saber mais sobre PyLint</a></p>
+    <h3 id="flake8">Flake8</h3>
+    <p>
+      Para verificar se o código está escrito de acordo com o guia de estilo do
+      <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>, execute:
+    </p>
+    <pre><code>flake8 ./src</code></pre>
+    <p>Ou, se você quiser uma saída mais detalhada, execute:</p>
+    <pre><code>flake8 ./src --statistics --show-source --count</code></pre>
+    <p>
+      <a href="http://flake8.pycqa.org/en/latest/">Saber mais sobre Flake8</a>
+    </p>
+    <hr />
+    <p>Traduzido por <a href="https://github.com/vilmacio22">vilmacio22</a>.</p>
+  </body>
+</html>

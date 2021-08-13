@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="solution-for-error-handling-in-tic-tac-toe">
+      Solution for error handling in tic-tac-toe
+    </h2>
+    <p>
+      The only part of this first pass on the game that could fail is choosing
+      the location.
+    </p>
+    <p>
+      Did you notice that when it asks for a number, if you don’t enter anything
+      it crashes hard?
+    </p>
+    <p>
+      How about if you state too much? It asks for row and you answer 2,3 (row
+      and column)? Boom again.
+    </p>
+    <p>That’s what we fixed here with <code>try/except</code>:</p>
+    <pre><code>def choose_location(board, symbol):
+    try:
+        row = int(input(&quot;Choose which row: &quot;))
+
+        row -= 1
+        if row &lt; 0 or row &gt;= len(board):
+            return False
+
+        column = int(input(&quot;Choose which column: &quot;))
+        column -= 1
+        if column &lt; 0 or column &gt;= len(board[0]):
+            return False
+
+        cell = board[row][column]
+        if cell is not None:
+            return False
+
+        board[row][column] = symbol
+        return True
+    except ValueError as ve:
+        print(f&quot;Error: Cannot convert input to a number.&quot;)
+        return False
+    except Exception:
+        # Not sure what else happened here, but didn&#39;t work.
+        return False</code></pre>
+    <p>
+      For a more advanced version, you could edit the tic-tac-toe from files and
+      make sure we have permissions to save to the files and that they are in a
+      correct format for <code>json</code> to read and so on.
+    </p>
+    <p>
+      See
+      <a href="./tictactoe_errors_handled.py">tictactoe_errors_handled.py</a>
+    </p>
+  </body>
+</html>

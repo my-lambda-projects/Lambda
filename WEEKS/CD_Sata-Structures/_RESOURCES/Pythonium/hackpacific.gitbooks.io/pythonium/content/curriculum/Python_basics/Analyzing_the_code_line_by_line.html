@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Analyzing The Code Line By Line &#xB7; Pythonium</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content />
+    <meta name="generator" content="GitBook 3.2.3" />
+    <meta name="author" content="Hack Pacific" />
+
+    <link rel="stylesheet" href="../../gitbook/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="../../gitbook/gitbook-plugin-comment/plugin.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../gitbook/gitbook-plugin-highlight/website.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../gitbook/gitbook-plugin-search/search.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../gitbook/gitbook-plugin-fontsettings/website.css"
+    />
+
+    <meta name="HandheldFriendly" content="true" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="152x152"
+      href="../../gitbook/images/apple-touch-icon-precomposed-152.png"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://gstatic.gitbook.com/images/b1c4c86ca817a71628d2debe73be9a64.ico"
+      type="image/x-icon"
+    />
+
+    <link rel="prev" href="Assignment_statements.html" />
+
+    <style>
+      .book .book-summary .book-search,
+      .book .book-summary ul.summary {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+      }
+      .book-summary {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        overflow-y: auto;
+      }
+      .book-summary > nav {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        overflow-y: overlay;
+      }
+      .gl-wrapper {
+        margin: 0;
+        display: block;
+        padding: 0;
+        position: relative;
+        line-height: 15px;
+        background: #fafafa;
+      }
+      .gl-wrapper:before {
+        background: -webkit-linear-gradient(
+          to bottom,
+          rgba(250, 250, 250, 0) 0%,
+          #fafafa 100%
+        );
+        background: -moz-linear-gradient(
+          to bottom,
+          rgba(250, 250, 250, 0) 0%,
+          #fafafa 100%
+        );
+        top: -24px;
+        width: 100%;
+        height: 24px;
+        content: '';
+        display: block;
+        position: absolute;
+        background: linear-gradient(
+          to bottom,
+          rgba(250, 250, 250, 0) 0%,
+          #fafafa 100%
+        );
+      }
+      .book.color-theme-1 .gl-wrapper {
+        background: #121212;
+      }
+      .book.color-theme-1 .gl-wrapper:before {
+        background: -webkit-linear-gradient(
+          to bottom,
+          rgba(18, 18, 18, 0) 0%,
+          #121212 100%
+        );
+        background: -moz-linear-gradient(
+          to bottom,
+          rgba(18, 18, 18, 0) 0%,
+          #121212 100%
+        );
+        background: linear-gradient(
+          to bottom,
+          rgba(18, 18, 18, 0) 0%,
+          #121212 100%
+        );
+      }
+      .book.color-theme-2 .gl-wrapper {
+        background: #2e3243;
+      }
+      .book.color-theme-2 .gl-wrapper:before {
+        background: -webkit-linear-gradient(
+          to bottom,
+          rgba(46, 50, 67, 0) 0%,
+          #2e3243 100%
+        );
+        background: -moz-linear-gradient(
+          to bottom,
+          rgba(46, 50, 67, 0) 0%,
+          #2e3243 100%
+        );
+        background: linear-gradient(
+          to bottom,
+          rgba(46, 50, 67, 0) 0%,
+          #2e3243 100%
+        );
+      }
+      .gl-wrapper .gitbook-link {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        color: #9daab6;
+        margin: 16px;
+        display: flex;
+        padding: 0;
+        align-items: center;
+        margin-left: 32px;
+        padding-top: 8px;
+        padding-left: 16px;
+        border-radius: 3px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        text-decoration: none;
+        background-color: #e6ecf1;
+        -webkit-box-align: center;
+      }
+      .gl-wrapper .tm-logo {
+        margin: 0;
+        display: block;
+        padding: 0;
+        font-size: 40px;
+      }
+      .gl-wrapper .tm-content {
+        flex: 1;
+        margin: 0;
+        display: block;
+        padding: 0;
+        padding-left: 16px;
+      }
+      .gl-wrapper .tm-content .container {
+        margin: 0;
+        display: block;
+        padding: 0;
+      }
+      .gl-wrapper .tm-content .tm-container .tm-text {
+        font-size: 12px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        line-height: 1.625;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="book">
+      <div class="book-summary">
+        <div id="book-search-input" role="search">
+          <input type="text" placeholder="Type to search" />
+        </div>
+
+        <nav role="navigation">
+          <ul class="summary">
+            <li>
+              <a
+                href="https://www.gitbook.com/book/hackpacific/pythonium"
+                target="_blank"
+                class="custom-link"
+                >Pythonium</a
+              >
+            </li>
+
+            <li class="divider"></li>
+
+            <li class="chapter" data-level="1.1" data-path="../../">
+              <a href="../../../index.html"> Introduction </a>
+            </li>
+
+            <li class="chapter" data-level="1.2">
+              <span> Chapter 1: Introduction to Programming </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.2.1"
+                  data-path="../Introduction_to_Programming/Introduction.html"
+                >
+                  <a href="../Introduction_to_Programming/Introduction.html">
+                    Introduction
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.2.2"
+                  data-path="../Introduction_to_Programming/What_is_programming.html"
+                >
+                  <a
+                    href="../Introduction_to_Programming/What_is_programming.html"
+                  >
+                    What is Programming?
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.2.3"
+                  data-path="../Introduction_to_Programming/What_is_python.html"
+                >
+                  <a href="../Introduction_to_Programming/What_is_python.html">
+                    What is Python?
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.2.4"
+                  data-path="../Introduction_to_Programming/About_this_course.html"
+                >
+                  <a
+                    href="../Introduction_to_Programming/About_this_course.html"
+                  >
+                    About this course
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.2.5"
+                  data-path="../Introduction_to_Programming/replit.html"
+                >
+                  <a href="../Introduction_to_Programming/replit.html">
+                    Repl.it, practice your Python
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.2.6"
+                  data-path="../Introduction_to_Programming/Asking_smart_programming_questions.html"
+                >
+                  <a
+                    href="../Introduction_to_Programming/Asking_smart_programming_questions.html"
+                  >
+                    Asking Smart Programming Questions
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.3">
+              <span> Chapter 2: Basics of Python </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.3.1"
+                  data-path="First_lines_of_code.html"
+                >
+                  <a href="First_lines_of_code.html"> First lines of code </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.3.2"
+                  data-path="Operators_and_operations.html"
+                >
+                  <a href="Operators_and_operations.html">
+                    Operators and Operations
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.3.3"
+                  data-path="Data_types_and_variables.html"
+                >
+                  <a href="Data_types_and_variables.html">
+                    Data Types and Variables
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.3.4"
+                  data-path="Assignment_statements.html"
+                >
+                  <a href="Assignment_statements.html">
+                    Assignment Statements
+                  </a>
+                </li>
+
+                <li
+                  class="chapter active"
+                  data-level="1.3.5"
+                  data-path="Analyzing_the_code_line_by_line.html"
+                >
+                  <a href="Analyzing_the_code_line_by_line.html">
+                    Analyzing The Code Line By Line
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.4">
+              <span> Chapter 3: Flow Control </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.4.1"
+                  data-path="../Flow_Control/Boolean_values.html"
+                >
+                  <a href="../Flow_Control/Boolean_values.html">
+                    Boolean Values
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.4.2"
+                  data-path="../Flow_Control/Comparison_operators.html"
+                >
+                  <a href="../Flow_Control/Comparison_operators.html">
+                    Comparison Operators
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.4.3"
+                  data-path="../Flow_Control/Mixing_boolean_and_comparison_operators.html"
+                >
+                  <a
+                    href="../Flow_Control/Mixing_boolean_and_comparison_operators.html"
+                  >
+                    Mixing Boolean and Comparison Operators
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.4.4"
+                  data-path="../Flow_Control/Flow_control_statements.html"
+                >
+                  <a href="../Flow_Control/Flow_control_statements.html">
+                    Flow Control Statements
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.4.5"
+                  data-path="../Flow_Control/Loops.html"
+                >
+                  <a href="../Flow_Control/Loops.html"> Loops </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.4.6"
+                  data-path="../Flow_Control/Import_statements.html"
+                >
+                  <a href="../Flow_Control/Import_statements.html">
+                    Import statements
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.4.7"
+                  data-path="../Flow_Control/Test_yourself.html"
+                >
+                  <a href="../Flow_Control/Test_yourself.html">
+                    Test Yourself
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.5">
+              <span> Chapter 4: Functions </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.5.1"
+                  data-path="../Functions/Your_first_function.html"
+                >
+                  <a href="../Functions/Your_first_function.html">
+                    Your first function
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.5.2"
+                  data-path="../Functions/Return_statements.html"
+                >
+                  <a href="../Functions/Return_statements.html">
+                    Return Statements
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.5.3"
+                  data-path="../Functions/Arguments.html"
+                >
+                  <a href="../Functions/Arguments.html"> Arguments </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.5.4"
+                  data-path="../Functions/Local_and_global_scope.html"
+                >
+                  <a href="../Functions/Local_and_global_scope.html">
+                    Local and Global Scope
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.5.5"
+                  data-path="../Functions/Exception_handling.html"
+                >
+                  <a href="../Functions/Exception_handling.html">
+                    Exception Handling
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.5.6"
+                  data-path="../Functions/A_program_with_functions.html"
+                >
+                  <a href="../Functions/A_program_with_functions.html">
+                    A program with functions
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.5.7"
+                  data-path="../Functions/Test_yourself.html"
+                >
+                  <a href="../Functions/Test_yourself.html"> Test Yourself </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.6">
+              <span> Chapter 5: Lists </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.6.1"
+                  data-path="../Lists/List_data_type.html"
+                >
+                  <a href="../Lists/List_data_type.html"> List Data Type </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.6.2"
+                  data-path="../Lists/More_on_lists.html"
+                >
+                  <a href="../Lists/More_on_lists.html"> More on Lists </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.6.3"
+                  data-path="../Lists/Progress_so_far.html"
+                >
+                  <a href="../Lists/Progress_so_far.html"> Progress so far </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.6.4"
+                  data-path="../Lists/Operations_on_lists.html"
+                >
+                  <a href="../Lists/Operations_on_lists.html">
+                    Operations on Lists
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.6.5"
+                  data-path="../Lists/Methods.html"
+                >
+                  <a href="../Lists/Methods.html"> Methods </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.6.6"
+                  data-path="../Lists/Test_yourself.html"
+                >
+                  <a href="../Lists/Test_yourself.html"> Test Yourself </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.7">
+              <span> Chapter 6: Dictionaries </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.7.1"
+                  data-path="../Dictionaries/The_dictionary_data_type.html"
+                >
+                  <a href="../Dictionaries/The_dictionary_data_type.html">
+                    The Dictionary Data Type
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.7.2"
+                  data-path="../Dictionaries/Methods_for_dictionaries.html"
+                >
+                  <a href="../Dictionaries/Methods_for_dictionaries.html">
+                    Methods for Dictionaries
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.7.3"
+                  data-path="../Dictionaries/Nested_dictionaries_and_lists.html"
+                >
+                  <a href="../Dictionaries/Nested_dictionaries_and_lists.html">
+                    Nested Dictionaries and Lists
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.7.4"
+                  data-path="../Dictionaries/Real_world_examples.html"
+                >
+                  <a href="../Dictionaries/Real_world_examples.html">
+                    Real World examples
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.7.5"
+                  data-path="../Dictionaries/Test_yourself.html"
+                >
+                  <a href="../Dictionaries/Test_yourself.html">
+                    Test Yourself
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.8">
+              <span> Chapter 7: Additional Concepts </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.8.1"
+                  data-path="../Additional_Concepts/More_with_strings.html"
+                >
+                  <a href="../Additional_Concepts/More_with_strings.html">
+                    More with Strings
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.8.2"
+                  data-path="../Additional_Concepts/List_and_dictionary_comprehension.html"
+                >
+                  <a
+                    href="../Additional_Concepts/List_and_dictionary_comprehension.html"
+                  >
+                    List and Dictionary Comprehension
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.8.3"
+                  data-path="../Additional_Concepts/Built_in_functions.html"
+                >
+                  <a href="../Additional_Concepts/Built_in_functions.html">
+                    Built-in Functions
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.8.4"
+                  data-path="../Additional_Concepts/Lambda.html"
+                >
+                  <a href="../Additional_Concepts/Lambda.html"> Lambda </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.9">
+              <span> Chapter 8: Object Oriented Programming </span>
+
+              <ul class="articles">
+                <li
+                  class="chapter"
+                  data-level="1.9.1"
+                  data-path="../Object_Oriented_Programming/Classes.html"
+                >
+                  <a href="../Object_Oriented_Programming/Classes.html">
+                    Classes_and_Objects
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.9.2"
+                  data-path="../Object_Oriented_Programming/Methods.html"
+                >
+                  <a href="../Object_Oriented_Programming/Methods.html">
+                    Methods
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.9.3"
+                  data-path="../Object_Oriented_Programming/Class_and_object_variables.html"
+                >
+                  <a
+                    href="../Object_Oriented_Programming/Class_and_object_variables.html"
+                  >
+                    Class and Object Variables
+                  </a>
+                </li>
+
+                <li
+                  class="chapter"
+                  data-level="1.9.4"
+                  data-path="../Object_Oriented_Programming/Inheritance.html"
+                >
+                  <a href="../Object_Oriented_Programming/Inheritance.html">
+                    Inheritance
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="chapter" data-level="1.10">
+              <span> Chapter 9: Capstone Project </span>
+
+              <ul class="articles">
+                <li class="chapter" data-level="1.10.1">
+                  <span> Project Outline and background </span>
+                </li>
+
+                <li class="chapter" data-level="1.10.2">
+                  <span> Project Setup </span>
+                </li>
+
+                <li class="chapter" data-level="1.10.3">
+                  <span> Project </span>
+                </li>
+              </ul>
+            </li>
+
+            <li class="divider"></li>
+          </ul>
+        </nav>
+
+        <div class="gl-wrapper">
+          <a
+            class="gitbook-link"
+            href="https://www.gitbook.com?utm_source=public_site_legacy&amp;utm_medium=referral&amp;utm_campaign=trademark&amp;utm_term=hackpacific&amp;utm_content=powered_by"
+            target="blank"
+          >
+            <div class="tm-logo">
+              <svg
+                preserveAspectRatio="xMidYMid meet"
+                height="1em"
+                width="1em"
+                fill="currentColor"
+                viewBox="0 0 1067 769"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="none"
+                class="icon-7f6730be--text-3f89f380"
+              >
+                <g>
+                  <path
+                    d="M480.026 640.677c17.205 0 31.2 13.997 31.2 31.194s-13.995 31.193-31.2 31.193c-17.197 0-31.193-13.996-31.193-31.193 0-17.197 13.996-31.194 31.193-31.194m489.93-193.226c-17.203 0-31.2-13.998-31.2-31.195 0-17.204 13.997-31.2 31.2-31.2 17.198 0 31.194 13.996 31.194 31.2 0 17.197-13.996 31.195-31.193 31.195m0-127.804c-53.269 0-96.609 43.34-96.609 96.609 0 10.373 1.723 20.702 5.123 30.741L559.328 616.879c-18.132-26.128-47.521-41.617-79.302-41.617-36.821 0-70.391 21.065-86.63 54.003L106.68 478.109c-30.288-15.927-52.965-65.817-50.56-111.223 1.248-23.687 9.438-42.071 21.897-49.17 7.916-4.493 17.436-4.099 27.526 1.188l1.916 1.01c75.96 40.022 324.6 170.981 335.063 175.844 16.157 7.47 25.14 10.5 52.659-2.547l513.958-267.3c7.53-2.844 16.315-10.062 16.315-21.023 0-15.205-15.72-21.199-15.765-21.199-29.218-14.018-74.163-35.054-117.987-55.57C798.033 84.26 691.861 34.547 645.23 10.132c-40.253-21.072-72.655-3.311-78.432.282l-11.227 5.555C345.727 119.743 64.898 258.826 48.911 268.553 20.278 285.973 2.547 320.679.252 363.768c-3.586 68.304 31.261 139.506 81.069 165.634l303.172 156.354c6.83 47.306 47.55 82.725 95.532 82.725 52.78 0 95.808-42.546 96.603-95.14L910.541 492.38c16.93 13.233 37.92 20.486 59.416 20.486 53.268 0 96.61-43.341 96.61-96.61s-43.342-96.61-96.61-96.61"
+                    fill-rule="evenodd"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div class="tm-content">
+              <div class="tm-container">
+                <span class="tm-text"> Powered by <b>GitBook</b> </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="book-body">
+        <div class="body-inner">
+          <div class="book-header" role="navigation">
+            <!-- Title -->
+            <h1>
+              <i class="fa fa-circle-o-notch fa-spin"></i>
+              <a href="../../../index.html">Analyzing The Code Line By Line</a>
+            </h1>
+          </div>
+
+          <div class="page-wrapper" tabindex="-1" role="main">
+            <div class="page-inner">
+              <div id="book-search-results">
+                <div class="search-noresults">
+                  <section class="normal markdown-section">
+                    <h2 id="analyzing-the-code-line-by-line">
+                      Analyzing the code, line by line
+                    </h2>
+                    <p>
+                      Its time to work on our first program together! We will
+                      write a program to input the First name, Last name, age
+                      and sex, to combine all of them into one sentence. Try
+                      thinking about it before proceeding further. How would you
+                      do that? First name, Last name and sex would be a
+                      <code>string</code>, while age would be an
+                      <code>integer</code>. We could concatenate all of them
+                      together to form a sentence. Wait, how can we concatenate
+                      an <code>integer</code> with a <code>string</code>? This
+                      is easy, we change the Data Type of the
+                      <code>integer</code> to a <code>string</code> after the
+                      input. Now, how do we take an input?
+                    </p>
+                    <blockquote>
+                      <p>
+                        <strong>TRY IT YOURSELF:</strong> Try finishing the task
+                        above before proceeding forward. Use Google for help if
+                        you need, but give it a shot.
+                      </p>
+                    </blockquote>
+                    <p>Lets type out the program:</p>
+                    <blockquote>
+                      <p>
+                        <strong>Note:</strong> We type this program on the
+                        textpad to the left side on the Repl platform.
+                      </p>
+                    </blockquote>
+                    <pre><code># This program inputs various parameters and outputs them as a sentence
+
+print(&apos;Hello, hope you are doing well today. What is your First name?&apos;)
+firstName = input()
+print(&apos;Good to know you, &apos; + firstName + &apos;. What is your Last name?&apos;)
+lastName = input()
+print(&apos;Hello, &apos; + firstName + &apos; &apos; + lastName + &apos;. May I ask your age?&apos;)
+age = input()
+print(&apos;Lastly, may I know your gender?&apos;)
+gender = input()
+print(firstName + &apos; &apos; + lastName + &apos; is a &apos; + str(age) + &apos; year old &apos; + gender + &apos;.&apos; )
+</code></pre>
+                    <p>
+                      <strong
+                        >This might seem like a lot of code, so lets study it
+                        line by line:</strong
+                      >
+                    </p>
+                    <pre><code># This program inputs various parameters and outputs them as a sentence`
+</code></pre>
+                    <p>
+                      This is a <em>comment</em> in a Python program. Everything
+                      after that <code>#</code> (in the same line) is not
+                      included during a program run. Python ignores comments,
+                      and you can use them to write notes or remind yourself
+                      what the code is trying to do, just like we did at the
+                      start of the program.
+                    </p>
+                    <blockquote>
+                      <p>
+                        <strong>PRO TIP:</strong> Another use case could be to
+                        put a <code>#</code> before a piece of code you do not
+                        want to run. This is called
+                        <em>commenting out the code</em> and can be used to
+                        figure out the error when the code doesn&apos;t run
+                        well.
+                      </p>
+                      <p>
+                        <strong>Interesting Fact:</strong> Python also ignores
+                        the blank line after the comment. You can add as many
+                        blank lines to your program as you want. This can make
+                        your code easier to read, like paragraphs in a book.
+                      </p>
+                    </blockquote>
+                    <pre><code>print(&apos;Hello, hope you are doing well today. What is your First name?&apos;)
+</code></pre>
+                    <p>
+                      The <code>print(&apos;&apos;)</code> is used to print the
+                      text in the String <code>&apos; &apos;</code> onto the
+                      repl console. Remember how we did a print out for
+                      <code>Hello, World</code> in the first unit of this
+                      chapter?
+                    </p>
+                    <p>
+                      When Python executes this line, we say that Python is
+                      calling the print() function and the string value is being
+                      <em>passed</em> to the function. A value that is
+                      <em>passed</em> to a function call is called an
+                      <em>argument</em>. Observe that the quotes are not printed
+                      to the screen. They just mark where the string begins and
+                      ends; without being a part of the string value.
+                    </p>
+                    <pre><code>print(&apos;Hello, &apos; + firstName + &apos; &apos; + lastName + &apos;. May I ask your age?&apos;)
+</code></pre>
+                    <p>
+                      Here, we print the name by calling the variables in the
+                      <code>print()</code> function. As you can see, we added
+                      extra space strings for this part:
+                      <code>firstName + &apos; &apos; + lastName</code> to make
+                      sure there the First name and Last name is separate.
+                    </p>
+                    <blockquote>
+                      <p>
+                        <strong>Note:</strong> You can also use this function to
+                        put a blank line on the screen; just call
+                        <code>print()</code> with nothing in between the
+                        parentheses.
+                      </p>
+                    </blockquote>
+                    <p>
+                      Moving on to the <code>input()</code> function. This
+                      function waits for the user to type something on the
+                      keyboard and press the ENTER key.
+                    </p>
+                    <pre><code>firstName = input()
+</code></pre>
+                    <p>
+                      Here, the user inputs their First name, which is assigned
+                      to the variable <code>firstName</code>.
+                    </p>
+                    <p>
+                      Lets analyze the last part of this code, which might seem
+                      new to you.
+                    </p>
+                    <pre><code>print(firstName + &apos; &apos; + lastName + &apos; is a &apos; + str(age) + &apos; year old &apos; + gender + &apos;.&apos; )
+</code></pre>
+                    <p>
+                      The part where we use <code>str(age)</code> is quite easy
+                      to understand. As we mentioned before, age is an
+                      <code>integer</code> since its a number. We use
+                      <code>str()</code> to simply convert the data type into a
+                      String. Because we cannot concatenate two variables of
+                      different data types, otherwise it gives an error.
+                    </p>
+                    <pre><code>&gt;&gt;&gt; &apos;I am &apos; + 10 + &apos; years old.&apos;
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#7&gt;&quot;, line 1, in &lt;module&gt;
+    &apos;I am &apos; + 10 + &apos; years old.&apos;
+TypeError: Can&apos;t convert &apos;int&apos; object to str implicitly
+</code></pre>
+                    <p>
+                      This is why we have to explicitly convert an Integer into
+                      a String or vice versa.
+                    </p>
+                    <blockquote>
+                      <p>
+                        <strong>PRO TIP:</strong> We can use
+                        <code>int()</code> and <code>float()</code> for type
+                        conversion to convert to Integer and Floating point
+                        respectively.
+                      </p>
+                    </blockquote>
+                    <p>
+                      As we have studied our program thoroughly, lets run it
+                      now!
+                    </p>
+                    <pre><code>&gt;&gt;&gt;
+Hello, hope you are doing well today. What is your First name?
+ Alan
+Good to know you, Aman. What is your Last name?
+ Walker
+Hello, Aman Middha. May I ask your age?
+ 21
+Lastly, may I know your gender?
+ Male
+Alan Walker is a 21 year old Male.
+</code></pre>
+                    <blockquote>
+                      <p>
+                        <strong>PRO TIP:</strong> You can pass the len()
+                        function a string value (or a variable containing a
+                        string), and the function evaluates to the integer value
+                        of the number of characters in that string. Example: For
+                        <code>name = &apos;Alan&apos;</code>,
+                        <code>len(name)</code> will output 4.
+                      </p>
+                    </blockquote>
+                  </section>
+                </div>
+                <div class="search-results">
+                  <div class="has-results">
+                    <h1 class="search-results-title">
+                      <span class="search-results-count"></span> results
+                      matching &quot;<span class="search-query"></span>&quot;
+                    </h1>
+                    <ul class="search-results-list"></ul>
+                  </div>
+                  <div class="no-results">
+                    <h1 class="search-results-title">
+                      No results matching &quot;<span
+                        class="search-query"
+                      ></span
+                      >&quot;
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="Assignment_statements.html"
+          class="navigation navigation-prev navigation-unique"
+          aria-label="Previous page: Assignment Statements"
+        >
+          <i class="fa fa-angle-left"></i>
+        </a>
+      </div>
+
+      <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function () {
+          gitbook.page.hasChanged({
+            page: {
+              title: 'Analyzing The Code Line By Line',
+              level: '1.3.5',
+              depth: 2,
+              next: {
+                title: 'Chapter 3: Flow Control',
+                level: '1.4',
+                depth: 1,
+                ref: '',
+                articles: [
+                  {
+                    title: 'Boolean Values',
+                    level: '1.4.1',
+                    depth: 2,
+                    path: 'curriculum/Flow_Control/Boolean_values.md',
+                    ref: 'curriculum/Flow_Control/Boolean_values.md',
+                    articles: [],
+                  },
+                  {
+                    title: 'Comparison Operators',
+                    level: '1.4.2',
+                    depth: 2,
+                    path: 'curriculum/Flow_Control/Comparison_operators.md',
+                    ref: 'curriculum/Flow_Control/Comparison_operators.md',
+                    articles: [],
+                  },
+                  {
+                    title: 'Mixing Boolean and Comparison Operators',
+                    level: '1.4.3',
+                    depth: 2,
+                    path: 'curriculum/Flow_Control/Mixing_boolean_and_comparison_operators.md',
+                    ref: 'curriculum/Flow_Control/Mixing_boolean_and_comparison_operators.md',
+                    articles: [],
+                  },
+                  {
+                    title: 'Flow Control Statements',
+                    level: '1.4.4',
+                    depth: 2,
+                    path: 'curriculum/Flow_Control/Flow_control_statements.md',
+                    ref: 'curriculum/Flow_Control/Flow_control_statements.md',
+                    articles: [],
+                  },
+                  {
+                    title: 'Loops',
+                    level: '1.4.5',
+                    depth: 2,
+                    path: 'curriculum/Flow_Control/Loops.md',
+                    ref: 'curriculum/Flow_Control/Loops.md',
+                    articles: [],
+                  },
+                  {
+                    title: 'Import statements',
+                    level: '1.4.6',
+                    depth: 2,
+                    path: 'curriculum/Flow_Control/Import_statements.md',
+                    ref: 'curriculum/Flow_Control/Import_statements.md',
+                    articles: [],
+                  },
+                  {
+                    title: 'Test Yourself',
+                    level: '1.4.7',
+                    depth: 2,
+                    path: 'curriculum/Flow_Control/Test_yourself.md',
+                    ref: 'curriculum/Flow_Control/Test_yourself.md',
+                    articles: [],
+                  },
+                ],
+              },
+              previous: {
+                title: 'Assignment Statements',
+                level: '1.3.4',
+                depth: 2,
+                path: 'curriculum/Python_basics/Assignment_statements.md',
+                ref: 'curriculum/Python_basics/Assignment_statements.md',
+                articles: [],
+              },
+              dir: 'ltr',
+            },
+            config: {
+              plugins: ['comment'],
+              styles: {
+                website: 'styles/website.css',
+                pdf: 'styles/pdf.css',
+                epub: 'styles/epub.css',
+                mobi: 'styles/mobi.css',
+                ebook: 'styles/ebook.css',
+                print: 'styles/print.css',
+              },
+              pluginsConfig: {
+                comment: { highlightCommented: true },
+                highlight: {},
+                search: {},
+                lunr: { maxIndexSize: 1000000, ignoreSpecialCharacters: false },
+                sharing: {
+                  facebook: true,
+                  twitter: true,
+                  google: false,
+                  weibo: false,
+                  instapaper: false,
+                  vk: false,
+                  all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper'],
+                },
+                fontsettings: { theme: 'white', family: 'sans', size: 2 },
+                'theme-default': {
+                  styles: {
+                    website: 'styles/website.css',
+                    pdf: 'styles/pdf.css',
+                    epub: 'styles/epub.css',
+                    mobi: 'styles/mobi.css',
+                    ebook: 'styles/ebook.css',
+                    print: 'styles/print.css',
+                  },
+                  showLevel: false,
+                },
+              },
+              github: 'hackpacific/pythonium',
+              theme: 'default',
+              author: 'Hack Pacific',
+              pdf: {
+                pageNumbers: true,
+                fontSize: 16,
+                fontFamily: 'Arial',
+                paperSize: 'a4',
+                chapterMark: 'pagebreak',
+                pageBreaksBefore: '/',
+                margin: { right: 62, left: 62, top: 56, bottom: 56 },
+              },
+              structure: {
+                langs: 'LANGS.md',
+                readme: 'README.md',
+                glossary: 'GLOSSARY.md',
+                summary: 'SUMMARY.md',
+              },
+              variables: {},
+              title: 'Pythonium',
+              language: 'en',
+              links: {
+                sidebar: {
+                  Pythonium:
+                    'https://www.gitbook.com/book/hackpacific/pythonium',
+                },
+                gitbook: true,
+              },
+              gitbook: '*',
+              description: 'Introduction to Python',
+            },
+            file: {
+              path: 'curriculum/Python_basics/Analyzing_the_code_line_by_line.md',
+              mtime: '2017-08-31T03:49:21.000Z',
+              type: 'markdown',
+            },
+            gitbook: { version: '3.2.3', time: '2017-08-31T03:55:50.550Z' },
+            basePath: '../..',
+            book: { language: '' },
+          });
+        });
+      </script>
+    </div>
+
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+
+    <script src="../../gitbook/gitbook-plugin-comment/plugin.js"></script>
+
+    <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+
+    <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+
+    <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+
+    <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+
+    <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+
+    <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="depth-first-search-dfs">Depth-first search (DFS)</h1>
+    <p>
+      <strong>Depth-first search</strong> is named as such because the search
+      traverses the entire height of a node before going to the next sibling
+      node.
+    </p>
+    <p>
+      The general recursive pattern for traversing a binary tree is this: At
+      node <code>N</code> do the following:
+    </p>
+    <ul>
+      <li>
+        <strong>(L)</strong> Recursively traverse its left subtree. This step is
+        finished at the node <code>N</code> again.
+      </li>
+      <li>
+        <strong>(R)</strong> Recursively traverse its right subtree. This step
+        is finished at the node <code>N</code> again.
+      </li>
+      <li><strong>(N)</strong> Process <code>N</code> itself.</li>
+    </ul>
+    <p>
+      <em
+        >These steps can be done in any order. If <strong>(L)</strong> is done
+        before <strong>(R)</strong>, the process is called left-to-right
+        traversal, otherwise it is called right-to-left traversal.</em
+      >
+    </p>
+    <p>
+      The following methods show left-to-right traversal:
+      <strong>pre-order</strong>, <strong>in-order</strong> and
+      <strong>post-order</strong>.
+    </p>
+    <h3 id="pre-order-nlr">Pre-order (NLR)</h3>
+    <ol type="1">
+      <li>Check if the current node is empty or null.</li>
+      <li>Display the data part of the root (or current node).</li>
+      <li>
+        Traverse the left subtree by recursively calling the pre-order function.
+      </li>
+      <li>
+        Traverse the right subtree by recursively calling the pre-order
+        function.
+      </li>
+    </ol>
+    <p><img src="../../../../assets/pre-order.svg" width="500" /></p>
+    <p>Pre-order: 11, 7, 5, 3, 6, 9, 8, 10, 15, 13, 12, 14, 20, 18, 25</p>
+    <p>
+      The pre-order traversal is
+      <a href="https://en.wikipedia.org/wiki/Topological_sorting"
+        >topologically sorted</a
+      >
+      (linear order), because a parent node is processed before any of its child
+      nodes is done.
+    </p>
+    <h3 id="in-order-lnr">In-order (LNR)</h3>
+    <ol type="1">
+      <li>Check if the current node is empty or null.</li>
+      <li>
+        Traverse the left subtree by recursively calling the in-order function.
+      </li>
+      <li>Display the data part of the root (or current node).</li>
+      <li>
+        Traverse the right subtree by recursively calling the in-order function.
+      </li>
+    </ol>
+    <p><img src="../../../../assets/in-order.svg" width="500" /></p>
+    <p>In-order: 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 20, 25</p>
+    <p>
+      In a
+      <a href="https://en.wikipedia.org/wiki/Binary_search_tree"
+        >binary search tree</a
+      >, in-order traversal retrieves data in sorted order.
+    </p>
+    <h3 id="post-order-lrn">Post-order (LRN)</h3>
+    <ol type="1">
+      <li>Check if the current node is empty or null.</li>
+      <li>
+        Traverse the left subtree by recursively calling the post-order
+        function.
+      </li>
+      <li>
+        Traverse the right subtree by recursively calling the post-order
+        function.
+      </li>
+      <li>Display the data part of the root (or current node).</li>
+    </ol>
+    <p><img src="../../../../assets/post-order.svg" width="500" /></p>
+    <p>Post-order: 3, 6, 5, 8, 10, 9, 7, 12, 14, 13, 18,25, 20, 15, 11</p>
+    <hr />
+  </body>
+</html>

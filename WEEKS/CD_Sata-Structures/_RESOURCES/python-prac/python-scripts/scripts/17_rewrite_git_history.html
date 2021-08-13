@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>17_rewrite_git_history</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>I always forget how to back date, so here we go …</p>
+    <blockquote>
+      <p>
+        This is dangerous and should be signed off by the omniscience,
+        omnipotence Git him/herself. Rewriting history is evil, in other words.
+      </p>
+    </blockquote>
+    <pre><code>$ git add &lt;file_name&gt;
+$ export GIT_COMMITER_DATE=&quot;Sun Jun 15 14:00 2014 +0100&quot;
+$ export GIT_AUTHOR_DATE=&quot;Sun Jun 15 14:00 2014 +0100&quot;
+$ git commit -m &quot;so bad&quot;
+$ git push</code></pre>
+    <blockquote>
+      <p>
+        <code>GIT_COMMITER_DATE</code> and <code>GIT_AUTHOR_DATE</code> are
+        environment variables
+      </p>
+    </blockquote>
+  </body>
+</html>
