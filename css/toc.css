@@ -1,1 +1,49 @@
- #ToC{background:url(https://i.gifer.com/76YS.gif);resize:both;font-family:Arial,Helvetica,sans-serif;font-size:12;color:rgb(255,255,255)!important;background-color:whitesmoke;border-radius:15px;position:fixed;top:0;right:0;width:8%;border:3px solid gold;padding:10px;margin:30px;overflow:auto;overflow-y:scroll;zoom:.68;height:450px;-webkit-border-radius:15px;-moz-border-radius:15px;-ms-border-radius:15px;-o-border-radius:15px;overflow-wrap:break-word}#ToC a{color:rgb(255,255,255)!important}#ToC a:visited{color:red!important}#ToC ul{columns:1!important}div.my_class{resize:both;overflow:visible;color:black,im!important}
+#ToC {
+  background: url(https://i.gifer.com/76YS.gif);
+  resize: both;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10;
+  color: rgb(255, 255, 255) !important;
+  background-color: whitesmoke;
+  border-radius: 25px;
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  width: 10%;
+  border: 3px solid gold;
+  padding: 10px;
+  margin: 30px;
+  overflow: auto;
+  overflow-y: scroll;
+  zoom: 0.62;
+  height: 390px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  overflow-wrap: break-word;
+      resize: both;
+  
+    direction: rtl
+}
+#ToC a {
+  color: rgb(255, 255, 255) !important;
+      text-align: right!important;
+}
+#ToC a:visited {
+  color: rgba(255, 220, 107, 0.172) !important;
+}
+#ToC ul {
+  columns: 1 !important;
+}
+div.my_class {
+  resize: both;
+  overflow:auto;
+  color: black, im !important;
+}
+#ToC li {
+width:150px;
+align-items: left;
+  list-style-type: none;
+        text-align: right!important;
+}
