@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>python-modules</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="file:///c:\Users\bryan\.vscode-insiders\extensions\shd101wyy.markdown-preview-enhanced-0.5.22\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css"
+    />
+
+    <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+      code[class*='language-'],
+      pre[class*='language-'] {
+        color: #333;
+        background: none;
+        font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.4;
+
+        -moz-tab-size: 8;
+        -o-tab-size: 8;
+        tab-size: 8;
+
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+
+      /* Code blocks */
+      pre[class*='language-'] {
+        padding: 0.8em;
+        overflow: auto;
+        /* border: 1px solid #ddd; */
+        border-radius: 3px;
+        /* background: #fff; */
+        background: #f5f5f5;
+      }
+
+      /* Inline code */
+      :not(pre) > code[class*='language-'] {
+        padding: 0.1em;
+        border-radius: 0.3em;
+        white-space: normal;
+        background: #f5f5f5;
+      }
+
+      .token.comment,
+      .token.blockquote {
+        color: #969896;
+      }
+
+      .token.cdata {
+        color: #183691;
+      }
+
+      .token.doctype,
+      .token.punctuation,
+      .token.variable,
+      .token.macro.property {
+        color: #333;
+      }
+
+      .token.operator,
+      .token.important,
+      .token.keyword,
+      .token.rule,
+      .token.builtin {
+        color: #a71d5d;
+      }
+
+      .token.string,
+      .token.url,
+      .token.regex,
+      .token.attr-value {
+        color: #183691;
+      }
+
+      .token.property,
+      .token.number,
+      .token.boolean,
+      .token.entity,
+      .token.atrule,
+      .token.constant,
+      .token.symbol,
+      .token.command,
+      .token.code {
+        color: #0086b3;
+      }
+
+      .token.tag,
+      .token.selector,
+      .token.prolog {
+        color: #63a35c;
+      }
+
+      .token.function,
+      .token.namespace,
+      .token.pseudo-element,
+      .token.class,
+      .token.class-name,
+      .token.pseudo-class,
+      .token.id,
+      .token.url-reference .token.variable,
+      .token.attr-name {
+        color: #795da3;
+      }
+
+      .token.entity {
+        cursor: help;
+      }
+
+      .token.title,
+      .token.title .token.punctuation {
+        font-weight: bold;
+        color: #1d3e81;
+      }
+
+      .token.list {
+        color: #ed6a43;
+      }
+
+      .token.inserted {
+        background-color: #eaffea;
+        color: #55a532;
+      }
+
+      .token.deleted {
+        background-color: #ffecec;
+        color: #bd2c00;
+      }
+
+      .token.bold {
+        font-weight: bold;
+      }
+
+      .token.italic {
+        font-style: italic;
+      }
+
+      /* JSON */
+      .language-json .token.property {
+        color: #183691;
+      }
+
+      .language-markup .token.tag .token.punctuation {
+        color: #333;
+      }
+
+      /* CSS */
+      code.language-css,
+      .language-css .token.function {
+        color: #0086b3;
+      }
+
+      /* YAML */
+      .language-yaml .token.atrule {
+        color: #63a35c;
+      }
+
+      code.language-yaml {
+        color: #183691;
+      }
+
+      /* Ruby */
+      .language-ruby .token.function {
+        color: #333;
+      }
+
+      /* Markdown */
+      .language-markdown .token.url {
+        color: #795da3;
+      }
+
+      /* Makefile */
+      .language-makefile .token.symbol {
+        color: #795da3;
+      }
+
+      .language-makefile .token.variable {
+        color: #183691;
+      }
+
+      .language-makefile .token.builtin {
+        color: #0086b3;
+      }
+
+      /* Bash */
+      .language-bash .token.keyword {
+        color: #0086b3;
+      }
+
+      /* highlight */
+      pre[data-line] {
+        position: relative;
+        padding: 1em 0 1em 3em;
+      }
+      pre[data-line] .line-highlight-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+      }
+
+      pre[data-line] .line-highlight {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: inherit 0;
+        margin-top: 1em;
+        background: hsla(24, 20%, 50%, 0.08);
+        background: linear-gradient(
+          to right,
+          hsla(24, 20%, 50%, 0.1) 70%,
+          hsla(24, 20%, 50%, 0)
+        );
+        pointer-events: none;
+        line-height: inherit;
+        white-space: pre;
+      }
+
+      pre[data-line] .line-highlight:before,
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-start);
+        position: absolute;
+        top: 0.4em;
+        left: 0.6em;
+        min-width: 1em;
+        padding: 0 0.5em;
+        background-color: hsla(24, 20%, 50%, 0.4);
+        color: hsl(24, 20%, 95%);
+        font: bold 65%/1.5 sans-serif;
+        text-align: center;
+        vertical-align: 0.3em;
+        border-radius: 999px;
+        text-shadow: none;
+        box-shadow: 0 1px white;
+      }
+
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-end);
+        top: auto;
+        bottom: 0.4em;
+      }
+      html body {
+        font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans,
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        overflow: initial;
+        box-sizing: border-box;
+        word-wrap: break-word;
+      }
+      html body > :first-child {
+        margin-top: 0;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        line-height: 1.2;
+        margin-top: 1em;
+        margin-bottom: 16px;
+        color: #000;
+      }
+      html body h1 {
+        font-size: 2.25em;
+        font-weight: 300;
+        padding-bottom: 0.3em;
+      }
+      html body h2 {
+        font-size: 1.75em;
+        font-weight: 400;
+        padding-bottom: 0.3em;
+      }
+      html body h3 {
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+      html body h4 {
+        font-size: 1.25em;
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+      html body h6 {
+        font-size: 1em;
+        font-weight: 600;
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5 {
+        font-weight: 600;
+      }
+      html body h5 {
+        font-size: 1em;
+      }
+      html body h6 {
+        color: #5c5c5c;
+      }
+      html body strong {
+        color: #000;
+      }
+      html body del {
+        color: #5c5c5c;
+      }
+      html body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      html body a {
+        color: #08c;
+        text-decoration: none;
+      }
+      html body a:hover {
+        color: #00a3f5;
+        text-decoration: none;
+      }
+      html body img {
+        max-width: 100%;
+      }
+      html body > p {
+        margin-top: 0;
+        margin-bottom: 16px;
+        word-wrap: break-word;
+      }
+      html body > ul,
+      html body > ol {
+        margin-bottom: 16px;
+      }
+      html body ul,
+      html body ol {
+        padding-left: 2em;
+      }
+      html body ul.no-list,
+      html body ol.no-list {
+        padding: 0;
+        list-style-type: none;
+      }
+      html body ul ul,
+      html body ul ol,
+      html body ol ol,
+      html body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body li {
+        margin-bottom: 0;
+      }
+      html body li.task-list-item {
+        list-style: none;
+      }
+      html body li > p {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      html body .task-list-item-checkbox {
+        margin: 0 0.2em 0.25em -1.8em;
+        vertical-align: middle;
+      }
+      html body .task-list-item-checkbox:hover {
+        cursor: pointer;
+      }
+      html body blockquote {
+        margin: 16px 0;
+        font-size: inherit;
+        padding: 0 15px;
+        color: #5c5c5c;
+        background-color: #f0f0f0;
+        border-left: 4px solid #d6d6d6;
+      }
+      html body blockquote > :first-child {
+        margin-top: 0;
+      }
+      html body blockquote > :last-child {
+        margin-bottom: 0;
+      }
+      html body hr {
+        height: 4px;
+        margin: 32px 0;
+        background-color: #d6d6d6;
+        border: 0 none;
+      }
+      html body table {
+        margin: 10px 0 15px 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: block;
+        width: 100%;
+        overflow: auto;
+        word-break: normal;
+        word-break: keep-all;
+      }
+      html body table th {
+        font-weight: bold;
+        color: #000;
+      }
+      html body table td,
+      html body table th {
+        border: 1px solid #d6d6d6;
+        padding: 6px 13px;
+      }
+      html body dl {
+        padding: 0;
+      }
+      html body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: bold;
+      }
+      html body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      html body code {
+        font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+        font-size: 0.85em !important;
+        color: #000;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+        padding: 0.2em 0;
+      }
+      html body code::before,
+      html body code::after {
+        letter-spacing: -0.2em;
+        content: '\00a0';
+      }
+      html body pre > code {
+        padding: 0;
+        margin: 0;
+        font-size: 0.85em !important;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      html body .highlight {
+        margin-bottom: 16px;
+      }
+      html body .highlight pre,
+      html body pre {
+        padding: 1em;
+        overflow: auto;
+        font-size: 0.85em !important;
+        line-height: 1.45;
+        border: #d6d6d6;
+        border-radius: 3px;
+      }
+      html body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      html body pre code,
+      html body pre tt {
+        display: inline;
+        max-width: initial;
+        padding: 0;
+        margin: 0;
+        overflow: initial;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      html body pre code:before,
+      html body pre tt:before,
+      html body pre code:after,
+      html body pre tt:after {
+        content: normal;
+      }
+      html body p,
+      html body blockquote,
+      html body ul,
+      html body ol,
+      html body dl,
+      html body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      html body kbd {
+        color: #000;
+        border: 1px solid #d6d6d6;
+        border-bottom: 2px solid #c7c7c7;
+        padding: 2px 4px;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+      }
+      @media print {
+        html body {
+          background-color: #fff;
+        }
+        html body h1,
+        html body h2,
+        html body h3,
+        html body h4,
+        html body h5,
+        html body h6 {
+          color: #000;
+          page-break-after: avoid;
+        }
+        html body blockquote {
+          color: #5c5c5c;
+        }
+        html body pre {
+          page-break-inside: avoid;
+        }
+        html body table {
+          display: table;
+        }
+        html body img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        html body pre,
+        html body code {
+          word-wrap: break-word;
+          white-space: pre;
+        }
+      }
+      .markdown-preview {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .markdown-preview .pagebreak,
+      .markdown-preview .newpage {
+        page-break-before: always;
+      }
+      .markdown-preview pre.line-numbers {
+        position: relative;
+        padding-left: 3.8em;
+        counter-reset: linenumber;
+      }
+      .markdown-preview pre.line-numbers > code {
+        position: relative;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows {
+        position: absolute;
+        pointer-events: none;
+        top: 1em;
+        font-size: 100%;
+        left: 0;
+        width: 3em;
+        letter-spacing: -1px;
+        border-right: 1px solid #999;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+      }
+      .markdown-preview pre.line-numbers .line-numbers-rows > span:before {
+        content: counter(linenumber);
+        color: #999;
+        display: block;
+        padding-right: 0.8em;
+        text-align: right;
+      }
+      .markdown-preview .mathjax-exps .MathJax_Display {
+        text-align: center !important;
+      }
+      .markdown-preview:not([for='preview']) .code-chunk .btn-group {
+        display: none;
+      }
+      .markdown-preview:not([for='preview']) .code-chunk .status {
+        display: none;
+      }
+      .markdown-preview:not([for='preview']) .code-chunk .output-div {
+        margin-bottom: 16px;
+      }
+      .scrollbar-style::-webkit-scrollbar {
+        width: 8px;
+      }
+      .scrollbar-style::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      .scrollbar-style::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html body[for='html-export']:not([data-presentation-mode]) {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])
+        .markdown-preview {
+        position: relative;
+        top: 0;
+      }
+      @media screen and (min-width: 914px) {
+        html
+          body[for='html-export']:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em calc(50% - 457px + 2em);
+        }
+      }
+      @media screen and (max-width: 914px) {
+        html
+          body[for='html-export']:not([data-presentation-mode])
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for='html-export']:not([data-presentation-mode])
+          .markdown-preview {
+          font-size: 14px !important;
+          padding: 1em;
+        }
+      }
+      @media print {
+        html
+          body[for='html-export']:not([data-presentation-mode])
+          #sidebar-toc-btn {
+          display: none;
+        }
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])
+        #sidebar-toc-btn {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        font-size: 28px;
+        cursor: pointer;
+        color: inherit;
+        z-index: 99;
+        width: 32px;
+        text-align: center;
+        opacity: 0.4;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        #sidebar-toc-btn {
+        opacity: 1;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        padding: 32px 0 48px 0;
+        font-size: 14px;
+        box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+        box-sizing: border-box;
+        overflow: auto;
+        background-color: inherit;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar {
+        width: 8px;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc
+        a {
+        text-decoration: none;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc
+        ul {
+        padding: 0 1.6em;
+        margin-top: 0.8em;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc
+        li {
+        margin-bottom: 0.8em;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .md-sidebar-toc
+        ul {
+        list-style-type: none;
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+        .markdown-preview {
+        left: 300px;
+        width: calc(100% - 300px);
+        padding: 2em calc(50% - 457px - 150px);
+        margin: 0;
+        box-sizing: border-box;
+      }
+      @media screen and (max-width: 1274px) {
+        html
+          body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+          .markdown-preview {
+          padding: 2em;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        html
+          body[for='html-export']:not([data-presentation-mode])[html-show-sidebar-toc]
+          .markdown-preview {
+          width: 100%;
+        }
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode]):not([html-show-sidebar-toc])
+        .markdown-preview {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      html
+        body[for='html-export']:not([data-presentation-mode]):not([html-show-sidebar-toc])
+        .md-sidebar-toc {
+        display: none;
+      }
+      /* Please visit the URL below for more information: */
+      /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+    </style>
+  </head>
+  <body for="html-export">
+    <div class="mume markdown-preview">
+      <p>
+        |
+        <a
+          href="https://docs.python.org/3/library/__future__.html#module-__future__"
+          ><code>__future__</code></a
+        >
+        | <em>Future statement definitions</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/__main__.html#module-__main__"
+          ><code>__main__</code></a
+        >
+        | <em>The environment where the top-level script is run.</em> |<br />
+        <a href="https://docs.python.org/3/library/_thread.html#module-_thread"
+          ><code>_thread</code></a
+        >
+        | <em>Low-level threading API.</em> |<br />
+        &#xA0;<br />
+        <strong>a</strong><br />
+        <a href="https://docs.python.org/3/library/abc.html#module-abc"
+          ><code>abc</code></a
+        >
+        |
+        <em>Abstract base classes according to :pep:<code>3119</code>.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/aifc.html#module-aifc"
+          ><code>aifc</code></a
+        >
+        | <em>Read and write audio files in AIFF or AIFC format.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/argparse.html#module-argparse"
+          ><code>argparse</code></a
+        >
+        | <em>Command-line option and argument parsing library.</em> |<br />
+        <a href="https://docs.python.org/3/library/array.html#module-array"
+          ><code>array</code></a
+        >
+        |
+        <em>Space efficient arrays of uniformly typed numeric values.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/ast.html#module-ast"
+          ><code>ast</code></a
+        >
+        | <em>Abstract Syntax Tree classes and manipulation.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/asynchat.html#module-asynchat"
+          ><code>asynchat</code></a
+        >
+        | <em>Support for asynchronous command/response protocols.</em> |<br />
+        <a href="https://docs.python.org/3/library/asyncio.html#module-asyncio"
+          ><code>asyncio</code></a
+        >
+        | <em>Asynchronous I/O.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/asyncore.html#module-asyncore"
+          ><code>asyncore</code></a
+        >
+        |
+        <em
+          >A base class for developing asynchronous socket handling
+          services.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/atexit.html#module-atexit"
+          ><code>atexit</code></a
+        >
+        | <em>Register and execute cleanup functions.</em> |<br />
+        <a href="https://docs.python.org/3/library/audioop.html#module-audioop"
+          ><code>audioop</code></a
+        >
+        | <em>Manipulate raw audio data.</em> |<br />
+        &#xA0;<br />
+        <strong>b</strong><br />
+        <a href="https://docs.python.org/3/library/base64.html#module-base64"
+          ><code>base64</code></a
+        >
+        |
+        <em
+          >RFC 3548: Base16, Base32, Base64 Data Encodings; Base85 and
+          Ascii85</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/bdb.html#module-bdb"
+          ><code>bdb</code></a
+        >
+        | <em>Debugger framework.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/binascii.html#module-binascii"
+          ><code>binascii</code></a
+        >
+        |
+        <em
+          >Tools for converting between binary and various ASCII-encoded binary
+          representations.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/binhex.html#module-binhex"
+          ><code>binhex</code></a
+        >
+        | <em>Encode and decode files in binhex4 format.</em> |<br />
+        <a href="https://docs.python.org/3/library/bisect.html#module-bisect"
+          ><code>bisect</code></a
+        >
+        | <em>Array bisection algorithms for binary searching.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/builtins.html#module-builtins"
+          ><code>builtins</code></a
+        >
+        | <em>The module that provides the built-in namespace.</em> |<br />
+        <a href="https://docs.python.org/3/library/bz2.html#module-bz2"
+          ><code>bz2</code></a
+        >
+        | <em>Interfaces for bzip2 compression and decompression.</em> |<br />
+        &#xA0;<br />
+        <strong>c</strong><br />
+        <a
+          href="https://docs.python.org/3/library/calendar.html#module-calendar"
+          ><code>calendar</code></a
+        >
+        |
+        <em
+          >Functions for working with calendars, including some emulation of the
+          Unix cal program.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/cgi.html#module-cgi"
+          ><code>cgi</code></a
+        >
+        |
+        <em
+          >Helpers for running Python scripts via the Common Gateway
+          Interface.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/cgitb.html#module-cgitb"
+          ><code>cgitb</code></a
+        >
+        | <em>Configurable traceback handler for CGI scripts.</em> |<br />
+        <a href="https://docs.python.org/3/library/chunk.html#module-chunk"
+          ><code>chunk</code></a
+        >
+        | <em>Module to read IFF chunks.</em> |<br />
+        <a href="https://docs.python.org/3/library/cmath.html#module-cmath"
+          ><code>cmath</code></a
+        >
+        | <em>Mathematical functions for complex numbers.</em> |<br />
+        <a href="https://docs.python.org/3/library/cmd.html#module-cmd"
+          ><code>cmd</code></a
+        >
+        | <em>Build line-oriented command interpreters.</em> |<br />
+        <a href="https://docs.python.org/3/library/code.html#module-code"
+          ><code>code</code></a
+        >
+        | <em>Facilities to implement read-eval-print loops.</em> |<br />
+        <a href="https://docs.python.org/3/library/codecs.html#module-codecs"
+          ><code>codecs</code></a
+        >
+        | <em>Encode and decode data and streams.</em> |<br />
+        <a href="https://docs.python.org/3/library/codeop.html#module-codeop"
+          ><code>codeop</code></a
+        >
+        | <em>Compile (possibly incomplete) Python code.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a
+          href="https://docs.python.org/3/library/collections.html#module-collections"
+          ><code>collections</code></a
+        >
+        | <em>Container datatypes</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/colorsys.html#module-colorsys"
+          ><code>colorsys</code></a
+        >
+        |
+        <em>Conversion functions between RGB and other color systems.</em>
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/compileall.html#module-compileall"
+          ><code>compileall</code></a
+        >
+        |
+        <em
+          >Tools for byte-compiling all Python source files in a directory
+          tree.</em
+        >
+        |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <code>concurrent</code><br />
+        <a
+          href="https://docs.python.org/3/library/configparser.html#module-configparser"
+          ><code>configparser</code></a
+        >
+        | <em>Configuration file parser.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/contextlib.html#module-contextlib"
+          ><code>contextlib</code></a
+        >
+        | <em>Utilities for with-statement contexts.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/contextvars.html#module-contextvars"
+          ><code>contextvars</code></a
+        >
+        | <em>Context Variables</em> |<br />
+        <a href="https://docs.python.org/3/library/copy.html#module-copy"
+          ><code>copy</code></a
+        >
+        | <em>Shallow and deep copy operations.</em> |<br />
+        <a href="https://docs.python.org/3/library/copyreg.html#module-copyreg"
+          ><code>copyreg</code></a
+        >
+        | <em>Register pickle support functions.</em> |<br />
+        <a href="https://docs.python.org/3/library/profile.html#module-cProfile"
+          ><code>cProfile</code></a
+        ><br />
+        <a href="https://docs.python.org/3/library/crypt.html#module-crypt"
+          ><code>crypt</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>The crypt() function used to check Unix passwords.</em> |<br />
+        <a href="https://docs.python.org/3/library/csv.html#module-csv"
+          ><code>csv</code></a
+        >
+        |
+        <em>Write and read tabular data to and from delimited files.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/ctypes.html#module-ctypes"
+          ><code>ctypes</code></a
+        >
+        | <em>A foreign function library for Python.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/curses.html#module-curses"
+          ><code>curses</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em
+          >An interface to the curses library, providing portable terminal
+          handling.</em
+        >
+        |<br />
+        &#xA0;<br />
+        <strong>d</strong><br />
+        <a
+          href="https://docs.python.org/3/library/dataclasses.html#module-dataclasses"
+          ><code>dataclasses</code></a
+        >
+        | <em>Generate special methods on user-defined classes.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/datetime.html#module-datetime"
+          ><code>datetime</code></a
+        >
+        | <em>Basic date and time types.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/dbm.html#module-dbm"
+          ><code>dbm</code></a
+        >
+        |
+        <em>Interfaces to various Unix &quot;database&quot; formats.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/decimal.html#module-decimal"
+          ><code>decimal</code></a
+        >
+        |
+        <em>Implementation of the General Decimal Arithmetic Specification.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/difflib.html#module-difflib"
+          ><code>difflib</code></a
+        >
+        | <em>Helpers for computing differences between objects.</em> |<br />
+        <a href="https://docs.python.org/3/library/dis.html#module-dis"
+          ><code>dis</code></a
+        >
+        | <em>Disassembler for Python bytecode.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a
+          href="https://docs.python.org/3/library/distutils.html#module-distutils"
+          ><code>distutils</code></a
+        >
+        |
+        <em
+          >Support for building and installing Python modules into an existing
+          Python installation.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/doctest.html#module-doctest"
+          ><code>doctest</code></a
+        >
+        | <em>Test pieces of code within docstrings.</em> |<br />
+        &#xA0;<br />
+        <strong>e</strong><br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/email.html#module-email"
+          ><code>email</code></a
+        >
+        |
+        <em
+          >Package supporting the parsing, manipulating, and generating email
+          messages.</em
+        >
+        |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <code>encodings</code><br />
+        <a
+          href="https://docs.python.org/3/library/ensurepip.html#module-ensurepip"
+          ><code>ensurepip</code></a
+        >
+        |
+        <em
+          >Bootstrapping the &quot;pip&quot; installer into an existing Python
+          installation or virtual environment.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/enum.html#module-enum"
+          ><code>enum</code></a
+        >
+        | <em>Implementation of an enumeration class.</em> |<br />
+        <a href="https://docs.python.org/3/library/errno.html#module-errno"
+          ><code>errno</code></a
+        >
+        | <em>Standard errno system symbols.</em> |<br />
+        &#xA0;<br />
+        <strong>f</strong><br />
+        <a
+          href="https://docs.python.org/3/library/faulthandler.html#module-faulthandler"
+          ><code>faulthandler</code></a
+        >
+        | <em>Dump the Python traceback.</em> |<br />
+        <a href="https://docs.python.org/3/library/fcntl.html#module-fcntl"
+          ><code>fcntl</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>The fcntl() and ioctl() system calls.</em> |<br />
+        <a href="https://docs.python.org/3/library/filecmp.html#module-filecmp"
+          ><code>filecmp</code></a
+        >
+        | <em>Compare files efficiently.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/fileinput.html#module-fileinput"
+          ><code>fileinput</code></a
+        >
+        | <em>Loop over standard input or a list of files.</em> |<br />
+        <a href="https://docs.python.org/3/library/fnmatch.html#module-fnmatch"
+          ><code>fnmatch</code></a
+        >
+        | <em>Unix shell style filename pattern matching.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/formatter.html#module-formatter"
+          ><code>formatter</code></a
+        >
+        | <strong>Deprecated:</strong>&#xA0;<em
+          >Generic output formatter and device interface.</em
+        >
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/fractions.html#module-fractions"
+          ><code>fractions</code></a
+        >
+        | <em>Rational numbers.</em> |<br />
+        <a href="https://docs.python.org/3/library/ftplib.html#module-ftplib"
+          ><code>ftplib</code></a
+        >
+        | <em>FTP protocol client (requires sockets).</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/functools.html#module-functools"
+          ><code>functools</code></a
+        >
+        |
+        <em>Higher-order functions and operations on callable objects.</em>
+        |<br />
+        &#xA0;<br />
+        <strong>g</strong><br />
+        <a href="https://docs.python.org/3/library/gc.html#module-gc"
+          ><code>gc</code></a
+        >
+        | <em>Interface to the cycle-detecting garbage collector.</em> |<br />
+        <a href="https://docs.python.org/3/library/getopt.html#module-getopt"
+          ><code>getopt</code></a
+        >
+        |
+        <em
+          >Portable parser for command line options; support both short and long
+          option names.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/getpass.html#module-getpass"
+          ><code>getpass</code></a
+        >
+        |
+        <em>Portable reading of passwords and retrieval of the userid.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/gettext.html#module-gettext"
+          ><code>gettext</code></a
+        >
+        | <em>Multilingual internationalization services.</em> |<br />
+        <a href="https://docs.python.org/3/library/glob.html#module-glob"
+          ><code>glob</code></a
+        >
+        | <em>Unix shell style pathname pattern expansion.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/graphlib.html#module-graphlib"
+          ><code>graphlib</code></a
+        >
+        | <em>Functionality to operate with graph-like structures</em> |<br />
+        <a href="https://docs.python.org/3/library/grp.html#module-grp"
+          ><code>grp</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>The group database (getgrnam() and friends).</em> |<br />
+        <a href="https://docs.python.org/3/library/gzip.html#module-gzip"
+          ><code>gzip</code></a
+        >
+        |
+        <em
+          >Interfaces for gzip compression and decompression using file
+          objects.</em
+        >
+        |<br />
+        &#xA0;<br />
+        <strong>h</strong><br />
+        <a href="https://docs.python.org/3/library/hashlib.html#module-hashlib"
+          ><code>hashlib</code></a
+        >
+        | <em>Secure hash and message digest algorithms.</em> |<br />
+        <a href="https://docs.python.org/3/library/heapq.html#module-heapq"
+          ><code>heapq</code></a
+        >
+        | <em>Heap queue algorithm (a.k.a. priority queue).</em> |<br />
+        <a href="https://docs.python.org/3/library/hmac.html#module-hmac"
+          ><code>hmac</code></a
+        >
+        |
+        <em>Keyed-Hashing for Message Authentication (HMAC) implementation</em>
+        |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/html.html#module-html"
+          ><code>html</code></a
+        >
+        | <em>Helpers for manipulating HTML.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/http.html#module-http"
+          ><code>http</code></a
+        >
+        | <em>HTTP status codes and messages</em> |<br />
+        &#xA0;<br />
+        <strong>i</strong><br />
+        <a href="https://docs.python.org/3/library/imaplib.html#module-imaplib"
+          ><code>imaplib</code></a
+        >
+        | <em>IMAP4 protocol client (requires sockets).</em> |<br />
+        <a href="https://docs.python.org/3/library/imghdr.html#module-imghdr"
+          ><code>imghdr</code></a
+        >
+        |
+        <em>Determine the type of image contained in a file or byte stream.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/imp.html#module-imp"
+          ><code>imp</code></a
+        >
+        | <strong>Deprecated:</strong>&#xA0;<em
+          >Access the implementation of the import statement.</em
+        >
+        |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a
+          href="https://docs.python.org/3/library/importlib.html#module-importlib"
+          ><code>importlib</code></a
+        >
+        | <em>The implementation of the import machinery.</em> |<br />
+        <a href="https://docs.python.org/3/library/inspect.html#module-inspect"
+          ><code>inspect</code></a
+        >
+        |
+        <em>Extract information and source code from live objects.</em> |<br />
+        <a href="https://docs.python.org/3/library/io.html#module-io"
+          ><code>io</code></a
+        >
+        | <em>Core tools for working with streams.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/ipaddress.html#module-ipaddress"
+          ><code>ipaddress</code></a
+        >
+        | <em>IPv4/IPv6 manipulation library.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/itertools.html#module-itertools"
+          ><code>itertools</code></a
+        >
+        | <em>Functions creating iterators for efficient looping.</em> |<br />
+        &#xA0;<br />
+        <strong>j</strong><br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/json.html#module-json"
+          ><code>json</code></a
+        >
+        | <em>Encode and decode the JSON format.</em> |<br />
+        &#xA0;<br />
+        <strong>k</strong><br />
+        <a href="https://docs.python.org/3/library/keyword.html#module-keyword"
+          ><code>keyword</code></a
+        >
+        | <em>Test whether a string is a keyword in Python.</em> |<br />
+        &#xA0;<br />
+        <strong>l</strong><br />
+        <a href="https://docs.python.org/3/library/2to3.html#module-lib2to3"
+          ><code>lib2to3</code></a
+        >
+        | <em>The 2to3 library</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/linecache.html#module-linecache"
+          ><code>linecache</code></a
+        >
+        |
+        <em>Provides random access to individual lines from text files.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/locale.html#module-locale"
+          ><code>locale</code></a
+        >
+        | <em>Internationalization services.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/logging.html#module-logging"
+          ><code>logging</code></a
+        >
+        | <em>Flexible event logging system for applications.</em> |<br />
+        <a href="https://docs.python.org/3/library/lzma.html#module-lzma"
+          ><code>lzma</code></a
+        >
+        | <em>A Python wrapper for the liblzma compression library.</em> |<br />
+        &#xA0;<br />
+        <strong>m</strong><br />
+        <a href="https://docs.python.org/3/library/mailbox.html#module-mailbox"
+          ><code>mailbox</code></a
+        >
+        | <em>Manipulate mailboxes in various formats</em> |<br />
+        <a href="https://docs.python.org/3/library/mailcap.html#module-mailcap"
+          ><code>mailcap</code></a
+        >
+        | <em>Mailcap file handling.</em> |<br />
+        <a href="https://docs.python.org/3/library/marshal.html#module-marshal"
+          ><code>marshal</code></a
+        >
+        |
+        <em
+          >Convert Python objects to streams of bytes and back (with different
+          constraints).</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/math.html#module-math"
+          ><code>math</code></a
+        >
+        | <em>Mathematical functions (sin() etc.).</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/mimetypes.html#module-mimetypes"
+          ><code>mimetypes</code></a
+        >
+        | <em>Mapping of filename extensions to MIME types.</em> |<br />
+        <a href="https://docs.python.org/3/library/mmap.html#module-mmap"
+          ><code>mmap</code></a
+        >
+        |
+        <em>Interface to memory-mapped files for Unix and Windows.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/modulefinder.html#module-modulefinder"
+          ><code>modulefinder</code></a
+        >
+        | <em>Find modules used by a script.</em> |<br />
+        <a href="https://docs.python.org/3/library/msilib.html#module-msilib"
+          ><code>msilib</code></a
+        >&#xA0;<em>(Windows)</em> |
+        <em>Creation of Microsoft Installer files, and CAB files.</em> |<br />
+        <a href="https://docs.python.org/3/library/msvcrt.html#module-msvcrt"
+          ><code>msvcrt</code></a
+        >&#xA0;<em>(Windows)</em> |
+        <em>Miscellaneous useful routines from the MS VC++ runtime.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a
+          href="https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing"
+          ><code>multiprocessing</code></a
+        >
+        | <em>Process-based parallelism.</em> |<br />
+        &#xA0;<br />
+        <strong>n</strong><br />
+        <a href="https://docs.python.org/3/library/netrc.html#module-netrc"
+          ><code>netrc</code></a
+        >
+        | <em>Loading of .netrc files.</em> |<br />
+        <a href="https://docs.python.org/3/library/nis.html#module-nis"
+          ><code>nis</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>Interface to Sun&apos;s NIS (Yellow Pages) library.</em> |<br />
+        <a href="https://docs.python.org/3/library/nntplib.html#module-nntplib"
+          ><code>nntplib</code></a
+        >
+        | <em>NNTP protocol client (requires sockets).</em> |<br />
+        <a href="https://docs.python.org/3/library/numbers.html#module-numbers"
+          ><code>numbers</code></a
+        >
+        |
+        <em>Numeric abstract base classes (Complex, Real, Integral, etc.).</em>
+        |<br />
+        &#xA0;<br />
+        <strong>o</strong><br />
+        <a
+          href="https://docs.python.org/3/library/operator.html#module-operator"
+          ><code>operator</code></a
+        >
+        | <em>Functions corresponding to the standard operators.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/optparse.html#module-optparse"
+          ><code>optparse</code></a
+        >
+        | <strong>Deprecated:</strong>&#xA0;<em
+          >Command-line option parsing library.</em
+        >
+        |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/os.html#module-os"
+          ><code>os</code></a
+        >
+        | <em>Miscellaneous operating system interfaces.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/ossaudiodev.html#module-ossaudiodev"
+          ><code>ossaudiodev</code></a
+        >&#xA0;<em>(Linux, FreeBSD)</em> |
+        <em>Access to OSS-compatible audio devices.</em> |<br />
+        &#xA0;<br />
+        <strong>p</strong><br />
+        <a href="https://docs.python.org/3/library/parser.html#module-parser"
+          ><code>parser</code></a
+        >
+        | <em>Access parse trees for Python source code.</em> |<br />
+        <a href="https://docs.python.org/3/library/pathlib.html#module-pathlib"
+          ><code>pathlib</code></a
+        >
+        | <em>Object-oriented filesystem paths</em> |<br />
+        <a href="https://docs.python.org/3/library/pdb.html#module-pdb"
+          ><code>pdb</code></a
+        >
+        | <em>The Python debugger for interactive interpreters.</em> |<br />
+        <a href="https://docs.python.org/3/library/pickle.html#module-pickle"
+          ><code>pickle</code></a
+        >
+        | <em>Convert Python objects to streams of bytes and back.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/pickletools.html#module-pickletools"
+          ><code>pickletools</code></a
+        >
+        |
+        <em
+          >Contains extensive comments about the pickle protocols and
+          pickle-machine opcodes, as well as some useful functions.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/pipes.html#module-pipes"
+          ><code>pipes</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>A Python interface to Unix shell pipelines.</em> |<br />
+        <a href="https://docs.python.org/3/library/pkgutil.html#module-pkgutil"
+          ><code>pkgutil</code></a
+        >
+        | <em>Utilities for the import system.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/platform.html#module-platform"
+          ><code>platform</code></a
+        >
+        |
+        <em>Retrieves as much platform identifying data as possible.</em>
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/plistlib.html#module-plistlib"
+          ><code>plistlib</code></a
+        >
+        | <em>Generate and parse Apple plist files.</em> |<br />
+        <a href="https://docs.python.org/3/library/poplib.html#module-poplib"
+          ><code>poplib</code></a
+        >
+        | <em>POP3 protocol client (requires sockets).</em> |<br />
+        <a href="https://docs.python.org/3/library/posix.html#module-posix"
+          ><code>posix</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em
+          >The most common POSIX system calls (normally used via module os).</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/pprint.html#module-pprint"
+          ><code>pprint</code></a
+        >
+        | <em>Data pretty printer.</em> |<br />
+        <a href="https://docs.python.org/3/library/profile.html#module-profile"
+          ><code>profile</code></a
+        >
+        | <em>Python source profiler.</em> |<br />
+        <a href="https://docs.python.org/3/library/profile.html#module-pstats"
+          ><code>pstats</code></a
+        >
+        | <em>Statistics object for use with the profiler.</em> |<br />
+        <a href="https://docs.python.org/3/library/pty.html#module-pty"
+          ><code>pty</code></a
+        >&#xA0;<em>(Linux)</em> |
+        <em>Pseudo-Terminal Handling for Linux.</em> |<br />
+        <a href="https://docs.python.org/3/library/pwd.html#module-pwd"
+          ><code>pwd</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>The password database (getpwnam() and friends).</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/py_compile.html#module-py_compile"
+          ><code>py_compile</code></a
+        >
+        | <em>Generate byte-code files from Python source files.</em> |<br />
+        <a href="https://docs.python.org/3/library/pyclbr.html#module-pyclbr"
+          ><code>pyclbr</code></a
+        >
+        |
+        <em>Supports information extraction for a Python module browser.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/pydoc.html#module-pydoc"
+          ><code>pydoc</code></a
+        >
+        | <em>Documentation generator and online help system.</em> |<br />
+        &#xA0;<br />
+        <strong>q</strong><br />
+        <a href="https://docs.python.org/3/library/queue.html#module-queue"
+          ><code>queue</code></a
+        >
+        | <em>A synchronized queue class.</em> |<br />
+        <a href="https://docs.python.org/3/library/quopri.html#module-quopri"
+          ><code>quopri</code></a
+        >
+        |
+        <em
+          >Encode and decode files using the MIME quoted-printable encoding.</em
+        >
+        |<br />
+        &#xA0;<br />
+        <strong>r</strong><br />
+        <a href="https://docs.python.org/3/library/random.html#module-random"
+          ><code>random</code></a
+        >
+        |
+        <em
+          >Generate pseudo-random numbers with various common distributions.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/re.html#module-re"
+          ><code>re</code></a
+        >
+        | <em>Regular expression operations.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/readline.html#module-readline"
+          ><code>readline</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>GNU readline support for Python.</em> |<br />
+        <a href="https://docs.python.org/3/library/reprlib.html#module-reprlib"
+          ><code>reprlib</code></a
+        >
+        | <em>Alternate repr() implementation with size limits.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/resource.html#module-resource"
+          ><code>resource</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em
+          >An interface to provide resource usage information on the current
+          process.</em
+        >
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/rlcompleter.html#module-rlcompleter"
+          ><code>rlcompleter</code></a
+        >
+        |
+        <em
+          >Python identifier completion, suitable for the GNU readline
+          library.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/runpy.html#module-runpy"
+          ><code>runpy</code></a
+        >
+        |
+        <em>Locate and run Python modules without importing them first.</em>
+        |<br />
+        &#xA0;<br />
+        <strong>s</strong><br />
+        <a href="https://docs.python.org/3/library/sched.html#module-sched"
+          ><code>sched</code></a
+        >
+        | <em>General purpose event scheduler.</em> |<br />
+        <a href="https://docs.python.org/3/library/secrets.html#module-secrets"
+          ><code>secrets</code></a
+        >
+        | <em>Generate secure random numbers for managing secrets.</em> |<br />
+        <a href="https://docs.python.org/3/library/select.html#module-select"
+          ><code>select</code></a
+        >
+        | <em>Wait for I/O completion on multiple streams.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/selectors.html#module-selectors"
+          ><code>selectors</code></a
+        >
+        | <em>High-level I/O multiplexing.</em> |<br />
+        <a href="https://docs.python.org/3/library/shelve.html#module-shelve"
+          ><code>shelve</code></a
+        >
+        | <em>Python object persistence.</em> |<br />
+        <a href="https://docs.python.org/3/library/shlex.html#module-shlex"
+          ><code>shlex</code></a
+        >
+        |
+        <em>Simple lexical analysis for Unix shell-like languages.</em> |<br />
+        <a href="https://docs.python.org/3/library/shutil.html#module-shutil"
+          ><code>shutil</code></a
+        >
+        | <em>High-level file operations, including copying.</em> |<br />
+        <a href="https://docs.python.org/3/library/signal.html#module-signal"
+          ><code>signal</code></a
+        >
+        | <em>Set handlers for asynchronous events.</em> |<br />
+        <a href="https://docs.python.org/3/library/site.html#module-site"
+          ><code>site</code></a
+        >
+        | <em>Module responsible for site-specific configuration.</em> |<br />
+        <a href="https://docs.python.org/3/library/smtpd.html#module-smtpd"
+          ><code>smtpd</code></a
+        >
+        | <em>A SMTP server implementation in Python.</em> |<br />
+        <a href="https://docs.python.org/3/library/smtplib.html#module-smtplib"
+          ><code>smtplib</code></a
+        >
+        | <em>SMTP protocol client (requires sockets).</em> |<br />
+        <a href="https://docs.python.org/3/library/sndhdr.html#module-sndhdr"
+          ><code>sndhdr</code></a
+        >
+        | <em>Determine type of a sound file.</em> |<br />
+        <a href="https://docs.python.org/3/library/socket.html#module-socket"
+          ><code>socket</code></a
+        >
+        | <em>Low-level networking interface.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/socketserver.html#module-socketserver"
+          ><code>socketserver</code></a
+        >
+        | <em>A framework for network servers.</em> |<br />
+        <a href="https://docs.python.org/3/library/spwd.html#module-spwd"
+          ><code>spwd</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>The shadow password database (getspnam() and friends).</em> |<br />
+        <a href="https://docs.python.org/3/library/sqlite3.html#module-sqlite3"
+          ><code>sqlite3</code></a
+        >
+        | <em>A DB-API 2.0 implementation using SQLite 3.x.</em> |<br />
+        <a href="https://docs.python.org/3/library/ssl.html#module-ssl"
+          ><code>ssl</code></a
+        >
+        | <em>TLS/SSL wrapper for socket objects</em> |<br />
+        <a href="https://docs.python.org/3/library/stat.html#module-stat"
+          ><code>stat</code></a
+        >
+        |
+        <em
+          >Utilities for interpreting the results of os.stat(), os.lstat() and
+          os.fstat().</em
+        >
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/statistics.html#module-statistics"
+          ><code>statistics</code></a
+        >
+        | <em>Mathematical statistics functions</em> |<br />
+        <a href="https://docs.python.org/3/library/string.html#module-string"
+          ><code>string</code></a
+        >
+        | <em>Common string operations.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/stringprep.html#module-stringprep"
+          ><code>stringprep</code></a
+        >
+        | <em>String preparation, as per RFC 3453</em> |<br />
+        <a href="https://docs.python.org/3/library/struct.html#module-struct"
+          ><code>struct</code></a
+        >
+        | <em>Interpret bytes as packed binary data.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/subprocess.html#module-subprocess"
+          ><code>subprocess</code></a
+        >
+        | <em>Subprocess management.</em> |<br />
+        <a href="https://docs.python.org/3/library/sunau.html#module-sunau"
+          ><code>sunau</code></a
+        >
+        | <em>Provide an interface to the Sun AU sound format.</em> |<br />
+        <a href="https://docs.python.org/3/library/symbol.html#module-symbol"
+          ><code>symbol</code></a
+        >
+        |
+        <em>Constants representing internal nodes of the parse tree.</em>
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/symtable.html#module-symtable"
+          ><code>symtable</code></a
+        >
+        |
+        <em>Interface to the compiler&apos;s internal symbol tables.</em>
+        |<br />
+        <a href="https://docs.python.org/3/library/sys.html#module-sys"
+          ><code>sys</code></a
+        >
+        | <em>Access system-specific parameters and functions.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/sysconfig.html#module-sysconfig"
+          ><code>sysconfig</code></a
+        >
+        | <em>Python&apos;s configuration information</em> |<br />
+        <a href="https://docs.python.org/3/library/syslog.html#module-syslog"
+          ><code>syslog</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em>An interface to the Unix syslog library routines.</em> |<br />
+        &#xA0;<br />
+        <strong>t</strong><br />
+        <a
+          href="https://docs.python.org/3/library/tabnanny.html#module-tabnanny"
+          ><code>tabnanny</code></a
+        >
+        |
+        <em
+          >Tool for detecting white space related problems in Python source
+          files in a directory tree.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/tarfile.html#module-tarfile"
+          ><code>tarfile</code></a
+        >
+        | <em>Read and write tar-format archive files.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/telnetlib.html#module-telnetlib"
+          ><code>telnetlib</code></a
+        >
+        | <em>Telnet client class.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/tempfile.html#module-tempfile"
+          ><code>tempfile</code></a
+        >
+        | <em>Generate temporary files and directories.</em> |<br />
+        <a href="https://docs.python.org/3/library/termios.html#module-termios"
+          ><code>termios</code></a
+        >&#xA0;<em>(Unix)</em> | <em>POSIX style tty control.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/test.html#module-test"
+          ><code>test</code></a
+        >
+        |
+        <em
+          >Regression tests package containing the testing suite for Python.</em
+        >
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/textwrap.html#module-textwrap"
+          ><code>textwrap</code></a
+        >
+        | <em>Text wrapping and filling</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/threading.html#module-threading"
+          ><code>threading</code></a
+        >
+        | <em>Thread-based parallelism.</em> |<br />
+        <a href="https://docs.python.org/3/library/time.html#module-time"
+          ><code>time</code></a
+        >
+        | <em>Time access and conversions.</em> |<br />
+        <a href="https://docs.python.org/3/library/timeit.html#module-timeit"
+          ><code>timeit</code></a
+        >
+        | <em>Measure the execution time of small code snippets.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/tkinter.html#module-tkinter"
+          ><code>tkinter</code></a
+        >
+        | <em>Interface to Tcl/Tk for graphical user interfaces</em> |<br />
+        <a href="https://docs.python.org/3/library/token.html#module-token"
+          ><code>token</code></a
+        >
+        |
+        <em>Constants representing terminal nodes of the parse tree.</em>
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/tokenize.html#module-tokenize"
+          ><code>tokenize</code></a
+        >
+        | <em>Lexical scanner for Python source code.</em> |<br />
+        <a href="https://docs.python.org/3/library/trace.html#module-trace"
+          ><code>trace</code></a
+        >
+        | <em>Trace or track Python statement execution.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/traceback.html#module-traceback"
+          ><code>traceback</code></a
+        >
+        | <em>Print or retrieve a stack traceback.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/tracemalloc.html#module-tracemalloc"
+          ><code>tracemalloc</code></a
+        >
+        | <em>Trace memory allocations.</em> |<br />
+        <a href="https://docs.python.org/3/library/tty.html#module-tty"
+          ><code>tty</code></a
+        >&#xA0;<em>(Unix)</em> |
+        <em
+          >Utility functions that perform common terminal control
+          operations.</em
+        >
+        |<br />
+        <a href="https://docs.python.org/3/library/turtle.html#module-turtle"
+          ><code>turtle</code></a
+        >
+        |
+        <em>An educational framework for simple graphics applications</em>
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/turtle.html#module-turtledemo"
+          ><code>turtledemo</code></a
+        >
+        | <em>A viewer for example turtle scripts</em> |<br />
+        <a href="https://docs.python.org/3/library/types.html#module-types"
+          ><code>types</code></a
+        >
+        | <em>Names for built-in types.</em> |<br />
+        <a href="https://docs.python.org/3/library/typing.html#module-typing"
+          ><code>typing</code></a
+        >
+        | <em>Support for type hints (see :pep:<code>484</code>).</em> |<br />
+        &#xA0;<br />
+        <strong>u</strong><br />
+        <a
+          href="https://docs.python.org/3/library/unicodedata.html#module-unicodedata"
+          ><code>unicodedata</code></a
+        >
+        | <em>Access the Unicode Database.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a
+          href="https://docs.python.org/3/library/unittest.html#module-unittest"
+          ><code>unittest</code></a
+        >
+        | <em>Unit testing framework for Python.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/urllib.html#module-urllib"
+          ><code>urllib</code></a
+        ><br />
+        <a href="https://docs.python.org/3/library/uu.html#module-uu"
+          ><code>uu</code></a
+        >
+        | <em>Encode and decode files in uuencode format.</em> |<br />
+        <a href="https://docs.python.org/3/library/uuid.html#module-uuid"
+          ><code>uuid</code></a
+        >
+        |
+        <em
+          >UUID objects (universally unique identifiers) according to RFC
+          4122</em
+        >
+        |<br />
+        &#xA0;<br />
+        <strong>v</strong><br />
+        <a href="https://docs.python.org/3/library/venv.html#module-venv"
+          ><code>venv</code></a
+        >
+        | <em>Creation of virtual environments.</em> |<br />
+        &#xA0;<br />
+        <strong>w</strong><br />
+        <a
+          href="https://docs.python.org/3/library/warnings.html#module-warnings"
+          ><code>warnings</code></a
+        >
+        | <em>Issue warning messages and control their disposition.</em> |<br />
+        <a href="https://docs.python.org/3/library/wave.html#module-wave"
+          ><code>wave</code></a
+        >
+        | <em>Provide an interface to the WAV sound format.</em> |<br />
+        <a href="https://docs.python.org/3/library/weakref.html#module-weakref"
+          ><code>weakref</code></a
+        >
+        | <em>Support for weak references and weak dictionaries.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/webbrowser.html#module-webbrowser"
+          ><code>webbrowser</code></a
+        >
+        | <em>Easy-to-use controller for Web browsers.</em> |<br />
+        <a href="https://docs.python.org/3/library/winreg.html#module-winreg"
+          ><code>winreg</code></a
+        >&#xA0;<em>(Windows)</em> |
+        <em>Routines and objects for manipulating the Windows registry.</em>
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/winsound.html#module-winsound"
+          ><code>winsound</code></a
+        >&#xA0;<em>(Windows)</em> |
+        <em>Access to the sound-playing machinery for Windows.</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/wsgiref.html#module-wsgiref"
+          ><code>wsgiref</code></a
+        >
+        | <em>WSGI Utilities and Reference Implementation.</em> |<br />
+        &#xA0;<br />
+        <strong>x</strong><br />
+        <a href="https://docs.python.org/3/library/xdrlib.html#module-xdrlib"
+          ><code>xdrlib</code></a
+        >
+        |
+        <em
+          >Encoders and decoders for the External Data Representation (XDR).</em
+        >
+        |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <a href="https://docs.python.org/3/library/xml.html#module-xml"
+          ><code>xml</code></a
+        >
+        | <em>Package containing XML processing modules</em> |<br />
+        | <img src="https://docs.python.org/3/_static/plus.png" alt="-" /> |
+        <code>xmlrpc</code><br />
+        &#xA0;<br />
+        <strong>z</strong><br />
+        <a href="https://docs.python.org/3/library/zipapp.html#module-zipapp"
+          ><code>zipapp</code></a
+        >
+        | <em>Manage executable Python zip archives</em> |<br />
+        <a href="https://docs.python.org/3/library/zipfile.html#module-zipfile"
+          ><code>zipfile</code></a
+        >
+        | <em>Read and write ZIP-format archive files.</em> |<br />
+        <a
+          href="https://docs.python.org/3/library/zipimport.html#module-zipimport"
+          ><code>zipimport</code></a
+        >
+        |
+        <em>Support for importing Python modules from ZIP archives.</em> |<br />
+        <a href="https://docs.python.org/3/library/zlib.html#module-zlib"
+          ><code>zlib</code></a
+        >
+        |
+        <em
+          >Low-level interface to compression and decompression routines
+          compatible with gzip.</em
+        >
+        |<br />
+        <a
+          href="https://docs.python.org/3/library/zoneinfo.html#module-zoneinfo"
+          ><code>zoneinfo</code></a
+        >
+        | <em>IANA time zone support</em> |
+      </p>
+    </div>
+  </body>
+</html>
