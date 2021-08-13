@@ -33,13 +33,14 @@ target = 10
 
 # starting at the beginning of the data
 # take each value and compare that value to a target value
-  # if they are equal return the index of the target value or return the target value
+# if they are equal return the index of the target value or return the target value
 # if we reach the end of the data, without finding the target then we can return -1
 def linear_search(data, target):
-  for i in range(len(data)):
-    if data[i] == target:
-      return (i, data[i])
-  return -1
+    for i in range(len(data)):
+        if data[i] == target:
+            return (i, data[i])
+    return -1
+
 
 print(linear_search(data, target))
 
@@ -54,31 +55,32 @@ target = 99
 # keep track of begin and end
 
 # while the begin and end do not overlap
-  # create a guess index in the middle of the view of data
-  # check if the data at the guess index is equal to the target
-    # return (guess_index, guess)
-  # otherwise is the data at the guess index less than the target
-    # set the begin to the guess_index + 1
-  # otherwise
-    # set end to the guess_index - 1
+# create a guess index in the middle of the view of data
+# check if the data at the guess index is equal to the target
+# return (guess_index, guess)
+# otherwise is the data at the guess index less than the target
+# set the begin to the guess_index + 1
+# otherwise
+# set end to the guess_index - 1
 
 # if we get here we can not find the target
 # return -1
 def binary_search(data, target):
-  begin = 0
-  end = len(data) - 1
+    begin = 0
+    end = len(data) - 1
 
-  while not end < begin:
-    guess_index = (end + begin) // 2
+    while not end < begin:
+        guess_index = (end + begin) // 2
 
-    if data[guess_index] == target:
-      return (guess_index, target)
-    elif data[guess_index] < target:
-      begin = guess_index + 1
-    else:
-      end = guess_index - 1
+        if data[guess_index] == target:
+            return (guess_index, target)
+        elif data[guess_index] < target:
+            begin = guess_index + 1
+        else:
+            end = guess_index - 1
 
-  return -1
+    return -1
+
 
 print(binary_search(data, target))
 
@@ -96,12 +98,13 @@ Let's compare the two...
 Looping
 """
 import time
+
 n = 10
 s = []
 start = time.time()
-while n > 0: # O(n)
-  print(n)
-  n -= 1
+while n > 0:  # O(n)
+    print(n)
+    n -= 1
 end = time.time()
 print(f"loop runtime = {end - start}")
 
@@ -109,15 +112,18 @@ print(f"loop runtime = {end - start}")
 Recursive Function
 """
 import time
+
 n = 10
 
-def while_rec(n): # O(n)
 
-  if not n > 0: # O(1)
-    return
-  print(n) # O(1)
+def while_rec(n):  # O(n)
 
-  while_rec(n - 1) # O(1)
+    if not n > 0:  # O(1)
+        return
+    print(n)  # O(1)
+
+    while_rec(n - 1)  # O(1)
+
 
 start = time.time()
 while_rec(n)
@@ -127,15 +133,18 @@ print(f"func runtime = {end - start}")
 # memoization
 # generic memo_func
 
-def memo_func(f):
-  cache = {}
 
-  def memo_helper(n):
-    if n not in cache:
-      cache[n] = f(n)
-    return cache[n]
-  
-  return memo_helper
+def memo_func(f):
+    cache = {}
+
+    def memo_helper(n):
+        if n not in cache:
+            cache[n] = f(n)
+        return cache[n]
+
+    return memo_helper
+
+
 """
 [ 0, 1, 1, 2, 3, 5, 8]
 fib(n) => fib(n - 1) + fib(n - 2)
@@ -147,24 +156,29 @@ fib(0) => 0
 fib(1) => 1
 """
 from functools import lru_cache
+
 # import sys
 # reclim = sys.getrecursionlimit()
 # sys.setrecursionlimit(reclim * 10)
 # reclim = sys.getrecursionlimit()
 print(reclim)
+
+
 @lru_cache(maxsize=10000)
 def fib(n):
-  if n <= 1:
-    return n
-  else:
-    return fib(n - 1) + fib(n - 2)
+    if n <= 1:
+        return n
+    else:
+        return fib(n - 1) + fib(n - 2)
+
 
 @lru_cache(maxsize=1000000)
 def fib2(n):
-  if n <= 1:
-    return n
-  else:
-    return fib(n - 1) + fib(n - 2)
+    if n <= 1:
+        return n
+    else:
+        return fib(n - 1) + fib(n - 2)
+
 
 # fib(46)
 # memfib = memo_func(fib)

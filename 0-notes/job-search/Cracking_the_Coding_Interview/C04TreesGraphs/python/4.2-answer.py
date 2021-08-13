@@ -1,9 +1,10 @@
 # 4.2 Minimal Tree
 
-# Given a sorted (increasing order) array with unique integer elements, write an algorithm to 
-    # create a binary search tree with minimal height.
+# Given a sorted (increasing order) array with unique integer elements, write an algorithm to
+# create a binary search tree with minimal height.
 
 import statistics
+
 
 class BinarySearchTree:
     def __init__(self, value):
@@ -13,10 +14,10 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        
+
         # if value is less than current value, go left
         if value < self.value:
-            
+
             if not self.left:
                 self.left = BinarySearchTree(value)
             else:
@@ -29,7 +30,7 @@ class BinarySearchTree:
                 self.right = BinarySearchTree(value)
             else:
                 self.right.insert(value)
-    
+
     def minimal_tree(self, array):
         length = len(array)
         median = statistics.median(array)

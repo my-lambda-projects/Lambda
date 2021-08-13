@@ -4,6 +4,7 @@
 
 # If implementing in Java, please use a character array so that you can perform this operation in place.
 
+
 def urlify(string):
     replaced = string.replace(" ", "%20")
     print(replaced)

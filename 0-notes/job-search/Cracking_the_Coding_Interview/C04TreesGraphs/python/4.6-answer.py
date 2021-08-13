@@ -1,9 +1,10 @@
 # 4.6 Successor
 
 # Write an algorithm to find the "next" node (i.e. in-order successor) of a given node in a binary
-    # search tree. 
+# search tree.
 
 # You may assume that each node has a link to its parent.
+
 
 class BinarySearchTree:
     def __init__(self, value):
@@ -19,4 +20,3 @@ class BinarySearchTree:
             if root == node:
                 return root.right
             validate_bst(root.right)
-

@@ -2,19 +2,18 @@
 
 # Implement a MyQueue class which implements a queue using two stacks.
 
-class MyQueue(object):
 
+class MyQueue(object):
     def __init__(self):
         self.stack1 = []
         self.stack2 = []
-        
 
     def push(self, x):
         # while self.stack1 not empty, append its last element to stack2
         while self.stack1:
             popped1 = self.stack1.pop()
             self.stack2.append(popped1)
-        # then append x to stack1, which is empty 
+        # then append x to stack1, which is empty
         self.stack1.append(x)
         # then put all the other elements, now on stack2, back on stack1
         while self.stack2:

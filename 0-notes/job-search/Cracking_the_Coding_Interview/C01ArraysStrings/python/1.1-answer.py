@@ -1,6 +1,7 @@
-# Is Unique:  
+# Is Unique:
 
 # Implement an algorithm to determine if a string has all unique characters.  What if you cannot use additional data structures?
+
 
 def isStringUnique(string):
     string_set = set(string)
@@ -14,5 +15,5 @@ def isStringUnique(string):
     return False
 
 
-isStringUnique('abcdefg')
-isStringUnique('abcdefgabcde')
+isStringUnique("abcdefg")
+isStringUnique("abcdefgabcde")

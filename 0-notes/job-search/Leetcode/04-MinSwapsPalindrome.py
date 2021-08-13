@@ -1,17 +1,18 @@
-# Given a string, what is the minimum number of adjacent swaps required to convert a string into 
-    # a palindrome. 
+# Given a string, what is the minimum number of adjacent swaps required to convert a string into
+# a palindrome.
 # If not possible, return -1.
 
-'''
+"""
 Example 1:  Input: "mamad"  | Output:  3
 Example 2:  Input: "asflkj" | Output: -1
 Example 3:  Input: "aabb"   | Output:  2
 Example 4:  Input: "ntiin"  | Output:  1
     Explanation: swap 't' with 'i' => "nitin"
-'''
+"""
 
 # time complexity:  O(n^2)
 # space complexity: O(1)
+
 
 def min_swap(string):
     # convert string to list
@@ -20,23 +21,23 @@ def min_swap(string):
     odd = 0
     letter = [0] * 26
 
-    for i in list_of_string: 
+    for i in list_of_string:
         # get unicode char of current letter
         unicode_i = ord(i)
         # get unicode char of letter 'a'
-        unicode_a = ord('a')
+        unicode_a = ord("a")
         # get alphabet index
-        alphabet_index = unicode_i-unicode_a
+        alphabet_index = unicode_i - unicode_a
         # get current letter count for each letter in string
         letter[alphabet_index] += 1
 
     for l in letter:
-        if l & 1 == 1: 
+        if l & 1 == 1:
             odd += 1
 
     if odd > 1:
         return -1
-        
+
     i, j, res = 0, len(list_of_string) - 1, 0
 
     while i < j:
@@ -57,10 +58,11 @@ def min_swap(string):
         while t < target:
             # swap
             tmp = list_of_string[t]
-            list_of_string[t] = list_of_string[t+1]
-            list_of_string[t+1] = tmp
+            list_of_string[t] = list_of_string[t + 1]
+            list_of_string[t + 1] = tmp
             res, t = res + 1, t + 1
 
     return res
 
-print(min_swap('racecra'))
+
+print(min_swap("racecra"))

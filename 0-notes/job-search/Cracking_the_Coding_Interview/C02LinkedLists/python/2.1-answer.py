@@ -3,10 +3,12 @@
 # Write code to remove duplicates from an unsorted linked list.
 # FOLLOW UP:  How would you solve this problem if a temporary buffer isn't allowed?
 
+
 class Node:
     def __init__(self, data):
         self.data = data
-        self.next = None 
+        self.next = None
+
 
 class LinkedList:
     def __init__(self):
@@ -19,10 +21,10 @@ class LinkedList:
         if current_head is None:
             return None
         previous_head = None
-        while current_head: 
+        while current_head:
             # if is in cache, skip
             if current_head.data in cache:
-                previous_head.next = current_head.next 
+                previous_head.next = current_head.next
             # if not in cache, add node to cache
             else:
                 cache.add(current_head.data)
@@ -41,4 +43,4 @@ class LinkedList:
                     previous_head.next = previous_head.next.next
                 else:
                     previous_head = previous_head.next
-                current_head = current_head.next 
+                current_head = current_head.next

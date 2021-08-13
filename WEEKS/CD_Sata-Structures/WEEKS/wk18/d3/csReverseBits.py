@@ -1,4 +1,3 @@
-
 # Python 3 implementation to
 # reverse bits of a number
 
@@ -10,13 +9,13 @@ def csReverseIntegerBits(n):
     rev = 0
 
     # traversing bits of 'n' from the right
-    while (n > 0):
+    while n > 0:
 
         # bitwise left shift 'rev' by 1
         rev = rev << 1
 
         # if current bit is '1'
-        if (n & 1 == 1):
+        if n & 1 == 1:
             rev = rev ^ 1
 
         # bitwise right shift 'n' by 1

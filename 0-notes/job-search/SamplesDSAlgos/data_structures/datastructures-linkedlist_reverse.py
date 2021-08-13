@@ -1,4 +1,3 @@
-
 """
 What is the difference between an array and a linked list?
     Arrays use memory differently.
@@ -26,32 +25,33 @@ What is the difference between singly and doubly linked lists?
 """
 # REVERSE LINKED LIST
 # made of bunch of nodes that point to next one in list
-# every node has two properties: 
-    # value of whatever is being stored
-    # pointer to next node in list
+# every node has two properties:
+# value of whatever is being stored
+# pointer to next node in list
 # adding and removing is easy; change next pointer on previous node (O(n)))
-    # similar to arrays
+# similar to arrays
 # commonly used for holding lists of data
-    # certain cases when better than array
+# certain cases when better than array
 
 # time complexity:   Avg   | Worst
-    # Access:       O(n)   |   O(n)
-    # Search:       O(n)   |   O(n)
-    # Insertion:    O(1)   |   O(1)
-    # Deletion:     O(1)   |   O(1)
+# Access:       O(n)   |   O(n)
+# Search:       O(n)   |   O(n)
+# Insertion:    O(1)   |   O(1)
+# Deletion:     O(1)   |   O(1)
 
 # space complexity:  O(n)
 
+
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        if head==None or head.next==None:
+        if head == None or head.next == None:
             return head
-        prev=None
+        prev = None
         curr = head
-        while head.next!=None:
+        while head.next != None:
             curr.next = prev
             prev = curr
             curr = curr.next
             head = head.next
-        curr.next=prev
+        curr.next = prev
         return curr

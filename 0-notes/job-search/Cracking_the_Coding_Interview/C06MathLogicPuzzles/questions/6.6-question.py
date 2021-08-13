@@ -1,7 +1,7 @@
 # 6.6 Blue-Eyed Island
 
 # A bunch of people are living on an island, when a visitor comes with a strange order:
-    # all blue-eyed people must leave the island as soon as possible.
+# all blue-eyed people must leave the island as soon as possible.
 
 # There will be a flight out at 8:00 p.m. every evening.
 # Each person can see everyone else's eye color.
