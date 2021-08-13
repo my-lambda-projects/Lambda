@@ -1,0 +1,15 @@
+{
+  "name": "CodeSignal-Solutions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bgoonz11/repoutils": "^1.0.5"
+  }
+}
