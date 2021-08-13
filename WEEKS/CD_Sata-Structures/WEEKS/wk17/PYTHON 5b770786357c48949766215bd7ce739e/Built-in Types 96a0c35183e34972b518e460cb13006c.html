@@ -1,0 +1,3057 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Built-in Types</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type='checkbox'] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+      }
+      .code {
+        font-family: 'SFMono-Regular', Menlo, Consolas, 'PT Mono',
+          'Liberation Mono', Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK JP';
+      }
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK SC';
+      }
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK TC';
+      }
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK KR';
+      }
+      .pdf .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK JP';
+      }
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK SC';
+      }
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK TC';
+      }
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK KR';
+      }
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .highlight-default {
+      }
+      .highlight-gray {
+        color: rgb(155, 154, 151);
+      }
+      .highlight-brown {
+        color: rgb(100, 71, 58);
+      }
+      .highlight-orange {
+        color: rgb(217, 115, 13);
+      }
+      .highlight-yellow {
+        color: rgb(223, 171, 1);
+      }
+      .highlight-teal {
+        color: rgb(15, 123, 108);
+      }
+      .highlight-blue {
+        color: rgb(11, 110, 153);
+      }
+      .highlight-purple {
+        color: rgb(105, 64, 165);
+      }
+      .highlight-pink {
+        color: rgb(173, 26, 114);
+      }
+      .highlight-red {
+        color: rgb(224, 62, 62);
+      }
+      .highlight-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .highlight-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .highlight-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .highlight-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .highlight-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .highlight-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .highlight-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .highlight-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .highlight-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+      }
+      .block-color-brown {
+        color: rgb(100, 71, 58);
+        fill: rgb(100, 71, 58);
+      }
+      .block-color-orange {
+        color: rgb(217, 115, 13);
+        fill: rgb(217, 115, 13);
+      }
+      .block-color-yellow {
+        color: rgb(223, 171, 1);
+        fill: rgb(223, 171, 1);
+      }
+      .block-color-teal {
+        color: rgb(15, 123, 108);
+        fill: rgb(15, 123, 108);
+      }
+      .block-color-blue {
+        color: rgb(11, 110, 153);
+        fill: rgb(11, 110, 153);
+      }
+      .block-color-purple {
+        color: rgb(105, 64, 165);
+        fill: rgb(105, 64, 165);
+      }
+      .block-color-pink {
+        color: rgb(173, 26, 114);
+        fill: rgb(173, 26, 114);
+      }
+      .block-color-red {
+        color: rgb(224, 62, 62);
+        fill: rgb(224, 62, 62);
+      }
+      .block-color-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .block-color-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .block-color-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .block-color-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .block-color-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .block-color-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .block-color-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .block-color-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .block-color-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .select-value-color-default {
+        background-color: rgba(206, 205, 202, 0.5);
+      }
+      .select-value-color-gray {
+        background-color: rgba(155, 154, 151, 0.4);
+      }
+      .select-value-color-brown {
+        background-color: rgba(140, 46, 0, 0.2);
+      }
+      .select-value-color-orange {
+        background-color: rgba(245, 93, 0, 0.2);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(233, 168, 0, 0.2);
+      }
+      .select-value-color-green {
+        background-color: rgba(0, 135, 107, 0.2);
+      }
+      .select-value-color-blue {
+        background-color: rgba(0, 120, 223, 0.2);
+      }
+      .select-value-color-purple {
+        background-color: rgba(103, 36, 222, 0.2);
+      }
+      .select-value-color-pink {
+        background-color: rgba(221, 0, 129, 0.2);
+      }
+      .select-value-color-red {
+        background-color: rgba(255, 0, 26, 0.2);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+
+      .checkbox-off {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+    </style>
+  </head>
+  <body>
+    <article id="96a0c351-83e3-4972-b518-e460cb13006c" class="page sans">
+      <header><h1 class="page-title">Built-in Types</h1></header>
+      <div class="page-body">
+        <h1 id="78434d8f-e3b0-45f7-91b8-711371640b70" class="">
+          Built-in Types
+        </h1>
+        <p id="a1367d04-eb46-4860-adf7-b782a8e57725" class="">
+          The principal built-in types are numerics, sequences, mappings,
+          classes, instances and exceptions.
+        </p>
+        <p id="254424fe-0170-403c-a316-966a6e8cd478" class="">
+          Some collection classes are mutable. The methods that add, subtract,
+          or rearrange their members in place, and don’t return a specific item,
+          never return the collection instance itself but <code>None</code>.
+        </p>
+        <p id="9d09b9ea-e3eb-4e32-839e-ad44a2728163" class="">
+          Some operations are supported by several object types; in particular,
+          practically all objects can be compared for equality, tested for truth
+          value, and converted to a string (with the <a
+            href="https://docs.python.org/3/library/functions.html#repr"
+            ><code>repr()</code></a
+          > function or the slightly different <a
+            href="https://docs.python.org/3/library/stdtypes.html#str"
+            ><code>str()</code></a
+          > function). The latter function is implicitly used when an object is
+          written by the <a
+            href="https://docs.python.org/3/library/functions.html#print"
+            ><code>print()</code></a
+          > function.
+        </p>
+        <h1 id="08d61d90-e87a-4038-a9eb-5f1c7824c9b9" class="">
+          Truth Value Testing
+        </h1>
+        <p id="91b96334-0544-453a-a1dd-cdd88891ba7d" class="">
+          Any object can be tested for truth value, for use in an <a
+            href="https://docs.python.org/3/reference/compound_stmts.html#if"
+            ><code>if</code></a
+          > or <a
+            href="https://docs.python.org/3/reference/compound_stmts.html#while"
+            ><code>while</code></a
+          > condition or as operand of the Boolean operations below.
+        </p>
+        <p id="d90d6f32-f0e7-4567-a3c2-a74d09a567f8" class="">
+          By default, an object is considered true unless its class defines
+          either a <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__bool__"
+            ><code>__bool__()</code></a
+          > method that returns <code>False</code> or a <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__len__"
+            ><code>__len__()</code></a
+          > method that returns zero, when called with the object. <a
+            href="https://docs.python.org/3/library/stdtypes.html#id12"
+            >1</a
+          > Here are most of the built-in objects considered false:
+        </p>
+        <blockquote
+          id="4dff249a-bea6-41f3-94fb-b9637760820f"
+          class=""
+        ></blockquote>
+        <ul id="8ed8cacb-1d1e-4083-9f9b-64e79d187cd7" class="bulleted-list">
+          <li>
+            constants defined to be
+            false: <code>None</code> and <code>False</code>.
+          </li>
+        </ul>
+        <ul id="3fc22f4c-1317-4657-b9cf-13c688f0a3ca" class="bulleted-list">
+          <li>
+            zero of any numeric
+            type: <code>0</code>, <code>0.0</code>, <code>0j</code>, <code>Decimal(0)</code>, <code
+              >Fraction(0, 1)</code
+            >
+          </li>
+        </ul>
+        <ul id="b9b281cf-8701-40c8-b6da-9faded0d4cc9" class="bulleted-list">
+          <li>
+            empty sequences and
+            collections: <code>&#x27;&#x27;</code>, <code>()</code>, <code>[]</code>, <code>{}</code>, <code>set()</code>, <code
+              >range(0)</code
+            >
+          </li>
+        </ul>
+        <p id="1612b28a-10cb-485f-82a5-ac3df5c2f0ca" class="">
+          Operations and built-in functions that have a Boolean result always
+          return <code>0</code> or <code>False</code> for false
+          and <code>1</code> or <code>True</code> for true, unless otherwise
+          stated. (Important exception: the Boolean
+          operations <code>or</code> and <code>and</code> always return one of
+          their operands.)
+        </p>
+        <h1 id="5366956f-d89f-4d70-8d28-237695b9236d" class="">
+          Boolean Operations — and, or, not
+        </h1>
+        <p id="60c06122-7720-4b2d-9b08-c848a93e05d4" class="">
+          These are the Boolean operations, ordered by ascending priority:
+        </p>
+        <div
+          id="1a63e9ec-1789-4cfd-bc98-9d09a5aa9f96"
+          class="collection-content"
+        >
+          <h4 class="collection-title"></h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Operation
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Result
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesTitle"
+                    >
+                      <path
+                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"
+                      ></path></svg></span
+                  >Notes
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="037933c2-7d43-4e0a-8a30-88a9a632d0f9">
+                <td class="cell-nq|I"><code>x or y</code></td>
+                <td class="cell-VAoi">
+                  if <em>x</em> is false, then <em>y</em>, else <em>x</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a63e9ec17894cfdbc989d09a5aa9f96/(1)%20037933c27d434e0a8a3088a9a632d0f9.html"
+                    >(1)</a
+                  >
+                </td>
+              </tr>
+              <tr id="21a18443-123a-4b24-8ac7-7471f057248c">
+                <td class="cell-nq|I"><code>x and y</code></td>
+                <td class="cell-VAoi">
+                  if <em>x</em> is false, then <em>x</em>, else <em>y</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a63e9ec17894cfdbc989d09a5aa9f96/(2)%2021a18443123a4b248ac77471f057248c.html"
+                    >(2)</a
+                  >
+                </td>
+              </tr>
+              <tr id="6a952011-a76b-40ee-a2e4-ed607ef8f389">
+                <td class="cell-nq|I"><code>not x</code></td>
+                <td class="cell-VAoi">
+                  if <em>x</em> is false, then <code>True</code>, else <code
+                    >False</code
+                  >
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a63e9ec17894cfdbc989d09a5aa9f96/(3)%206a952011a76b40eea2e4ed607ef8f389.html"
+                    >(3)</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="ac5f49bb-136e-41fd-9a0f-6e60241db665" class="">Notes:</p>
+        <ol
+          type="1"
+          id="e2dc8ea5-47ba-42da-9f0a-6c0f4a727b41"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            This is a short-circuit operator, so it only evaluates the second
+            argument if the first one is false.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="05b6af3e-737c-4375-95a7-583826756c19"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            This is a short-circuit operator, so it only evaluates the second
+            argument if the first one is true.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="6a1252ce-e7c7-424a-b591-1e24eb60f71b"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            <code>not</code> has a lower priority than non-Boolean operators,
+            so <code>not a == b</code> is interpreted
+            as <code>not (a == b)</code>, and <code>a == not b</code> is a
+            syntax error.
+          </li>
+        </ol>
+        <h1 id="ad830953-82ef-4b6a-93e5-f2ec2e50301c" class="">Comparisons</h1>
+        <p id="efd277c6-b874-4014-9dea-d6a3ba0aab24" class="">
+          There are eight comparison operations in Python. They all have the
+          same priority (which is higher than that of the Boolean operations).
+          Comparisons can be chained arbitrarily; for
+          example, <code>x &lt; y &lt;= z</code> is equivalent
+          to <code>x &lt; y and y &lt;= z</code>, except that <em>y</em> is
+          evaluated only once (but in both cases <em>z</em> is not evaluated at
+          all when <code>x &lt; y</code> is found to be false).
+        </p>
+        <p id="aae90a0f-0e82-4c10-9358-db2a6bd5a6c3" class="">
+          This table summarizes the comparison operations:
+        </p>
+        <div
+          id="f110cbfe-ade4-44ca-9a15-634a0f5c828b"
+          class="collection-content"
+        >
+          <h4 class="collection-title"></h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Operation
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesTitle"
+                    >
+                      <path
+                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"
+                      ></path></svg></span
+                  >Meaning
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="4eadc440-8b77-4827-b7b5-04e05d199479">
+                <td class="cell-ZXoT"><code>&lt;</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/strictly%20less%20than%204eadc4408b774827b7b504e05d199479.html"
+                    >strictly less than</a
+                  >
+                </td>
+              </tr>
+              <tr id="96b8af73-d0e6-4fde-96cc-63fa333a0929">
+                <td class="cell-ZXoT"><code>&lt;=</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/less%20than%20or%20equal%2096b8af73d0e64fde96cc63fa333a0929.html"
+                    >less than or equal</a
+                  >
+                </td>
+              </tr>
+              <tr id="8772e41a-3e17-4ada-959a-e3e36f6d303d">
+                <td class="cell-ZXoT"><code>&gt;</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/strictly%20greater%20than%208772e41a3e174ada959ae3e36f6d303d.html"
+                    >strictly greater than</a
+                  >
+                </td>
+              </tr>
+              <tr id="666e3914-5533-418f-b901-1656ddfdb690">
+                <td class="cell-ZXoT"><code>&gt;=</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/greater%20than%20or%20equal%20666e39145533418fb9011656ddfdb690.html"
+                    >greater than or equal</a
+                  >
+                </td>
+              </tr>
+              <tr id="33038d83-3df5-4394-be65-5cd6f19dbe41">
+                <td class="cell-ZXoT"><code>==</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/equal%2033038d833df54394be655cd6f19dbe41.html"
+                    >equal</a
+                  >
+                </td>
+              </tr>
+              <tr id="6078f64e-af9e-4b97-a8ae-34d7923818b2">
+                <td class="cell-ZXoT"><code>!=</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/not%20equal%206078f64eaf9e4b97a8ae34d7923818b2.html"
+                    >not equal</a
+                  >
+                </td>
+              </tr>
+              <tr id="75644b4a-6ca2-414a-84bd-c99b5ce397c2">
+                <td class="cell-ZXoT"><code>is</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/object%20identity%2075644b4a6ca2414a84bdc99b5ce397c2.html"
+                    >object identity</a
+                  >
+                </td>
+              </tr>
+              <tr id="c808f64e-1172-4c9e-aa5c-c01e808ce502">
+                <td class="cell-ZXoT"><code>is not</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20f110cbfeade444ca9a15634a0f5c828b/negated%20object%20identity%20c808f64e11724c9eaa5cc01e808ce502.html"
+                    >negated object identity</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="582a03e3-b675-488b-9867-a09860a88a86" class="">
+          Objects of different types, except different numeric types, never
+          compare equal. The <code>==</code> operator is always defined but for
+          some object types (for example, class objects) is equivalent to <a
+            href="https://docs.python.org/3/reference/expressions.html#is"
+            ><code>is</code></a
+          >.
+          The <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code> and <code>&gt;=</code> operators
+          are only defined where they make sense; for example, they raise a <a
+            href="https://docs.python.org/3/library/exceptions.html#TypeError"
+            ><code>TypeError</code></a
+          > exception when one of the arguments is a complex number.
+        </p>
+        <p id="acd28fa3-5ba2-48d0-8654-6c368439bdcf" class="">
+          Non-identical instances of a class normally compare as non-equal
+          unless the class defines the <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__eq__"
+            ><code>__eq__()</code></a
+          > method.
+        </p>
+        <p id="e7045553-d1bf-4ddc-9174-c8cf1c78407d" class="">
+          Instances of a class cannot be ordered with respect to other instances
+          of the same class, or other types of object, unless the class defines
+          enough of the methods <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__lt__"
+            ><code>__lt__()</code></a
+          >, <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__le__"
+            ><code>__le__()</code></a
+          >, <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__gt__"
+            ><code>__gt__()</code></a
+          >, and <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__ge__"
+            ><code>__ge__()</code></a
+          > (in general, <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__lt__"
+            ><code>__lt__()</code></a
+          > and <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__eq__"
+            ><code>__eq__()</code></a
+          > are sufficient, if you want the conventional meanings of the
+          comparison operators).
+        </p>
+        <p id="24b31d7a-feab-47b2-b0e7-70d6a8870eb3" class="">
+          The behavior of the <a
+            href="https://docs.python.org/3/reference/expressions.html#is"
+            ><code>is</code></a
+          > and <a
+            href="https://docs.python.org/3/reference/expressions.html#is-not"
+            ><code>is not</code></a
+          > operators cannot be customized; also they can be applied to any two
+          objects and never raise an exception.
+        </p>
+        <p id="9c2c452d-2ece-4b91-a9ac-3582b7f8125a" class="">
+          Two more operations with the same syntactic priority, <a
+            href="https://docs.python.org/3/reference/expressions.html#in"
+            ><code>in</code></a
+          > and <a
+            href="https://docs.python.org/3/reference/expressions.html#not-in"
+            ><code>not in</code></a
+          >, are supported by types that are <a
+            href="https://docs.python.org/3/glossary.html#term-iterable"
+            >iterable</a
+          > or implement the <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__contains__"
+            ><code>__contains__()</code></a
+          > method.
+        </p>
+        <h1 id="bbd62822-eb8d-43b6-8127-43cd972d08e4" class="">
+          Numeric Types — int, float, complex
+        </h1>
+        <p id="c4482530-9020-429c-880a-d5940ef83aba" class="">
+          There are three distinct numeric types: <em>integers</em>, <em
+            >floating point numbers</em
+          >, and <em>complex numbers</em>. In addition, Booleans are a subtype
+          of integers. Integers have unlimited precision. Floating point numbers
+          are usually implemented using <code>double</code> in C; information
+          about the precision and internal representation of floating point
+          numbers for the machine on which your program is running is available
+          in <a href="https://docs.python.org/3/library/sys.html#sys.float_info"
+            ><code>sys.float_info</code></a
+          >. Complex numbers have a real and imaginary part, which are each a
+          floating point number. To extract these parts from a complex
+          number <em>z</em>, use <code>z.real</code> and <code>z.imag</code>.
+          (The standard library includes the additional numeric types <a
+            href="https://docs.python.org/3/library/fractions.html#fractions.Fraction"
+            ><code>fractions.Fraction</code></a
+          >, for rationals, and <a
+            href="https://docs.python.org/3/library/decimal.html#decimal.Decimal"
+            ><code>decimal.Decimal</code></a
+          >, for floating-point numbers with user-definable precision.)
+        </p>
+        <p id="7c06fc60-c71e-4ccd-bba9-e650c6534bf7" class="">
+          Numbers are created by numeric literals or as the result of built-in
+          functions and operators. Unadorned integer literals (including hex,
+          octal and binary numbers) yield integers. Numeric literals containing
+          a decimal point or an exponent sign yield floating point numbers.
+          Appending <code>&#x27;j&#x27;</code> or <code>&#x27;J&#x27;</code> to
+          a numeric literal yields an imaginary number (a complex number with a
+          zero real part) which you can add to an integer or float to get a
+          complex number with real and imaginary parts.
+        </p>
+        <p id="344c7f41-90b7-42f0-afd3-fb7cd3eb0bf3" class="">
+          Python fully supports mixed arithmetic: when a binary arithmetic
+          operator has operands of different numeric types, the operand with the
+          “narrower” type is widened to that of the other, where integer is
+          narrower than floating point, which is narrower than complex. A
+          comparison between numbers of different types behaves as though the
+          exact values of those numbers were being compared. <a
+            href="https://docs.python.org/3/library/stdtypes.html#id13"
+            >2</a
+          >
+        </p>
+        <p id="2a304a09-4271-405f-9445-896664da8de5" class="">
+          The constructors <a
+            href="https://docs.python.org/3/library/functions.html#int"
+            ><code>int()</code></a
+          >, <a href="https://docs.python.org/3/library/functions.html#float"
+            ><code>float()</code></a
+          >, and <a
+            href="https://docs.python.org/3/library/functions.html#complex"
+            ><code>complex()</code></a
+          > can be used to produce numbers of a specific type.
+        </p>
+        <p id="089516eb-deb2-4d8f-bae4-9f6236e04a6d" class="">
+          All numeric types (except complex) support the following operations
+          (for priorities of the operations, see <a
+            href="https://docs.python.org/3/reference/expressions.html#operator-summary"
+            >Operator precedence</a
+          >):
+        </p>
+        <div
+          id="1a1f3e7f-e36b-41f1-bf21-644c889f86da"
+          class="collection-content"
+        >
+          <h4 class="collection-title"></h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Operation
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Result
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesTitle"
+                    >
+                      <path
+                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"
+                      ></path></svg></span
+                  >Notes
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Full documentation
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="a3c345d3-2aa6-47a1-8e6d-488f1d28264d">
+                <td class="cell-qBDL"><code>x + y</code></td>
+                <td class="cell-r_Lw">sum of <em>x</em> and <em>y</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%20a3c345d32aa647a18e6d488f1d28264d.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="2fdad4fb-0812-4dd9-a4d9-bbf97765b5d9">
+                <td class="cell-qBDL"><code>x - y</code></td>
+                <td class="cell-r_Lw">
+                  difference of <em>x</em> and <em>y</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%202fdad4fb08124dd9a4d9bbf97765b5d9.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="9862eddc-28f9-4ff9-9fa1-8e8c706f1a4d">
+                <td class="cell-qBDL"><code>x * y</code></td>
+                <td class="cell-r_Lw">product of <em>x</em> and <em>y</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%209862eddc28f94ff99fa18e8c706f1a4d.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="3c23563d-d75a-49cf-8e99-fd67f59060be">
+                <td class="cell-qBDL"><code>x / y</code></td>
+                <td class="cell-r_Lw">quotient of <em>x</em> and <em>y</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%203c23563dd75a49cf8e99fd67f59060be.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="49002034-7d9e-4d0b-ad05-35ccea06fa78">
+                <td class="cell-qBDL"><code>x // y</code></td>
+                <td class="cell-r_Lw">
+                  floored quotient of <em>x</em> and <em>y</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(1)%20490020347d9e4d0bad0535ccea06fa78.html"
+                    >(1)</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="94e7ba7f-bb55-41ac-9810-1c272762a5ca">
+                <td class="cell-qBDL"><code>x % y</code></td>
+                <td class="cell-r_Lw">remainder of <code>x / y</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(2)%2094e7ba7fbb5541ac98101c272762a5ca.html"
+                    >(2)</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="01f787fa-6ea0-4e15-9c4e-b295cdf4a7c1">
+                <td class="cell-qBDL"><code>-x</code></td>
+                <td class="cell-r_Lw"><em>x</em> negated</td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%2001f787fa6ea04e159c4eb295cdf4a7c1.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="5078f307-cc53-40ab-884c-427ade1acaa0">
+                <td class="cell-qBDL"><code>+x</code></td>
+                <td class="cell-r_Lw"><em>x</em> unchanged</td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%205078f307cc5340ab884c427ade1acaa0.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="540694ff-29e0-4e75-9109-deebce333b5e">
+                <td class="cell-qBDL"><code>abs(x)</code></td>
+                <td class="cell-r_Lw">
+                  absolute value or magnitude of <em>x</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%20540694ff29e04e759109deebce333b5e.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI">
+                  <a href="https://docs.python.org/3/library/functions.html#abs"
+                    ><code>abs()</code></a
+                  >
+                </td>
+              </tr>
+              <tr id="414b91a4-1689-46f8-aa34-8b44b57e16cc">
+                <td class="cell-qBDL"><code>int(x)</code></td>
+                <td class="cell-r_Lw"><em>x</em> converted to integer</td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(3)(6)%20414b91a4168946f8aa348b44b57e16cc.html"
+                    >(3)(6)</a
+                  >
+                </td>
+                <td class="cell-_tCI">
+                  <a href="https://docs.python.org/3/library/functions.html#int"
+                    ><code>int()</code></a
+                  >
+                </td>
+              </tr>
+              <tr id="6896f681-5b35-4729-96ca-e5e248e6233e">
+                <td class="cell-qBDL"><code>float(x)</code></td>
+                <td class="cell-r_Lw">
+                  <em>x</em> converted to floating point
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(4)(6)%206896f6815b35472996cae5e248e6233e.html"
+                    >(4)(6)</a
+                  >
+                </td>
+                <td class="cell-_tCI">
+                  <a
+                    href="https://docs.python.org/3/library/functions.html#float"
+                    ><code>float()</code></a
+                  >
+                </td>
+              </tr>
+              <tr id="bf8553f9-aad2-4f98-872f-fe5cf3fb4eaa">
+                <td class="cell-qBDL"><code>complex(re, im)</code></td>
+                <td class="cell-r_Lw">
+                  a complex number with real part <em>re</em>, imaginary
+                  part <em>im</em>. <em>im</em> defaults to zero.
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(6)%20bf8553f9aad24f98872ffe5cf3fb4eaa.html"
+                    >(6)</a
+                  >
+                </td>
+                <td class="cell-_tCI">
+                  <a
+                    href="https://docs.python.org/3/library/functions.html#complex"
+                    ><code>complex()</code></a
+                  >
+                </td>
+              </tr>
+              <tr id="d8b33549-a199-47ba-8af4-dd2c1b51ac53">
+                <td class="cell-qBDL"><code>c.conjugate()</code></td>
+                <td class="cell-r_Lw">
+                  conjugate of the complex number <em>c</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/Untitled%20d8b33549a19947ba8af4dd2c1b51ac53.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+              <tr id="02d89f9f-5485-401d-ae15-6cf4231ab5a8">
+                <td class="cell-qBDL"><code>divmod(x, y)</code></td>
+                <td class="cell-r_Lw">the pair <code>(x // y, x % y)</code></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(2)%2002d89f9f5485401dae156cf4231ab5a8.html"
+                    >(2)</a
+                  >
+                </td>
+                <td class="cell-_tCI">
+                  <a
+                    href="https://docs.python.org/3/library/functions.html#divmod"
+                    ><code>divmod()</code></a
+                  >
+                </td>
+              </tr>
+              <tr id="7ec7d67a-affd-4319-ac70-b56388acb6c3">
+                <td class="cell-qBDL"><code>pow(x, y)</code></td>
+                <td class="cell-r_Lw"><em>x</em> to the power <em>y</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(5)%207ec7d67aaffd4319ac70b56388acb6c3.html"
+                    >(5)</a
+                  >
+                </td>
+                <td class="cell-_tCI">
+                  <a href="https://docs.python.org/3/library/functions.html#pow"
+                    ><code>pow()</code></a
+                  >
+                </td>
+              </tr>
+              <tr id="1d939f8e-8cc5-49ce-84b9-0722c58efced">
+                <td class="cell-qBDL"><code>x ** y</code></td>
+                <td class="cell-r_Lw"><em>x</em> to the power <em>y</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%201a1f3e7fe36b41f1bf21644c889f86da/(5)%201d939f8e8cc549ce84b90722c58efced.html"
+                    >(5)</a
+                  >
+                </td>
+                <td class="cell-_tCI"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="68c61f7c-c435-449d-92c4-ee75dfa723be" class="">Notes:</p>
+        <ol
+          type="1"
+          id="a36342a3-3086-4da0-aefc-fc39ef07e1ad"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Also referred to as integer division. The resultant value is a whole
+            integer, though the result’s type is not necessarily int. The result
+            is always rounded towards minus
+            infinity: <code>1//2</code> is <code>0</code>, <code>(-1)//2</code> is <code>1</code>, <code>1//(-2)</code> is <code>1</code>,
+            and <code>(-1)//(-2)</code> is <code>0</code>.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="0e6466ea-6e5e-44f6-95f0-3d7f9dccf87c"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Not for complex numbers. Instead convert to floats using <a
+              href="https://docs.python.org/3/library/functions.html#abs"
+              ><code>abs()</code></a
+            > if appropriate.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="f53a1734-bdc0-4dc0-a9b9-fddb78a585f0"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            Conversion from floating point to integer may round or truncate as
+            in C; see functions <a
+              href="https://docs.python.org/3/library/math.html#math.floor"
+              ><code>math.floor()</code></a
+            > and <a
+              href="https://docs.python.org/3/library/math.html#math.ceil"
+              ><code>math.ceil()</code></a
+            > for well-defined conversions.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="95b33951-cde9-4c84-82ed-9dc3bbfb4a03"
+          class="numbered-list"
+          start="4"
+        >
+          <li>
+            float also accepts the strings “nan” and “inf” with an optional
+            prefix “+” or “-” for Not a Number (NaN) and positive or negative
+            infinity.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="69b579b6-c3f5-49a7-a5dd-b84824735248"
+          class="numbered-list"
+          start="5"
+        >
+          <li>
+            Python defines <code>pow(0, 0)</code> and <code>0 ** 0</code> to
+            be <code>1</code>, as is common for programming languages.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="3e877ca5-2618-4ea3-9bc3-f9346a303adb"
+          class="numbered-list"
+          start="6"
+        >
+          <li>
+            The numeric literals accepted include the
+            digits <code>0</code> to <code>9</code> or any Unicode equivalent
+            (code points with the <code>Nd</code> property).
+            <p id="f4f5ffd3-4334-46a8-ad1d-acc2d3bae8a7" class="">
+              See <a
+                href="https://www.unicode.org/Public/13.0.0/ucd/extracted/DerivedNumericType.txt"
+                >https://www.unicode.org/Public/13.0.0/ucd/extracted/DerivedNumericType.txt</a
+              > for a complete list of code points with
+              the <code>Nd</code> property.
+            </p>
+          </li>
+        </ol>
+        <p id="5139e74e-0fce-436c-a787-3e8f86ad3b22" class="">
+          All <a
+            href="https://docs.python.org/3/library/numbers.html#numbers.Real"
+            ><code>numbers.Real</code></a
+          > types (<a
+            href="https://docs.python.org/3/library/functions.html#int"
+            ><code>int</code></a
+          > and <a href="https://docs.python.org/3/library/functions.html#float"
+            ><code>float</code></a
+          >) also include the following operations:
+        </p>
+        <div
+          id="731f5759-606a-40b7-8ffd-8e683897abfa"
+          class="collection-content"
+        >
+          <h4 class="collection-title"></h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesTitle"
+                    >
+                      <path
+                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"
+                      ></path></svg></span
+                  >Title
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Operation
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Result
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="ac6f37a9-025e-46e1-97cd-240a46f32be2">
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20731f5759606a40b78ffd8e683897abfa/Untitled%20ac6f37a9025e46e197cd240a46f32be2.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-DOiC">
+                  <a
+                    href="https://docs.python.org/3/library/math.html#math.trunc"
+                    ><code>math.trunc(x)</code></a
+                  >
+                </td>
+                <td class="cell-[~TX">
+                  <em>x</em> truncated to <a
+                    href="https://docs.python.org/3/library/numbers.html#numbers.Integral"
+                    ><code>Integral</code></a
+                  >
+                </td>
+              </tr>
+              <tr id="5f5071f8-7dfc-41ea-b867-dcd6e339b3e6">
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20731f5759606a40b78ffd8e683897abfa/Untitled%205f5071f87dfc41eab867dcd6e339b3e6.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-DOiC">
+                  <a
+                    href="https://docs.python.org/3/library/functions.html#round"
+                    ><code>round(x[, n])</code></a
+                  >
+                </td>
+                <td class="cell-[~TX">
+                  <em>x</em> rounded to <em>n</em> digits, rounding half to
+                  even. If <em>n</em> is omitted, it defaults to 0.
+                </td>
+              </tr>
+              <tr id="befc1e23-4574-4924-874f-bdec94eed459">
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20731f5759606a40b78ffd8e683897abfa/Untitled%20befc1e2345744924874fbdec94eed459.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-DOiC">
+                  <a
+                    href="https://docs.python.org/3/library/math.html#math.floor"
+                    ><code>math.floor(x)</code></a
+                  >
+                </td>
+                <td class="cell-[~TX">
+                  the greatest <a
+                    href="https://docs.python.org/3/library/numbers.html#numbers.Integral"
+                    ><code>Integral</code></a
+                  > &lt;= <em>x</em>
+                </td>
+              </tr>
+              <tr id="46743dfa-e646-489b-88f7-e234082136a4">
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20731f5759606a40b78ffd8e683897abfa/Untitled%2046743dfae646489b88f7e234082136a4.html"
+                    >Untitled</a
+                  >
+                </td>
+                <td class="cell-DOiC">
+                  <a
+                    href="https://docs.python.org/3/library/math.html#math.ceil"
+                    ><code>math.ceil(x)</code></a
+                  >
+                </td>
+                <td class="cell-[~TX">
+                  the least <a
+                    href="https://docs.python.org/3/library/numbers.html#numbers.Integral"
+                    ><code>Integral</code></a
+                  > &gt;= <em>x</em>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="e4d8f39f-f5b4-46fb-9a1d-9ea657f962c8" class="">
+          For additional numeric operations see the <a
+            href="https://docs.python.org/3/library/math.html#module-math"
+            ><code>math</code></a
+          > and <a
+            href="https://docs.python.org/3/library/cmath.html#module-cmath"
+            ><code>cmath</code></a
+          > modules.
+        </p>
+        <h3 id="7d1dc7e7-408d-407e-8031-2b1f0ccbbe03" class="">
+          Bitwise Operations on Integer Types
+        </h3>
+        <p id="91383e81-dd4f-48ed-b3a3-7f43d2902d14" class="">
+          Bitwise operations only make sense for integers. The result of bitwise
+          operations is calculated as though carried out in two’s complement
+          with an infinite number of sign bits.
+        </p>
+        <p id="c3ba664e-f10c-4333-b673-fa736acc1fd0" class="">
+          The priorities of the binary bitwise operations are all lower than the
+          numeric operations and higher than the comparisons; the unary
+          operation <code>~</code> has the same priority as the other unary
+          numeric operations (<code>+</code> and <code>-</code>).
+        </p>
+        <p id="661a660e-2548-4351-85e6-059fea73347f" class="">
+          This table lists the bitwise operations sorted in ascending priority:
+        </p>
+        <div
+          id="a060860f-8423-4fe4-9b3f-9727d37c782f"
+          class="collection-content"
+        >
+          <h4 class="collection-title"></h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Operation
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Result
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesTitle"
+                    >
+                      <path
+                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"
+                      ></path></svg></span
+                  >Notes
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="bc014c36-4699-4aae-aa39-6507f38ee9f8">
+                <td class="cell-zNYI"><code>x | y</code></td>
+                <td class="cell-?`wG">
+                  bitwise <em>or</em> of <em>x</em> and <em>y</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20a060860f84234fe49b3f9727d37c782f/(4)%20bc014c3646994aaeaa396507f38ee9f8.html"
+                    >(4)</a
+                  >
+                </td>
+              </tr>
+              <tr id="5f8fe6c0-75af-4e9d-817d-eb5ef1707603">
+                <td class="cell-zNYI"><code>x ^ y</code></td>
+                <td class="cell-?`wG">
+                  bitwise <em>exclusive or</em> of <em>x</em> and <em>y</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20a060860f84234fe49b3f9727d37c782f/(4)%205f8fe6c075af4e9d817deb5ef1707603.html"
+                    >(4)</a
+                  >
+                </td>
+              </tr>
+              <tr id="c1c42a34-df66-49d0-b415-327510c74d82">
+                <td class="cell-zNYI"><code>x &amp; y</code></td>
+                <td class="cell-?`wG">
+                  bitwise <em>and</em> of <em>x</em> and <em>y</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20a060860f84234fe49b3f9727d37c782f/(4)%20c1c42a34df6649d0b415327510c74d82.html"
+                    >(4)</a
+                  >
+                </td>
+              </tr>
+              <tr id="db2adc76-eee6-442b-bb0b-e141e1626468">
+                <td class="cell-zNYI"><code>x &lt;&lt; n</code></td>
+                <td class="cell-?`wG">
+                  <em>x</em> shifted left by <em>n</em> bits
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20a060860f84234fe49b3f9727d37c782f/(1)(2)%20db2adc76eee6442bbb0be141e1626468.html"
+                    >(1)(2)</a
+                  >
+                </td>
+              </tr>
+              <tr id="cd187636-95fd-49bf-9d6b-dc85ebed1c84">
+                <td class="cell-zNYI"><code>x &gt;&gt; n</code></td>
+                <td class="cell-?`wG">
+                  <em>x</em> shifted right by <em>n</em> bits
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20a060860f84234fe49b3f9727d37c782f/(1)(3)%20cd18763695fd49bf9d6bdc85ebed1c84.html"
+                    >(1)(3)</a
+                  >
+                </td>
+              </tr>
+              <tr id="b5d6bf66-fa80-4752-8aeb-bf61f21bcbb4">
+                <td class="cell-zNYI"><code>~x</code></td>
+                <td class="cell-?`wG">the bits of <em>x</em> inverted</td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20a060860f84234fe49b3f9727d37c782f/Untitled%20b5d6bf66fa8047528aebbf61f21bcbb4.html"
+                    >Untitled</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="3f865952-cdb9-4938-8ac5-5d6e5c5f1bf1" class="">Notes:</p>
+        <ol
+          type="1"
+          id="f5bbcfc2-50d1-4601-a47b-faa061f1980d"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Negative shift counts are illegal and cause a <a
+              href="https://docs.python.org/3/library/exceptions.html#ValueError"
+              ><code>ValueError</code></a
+            > to be raised.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="fc55b8d7-388c-4753-8432-bae3bbf9c0d3"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            A left shift by <em>n</em> bits is equivalent to multiplication
+            by <code>pow(2, n)</code>.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="968200be-e2b9-4bf6-b1f0-7a85f0f0e165"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            A right shift by <em>n</em> bits is equivalent to floor division
+            by <code>pow(2, n)</code>.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="10a0bed1-58ec-4dfe-8134-ecf58eeb7824"
+          class="numbered-list"
+          start="4"
+        >
+          <li>
+            Performing these calculations with at least one extra sign extension
+            bit in a finite two’s complement representation (a working bit-width
+            of <code>1 + max(x.bit_length(), y.bit_length())</code> or more) is
+            sufficient to get the same result as if there were an infinite
+            number of sign bits.
+          </li>
+        </ol>
+        <h3 id="fec601ab-80f8-49f1-8621-1082bddb9d6b" class="">
+          Additional Methods on Integer Types
+        </h3>
+        <p id="467aed49-f183-4828-9bc6-26c12186916e" class="">
+          The int type implements the <a
+            href="https://docs.python.org/3/library/numbers.html#numbers.Integral"
+            ><code>numbers.Integral</code></a
+          > <a
+            href="https://docs.python.org/3/glossary.html#term-abstract-base-class"
+            >abstract base class</a
+          >. In addition, it provides a few more methods:
+        </p>
+        <p id="2c4ba5dc-94b5-42af-be0f-459ab61bd4aa" class="">
+          <code>int.</code><code><strong>bit_length</strong></code
+          >()Return the number of bits necessary to represent an integer in
+          binary, excluding the sign and leading zeros:&gt;&gt;&gt;
+
+          <code><strong>&gt;&gt;&gt; </strong></code><code>n = -37 </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code>bin(n) &#x27;-0b100101&#x27; </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code>n.bit_length() 6 </code>
+          More precisely, if <code>x</code> is nonzero,
+          then <code>x.bit_length()</code> is the unique positive
+          integer <code>k</code> such
+          that <code>2**(k-1) &lt;= abs(x) &lt; 2**k</code>. Equivalently,
+          when <code>abs(x)</code> is small enough to have a correctly rounded
+          logarithm, then <code>k = 1 + int(log(abs(x), 2))</code>.
+          If <code>x</code> is zero,
+          then <code>x.bit_length()</code> returns <code>0</code>. Equivalent
+          to:
+
+          <code><strong>def</strong></code
+          ><code> bit_length(self): s = bin(self) </code
+          ><code
+            ><em
+              ># binary representation: bin(-37) --&gt;
+              &#x27;-0b100101&#x27;</em
+            ></code
+          ><code>s = s.lstrip(&#x27;-0b&#x27;) </code
+          ><code><em># remove leading zeros and minus sign</em></code
+          ><code><strong>return</strong></code
+          ><code> len(s) </code
+          ><code><em># len(&#x27;100101&#x27;) --&gt; 6</em></code>
+          <em>New in version 3.1.</em>
+        </p>
+        <p id="1aef81ff-a6d4-4b2c-aebb-37ecec7c7095" class="">
+          <code>int.</code><code><strong>to_bytes</strong></code
+          >(<em>length</em>, <em>byteorder</em>, <em>*</em>, <em>signed=False</em>)Return
+          an array of bytes representing an integer.&gt;&gt;&gt;
+
+          <code><strong>&gt;&gt;&gt; </strong></code
+          ><code
+            >(1024).to_bytes(2, byteorder=&#x27;big&#x27;) b&#x27;\x04\x00&#x27; </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code
+            >(1024).to_bytes(10, byteorder=&#x27;big&#x27;)
+            b&#x27;\x00\x00\x00\x00\x00\x00\x00\x00\x04\x00&#x27; </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code>(-1024).to_bytes(10, byteorder=&#x27;big&#x27;, signed=</code
+          ><code><strong>True</strong></code
+          ><code>) b&#x27;\xff\xff\xff\xff\xff\xff\xff\xff\xfc\x00&#x27; </code
+          ><code><strong>&gt;&gt;&gt; </strong></code><code>x = 1000 </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code
+            >x.to_bytes((x.bit_length() + 7) // 8, byteorder=&#x27;little&#x27;)
+            b&#x27;\xe8\x03&#x27;
+          </code>
+          The integer is represented using <em>length</em> bytes. An <a
+            href="https://docs.python.org/3/library/exceptions.html#OverflowError"
+            ><code>OverflowError</code></a
+          > is raised if the integer is not representable with the given number
+          of bytes. The <em>byteorder</em> argument determines the byte order
+          used to represent the integer.
+          If <em>byteorder</em> is <code>&quot;big&quot;</code>, the most
+          significant byte is at the beginning of the byte array.
+          If <em>byteorder</em> is <code>&quot;little&quot;</code>, the most
+          significant byte is at the end of the byte array. To request the
+          native byte order of the host system, use <a
+            href="https://docs.python.org/3/library/sys.html#sys.byteorder"
+            ><code>sys.byteorder</code></a
+          > as the byte order value. The <em>signed</em> argument determines
+          whether two’s complement is used to represent the integer.
+          If <em>signed</em> is <code>False</code> and a negative integer is
+          given, an <a
+            href="https://docs.python.org/3/library/exceptions.html#OverflowError"
+            ><code>OverflowError</code></a
+          > is raised. The default value
+          for <em>signed</em> is <code>False</code>.
+          <em>New in version 3.2.</em>
+        </p>
+        <p id="56a3e083-adc1-4c98-a582-462140b12184" class="">
+          <em>classmethod </em><code>int.</code
+          ><code><strong>from_bytes</strong></code
+          >(<em>bytes</em>, <em>byteorder</em>, <em>*</em>, <em>signed=False</em>)Return
+          the integer represented by the given array of bytes.&gt;&gt;&gt;
+
+          <code><strong>&gt;&gt;&gt; </strong></code
+          ><code>int.from_bytes(b&#x27;</code
+          ><code><strong>\x00\x10</strong></code
+          ><code>&#x27;, byteorder=&#x27;big&#x27;) 16 </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code>int.from_bytes(b&#x27;</code
+          ><code><strong>\x00\x10</strong></code
+          ><code>&#x27;, byteorder=&#x27;little&#x27;) 4096 </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code>int.from_bytes(b&#x27;</code
+          ><code><strong>\xfc\x00</strong></code
+          ><code>&#x27;, byteorder=&#x27;big&#x27;, signed=</code
+          ><code><strong>True</strong></code
+          ><code>) -1024 </code><code><strong>&gt;&gt;&gt; </strong></code
+          ><code>int.from_bytes(b&#x27;</code
+          ><code><strong>\xfc\x00</strong></code
+          ><code>&#x27;, byteorder=&#x27;big&#x27;, signed=</code
+          ><code><strong>False</strong></code
+          ><code>) 64512 </code><code><strong>&gt;&gt;&gt; </strong></code
+          ><code
+            >int.from_bytes([255, 0, 0], byteorder=&#x27;big&#x27;) 16711680
+          </code>
+          The argument <em>bytes</em> must either be a <a
+            href="https://docs.python.org/3/glossary.html#term-bytes-like-object"
+            >bytes-like object</a
+          > or an iterable producing bytes. The <em>byteorder</em> argument
+          determines the byte order used to represent the integer.
+          If <em>byteorder</em> is <code>&quot;big&quot;</code>, the most
+          significant byte is at the beginning of the byte array.
+          If <em>byteorder</em> is <code>&quot;little&quot;</code>, the most
+          significant byte is at the end of the byte array. To request the
+          native byte order of the host system, use <a
+            href="https://docs.python.org/3/library/sys.html#sys.byteorder"
+            ><code>sys.byteorder</code></a
+          > as the byte order value. The <em>signed</em> argument indicates
+          whether two’s complement is used to represent the integer.
+          <em>New in version 3.2.</em>
+        </p>
+        <p id="285946c8-8662-4013-bfab-6a1849da7fdc" class="">
+          <code>int.</code><code><strong>as_integer_ratio</strong></code
+          >()Return a pair of integers whose ratio is exactly equal to the
+          original integer and with a positive denominator. The integer ratio of
+          integers (whole numbers) is always the integer as the numerator
+          and <code>1</code> as the denominator. <em>New in version 3.8.</em>
+        </p>
+        <h3 id="eb175941-ab4d-43e3-bc81-16622cb50b77" class="">
+          Additional Methods on Float
+        </h3>
+        <p id="fc933dbd-f805-44c6-be3c-5b33d94287ff" class="">
+          The float type implements the <a
+            href="https://docs.python.org/3/library/numbers.html#numbers.Real"
+            ><code>numbers.Real</code></a
+          > <a
+            href="https://docs.python.org/3/glossary.html#term-abstract-base-class"
+            >abstract base class</a
+          >. float also has the following additional methods.
+        </p>
+        <p id="8f83001b-8e4c-45de-9182-61951d85fc19" class="">
+          <code>float.</code><code><strong>as_integer_ratio</strong></code
+          >()Return a pair of integers whose ratio is exactly equal to the
+          original float and with a positive denominator. Raises <a
+            href="https://docs.python.org/3/library/exceptions.html#OverflowError"
+            ><code>OverflowError</code></a
+          > on infinities and a <a
+            href="https://docs.python.org/3/library/exceptions.html#ValueError"
+            ><code>ValueError</code></a
+          > on NaNs.
+        </p>
+        <p id="cbc88273-51f3-4074-b1b8-871b96bafb14" class="">
+          <code>float.</code><code><strong>is_integer</strong></code
+          >()Return <code>True</code> if the float instance is finite with
+          integral value, and <code>False</code> otherwise:&gt;&gt;&gt;
+
+          <code><strong>&gt;&gt;&gt; </strong></code
+          ><code>(-2.0).is_integer() True </code
+          ><code><strong>&gt;&gt;&gt; </strong></code
+          ><code>(3.2).is_integer() False</code>
+        </p>
+        <p id="6999d455-c349-4fe2-a73f-8685153584b7" class="">
+          Two methods support conversion to and from hexadecimal strings. Since
+          Python’s floats are stored internally as binary numbers, converting a
+          float to or from a <em>decimal</em> string usually involves a small
+          rounding error. In contrast, hexadecimal strings allow exact
+          representation and specification of floating-point numbers. This can
+          be useful when debugging, and in numerical work.
+        </p>
+        <p id="f0d3aa11-4745-4bd3-8b9e-5529c78f95b1" class="">
+          <code>float.</code><code><strong>hex</strong></code
+          >()Return a representation of a floating-point number as a hexadecimal
+          string. For finite floating-point numbers, this representation will
+          always include a leading <code>0x</code> and a
+          trailing <code>p</code> and exponent.
+        </p>
+        <p id="cbff6e1d-9576-4409-8181-009ef26b2e13" class="">
+          <em>classmethod </em><code>float.</code
+          ><code><strong>fromhex</strong></code
+          >(<em>s</em>)Class method to return the float represented by a
+          hexadecimal string <em>s</em>. The string <em>s</em> may have leading
+          and trailing whitespace.
+        </p>
+        <p id="479d3784-657f-4724-aca0-bcc596032802" class="">
+          Note that <a
+            href="https://docs.python.org/3/library/stdtypes.html#float.hex"
+            ><code>float.hex()</code></a
+          > is an instance method, while <a
+            href="https://docs.python.org/3/library/stdtypes.html#float.fromhex"
+            ><code>float.fromhex()</code></a
+          > is a class method.
+        </p>
+        <p id="ade0fa87-93f3-41d2-a13c-44bd17b43992" class="">
+          A hexadecimal string takes the form:
+        </p>
+        <p id="d6982a77-cf32-46df-a080-3561decfa56b" class="">
+          <code
+            >[sign] [&#x27;0x&#x27;] integer [&#x27;.&#x27; fraction]
+            [&#x27;p&#x27; exponent]</code
+          >
+        </p>
+        <p id="5493109e-7ef6-46a5-9f22-53cf152ac5c1" class="">
+          where the optional <code>sign</code> may by
+          either <code>+</code> or <code>-</code>, <code>integer</code> and <code>fraction</code> are
+          strings of hexadecimal digits, and <code>exponent</code> is a decimal
+          integer with an optional leading sign. Case is not significant, and
+          there must be at least one hexadecimal digit in either the integer or
+          the fraction. This syntax is similar to the syntax specified in
+          section 6.4.4.2 of the C99 standard, and also to the syntax used in
+          Java 1.5 onwards. In particular, the output of <a
+            href="https://docs.python.org/3/library/stdtypes.html#float.hex"
+            ><code>float.hex()</code></a
+          > is usable as a hexadecimal floating-point literal in C or Java code,
+          and hexadecimal strings produced by C’s <code>%a</code> format
+          character or Java’s <code>Double.toHexString</code> are accepted by <a
+            href="https://docs.python.org/3/library/stdtypes.html#float.fromhex"
+            ><code>float.fromhex()</code></a
+          >.
+        </p>
+        <p id="f273179c-04bd-480b-83fb-3f1a1d6d6b91" class="">
+          Note that the exponent is written in decimal rather than hexadecimal,
+          and that it gives the power of 2 by which to multiply the coefficient.
+          For example, the hexadecimal string <code>0x3.a7p10</code> represents
+          the floating-point
+          number <code>(3 + 10./16 + 7./16**2) * 2.0**10</code>,
+          or <code>3740.0</code>:
+        </p>
+        <p id="b76c9344-0985-40de-a13d-85ff6eec544b" class="">
+          &gt;&gt;&gt;
+
+          <code><strong>&gt;&gt;&gt; </strong></code
+          ><code>float.fromhex(&#x27;0x3.a7p10&#x27;) 3740.0</code>
+        </p>
+        <p id="bdf44dc5-f6c7-48e6-b0a1-6dbdf04020f2" class="">
+          Applying the reverse conversion to <code>3740.0</code> gives a
+          different hexadecimal string representing the same number:
+        </p>
+        <p id="b6807827-47d0-4d40-b198-81500b7604ac" class="">
+          &gt;&gt;&gt;
+
+          <code><strong>&gt;&gt;&gt; </strong></code
+          ><code>float.hex(3740.0) &#x27;0x1.d380000000000p+11&#x27;</code>
+        </p>
+        <h3 id="bd8ae5b1-0126-4e84-90ef-c556696b031e" class="">
+          Hashing of numeric types
+        </h3>
+        <p id="2c968553-f0e2-4fbd-8f20-e1703760e72a" class="">
+          For numbers <code>x</code> and <code>y</code>, possibly of different
+          types, it’s a requirement
+          that <code>hash(x) == hash(y)</code> whenever <code>x == y</code> (see
+          the <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__hash__"
+            ><code>__hash__()</code></a
+          > method documentation for more details). For ease of implementation
+          and efficiency across a variety of numeric types (including <a
+            href="https://docs.python.org/3/library/functions.html#int"
+            ><code>int</code></a
+          >, <a href="https://docs.python.org/3/library/functions.html#float"
+            ><code>float</code></a
+          >, <a
+            href="https://docs.python.org/3/library/decimal.html#decimal.Decimal"
+            ><code>decimal.Decimal</code></a
+          > and <a
+            href="https://docs.python.org/3/library/fractions.html#fractions.Fraction"
+            ><code>fractions.Fraction</code></a
+          >) Python’s hash for numeric types is based on a single mathematical
+          function that’s defined for any rational number, and hence applies to
+          all instances of <a
+            href="https://docs.python.org/3/library/functions.html#int"
+            ><code>int</code></a
+          > and <a
+            href="https://docs.python.org/3/library/fractions.html#fractions.Fraction"
+            ><code>fractions.Fraction</code></a
+          >, and all finite instances of <a
+            href="https://docs.python.org/3/library/functions.html#float"
+            ><code>float</code></a
+          > and <a
+            href="https://docs.python.org/3/library/decimal.html#decimal.Decimal"
+            ><code>decimal.Decimal</code></a
+          >. Essentially, this function is given by reduction
+          modulo <code>P</code> for a fixed prime <code>P</code>. The value
+          of <code>P</code> is made available to Python as
+          the <code>modulus</code> attribute of <a
+            href="https://docs.python.org/3/library/sys.html#sys.hash_info"
+            ><code>sys.hash_info</code></a
+          >.
+        </p>
+        <p id="91fac00c-bd53-4ff1-b98a-505f040f7151" class="">
+          <strong>CPython implementation detail:</strong> Currently, the prime
+          used is <code>P = 2**31 - 1</code> on machines with 32-bit C longs
+          and <code>P = 2**61 - 1</code> on machines with 64-bit C longs.
+        </p>
+        <p id="e4966afd-034f-4e67-a401-a3716ef22d31" class="">
+          Here are the rules in detail:
+        </p>
+        <ul id="5282da94-fbf5-4ed6-a78a-ae10f2b6ebcd" class="bulleted-list">
+          <li>
+            If <code>x = m / n</code> is a nonnegative rational number
+            and <code>n</code> is not divisible by <code>P</code>,
+            define <code>hash(x)</code> as <code>m * invmod(n, P) % P</code>,
+            where <code>invmod(n, P)</code> gives the inverse
+            of <code>n</code> modulo <code>P</code>.
+          </li>
+        </ul>
+        <ul id="6cbb1fe9-4d09-40d0-abd2-ee6cc648608b" class="bulleted-list">
+          <li>
+            If <code>x = m / n</code> is a nonnegative rational number
+            and <code>n</code> is divisible
+            by <code>P</code> (but <code>m</code> is not)
+            then <code>n</code> has no inverse modulo <code>P</code> and the
+            rule above doesn’t apply; in this case
+            define <code>hash(x)</code> to be the constant
+            value <code>sys.hash_info.inf</code>.
+          </li>
+        </ul>
+        <ul id="d6541424-f0ec-4216-94a5-5100f5f36fbd" class="bulleted-list">
+          <li>
+            If <code>x = m / n</code> is a negative rational number
+            define <code>hash(x)</code> as <code>hash(-x)</code>. If the
+            resulting hash is <code>1</code>, replace it with <code>2</code>.
+          </li>
+        </ul>
+        <ul id="75d982d7-3353-4cde-8a06-511f593e7eb1" class="bulleted-list">
+          <li>
+            The particular
+            values <code>sys.hash_info.inf</code>, <code>sys.hash_info.inf</code> and <code>sys.hash_info.nan</code> are
+            used as hash values for positive infinity, negative infinity, or
+            nans (respectively). (All hashable nans have the same hash value.)
+          </li>
+        </ul>
+        <ul id="7f94c5d5-6daa-40c2-a662-5e8bb0185596" class="bulleted-list">
+          <li>
+            For a <a
+              href="https://docs.python.org/3/library/functions.html#complex"
+              ><code>complex</code></a
+            > number <code>z</code>, the hash values of the real and imaginary
+            parts are combined by
+            computing <code>hash(z.real) + sys.hash_info.imag * hash(z.imag)</code>,
+            reduced modulo <code>2**sys.hash_info.width</code> so that it lies
+            in <code>range(-2**(sys.hash_info.width - 1), 2**(sys.hash_info.width - 1))</code>.
+            Again, if the result is <code>1</code>, it’s replaced
+            with <code>2</code>.
+          </li>
+        </ul>
+        <p id="134eaea2-60d0-4bcd-b398-7c6152b8f68b" class="">
+          To clarify the above rules, here’s some example Python code,
+          equivalent to the built-in hash, for computing the hash of a rational
+          number, <a
+            href="https://docs.python.org/3/library/functions.html#float"
+            ><code>float</code></a
+          >, or <a
+            href="https://docs.python.org/3/library/functions.html#complex"
+            ><code>complex</code></a
+          >:
+        </p>
+        <p id="ed4de905-9f97-4e96-aaba-5a81dad2f009" class="">
+          <code><strong>import</strong></code
+          ><code> </code><code><strong>sys</strong></code
+          ><code>, </code><code><strong>math</strong></code
+          ><code><strong>def</strong></code
+          ><code> hash_fraction(m, n): </code
+          ><code
+            ><em
+              >&quot;&quot;&quot;Compute the hash of a rational number m /
+              n.</em
+            ></code
+          ><code><em> Assumes m and n are integers, with n positive.</em></code
+          ><code><em> Equivalent to hash(fractions.Fraction(m, n)).</em></code
+          ><code><em> &quot;&quot;&quot;</em></code
+          ><code>P = sys.hash_info.modulus </code
+          ><code
+            ><em
+              ># Remove common factors of P. (Unnecessary if m and n already
+              coprime.)</em
+            ></code
+          ><code><strong>while</strong></code
+          ><code> m % P == n % P == 0: m, n = m // P, n // P </code
+          ><code><strong>if</strong></code
+          ><code> n % P == 0: hash_value = sys.hash_info.inf </code
+          ><code><strong>else</strong></code
+          ><code>: </code
+          ><code
+            ><em
+              ># Fermat&#x27;s Little Theorem: pow(n, P-1, P) is 1, so</em
+            ></code
+          ><code
+            ><em># pow(n, P-2, P) gives the inverse of n modulo P.</em></code
+          ><code>hash_value = (abs(m) % P) * pow(n, P - 2, P) % P </code
+          ><code><strong>if</strong></code
+          ><code> m &lt; 0: hash_value = -hash_value </code
+          ><code><strong>if</strong></code
+          ><code> hash_value == -1: hash_value = -2 </code
+          ><code><strong>return</strong></code
+          ><code> hash_value </code><code><strong>def</strong></code
+          ><code> hash_float(x): </code
+          ><code
+            ><em
+              >&quot;&quot;&quot;Compute the hash of a float
+              x.&quot;&quot;&quot;</em
+            ></code
+          ><code><strong>if</strong></code
+          ><code> math.isnan(x): </code><code><strong>return</strong></code
+          ><code> sys.hash_info.nan </code><code><strong>elif</strong></code
+          ><code> math.isinf(x): </code><code><strong>return</strong></code
+          ><code> sys.hash_info.inf </code><code><strong>if</strong></code
+          ><code> x &gt; 0 </code><code><strong>else</strong></code
+          ><code> -sys.hash_info.inf </code><code><strong>else</strong></code
+          ><code>: </code><code><strong>return</strong></code
+          ><code> hash_fraction(*x.as_integer_ratio()) </code
+          ><code><strong>def</strong></code
+          ><code> hash_complex(z): </code
+          ><code
+            ><em
+              >&quot;&quot;&quot;Compute the hash of a complex number
+              z.&quot;&quot;&quot;</em
+            ></code
+          ><code
+            >hash_value = hash_float(z.real) + sys.hash_info.imag *
+            hash_float(z.imag) </code
+          ><code
+            ><em
+              ># do a signed reduction modulo 2**sys.hash_info.width</em
+            ></code
+          ><code
+            >M = 2**(sys.hash_info.width - 1) hash_value = (hash_value &amp; (M
+            - 1)) - (hash_value &amp; M) </code
+          ><code><strong>if</strong></code
+          ><code> hash_value == -1: hash_value = -2 </code
+          ><code><strong>return</strong></code
+          ><code> hash_value</code>
+        </p>
+        <h1 id="f185647b-01b2-45e1-ac5d-7d11cc71a445" class="">
+          Iterator Types
+        </h1>
+        <p id="7174ae79-3103-417f-afc1-26b3a7e08ef8" class="">
+          Python supports a concept of iteration over containers. This is
+          implemented using two distinct methods; these are used to allow
+          user-defined classes to support iteration. Sequences, described below
+          in more detail, always support the iteration methods.
+        </p>
+        <p id="ef9225cc-e218-4967-94c2-09f9e38f176b" class="">
+          One method needs to be defined for container objects to provide
+          iteration support:
+        </p>
+        <p id="4d479e98-62f2-4819-b0f1-974e486f641a" class="">
+          <code>container.</code><code><strong>__iter__</strong></code
+          >()Return an iterator object. The object is required to support the
+          iterator protocol described below. If a container supports different
+          types of iteration, additional methods can be provided to specifically
+          request iterators for those iteration types. (An example of an object
+          supporting multiple forms of iteration would be a tree structure which
+          supports both breadth-first and depth-first traversal.) This method
+          corresponds to the <a
+            href="https://docs.python.org/3/c-api/typeobj.html#c.PyTypeObject.tp_iter"
+            ><code>tp_iter</code></a
+          > slot of the type structure for Python objects in the Python/C API.
+        </p>
+        <p id="c204b552-9c57-4cce-b0a4-7d400ec9af4d" class="">
+          The iterator objects themselves are required to support the following
+          two methods, which together form the <em>iterator protocol</em>:
+        </p>
+        <p id="0db9b77e-7ac5-40e2-83cb-3338a2564b23" class="">
+          <code>iterator.</code><code><strong>__iter__</strong></code
+          >()Return the iterator object itself. This is required to allow both
+          containers and iterators to be used with the <a
+            href="https://docs.python.org/3/reference/compound_stmts.html#for"
+            ><code>for</code></a
+          > and <a
+            href="https://docs.python.org/3/reference/expressions.html#in"
+            ><code>in</code></a
+          > statements. This method corresponds to the <a
+            href="https://docs.python.org/3/c-api/typeobj.html#c.PyTypeObject.tp_iter"
+            ><code>tp_iter</code></a
+          > slot of the type structure for Python objects in the Python/C API.
+        </p>
+        <p id="95701bca-ac52-400b-9993-0da08e064c76" class="">
+          <code>iterator.</code><code><strong>__next__</strong></code
+          >()Return the next item from the container. If there are no further
+          items, raise the <a
+            href="https://docs.python.org/3/library/exceptions.html#StopIteration"
+            ><code>StopIteration</code></a
+          > exception. This method corresponds to the <a
+            href="https://docs.python.org/3/c-api/typeobj.html#c.PyTypeObject.tp_iternext"
+            ><code>tp_iternext</code></a
+          > slot of the type structure for Python objects in the Python/C API.
+        </p>
+        <p id="6d7d68b6-c8d2-453e-9996-486c3590c60c" class="">
+          Python defines several iterator objects to support iteration over
+          general and specific sequence types, dictionaries, and other more
+          specialized forms. The specific types are not important beyond their
+          implementation of the iterator protocol.
+        </p>
+        <p id="e91c4d49-a2a1-439e-90da-92e636634a92" class="">
+          Once an iterator’s <a
+            href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__"
+            ><code>__next__()</code></a
+          > method raises <a
+            href="https://docs.python.org/3/library/exceptions.html#StopIteration"
+            ><code>StopIteration</code></a
+          >, it must continue to do so on subsequent calls. Implementations that
+          do not obey this property are deemed broken.
+        </p>
+        <h3 id="4f87a33c-77ca-46b1-ae90-c7c04a551f55" class="">
+          Generator Types
+        </h3>
+        <p id="db6a970e-ed1a-437b-82f8-72f076bf4210" class="">
+          Python’s <a
+            href="https://docs.python.org/3/glossary.html#term-generator"
+            >generator</a
+          >s provide a convenient way to implement the iterator protocol. If a
+          container object’s <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__iter__"
+            ><code>__iter__()</code></a
+          > method is implemented as a generator, it will automatically return
+          an iterator object (technically, a generator object) supplying the <a
+            href="https://docs.python.org/3/reference/datamodel.html#object.__iter__"
+            ><code>__iter__()</code></a
+          > and <a
+            href="https://docs.python.org/3/reference/expressions.html#generator.__next__"
+            ><code>__next__()</code></a
+          > methods. More information about generators can be found in <a
+            href="https://docs.python.org/3/reference/expressions.html#yieldexpr"
+            >the documentation for the yield expression</a
+          >.
+        </p>
+        <h1 id="b79c2074-def2-4833-a765-d1b650b766f6" class="">
+          Sequence Types — list, tuple, range
+        </h1>
+        <p id="731bee21-be9b-40c4-b525-fcb24dc8ed64" class="">
+          There are three basic sequence types: lists, tuples, and range
+          objects. Additional sequence types tailored for processing of <a
+            href="https://docs.python.org/3/library/stdtypes.html#binaryseq"
+            >binary data</a
+          > and <a
+            href="https://docs.python.org/3/library/stdtypes.html#textseq"
+            >text strings</a
+          > are described in dedicated sections.
+        </p>
+        <h3 id="e9e0d21b-0c13-46ba-9610-16fc4b2bf62a" class="">
+          Common Sequence Operations
+        </h3>
+        <p id="969f26c5-be7b-40f8-952f-aabd63277299" class="">
+          The operations in the following table are supported by most sequence
+          types, both mutable and immutable. The <a
+            href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence"
+            ><code>collections.abc.Sequence</code></a
+          > ABC is provided to make it easier to correctly implement these
+          operations on custom sequence types.
+        </p>
+        <p id="35e19b02-46bc-4773-beff-27ae2dc5ca7e" class="">
+          This table lists the sequence operations sorted in ascending priority.
+          In the table, <em>s</em> and <em>t</em> are sequences of the same
+          type, <em>n</em>, <em>i</em>, <em>j</em> and <em>k</em> are integers
+          and <em>x</em> is an arbitrary object that meets any type and value
+          restrictions imposed by <em>s</em>.
+        </p>
+        <p id="46f5e1b0-d8ff-4810-a46e-a96cb08295dc" class="">
+          The <code>in</code> and <code>not in</code> operations have the same
+          priorities as the comparison operations.
+          The <code>+</code> (concatenation) and <code>*</code> (repetition)
+          operations have the same priority as the corresponding numeric
+          operations. <a
+            href="https://docs.python.org/3/library/stdtypes.html#id14"
+            >3</a
+          >
+        </p>
+        <div
+          id="eed1ec68-c4cf-4ea5-be52-8b5830fba6e6"
+          class="collection-content"
+        >
+          <h4 class="collection-title"></h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Operation
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Result
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesTitle"
+                    >
+                      <path
+                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"
+                      ></path></svg></span
+                  >Notes
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="e2bef44b-c787-406b-9ac8-cc34d5af3683">
+                <td class="cell-CKJu"><code>x in s</code></td>
+                <td class="cell-gz[_">
+                  <code>True</code> if an item of <em>s</em> is equal
+                  to <em>x</em>, else <code>False</code>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(1)%20e2bef44bc787406b9ac8cc34d5af3683.html"
+                    >(1)</a
+                  >
+                </td>
+              </tr>
+              <tr id="07664e4f-81cf-4dfb-9f1a-a2e7da0f9108">
+                <td class="cell-CKJu"><code>x not in s</code></td>
+                <td class="cell-gz[_">
+                  <code>False</code> if an item of <em>s</em> is equal
+                  to <em>x</em>, else <code>True</code>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(1)%2007664e4f81cf4dfb9f1aa2e7da0f9108.html"
+                    >(1)</a
+                  >
+                </td>
+              </tr>
+              <tr id="af9c7099-cc98-4f70-a5ac-f90df76433be">
+                <td class="cell-CKJu"><code>s + t</code></td>
+                <td class="cell-gz[_">
+                  the concatenation of <em>s</em> and <em>t</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(6)(7)%20af9c7099cc984f70a5acf90df76433be.html"
+                    >(6)(7)</a
+                  >
+                </td>
+              </tr>
+              <tr id="dc994e4d-9bb2-43c7-b628-89768c84b69d">
+                <td class="cell-CKJu">
+                  <code>s * n</code> or <code>n * s</code>
+                </td>
+                <td class="cell-gz[_">
+                  equivalent to adding <em>s</em> to itself <em>n</em> times
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(2)(7)%20dc994e4d9bb243c7b62889768c84b69d.html"
+                    >(2)(7)</a
+                  >
+                </td>
+              </tr>
+              <tr id="4b69f3bb-9803-47cb-bfc7-3c43cd8fbdc5">
+                <td class="cell-CKJu"><code>s[i]</code></td>
+                <td class="cell-gz[_">
+                  <em>i</em>th item of <em>s</em>, origin 0
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(3)%204b69f3bb980347cbbfc73c43cd8fbdc5.html"
+                    >(3)</a
+                  >
+                </td>
+              </tr>
+              <tr id="955ef624-d42a-4da0-92f1-4b9297948e6d">
+                <td class="cell-CKJu"><code>s[i:j]</code></td>
+                <td class="cell-gz[_">
+                  slice of <em>s</em> from <em>i</em> to <em>j</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(3)(4)%20955ef624d42a4da092f14b9297948e6d.html"
+                    >(3)(4)</a
+                  >
+                </td>
+              </tr>
+              <tr id="84f3b81a-9cdd-45f0-859c-bf345773325e">
+                <td class="cell-CKJu"><code>s[i:j:k]</code></td>
+                <td class="cell-gz[_">
+                  slice of <em>s</em> from <em>i</em> to <em>j</em> with
+                  step <em>k</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(3)(5)%2084f3b81a9cdd45f0859cbf345773325e.html"
+                    >(3)(5)</a
+                  >
+                </td>
+              </tr>
+              <tr id="18d9849f-4d32-40ba-9a57-9b727ae5259a">
+                <td class="cell-CKJu"><code>len(s)</code></td>
+                <td class="cell-gz[_">length of <em>s</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/Untitled%2018d9849f4d3240ba9a579b727ae5259a.html"
+                    >Untitled</a
+                  >
+                </td>
+              </tr>
+              <tr id="bdcefe7f-e009-40d3-9930-78e9b1786951">
+                <td class="cell-CKJu"><code>min(s)</code></td>
+                <td class="cell-gz[_">smallest item of <em>s</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/Untitled%20bdcefe7fe00940d3993078e9b1786951.html"
+                    >Untitled</a
+                  >
+                </td>
+              </tr>
+              <tr id="77f5108b-2fa0-4633-89cd-ed070acbe848">
+                <td class="cell-CKJu"><code>max(s)</code></td>
+                <td class="cell-gz[_">largest item of <em>s</em></td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/Untitled%2077f5108b2fa0463389cded070acbe848.html"
+                    >Untitled</a
+                  >
+                </td>
+              </tr>
+              <tr id="a6b26176-8aea-47cf-b7a0-c920a3a845cc">
+                <td class="cell-CKJu"><code>s.index(x[, i[, j]])</code></td>
+                <td class="cell-gz[_">
+                  index of the first occurrence of <em>x</em> in <em>s</em> (at
+                  or after index <em>i</em> and before index <em>j</em>)
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/(8)%20a6b261768aea47cfb7a0c920a3a845cc.html"
+                    >(8)</a
+                  >
+                </td>
+              </tr>
+              <tr id="b4c85aa8-3bc4-4694-8fa0-20012bda5ab0">
+                <td class="cell-CKJu"><code>s.count(x)</code></td>
+                <td class="cell-gz[_">
+                  total number of occurrences of <em>x</em> in <em>s</em>
+                </td>
+                <td class="cell-title">
+                  <a
+                    href="Built-in%20Types%2096a0c35183e34972b518e460cb13006c/Untitled%20Database%20eed1ec68c4cf4ea5be528b5830fba6e6/Untitled%20b4c85aa83bc446948fa020012bda5ab0.html"
+                    >Untitled</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="3f2fd2b6-1a40-474e-b69a-c2a261506a1c" class="">
+          Sequences of the same type also support comparisons. In particular,
+          tuples and lists are compared lexicographically by comparing
+          corresponding elements. This means that to compare equal, every
+          element must compare equal and the two sequences must be of the same
+          type and have the same length. (For full details see <a
+            href="https://docs.python.org/3/reference/expressions.html#comparisons"
+            >Comparisons</a
+          > in the language reference.)
+        </p>
+        <p id="1b636e0a-5ae0-4879-afd5-827093024ee0" class="">Notes:</p>
+        <ol
+          type="1"
+          id="8cf40c58-5179-422f-8e7a-c8a08e9873c0"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            While the <code>in</code> and <code>not in</code> operations are
+            used only for simple containment testing in the general case, some
+            specialised sequences (such as <a
+              href="https://docs.python.org/3/library/stdtypes.html#str"
+              ><code>str</code></a
+            >, <a href="https://docs.python.org/3/library/stdtypes.html#bytes"
+              ><code>bytes</code></a
+            > and <a
+              href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+              ><code>bytearray</code></a
+            >) also use them for subsequence testing:
+            <p id="0f461796-bb9d-47b9-8394-5071dad3d9ed" class="">
+              &gt;&gt;&gt;
+
+              <code><strong>&gt;&gt;&gt; </strong></code
+              ><code>&quot;gg&quot; </code><code><strong>in</strong></code
+              ><code> &quot;eggs&quot; True</code>
+            </p>
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="91d78f8a-0f34-492e-b802-59e44cc09b0a"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Values of <em>n</em> less than <code>0</code> are treated
+            as <code>0</code> (which yields an empty sequence of the same type
+            as <em>s</em>). Note that items in the sequence <em>s</em> are not
+            copied; they are referenced multiple times. This often haunts new
+            Python programmers; consider:
+            <p id="0fa23331-1fd6-4464-94ae-ac37b2381a6b" class="">
+              &gt;&gt;&gt;
+
+              <code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists = [[]] * 3 </code
+              ><code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists [[], [], []] </code
+              ><code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists[0].append(3) </code
+              ><code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists [[3], [3], [3]]</code>
+            </p>
+            <p id="09ba65f6-7dda-4e48-b028-ade3f7cd0c19" class="">
+              What has happened is that <code>[[]]</code> is a one-element list
+              containing an empty list, so all three elements
+              of <code>[[]] * 3</code> are references to this single empty list.
+              Modifying any of the elements of <code>lists</code> modifies this
+              single list. You can create a list of different lists this way:
+            </p>
+            <p id="78d152f5-62b4-4375-86d7-9420182c4d42" class="">
+              &gt;&gt;&gt;
+
+              <code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists = [[] </code><code><strong>for</strong></code
+              ><code> i </code><code><strong>in</strong></code
+              ><code> range(3)] </code
+              ><code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists[0].append(3) </code
+              ><code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists[1].append(5) </code
+              ><code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists[2].append(7) </code
+              ><code><strong>&gt;&gt;&gt; </strong></code
+              ><code>lists [[3], [5], [7]]</code>
+            </p>
+            <p id="cefc8762-6be2-449f-b2e0-d0e97f4ea681" class="">
+              Further explanation is available in the FAQ entry <a
+                href="https://docs.python.org/3/faq/programming.html#faq-multidimensional-list"
+                >How do I create a multidimensional list?</a
+              >.
+            </p>
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="65b3adb3-8204-4d39-84ca-364c7da25073"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            If <em>i</em> or <em>j</em> is negative, the index is relative to
+            the end of
+            sequence <em>s</em>: <code>len(s) + i</code> or <code>len(s) + j</code> is
+            substituted. But note that <code>0</code> is still <code>0</code>.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="5f959515-6829-4d4c-89c4-7c84b7ef690c"
+          class="numbered-list"
+          start="4"
+        >
+          <li>
+            The slice of <em>s</em> from <em>i</em> to <em>j</em> is defined as
+            the sequence of items with index <em>k</em> such
+            that <code>i &lt;= k &lt; j</code>. If <em>i</em> or <em>j</em> is
+            greater than <code>len(s)</code>, use <code>len(s)</code>.
+            If <em>i</em> is omitted or <code>None</code>, use <code>0</code>.
+            If <em>j</em> is omitted or <code>None</code>,
+            use <code>len(s)</code>. If <em>i</em> is greater than or equal
+            to <em>j</em>, the slice is empty.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="8576507d-292e-4b4b-b0a6-d257031234d7"
+          class="numbered-list"
+          start="5"
+        >
+          <li>
+            The slice of <em>s</em> from <em>i</em> to <em>j</em> with
+            step <em>k</em> is defined as the sequence of items with
+            index <code>x = i + n*k</code> such
+            that <code>0 &lt;= n &lt; (j-i)/k</code>. In other words, the
+            indices
+            are <code>i</code>, <code>i+k</code>, <code>i+2*k</code>, <code>i+3*k</code> and
+            so on, stopping when <em>j</em> is reached (but never
+            including <em>j</em>). When <em>k</em> is
+            positive, <em>i</em> and <em>j</em> are reduced
+            to <code>len(s)</code> if they are greater. When <em>k</em> is
+            negative, <em>i</em> and <em>j</em> are reduced
+            to <code>len(s) - 1</code> if they are greater.
+            If <em>i</em> or <em>j</em> are omitted or <code>None</code>, they
+            become “end” values (which end depends on the sign of <em>k</em>).
+            Note, <em>k</em> cannot be zero. If <em>k</em> is <code>None</code>,
+            it is treated like <code>1</code>.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="bf41c97d-ae80-44bb-9aec-19442dcf4114"
+          class="numbered-list"
+          start="6"
+        >
+          <li>
+            Concatenating immutable sequences always results in a new object.
+            This means that building up a sequence by repeated concatenation
+            will have a quadratic runtime cost in the total sequence length. To
+            get a linear runtime cost, you must switch to one of the
+            alternatives below:
+            <ul id="e08858f3-0c80-4c77-9cbd-ab4c4ca7ad13" class="bulleted-list">
+              <li>
+                if concatenating <a
+                  href="https://docs.python.org/3/library/stdtypes.html#str"
+                  ><code>str</code></a
+                > objects, you can build a list and use <a
+                  href="https://docs.python.org/3/library/stdtypes.html#str.join"
+                  ><code>str.join()</code></a
+                > at the end or else write to an <a
+                  href="https://docs.python.org/3/library/io.html#io.StringIO"
+                  ><code>io.StringIO</code></a
+                > instance and retrieve its value when complete
+              </li>
+            </ul>
+            <ul id="bea39f06-a65f-428a-a572-f95100c0f07d" class="bulleted-list">
+              <li>
+                if concatenating <a
+                  href="https://docs.python.org/3/library/stdtypes.html#bytes"
+                  ><code>bytes</code></a
+                > objects, you can similarly use <a
+                  href="https://docs.python.org/3/library/stdtypes.html#bytes.join"
+                  ><code>bytes.join()</code></a
+                > or <a
+                  href="https://docs.python.org/3/library/io.html#io.BytesIO"
+                  ><code>io.BytesIO</code></a
+                >, or you can do in-place concatenation with a <a
+                  href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+                  ><code>bytearray</code></a
+                > object. <a
+                  href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+                  ><code>bytearray</code></a
+                > objects are mutable and have an efficient overallocation
+                mechanism
+              </li>
+            </ul>
+            <ul id="529a6f32-43df-4fda-8771-a58588135887" class="bulleted-list">
+              <li>
+                if concatenating <a
+                  href="https://docs.python.org/3/library/stdtypes.html#tuple"
+                  ><code>tuple</code></a
+                > objects, extend a <a
+                  href="https://docs.python.org/3/library/stdtypes.html#list"
+                  ><code>list</code></a
+                > instead
+              </li>
+            </ul>
+            <ul id="ec65bf98-b4ae-4474-8745-504a15c3a686" class="bulleted-list">
+              <li>
+                for other types, investigate the relevant class documentation
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="e32b83aa-c0ca-45b6-8344-fd11ba466801"
+          class="numbered-list"
+          start="7"
+        >
+          <li>
+            Some sequence types (such as <a
+              href="https://docs.python.org/3/library/stdtypes.html#range"
+              ><code>range</code></a
+            >) only support item sequences that follow specific patterns, and
+            hence don’t support sequence concatenation or repetition.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="184dd05f-15ae-492f-8322-24e16ca913db"
+          class="numbered-list"
+          start="8"
+        >
+          <li>
+            <code>index</code> raises <a
+              href="https://docs.python.org/3/library/exceptions.html#ValueError"
+              ><code>ValueError</code></a
+            > when <em>x</em> is not found in <em>s</em>. Not all
+            implementations support passing the additional
+            arguments <em>i</em> and <em>j</em>. These arguments allow efficient
+            searching of subsections of the sequence. Passing the extra
+            arguments is roughly equivalent to
+            using <code>s[i:j].index(x)</code>, only without copying any data
+            and with the returned index being relative to the start of the
+            sequence rather than the start of the slice.
+          </li>
+        </ol>
+      </div>
+    </article>
+  </body>
+</html>
