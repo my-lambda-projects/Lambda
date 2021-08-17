@@ -1,5 +1,13 @@
 # Lambda Student Resources Site
 
+
+
+- [NETLIFY](https://app.netlify.com/teams/bgoonz/overview)
+
+
+
+
+
 - [0-notes/](0-notes/)
 - [1-projects/](1-projects/)
 - [2-resources/](2-resources/)
