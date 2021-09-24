@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>removeduplicatewords</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+
+      span.underline {
+        text-decoration: underline;
+      }
+
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1
+      id="how-did-they-do-all-that-in-one-line-a-solution-for-the-kata-remove-duplicate-words"
+    >
+      How did they do all that in one line? A solution for the kata: Remove
+      Duplicate Words
+    </h1>
+    <blockquote>
+      <p>
+        I’ve been at it again: solving CodeWars kata then marveling at the
+        one-line solutions voted best prac…
+      </p>
+    </blockquote>
+    <p>
+      I’ve been at it again: solving CodeWars kata then marveling at the
+      one-line solutions voted best practice by the CodeWars community.
+    </p>
+    <p>
+      The challenge is to take a string of words with words repeated, then
+      return the words without repetition, leaving the words in order of their
+      first appearance in the input string.
+    </p>
+    <p>
+      To emphasize how impressed I was to see it solved in one line, here’s my
+      solution (which by the way was the same as the solution with the second
+      most votes for best practice).
+    </p>
+    <pre><code>def remove_duplicate_words(s):
+    &quot;&quot;&quot; removes duplicate words from a string
+
+    s:   a string of words separated by spaces
+    &quot;&quot;&quot;
+    s = s.split()
+    unique = []
+    for word in s:
+        if word not in unique:
+            unique.append(word)
+    s = &#39; &#39;.join(unique)
+
+
+    return s</code></pre>
+    <p>Enter fullscreen mode Exit fullscreen mode</p>
+    <p>And here’s the one-liner:</p>
+    <pre><code>def remove_duplicate_words(s):
+    return &#39; &#39;.join(dict.fromkeys(s.split()))</code></pre>
+    <p>Enter fullscreen mode Exit fullscreen mode</p>
+    <p>Note: I mean one line of function body.</p>
+    <p>
+      That’s pretty dense, so I’m going to break it down. I like to start from
+      the inside.
+    </p>
+    <pre><code>s.split()</code></pre>
+    <p>Enter fullscreen mode Exit fullscreen mode</p>
+    <p>
+      Note that s is the input string. This expression returns a list of the
+      words in the string. By default the .split method splits the string at
+      space characters and throws out the spaces.
+    </p>
+    <p>On to the next step</p>
+    <pre><code>dict.fromkeys(s.split())</code></pre>
+    <p>Enter fullscreen mode Exit fullscreen mode</p>
+    <p>
+      This step is interesting. It creates a dictionary (more on why a
+      dictionary later) with the keys for the dictionary supplied by the words
+      in the list of words.
+    </p>
+    <p>
+      But there’s something missing. Aren’t dictionaries in Python supposed to
+      have keys <em>and</em> values? It turns out that when you use
+      dict.fromkeys to form a dictionary with no values in the argument, it just
+      enters None for each value.
+    </p>
+    <p>
+      To clarify this, here’s what it looks like if you print this a dict formed
+      in this manner from the input string s = ‘alpha beta beta gamma gamma
+      gamma delta alpha beta beta gamma gamma gamma delta’.<br />
+      Here’s the dictionary:<br />
+      {‘alpha’: None, ‘beta’: None, ‘gamma’: None, ‘delta’: None}
+    </p>
+    <p>We’re almost there.</p>
+    <pre><code>&#39; &#39;.join(dict.fromkeys(s.split()))</code></pre>
+    <p>Enter fullscreen mode Exit fullscreen mode</p>
+    <p>
+      Note the syntax here. It’s calling the method .join on a string with one
+      space. Since the argument is a dictionary, this will output the a string
+      with words taken from the keys, separated by spaces.<br />
+      (Note: I’m not sure why it ignores the values. I tested and it does this
+      even if there is a value (like 4) for one of the keys).
+    </p>
+    <p>
+      All that’s left is to return the value of this expression. Note that while
+      it might seem more intuitive to do something like this:
+    </p>
+    <pre><code>output = &#39; &#39;.join(dict.fromkeys(s.split()))
+return output</code></pre>
+    <p>Enter fullscreen mode Exit fullscreen mode</p>
+    <p>
+      It’s perfectly legal to do this in one line by putting the expression
+      directly after return, as in the one line solution:
+    </p>
+    <pre><code>return &#39; &#39;.join(dict.fromkeys(s.split()))</code></pre>
+    <p>Enter fullscreen mode Exit fullscreen mode</p>
+    <p>And there it is.</p>
+    <p>
+      A further note: you may be wondering: why bother with a dict with empty
+      keys? Why not just use a set. To understand this you need to understand
+      two things. First: Although the description doesn’t explicitly state this,
+      the example makes it clear that the words in the output string need to be
+      in the order of their first appearance in the input string. Second: sets
+      are unordered but, as of Python 3.6 and continuing into Python 3.7,
+      dictionaries are ordered according to insertion order.
+    </p>
+    <p>
+      So now it should be clear why a dictionary was the correct choice, even
+      though set would seem the more obvious answer. (And, with a strict reading
+      of the challenge description, you could argue that it would be a correct
+      solution, but the automated testing functions on CodeWars would beg to
+      disagree.)
+    </p>
+    <p>
+      So there you have it: One line to do what took me six. Although my
+      function had more documentation, so I give myself points there.
+    </p>
+    <p>
+      By the way, the code and a copy of this description are on my repo
+      <a
+        href="https://github.com/erik-kristofer-anderson/Codewars/tree/master/2019-08-21_remove_duplicate_words"
+        >here</a
+      >.
+    </p>
+    <p>I’m looking forward to showing you the next one!</p>
+    <p>
+      <a
+        href="https://dev.to/ekand/how-did-they-do-all-that-in-one-line-a-solution-for-the-kata-remove-duplicate-words-28n1?signin=true"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>
