@@ -1,0 +1,18 @@
+﻿decimal(base 10),binary(base 2),expansion
+0,0,0 ones
+1,1,1 one
+2,10,1 two and zero ones
+3,11,1 two and 1 one
+4,100,"1 four, 0 twos, and 0 ones"
+5,101,"1 four, 0 twos, and 1 one"
+6,110,"1 four, 1 two, and 0 ones"
+7,111,"1 four, 1 two, and 1 one"
+8,1000,"1 eight, 0 fours, 0 twos, and 0 ones"
+9,1001,"1 eight, 0 fours, 0 twos, and 1 ones"
+10,1010,"1 eight, 0 fours, 1 two, and 0 ones"
+11,1011,"1 eight, 0 fours, 1 two, and 1 one"
+12,1100,"1 eight, 1 four, 0 twos, and 0 ones"
+13,1101,"1 eight, 1 four, 0 twos, and 1 one"
+14,1110,"1 eight, 1 four, 1 two, and 0 ones"
+15,1111,"1 eight, 1 four, 1 two, and 1 one"
+16,10000,"1 sixteen, 0 eights, 0 fours, 0 twos, and 0 ones"

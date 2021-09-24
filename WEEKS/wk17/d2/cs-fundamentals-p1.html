@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>cs-fundamentals-p1</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="computer-science-fundamentals-part-i---hackmd">Computer Science Fundamentals Part I - HackMD</h1>
+<blockquote>
+<h1 id="computer-science-fundamentals-part-i-install-python-3-on-their-local-machine-run-the-intera">Computer Science Fundamentals Part I ## **Install Python 3 on their local machine, run the intera</h1>
+</blockquote>
+<h2 id="install-python-3-on-their-local-machine-run-the-interactive-prompt-in-the-terminal-and-run-python-files-through-the-interpreter"><a href="#Install-Python-3-on-their-local-machine-run-the-interactive-prompt-in-the-terminal-and-run-Python-files-through-the-interpreter" title="Install-Python-3-on-their-local-machine-run-the-interactive-prompt-in-the-terminal-and-run-Python-files-through-the-interpreter"></a><strong>Install Python 3 on their local machine, run the interactive prompt in the terminal, and run Python files through the interpreter</strong></h2>
+<p>To get started writing Python, you need to be able to use the Python interpreter. There are essentially two primary approaches:</p>
+<ol type="1">
+<li>Install Python on your local machine.</li>
+<li>Use a website that allows you to access the Python interpreter online.</li>
+</ol>
+<p>Below, we will walk through how to install Python for your specific OS and refer to some preferred websites that give you access to the interpreter online.</p>
+<h3 id="for-window-users"><a href="#For-window-users-→" title="For-window-users-→"></a>For window users →</h3>
+<p><em><strong>First check to see if your computer has python installed (mine was already baked in my computer)</strong></em></p>
+<ul>
+<li>If it is baked into your computer make sure you know your <strong>PATH</strong></li>
+<li>If you don’t have it baked in then Download the latest Python 3 installer from <a href="http://python.org/"><em><strong>python.org</strong></em></a>
+<ul>
+<li>Make sure you pay attention to 32bit vs 64 bit and select the correct one for your machine</li>
+<li>Run the install and make sure you check the box that says “Add Python 3.x to PATH” to ensure that you place the interpreter in your execution path</li>
+</ul></li>
+</ul>
+<h3 id="open-powershell"><a href="#Open-PowerShell" title="Open-PowerShell"></a>Open PowerShell</h3>
+<ul>
+<li>To get into the Python from PowerShell:
+<ul>
+<li>type python.exe</li>
+<li>you will see the &gt;&gt;&gt; → then you know you have Python running</li>
+<li>to print a message
+<ul>
+<li>print(“your message here”)</li>
+</ul></li>
+<li>to exit the shell
+<ul>
+<li>exit()</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="for-linux-users"><a href="#For-Linux-users-→" title="For-Linux-users-→"></a>For <strong>Linux users →</strong></h3>
+<p>Most likely, your Linux distribution already has Python installed. However, it is likely to be Python 2 and not Python 3.</p>
+<p>You can determine what version you have by opening a terminal and typing <code>python --version</code>. If the version shown is <code>Python 2.x.x</code>, then you want to install the latest version of Python 3.</p>
+<p>The procedure for installing the latest version of Python depends on which distribution of Linux you are running.</p>
+<p>Use <a href="https://realpython.com/installing-python/#reader-comments">***this article (Links to an external site.)</a>*** to find instructions specific to your Linux distribution.</p>
+<h3 id="for-macos-mac-os-x-users"><a href="#For-macOS--Mac-OS-X-users-→" title="For-macOS--Mac-OS-X-users-→"></a>For <strong>macOS / Mac OS X users →</strong></h3>
+<p>Current versions of macOS include a version of Python 2, but you want to be using Python 3.</p>
+<p>The best way to install Python 3 on macOS is to use the Homebrew package manager.</p>
+<h3 id="install-homebrew"><a href="#Install-Homebrew-→" title="Install-Homebrew-→"></a><strong>Install Homebrew →</strong></h3>
+<ol type="1">
+<li>Go to <a href="http://brew.sh/"><em><strong>http://brew.sh/ (Links to an external site.)</strong></em></a> and select the Homebrew bootstrap code under “Install Homebrew” and copy the complete command to your clipboard.</li>
+<li>Open a terminal window, paste the Homebrew bootstrap code, and hit “Enter.”</li>
+<li>It may take some time to install Homebrew, so you need to wait for that process to complete before moving on.</li>
+</ol>
+<p>After Homebrew has finished its installation process, you then need to install Python.</p>
+<h3 id="install-python"><a href="#Install-Python-→" title="Install-Python-→"></a><strong>Install Python →</strong></h3>
+<ol type="1">
+<li>Open a terminal and run the following command <code>brew install python3</code>. This command will download and install the latest version of Python.</li>
+<li>Ensure that everything was installed correctly by opening a terminal window and running the command <code>pip3</code>.</li>
+<li>If you see help text from Python’s “pip” package manager, you have a working Python installation.</li>
+</ol>
+<h3 id="online-interpreters"><a href="#Online-Interpreters" title="Online-Interpreters"></a><strong>Online Interpreters</strong></h3>
+<p>Here are a few websites that give you online access to the Python interpreter:</p>
+<ul>
+<li><a href="https://repl.it/">Repl.it (Links to an external site.)</a></li>
+<li><a href="https://trinket.io/">Trinket (Links to an external site.)</a></li>
+<li><a href="http://pythonfiddle.com/">Python Fiddle (Links to an external site.)</a></li>
+<li><a href="https://www.python.org/shell">Python.org Online Console (Links to an external site.)</a></li>
+<li><a href="https://www.pythonanywhere.com/">Python Anywhere</a></li>
+</ul>
+<h3 id="if-you-were-wanting-to-execute-python-files"><a href="#If-you-were-wanting-to-execute-Python-files" title="If-you-were-wanting-to-execute-Python-files"></a>If you were wanting to execute Python files:</h3>
+<ul>
+<li>How to pull the file from Python
+<ul>
+<li>python…\<a href="http://file.py/">file.py</a> —&gt; path to file</li>
+<li><strong>Example:</strong>
+<ul>
+<li>python ‘.\users\computer\OneDrive\Desktop\Python notes and files[<a href="http://main.py/">main.py</a>](<a href="http://main.py/">http://main.py/</a>)’ <em><strong>→ remember NOT to hit space after the ’</strong></em></li>
+<li>hit enter</li>
+</ul></li>
+<li><strong>Example:</strong>
+<ul>
+<li>If it is in your C drive
+<ul>
+<li>python <a href="http://main.py/">main.py</a> <em><strong>→ remember NOT to hit space after you enter your file</strong></em></li>
+<li>hit enter</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="use-a-print-statement"><a href="#Use-a-Print-Statement" title="Use-a-Print-Statement"></a>Use a Print Statement</h2>
+<p>Learning to use the ***<a href="https://www.programiz.com/python-programming/methods/built-in/print">print function***</a> in Python is the perfect way to start writing Python code. When learning to write in any new programming language, one of the first things you want to do is get some output from your program. The *<a href="https://www.programiz.com/python-programming/methods/built-in/print"><strong>print function</strong>*</a> is how you output the value of an object to the screen. You will learn how to use the <em><strong><a href="https://www.programiz.com/python-programming/methods/built-in/print">print function</a></strong></em> in Python.</p>
+<p>You can execute the <em><strong><a href="https://www.programiz.com/python-programming/methods/built-in/print">print function</a></strong></em> to print different types of object in Python.</p>
+<p>There are numerous types of objects that you can print using the <em><strong><a href="https://www.programiz.com/python-programming/methods/built-in/print">print function</a></strong></em></p>
+<ul>
+<li><p>Using <em><strong>print()</strong></em> with <strong>no arguments:</strong></p>
+<ul>
+<li>Notice the empty line after calling the <em><strong>print function</strong></em></li>
+<li>the default <em><strong><a href="https://www.studytonight.com/post/the-sep-and-end-parameters-in-python-print-statement">“end”</a></strong></em> value when calling <em><strong>print()</strong></em> is the newline character <em><strong>\n</strong></em></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+</blockquote></li>
+<li><p>Using <em><strong>print()</strong></em> a <strong>variable</strong>:</p>
+<ul>
+<li>Notice how the calling <em><strong>print(slogan)</strong></em></li>
+<li>The <em><strong>slogan</strong></em> variable prints the value assigned to <em><strong>slogan</strong></em></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>slogan = “i love lamp” print(slogan) i love lamp</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+<li><p>Using <em><strong>print()</strong></em> with an <strong>expression:</strong></p>
+<ul>
+<li>Notice how the argument for the <em><strong>print()</strong></em> function can be an expression</li>
+<li>Once the expression is resolved to a string object, the <strong>print()</strong> function can output it to the screen</li>
+<li>Remember that <strong>“+”</strong> is <a href="https://www.w3schools.com/python/gloss_python_string_concatenation.asp"><em><strong>concatenating</strong></em></a> the string</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>superlative = “wonderful” school = “Lambda School” print(school + " is " + superlative) Lambda School is wonderful</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+<li><p>Using <em><strong>print()</strong></em> with other <strong>object types</strong>:</p>
+<ul>
+<li>Any object passed as an argument into <em><strong>print()</strong></em> will get converted into a string before it outputs onto the screen</li>
+</ul>
+<p>print(2020) 2020</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print(123.456) 123.456 print(False) False print([“Lambda”, “School”, 2, 0, 2, 0]) [‘Lambda’, ‘School’, 2, 0, 2, 0] print((“Lambda”, “School”)) (‘Lambda’, ‘School’) print({“school”: “Lambda School”, “year”: 2020}) {‘school’: ‘Lambda School’, ‘year’: 2020}</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+</ul>
+<h3 id="passing-in-multiple-arguments-into-print"><a href="#Passing-in-multiple-arguments-into-print" title="Passing-in-multiple-arguments-into-print"></a>Passing in multiple arguments into print()</h3>
+<ul>
+<li>Using <em><strong>print()</strong></em> with multiple arguments gives you a flexible and easy way to output items to the screen</li>
+<li><p>We can pass multiple objects, all of the same or different types, into <em><strong>print()</strong></em></p>
+<ul>
+<li>Notice how each object we passed in was converted to a string</li>
+<li>then output to the screen</li>
+<li>Also that <em><strong>print()</strong></em> uses <em><strong>" "</strong></em> as the <em><strong>default separator value</strong></em></li>
+<li>True and False are case sensitive where they need to be capitalized</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print(“Lambda School”, 2020, True) Lambda School 2020 True</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+<li><p>We can change the separator value by assigning a value to the keyword argument <em><strong>sep</strong></em></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print(“Lambda School”, 2020, True, sep=“!!!”) Lambda School!!!2020!!!True print(“Lambda School”, 2020, True, sep=“) Lambda School 2020 True print(”Lambda School“, 2020, True, sep=”“) Lambda School 2020 True print(”Lambda School“, 2020, True, sep=”") Lambda School2020True</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+</ul>
+<h3 id="specifying-the-end-value-with-print"><a href="#Specifying-the-“end”-value-with-print" title="Specifying-the-“end”-value-with-print"></a>Specifying the <a href="https://www.studytonight.com/post/the-sep-and-end-parameters-in-python-print-statement">“end”</a> value with print()</h3>
+<ul>
+<li>We can also specify the <a href="https://www.studytonight.com/post/the-sep-and-end-parameters-in-python-print-statement"><em><strong>“end”</strong></em></a> value by assigning a value to the “end” keyword when calling the <em><strong>print()</strong></em> function
+<ul>
+<li>Being able to print a value to the screen but allow the user to stay on the same line is useful and necessary in some cases</li>
+</ul></li>
+<li>We can change the default <em><strong>“end”</strong></em> value (which is <em><strong>/n</strong></em>) when calling the print() function</li>
+<li><p>Customizing the <em><strong>“end”</strong></em> value when calling the <em><strong>print()</strong></em> function can be useful and necessary in some cases</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print(“Are you a Lambda School student?”, end=" (Y or N)") Are you a Lambda School student? (Y or N)&gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+</ul>
+<p>The table below is a list of escape or non-printable characters that can be represented with backslash notion</p>
+<p>An escape character gets interpreted; in a single quoted as well as double quoted strings</p>
+<p><a href="https://www.notion.so/e82a79636a8047c9a85c47f6ebbd305f">Escape Characters</a></p>
+<p>Assume string variable “a” holds “Hello” and variable “b” holds Python, then —&gt;</p>
+<p><a href="https://www.notion.so/9baf2defb4ab4b68b5a7f22b9d13a611">String Special Operators</a></p>
+<p><a href="https://www.notion.so/cc64d14fef9a4e49bd172ac10d9cad28">Symbols Which can be used along with %</a></p>
+<p><a href="https://www.notion.so/645d3d64e3654ae3934ba9fe6a382811">Other Supported Symbols and Functionality</a></p>
+<h2 id="use-white-space-to-denote-blocks"><a href="#Use-white-space-to-denote-blocks" title="Use-white-space-to-denote-blocks"></a>Use white space to denote blocks</h2>
+<p>Python is unique because indentation instead of some other character marks blocks of code. A block of code is a collection of statements that are grouped. The syntax for denoting blocks varies from language to language.</p>
+<p>For example:</p>
+<p>In C, blocks are delimited by curly braces ({ and }). Understanding how Python uses whitespace and indentation to denote logical lines and code blocks is essential.</p>
+<ul>
+<li>Whitespace is any character that represents something that appears empty <em><strong>(usually \t or " ").</strong></em></li>
+<li><p>The characters that Python considers whitespace can be seen by printing out the value of <em><strong>string.whitespace</strong></em> from the <em><strong>string</strong></em> library</p>
+<ul>
+<li>Notice the characters are <em><strong>" " (space), \t (tab), \n (newline), \r (return), \x0b (unicode line tabulation), and \x0c (unicode form feed).</strong></em></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import string string.whitespace ’ 0b0c’</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+</ul>
+<h2 id="logical-lines-of-code"><a href="#Logical-Lines-of-Code" title="Logical-Lines-of-Code"></a><strong>Logical Lines of Code</strong></h2>
+<ul>
+<li>Whitespace is used to denote the end of a logical line of code</li>
+<li><p>In Python, a logical line of code’s end <em>(a statement or definition)</em> is marked by a <em><strong>\n</strong></em></p>
+<ul>
+<li>Notice how REPL evaluates the expression <em><strong>first + second</strong></em> when we return on line 3
+<ul>
+<li><em><strong>first = “Lambda”</strong></em></li>
+<li><em><strong>second = “School”</strong></em></li>
+<li><em><strong>first + second</strong></em></li>
+<li><strong>‘LambdaSchool’ —&gt; this is the return from line 3</strong></li>
+</ul></li>
+<li>We can write one logical line of code over multiple lines by ending each line with a *<em>*</em> character</li>
+<li>The *<em>*</em> character lets the Python interpreter that even though there is a newline, you don’t want it to treat it as the end of the logical line
+<ul>
+<li>*<strong>first *</strong></li>
+<li>*<strong>+ *</strong></li>
+<li><em><strong>second</strong></em></li>
+<li><strong>‘LambdaSchool’ —&gt; this is the return from lines 5, 6, 7</strong></li>
+</ul></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>first = “Lambda” second = “School” first + second ‘LambdaSchool’ first<br />
+… +<br />
+… second ‘LambdaSchool’</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+</ul>
+<h2 id="code-blocks"><a href="#Code-Blocks" title="Code-Blocks"></a><strong>Code Blocks</strong></h2>
+<ul>
+<li>White space (indentation) can denote code blocks</li>
+<li><p>Python gives meaning to the amount of whitespace (indentation level) that comes before a logical line of code</p>
+<ul>
+<li>This code raises an <strong>“INDENTATION ERROR”</strong> because the Python interpreter expects to find addition whitespace inside the <em><strong>“if”</strong></em> block</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>if True: … if True: File “<stdin>”, line 2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>if True:
+^</code></pre>
+<p>IndentationError: expected an indented block</p>
+<blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+</blockquote></li>
+<li><p>With a few adjustments the Python interpreter can successfully run this code because of the consistent whitespace (level of indentation is used</p>
+<ul>
+<li>Tabs and spaces both work however the standard in Python is 4 spaces to denote a block</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>if True: … if True: … print(“it worked!”) … it worked!</p>
+</blockquote>
+</blockquote>
+</blockquote></li>
+<li>Consistent whitespace usage (indentation) is crucial to making sure that Python can interpret your code correctly</li>
+<li>In Python, whitespace has meaning
+<ul>
+<li>It denotes the end of logical lines and also code blocks</li>
+</ul></li>
+<li>Whitespace is any character represented by something that appears empty</li>
+<li>Although the most common characters are " ", \t, and \n</li>
+<li>Python interpreter knows where the end of a logical line of code is because of the \n</li>
+<li><p>The amount of whitespace (level of indentation) is used in Python to denote blocks of code</p></li>
+</ul>
+<h2 id="use-basic-types-integers-floats-strings-and-interact-with-those-types"><a href="#Use-basic-types-integers-floats-strings-and-interact-with-those-types" title="Use-basic-types-integers-floats-strings-and-interact-with-those-types"></a>Use basic types (integers, floats, strings) and interact with those types</h2>
+<p><strong>Python is NOT a <em><a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/#:~:text=Python%20is%20a%20dynamically%2Dtyped,an%20explicit%20conversion%20is">“statically typed”</a></em> language, and every variable in Python is an object. You don’t have to declare a variable’s type.</strong></p>
+<p><strong><a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/#:~:text=Python%20is%20a%20dynamically%2Dtyped,an%20explicit%20conversion%20is">Statically Typed Language</a></strong></p>
+<ul>
+<li>to a type (at compile time, by means of a data declaration)</li>
+<li>to an object.</li>
+</ul>
+<p><em><strong>The binding to an object is optional</strong></em> — if a name is not bound to an object, the name is said to be <em>null.</em></p>
+<p>Once a variable name has been bound to a type (that is, declared) it can be bound (via an assignment statement) only to objects of that type; it cannot ever be bound to an object of a different type. An attempt to bind the name to an object of the wrong type will raise a type exception.</p>
+<p><strong><a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/#:~:text=Python%20is%20a%20dynamically%2Dtyped,an%20explicit%20conversion%20is">Dynamically Typed Language</a></strong></p>
+<p>Names are bound to objects at execution time by means of assignment statements, and it is possible to bind a name to objects of different types during the execution of the program.</p>
+<h2 id="numbers"><a href="#Numbers" title="Numbers"></a><strong><a href="https://www.w3schools.com/python/python_numbers.asp">Numbers</a></strong></h2>
+<ul>
+<li><p>There are three numeric types in Python</p>
+<ul>
+<li><p><strong><a href="https://www.w3schools.com/python/python_numbers.asp">int</a> - int()</strong></p>
+<ul>
+<li><p>Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length</p>
+<p>my_int = 5 print(my_int)</p>
+<p>""" The return would be:</p>
+<p>5 """</p></li>
+<li><p>In Python you can also typecast:</p>
+<p>my_int = int(5.0) print(my_int)</p>
+<p>""" The return would be:</p>
+<p>5 """</p></li>
+</ul></li>
+<li><p><strong><a href="https://www.w3schools.com/python/python_numbers.asp">float -</a> float()</strong></p>
+<ul>
+<li><p>Float, or “floating point number” is a number, positive or negative, containing one or more decimals</p>
+<p>my_float = 2.75 print(my_float)</p>
+<p>""" The return would be 2.75 """</p></li>
+<li><p>Just like integers you can typecast floats as well</p>
+<p>my_float = float(4) print(my_float)</p>
+<p>""" The return would be:</p>
+<p>4.0 """</p></li>
+<li><p>Float can also be scientific numbers with an “e” to indicate the power of 10</p>
+<p>x = 35e3 y = 12E4 z = -87.7e100</p>
+<p>print(x) print(y) print(z)</p>
+<p>""" The return would be:</p>
+<p>35000.0 120000.0 -8.77e+101 """</p></li>
+</ul></li>
+<li><p><a href="https://www.w3schools.com/python/python_numbers.asp">**complex -</a> complex()**</p>
+<ul>
+<li><p>Complex numbers are written with a “j” as the imaginary part</p>
+<p>x = 3+5j y = 5j z = -5j</p>
+<p>print(x) print(y) print(z)</p>
+<p>""" The return would be:</p>
+<p>(3+5j) 5j (-0-5j) """</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Type Conversion</strong></p>
+<ul>
+<li><p>You can convert from one type to another with the <em><strong>int(), float(). and complex() methods</strong></em>:</p>
+<p>x = float(1)</p>
+<p>y = int(2.8)</p>
+<p>z = complex(x)</p>
+<p>print(x) print(y) print(z)</p>
+<p>""" The return would be:</p>
+<p>1.0 2 (1+0j) """</p></li>
+</ul></li>
+<li><p>Python <strong>doesn’t</strong> have a <em><strong>random()</strong></em> function; however, <em><strong>Python has a build in module called random that can be used to make random numbers</strong></em></p>
+<ul>
+<li>Import the random module, and display a random number between 1 and 9:</li>
+</ul>
+<p>import random</p>
+<p>print(random.randrange(1, 10))</p>
+<p>""" The return would be a random number between 1 and 10 """</p></li>
+</ul>
+<h2 id="strings"><a href="#Strings" title="Strings"></a><a href="https://www.w3schools.com/python/python_strings.asp">Strings</a></h2>
+<p>Using strings in Python —&gt;</p>
+<ul>
+<li>You can either use single or double quotes</li>
+<li>However, it is recommended to use double quotes because when getting into stuff like apostrophes you wont get stuck ending a string by accident</li>
+</ul>
+<h2 id="perform-basic-list-operations"><a href="#Perform-Basic-List-Operations" title="Perform-Basic-List-Operations"></a><a href="https://realpython.com/list-comprehension-python/">Perform Basic List Operations</a></h2>
+<ul>
+<li>Lists can store any type of variable and as many variables as you want</li>
+<li>You can iterate over lists effortlessly</li>
+<li><p>To declare a list, it is like declaring any other variable in Python</p>
+<ul>
+<li>setting a list variable you will use brackets [ ]</li>
+<li>then place any value inside those brackets</li>
+<li><p><strong>See example below:</strong></p>
+<p>print(my_list[0])</p></li>
+</ul></li>
+<li><p>Adding values to the END of a list you will use this function called <a href="https://www.geeksforgeeks.org/append-extend-python/"><em><strong>APPEND</strong></em></a></p>
+<ul>
+<li>Append - adds its argument as a single element to the end of a list</li>
+<li>The length of the list increases by one</li>
+<li><strong>See example below</strong></li>
+<li><p>If you print <em><strong>my_list</strong></em> it will pull all the values from the list</p>
+<p>my_list.append(4) my_list.append(5) my_list.append(6) print(my_list)</p></li>
+</ul></li>
+</ul>
+<h2 id="use-basic-operators-to-perform-mathematical-calculations-and-interact-with-strings-and-lists"><a href="#Use-basic-operators-to-perform-mathematical-calculations-and-interact-with-strings-and-lists" title="Use-basic-operators-to-perform-mathematical-calculations-and-interact-with-strings-and-lists"></a>Use basic operators to perform mathematical calculations and interact with strings and lists</h2>
+<p>There are a few basic operators that you should be familiar with as you start writing Python code.</p>
+<ul>
+<li>Basic operators
+<ul>
+<li>Numbers</li>
+<li>Strings</li>
+<li>Lists</li>
+</ul></li>
+<li>the computer will handle all the math; all you need to do is provide mathematical operations</li>
+<li><p><strong>See below for example</strong></p>
+<p>number = 2 + 2.54 * 3.98 / 2 print(number)</p>
+<p>""" answer is:</p>
+<p>7.0546 """</p></li>
+<li><p>Another thing that is specific to Python is the <a href="http://geeksforgeeks.org/what-is-a-modulo-operator-in-python/"><em><strong>Module Operation</strong></em></a></p>
+<ul>
+<li><a href="http://geeksforgeeks.org/what-is-a-modulo-operator-in-python/">**<em>Module Operation</em></a> <a href="https://www.geeksforgeeks.org/what-is-a-modulo-operator-in-python/">(%)</a>** returns the remainder of integer division</li>
+<li><p><strong>See below for example</strong></p>
+<p>number = 15 % 6 –&gt; this means 15 divided by 6 then take that remainder print(number)</p>
+<p>""" answer is:</p>
+<p>3 """</p></li>
+</ul></li>
+<li><p>Squaring you use **</p>
+<ul>
+<li><em><strong><a href="https://realpython.com/python-square-root-function/">Square root function **</a></strong></em></li>
+<li><p><strong>See below for example</strong></p>
+<p>number = 3**2 –&gt; this is 3 to the power of 2 print(number)</p>
+<p>""" answer is:</p>
+<p>9 """</p></li>
+</ul></li>
+<li><p>Combining strings</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/python-string-concatenation/"><em><strong>Concatenation</strong></em></a></li>
+<li><p><strong>See below for example</strong></p>
+<p>string_one = “Hello” string_two = “World” new_string = string_one + string_two print(new_string)</p>
+<p>""" answer is:</p>
+<p>Hello World """</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-ways-to-concatenate-two-lists/"><em><strong>Combining lists</strong></em></a></p>
+<ul>
+<li>There are many ways to combine lists but one of them is using concatenation</li>
+<li><p><strong>See below for example</strong></p>
+<p>list_one = [1, 2, 3, 4] list_two = [5, 6, 7, 8] new_list = list_one + list_two print(new_list)</p>
+<p>""" answer is:</p>
+<p>[1, 2, 3, 4, 5, 6, 7, 8] """</p></li>
+</ul></li>
+<li>Another way is</li>
+<li><strong>See below for example</strong></li>
+<li><p>Click the link to see more ways <a href="https://www.geeksforgeeks.org/python-ways-to-concatenate-two-lists/"><em><strong>Combining lists</strong></em></a></p>
+<p>list_one = [1, 2, 3, 4] list_two = [5, 6, 7, 8] new_list = list_one * 3 print(new_list)</p>
+<p>""" answer is:</p>
+<p>[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4] """</p></li>
+</ul>
+<h2 id="create-formatted-strings"><a href="#Create-formatted-strings" title="Create-formatted-strings"></a><strong>Create formatted strings</strong></h2>
+<p>To format a string in Python, you use the % operator to format a set of stored variables in a tuple. You also include argument specifiers in your string with special symbols like %s and %d.</p>
+<ul>
+<li><p><a href="https://realpython.com/python-string-formatting/"><em><strong>Creating Formatted Strings</strong></em></a></p>
+<ul>
+<li>We have talked about using the percentage sign as remainder function</li>
+<li>However, we can also use the percentage sign in using variables for strings
+<ul>
+<li><a href="https://www.learnpython.org/en/String_Formatting"><em><strong>%s</strong></em></a> –&gt; the <em><strong>s</strong></em> is for string or any object with a string representation</li>
+<li><a href="https://www.learnpython.org/en/String_Formatting"><strong>%d</strong></a> –&gt; <em><strong>d</strong></em> is for integers</li>
+<li><a href="https://www.learnpython.org/en/String_Formatting"><em><strong>%f</strong></em></a> –&gt; <em><strong>f</strong></em> is for floating point numbers</li>
+</ul></li>
+<li>If you have a variable set to Austin
+<ul>
+<li><em><strong>name = “Austin”</strong></em></li>
+</ul></li>
+<li>we want to print Austin we can just print
+<ul>
+<li><em><strong>print(“Hello Austin”)</strong></em></li>
+</ul></li>
+<li>However, we can insert a name variable inside a string using interpolation <em>–&gt; (this is similar to what we used in JS)</em>
+<ul>
+<li><em><strong>formatted_string = “Hello %s” % name</strong></em></li>
+</ul></li>
+<li>then we want to print
+<ul>
+<li><em><strong>print(formatted_string)</strong></em></li>
+</ul></li>
+<li><strong>See below for example</strong></li>
+</ul>
+<p>name = “Austin” print(“Hello Austin”)</p>
+<p>""" answer is: Hello Austin """</p>
+<p>formatted_string = “Hello %s” % name print(formatted_string)</p>
+<p>""" answer is:</p>
+<p>Hello Austin """</p></li>
+<li><p><a href="https://realpython.com/python-string-formatting/"><em><strong>Adding Multiple variables</strong></em></a></p>
+<ul>
+<li><a href="https://realpython.com/python-string-formatting/"><em><strong>%d –&gt; d is for integers</strong></em></a></li>
+<li><p><strong>See below for example</strong></p>
+<p>name = “Austin” year = 2020 formatted_string = “Hello %s. The year is %d” % (name, year) print(formatted_string)</p>
+<p>""" answer is:</p>
+<p>Hello Austin. The year is 2020 """</p></li>
+</ul></li>
+<li><p>You can also add multiple variables into one string</p>
+<ul>
+<li>if you want only two digits after the float it looks like this</li>
+<li>%.2f</li>
+<li><p><strong>See below for example</strong></p>
+<p>product_name = “Banana” prouduct_price = 1.23 product_id = 123456 formatted_string = “Product name: %s. Product ID: %d. Price: %.2f” % (product_name, product_id, product_price) print(formatted_string)</p>
+<p>""" answer is: Product name:</p>
+<p>Banana. Product ID: 123456. Price: 1.23 """</p></li>
+</ul></li>
+</ul>
+<h2 id="perform-basic-string-operations"><a href="#Perform-basic-string-operations" title="Perform-basic-string-operations"></a>Perform basic string operations</h2>
+<p>You can think of a string as anything between quotes. Strings store a sequence of characters or bits of text.</p>
+<p>There are lots of ways you can interact with strings in Python.</p>
+<ul>
+<li><p>Performing basic string operations</p>
+<ul>
+<li>string manipulation comes up all the time in technical interviews so having the basics will help us through it</li>
+<li><p>using the following variable:</p>
+<p>my_string = “Hello, World!”</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-string-length-len/"><em><strong>Print Length</strong></em></a></p>
+<ul>
+<li>to get the length of a string use the <em><strong>len()</strong></em> function</li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(len(my_string))</p>
+<p>""" answer is:</p>
+<p>13 This is because it counts everything between the "" including the space. """</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-list-index/"><em><strong>Print Index</strong></em></a></p>
+<ul>
+<li>to get the index you use <em><strong>.index()</strong></em></li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.index(“e”))</p>
+<p>""" –&gt; this will give us the first index where “e” appears “e” appears at index 1</p>
+<p>Answer is:</p>
+<p>1 """</p></li>
+</ul></li>
+<li><p>We can also give it the substring like “rld”</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.index(“rld”))</p>
+<p>""" –&gt; this will give us the first index where “rld” appears. “rld” appears at index 9</p>
+<p>answer is:</p>
+<p>9 """</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-list-function-count/"><em><strong>count occurrences</strong></em></a></p>
+<ul>
+<li>to get the count we use <em><strong>.count()</strong></em></li>
+<li>we can also count the occurrences of the time the substring occurs</li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.count(“l”))</p>
+<p>""" answer is:</p>
+<p>3 This is because there are a total of 3 l’s in our string """</p></li>
+</ul></li>
+<li><p>we can also give it substrings like “He”</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.count(“He”))</p>
+<p>""" answer is:</p>
+<p>1 This is because there is only 1 set of He and that is in Hello """</p></li>
+</ul></li>
+<li><p><a href="https://www.programiz.com/python-programming/methods/built-in/slice"><em><strong>slice the string</strong></em></a></p>
+<ul>
+<li>to slice we use [ # : # ]</li>
+<li>slicing a string is if we only wanted a certain section of the string</li>
+<li>we can parse that one section</li>
+<li><p>so if we want to get the letters ell <em>(remember that lists are 0 base)</em> we will start with the index 1</p>
+<ul>
+<li>we want to include 1, 2, 3 so we want to make sure we stop before index 4<br />
+this will slice it</li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.[1:4])</p>
+<p>""" answer is:</p>
+<p>ell """</p></li>
+</ul></li>
+<li><p>We can also skip - such as wanting every other letter in a certain section</p>
+<ul>
+<li>so if we want to start index 7 and end at index 12 and then skip every other world and add another colon</li>
+<li>we will get every other two letters and it will print out</li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.[7:12:2])</p>
+<p>""" answer is:</p>
+<p>Wrd so index 7 starts on W and index 12 ends with ! every other letter in World is WRD """</p></li>
+</ul></li>
+<li><p>With slicing you can also reverse the string → you can do this with any sort of list</p>
+<ul>
+<li>to do that you would start with colon, colon and negative 1</li>
+<li>: : - 1 :</li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.[7:12:2])</p>
+<p>""" answer is:</p>
+<p>!dlroW ,olleH """</p></li>
+</ul></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-string-upper/"><em><strong>Upper Case</strong></em></a></p>
+<ul>
+<li>we use the <em><strong>.upper()</strong></em> function</li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.upper())</p>
+<p>""" answer is:</p>
+<p>HELLO, WORLD! """</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-string-lower/"><em><strong>Lower Case</strong></em></a></p>
+<ul>
+<li>we use the <em><strong>.lower()</strong></em> function</li>
+<li><p><strong>See below for example</strong></p>
+<ul>
+<li>click for links for <em><a href="https://www.geeksforgeeks.org/isupper-islower-lower-upper-python-applications/">**isupper()</a></em>** and <a href="https://www.geeksforgeeks.org/isupper-islower-lower-upper-python-applications/"><em><strong>islower()</strong></em></a></li>
+</ul>
+<p>my_string = “Hello, World!” print(my_string.lower())</p>
+<p>""" answer is:</p>
+<p>hello, world! """</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-startswith-endswidth-function/"><em><strong>Starts with</strong></em></a></p>
+<ul>
+<li>we use <em><strong>.startswith()</strong></em> function</li>
+<li>this allows us to check the string and see if it starts with something</li>
+<li>returns a boolean (True/False) → <strong>remember True/ False is case sensitive</strong></li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.startswith(“H”)</p>
+<p>""" answer is:</p>
+<p>true """</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/string-endswith-python/"><em><strong>Ends with</strong></em></a></p>
+<ul>
+<li>we use <em><strong>.endswith()</strong></em> function</li>
+<li>this allows us to check the string and see if it ends with something</li>
+<li>returns a boolean (True/False) → <strong>remember True/ False is case sensitive</strong></li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.endswith(“!”)</p>
+<p>""" answer is:</p>
+<p>true """</p></li>
+</ul></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-string-split/"><em><strong>Split String</strong></em></a></p>
+<ul>
+<li>we use <em><strong>.split()</strong></em> function</li>
+<li>this allows us to take a string and break it up into separate strings</li>
+<li>this is common with comma separated values or if you want to split sentences</li>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.split(" "))</p>
+<p>""" —&gt; we are splitting it by the space between Hello, and World!</p>
+<p>answer is:</p>
+<p>[“Hello,”, "World!] it comes back as an array/list</p>
+<p>"""</p></li>
+</ul></li>
+<li><p>You can also separate it by the comma and the space so you don’t get confused with all the commas</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>my_string = “Hello, World!” print(my_string.split(“,”))</p>
+<p>""" —&gt; we are splitting between the comma and the space</p>
+<p>answer is:</p>
+<p>[“Hello”, "World!] it comes back as an array/list and the comma is gone """</p></li>
+</ul></li>
+</ul>
+<h2 id="evaluate-conditional-expressions-and-use-boolean-operators-to-control-flow"><a href="#Evaluate-conditional-expressions-and-use-boolean-operators-to-control-flow" title="Evaluate-conditional-expressions-and-use-boolean-operators-to-control-flow"></a><strong>Evaluate conditional expressions and use boolean operators to control flow</strong></h2>
+<p>Python uses boolean values to evaluate conditions. An expression in any Boolean context will evaluate to a Boolean value and then control your program’s flow. Python’s boolean values are written as True and False <em>(make sure you capitalize the first character)</em>.</p>
+<p>Conditionals and Booleans statements</p>
+<ul>
+<li>In Python, the IF statement is how you perform decision making code.</li>
+<li>It allows for conditional execution of the statement or group of statements base on the value<br />
+of an expression.</li>
+<li>This allows us to perform different computations or actions depending on whether a condition evaluates to true or false.</li>
+<li>A boolean is used to test whether the result of an expression is True or False → <strong>remember True/ False is case sensitive</strong></li>
+</ul>
+<p><a href="https://www.w3schools.com/python/gloss_python_comparison_operators.asp"><strong>Comparison Operators</strong></a></p>
+<ul>
+<li>Comparison operators are used to compare two value</li>
+</ul>
+<p><a href="https://www.notion.so/3b3b2fabbe8e4b1e8a0683cda8cfe2f2">Comparison Operators</a></p>
+<ul>
+<li><p>the == operator</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>x = 10 print(x == 10)</p>
+<p>""" answer is:</p>
+<p>True """</p></li>
+</ul></li>
+<li><p>greater than sign &gt;</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>x = 10 print(x &gt; 5)</p>
+<p>""" answer is:</p>
+<p>True """</p></li>
+</ul></li>
+<li><p>greater than or equal to ≥</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>x = 10 print(x &gt;= 5)</p>
+<p>""" answer is:</p>
+<p>True """</p></li>
+</ul></li>
+<li><p>less than sign &lt;</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>x = 10 print(x &lt; 5)</p>
+<p>""" answer is:</p>
+<p>False """</p></li>
+</ul></li>
+<li><p>less than or equal to ≤</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>x = 10 print(x &lt;= 5)</p>
+<p>""" answer is:</p>
+<p>False """</p></li>
+</ul></li>
+<li><p>not equal to !=</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>x = 10 print(x != 5)</p>
+<p>""" answer is: True """</p></li>
+</ul></li>
+<li><p>use and + or</p>
+<ul>
+<li>The and &amp; or are logical operators to combine conditional statements</li>
+</ul></li>
+<li><p><a href="https://www.w3schools.com/python/python_operators.asp"><strong>and operator</strong></a></p>
+<ul>
+<li>returns True if both statements are True</li>
+<li>we can use control flow
+<ul>
+<li><em><strong>if name is == to Elon and age is = to 49</strong></em>
+<ul>
+<li><em><strong>print(“Yay, we found Elon!”)</strong></em></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>name = “Elon” age = 49 if name == “Elon” and age == 49: print(“Yay! we found Elon!!”)</p>
+<p>""" answer is:</p>
+<p>Yay! we found Elon!! """</p></li>
+</ul></li>
+<li><p>If we <strong>ONLY</strong> change the age to 42</p>
+<ul>
+<li>the result is <strong>DOESN’T</strong> print</li>
+<li><p><strong>See below for example</strong></p>
+<p>name = “Elon” age = 49 if name == “Elon” and age == 42: print(“Yay! we found Elon!!”)</p>
+<p>""" answer is:</p>
+<p>Nothing will pring because this block of did not execute because it do not evaluate to true """</p></li>
+</ul></li>
+<li><p>or operator</p>
+<ul>
+<li>returns True if one of the statements are True</li>
+<li>if we wanted to only print out one of the statements that are True
+<ul>
+<li><em><strong>if name is == to Elon or age is == to 49</strong></em>
+<ul>
+<li><em><strong>print(“Yay, we found Elon!!”)</strong></em></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>name = “Elon” age = 49 if name == “Elon” or age == 42: print(“Yay! we found Elon!!”)</p>
+<p>""" answer is:</p>
+<p>Yay! We found Elon!! """</p></li>
+</ul></li>
+<li><p>use in</p>
+<ul>
+<li>“In” is part of the Membership operators which are used to test if a sequence is presented in an object</li>
+</ul></li>
+<li><p>in operator</p>
+<ul>
+<li>Returns True if a sequence with a specified value is present in the object</li>
+<li><p><strong>See below for example</strong></p>
+<p>years = [2015, 2016, 2017, 2018, 2019, 2020] year = 2019 if year in years: print(“Yay!”)</p>
+<p>""" answer is:</p>
+<p>Yay! """</p></li>
+</ul></li>
+</ul>
+<h2 id="use-for-and-while-loops-and-break-and-continue-statements"><a href="#Use-for-and-while-loops-and-break-and-continue-statements" title="Use-for-and-while-loops-and-break-and-continue-statements"></a><strong>Use for and while loops and break and continue statements</strong></h2>
+<p>You can use two types of loops in Python, a <code>for</code> loop and a <code>while</code> loop. A <code>for</code> loop iterates over a given sequence (iterator expression). A <code>while</code> loop repeats as long as a boolean context evaluates to <code>True</code>.</p>
+<p>The <code>break</code> statement terminates the loop containing it. Control of the program flows to the statement immediately after the body of the loop. If the <code>break</code> statement is inside a nested loop (loop inside another loop), the <code>break</code> statement will only terminate the innermost loop.</p>
+<p>You can use the <code>continue</code> statement to skip the rest of the code inside a loop <em>for the current iteration only</em>. The loop does not terminate entirely but continues with the next iteration.</p>
+<p>Use for and while loops and break and continue statements</p>
+<ul>
+<li>Loops are a great way to iterate through a data set or through a certain range or keep going and repeating a certain action until a conditional is met.</li>
+<li><p>there are two types of loops</p>
+<ol type="1">
+<li>For loop -
+<ul>
+<li>which is used for iterating over a sequence <em>(that is either a list, a tuple, a dictionary, a set, or a string)</em></li>
+</ul></li>
+<li>While loop -
+<ul>
+<li>with while loop we can execute a set of statements as long as the condition is True</li>
+</ul></li>
+</ol></li>
+<li><p><a href="https://www.geeksforgeeks.org/python-range-function/"><em><strong>Range( )</strong></em></a></p>
+<ul>
+<li>Range() is a build-in function of Python.</li>
+<li>It is used when a user needs to perform an action for a specific number of times</li>
+<li>the range() function returns a sequence of numbers
+<ul>
+<li>so when using it you will print from the starting value up until the value requested.<br />
+so we used 5 so it will run 4 and stop at 5</li>
+</ul></li>
+</ul></li>
+<li><p>We want to print out the values between 0 and 4</p>
+<ul>
+<li>so we want it to be 0, 1, 2, 3, 4</li>
+<li>we can do a bunch of print statements but that is repetitive</li>
+<li>best practice is to use the For loop</li>
+<li><p><strong>See below for example</strong></p>
+<p>for x in range(5): print(x)</p>
+<p>""" answer is:</p>
+<pre><code>             0
+           1
+           2
+           3
+           4</code></pre>
+<p>"""</p></li>
+</ul></li>
+<li><p>what if we want to print the values in between 1 and 10</p>
+<ul>
+<li>first value in range is inclusive, while the second value is exclusive</li>
+<li><p><strong>See below for example</strong></p>
+<p>for x in range(1, 11): print(x)</p>
+<p>""" answer is:</p>
+<pre><code>           1
+           2
+           3
+           4
+           5
+           6
+           7
+           8
+           9
+           10</code></pre>
+<p>"""</p></li>
+</ul></li>
+<li><p>What if we want to just print the odd numbers</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>for x in range(1, 11, 2): print(x)</p>
+<p>""" –&gt; because it starts on an odd number we can say for every two values print something</p>
+<p>answer is:</p>
+<pre><code>           1
+           3
+           5
+           7
+           9</code></pre>
+<p>"""</p></li>
+</ul></li>
+<li><p><a href="https://www.programiz.com/python-programming/while-loop"><em><strong>While loop</strong></em></a></p>
+<ul>
+<li>While loop in Python is used to iterate over a block of code as long as the test expression (condition) is True</li>
+<li>repeats as long as a boolean context evaluates to true</li>
+<li>we want to print out the values 0 through 4</li>
+<li><p><strong>See below for example</strong></p>
+<ul>
+<li>We printed the values 0 through 4, so this loop goes 5 times</li>
+<li>print each value and then increment x by 1</li>
+<li>as soon as x = 5 we exit the while loop</li>
+</ul>
+<p>while x &lt; 5: –&gt; while x is less than 5 print(x) –&gt; print x x += 1 –&gt; increment x by 1</p>
+<p>""" answer is:</p>
+<pre><code>           0
+           1
+           2
+         3
+           4</code></pre>
+<p>"""</p></li>
+</ul></li>
+<li><p>In Loops you can also use break</p>
+<ul>
+<li><p><a href="https://www.programiz.com/python-programming/break-continue"><em><strong>break</strong></em></a></p>
+<ul>
+<li>In Python, <em><strong><a href="https://www.programiz.com/python-programming/break-continue">break</a></strong></em> and <a href="https://www.programiz.com/python-programming/break-continue"><em><strong>continue</strong></em></a> statements can alter the flow of a normal loop.</li>
+<li>Loops iterate over a block of code until the test expression is False</li>
+<li>But sometimes we wish to terminate the current iteration or even the whole loop without checking test</li>
+<li>If the <em><strong><a href="https://www.programiz.com/python-programming/break-continue">break</a></strong></em> statement is inside a nested loop (loop inside another loop), the break statement will terminate the innermost loop</li>
+<li><p><strong>See below for example</strong></p>
+<p>x = 0</p>
+<p>while True: if x == 5: break —&gt; spaced 8 print(x) x += 1</p>
+<p>""" answer is:</p>
+<pre><code>         0
+         1
+         2
+           3
+         4</code></pre>
+<p>"""</p></li>
+</ul></li>
+</ul></li>
+<li><p>What if we want to print out the odd numbers</p>
+<ul>
+<li><p><a href="https://www.programiz.com/python-programming/break-continue"><em><strong>continue</strong></em></a></p>
+<ul>
+<li>The <a href="https://www.programiz.com/python-programming/break-continue"><em><strong>continue</strong></em></a> statement is used to skip the rest of the code inside a loop for the current iteration <strong>ONLY</strong></li>
+<li>Loop does <strong>NOT</strong> terminate but <strong>CONTINUES</strong> on the next iteration</li>
+<li><p><strong>See below for example</strong></p>
+<p>x = 0 while x &lt; 10: x += 1 if x % 2 == 0: –&gt; this means if it is even because we started with 0 continue –&gt; spaced 8 print(x)</p>
+<p>""" answer is:</p>
+<pre><code>         1
+         3
+         5
+         7
+         9</code></pre>
+<p>"""</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="if-elif-else-statements"><a href="#If…-Elif…-Else-Statements" title="If…-Elif…-Else-Statements"></a><a href="https://www.programiz.com/python-programming/if-elif-else">If… Elif… Else Statements</a></h2>
+<p>The if…elif… else statement is used in Python for decision making</p>
+<h2 id="using-elif"><a href="#Using-elif" title="Using-elif"></a><strong>Using elif</strong></h2>
+<ul>
+<li>elif is part of the <em><strong><a href="https://www.w3schools.com/python/python_conditions.asp">if…else</a></strong></em> conditions</li>
+<li>These can be used in several ways, most commonly in <em><strong>“if statements”</strong></em> and loops</li>
+<li>The <em><strong>if-elif</strong></em> statement is used to conditionally execute a statement or a block of statements</li>
+<li>Conditions can be True or False, executed one thing when the condition is True, something else when the condition is False</li>
+<li><p>this will help with checking many things and have to have so many if statements</p>
+<ul>
+<li><strong>See below for example</strong></li>
+</ul>
+<p>first_statement = False second_statement = True</p>
+<p>if first_statement: print(“first”) elif second_statement: print(“second”) else: print(“none are true”)</p>
+<p>""" answer is:</p>
+<p>second """</p></li>
+<li><p>If both are False</p>
+<ul>
+<li><strong>See below for example</strong></li>
+</ul>
+<p>first_statement = False second_statement = False</p>
+<p>if first_statement: print(“first”) elif second_statement: print(“second”) else: print(“none are true”)</p>
+<p>""" answer is:</p>
+<p>none are true """</p></li>
+<li>this will help with checking many things and have to have so many if statements</li>
+<li><p><strong>See below for example</strong></p>
+<p>first_statement = True second_statement = True</p>
+<p>if first_statement: print(“first”) elif second_statement: print(“second”) else: print(“none are true”)</p>
+<p>""" answer is:</p>
+<p>first """</p></li>
+</ul>
+<h2 id="use-list-comprehensions"><a href="#Use-list-comprehensions" title="Use-list-comprehensions"></a>Use list comprehensions</h2>
+<p>List comprehensions are a potent tool. With a list comprehension, you can create a new list based on another list in a single, highly readable line.</p>
+<p>The format of a list comprehension follows this syntax:</p>
+<p><code>[&lt;map expression&gt; for &lt;name&gt; in &lt;sequence expression&gt; if &lt;filter expression&gt;]</code></p>
+<p>The most distinctive feature of Python is the List Comprehension, which you can use to create powerful functionality within a single line of code.</p>
+<p>List comprehensions are very powerful tool for:</p>
+<ul>
+<li><a href="https://www.w3schools.com/python/python_iterators.asp"><em><strong>Iterating</strong></em></a>
+<ul>
+<li>An iterator is an object that contains a countable number of values</li>
+<li>An iterator is an object that can be iterated upon —&gt; meaning that you can traverse through all values</li>
+<li>An iterator is an object which implements the iterator protocol</li>
+<li><strong>Consist of the methods</strong>
+<ul>
+<li><em>**_iter</em>( )**_</li>
+<li><em>**_next</em>( )**_</li>
+</ul></li>
+</ul></li>
+<li><a href="https://www.geeksforgeeks.org/python-map-function/"><em><strong>Mapping</strong></em></a>
+<ul>
+<li><em><strong>map( )</strong></em> function returns a map object <em>(which is an iterator)</em> of the results after applying the given function of each item of a given iterable <em>(list, tuple, etc)</em></li>
+<li>Syntax:
+<ul>
+<li><em><strong>map(fun, iter)</strong></em>
+<ul>
+<li>fun - is a function to which map passes each element of given iterable</li>
+<li>iter - It is a iterable which is to me mapped</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="https://www.geeksforgeeks.org/filter-in-python/"><em><strong>Filtering</strong></em></a>
+<ul>
+<li><em><strong>filter( )</strong></em> method filters the given sequence with the help of a function that tests each element in the sequence to be True or not</li>
+<li>Syntax:
+<ul>
+<li><em><strong>filter(function, sequence)</strong></em></li>
+</ul></li>
+<li>Parameters:
+<ul>
+<li>function - function that tests if each element of a sequence is True or Not</li>
+<li>sequence - sequence which needs to be filtered, it can be sets, lists, tuples, or containers of any iterators</li>
+</ul></li>
+<li>Returns:
+<ul>
+<li>returns an iterator that is already filtered.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="create-user-defined-functions-and-call-them"><a href="#Create-User-Defined-Functions-and-Call-Them" title="Create-User-Defined-Functions-and-Call-Them"></a><strong>Create User-Defined Functions and Call Them</strong></h2>
+<p>To make our code more readable and <strong><a href="https://realpython.com/lessons/dry-principle/">DRY</a> (Don’t Repeat Yourself)</strong>, we often want to encapsulate code inside a callable function.</p>
+<ul>
+<li>In any large python script you definitely want to use functions
+<ul>
+<li>it helps make your code usable</li>
+<li>readable</li>
+<li>avoid repeating</li>
+</ul></li>
+<li>This is extremely important in any large Python script you write</li>
+</ul>
+<p>To create our own function you have to use the following terminology</p>
+<ul>
+<li>First define the function by using “<em><strong>def</strong></em>”</li>
+<li>Then we are going to put the function name</li>
+<li><p>then we will are going to pass in the function arguments via parentheses</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>def function_name(argument_1, argument_2, etc.):</p></li>
+</ul></li>
+<li><p>Let’s go ahead and take a look and see how this works in code.</p>
+<ul>
+<li>We are going to create a greeting function</li>
+<li>we are going to start with “<em><strong>def</strong></em>” —&gt; short for define</li>
+<li>then we are going to call the function “<em><strong>greet</strong></em>”</li>
+<li><p>then we are going to pass our variables</p>
+<ul>
+<li>Name</li>
+<li>Greeting
+<ul>
+<li><em><strong>def greet(name, greeting):</strong></em></li>
+</ul></li>
+</ul></li>
+<li><p>So with the name and greeting we are going to great that person, with the greeting they chose.</p>
+<ul>
+<li>we are going to print “Hello %s, then the greeting %s”</li>
+<li>then we will fill this in with % (name, greeting)
+<ul>
+<li><em><strong>print(“Hello, %s, %s” % (name, greeting))</strong></em></li>
+</ul></li>
+<li>So let’s call this:
+<ul>
+<li>Greet Austen</li>
+<li>then the greeting can be “nice to meet ya”
+<ul>
+<li><em><strong>greet(“Austen”, “nice to meet ya”)</strong></em></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<ul>
+<li>it took the string Austen and stuck it with <em><strong>name</strong></em></li>
+<li>then it took the string and stuck that with <em><strong>greeting</strong></em></li>
+<li>it took those arguments and went ahead and used them in the print statement</li>
+</ul>
+<p>def greet(name, greeting): print(“Hello, %s, %s” % (name, greeting))</p>
+<p>greet(“Austen”, “nice to meet ya!”)</p>
+<p>""" it will return:</p>
+<p>Hello Austen, nice to meet ya! """</p></li>
+</ul></li>
+<li><p>With functions we can use the return statement</p>
+<ul>
+<li>The <em><strong><a href="https://realpython.com/python-return-statement/">return</a></strong></em> statement is a <strong>key</strong> component of <a href="https://realpython.com/defining-your-own-python-function/"><em><strong>functions</strong></em></a> and <em><strong><a href="https://realpython.com/python3-object-oriented-programming/#instance-methods">methods</a></strong></em></li>
+<li>You can use the return statement to make your functions send Python objects back to the caller code.</li>
+<li>These are also known as the functions <a href="https://realpython.com/python-return-statement/"><em><strong>return value</strong></em></a></li>
+</ul></li>
+<li><p>Let’s say we want to create a function that could double any number</p>
+<ul>
+<li>Well call it “def” double and pass in the variable x
+<ul>
+<li><em><strong>def double(x):</strong></em></li>
+</ul></li>
+<li>Then we want to return x multiple 2.
+<ul>
+<li><em><strong>return x * 2</strong></em></li>
+</ul></li>
+<li>This <em><strong>return</strong></em> will return the value back to you</li>
+<li>If we said, the variable <em><strong>eight</strong></em> is equal to double four
+<ul>
+<li><em><strong>eight = double(4)</strong></em></li>
+</ul></li>
+<li>Then we printed eight
+<ul>
+<li><em><strong>print(eight)</strong></em></li>
+</ul></li>
+<li>You would see that we would get the number 8
+<ul>
+<li>This is because we passed in 4 into the function double</li>
+<li>Then we went ahead and returned 4 * 2</li>
+<li>And we passed 4 * 2 with this statement
+<ul>
+<li><em><strong>eight = double(4)</strong></em></li>
+</ul></li>
+<li>So we set eight to equal 8</li>
+<li>then we printed it</li>
+</ul></li>
+<li><strong>See below for example</strong></li>
+</ul>
+<p>def double(x): return x * 2</p>
+<p>eight = double(4) print(eight)</p>
+<p>""" answer is:</p>
+<p>8 """</p></li>
+</ul></li>
+</ul>
+<h2 id="create-user-defined-classes-and-interact-with-instances-of-those-classes"><a href="#Create-user-defined-classes-and-interact-with-instances-of-those-classes" title="Create-user-defined-classes-and-interact-with-instances-of-those-classes"></a>Create user-defined classes and interact with instances of those classes</h2>
+<p>A Python object encapsulates variables <em>(data)</em> and functions <em>(behavior)</em> into a single entity. An object instance gets its variables and functions from the class that was used to instantiate it. Think of a class as a blueprint or template that you can use to create objects.</p>
+<ul>
+<li><p><a href="https://www.geeksforgeeks.org/python-classes-and-objects/"><em><strong>Class Methods</strong></em></a></p>
+<ul>
+<li>A <em><strong>class</strong></em> is a user-defined blueprint or prototype from which objects are created</li>
+<li><em><strong>Classes</strong></em> provide the means of bundling data and functionality together</li>
+<li>Creating new <em><strong>classes</strong></em> creates a new type of object, allowing new instances of the type to be made.</li>
+<li>Each <em><strong>class</strong></em> instance can have attributes attached to it for maintaining its state</li>
+<li><em><strong>Class</strong></em> instances can also have methods <em>(defined by their class)</em> for modifying their state</li>
+</ul></li>
+<li><p><em><strong>Classes</strong></em> are like a template</p>
+<ul>
+<li>Objects are instances of the template</li>
+<li>Every single object in Python is sort of like an instance of this template</li>
+<li>We can create as many templates as possible</li>
+</ul></li>
+<li><p><strong>Let’s see how this work in code:</strong></p>
+<ul>
+<li>In order to define a class you simply use “<em><strong>Class</strong></em>”</li>
+<li>Lets call our first class my first class
+<ul>
+<li><em><strong>class MyFirstClass:</strong></em></li>
+</ul></li>
+<li><p>In classes you can set variables</p>
+<ul>
+<li><p>lets set a variable equal to data</p>
+<ul>
+<li><em><strong>variable = “data”</strong></em></li>
+</ul></li>
+<li><p>Then we can also <em><strong>define functions</strong></em> within the <em><strong>classes</strong></em></p>
+<ul>
+<li>We will define a function called <em><strong>function</strong></em></li>
+<li>And for every function we are going to pass in our <em><strong>self</strong></em></li>
+<li>Because we are taking ourselves an instance of this <em><strong>class</strong></em>
+<ul>
+<li><em><strong>def function(self):</strong></em></li>
+</ul></li>
+<li>Then we can do whatever we want in the function</li>
+<li>In the function <em><strong>self</strong></em> is just one of the parameters
+<ul>
+<li>You can also include as many other as you want</li>
+</ul></li>
+<li>Now we can print I am in my function
+<ul>
+<li><em><strong>print(“I am in my function!”)</strong></em></li>
+</ul></li>
+<li>In order to actually create an instance of this <em><strong>class</strong></em></li>
+<li>We again need to create an object</li>
+<li>So we will create a new variable called <em><strong>a_class()</strong></em>
+<ul>
+<li><em><strong>a_class = MyFirstClass()</strong></em></li>
+</ul></li>
+<li>So this is actually creating an instance of <em><strong>MyFirstClass()</strong></em></li>
+<li>If we print <em><strong>a_class.variable</strong></em>
+<ul>
+<li><em><strong>print(a_class.variable)</strong></em></li>
+</ul></li>
+<li>This will return <em><strong>“data”</strong></em></li>
+<li>So now <em><strong>a_class</strong></em> is basically an object
+<ul>
+<li>Just like JavaScript we add an object by using the <em><strong>class.</strong></em></li>
+<li>to actually get the attributes of that <em>class</em></li>
+</ul></li>
+<li>If we call <em><strong>a_class.function()</strong></em>
+<ul>
+<li>This will print <em><strong>“I am in my function!”</strong></em></li>
+</ul></li>
+<li>You can create as many instance of this <em><strong>class</strong></em> as you want</li>
+<li>We can also create a <em><strong>b_class()</strong></em>
+<ul>
+<li><em><strong>b_class = MyFirstClass()</strong></em></li>
+</ul></li>
+<li>Then we can print out by using the function
+<ul>
+<li><em><strong>b_class.function()</strong></em>
+<ul>
+<li>This will print out twice <em><strong>“I am in my function!”</strong></em></li>
+<li>This is because we are calling it from both our <em><strong>a_class</strong></em> and <em><strong>b_class</strong></em></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>class MyFirstClass: variable = “data”</p>
+<pre><code>def function(self):
+    print(&quot;I am in my function!&quot;)</code></pre>
+<p>a_class = MyFirstClass() print(a_class.variable) a_class.function()</p>
+<p>b_class = MyFirstClass() b_class.function()</p></li>
+<li>We can set different parameters so we can also pass in <em><strong>number</strong></em>
+<ul>
+<li><em><strong>def function(self, number):</strong></em></li>
+</ul></li>
+<li>And we can actually do a ternary and print it out
+<ul>
+<li><em><strong>print(“I am in my function!! %d” % number)</strong></em></li>
+</ul></li>
+<li>So lets pass in the go ahead an pass in a number
+<ul>
+<li><em><strong>a_class.function(2)</strong></em></li>
+<li><em><strong>b_class.function(5)</strong></em></li>
+</ul></li>
+<li>Run our code again</li>
+<li>It will return
+<ul>
+<li><em><strong>"I am in my function! 2</strong></em></li>
+<li><em><strong>"I am in my function! 5</strong></em></li>
+</ul></li>
+<li>We use these functions like normal functions</li>
+<li>But you have to contain this attribute of <em><strong>self</strong></em></li>
+<li><p>And you can access all these different attributes by using the dot method</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>class MyFirstClass:</p>
+<pre><code>variable = &quot;data
+
+def function(self, number):
+    print(&quot;I am in my function!! %d&quot; % number)</code></pre>
+<p>a_class = MyFirstClass() print(a_class.variable) a_class.function(2)</p>
+<p>b_class = MyFirstClass() b_class.function(5)</p></li>
+</ul>
+<h2 id="perform-basic-dictionary-operations"><a href="#Perform-Basic-Dictionary-Operations" title="Perform-Basic-Dictionary-Operations"></a><strong>Perform Basic Dictionary Operations</strong></h2>
+<p>A <em><strong><a href="https://www.geeksforgeeks.org/python-dictionary/">dictionary</a></strong></em> is like a list, but instead of accessing values with an index, you access values with a “<em><strong><a href="https://www.programiz.com/python-programming/methods/dictionary/keys">key</a></strong></em>.” A “<em><strong><a href="https://www.programiz.com/python-programming/methods/dictionary/keys">key</a></strong></em>” can be any type of object <em>(string, number, list, etc.).</em> Also, unlike lists, dictionaries do not have an order.</p>
+<ul>
+<li><p><em><strong><a href="https://www.geeksforgeeks.org/python-dictionary/">Dictionaries</a></strong></em></p>
+<ul>
+<li>Dictionaries in Python is an unordered collection of data values, used to store data values like a map, which unlike other Data Types that hold only single value as an element</li>
+<li>Is a collection which is unordered, changeable and indexed.</li>
+<li>In Python <em><strong>dictionaries</strong></em> are written with curly brackets and they have <em><strong>keys and values</strong></em></li>
+<li><em><strong>Dictionaries</strong></em> holds <strong>key: value pair</strong></li>
+<li><em><strong><a href="http://www.compciv.org/guides/python/fundamentals/dictionaries-overview/">Key value</a></strong></em> is provided in the dictionary to make it more optimized
+<ul>
+<li><strong>NOTE: Keys in a dictionary doesn’t allow polymorphism</strong></li>
+<li><em><strong>Polymorphism</strong></em> is the condition of occurring in several different forms</li>
+</ul></li>
+</ul></li>
+<li><p>When using a <em><strong>dictionaries</strong></em> you have:</p>
+<ul>
+<li><em><strong>key -</strong></em>
+<ul>
+<li>Any type of object <em><strong>(string, number, list, etc)</strong></em></li>
+</ul></li>
+<li><em><strong>value -</strong></em>
+<ul>
+<li>which is the body of the data</li>
+</ul></li>
+<li>Using the <em><strong>key/value pair</strong></em> you are mapping one piece of data</li>
+</ul></li>
+<li>One key difference between <em><strong>dictionaries</strong></em> and lists</li>
+<li><p><em><strong>Dictionaries</strong></em> is another way to store data</p>
+<ul>
+<li><strong><em>Dictionaries</em> DO NOT</strong> have any particular sort of order</li>
+</ul></li>
+<li><p>Let’s take a look at how <em><strong>dictionaries</strong></em> work</p>
+<ul>
+<li>Let’s say we have a phone book and in it we want to map a person’s name to there phone number</li>
+<li>In order to declare a dictionary
+<ul>
+<li>you set it equal to an empty set of curly braces
+<ul>
+<li><em><strong>phonebook = {}</strong></em></li>
+</ul></li>
+</ul></li>
+<li>In order to add a value to a dictionary you need to call the dictionary
+<ul>
+<li>In this case it is <em><strong>phonebook</strong></em></li>
+<li>we will use a bracket</li>
+<li>then we are going to place the key
+<ul>
+<li>in this case it is a name</li>
+</ul></li>
+<li>We will set it to equal the phone number
+<ul>
+<li><em><strong>phonebook[“Joshua”] = 1233214567</strong></em>
+<ul>
+<li>the key is phonebook</li>
+<li>and the value is Joshua</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Lets add a few more values
+<ul>
+<li><em><strong>phonebook[“Austen”] = 3142245555</strong></em></li>
+<li><em><strong>phonebook[“CoolCat”] = 3144431515</strong></em></li>
+</ul></li>
+<li>Now we added three <em><strong>key value pairings</strong></em> to our <em><strong>phonebook</strong></em></li>
+<li>Lets <em><strong>print</strong></em> our <em><strong>dictionary</strong></em> and see what it looks like
+<ul>
+<li><em><strong>print(phonebook)</strong></em></li>
+</ul></li>
+<li>This will pull the entire <em><strong>dictionary</strong></em>
+<ul>
+<li><em><strong>{‘Joshua’: 1233214567, ‘Austen’: 3142245555, ‘CoolCat’: 3144131515}</strong></em></li>
+<li>This shows every single key value pair</li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>phonebook = {} phonebook[“Joshua”] = 1233214567 phonebook[“Austen”] = 3142245555 phonebook[“CoolCat”] = 3144431515 print(phonebook)</p></li>
+<li>Another way to <em><strong>instantiate</strong></em> the <em><strong>dictionary</strong></em> is to create it within the <em><strong>declaration</strong></em> itself
+<ul>
+<li>Inside the <em><strong>curly braces</strong></em> we can add <em><strong>“Joshua”</strong></em> then colon and then the phone number
+<ul>
+<li><em><strong>phonebook = {<br />
+“Joshua”: 1233214567<br />
+}</strong></em></li>
+</ul></li>
+<li>Lets add the rest in
+<ul>
+<li><em><strong>phonebook = {<br />
+“Joshua”: 1233214567,<br />
+“Austen”: 3142245555,<br />
+“CoolCat”: 3144431515<br />
+}</strong></em></li>
+</ul></li>
+<li>Now when we <em><strong>print</strong></em> phonebook
+<ul>
+<li><em><strong>print(phonebook)</strong></em></li>
+</ul></li>
+<li>Now it shows the entire <em><strong>dictionary</strong></em> again
+<ul>
+<li><em><strong>{‘Joshua’: 1233214567, ‘Austen’: 3142245555, ‘CoolCat’: 3144131515}</strong></em></li>
+</ul></li>
+<li>We can add to the phonebook after it is <em><strong>instantiated</strong></em></li>
+<li>By doing phonebook
+<ul>
+<li>Lets add a new value “SleepyCat” and set it to equal to the phone number
+<ul>
+<li><em><strong>phonebook[“SleepyCat”] = 6366331515</strong></em></li>
+</ul></li>
+</ul></li>
+<li>Now if we <em><strong>print</strong></em> phonebook again
+<ul>
+<li><em><strong>{‘Joshua’: 1233214567, ‘Austen’: 3142245555, ‘CoolCat’: 3144131515, ‘SleepyCat’: 6366331515}</strong></em></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>phonebook = { “Joshua”: 1233214567, “Austen”: 3142245555, “CoolCat”: 3144431515 } print(phonebook)</p>
+<p>phonebook[“SleepyCat”] = 6366331515 print(phonebook)</p></li>
+<li>Now that we know how to declare a <em><strong>dictionary</strong></em>, lets now <em><strong><a href="https://realpython.com/iterate-through-dictionary-python/">iterate</a></strong></em> through it
+<ul>
+<li><a href="https://realpython.com/iterate-through-dictionary-python/"><em><strong>Iterating</strong></em></a> through a <em><strong>dictionary</strong></em> is similar to iterating through anything else</li>
+<li>You can use a <em><strong>for loop</strong></em>
+<ul>
+<li><em><strong>for name, number in phonebood.items():</strong></em>
+<ul>
+<li>our name is our key</li>
+<li>and our number is our value</li>
+<li>we are going to iterate through its items</li>
+</ul></li>
+</ul></li>
+<li>Now lets print every single one
+<ul>
+<li><em><strong>print(“Name: %s, Phone Number: %d” % (name, number)</strong></em></li>
+</ul></li>
+<li>And it will return
+<ul>
+<li><em><strong>Name: Joshua, Phone Number: 1233214567<br />
+Name: Austen, Phone Number: 3142245555<br />
+Name: CoolCat, Phone Number: 3144131515<br />
+Name: SleepyCat, Phone Number: 6366331515</strong></em></li>
+</ul></li>
+<li>So this went through every signal phonebook item and printed the name and number</li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>phonebook = { “Joshua”: 1233214567, “Austen”: 3142245555, “CoolCat”: 3144431515 } print(phonebook)</p>
+<p>phonebook[“SleepyCat”] = 6366331515</p>
+<p>for name, number in phonebood.items(): print(“Name: %s, Phone Number: %d” % (name, number)</p></li>
+<li>Let’s talk about <em><strong><a href="https://www.tutorialspoint.com/what-is-the-difference-between-del-remove-and-pop-on-lists-in-python">removing</a></strong></em> items from a <em><strong>dictionary</strong></em>
+<ul>
+<li>In order to remove items form a dictionary we actually can use
+<ul>
+<li><a href="https://www.tutorialspoint.com/what-is-the-difference-between-del-remove-and-pop-on-lists-in-python"><em><strong>del</strong></em></a> - short for delete</li>
+</ul></li>
+<li>So lets start with <em><strong>del</strong></em> phonebook of <em><strong>“Austen”</strong></em>
+<ul>
+<li><em><strong>del phonebook[“Austen”]</strong></em></li>
+</ul></li>
+<li>Then print our phonebook
+<ul>
+<li><em><strong>print(phonebook)</strong></em></li>
+</ul></li>
+<li>It will return everything but Austen’s information
+<ul>
+<li><em><strong>{‘Joshua’: 1233214567, ‘CoolCat’: 3144131515, ‘SleepyCat’: 6366331515}</strong></em></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>phonebook = { “Joshua”: 1233214567, “Austen”: 3142245555, “CoolCat”: 3144431515 } print(phonebook)</p>
+<p>phonebook[“SleepyCat”] = 6366331515</p>
+<p>del phonebook[“Austen”] print(phonebook)</p></li>
+<li>Another way to remove/delete from a dictionary is using
+<ul>
+<li><em><strong><a href="https://www.tutorialspoint.com/what-is-the-difference-between-del-remove-and-pop-on-lists-in-python">pop()</a></strong></em> - removes the element at the specified position</li>
+</ul></li>
+<li>if we did phonebook dot <em><strong>pop</strong></em> and passed in <em><strong>“Joshua”</strong></em>
+<ul>
+<li><em><strong>print(phonebook.pop(“Joshua”))</strong></em></li>
+</ul></li>
+<li>We will get Joshua’s phone number in return
+<ul>
+<li><em><strong>1233214567</strong></em></li>
+</ul></li>
+<li>Now if we print phonebook
+<ul>
+<li><em><strong>print(phonebook)</strong></em></li>
+</ul></li>
+<li>The return would look like this
+<ul>
+<li><em><strong>{‘Austen’: 3142245555, ‘CoolCat’: 3144131515, ‘SleepyCat’: 6366331515}</strong></em></li>
+</ul></li>
+<li>The difference between del and pop
+<ul>
+<li>pop will return the deleted item</li>
+<li>del just deletes it without returning anything.</li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>phonebook = { “Joshua”: 1233214567, “Austen”: 3142245555, “CoolCat”: 3144431515 } print(phonebook)</p>
+<p>phonebook[“SleepyCat”] = 6366331515</p>
+<p>print(phonebook.pop(“Joshua”)) print(phonebook)</p></li>
+</ul>
+<h2 id="import-modules"><a href="#Import-modules" title="Import-modules"></a><strong>Import modules</strong></h2>
+<p>A <a href="https://www.w3schools.com/python/python_modules.asp"><em><strong>module</strong></em></a> is a collection of code that is written to meet specific needs.</p>
+<p><strong>For example:</strong></p>
+<ul>
+<li>you could split up different parts of a game you were building into modules.</li>
+<li>Each module would be a separate Python file that you could manage separately.</li>
+</ul>
+<p>The best thing about Python is that so many people already did so much of the work before us; all this work is stored in modules.</p>
+<ul>
+<li>So when you import a module —&gt; you are importing someone else’s work
+<ul>
+<li>You can use the functions in that module</li>
+</ul></li>
+<li>Any Python file that ends with the <em><strong>.py</strong></em> extension is considered a module</li>
+<li><p>Let’s take a look how this works in code</p>
+<ul>
+<li>One of the most common modules is <em><strong><a href="https://www.w3schools.com/python/module_math.asp">math</a></strong></em></li>
+<li><p>Let’s import <em><strong><a href="https://www.w3schools.com/python/module_math.asp">math</a></strong></em></p>
+<ul>
+<li><em><strong>import math</strong></em></li>
+</ul></li>
+<li><p>For instance if we wanted to go ahead and print a factorial of a of an number</p>
+<ul>
+<li>It would look like this:
+<ul>
+<li><em><strong>print(math.factorial(5))</strong></em>
+<ul>
+<li>factorial is a function inside <em><strong><a href="https://www.w3schools.com/python/module_math.asp">math</a></strong></em></li>
+<li>and now can be used because we <em><strong>imported <a href="https://www.w3schools.com/python/module_math.asp">math</a></strong></em></li>
+</ul></li>
+</ul></li>
+<li>Now we will run it
+<ul>
+<li>it returns <em><strong>120</strong></em></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>import math</p>
+<p>print(math.factorial(5))</p>
+<p>""" answer is:</p>
+<p>120 """</p></li>
+<li>When importing <em><strong><a href="https://www.w3schools.com/python/module_math.asp">math</a></strong></em> we have access to all of it’s functions</li>
+<li>What if we want to just import one of the functions
+<ul>
+<li>we would do from <em><strong><a href="https://www.w3schools.com/python/module_math.asp">math</a></strong></em> import <a href="https://www.programiz.com/python-programming/methods/built-in/pow"><em><strong>pow</strong></em></a>
+<ul>
+<li><a href="https://www.programiz.com/python-programming/methods/built-in/pow">***pow</a>*** is another function from math</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><strong>See below for example</strong></p>
+<p>from math import pow</p>
+<p>print(pow(2, 3))</p>
+<p>""" –&gt; this will print 2 to the power of 3</p>
+<p>answer is:</p>
+<p>8.0</p>
+<p>"""</p></li>
+</ul>
+<p>If you just want to import all the functions for math</p>
+<ul>
+<li><p><strong>See below for example</strong></p>
+<p>from math import * –&gt; similar to sql we are selecting all</p>
+<p>print(factorial(6))</p>
+<p>""" answer is:</p>
+<p>720 """</p></li>
+<li>if you want to find out all the actual functions that math offers</li>
+<li><p><strong>See below for example</strong></p>
+<p>import math</p>
+<p>print(dir(math))</p>
+<p>""" this will bring up a list of what is in math’s directory</p>
+<p>[‘<strong>doc</strong>’, ‘<strong>loader</strong>’, ‘<strong>name</strong>’, ‘<strong>package</strong>’, ‘<strong>spec</strong>’, ‘acos’, ‘acosh’, ‘asin’, ‘asinh’, ‘atan’, ‘atan2’, ‘atanh’, ‘ceil’, ‘comb’, ‘copysign’, ‘cos’, ‘cosh’, ‘degrees’, ‘dist’, ‘e’, ‘erf’, ‘erfc’, ‘exp’, ‘expm1’, ‘fabs’, ‘factorial’, ‘floor’, ‘fmod’, ‘frexp’, ‘fsum’, ‘gamma’, ‘gcd’, ‘hypot’, ‘inf’, ‘isclose’, ‘isfinite’, ‘isinf’, ‘isnan’, ‘isqrt’, ‘ldexp’, ‘lgamma’, ‘log’, ‘log10’, ‘log1p’, ‘log2’, ‘modf’, ‘nan’, ‘perm’, ‘pi’, ‘pow’, ‘prod’, ‘radians’, ‘remainder’, ‘sin’, ‘sinh’, ‘sqrt’, ‘tan’, ‘tanh’, ‘tau’, ‘trunc’] """</p></li>
+</ul>
+<p><a href="https://hackmd.io/@iRiEY1k4Qt6w5KIk_9uTHw/HyXw8k-iO">Source</a></p>
+</body>
+</html>

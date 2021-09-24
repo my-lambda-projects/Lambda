@@ -1,0 +1,649 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tools &amp; Platforms </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0656439b-8c47-4c9c-9cbf-59b9b5f3efc4" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1509453721491-c3af5961df76?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 27.73%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🛠</span></div><h1 class="page-title">Tools &amp; Platforms </h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c5972b4b-9daf-4ca5-b5fb-1ffc24c93a56"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%"><strong>Navigating Lambda School: 
+</strong>Because Lambda School is a remote learning environment, we use a variety of tools and platforms to build community and support the Learner experience. Our most commonly used tools/platforms, along with requirements and recommendations for usage, are outlined below. </div></figure><div id="6ba6e64b-5276-4efb-b0a7-2341af16b583" class="column-list"><div id="2db27a68-31df-4e21-9a90-d1e050f90f1e" style="width:56.25%" class="column"><figure id="1eeaf751-ebde-4eca-897f-dd0564e38a6a" class="image"><a href="Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4/DSC09367.jpg"><img style="width:384px" src="Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4/DSC09367.jpg"/></a></figure></div><div id="c37b1181-a3ce-44a8-ae8f-5115f88e6f1d" style="width:43.75%" class="column"><h2 id="8091af41-9d3f-43a5-830b-f9fc491689de" class="">Jump to:</h2><ul id="bba890f9-d532-4b32-9b77-817066ae6a73" class="bulleted-list"><li style="list-style-type:disc"><a href="">Slack</a></li></ul><ul id="ef97e828-8750-4f1e-98fe-24a4268818bb" class="bulleted-list"><li style="list-style-type:disc"><a href="">Zoom</a></li></ul><ul id="5efee0e0-acbb-43e7-8b3b-da7d10e364b6" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/FrontDesk-88c67be0382d4f2e91a1950b6c55dee8">FrontDesk</a></li></ul><p id="13291ff1-9576-487b-855a-e8781b98cc31" class="">
+</p></div></div><p id="7b72b31b-c4de-4fc0-987f-2684e0d2da02" class="">
+</p><hr id="455c295e-ee7d-4dee-a785-b6cd2cc0db44"/><div id="5df28d4a-0458-4bba-90d9-c9a0f5e9c7be" class="column-list"><div id="206a62e5-f801-4c91-bc99-b6668929a7a1" style="width:12.5%" class="column"><figure id="d87d1773-d741-4543-90e5-d5c90c8589f5" class="image"><a href="Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4/slack_hash_256.png"><img style="width:96px" src="Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4/slack_hash_256.png"/></a></figure><p id="bcb76180-1758-49d8-9d94-b5a831cdd7ac" class="">
+</p></div><div id="f0edce06-e84a-4c79-9573-a54a249abd86" style="width:87.5%" class="column"><h1 id="530b3b45-f718-4ef2-91e1-4c53f7cc1bae" class="">Slack</h1><ul id="afda95fc-cfb7-4080-970d-e69542c886a0" class="toggle"><li><details open=""><summary><strong>What is Slack?</strong></summary><p id="346eff66-8cba-481c-b598-232cb2ca2f1c" class=""><a href="https://slack.com/">Slack</a> is an online communication tool used widely in the tech industry. For Lambda School, it is the most important and frequent way we communicate with Learners. It&#x27;s how Learners will receive Zoom links and participate during the Guided Project, and how they will often communicate with other Learners, staff, and instructors. If a Learner has never used Slack before, they should get to know it well. Nearly every company in Silicon Valley uses it, and it’s rapidly becoming a point of competence across software engineering teams.</p></details></li></ul><ul id="739780b0-f20f-4839-be1b-7b5db8032877" class="toggle"><li><details open=""><summary><strong>How does a Learner join Lambda&#x27;s Slack workspace?</strong></summary><p id="ae0773de-3045-4511-96c1-33dae72915a0" class="">After completing the Learner confirmation form, Learners will receive an invitation to the Slack workspace. Once they accept their Slack invite, they will be automatically assigned to a few main channels specific to their core track and cohort.<div class="indented"><p id="09a3b4cb-8f04-4f4b-9fb2-1ac600aba999" class=""><em>Example:</em> If a Learner is joining the WEB24 class (Full Stack Web, Class 24), they will be added to <em>#web24</em> and <em>#web24_help</em>. </p></div></p></details></li></ul><ul id="5239bf3d-6410-4393-af8b-d6324b233032" class="toggle"><li><details open=""><summary><strong>Set up a profile</strong></summary><ul id="90fa4b20-307c-4c99-ac8c-9868d4f6bce4" class="bulleted-list"><li style="list-style-type:disc">A picture of the Learner&#x27;s face (must be a professionally appropriate photo - no drawings, cartoons, or other imagery)</li></ul><ul id="c705e4e4-97ce-4bf7-bea2-524896c223c8" class="bulleted-list"><li style="list-style-type:disc">The Learner&#x27;s first and last name </li></ul><ul id="c189c39e-9592-4ade-aada-20fd9e33c703" class="bulleted-list"><li style="list-style-type:disc">Their course and section</li></ul><ul id="874c06a1-4dca-442e-91d0-9c13467de309" class="bulleted-list"><li style="list-style-type:disc">Optional: Gender pronouns</li></ul><ul id="f68c5a40-1536-428d-a920-c67a124970fc" class="bulleted-list"><li style="list-style-type:disc">See Code of Conduct for more information</li></ul></details></li></ul><ul id="bfa8aaee-d3a2-4265-8a28-c5dac51ad9d4" class="toggle"><li><details open=""><summary><strong>Slack Channels</strong></summary><p id="f8bd0802-e8ac-403c-9c9f-d0082e7c825d" class="">We have a lot of Slack channels, and it can be overwhelming to know which ones to join and participate in. Click here for a cheatsheet of channels we feel are beneficial to get you started!</p><figure id="b4a89da6-f4cc-4d86-abe4-d22fe9ef7c05" class="link-to-page"><a href="Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4/Helpful%20Commonly%20Used%20Slack%20Channels%20b4a89da6f4cc4d86abe4d22fe9ef7c05.html"><span class="icon">👀</span>Helpful/Commonly Used Slack Channels</a></figure><p id="317e5c46-1b09-4277-b402-4fd11970d303" class="">
+</p></details></li></ul></div></div><div id="b91ea42d-9cb5-4d6c-a9fc-94cce2044268" class="column-list"><div id="8ce33bf4-76c4-4384-8a99-3fbaee3684cf" style="width:50%" class="column"><p id="cdaf0408-0679-4b8f-baac-12eaf6b93038" class=""><strong>Slack Expectations &amp; Etiquette: </strong></p><ul id="6bcdf59b-489e-4c77-aa15-32181b4cc0f6" class="block-color-yellow_background bulleted-list"><li style="list-style-type:disc"><em><strong>Remember: Professionalism always. See the </strong></em><a href="Code%20of%20Conduct%20b11fec77b76841189d8a9db5b89d948a.html"><em><strong>Code of Conduct</strong></em></a><em><strong> for additional information.</strong></em></li></ul><ul id="04bbb2ce-dceb-4d34-89ce-af57fb4f1379" class="toggle"><li><details open=""><summary>Do</summary><ul id="0780b023-181f-419c-bdbb-7560ea833ced" class="bulleted-list"><li style="list-style-type:disc">Be considerate of others when contributing to a channel</li></ul><ul id="bc97e1f3-d868-4fb9-8ab5-0b60c27c6743" class="bulleted-list"><li style="list-style-type:disc">Use the section&#x27;s main channel for content related purposes</li></ul><ul id="cac6c978-201e-420e-a8f7-5841744f3b1b" class="bulleted-list"><li style="list-style-type:disc">Use the section&#x27;s Help channel to ask questions &amp; get support</li></ul><ul id="6ee088b9-dc41-4e4d-8da0-20e8bd89477a" class="bulleted-list"><li style="list-style-type:disc">Use threads 🧵</li></ul></details></li></ul><ul id="14c4fa4a-02cf-4035-8a37-f011bebc7962" class="toggle"><li><details open=""><summary>Don&#x27;t</summary><ul id="3b1b40a7-7c28-4454-8026-fb98b4e3ef69" class="bulleted-list"><li style="list-style-type:disc">Use profanity</li></ul><ul id="92b6e0da-c836-472c-aa0f-065dea5e7503" class="bulleted-list"><li style="list-style-type:disc">Use a profile picture that&#x27;s not a professional photo of their face (does not need to be professionally taken, but professional in nature)</li></ul><ul id="f1ff647d-f0f7-4a09-9fb8-15b9642b8df9" class="bulleted-list"><li style="list-style-type:disc">Use @channel (this can be disruptive to channel members) - this feature is  reserved for staff and instructors</li></ul><ul id="1b83d836-4cb7-4727-97af-20ffacef2a28" class="bulleted-list"><li style="list-style-type:disc">Use channels for posts that are not aligned with the channel&#x27;s intended purpose</li></ul><ul id="4b9428d3-046f-4a74-9f18-2c16e0a39d14" class="bulleted-list"><li style="list-style-type:disc">Establish or contribute to channels that disrupt the learning environment</li></ul><ul id="a73f7f7b-9f2d-4c9c-9230-4d396958e4f1" class="bulleted-list"><li style="list-style-type:disc">Use channels for solicitations</li></ul><ul id="3a8cb7fa-4b9e-4e26-a06d-df0fc47c95f1" class="bulleted-list"><li style="list-style-type:disc">Share inappropriate content</li></ul><ul id="a35c4d20-8371-4a9b-8a01-489c347a03b0" class="bulleted-list"><li style="list-style-type:disc">Create inappropriate emojis</li></ul></details></li></ul><p id="d38c306c-9ce4-49da-bce9-097b5a6d31d6" class="">
+</p></div><div id="f6aa782d-aa82-4f12-b679-825b7d2d19d7" style="width:50%" class="column"><p id="e8b597c8-d14f-48b4-b4f6-e9f3c4f73912" class=""><strong>Slack FAQ:</strong></p><ul id="e6a2a56f-f765-4b94-9e47-a006d80e32af" class="toggle"><li><details open=""><summary>What channels should a Learner join?</summary><ul id="388eb443-a005-4978-9bf8-e6e7b58a20c2" class="bulleted-list"><li style="list-style-type:disc"> Students will be added to all their class affiliated channels (Ex. #ds8, #ds8_help, #ds8_ah). Outside of their required class channels, they are encouraged to connect with the Lambda community and join other public channels that may be of interest to them (hobby/interest area, geographic location, etc.). To browse all public channels, click <em>Channels</em> in the Slack sidebar.</li></ul><ul id="3cabbad1-ae60-46c9-b850-39bb3e26b5fd" class="bulleted-list"><li style="list-style-type:disc">Some popular channels include: #hired, #career_help, #women, #diversityintech, #lambda_rainbow, #pets</li></ul></details></li></ul><ul id="0dd5651a-e063-49c6-98dd-822611426d0d" class="toggle"><li><details open=""><summary>What do @channel and @here do?</summary><ul id="1426a9ee-9f12-4fff-93e1-a7d4cbe93404" class="bulleted-list"><li style="list-style-type:disc">Typing a message in Slack that includes “@here” or “@channel” notifies everyone in that channel. This sends an alert to their desktop or, in many cases, their personal cellphones. <strong>As such, only staff and instructors may use “@here” and ”@channel”.</strong> Thanks for helping us keep Slack usable!</li></ul><p id="2d2b251c-acbc-45de-8ee8-dc5c2e96fda8" class="">
+</p></details></li></ul><p id="6925bbde-a68b-48f3-b465-2e7e2579095d" class="">
+</p></div></div><p id="46c99608-9cb3-40dc-9d71-a168ff4400a9" class=""><strong>Recommended Resources: </strong></p><figure id="0364eae1-74b3-4d03-b612-ef5873764c64"><a href="https://get.slack.help/hc/en-us/articles/217626358-Tour-the-Slack-app" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Tour the Slack app</div><div class="bookmark-description">Hi, there! 👋 If you are just getting started, this guide will help you get to know Slack like the back of your hand. Give the keyboard shortcuts a try to get around even faster! Mac app Windows app Messages Write and send your messages.</div></div><div class="bookmark-href"><img src="https://a.slack-edge.com/6e9b0/img/icons/favicon-32_vogue.png" class="icon bookmark-icon"/>https://get.slack.help/hc/en-us/articles/217626358-Tour-the-Slack-app</div></div><img src="https://get.slack.help/hc/article_attachments/360028155314/Tour_the_Slack_app_1.png" class="bookmark-image"/></a></figure><figure id="1e43315e-88ad-4d6f-8061-04c41e9d1252"><a href="https://get.slack.help/hc/en-us/articles/360002063088-Understand-your-actions-in-Slack" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Understand your actions in Slack</div><div class="bookmark-description">Do you ever wonder what happens in Slack when you send a message, mention a member, pin a message, or star an item? Here&#x27;s a breakdown of how these features behave so you don&#x27;t have to guess.</div></div><div class="bookmark-href"><img src="https://a.slack-edge.com/6e9b0/img/icons/favicon-32_vogue.png" class="icon bookmark-icon"/>https://get.slack.help/hc/en-us/articles/360002063088-Understand-your-actions-in-Slack</div></div><img src="https://theme.zdassets.com/theme_assets/138842/cb1a08fa34d208bebf6a03eb681ee12c4dea4b74.png" class="bookmark-image"/></a></figure><p id="88e11cfb-974e-414c-b4dc-01e9888c2188" class="">
+</p><hr id="2454e093-34bd-4153-87c8-7018b30923e4"/><div id="b31b2d32-e9b0-4868-950d-7ba3b4e28c7d" class="column-list"><div id="b92ce7c4-7106-4ea3-98c7-ee2ce5d95ddd" style="width:12.5%" class="column"><figure id="45edc329-e61c-4851-92f5-29312c2411a8" class="image"><a href="Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4/zoom.jpg"><img style="width:120px" src="Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4/zoom.jpg"/></a></figure></div><div id="a77b4a42-4f24-475e-9dff-cc20391eef37" style="width:87.5%" class="column"><h1 id="a0e858cb-2879-4d1d-ab19-ebd7964cae41" class="">Zoom </h1><ul id="d8aa7f26-25ed-4f28-aca5-dd9ea626c47d" class="toggle"><li><details open=""><summary><strong>What is Zoom?</strong></summary><p id="d34fb06d-69ac-4ae0-aaf9-758f0d2ddb78" class=""><a href="https://zoom.us/">Zoom</a> is an online remote meeting service. While at Lambda School Learners will use Zoom to receive lectures, pair program, work on their group projects, and receive 1:1 support from the Instruction team, and more! </p></details></li></ul><ul id="8c08661e-bd5f-4df5-9889-1a44f22cbae1" class="toggle"><li><details open=""><summary><strong>How does a Learner set up Zoom?</strong></summary><p id="8a27e135-c2db-4f7f-8035-8252c391d10c" class="">Create a <a href="https://zoom.us/signup">free account</a>, then follow the <a href="https://support.zoom.us/hc/en-us/articles/201362033-Getting-Started-on-Windows-and-Mac#h_97174a74-246a-4e54-8e9c-22b55cd0b665">&quot;Getting Started&quot;</a> instructions.</p><p id="82037f09-7ca7-4985-aeb7-9e783e4458e2" class="">For more information, see the Code of Conduct</p></details></li></ul></div></div><div id="5cda6785-f814-4173-bbb7-a71a3fcf2453" class="column-list"><div id="a9717755-371c-48bf-b8fc-a5fc40d8f391" style="width:50%" class="column"><p id="f971f358-7347-44ce-a9ab-d8880f0d9448" class=""><strong>Zoom Expectations &amp; Etiquette: </strong></p><p id="c095ff99-8ed6-4d9c-b994-b98da557f42b" class="block-color-yellow_background"><em><strong>Remember: Professionalism always. See the </strong></em><a href="Code%20of%20Conduct%20b11fec77b76841189d8a9db5b89d948a.html"><em><strong>Code of Conduct </strong></em></a><em><strong>for more information.</strong></em></p><ul id="fcbd3be5-1c12-47f2-9001-f97188880833" class="toggle"><li><details open=""><summary>Do</summary><ul id="b958af1d-43b7-4e55-bf33-6ae5cbe8b160" class="bulleted-list"><li style="list-style-type:disc">Add the Learner&#x27;s full name to the Zoom account</li></ul><ul id="d8b23f5e-e7e2-428a-b1cf-05fcb8fe26ef" class="bulleted-list"><li style="list-style-type:disc">Be considerate of others when presenting and interacting on Zoom</li></ul><ul id="f1cf6c88-9794-4114-95f2-da50a472ad96" class="bulleted-list"><li style="list-style-type:disc">Keep the background clean and professional</li></ul><ul id="799308f0-473c-4d4e-b644-b80d9d00ea56" class="bulleted-list"><li style="list-style-type:disc">When not speaking, keep the mic on mute</li></ul><ul id="3d702260-0489-4382-b6df-45e9b9917703" class="bulleted-list"><li style="list-style-type:disc">Keep camera on and pointed at the Learner&#x27;s face</li></ul></details></li></ul><ul id="45620dd9-4521-42af-b857-02abe3203fd6" class="toggle"><li><details open=""><summary>Don&#x27;t</summary><ul id="11f8096f-3a22-4785-9e1f-ab89234895ea" class="bulleted-list"><li style="list-style-type:disc">Use a name that differs from Learner record</li></ul><ul id="af19731d-be07-4cf8-afe2-9b3a27bd0924" class="bulleted-list"><li style="list-style-type:disc">Use profanity</li></ul><ul id="3ba31727-a1a0-4dc1-9f83-c3f56b1b079d" class="bulleted-list"><li style="list-style-type:disc">Keep the camera off or pointed away from the Learner&#x27;s face</li></ul><ul id="7dfef727-a7cd-4ee8-a5be-118e2fa10ca3" class="bulleted-list"><li style="list-style-type:disc">Disrupt the learning environment</li></ul><ul id="c33bef8e-2a95-4794-b649-6dbba53b1d40" class="bulleted-list"><li style="list-style-type:disc">Share inappropriate or offensive content</li></ul><ul id="3dd4d6b6-1e3f-45bf-b700-ae58b0bef738" class="bulleted-list"><li style="list-style-type:disc">Smoke on camera (includes vaping and e-cigarettes)</li></ul></details></li></ul></div><div id="e0c654b3-e706-4e43-9fee-ab134aaa01b3" style="width:50%" class="column"><p id="c37dcf21-c6e3-4305-a099-1aa5e54bc440" class=""><strong>Zoom FAQ: </strong></p><ul id="11a0c040-a938-4327-a9d5-394d4fb482a4" class="toggle"><li><details open=""><summary>Do Learners need to pay for Zoom?</summary><ul id="ec94cf21-571b-4189-b112-83ee037f6587" class="bulleted-list"><li style="list-style-type:disc">No! Learners can set up a <a href="https://zoom.us/signup">free Zoom account</a>. </li></ul><ul id="071b2392-6cbd-44c5-919f-48ed361b1bdf" class="bulleted-list"><li style="list-style-type:disc">With their free Zoom account, Learners will be able to join and participate in all Zoom meetings. They will also be able to create their own Zoom meetings (note: when creating a Learner&#x27;s own meeting, free accounts have a 45 minute time limit).</li></ul></details></li></ul><ul id="1acb554e-2a57-4ec6-8f7b-2718db190930" class="toggle"><li><details open=""><summary>Where will Learners get the Zoom links for Guided Projects?</summary><ul id="565f7fe2-2dfc-4cbc-81b8-42c1fb4ec630" class="bulleted-list"><li style="list-style-type:disc">When it is time for the Guided Project, a Zoom link will be posted in the class channel with the @channel tag, which should send the Learner both desktop and push notifications. Make sure to follow the schedule and be on time!</li></ul></details></li></ul></div></div><p id="dbd527b7-f9b2-4e13-8804-f2bbab35b360" class=""><strong>Recommended Resources: </strong></p><figure id="d4d408c3-4981-47de-9682-fbdb2c34533f"><a href="https://support.zoom.us/hc/en-us/articles/201362033-Getting-Started-on-Windows-and-Mac" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Getting Started on Windows and Mac</div><div class="bookmark-description">Zoom unifies cloud video conferencing, simple online meetings, and group messaging into one easy-to-use platform. Our solution offers the best video, audio, and wireless screen-sharing experience across multiple platforms. Follow this article to learn about the basic features of the Zoom client on Windows and Mac.</div></div><div class="bookmark-href"><img src="https://theme.zdassets.com/theme_assets/141844/cd6877919b599243a4a967205ec2cdcf896e5efa.ico" class="icon bookmark-icon"/>https://support.zoom.us/hc/en-us/articles/201362033-Getting-Started-on-Windows-and-Mac</div></div><img src="https://assets.zoom.us/images/en-us/desktop/generic/chat/chat-tab.png" class="bookmark-image"/></a></figure><figure id="d4ea8461-ad04-406b-866d-eddf3ee2b16c"><a href="https://support.zoom.us/hc/en-us/articles/206175806-Top-Questions" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Top Questions</div><div class="bookmark-description">The following are links to some of the most common questions or problems users come across. Getting Started On PC and Mac How Do I Find My Recording? Where Do I Download The Latest Version? How D...</div></div><div class="bookmark-href"><img src="https://theme.zdassets.com/theme_assets/141844/cd6877919b599243a4a967205ec2cdcf896e5efa.ico" class="icon bookmark-icon"/>https://support.zoom.us/hc/en-us/articles/206175806-Top-Questions</div></div><img src="https://theme.zdassets.com/theme_assets/141844/54b03f5a6fcedbfa6621c751d9bed891e78c7d3c.png" class="bookmark-image"/></a></figure><p id="287b6392-e9f1-4d72-a452-889c75195c82" class="">
+</p><hr id="a4739492-4404-46cd-9700-ccaac0bbd83d"/><p id="732f2db1-b011-46ef-b7e0-6860a03d5e72" class="">Have Questions? </p><p id="1f206cfb-df83-44bd-ac32-8923b9ca40ff" class="">Reach out to Learner Success via <code>/frontdesk</code> on Slack.</p><p id="c16a4e27-910f-4daa-9bf5-619e15c59041" class="">
+</p><p id="a88a9408-1e62-46dd-87b3-df61aeb88bff" class="">
+</p><ul id="74170918-5d8e-47ef-aeb2-346cd344abd4" class="toggle"><li><details open=""><summary>Revision History</summary><p id="54993eb5-d409-4522-8eaf-02356b55c8e9" class="">October 24, 2019, shared with students October 25, 2019</p><p id="69822527-42f1-42c9-a5b8-76e0ae34a604" class="">January 16, 2020, shared with students January 17, 2020</p><p id="0c06d20a-3ecc-4e49-b439-8b012ceb6275" class="">August 11, 2020, shared with students August 12, 2020</p><p id="e8e5701d-9f7a-42ec-8b06-9b2b86f541f7" class="">August 10, 2021, shared with students August 10, 2021</p><p id="c8c78e85-5fad-4e4a-b492-9a7b1ca0ed2e" class="">
+</p></details></li></ul><p id="e8c825f6-1e11-450d-8aa7-cde5a4921c5c" class="">Copyright Lambda School 2020, All Rights Reserved</p></div></article></body></html>

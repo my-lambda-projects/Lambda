@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Python Development in Visual Studio Code – Real Python</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="python-development-in-visual-studio-code-real-python">
+      Python Development in Visual Studio Code – Real Python
+    </h1>
+    <blockquote>
+      <p>
+        In this tutorial, you’ll learn how to use Visual Studio Code for Python
+        development. By following examples, you’ll cover everything from how to
+        install and configure Visual Studio Code for Python development to how
+        to run tests and debug application, so you can use this powerful tool.
+      </p>
+    </blockquote>
+    <p>
+      One of the coolest code editors available to programmers,
+      <a href="https://code.visualstudio.com/docs">Visual Studio Code</a>, is an
+      open-source, extensible, light-weight editor available on all platforms.
+      It’s these qualities that make Visual Studio Code from
+      <a href="https://azure.com/python">Microsoft</a> very popular, and a great
+      platform for Python development.
+    </p>
+    <p>
+      <strong
+        >In this article, you’ll learn about Python development in Visual Studio
+        Code, including how to:</strong
+      >
+    </p>
+    <ul>
+      <li>Install Visual Studio Code</li>
+      <li>Discover and install extensions that make Python development easy</li>
+      <li>Write a simple Python application</li>
+      <li>Learn how to run and debug existing Python programs in VS Code</li>
+      <li>
+        Connect Visual Studio Code to Git and GitHub to share your code with the
+        world
+      </li>
+    </ul>
+    <p>
+      We assume you are familiar with Python development and already have some
+      form of Python installed on your system (Python 2.7, Python 3.6/3.7,
+      Anaconda, or others). Screenshots and demos for Ubuntu and Windows are
+      provided. Because Visual Studio Code runs on all major platforms, you may
+      see slightly different UI elements and may need to modify certain
+      commands.
+    </p>
+    <p>
+      <strong>Free Bonus:</strong>
+      <a href="https://realpython.com/bonus/python-mastery-course/"
+        >5 Thoughts On Python Mastery</a
+      >, a free course for Python developers that shows you the roadmap and the
+      mindset you’ll need to take your Python skills to the next level.
+    </p>
+    <h2
+      id="installing-and-configuring-visual-studio-code-for-python-development"
+    >
+      Installing and Configuring Visual Studio Code for Python Development<a
+        href="#installing-and-configuring-visual-studio-code-for-python-development"
+        title="Permanent link"
+      ></a>
+    </h2>
+    <p>
+      Installing Visual Studio Code is
+      <a href="https://code.visualstudio.com/docs/setup/setup-overview"
+        >very accessible</a
+      >
+      on any platform. Full instructions for
+      <a href="https://code.visualstudio.com/docs/setup/windows">Windows</a>,
+      <a href="https://code.visualstudio.com/docs/setup/mac">Mac</a>, and
+      <a href="https://code.visualstudio.com/docs/setup/linux">Linux</a> are
+      available, and the editor is updated monthly with new features and bug
+      fixes. You can find everything at the
+      <a href="https://code.visualstudio.com/">Visual Studio Code website</a>:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-website.491c40d9d828.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-website.491c40d9d828.png"
+          alt="Visual Studio Code Web Site"
+      /></a>
+    </p>
+    <p>
+      In case you were wondering, Visual Studio Code (or VS Code for short)
+      shares almost nothing other than a name with its larger Windows-based
+      namesake,
+      <a href="https://visualstudio.microsoft.com/vs/features/python/"
+        >Visual Studio</a
+      >.
+    </p>
+    <p>
+      Visual Studio Code has built-in support for multiple languages and an
+      extension model with a rich ecosystem of support for others. VS Code is
+      updated monthly, and you can keep up to date at the
+      <a href="http://aka.ms/pythonblog">Microsoft Python blog</a>. Microsoft
+      even makes the
+      <a href="https://github.com/Microsoft/vscode">VS Code GitHub repo</a>
+      available for anyone to clone and contribute. (Cue the PR flood.)
+    </p>
+    <p>
+      The
+      <a href="https://code.visualstudio.com/docs/getstarted/userinterface"
+        >VS Code UI</a
+      >
+      is well documented, so I won’t rehash it here:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-welcome-screen.c64afd719b3e.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-welcome-screen.c64afd719b3e.png"
+          alt="Visual Studio Code Welcome Screen"
+      /></a>
+    </p>
+    <h3 id="extensions-for-python-development">
+      Extensions for Python Development<a
+        href="#extensions-for-python-development"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      As stated above, VS Code supports development in multiple programming
+      languages through a well-documented
+      <a href="https://code.visualstudio.com/docs/editor/extension-gallery"
+        >extension model</a
+      >. The
+      <a
+        href="https://marketplace.visualstudio.com/items?itemName=ms-python.python"
+        >Python extension</a
+      >
+      enables Python development in Visual Studio Code, with the following
+      features:
+    </p>
+    <ul>
+      <li>Support for Python 3.4 and higher, as well as Python 2.7</li>
+      <li>
+        Code completion with
+        <a href="https://code.visualstudio.com/docs/editor/intellisense"
+          >IntelliSense</a
+        >
+      </li>
+      <li>
+        <a href="https://code.visualstudio.com/docs/python/linting">Linting</a>
+      </li>
+      <li>
+        <a href="https://code.visualstudio.com/docs/python/debugging"
+          >Debugging support</a
+        >
+      </li>
+      <li>
+        <a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets"
+          >Code snippets</a
+        >
+      </li>
+      <li>
+        <a href="https://code.visualstudio.com/docs/python/unit-testing"
+          >Unit testing support</a
+        >
+      </li>
+      <li>
+        Automatic use of
+        <a href="https://code.visualstudio.com/docs/python/environments"
+          >conda and virtual environments</a
+        >
+      </li>
+      <li>
+        Code editing in
+        <a
+          href="https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells"
+          >Jupyter environments</a
+        >
+        and
+        <a
+          href="https://code.visualstudio.com/docs/python/editing#_open-jupyter-notebooks"
+          >Jupyter Notebooks</a
+        >
+      </li>
+    </ul>
+    <p>
+      <a
+        href="https://files.realpython.com/media/python-extension-webpage.d2a7d3b6d636.png"
+        ><img
+          src="https://files.realpython.com/media/python-extension-webpage.d2a7d3b6d636.png"
+          alt="Installing the Python extension for VSCode"
+      /></a>
+    </p>
+    <p>
+      Visual Studio Code extensions cover more than just programming language
+      capabilities:
+    </p>
+    <ul>
+      <li>
+        <a
+          href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=Keymaps&amp;sortBy=Downloads"
+          >Keymaps</a
+        >
+        allow users already familiar with Atom,
+        <a
+          href="https://realpython.com/setting-up-sublime-text-3-for-full-stack-python-development/"
+          >Sublime Text</a
+        >,
+        <a href="https://realpython.com/emacs-the-best-python-editor/">Emacs</a
+        >,
+        <a href="https://realpython.com/vim-and-python-a-match-made-in-heaven/"
+          >Vim</a
+        >, <a href="https://realpython.com/pycharm-guide/">PyCharm</a>, or other
+        environments to feel at home.
+      </li>
+      <li>
+        <a
+          href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=Themes&amp;sortBy=Downloads"
+          >Themes</a
+        >
+        customize the UI whether you like coding in the light, dark, or
+        something more colorful.
+      </li>
+      <li>
+        <a
+          href="https://marketplace.visualstudio.com/search?target=VSCode&amp;category=Language%20Packs&amp;sortBy=Downloads"
+          >Language packs</a
+        >
+        provide a localized experience.
+      </li>
+    </ul>
+    <p>Here are some other extensions and settings I find useful:</p>
+    <ul>
+      <li>
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens"
+          >GitLens</a
+        >
+        provides tons of useful Git features directly in your editing window,
+        including blame annotations and repository exploration features.
+      </li>
+      <li>
+        Auto save is easily turned on by selecting
+        <code>File, Auto Save</code> from the menu. The default delay time is
+        1000 milliseconds, which is also
+        <a
+          href="https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save"
+          >configurable</a
+        >.
+      </li>
+      <li>
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync"
+          >Settings Sync</a
+        >
+        allows you to synchronize your VS Code settings across different
+        installations using GitHub. If you work on different machines, this
+        helps keep your environment consistent across them.
+      </li>
+      <li>
+        <a href="https://code.visualstudio.com/docs/azure/docker">Docker</a>
+        lets you quickly and easily work with Docker, helping author
+        <code>Dockerfile</code> and <code>docker-compose.yml</code>, package and
+        deploy your projects, and even generate the proper Docker files for your
+        project.
+      </li>
+    </ul>
+    <p>
+      Of course, you may discover other useful extensions as you use VS Code.
+      Please share your discoveries and settings in the
+      <a href="#reader-comments">comments</a>!
+    </p>
+    <p>
+      Discovering and installing new extensions and themes is accessible by
+      clicking on the <em>Extensions</em> icon on the Activity Bar. You can
+      search for extensions using keywords, sort the results numerous ways, and
+      install extensions quickly and easily. For this article, install the
+      Python extension by typing <code>python</code> in the
+      <em>Extensions</em> item on the Activity Bar, and clicking
+      <em>Install</em>:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-marketplace.25e99aec9f68.gif"
+        ><img
+          src="https://files.realpython.com/media/vscode-marketplace.25e99aec9f68.gif"
+          alt="Finding the VSCode Marketplace in the UI"
+      /></a>
+    </p>
+    <p>
+      You can find and install any of the extensions mentioned above in the same
+      manner.
+    </p>
+    <h3 id="visual-studio-code-configuration-files">
+      Visual Studio Code Configuration Files<a
+        href="#visual-studio-code-configuration-files"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      One important thing to mention is that Visual Studio Code is highly
+      configurable through
+      <a href="https://code.visualstudio.com/docs/getstarted/settings"
+        >user and workspace settings</a
+      >.
+    </p>
+    <p>
+      User settings are global across all Visual Studio Code instances, while
+      workspace settings are local to the specific folder or project workspace.
+      Workspace settings give VS Code tons of flexibility, and I call out
+      workspace settings throughout this article. Workspace settings are stored
+      as <code>.json</code> files in a folder local to the project workspace
+      called <code>.vscode</code>.
+    </p>
+    <h2 id="start-a-new-python-program">
+      Start a New Python Program<a
+        href="#start-a-new-python-program"
+        title="Permanent link"
+      ></a>
+    </h2>
+    <p>
+      Let’s start our exploration of Python development in Visual Studio Code
+      with a new Python program. In VS Code, type Ctrl+N to open a new File.
+      (You can also select <em>File, New</em> from the menu.)
+    </p>
+    <p>
+      <strong>Note:</strong> The Visual Studio Code UI provides the
+      <a
+        href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette"
+        >Command Palette</a
+      >, from which you can search and execute any command without leaving the
+      keyboard. Open the Command Palette using Ctrl+Shift+P, type
+      <code>File: New File</code>, and hit Enter to open a new file.
+    </p>
+    <p>
+      No matter how you get there, you should see a VS Code window that looks
+      similar to the following:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-new-file.39cc7b9e485d.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-new-file.39cc7b9e485d.png"
+          alt="Creating a new file in VSCode"
+      /></a>
+    </p>
+    <p>Once a new file is opened, you can begin entering code.</p>
+    <h3 id="entering-python-code">
+      Entering Python Code<a
+        href="#entering-python-code"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      For our test code, let’s quickly code up the
+      <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes"
+        >Sieve of Eratosthenes</a
+      >
+      (which finds all primes less than a given number). Begin typing the
+      following code in the new tab you just opened:
+    </p>
+    <p><code>sieve = [True] * 101 for i in range(2, 100):</code></p>
+    <p>You should see something similar to this:</p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-unformatted-code.e11b194803fe.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-unformatted-code.e11b194803fe.png"
+          alt="Unformatted code in VSCode"
+      /></a>
+    </p>
+    <p>
+      Wait, what’s going on? Why isn’t Visual Studio Code doing any keyword
+      highlighting, any auto-formatting, or anything really helpful? What gives?
+    </p>
+    <p>
+      The answer is that, right now, VS Code doesn’t know what kind of file it’s
+      dealing with. The buffer is called <code>Untitled-1</code>, and if you
+      look in the lower right corner of the window, you’ll see the words
+      <em>Plain Text</em>.
+    </p>
+    <p>
+      To activate the Python extension, save the file (by selecting
+      <em>File, Save</em> from the menu, <em>File:Save File</em> from the
+      Command Palette, or just using Ctrl+S) as <code>sieve.py</code>. VS Code
+      will see the <code>.py</code> extension and correctly interpret the file
+      as Python code. Now your window should look like this:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-formatted-code.312b8d79fbe7.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-formatted-code.312b8d79fbe7.png"
+          alt="Properly formatted Python code in VSCode"
+      /></a>
+    </p>
+    <p>
+      That’s much better! VS Code automatically reformats the file as Python,
+      which you can verify by inspecting the language mode in the lower left
+      corner.
+    </p>
+    <p>
+      If you have multiple Python installations (like Python 2.7, Python 3.x, or
+      Anaconda), you can change which Python interpreter VS Code uses by
+      clicking the language mode indicator, or selecting
+      <em>Python: Select Interpreter</em> from the Command Palette. VS Code
+      supports
+      <a
+        href="https://code.visualstudio.com/docs/python/editing#_formatterspecific-settings"
+        >formatting</a
+      >
+      using <code>pep8</code> by default, but you can select
+      <code>black</code> or <code>yapf</code> if you wish.
+    </p>
+    <p>
+      Let’s add the rest of the Sieve code now. To see IntelliSense at work,
+      type this code directly rather than cut and paste, and you should see
+      something like this:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/typing-sieve-code.3d2ea083d917.gif"
+        ><img
+          src="https://files.realpython.com/media/typing-sieve-code.3d2ea083d917.gif"
+          alt="Typing the Sieve of Eratosthenes Python code"
+      /></a>
+    </p>
+    <p>Here’s the full code for a basic Sieve of Eratosthenes:</p>
+    <p>
+      <code
+        >sieve = [True] * 101 for i in range(2, 100): if sieve[i]: print(i) for
+        j in range(i*i, 100, i): sieve[j] = False</code
+      >
+    </p>
+    <p>
+      As you type this code, VS Code automatically indents the lines under
+      <code>for</code> and <code>if</code> statements for you properly, adds
+      closing parentheses, and makes suggestions for you. That’s the power of
+      IntelliSense working for you.
+    </p>
+    <h3 id="running-python-code">
+      Running Python Code<a
+        href="#running-python-code"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      Now that the code is complete, you can run it. There is no need to leave
+      the editor to do this: Visual Studio Code can run this program directly in
+      the editor. Save the file (using Ctrl+S), then right-click in the editor
+      window and select <em>Run Python File in Terminal</em>:
+    </p>
+    <p>
+      You should see the Terminal pane appear at the bottom of the window, with
+      your code output showing.
+    </p>
+    <h3 id="python-linting-support">
+      Python Linting Support<a
+        href="#python-linting-support"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      You may have seen a pop up appear while you were typing, stating that
+      linting was not available. You can quickly install linting support from
+      that pop up, which defaults to
+      <a
+        href="https://realpython.com/courses/writing-cleaner-python-code-pylint/"
+        >PyLint</a
+      >. VS Code also supports other linters. Here’s the complete list at the
+      time of this writing:
+    </p>
+    <ul>
+      <li><code>pylint</code></li>
+      <li><code>flake8</code></li>
+      <li><code>mypy</code></li>
+      <li><code>pydocstyle</code></li>
+      <li><code>pep8</code></li>
+      <li><code>prospector</code></li>
+      <li><code>pyllama</code></li>
+      <li><code>bandit</code></li>
+    </ul>
+    <p>
+      The
+      <a href="https://code.visualstudio.com/docs/python/linting"
+        >Python linting page</a
+      >
+      has complete details on how to setup each linter.
+    </p>
+    <p>
+      <strong>Note</strong>: The choice of linter is a project workspace
+      setting, and not a global user setting.
+    </p>
+    <h2 id="editing-an-existing-python-project">
+      Editing an Existing Python Project<a
+        href="#editing-an-existing-python-project"
+        title="Permanent link"
+      ></a>
+    </h2>
+    <p>
+      In the Sieve of Eratosthenes example, you created a single Python file.
+      That’s great as an example, but many times, you’ll create larger projects
+      and work on them over a longer period of time. A typical new project work
+      flow might look like this:
+    </p>
+    <ul>
+      <li>
+        Create a folder to hold the project (which may include a new GitHub
+        project)
+      </li>
+      <li>Change to the new folder</li>
+      <li>
+        Create the initial Python code using the command
+        <code>code filename.py</code>
+      </li>
+    </ul>
+    <p>
+      Using Visual Studio Code on a Python project (as opposed to a single
+      Python file) opens up tons more functionality that lets VS Code truly
+      shine. Let’s take a look at how it works with a larger project.
+    </p>
+    <p>
+      Late in the previous millennium, when I was a much younger programmer, I
+      wrote a calculator program that parsed equations written in infix
+      notation, using an adaptation of Edsger Dijkstra’s
+      <a href="https://en.wikipedia.org/wiki/Shunting-yard_algorithm"
+        >shunting yard algorithm</a
+      >.
+    </p>
+    <p>
+      To demonstrate the project-focused features of Visual Studio Code, I began
+      recreating the shunting yard algorithm as an
+      <a href="https://github.com/JFincher42/PyEval"
+        >equation evaluation library</a
+      >
+      in Python. To continue following along, feel free to clone the repo
+      locally.
+    </p>
+    <p>
+      Once the folder is created locally, you can open the entire folder in VS
+      Code quickly. My preferred method (as mentioned above) is modified as
+      follows, since I already have the folder and basic files created:
+    </p>
+    <p><code>cd /path/to/project code .</code></p>
+    <p>
+      VS Code understands, and will use, any
+      <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>,
+      <a href="https://pipenv.readthedocs.io/en/latest/">pipenv</a>, or
+      <a href="https://conda.io/docs/">conda</a> environments it sees when
+      opened this way. You don’t even need to start the virtual environment
+      first! You can even open a folder from the UI, using
+      <em>File, Open Folder</em> from the menu, Ctrl+K, Ctrl+O from the
+      keyboard, or <em>File:Open Folder</em> from the Command Palette.
+    </p>
+    <p>For my equation eval library project, here’s what I see:</p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-pyeval-library-folder.964b91919d5b.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-pyeval-library-folder.964b91919d5b.png"
+          alt="PyEval folder open in VSCode"
+      /></a>
+    </p>
+    <p>
+      When Visual Studio Code opens the folder, it also opens the files you last
+      had opened. (This is configurable.) You can open, edit, run, and debug any
+      file listed. The Explorer view in the Activity Bar on the left gives you a
+      view of all the files in the folder and shows how many unsaved files exist
+      in the current set of tabs.
+    </p>
+    <h2 id="testing-support">
+      Testing Support<a href="#testing-support" title="Permanent link"></a>
+    </h2>
+    <p>
+      VS Code can automatically recognize
+      <a href="https://code.visualstudio.com/docs/python/unit-testing"
+        >existing Python tests</a
+      >
+      written in the <code>unittest</code> framework, or the
+      <a href="https://realpython.com/pytest-python-testing/"
+        ><code>pytest</code></a
+      >
+      or <code>Nose</code> frameworks if those frameworks are installed in the
+      current environment. I have a
+      <a href="https://realpython.com/python-testing/">unit test</a> written in
+      <code>unittest</code> for the equation eval library, which you can use for
+      this example.
+    </p>
+    <p>
+      To run your existing unit tests, from any Python file in the project,
+      right-click and select <em>Run Current Unit Test File</em>. You’ll be
+      prompted to specify the test framework, where in the project to search for
+      tests, and the filename pattern your tests utilize.
+    </p>
+    <p>
+      All of these are saved as workspace settings in your local
+      <code>.vscode/settings.json</code> file and can be modified there. For
+      this equation project, you select <code>unittest</code>, the current
+      folder, and the pattern <code>*_test.py</code>.
+    </p>
+    <p>
+      Once the test framework is set up and the tests have been discovered, you
+      can run all your tests by clicking <em>Run Tests</em> on the Status Bar
+      and selecting an option from the Command Palette:
+    </p>
+    <p>
+      You can even run individual tests by opening the test file in VS Code,
+      clicking <em>Run Tests</em> on the Status Bar, and selecting the
+      <em>Run Unit Test Method…</em> and the specific test to run. This makes it
+      trivial to address individual test failures and re-run only failed tests,
+      which is a huge time-saver! Test results are shown in the
+      <em>Output</em> pane under <em>Python Test Log</em>.
+    </p>
+    <h2 id="debugging-support">
+      Debugging Support<a href="#debugging-support" title="Permanent link"></a>
+    </h2>
+    <p>
+      Even though VS Code is a code editor,
+      <a href="https://code.visualstudio.com/docs/python/debugging"
+        >debugging Python</a
+      >
+      directly within VS Code is possible. VS Code offers many of the features
+      you would expect from a good code debugger, including:
+    </p>
+    <ul>
+      <li>
+        Automatic
+        <a href="https://realpython.com/python-variables/">variable</a> tracking
+      </li>
+      <li>Watch expressions</li>
+      <li>Breakpoints</li>
+      <li>Call stack inspection</li>
+    </ul>
+    <p>
+      You can see them all as part of the <em>Debug</em> view on the Activity
+      Bar:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-debug-screen.647a68278472.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-debug-screen.647a68278472.png"
+          alt="Finding the Debug UI in VSCode"
+      /></a>
+    </p>
+    <p>
+      The debugger can control Python apps running in the built-in terminal or
+      an external terminal instance. It can attach to an already running Python
+      instances, and can even debug
+      <a href="https://realpython.com/tutorials/django/">Django</a> and
+      <a href="https://realpython.com/tutorials/flask/">Flask</a> apps.
+    </p>
+    <p>
+      Debugging code in a single Python file is as simple as starting the
+      debugger using F5. You use F10 and F11 to step over and into functions
+      respectively, and Shift+F5 to exit the debugger. Breakpoints are set using
+      F9, or using the mouse by clicking in the left margin in the editor
+      window.
+    </p>
+    <p>
+      Before you start debugging more complicated projects, including
+      <a href="https://realpython.com/get-started-with-django-1/">Django</a> or
+      Flask applications, you need to setup and then select a debug
+      configuration. Setting up the debug configuration is relatively
+      straightforward. From the <em>Debug</em> view, select the
+      <em>Configuration</em> drop-down, then <em>Add Configuration</em>, and
+      select <em>Python</em>:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-debug-add-configuration.cee71411723c.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-debug-add-configuration.cee71411723c.png"
+          alt="Adding a new debug configuration to VSCode"
+      /></a>
+    </p>
+    <p>
+      Visual Studio Code will create a debug configuration file under the
+      current folder called <code>.vscode/launch.json</code>, which allows you
+      to setup specific
+      <a
+        href="https://code.visualstudio.com/docs/python/debugging#_standard-configuration-and-options"
+        >Python configurations</a
+      >
+      as well as settings for
+      <a
+        href="https://code.visualstudio.com/docs/python/debugging#_debugging-specific-app-types_"
+        >debugging specific apps</a
+      >, like Django and Flask.
+    </p>
+    <p>
+      You can even perform remote debugging, and debug Jinja and Django
+      templates. Close the <code>launch.json</code> file in the editor and
+      select the proper configuration for your application from the
+      <em>Configuration</em> drop-down.
+    </p>
+    <h2 id="git-integration">
+      Git Integration<a href="#git-integration" title="Permanent link"></a>
+    </h2>
+    <p>
+      VS Code has built-in support for
+      <a href="https://code.visualstudio.com/docs/editor/versioncontrol"
+        >source control management</a
+      >, and ships with support for Git and GitHub right out of the box. You can
+      install support for other SCM’s in VS Code, and use them side by side.
+      Source control is accessible from the <em>Source Control</em> view:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-source-control.6b333fd5b16c.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-source-control.6b333fd5b16c.png"
+          alt="Source Control UI in VSCode"
+      /></a>
+    </p>
+    <p>
+      If your project folder contains a <code>.git</code> folder, VS Code
+      automatically turns on the full range of
+      <a
+        href="https://code.visualstudio.com/docs/editor/versioncontrol#_git-support"
+        >Git/GitHub</a
+      >
+      functionality. Here are some of the many tasks you can perform:
+    </p>
+    <ul>
+      <li>
+        <a
+          href="https://code.visualstudio.com/docs/editor/versioncontrol#_commit"
+          >Commit files</a
+        >
+        to Git
+      </li>
+      <li>
+        Push changes to, and pull changes from,
+        <a
+          href="https://code.visualstudio.com/docs/editor/versioncontrol#_remotes"
+          >remote repos</a
+        >
+      </li>
+      <li>
+        Check-out existing or create new
+        <a
+          href="https://code.visualstudio.com/docs/editor/versioncontrol#_branches-and-tags"
+          >branches and tags</a
+        >
+      </li>
+      <li>
+        View and resolve
+        <a
+          href="https://code.visualstudio.com/docs/editor/versioncontrol#_merge-conflicts"
+          >merge conflicts</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://code.visualstudio.com/docs/editor/versioncontrol#_viewing-diffs"
+          >View diffs</a
+        >
+      </li>
+    </ul>
+    <p>All of this functionality is available directly from the VS Code UI:</p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-git-commands.487bd9e2de71.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-git-commands.487bd9e2de71.png"
+          alt="Git Commands in VSCode"
+      /></a>
+    </p>
+    <p>
+      VS Code will also recognize changes made outside the editor and behave
+      appropriately.
+    </p>
+    <p>
+      Committing your recent changes within VS Code is a fairly straightforward
+      process. Modified files are shown in the <em>Source Control</em> view with
+      an <em>M</em> marker, while new untracked files are marked with a
+      <em>U</em>. Stage your changes by hovering over the file and then clicking
+      the plus sign (<em>+</em>). Add a commit message at the top of the view,
+      and then click the check mark to commit the changes:
+    </p>
+    <p>
+      <a
+        href="https://files.realpython.com/media/vscode-commit-changes.781a88f03210.png"
+        ><img
+          src="https://files.realpython.com/media/vscode-commit-changes.781a88f03210.png"
+          alt="Committing changes in VSCode"
+      /></a>
+    </p>
+    <p>
+      You can push local commits to GitHub from within VS Code as well. Select
+      <em>Sync</em> from the <em>Source Control</em> view menu, or click
+      <em>Synchronize Changes</em> on the
+      <a
+        href="https://code.visualstudio.com/docs/editor/versioncontrol#_git-status-bar-actions"
+        >status bar</a
+      >
+      next to the branch indicator.
+    </p>
+    <h2 id="conclusion">
+      Conclusion<a href="#conclusion" title="Permanent link"></a>
+    </h2>
+    <p>
+      Visual Studio Code is one of the coolest general purpose editors and a
+      great candidate for Python development. In this article, you learned:
+    </p>
+    <ul>
+      <li>How to install VS Code on any platform</li>
+      <li>
+        How to find and install extensions to enable Python-specific features
+      </li>
+      <li>How VS Code makes writing a simple Python application easier</li>
+      <li>How to run and debug existing Python programs within VS Code</li>
+      <li>How to work with Git and GitHub repositories from VS Code</li>
+    </ul>
+    <p>
+      Visual Studio Code has become my default editor for Python and other
+      tasks, and I hope you give it a chance to become yours as well.
+    </p>
+    <p>
+      If you have questions or comments, please reach out in the comments below.
+      There is also a lot more information at the
+      <a href="https://code.visualstudio.com/">Visual Studio Code website</a>
+      than we could cover here.
+    </p>
+    <p>
+      <em
+        >The author sends thanks to
+        <a href="https://twitter.com/qubitron">Dan Taylor</a> from the Visual
+        Studio Code team at Microsoft for his time and invaluable input in this
+        article.</em
+      >
+    </p>
+    <p>
+      <a href="https://realpython.com/python-development-visual-studio-code/"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>

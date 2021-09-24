@@ -1,0 +1,4 @@
+# Project exclude paths
+/venv/
+Scratch.ipynb
+scratch.py

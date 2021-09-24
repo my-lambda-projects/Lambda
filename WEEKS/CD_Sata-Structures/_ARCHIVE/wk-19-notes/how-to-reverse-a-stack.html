@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>how-to-reverse-a-stack</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="how-to-reverse-a-stack">How To Reverse A Stack</h1>
+    <h2 id="a---how-to-reverse-a-stack">A - How To Reverse A Stack</h2>
+    <p>
+      To understand how to construct a queue using two stacks, you should
+      understand how to reverse a stack crystal clear. Remember how stack works,
+      it is very similar to the dish stack on your kitchen. The last washed dish
+      will be on the top of the clean stack, which is called as
+      <strong>L</strong>ast <strong>I</strong>n <strong>F</strong>irst
+      <strong>O</strong>ut (LIFO) in computer science.
+    </p>
+    <p>Lets imagine our stack like a bottle as below;</p>
+    <p>
+      <a href="https://i.stack.imgur.com/MwjaI.png"
+        ><img
+          src="https://i.stack.imgur.com/MwjaI.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      If we push integers 1,2,3 respectively, then 3 will be on the top of the
+      stack. Because 1 will be pushed first, then 2 will be put on the top of 1.
+      Lastly, 3 will be put on the top of the stack and latest state of our
+      stack represented as a bottle will be as below;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/J7ec0.png"
+        ><img
+          src="https://i.stack.imgur.com/J7ec0.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      Now we have our stack represented as a bottle is populated with values
+      3,2,1. And we want to reverse the stack so that the top element of the
+      stack will be 1 and bottom element of the stack will be 3. What we can do
+      ? We can take the bottle and hold it upside down so that all the values
+      should reverse in order ?
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/WZNxS.png"
+        ><img
+          src="https://i.stack.imgur.com/WZNxS.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      Yes we can do that, but that’s a bottle. To do the same process, we need
+      to have a second stack that which is going to store the first stack
+      elements in reverse order. Let’s put our populated stack to the left and
+      our new empty stack to the right. To reverse the order of the elements, we
+      are going to pop each element from left stack, and push them to the right
+      stack. You can see what happens as we do so on the image below;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/1YfMo.png"
+        ><img
+          src="https://i.stack.imgur.com/1YfMo.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>So we know how to reverse a stack.</p>
+    <h2 id="b---using-two-stacks-as-a-queue">
+      B - Using Two Stacks As A Queue
+    </h2>
+    <p>
+      On previous part, I’ve explained how can we reverse the order of stack
+      elements. This was important, because if we push and pop elements to the
+      stack, the output will be exactly in reverse order of a queue. Thinking on
+      an example, let’s push the array of integers
+      <code>{1, 2, 3, 4, 5}</code> to a stack. If we pop the elements and print
+      them until the stack is empty, we will get the array in the reverse order
+      of pushing order, which will be <code>{5, 4, 3, 2, 1}</code> Remember that
+      for the same input, if we dequeue the queue until the queue is empty, the
+      output will be <code>{1, 2, 3, 4, 5}</code>. So it is obvious that for the
+      same input order of elements, output of the queue is exactly reverse of
+      the output of a stack. As we know how to reverse a stack using an extra
+      stack, we can construct a queue using two stacks.
+    </p>
+    <p>
+      Our queue model will consist of two stacks. One stack will be used for
+      <code>enqueue</code> operation (stack #1 on the left, will be called as
+      Input Stack), another stack will be used for the
+      <code>dequeue</code> operation (stack #2 on the right, will be called as
+      Output Stack). Check out the image below;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/xyWPR.png"
+        ><img
+          src="https://i.stack.imgur.com/xyWPR.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>Our pseudo-code is as below;</p>
+    <h4 id="enqueue-operation">Enqueue Operation</h4>
+    <pre
+      class="text"
+    ><code>Push every input element to the Input Stack</code></pre>
+    <h4 id="dequeue-operation">Dequeue Operation</h4>
+    <pre class="text"><code>If ( Output Stack is Empty)
+    pop every element in the Input Stack
+    and push them to the Output Stack until Input Stack is Empty
+
+pop from Output Stack</code></pre>
+    <p>
+      Let’s enqueue the integers <code>{1, 2, 3}</code> respectively. Integers
+      will be pushed on the <strong>Input Stack</strong> (<strong
+        >Stack #1</strong
+      >) which is located on the left;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/lX1EP.png"
+        ><img
+          src="https://i.stack.imgur.com/lX1EP.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      Then what will happen if we execute a dequeue operation? Whenever a
+      dequeue operation is executed, queue is going to check if the Output Stack
+      is empty or not(see the pseudo-code above) If the Output Stack is empty,
+      then the Input Stack is going to be extracted on the output so the
+      elements of Input Stack will be reversed. Before returning a value, the
+      state of the queue will be as below;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/9f03R.png"
+        ><img
+          src="https://i.stack.imgur.com/9f03R.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      Check out the order of elements in the Output Stack (Stack #2). It’s
+      obvious that we can pop the elements from the Output Stack so that the
+      output will be same as if we dequeued from a queue. Thus, if we execute
+      two dequeue operations, first we will get
+      <code>{1, 2}</code> respectively. Then element 3 will be the only element
+      of the Output Stack, and the Input Stack will be empty. If we enqueue the
+      elements 4 and 5, then the state of the queue will be as follows;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/CXQZB.png"
+        ><img
+          src="https://i.stack.imgur.com/CXQZB.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      Now the Output Stack is not empty, and if we execute a dequeue operation,
+      only 3 will be popped out from the Output Stack. Then the state will be
+      seen as below;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/hOPu3.png"
+        ><img
+          src="https://i.stack.imgur.com/hOPu3.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      Again, if we execute two more dequeue operations, on the first dequeue
+      operation, queue will check if the Output Stack is empty, which is true.
+      Then pop out the elements of the Input Stack and push them to the Output
+      Stack unti the Input Stack is empty, then the state of the Queue will be
+      as below;
+    </p>
+    <p>
+      <a href="https://i.stack.imgur.com/vuLsw.png"
+        ><img
+          src="https://i.stack.imgur.com/vuLsw.png"
+          alt="enter image description here"
+      /></a>
+    </p>
+    <p>
+      Easy to see, the output of the two dequeue operations will be
+      <code>{4, 5}</code>
+    </p>
+  </body>
+</html>

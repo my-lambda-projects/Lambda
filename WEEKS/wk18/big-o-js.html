@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>big-o-js</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="a-note-on-big-o-notation">A note on Big-O notation</h1>
+    <p>
+      It’s useful to know how fast an algorithm is and how much space it needs.
+      This allows you to pick the right algorithm for the job.
+    </p>
+    <p>
+      Big-O notation gives you a rough indication of the running time of an
+      algorithm and the amount of memory it uses. When someone says, “This
+      algorithm has worst-case running time of <strong>O(n^2)</strong> and uses
+      <strong>O(n)</strong> space,” they mean it’s kinda slow but doesn’t need
+      lots of extra memory.
+    </p>
+    <p>
+      Figuring out the Big-O of an algorithm is usually done through
+      mathematical analysis. We’re skipping the math here, but it’s useful to
+      know what the different values mean, so here’s a handy table.
+      <strong>n</strong> refers to the number of data items that you’re
+      processing. For example, when sorting an array of 100 items,
+      <strong>n = 100</strong>.
+    </p>
+    <table>
+      <colgroup>
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th>Big-O</th>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><strong>O(1)</strong></td>
+          <td>constant</td>
+          <td>
+            <strong>This is the best.</strong> The algorithm always takes the
+            same amount of time, regardless of how much data there is. Example:
+            looking up an element of an array by its index.
+          </td>
+        </tr>
+        <tr class="even">
+          <td><strong>O(log n)</strong></td>
+          <td>logarithmic</td>
+          <td>
+            <strong>Pretty great.</strong> These kinds of algorithms halve the
+            amount of data with each iteration. If you have 100 items, it takes
+            about 7 steps to find the answer. With 1,000 items, it takes 10
+            steps. And 1,000,000 items only take 20 steps. This is super fast
+            even for large amounts of data. Example: binary search.
+          </td>
+        </tr>
+        <tr class="odd">
+          <td><strong>O(n)</strong></td>
+          <td>linear</td>
+          <td>
+            <strong>Good performance.</strong> If you have 100 items, this does
+            100 units of work. Doubling the number of items makes the algorithm
+            take exactly twice as long (200 units of work). Example: sequential
+            search.
+          </td>
+        </tr>
+        <tr class="even">
+          <td><strong>O(n log n)</strong></td>
+          <td>“linearithmic”</td>
+          <td>
+            <strong>Decent performance.</strong> This is slightly worse than
+            linear but not too bad. Example: the fastest general-purpose sorting
+            algorithms.
+          </td>
+        </tr>
+        <tr class="odd">
+          <td><strong>O(n^2)</strong></td>
+          <td>quadratic</td>
+          <td>
+            <strong>Kinda slow.</strong> If you have 100 items, this does 100^2
+            = 10,000 units of work. Doubling the number of items makes it four
+            times slower (because 2 squared equals 4). Example: algorithms using
+            nested loops, such as insertion sort.
+          </td>
+        </tr>
+        <tr class="even">
+          <td><strong>O(n^3)</strong></td>
+          <td>cubic</td>
+          <td>
+            <strong>Poor performance.</strong> If you have 100 items, this does
+            100^3 = 1,000,000 units of work. Doubling the input size makes it
+            eight times slower. Example: matrix multiplication.
+          </td>
+        </tr>
+        <tr class="odd">
+          <td><strong>O(2^n)</strong></td>
+          <td>exponential</td>
+          <td>
+            <strong>Very poor performance.</strong> You want to avoid these
+            kinds of algorithms, but sometimes you have no choice. Adding just
+            one bit to the input doubles the running time. Example: traveling
+            salesperson problem.
+          </td>
+        </tr>
+        <tr class="even">
+          <td><strong>O(n!)</strong></td>
+          <td>factorial</td>
+          <td>
+            <strong>Intolerably slow.</strong> It literally takes a million
+            years to do anything.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <figure>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg"
+        alt="Comparison of Big O computations"
+      />
+      <figcaption>Comparison of Big O computations</figcaption>
+    </figure>
+    <p>Below are some examples for each category of performance:</p>
+    <p><strong>O(1)</strong></p>
+    <p>
+      The most common example with O(1) complexity is accessing an array index.
+    </p>
+    <pre class="swift"><code>let value = array[5]</code></pre>
+    <p>Another example of O(1) is pushing and popping from Stack.</p>
+    <p><strong>O(log n)</strong></p>
+    <pre class="swift"><code>var j = 1
+while j &lt; n {
+  // do constant time stuff
+  j *= 2
+}</code></pre>
+    <p>
+      Instead of simply incrementing, ‘j’ is increased by 2 times itself in each
+      run.
+    </p>
+    <p>Binary Search Algorithm is an example of O(log n) complexity.</p>
+    <p><strong>O(n)</strong></p>
+    <pre class="swift"><code>for i in stride(from: 0, to: n, by: 1) {
+  print(array[i])
+}</code></pre>
+    <p>Array Traversal and Linear Search are examples of O(n) complexity.</p>
+    <p><strong>O(n log n)</strong></p>
+    <pre class="swift"><code>for i in stride(from: 0, to: n, by: 1) {
+var j = 1
+  while j &lt; n {
+    j *= 2
+    // do constant time stuff
+  }
+}</code></pre>
+    <p>OR</p>
+    <pre class="swift"><code>for i in stride(from: 0, to: n, by: 1) {
+  func index(after i: Int) -&gt; Int? { // multiplies `i` by 2 until `i` &gt;= `n`
+    return i &lt; n ? i * 2 : nil
+  }
+  for j in sequence(first: 1, next: index(after:)) {
+    // do constant time stuff
+  }
+}</code></pre>
+    <p>Merge Sort and Heap Sort are examples of O(n log n) complexity.</p>
+    <p><strong>O(n^2)</strong></p>
+    <pre class="swift"><code>for i  in stride(from: 0, to: n, by: 1) {
+  for j in stride(from: 1, to: n, by: 1) {
+    // do constant time stuff
+  }
+}</code></pre>
+    <p>
+      Traversing a simple 2-D array and Bubble Sort are examples of O(n^2)
+      complexity.
+    </p>
+    <p><strong>O(n^3)</strong></p>
+    <pre class="swift"><code>for i in stride(from: 0, to: n, by: 1) {
+  for j in stride(from: 1, to: n, by: 1) {
+    for k in stride(from: 1, to: n, by: 1) {
+      // do constant time stuff
+    }
+  }
+}</code></pre>
+    <p><strong>O(2^n)</strong></p>
+    <p>
+      Algorithms with running time O(2^N) are often recursive algorithms that
+      solve a problem of size N by recursively solving two smaller problems of
+      size N-1. The following example prints all the moves necessary to solve
+      the famous “Towers of Hanoi” problem for N disks.
+    </p>
+    <pre
+      class="swift"
+    ><code>func solveHanoi(n: Int, from: String, to: String, spare: String) {
+  guard n &gt;= 1 else { return }
+  if n &gt; 1 {
+      solveHanoi(n: n - 1, from: from, to: spare, spare: to)
+      solveHanoi(n: n - 1, from: spare, to: to, spare: from)
+  }
+}</code></pre>
+    <p><strong>O(n!)</strong></p>
+    <p>
+      The most trivial example of function that takes O(n!) time is given below.
+    </p>
+    <pre class="swift"><code>func nFactFunc(n: Int) {
+  for i in stride(from: 0, to: n, by: 1) {
+    nFactFunc(n: n - 1)
+  }
+}</code></pre>
+    <p>
+      Often you don’t need math to figure out what the Big-O of an algorithm is
+      but you can simply use your intuition. If your code uses a single loop
+      that looks at all <strong>n</strong> elements of your input, the algorithm
+      is <strong>O(n)</strong>. If the code has two nested loops, it is
+      <strong
+        >O(n<sup>2)<strong>. Three nested loops gives </strong>O(n</sup
+        >3)</strong
+      >, and so on.
+    </p>
+    <p>
+      Note that Big-O notation is an estimate and is only really useful for
+      large values of <strong>n</strong>. For example, the worst-case running
+      time for the <a href="Insertion%20Sort/">insertion sort</a> algorithm is
+      <strong>O(n^2)</strong>. In theory that is worse than the running time for
+      <a href="Merge%20Sort/">merge sort</a>, which is
+      <strong>O(n log n)</strong>. But for small amounts of data, insertion sort
+      is actually faster, especially if the array is partially sorted already!
+    </p>
+    <p>
+      If you find this confusing, don’t let this Big-O stuff bother you too
+      much. It’s mostly useful when comparing two algorithms to figure out which
+      one is better. But in the end you still want to test in practice which one
+      really is the best. And if the amount of data is relatively small, then
+      even a slow algorithm will be fast enough for practical use.
+    </p>
+  </body>
+</html>

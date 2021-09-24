@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="algorithms-one">Algorithms One</h1>
+    <p>
+      After the invention of the Turing Machine, human computation was proved to
+      be equivalent to mechanical computation. Invention quickly moved toward
+      building these kinds of machines. Mathematical theorists moved on to the
+      question of what kinds of problems can be computed, how to formulate those
+      questions, and how difficult they become.
+    </p>
+    <p>
+      Algorithms are a vast subject packed with mathematical specificity - no
+      two day study of the subject can enable to you tackle any problem in the
+      space. This lesson is to teach you about the challenges and complexities
+      in the design, understanding, and implementation of algorithms.
+    </p>
+    <p>
+      The business of rigorously explaining certain challenging problems, then
+      identifying a specific method to finding a correct answer. Primarily an
+      academic discipline, nonetheless all of computer science rests on it.
+    </p>
+    <h1 id="the-basis-of-algorithm-design-countability-and-permutations">
+      The basis of algorithm design: Countability and Permutations
+    </h1>
+    <p>
+      The most basic question in algorithm design begins with the countability
+      of sets. The set <code>N</code> of integers is countably infinite: All
+      negative and positive integers:
+      <code>{..., -4,-3,-2,-1,0,1,2,3,4, ...}</code>. The set <code>R</code> of
+      real numbers is uncountably infinite: All numbers that can be expressed as
+      fractions:
+      <code>{..., -101/10, ..., -1/2, ..., 0/1, ... 1/1, ..., 7/3, ...}</code>.
+    </p>
+    <p>
+      Sets are also used to communicate about discrete sets, which is the
+      interest of computer science.
+      <code
+        >let X = ["apple", "cherry", "tomato", "strawberry", "raspberry"]</code
+      >
+      and <code>let Y = ["up", "down", "left", "right"]</code>. The study of
+      algorithms involves identifying the set of elements that make up certain
+      specific problems and then exploring that set in search of some solution.
+    </p>
+    <p>
+      The most basic approach to finding any solution is to exhaustively
+      enumerate every permutation of the set in question. Exhaustive enumeration
+      provides perfect solutions, but is intractable but for all of the smallest
+      datasets. The size of the set Z of a set S with n elements is
+      <code>n!</code> - the largest complexity class. :)
+    </p>
+    <h1 id="mini-lab">Mini lab</h1>
+    <p>
+      Write code in your language of choice to generate all permutations of the
+      following sets:
+    </p>
+    <pre><code>(1, 2, 3)
+(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;)
+(&#39;corn&#39;, &#39;turkey&#39;, &#39;winter&#39;, &#39;algebra&#39;, &#39;window&#39;)</code></pre>
+    <h4 id="generating-permutations-algorithms">
+      Generating permutations algorithms
+    </h4>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Lexicographical_order"
+        >Lexicographic Ordering</a
+      >
+    </p>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Heap%27s_algorithm"
+        >Heaps’ Algorithm</a
+      >
+    </p>
+    <h1 id="the-second-basis-of-algorithm-design-graph-theory">
+      The second basis of algorithm design: Graph theory
+    </h1>
+    <p>
+      A graph is a set of nodes that are connected by edges. Nodes each
+      represent information in some state, and edges represent transformations
+      of that information into another state. Any problem in computation can
+      generally be described as “here is the information we know about the
+      problem” as a state and “these are the changes we can apply to the
+      information from this state” as an edge. Each node has a number of edges
+      leaving it that is known as its “branching factor”. The branching factor
+      of graph determines the size of its search space.
+    </p>
+    <pre><code>C = n ^ b</code></pre>
+    <figure>
+      <img
+        src="https://www.lucidchart.com/publicSegments/view/0bb94330-2ca8-48dc-9108-640fdec02122/image.png"
+        alt="A Graph"
+      />
+      <figcaption>A Graph</figcaption>
+    </figure>
+    <h1 id="asymptotic-complexity-bigo">Asymptotic Complexity Big(O)</h1>
+    <p>
+      O(n) notation describes <em>asymptotic complexity</em>, that is, the
+      difficulty of a problem as the size of the problem approaches infinity.
+    </p>
+    <h2 id="growth-of-bigo-and-the-shape-of-an-algorithm">
+      Growth of Big(O) and the shape of an algorithm
+    </h2>
+    <p>
+      <a
+        href="https://www.lucidchart.com/invitations/accept/fddf57b9-9ca0-4956-b97a-832c96aded5b"
+        >Algorithms Visualization</a
+      >
+    </p>
+    <p>
+      Transforming an algorithm from one complexity class to another: - O(x^n) n
+      fully connected lists of length x - O(n^4) is n cubes - O(n^3) is a cube -
+      O(n^2) is a matrix - O(n log n) is a binary tree with depth = n (log is
+      branching factor) - O(n) is a list of length n - O(log n) is a a binary
+      tree with depth = n that is explored once with depth first search - O(1)
+      computes the answer immediately
+    </p>
+    <p>
+      <a
+        href="https://www.lucidchart.com/documents/view/fb7a5e50-8340-46b4-be62-69c7fe24c472"
+        >Big O</a
+      >
+    </p>
+    <h1 id="assignment">Assignment</h1>
+    <h2 id="travelling-salesman-problem-tsp">
+      Travelling Salesman Problem (TSP)
+    </h2>
+    <p>
+      The TSP is one of the most famous problems in Computer Science. Imagine a
+      map containing <code>n</code> cities that need to be visited in an optimal
+      order. This problem is known to be somewhere less than O(n!) and greater
+      than O(x^n).
+    </p>
+    <p>
+      TSP is one of the most popular benchmark problems and a great many
+      algorithms have been tested against it. For the interest time of time and
+      experience, only two algorithms are prescribed in this assignment:
+    </p>
+    <h3 id="solution-methods">Solution Methods:</h3>
+    <h4 id="exhaustive-search-breadth-first-or-depth-first-search">
+      Exhaustive search (Breadth-first or Depth-first search)
+    </h4>
+    <p>
+      Exhaustive search is fundamentally the most difficult case: calculate the
+      length of every possible path, keeping the shortest. This method is
+      guaranteed to return the shortest path, but is intractable for lists of
+      cities greater than ~20, as this algorithm is NP-Complete and O(n!). The
+      algorithm to exhaustively search involves starting from the first ordered
+      list of all cities as integers, then swapping a pair, calculating the
+      length of that trip, storing it if <code>l(x) &lt; B</code>, and repeating
+      until all swaps have been performed:
+    </p>
+    <pre><code>Cities: [
+{name:&quot;Denver&quot;, x:500, y:500},
+{name:&quot;Salt Lake City&quot;, x:300, y:500},
+{name:&quot;Cheyenne&quot;, x:500, y:600},
+{name:&quot;Santa Fe&quot;, x:500, y:350]
+]</code></pre>
+    <p>
+      The distance between two cities is: distance_between = (city1, city2)
+      -&gt; { return Math.sqrt((city1.x - city2.x)^2 + (city.1.y - city2.y)^2))
+      }
+    </p>
+    <p>All 4! permutations of <code>Cities</code>:</p>
+    <pre><code>[1,2,3,4] = [Denver, Salt Lake City, Cheyenne, Santa Fe]
+[1,2,4,3]
+[1,3,2,4]
+[1,3,4,2]
+[1,4,2,3]
+[1,4,3,2]
+
+[2,1,3,4]
+[2,1,4,3]
+[2,3,1,4]
+[2,3,4,1]
+[2,4,1,3]
+[2,4,3,1]
+
+[3,1,2,4]
+[3,1,4,2]
+[3,2,1,4]
+[3,2,4,1]
+[3,4,1,2]
+[3,4,2,1]
+
+[4,1,2,3]
+[4,1,3,2]
+[4,2,1,3]
+[4,2,3,1]
+[4,3,1,2]
+[4,3,2,1]</code></pre>
+    <p>Exhaustive Algorithm Psuedo Code:</p>
+    <pre><code>best_trip_length = MAX
+best_trip = []
+for each ordering in the permutations of C:
+  current_trip_length = 0
+  for each pair in the ordering:
+    current_trip_length += distance_between(current_pair)
+  if(current_trip_length &lt; best_trip_length)
+    best_trip_length = current_trip_length
+    best_trip = ordering</code></pre>
+    <h4 id="nearest-neighbor-search">Nearest Neighbor search</h4>
+    <p>
+      Nearest neighbor search (Choose only the nearest neighbor from a given
+      city). This algorithm takes a decidedly different approach than exhaustive
+      and is only O(n^2). It doesn’t produce the <em>best</em> result, but it
+      tends to produce a result that is within 25% of the best result. It is
+      neither the fastest nor the “most optimal” of the decideable algorithms,
+      but it is easy to implement and understand.
+    </p>
+    <pre><code>given a list of cities to be visited l
+path = []
+for each city start in l:
+  add start to path
+  while(path.length != l.length)
+    for each city in l not in path:
+      current = distance(city, start);
+      if(distance &lt; best_nearest)
+        best_nearest_distance = distance
+        best_nearest = city
+    path.add(best_nearest)</code></pre>
+    <p>
+      Implement the above two algorithms. Use the short and long city datasets
+      provided in this assignment and compare their running times and the length
+      and shapes of the paths they return.
+    </p>
+  </body>
+</html>

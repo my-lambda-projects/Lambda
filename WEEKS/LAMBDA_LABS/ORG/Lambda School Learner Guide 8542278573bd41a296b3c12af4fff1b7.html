@@ -1,0 +1,644 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lambda School Learner Guide</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="85422785-73bd-41a2-96b3-c12af4fff1b7" class="page sans"><header><img class="page-cover-image" src="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda_RAW_Ryan_Houchin-129.jpg" style="object-position:center 44.87%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/lambda-icon-general.png"/></div><h1 class="page-title">Lambda School Learner Guide</h1></header><div class="page-body"><p id="270ec6d9-81d8-4327-9b8a-b485b89123ee" class="block-color-gray">Welcome to the Lambda School Learner Guide! This is a living, breathing document designed to help Learners on their Lambda School journey. As Lambda School evolves, we will update the information in this Guide. If a Learner ever has concerns or feedback about how a change affects them, or suggestions for additional content to include in the Learner Guide, please reach out to Learner Success via <code>/frontdesk</code> on Slack.</p><div id="5c601b5c-63e9-4c11-a456-c30a694ffaba" class="column-list"><div id="c5915315-b43e-4906-9dbd-5703fd9d9718" style="width:50%" class="column"><h2 id="3af90adf-fbd5-4680-b062-1c8ce98e5861" class="">Lambda School 101</h2><hr id="f8f542f7-c255-4324-bfe7-02391c56b1ca"/><figure id="113a1eb3-9017-4617-b056-0671a3b8d7a4" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Mission,%20Objectives,%20Values%20113a1eb390174617b0560671a3b8d7a4.html"><span class="icon">🚩</span>Mission, Objectives, Values</a></figure><figure id="ac0f3c1d-93bd-4973-8ab3-cd430b631732" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/ISA%20&amp;%20Finance%20Information%20ac0f3c1d93bd49738ab3cd430b631732.html"><span class="icon">📋</span>ISA &amp; Finance Information</a></figure><figure id="3063f30d-4be8-489b-9471-f9fbdd704e85" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Glossary%203063f30d4be8489b9471f9fbdd704e85.html"><span class="icon">📖</span>Lambda School Glossary</a></figure><figure id="0656439b-8c47-4c9c-9cbf-59b9b5f3efc4" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Tools%20&amp;%20Platforms%200656439b8c474c9c9cbf59b9b5f3efc4.html"><span class="icon">🛠</span>Tools &amp; Platforms </a></figure></div><div id="2f31ab13-3bca-474e-a881-a5220af432fd" style="width:50%" class="column"><h2 id="607cde29-7ff9-491f-ba02-f4066db23606" class="">Policies</h2><hr id="51540694-036a-4a65-bfe4-bb675b50bb64"/><figure id="b11fec77-b768-4118-9d8a-9db5b89d948a" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Code%20of%20Conduct%20b11fec77b76841189d8a9db5b89d948a.html"><span class="icon">📔</span>Code of Conduct</a></figure><figure id="eb875442-5109-4df6-b4c5-a340c8c5c9c3" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Academic%20Policies%20eb87544251094df6b4c5a340c8c5c9c3.html"><span class="icon">💻</span>Academic Policies</a></figure><figure id="327badd4-502a-4fc0-99db-0effa1e69474" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Flex%20327badd4502a4fc099db0effa1e69474.html"><span class="icon">🎓</span>Flex</a></figure><figure id="43715479-9bfe-4b0f-8e35-1b8829e23d05" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Accessibility%20&amp;%20Accommodations%20437154799bfe4b0f8e351b8829e23d05.html"><span class="icon">⭐</span>Accessibility &amp; Accommodations</a></figure><figure id="ea3fc77b-a1c9-4a82-90d6-83cd4bc27463" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Legal%20and%20Regulatory%20Information%20ea3fc77ba1c94a8290d683cd4bc27463.html"><span class="icon">📝</span>Legal and Regulatory Information</a></figure><figure id="ea781c96-f2e9-458d-8828-7740ea5269a4" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Course%20Catalogs%20ea781c96f2e9458d88287740ea5269a4.html"><span class="icon">📜</span>Course Catalogs </a></figure><figure id="4d898450-36e5-43c1-9765-2704045b8371" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Email%20&amp;%20Slack%20Migration%204d89845036e543c197652704045b8371.html"><span class="icon">✉️</span>Lambda School Email &amp; Slack Migration </a></figure></div></div><div id="cb664450-08b3-411a-9916-06daa2e145a7" class="column-list"><div id="c77383a0-1885-4f9c-9bde-d0d0f674a35e" style="width:50%" class="column"><h2 id="5062d919-3fda-4f2f-be94-906daade2549" class="">Learner Life @ Lambda School</h2><hr id="8f12684d-0ab0-4e0f-b850-9638c52f44c4"/><figure id="191601ac-b3a0-47df-b6da-5558a8e27c8c" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Learner%20Journey%20Overview%20191601acb3a047dfb6da5558a8e27c8c.html"><span class="icon">🗺</span>Learner Journey Overview</a></figure><figure id="73e8bc5c-06f7-44b2-8a38-49b217e5fb13" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Full%20and%20Part-Time%20Schedules%2073e8bc5c06f744b28a3849b217e5fb13.html"><span class="icon">🗓</span>Full and Part-Time Schedules</a></figure><figure id="7afb6b9f-9876-4f77-adcf-3516732a71c1" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Learner%20Support%207afb6b9f98764f77adcf3516732a71c1.html"><span class="icon">⚓</span>Learner Support</a></figure><figure id="a79e8040-ff8d-4be0-84b2-9175a622c9db" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Community%20@%20Lambda%20School%20a79e8040ff8d4be084b29175a622c9db.html"><span class="icon">🎉</span>Community @ Lambda School</a></figure><p id="e238e629-4c02-498a-acf3-cf7218723979" class="">
+</p><h2 id="984b4270-6c3a-43e0-834d-0ed033cb2614" class="">Career Preparation &amp; Support</h2><hr id="2847e370-93f0-4ca5-a480-c5b2cf9128ed"/><figure id="0d93fba0-2ce4-4902-91ea-86a27a9498e0" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Career%20Readiness%200d93fba02ce4490291ea86a27a9498e0.html"><span class="icon">💼</span>Career Readiness</a></figure><p id="0e034614-5022-4f26-be5a-8d09c4f6f33c" class="">🎓<strong> </strong><strong><a href="https://my.lambdaschool.com/graduation-requirements">Graduation Requirements</a></strong></p><p id="6a54ac85-27eb-460f-9c11-3ae393c830d8" class="">💎 <strong><a href="https://my.lambdaschool.com/career-help">Career Support</a></strong></p><p id="867df194-bd5d-4728-9b95-055f5a648599" class="">🚀 <strong><a href="https://my.lambdaschool.com/job-search">Job Search</a></strong></p><p id="f97986e3-37d2-4ce6-b8dc-4759f82fb4fa" class="">🔎<strong><a href="https://www.notion.so/Job-Search-Student-Handbook-340f68fa73f14905ba2d9a6c14758a10">Job Search Student Handbook</a></strong></p></div><div id="98de1c85-32b9-4958-8328-f1ed0e4b616f" style="width:50.00000000000002%" class="column"><h2 id="5cc92e3a-1162-42e2-9eb0-f00784b7be52" class="">Learning @ Lambda School</h2><hr id="b57abbd2-b9d9-45a1-961b-db0bca048e50"/><p id="af9f3f41-75fd-4138-9d62-c5df5d54f918" class="">✏️ <strong><a href="https://my.lambdaschool.com/meet-the-team">Meet the Instruction &amp; Curriculum Teams</a></strong></p><figure id="3a1050cb-b1eb-4013-9eba-508414329758" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Core%20Tracks%203a1050cbb1eb40139eba508414329758.html"><span class="icon">🛤</span>Core Tracks</a></figure><figure id="d0b13fb5-f2b5-447f-846c-56cc7a2ddcb1" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Build%20Sprints%20d0b13fb5f2b5447f846c56cc7a2ddcb1.html"><span class="icon">🏗</span>Build Sprints</a></figure><figure id="7902c27b-97b0-47a4-92f6-e036d86d1de3" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Labs%20Learner%20Guide%207902c27b97b047a492f6e036d86d1de3.html"><span class="icon">🧪</span>Labs Learner Guide</a></figure><figure id="cb9974cb-3873-46c4-80ed-6077da8da5d2" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Computer%20Science%20cb9974cb387346c480ed6077da8da5d2.html"><span class="icon">💻</span>Computer Science</a></figure><p id="b1408a0a-f1e3-488a-b8af-df50d6e40371" class="">
+</p><h2 id="5a90ce05-131f-4dfc-8759-be1027687968" class="">Additional Resources</h2><hr id="48f912fb-2088-4224-b8f6-60136060b998"/><figure id="5e25c531-9b26-495f-bcc4-b0c82850a813" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Learning%20Tips%20&amp;%20Resources%205e25c5319b26495fbcc4b0c82850a813.html"><span class="icon">🗄</span>Learning Tips &amp; Resources</a></figure><p id="83415082-6e64-4032-b279-b4e00a9f0d90" class="">🙂 <strong><a href="https://my.lambdaschool.com/health-and-wellness">Health and Wellness</a></strong></p><figure id="969200c6-e113-4f20-a00c-78f6e263fec8" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Contact%20Info%20969200c6e1134f20a00c78f6e263fec8.html"><span class="icon">☎️</span>Lambda School Contact Info</a></figure><figure id="d6c777ae-e784-47f6-910d-da97aa2eb701" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/COVID-19%20d6c777aee78447f6910dda97aa2eb701.html"><span class="icon">✔️</span>COVID-19</a></figure><figure id="4f1e5adb-b217-4753-b37c-fe2df2b3062b"><div class="source"><a href="https://lambdaschool.com/terms">https://lambdaschool.com/terms</a></div></figure><h3 id="1c5b2526-50ca-435b-80d5-e1d853dbdd87" class="">Student Change Announcements</h3><hr id="ee4beb65-8213-42cb-984d-952c09b022c9"/><figure id="d1eed9a6-d994-4ae3-bac2-f19ac45ae219" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219.html">Lambda School Updates - Fall 2020</a></figure><figure id="59706983-e39c-4b64-9176-d7068d813901" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%2059706983e39c4b649176d7068d813901.html">Lambda School Updates - Fall 2020</a></figure><figure id="3549d04b-5e70-4ee0-809d-4f8c21b8958c" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%203549d04b5e704ee0809d4f8c21b8958c.html">Lambda School Updates - Fall 2020</a></figure><figure id="41c52ade-5da3-4859-90e5-be219eeba4e9" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%2041c52ade5da3485990e5be219eeba4e9.html">Lambda School Updates - Fall 2020</a></figure><figure id="eabbc461-4ead-489d-9b34-ed9ebaa46a73" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%20eabbc4614ead489d9b34ed9ebaa46a73.html">Lambda School Updates - Fall 2020</a></figure><figure id="d61414a0-8de4-4bf2-9033-7b134c4a8fc5" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%20d61414a08de44bf290337b134c4a8fc5.html">Lambda School Updates - Fall 2020</a></figure><figure id="f09793f6-1f5e-4af2-8612-bed455bcbca4" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%20f09793f61f5e4af28612bed455bcbca4.html">Lambda School Updates - Fall 2020</a></figure><figure id="3fbff2cf-d702-441d-a841-ef76fb5e4830" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%203fbff2cfd702441da841ef76fb5e4830.html">Lambda School Updates - Fall 2020</a></figure><figure id="de7702fb-fbe2-47bf-9675-d8830edd584d" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/Lambda%20School%20Updates%20-%20Fall%202020%20de7702fbfbe247bf9675d8830edd584d.html">Lambda School Updates - Fall 2020</a></figure><figure id="30d07e14-f86d-49f5-88e6-f6f01ad94345" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/LLP%20Orientation%20Follow-up%2030d07e14f86d49f588e6f6f01ad94345.html"><span class="icon">🌲</span>LLP Orientation Follow-up </a></figure><figure id="a7ce4961-4808-4af2-b08c-6da59227715c" class="link-to-page"><a href="Lambda%20School%20Learner%20Guide%208542278573bd41a296b3c12af4fff1b7/PT%20Cohort%20Comms%20a7ce496148084af2b08c6da59227715c.html">PT Cohort Comms</a></figure><p id="9891b14b-b98c-48d3-9a4d-add232bf50f1" class="">
+</p></div></div><p id="9b512c4b-f234-4031-ba4a-77cfe5c08887" class="">
+</p><p id="7dc60c73-0464-4d82-a324-4239d3541a59" class="">
+</p><ul id="6c315d7d-57bc-434b-8a0e-c0bddb769bad" class="toggle"><li><details open=""><summary>Revision History</summary><p id="617a40f5-82c8-4909-9e03-975ca49da81d" class="">October 24, 2019, shared with students October 25, 2019</p><p id="51c66508-77e1-4085-97f9-01e9004ecd32" class="">June 2021, shared with students June 2021</p></details></li></ul><p id="0c68f911-17ac-4e34-be1f-8ce9238ba3ac" class="">
+</p><p id="f48b3ede-aa07-40da-a1df-bd1a6aff7e3d" class="">Copyright Lambda School 2019, All Rights Reserved</p><p id="37ae8801-d3f0-4e6c-8b6b-5b23aca5c650" class="">
+</p><p id="4675da55-9ac9-4a6b-9d97-404eae944ec6" class="">
+</p><p id="d7a369f8-7d4a-4c02-9f5f-fa5c8fc8dc56" class=""><a href="https://www.notion.so/f74869c338f64d07ae73ffbe53d1114b">https://www.notion.so/lambdaschool/Lambda-School-Complaint-Policy-f74869c338f64d07ae73ffbe53d1114b</a></p></div></article></body></html>

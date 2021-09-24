@@ -1,0 +1,3768 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>built-in-functions</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1 id="built-in-functions">Built-in Functions</h1>
+    <h2 id="section"></h2>
+    <p>
+      The Python interpreter has a number of functions and types built into it
+      that are always available. They are listed here in alphabetical order.
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">Built-in Functions</th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#abs"
+              ><code>abs()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#delattr"
+              ><code>delattr()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#hash"
+              ><code>hash()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#func-memoryview"
+              ><code>memoryview()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#func-set"
+              ><code>set()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#all"
+              ><code>all()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#func-dict"
+              ><code>dict()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#help"
+              ><code>help()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#min"
+              ><code>min()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#setattr"
+              ><code>setattr()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#any"
+              ><code>any()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#dir"
+              ><code>dir()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#hex"
+              ><code>hex()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#next"
+              ><code>next()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#slice"
+              ><code>slice()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#ascii"
+              ><code>ascii()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#divmod"
+              ><code>divmod()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#id"
+              ><code>id()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#object"
+              ><code>object()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#sorted"
+              ><code>sorted()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#bin"
+              ><code>bin()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#enumerate"
+              ><code>enumerate()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#input"
+              ><code>input()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#oct"
+              ><code>oct()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#staticmethod"
+              ><code>staticmethod()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#bool"
+              ><code>bool()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#eval"
+              ><code>eval()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#int"
+              ><code>int()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#open"
+              ><code>open()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#func-str"
+              ><code>str()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#breakpoint"
+              ><code>breakpoint()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#exec"
+              ><code>exec()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#isinstance"
+              ><code>isinstance()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#ord"
+              ><code>ord()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#sum"
+              ><code>sum()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#func-bytearray"
+              ><code>bytearray()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#filter"
+              ><code>filter()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#issubclass"
+              ><code>issubclass()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#pow"
+              ><code>pow()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#super"
+              ><code>super()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#func-bytes"
+              ><code>bytes()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#float"
+              ><code>float()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#iter"
+              ><code>iter()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#print"
+              ><code>print()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#func-tuple"
+              ><code>tuple()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#callable"
+              ><code>callable()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#format"
+              ><code>format()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#len"
+              ><code>len()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#property"
+              ><code>property()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#type"
+              ><code>type()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#chr"
+              ><code>chr()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#func-frozenset"
+              ><code>frozenset()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#func-list"
+              ><code>list()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#func-range"
+              ><code>range()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#vars"
+              ><code>vars()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#classmethod"
+              ><code>classmethod()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#getattr"
+              ><code>getattr()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#locals"
+              ><code>locals()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#repr"
+              ><code>repr()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#zip"
+              ><code>zip()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#compile"
+              ><code>compile()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#globals"
+              ><code>globals()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#map"
+              ><code>map()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#reversed"
+              ><code>reversed()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a
+              href="https://docs.python.org/3/library/functions.html#__import__"
+              ><code>__import__()</code></a
+            >
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#complex"
+              ><code>complex()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#hasattr"
+              ><code>hasattr()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#max"
+              ><code>max()</code></a
+            >
+          </td>
+          <td style="text-align: left">
+            <a href="https://docs.python.org/3/library/functions.html#round"
+              ><code>round()</code></a
+            >
+          </td>
+          <td style="text-align: left"></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><code>abs</code>(<em>x</em>)</p>
+    <p>
+      Return the absolute value of a number. The argument may be an integer, a
+      floating point number, or an object implementing
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__abs__"
+        ><code>__abs__()</code></a
+      >. If the argument is a complex number, its magnitude is
+      returned.<code>all</code>(<em>iterable</em>)
+    </p>
+    <p>
+      Return <code>True</code> if all elements of the <em>iterable</em> are true
+      (or if the iterable is empty). Equivalent to:
+    </p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> <span class="bu">all</span>(iterable):</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="cf">for</span> element <span class="kw">in</span> iterable:</a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="cf">if</span> <span class="kw">not</span> element:</a>
+<a class="sourceLine" id="cb1-4" title="4">            <span class="cf">return</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="cf">return</span> <span class="va">True</span></a></code></pre>
+    </div>
+    <p><code>any</code>(<em>iterable</em>)</p>
+    <p>
+      Return <code>True</code> if any element of the <em>iterable</em> is true.
+      If the iterable is empty, return <code>False</code>. Equivalent to:
+    </p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">def</span> <span class="bu">any</span>(iterable):</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="cf">for</span> element <span class="kw">in</span> iterable:</a>
+<a class="sourceLine" id="cb2-3" title="3">        <span class="cf">if</span> element:</a>
+<a class="sourceLine" id="cb2-4" title="4">            <span class="cf">return</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="cf">return</span> <span class="va">False</span></a></code></pre>
+    </div>
+    <p><code>ascii</code>(<em>object</em>)</p>
+    <p>
+      As
+      <a href="https://docs.python.org/3/library/functions.html#repr"
+        ><code>repr()</code></a
+      >, return a string containing a printable representation of an object, but
+      escape the non-ASCII characters in the string returned by
+      <a href="https://docs.python.org/3/library/functions.html#repr"
+        ><code>repr()</code></a
+      >
+      using <code>\x</code>, <code>\u</code> or <code>\U</code> escapes. This
+      generates a string similar to that returned by
+      <a href="https://docs.python.org/3/library/functions.html#repr"
+        ><code>repr()</code></a
+      >
+      in Python 2.<code>bin</code>(<em>x</em>)
+    </p>
+    <p>
+      Convert an integer number to a binary string prefixed with “0b”. The
+      result is a valid Python expression. If <em>x</em> is not a Python
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      object, it has to define an
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >
+      method that returns an integer. Some examples:&gt;&gt;&gt;
+    </p>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="bu">bin</span>(<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">&#39;0b11&#39;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">&gt;&gt;&gt;</span> <span class="bu">bin</span>(<span class="op">-</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">&#39;-0b1010&#39;</span></a></code></pre>
+    </div>
+    <p>
+      If prefix “0b” is desired or not, you can use either of the following
+      ways.&gt;&gt;&gt;
+    </p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="bu">format</span>(<span class="dv">14</span>, <span class="st">&#39;#b&#39;</span>), <span class="bu">format</span>(<span class="dv">14</span>, <span class="st">&#39;b&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2">(<span class="st">&#39;0b1110&#39;</span>, <span class="st">&#39;1110&#39;</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">&gt;&gt;&gt;</span> <span class="ss">f&#39;</span><span class="sc">{</span><span class="dv">14</span><span class="sc">:#b}</span><span class="ss">&#39;</span>, <span class="ss">f&#39;</span><span class="sc">{</span><span class="dv">14</span><span class="sc">:b}</span><span class="ss">&#39;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">(<span class="st">&#39;0b1110&#39;</span>, <span class="st">&#39;1110&#39;</span>)</a></code></pre>
+    </div>
+    <p>
+      See also
+      <a href="https://docs.python.org/3/library/functions.html#format"
+        ><code>format()</code></a
+      >
+      for more information._class_ <code>bool</code>([<em>x</em>])
+    </p>
+    <p>
+      Return a Boolean value, i.e. one of <code>True</code> or
+      <code>False</code>. <em>x</em> is converted using the standard
+      <a href="https://docs.python.org/3/library/stdtypes.html#truth"
+        >truth testing procedure</a
+      >. If <em>x</em> is false or omitted, this returns <code>False</code>;
+      otherwise it returns <code>True</code>. The
+      <a href="https://docs.python.org/3/library/functions.html#bool"
+        ><code>bool</code></a
+      >
+      class is a subclass of
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      (see
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesnumeric"
+        >Numeric Types — int, float, complex</a
+      >). It cannot be subclassed further. Its only instances are
+      <code>False</code> and <code>True</code> (see
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values"
+        >Boolean Values</a
+      >).
+    </p>
+    <p>
+      Changed in version 3.7: <em>x</em> is now a positional-only
+      parameter.<code>breakpoint</code>(<em>*args</em>, <em>**kws</em>)
+    </p>
+    <p>
+      This function drops you into the debugger at the call site. Specifically,
+      it calls
+      <a href="https://docs.python.org/3/library/sys.html#sys.breakpointhook"
+        ><code>sys.breakpointhook()</code></a
+      >, passing <code>args</code> and <code>kws</code> straight through. By
+      default, <code>sys.breakpointhook()</code> calls
+      <a href="https://docs.python.org/3/library/pdb.html#pdb.set_trace"
+        ><code>pdb.set_trace()</code></a
+      >
+      expecting no arguments. In this case, it is purely a convenience function
+      so you don’t have to explicitly import
+      <a href="https://docs.python.org/3/library/pdb.html#module-pdb"
+        ><code>pdb</code></a
+      >
+      or type as much code to enter the debugger. However,
+      <a href="https://docs.python.org/3/library/sys.html#sys.breakpointhook"
+        ><code>sys.breakpointhook()</code></a
+      >
+      can be set to some other function and
+      <a href="https://docs.python.org/3/library/functions.html#breakpoint"
+        ><code>breakpoint()</code></a
+      >
+      will automatically call that, allowing you to drop into the debugger of
+      choice.
+    </p>
+    <p>
+      Raises an
+      <a href="https://docs.python.org/3/library/sys.html#auditing"
+        >auditing event</a
+      >
+      <code>builtins.breakpoint</code> with argument
+      <code>breakpointhook</code>.
+    </p>
+    <p>
+      New in version 3.7._class_ <code>bytearray</code>([<em>source</em>[,
+      <em>encoding</em>[, <em>errors</em>]]])
+    </p>
+    <p>
+      Return a new array of bytes. The
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+        ><code>bytearray</code></a
+      >
+      class is a mutable sequence of integers in the range 0 &lt;= x &lt; 256.
+      It has most of the usual methods of mutable sequences, described in
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesseq-mutable"
+        >Mutable Sequence Types</a
+      >, as well as most methods that the
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytes"
+        ><code>bytes</code></a
+      >
+      type has, see
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytes-methods"
+        >Bytes and Bytearray Operations</a
+      >.
+    </p>
+    <p>
+      The optional <em>source</em> parameter can be used to initialize the array
+      in a few different ways:
+    </p>
+    <ul>
+      <li>
+        If it is a <em>string</em>, you must also give the
+        <em>encoding</em> (and optionally, <em>errors</em>) parameters;
+        <a href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+          ><code>bytearray()</code></a
+        >
+        then converts the string to bytes using
+        <a href="https://docs.python.org/3/library/stdtypes.html#str.encode"
+          ><code>str.encode()</code></a
+        >.
+      </li>
+      <li>
+        If it is an <em>integer</em>, the array will have that size and will be
+        initialized with null bytes.
+      </li>
+      <li>
+        If it is an object conforming to the
+        <a href="https://docs.python.org/3/c-api/buffer.html#bufferobjects"
+          >buffer interface</a
+        >, a read-only buffer of the object will be used to initialize the bytes
+        array.
+      </li>
+      <li>
+        If it is an <em>iterable</em>, it must be an iterable of integers in the
+        range <code>0 &lt;= x &lt; 256</code>, which are used as the initial
+        contents of the array.
+      </li>
+    </ul>
+    <p>Without an argument, an array of size 0 is created.</p>
+    <p>
+      See also
+      <a href="https://docs.python.org/3/library/stdtypes.html#binaryseq"
+        >Binary Sequence Types — bytes, bytearray, memoryview</a
+      >
+      and
+      <a href="https://docs.python.org/3/library/stdtypes.html#typebytearray"
+        >Bytearray Objects</a
+      >._class_ <code>bytes</code>([<em>source</em>[, <em>encoding</em>[,
+      <em>errors</em>]]])
+    </p>
+    <p>
+      Return a new “bytes” object, which is an immutable sequence of integers in
+      the range <code>0 &lt;= x &lt; 256</code>.
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytes"
+        ><code>bytes</code></a
+      >
+      is an immutable version of
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+        ><code>bytearray</code></a
+      >
+      – it has the same non-mutating methods and the same indexing and slicing
+      behavior.
+    </p>
+    <p>
+      Accordingly, constructor arguments are interpreted as for
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+        ><code>bytearray()</code></a
+      >.
+    </p>
+    <p>
+      Bytes objects can also be created with literals, see
+      <a
+        href="https://docs.python.org/3/reference/lexical_analysis.html#strings"
+        >String and Bytes literals</a
+      >.
+    </p>
+    <p>
+      See also
+      <a href="https://docs.python.org/3/library/stdtypes.html#binaryseq"
+        >Binary Sequence Types — bytes, bytearray, memoryview</a
+      >,
+      <a href="https://docs.python.org/3/library/stdtypes.html#typebytes"
+        >Bytes Objects</a
+      >, and
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytes-methods"
+        >Bytes and Bytearray Operations</a
+      >.<code>callable</code>(<em>object</em>)
+    </p>
+    <p>
+      Return
+      <a href="https://docs.python.org/3/library/constants.html#True"
+        ><code>True</code></a
+      >
+      if the <em>object</em> argument appears callable,
+      <a href="https://docs.python.org/3/library/constants.html#False"
+        ><code>False</code></a
+      >
+      if not. If this returns <code>True</code>, it is still possible that a
+      call fails, but if it is <code>False</code>, calling <em>object</em> will
+      never succeed. Note that classes are callable (calling a class returns a
+      new instance); instances are callable if their class has a
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__call__"
+        ><code>__call__()</code></a
+      >
+      method.
+    </p>
+    <p>
+      New in version 3.2: This function was first removed in Python 3.0 and then
+      brought back in Python 3.2.<code>chr</code>(<em>i</em>)
+    </p>
+    <p>
+      Return the string representing a character whose Unicode code point is the
+      integer <em>i</em>. For example, <code>chr(97)</code> returns the string
+      <code>'a'</code>, while <code>chr(8364)</code> returns the string
+      <code>'€'</code>. This is the inverse of
+      <a href="https://docs.python.org/3/library/functions.html#ord"
+        ><code>ord()</code></a
+      >.
+    </p>
+    <p>
+      The valid range for the argument is from 0 through 1,114,111 (0x10FFFF in
+      base 16).
+      <a href="https://docs.python.org/3/library/exceptions.html#ValueError"
+        ><code>ValueError</code></a
+      >
+      will be raised if <em>i</em> is outside that range.<code
+        >@classmethod</code
+      >
+    </p>
+    <p>Transform a method into a class method.</p>
+    <p>
+      A class method receives the class as implicit first argument, just like an
+      instance method receives the instance. To declare a class method, use this
+      idiom:
+    </p>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">class</span> C:</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="at">@classmethod</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">def</span> f(cls, arg1, arg2, ...): ...</a></code></pre>
+    </div>
+    <p>
+      The <code>@classmethod</code> form is a function
+      <a href="https://docs.python.org/3/glossary.html#term-decorator"
+        >decorator</a
+      >
+      – see
+      <a href="https://docs.python.org/3/reference/compound_stmts.html#function"
+        >Function definitions</a
+      >
+      for details.
+    </p>
+    <p>
+      A class method can be called either on the class (such as
+      <code>C.f()</code>) or on an instance (such as <code>C().f()</code>). The
+      instance is ignored except for its class. If a class method is called for
+      a derived class, the derived class object is passed as the implied first
+      argument.
+    </p>
+    <p>
+      Class methods are different than C++ or Java static methods. If you want
+      those, see
+      <a href="https://docs.python.org/3/library/functions.html#staticmethod"
+        ><code>staticmethod()</code></a
+      >
+      in this section. For more information on class methods, see
+      <a href="https://docs.python.org/3/reference/datamodel.html#types"
+        >The standard type hierarchy</a
+      >.
+    </p>
+    <p>
+      Changed in version 3.9: Class methods can now wrap other
+      <a href="https://docs.python.org/3/glossary.html#term-descriptor"
+        >descriptors</a
+      >
+      such as
+      <a href="https://docs.python.org/3/library/functions.html#property"
+        ><code>property()</code></a
+      >.<code>compile</code>(<em>source</em>, <em>filename</em>, <em>mode</em>,
+      <em>flags=0</em>, <em>dont_inherit=False</em>, <em>optimize=-1</em>)
+    </p>
+    <p>
+      Compile the <em>source</em> into a code or AST object. Code objects can be
+      executed by
+      <a href="https://docs.python.org/3/library/functions.html#exec"
+        ><code>exec()</code></a
+      >
+      or
+      <a href="https://docs.python.org/3/library/functions.html#eval"
+        ><code>eval()</code></a
+      >. <em>source</em> can either be a normal string, a byte string, or an AST
+      object. Refer to the
+      <a href="https://docs.python.org/3/library/ast.html#module-ast"
+        ><code>ast</code></a
+      >
+      module documentation for information on how to work with AST objects.
+    </p>
+    <p>
+      The <em>filename</em> argument should give the file from which the code
+      was read; pass some recognizable value if it wasn’t read from a file
+      (<code>'&lt;string&gt;'</code> is commonly used).
+    </p>
+    <p>
+      The <em>mode</em> argument specifies what kind of code must be compiled;
+      it can be <code>'exec'</code> if <em>source</em> consists of a sequence of
+      statements, <code>'eval'</code> if it consists of a single expression, or
+      <code>'single'</code> if it consists of a single interactive statement (in
+      the latter case, expression statements that evaluate to something other
+      than <code>None</code> will be printed).
+    </p>
+    <p>
+      The optional arguments <em>flags</em> and <em>dont_inherit</em> control
+      which
+      <a href="https://docs.python.org/3/library/ast.html#ast-compiler-flags"
+        >compiler options</a
+      >
+      should be activated and which
+      <a href="https://docs.python.org/3/reference/simple_stmts.html#future"
+        >future features</a
+      >
+      should be allowed. If neither is present (or both are zero) the code is
+      compiled with the same flags that affect the code that is calling
+      <a href="https://docs.python.org/3/library/functions.html#compile"
+        ><code>compile()</code></a
+      >. If the <em>flags</em> argument is given and <em>dont_inherit</em> is
+      not (or is zero) then the compiler options and the future statements
+      specified by the <em>flags</em> argument are used in addition to those
+      that would be used anyway. If <em>dont_inherit</em> is a non-zero integer
+      then the <em>flags</em> argument is it – the flags (future features and
+      compiler options) in the surrounding code are ignored.
+    </p>
+    <p>
+      Compiler options and future statements are specified by bits which can be
+      bitwise ORed together to specify multiple options. The bitfield required
+      to specify a given future feature can be found as the
+      <code>compiler_flag</code> attribute on the <code>_Feature</code> instance
+      in the
+      <a
+        href="https://docs.python.org/3/library/__future__.html#module-__future__"
+        ><code>__future__</code></a
+      >
+      module.
+      <a href="https://docs.python.org/3/library/ast.html#ast-compiler-flags"
+        >Compiler flags</a
+      >
+      can be found in
+      <a href="https://docs.python.org/3/library/ast.html#module-ast"
+        ><code>ast</code></a
+      >
+      module, with <code>PyCF_</code> prefix.
+    </p>
+    <p>
+      The argument <em>optimize</em> specifies the optimization level of the
+      compiler; the default value of <code>-1</code> selects the optimization
+      level of the interpreter as given by
+      <a href="https://docs.python.org/3/using/cmdline.html#cmdoption-o"
+        ><code>-O</code></a
+      >
+      options. Explicit levels are <code>0</code> (no optimization;
+      <code>__debug__</code> is true), <code>1</code> (asserts are removed,
+      <code>__debug__</code> is false) or <code>2</code> (docstrings are removed
+      too).
+    </p>
+    <p>
+      This function raises
+      <a href="https://docs.python.org/3/library/exceptions.html#SyntaxError"
+        ><code>SyntaxError</code></a
+      >
+      if the compiled source is invalid, and
+      <a href="https://docs.python.org/3/library/exceptions.html#ValueError"
+        ><code>ValueError</code></a
+      >
+      if the source contains null bytes.
+    </p>
+    <p>
+      If you want to parse Python code into its AST representation, see
+      <a href="https://docs.python.org/3/library/ast.html#ast.parse"
+        ><code>ast.parse()</code></a
+      >.
+    </p>
+    <p>
+      Raises an
+      <a href="https://docs.python.org/3/library/sys.html#auditing"
+        >auditing event</a
+      >
+      <code>compile</code> with arguments <code>source</code> and
+      <code>filename</code>. This event may also be raised by implicit
+      compilation.
+    </p>
+    <p>Note</p>
+    <p>
+      When compiling a string with multi-line code in <code>'single'</code> or
+      <code>'eval'</code> mode, input must be terminated by at least one newline
+      character. This is to facilitate detection of incomplete and complete
+      statements in the
+      <a href="https://docs.python.org/3/library/code.html#module-code"
+        ><code>code</code></a
+      >
+      module.
+    </p>
+    <p>Warning</p>
+    <p>
+      It is possible to crash the Python interpreter with a sufficiently
+      large/complex string when compiling to an AST object due to stack depth
+      limitations in Python’s AST compiler.
+    </p>
+    <p>
+      Changed in version 3.2: Allowed use of Windows and Mac newlines. Also
+      input in <code>'exec'</code> mode does not have to end in a newline
+      anymore. Added the <em>optimize</em> parameter.
+    </p>
+    <p>
+      Changed in version 3.5: Previously,
+      <a href="https://docs.python.org/3/library/exceptions.html#TypeError"
+        ><code>TypeError</code></a
+      >
+      was raised when null bytes were encountered in <em>source</em>.
+    </p>
+    <p>
+      New in version 3.8: <code>ast.PyCF_ALLOW_TOP_LEVEL_AWAIT</code> can now be
+      passed in flags to enable support for top-level <code>await</code>,
+      <code>async for</code>, and <code>async with</code>._class_
+      <code>complex</code>([<em>real</em>[, <em>imag</em>]])
+    </p>
+    <p>
+      Return a complex number with the value <em>real</em> + <em>imag</em>*1j or
+      convert a string or number to a complex number. If the first parameter is
+      a string, it will be interpreted as a complex number and the function must
+      be called without a second parameter. The second parameter can never be a
+      string. Each argument may be any numeric type (including complex). If
+      <em>imag</em> is omitted, it defaults to zero and the constructor serves
+      as a numeric conversion like
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/functions.html#float"
+        ><code>float</code></a
+      >. If both arguments are omitted, returns <code>0j</code>.
+    </p>
+    <p>
+      For a general Python object <code>x</code>,
+      <code>complex(x)</code> delegates to <code>x.__complex__()</code>. If
+      <code>__complex__()</code> is not defined then it falls back to
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__float__"
+        ><code>__float__()</code></a
+      >. If <code>__float__()</code> is not defined then it falls back to
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >.
+    </p>
+    <p>Note</p>
+    <p>
+      When converting from a string, the string must not contain whitespace
+      around the central <code>+</code> or <code>-</code> operator. For example,
+      <code>complex('1+2j')</code> is fine, but
+      <code>complex('1 + 2j')</code> raises
+      <a href="https://docs.python.org/3/library/exceptions.html#ValueError"
+        ><code>ValueError</code></a
+      >.
+    </p>
+    <p>
+      The complex type is described in
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesnumeric"
+        >Numeric Types — int, float, complex</a
+      >.
+    </p>
+    <p>
+      Changed in version 3.6: Grouping digits with underscores as in code
+      literals is allowed.
+    </p>
+    <p>
+      Changed in version 3.8: Falls back to
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >
+      if
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__complex__"
+        ><code>__complex__()</code></a
+      >
+      and
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__float__"
+        ><code>__float__()</code></a
+      >
+      are not defined.<code>delattr</code>(<em>object</em>, <em>name</em>)
+    </p>
+    <p>
+      This is a relative of
+      <a href="https://docs.python.org/3/library/functions.html#setattr"
+        ><code>setattr()</code></a
+      >. The arguments are an object and a string. The string must be the name
+      of one of the object’s attributes. The function deletes the named
+      attribute, provided the object allows it. For example,
+      <code>delattr(x, 'foobar')</code> is equivalent to
+      <code>del x.foobar</code>._class_ <code>dict</code>(<em>**kwarg</em>)<em
+        >class</em
+      >
+      <code>dict</code>(<em>mapping</em>, <em>**kwarg</em>)<em>class</em>
+      <code>dict</code>(<em>iterable</em>, <em>**kwarg</em>)
+    </p>
+    <p>
+      Create a new dictionary. The
+      <a href="https://docs.python.org/3/library/stdtypes.html#dict"
+        ><code>dict</code></a
+      >
+      object is the dictionary class. See
+      <a href="https://docs.python.org/3/library/stdtypes.html#dict"
+        ><code>dict</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesmapping"
+        >Mapping Types — dict</a
+      >
+      for documentation about this class.
+    </p>
+    <p>
+      For other containers see the built-in
+      <a href="https://docs.python.org/3/library/stdtypes.html#list"
+        ><code>list</code></a
+      >,
+      <a href="https://docs.python.org/3/library/stdtypes.html#set"
+        ><code>set</code></a
+      >, and
+      <a href="https://docs.python.org/3/library/stdtypes.html#tuple"
+        ><code>tuple</code></a
+      >
+      classes, as well as the
+      <a
+        href="https://docs.python.org/3/library/collections.html#module-collections"
+        ><code>collections</code></a
+      >
+      module.<code>dir</code>([<em>object</em>])
+    </p>
+    <p>
+      Without arguments, return the list of names in the current local scope.
+      With an argument, attempt to return a list of valid attributes for that
+      object.
+    </p>
+    <p>
+      If the object has a method named
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__dir__"
+        ><code>__dir__()</code></a
+      >, this method will be called and must return the list of attributes. This
+      allows objects that implement a custom
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__getattr__"
+        ><code>__getattr__()</code></a
+      >
+      or
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__getattribute__"
+        ><code>__getattribute__()</code></a
+      >
+      function to customize the way
+      <a href="https://docs.python.org/3/library/functions.html#dir"
+        ><code>dir()</code></a
+      >
+      reports their attributes.
+    </p>
+    <p>
+      If the object does not provide
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__dir__"
+        ><code>__dir__()</code></a
+      >, the function tries its best to gather information from the object’s
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >
+      attribute, if defined, and from its type object. The resulting list is not
+      necessarily complete, and may be inaccurate when the object has a custom
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__getattr__"
+        ><code>__getattr__()</code></a
+      >.
+    </p>
+    <p>
+      The default
+      <a href="https://docs.python.org/3/library/functions.html#dir"
+        ><code>dir()</code></a
+      >
+      mechanism behaves differently with different types of objects, as it
+      attempts to produce the most relevant, rather than complete, information:
+    </p>
+    <ul>
+      <li>
+        If the object is a module object, the list contains the names of the
+        module’s attributes.
+      </li>
+      <li>
+        If the object is a type or class object, the list contains the names of
+        its attributes, and recursively of the attributes of its bases.
+      </li>
+      <li>
+        Otherwise, the list contains the object’s attributes’ names, the names
+        of its class’s attributes, and recursively of the attributes of its
+        class’s base classes.
+      </li>
+    </ul>
+    <p>The resulting list is sorted alphabetically. For example:&gt;&gt;&gt;</p>
+    <pre class="text"><code>&gt;&gt;&gt; import struct
+&gt;&gt;&gt; dir()   # show the names in the module namespace
+[&#39;__builtins__&#39;, &#39;__name__&#39;, &#39;struct&#39;]
+&gt;&gt;&gt; dir(struct)   # show the names in the struct module
+[&#39;Struct&#39;, &#39;__all__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;,
+ &#39;__initializing__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;,
+ &#39;_clearcache&#39;, &#39;calcsize&#39;, &#39;error&#39;, &#39;pack&#39;, &#39;pack_into&#39;,
+ &#39;unpack&#39;, &#39;unpack_from&#39;]
+&gt;&gt;&gt; class Shape:
+...     def __dir__(self):
+...         return [&#39;area&#39;, &#39;perimeter&#39;, &#39;location&#39;]
+&gt;&gt;&gt; s = Shape()
+&gt;&gt;&gt; dir(s)
+[&#39;area&#39;, &#39;location&#39;, &#39;perimeter&#39;]</code></pre>
+    <p>Note</p>
+    <p>
+      Because
+      <a href="https://docs.python.org/3/library/functions.html#dir"
+        ><code>dir()</code></a
+      >
+      is supplied primarily as a convenience for use at an interactive prompt,
+      it tries to supply an interesting set of names more than it tries to
+      supply a rigorously or consistently defined set of names, and its detailed
+      behavior may change across releases. For example, metaclass attributes are
+      not in the result list when the argument is a
+      class.<code>divmod</code>(<em>a</em>, <em>b</em>)
+    </p>
+    <p>
+      Take two (non complex) numbers as arguments and return a pair of numbers
+      consisting of their quotient and remainder when using integer division.
+      With mixed operand types, the rules for binary arithmetic operators apply.
+      For integers, the result is the same as <code>(a // b, a % b)</code>. For
+      floating point numbers the result is <code>(q, a % b)</code>, where
+      <em>q</em> is usually <code>math.floor(a / b)</code> but may be 1 less
+      than that. In any case <code>q * b + a % b</code> is very close to
+      <em>a</em>, if <code>a % b</code> is non-zero it has the same sign as
+      <em>b</em>, and
+      <code>0 &lt;= abs(a % b) &lt; abs(b)</code
+      >.<code>enumerate</code>(<em>iterable</em>, <em>start=0</em>)
+    </p>
+    <p>
+      Return an enumerate object. <em>iterable</em> must be a sequence, an
+      <a href="https://docs.python.org/3/glossary.html#term-iterator"
+        >iterator</a
+      >, or some other object which supports iteration. The
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__"
+        ><code>__next__()</code></a
+      >
+      method of the iterator returned by
+      <a href="https://docs.python.org/3/library/functions.html#enumerate"
+        ><code>enumerate()</code></a
+      >
+      returns a tuple containing a count (from <em>start</em> which defaults to
+      0) and the values obtained from iterating over
+      <em>iterable</em>.&gt;&gt;&gt;
+    </p>
+    <pre
+      class="text"
+    ><code>&gt;&gt;&gt; seasons = [&#39;Spring&#39;, &#39;Summer&#39;, &#39;Fall&#39;, &#39;Winter&#39;]
+&gt;&gt;&gt; list(enumerate(seasons))
+[(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]
+&gt;&gt;&gt; list(enumerate(seasons, start=1))
+[(1, &#39;Spring&#39;), (2, &#39;Summer&#39;), (3, &#39;Fall&#39;), (4, &#39;Winter&#39;)]</code></pre>
+    <p>Equivalent to:</p>
+    <pre class="text"><code>def enumerate(sequence, start=0):
+    n = start
+    for elem in sequence:
+        yield n, elem
+        n += 1</code></pre>
+    <p>
+      <code>eval</code>(<em>expression</em>[, <em>globals</em>[,
+      <em>locals</em>]])
+    </p>
+    <p>
+      The arguments are a string and optional globals and locals. If provided,
+      <em>globals</em> must be a dictionary. If provided, <em>locals</em> can be
+      any mapping object.
+    </p>
+    <p>
+      The <em>expression</em> argument is parsed and evaluated as a Python
+      expression (technically speaking, a condition list) using the
+      <em>globals</em> and <em>locals</em> dictionaries as global and local
+      namespace. If the <em>globals</em> dictionary is present and does not
+      contain a value for the key <code>__builtins__</code>, a reference to the
+      dictionary of the built-in module
+      <a href="https://docs.python.org/3/library/builtins.html#module-builtins"
+        ><code>builtins</code></a
+      >
+      is inserted under that key before <em>expression</em> is parsed. This
+      means that <em>expression</em> normally has full access to the standard
+      <a href="https://docs.python.org/3/library/builtins.html#module-builtins"
+        ><code>builtins</code></a
+      >
+      module and restricted environments are propagated. If the
+      <em>locals</em> dictionary is omitted it defaults to the
+      <em>globals</em> dictionary. If both dictionaries are omitted, the
+      expression is executed with the <em>globals</em> and <em>locals</em> in
+      the environment where
+      <a href="https://docs.python.org/3/library/functions.html#eval"
+        ><code>eval()</code></a
+      >
+      is called. Note, <em>eval()</em> does not have access to the
+      <a href="https://docs.python.org/3/glossary.html#term-nested-scope"
+        >nested scopes</a
+      >
+      (non-locals) in the enclosing environment.
+    </p>
+    <p>
+      The return value is the result of the evaluated expression. Syntax errors
+      are reported as exceptions. Example:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; x = 1
+&gt;&gt;&gt; eval(&#39;x+1&#39;)
+2</code></pre>
+    <p>
+      This function can also be used to execute arbitrary code objects (such as
+      those created by
+      <a href="https://docs.python.org/3/library/functions.html#compile"
+        ><code>compile()</code></a
+      >). In this case pass a code object instead of a string. If the code
+      object has been compiled with <code>'exec'</code> as the
+      <em>mode</em> argument,
+      <a href="https://docs.python.org/3/library/functions.html#eval"
+        ><code>eval()</code></a
+      >’s return value will be <code>None</code>.
+    </p>
+    <p>
+      Hints: dynamic execution of statements is supported by the
+      <a href="https://docs.python.org/3/library/functions.html#exec"
+        ><code>exec()</code></a
+      >
+      function. The
+      <a href="https://docs.python.org/3/library/functions.html#globals"
+        ><code>globals()</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/functions.html#locals"
+        ><code>locals()</code></a
+      >
+      functions returns the current global and local dictionary, respectively,
+      which may be useful to pass around for use by
+      <a href="https://docs.python.org/3/library/functions.html#eval"
+        ><code>eval()</code></a
+      >
+      or
+      <a href="https://docs.python.org/3/library/functions.html#exec"
+        ><code>exec()</code></a
+      >.
+    </p>
+    <p>
+      See
+      <a href="https://docs.python.org/3/library/ast.html#ast.literal_eval"
+        ><code>ast.literal_eval()</code></a
+      >
+      for a function that can safely evaluate strings with expressions
+      containing only literals.
+    </p>
+    <p>
+      Raises an
+      <a href="https://docs.python.org/3/library/sys.html#auditing"
+        >auditing event</a
+      >
+      <code>exec</code> with the code object as the argument. Code compilation
+      events may also be raised.
+    </p>
+    <p>
+      <code>exec</code>(<em>object</em>[, <em>globals</em>[, <em>locals</em>]])
+    </p>
+    <p>
+      This function supports dynamic execution of Python code.
+      <em>object</em> must be either a string or a code object. If it is a
+      string, the string is parsed as a suite of Python statements which is then
+      executed (unless a syntax error occurs).
+      <a href="https://docs.python.org/3/library/functions.html#id2">1</a> If it
+      is a code object, it is simply executed. In all cases, the code that’s
+      executed is expected to be valid as file input (see the section “File
+      input” in the Reference Manual). Be aware that the
+      <a href="https://docs.python.org/3/reference/simple_stmts.html#nonlocal"
+        ><code>nonlocal</code></a
+      >,
+      <a href="https://docs.python.org/3/reference/simple_stmts.html#yield"
+        ><code>yield</code></a
+      >, and
+      <a href="https://docs.python.org/3/reference/simple_stmts.html#return"
+        ><code>return</code></a
+      >
+      statements may not be used outside of function definitions even within the
+      context of code passed to the
+      <a href="https://docs.python.org/3/library/functions.html#exec"
+        ><code>exec()</code></a
+      >
+      function. The return value is <code>None</code>.
+    </p>
+    <p>
+      In all cases, if the optional parts are omitted, the code is executed in
+      the current scope. If only <em>globals</em> is provided, it must be a
+      dictionary (and not a subclass of dictionary), which will be used for both
+      the global and the local variables. If <em>globals</em> and
+      <em>locals</em> are given, they are used for the global and local
+      variables, respectively. If provided, <em>locals</em> can be any mapping
+      object. Remember that at module level, globals and locals are the same
+      dictionary. If exec gets two separate objects as <em>globals</em> and
+      <em>locals</em>, the code will be executed as if it were embedded in a
+      class definition.
+    </p>
+    <p>
+      If the <em>globals</em> dictionary does not contain a value for the key
+      <code>__builtins__</code>, a reference to the dictionary of the built-in
+      module
+      <a href="https://docs.python.org/3/library/builtins.html#module-builtins"
+        ><code>builtins</code></a
+      >
+      is inserted under that key. That way you can control what builtins are
+      available to the executed code by inserting your own
+      <code>__builtins__</code> dictionary into <em>globals</em> before passing
+      it to
+      <a href="https://docs.python.org/3/library/functions.html#exec"
+        ><code>exec()</code></a
+      >.
+    </p>
+    <p>
+      Raises an
+      <a href="https://docs.python.org/3/library/sys.html#auditing"
+        >auditing event</a
+      >
+      <code>exec</code> with the code object as the argument. Code compilation
+      events may also be raised.
+    </p>
+    <p>Note</p>
+    <p>
+      The built-in functions
+      <a href="https://docs.python.org/3/library/functions.html#globals"
+        ><code>globals()</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/functions.html#locals"
+        ><code>locals()</code></a
+      >
+      return the current global and local dictionary, respectively, which may be
+      useful to pass around for use as the second and third argument to
+      <a href="https://docs.python.org/3/library/functions.html#exec"
+        ><code>exec()</code></a
+      >.
+    </p>
+    <p>Note</p>
+    <p>
+      The default <em>locals</em> act as described for function
+      <a href="https://docs.python.org/3/library/functions.html#locals"
+        ><code>locals()</code></a
+      >
+      below: modifications to the default <em>locals</em> dictionary should not
+      be attempted. Pass an explicit <em>locals</em> dictionary if you need to
+      see effects of the code on <em>locals</em> after function
+      <a href="https://docs.python.org/3/library/functions.html#exec"
+        ><code>exec()</code></a
+      >
+      returns.<code>filter</code>(<em>function</em>, <em>iterable</em>)
+    </p>
+    <p>
+      Construct an iterator from those elements of <em>iterable</em> for which
+      <em>function</em> returns true. <em>iterable</em> may be either a
+      sequence, a container which supports iteration, or an iterator. If
+      <em>function</em> is <code>None</code>, the identity function is assumed,
+      that is, all elements of <em>iterable</em> that are false are removed.
+    </p>
+    <p>
+      Note that <code>filter(function, iterable)</code> is equivalent to the
+      generator expression
+      <code>(item for item in iterable if function(item))</code> if function is
+      not <code>None</code> and
+      <code>(item for item in iterable if item)</code> if function is
+      <code>None</code>.
+    </p>
+    <p>
+      See
+      <a
+        href="https://docs.python.org/3/library/itertools.html#itertools.filterfalse"
+        ><code>itertools.filterfalse()</code></a
+      >
+      for the complementary function that returns elements of
+      <em>iterable</em> for which <em>function</em> returns false._class_
+      <code>float</code>([<em>x</em>])
+    </p>
+    <p>
+      Return a floating point number constructed from a number or string
+      <em>x</em>.
+    </p>
+    <p>
+      If the argument is a string, it should contain a decimal number,
+      optionally preceded by a sign, and optionally embedded in whitespace. The
+      optional sign may be <code>'+'</code> or <code>'-'</code>; a
+      <code>'+'</code> sign has no effect on the value produced. The argument
+      may also be a string representing a NaN (not-a-number), or a positive or
+      negative infinity. More precisely, the input must conform to the following
+      grammar after leading and trailing whitespace characters are removed:
+    </p>
+    <pre class="text"><code>sign           ::=  &quot;+&quot; | &quot;-&quot;
+infinity       ::=  &quot;Infinity&quot; | &quot;inf&quot;
+nan            ::=  &quot;nan&quot;
+numeric_value  ::=  floatnumber | infinity | nan
+numeric_string ::=  [sign] numeric_value</code></pre>
+    <p>
+      Here <code>floatnumber</code> is the form of a Python floating-point
+      literal, described in
+      <a
+        href="https://docs.python.org/3/reference/lexical_analysis.html#floating"
+        >Floating point literals</a
+      >. Case is not significant, so, for example, “inf”, “Inf”, “INFINITY” and
+      “iNfINity” are all acceptable spellings for positive infinity.
+    </p>
+    <p>
+      Otherwise, if the argument is an integer or a floating point number, a
+      floating point number with the same value (within Python’s floating point
+      precision) is returned. If the argument is outside the range of a Python
+      float, an
+      <a href="https://docs.python.org/3/library/exceptions.html#OverflowError"
+        ><code>OverflowError</code></a
+      >
+      will be raised.
+    </p>
+    <p>
+      For a general Python object <code>x</code>,
+      <code>float(x)</code> delegates to <code>x.__float__()</code>. If
+      <code>__float__()</code> is not defined then it falls back to
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >.
+    </p>
+    <p>If no argument is given, <code>0.0</code> is returned.</p>
+    <p>Examples:&gt;&gt;&gt;</p>
+    <pre class="text"><code>&gt;&gt;&gt; float(&#39;+1.23&#39;)
+1.23
+&gt;&gt;&gt; float(&#39;   -12345\n&#39;)
+-12345.0
+&gt;&gt;&gt; float(&#39;1e-003&#39;)
+0.001
+&gt;&gt;&gt; float(&#39;+1E6&#39;)
+1000000.0
+&gt;&gt;&gt; float(&#39;-Infinity&#39;)
+-inf</code></pre>
+    <p>
+      The float type is described in
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesnumeric"
+        >Numeric Types — int, float, complex</a
+      >.
+    </p>
+    <p>
+      Changed in version 3.6: Grouping digits with underscores as in code
+      literals is allowed.
+    </p>
+    <p>
+      Changed in version 3.7: <em>x</em> is now a positional-only parameter.
+    </p>
+    <p>
+      Changed in version 3.8: Falls back to
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >
+      if
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__float__"
+        ><code>__float__()</code></a
+      >
+      is not defined.<code>format</code>(<em>value</em>[, <em>format_spec</em>])
+    </p>
+    <p>
+      Convert a <em>value</em> to a “formatted” representation, as controlled by
+      <em>format_spec</em>. The interpretation of <em>format_spec</em> will
+      depend on the type of the <em>value</em> argument, however there is a
+      standard formatting syntax that is used by most built-in types:
+      <a href="https://docs.python.org/3/library/string.html#formatspec"
+        >Format Specification Mini-Language</a
+      >.
+    </p>
+    <p>
+      The default <em>format_spec</em> is an empty string which usually gives
+      the same effect as calling
+      <a href="https://docs.python.org/3/library/stdtypes.html#str"
+        ><code>str(value)</code></a
+      >.
+    </p>
+    <p>
+      A call to <code>format(value, format_spec)</code> is translated to
+      <code>type(value).__format__(value, format_spec)</code> which bypasses the
+      instance dictionary when searching for the value’s
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__format__"
+        ><code>__format__()</code></a
+      >
+      method. A
+      <a href="https://docs.python.org/3/library/exceptions.html#TypeError"
+        ><code>TypeError</code></a
+      >
+      exception is raised if the method search reaches
+      <a href="https://docs.python.org/3/library/functions.html#object"
+        ><code>object</code></a
+      >
+      and the <em>format_spec</em> is non-empty, or if either the
+      <em>format_spec</em> or the return value are not strings.
+    </p>
+    <p>
+      Changed in version 3.4:
+      <code>object().__format__(format_spec)</code> raises
+      <a href="https://docs.python.org/3/library/exceptions.html#TypeError"
+        ><code>TypeError</code></a
+      >
+      if <em>format_spec</em> is not an empty string._class_
+      <code>frozenset</code>([<em>iterable</em>])
+    </p>
+    <p>
+      Return a new
+      <a href="https://docs.python.org/3/library/stdtypes.html#frozenset"
+        ><code>frozenset</code></a
+      >
+      object, optionally with elements taken from <em>iterable</em>.
+      <code>frozenset</code> is a built-in class. See
+      <a href="https://docs.python.org/3/library/stdtypes.html#frozenset"
+        ><code>frozenset</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/stdtypes.html#types-set"
+        >Set Types — set, frozenset</a
+      >
+      for documentation about this class.
+    </p>
+    <p>
+      For other containers see the built-in
+      <a href="https://docs.python.org/3/library/stdtypes.html#set"
+        ><code>set</code></a
+      >,
+      <a href="https://docs.python.org/3/library/stdtypes.html#list"
+        ><code>list</code></a
+      >,
+      <a href="https://docs.python.org/3/library/stdtypes.html#tuple"
+        ><code>tuple</code></a
+      >, and
+      <a href="https://docs.python.org/3/library/stdtypes.html#dict"
+        ><code>dict</code></a
+      >
+      classes, as well as the
+      <a
+        href="https://docs.python.org/3/library/collections.html#module-collections"
+        ><code>collections</code></a
+      >
+      module.<code>getattr</code>(<em>object</em>, <em>name</em>[,
+      <em>default</em>])
+    </p>
+    <p>
+      Return the value of the named attribute of <em>object</em>.
+      <em>name</em> must be a string. If the string is the name of one of the
+      object’s attributes, the result is the value of that attribute. For
+      example, <code>getattr(x, 'foobar')</code> is equivalent to
+      <code>x.foobar</code>. If the named attribute does not exist,
+      <em>default</em> is returned if provided, otherwise
+      <a href="https://docs.python.org/3/library/exceptions.html#AttributeError"
+        ><code>AttributeError</code></a
+      >
+      is raised.
+    </p>
+    <p>Note</p>
+    <p>
+      Since
+      <a
+        href="https://docs.python.org/3/reference/expressions.html#private-name-mangling"
+        >private name mangling</a
+      >
+      happens at compilation time, one must manually mangle a private
+      attribute’s (attributes with two leading underscores) name in order to
+      retrieve it with
+      <a href="https://docs.python.org/3/library/functions.html#getattr"
+        ><code>getattr()</code></a
+      >.<code>globals</code>()
+    </p>
+    <p>
+      Return a dictionary representing the current global symbol table. This is
+      always the dictionary of the current module (inside a function or method,
+      this is the module where it is defined, not the module from which it is
+      called).<code>hasattr</code>(<em>object</em>, <em>name</em>)
+    </p>
+    <p>
+      The arguments are an object and a string. The result is
+      <code>True</code> if the string is the name of one of the object’s
+      attributes, <code>False</code> if not. (This is implemented by calling
+      <code>getattr(object, name)</code> and seeing whether it raises an
+      <a href="https://docs.python.org/3/library/exceptions.html#AttributeError"
+        ><code>AttributeError</code></a
+      >
+      or not.)<code>hash</code>(<em>object</em>)
+    </p>
+    <p>
+      Return the hash value of the object (if it has one). Hash values are
+      integers. They are used to quickly compare dictionary keys during a
+      dictionary lookup. Numeric values that compare equal have the same hash
+      value (even if they are of different types, as is the case for 1 and 1.0).
+    </p>
+    <p>Note</p>
+    <p>
+      For objects with custom
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__hash__"
+        ><code>__hash__()</code></a
+      >
+      methods, note that
+      <a href="https://docs.python.org/3/library/functions.html#hash"
+        ><code>hash()</code></a
+      >
+      truncates the return value based on the bit width of the host machine. See
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__hash__"
+        ><code>__hash__()</code></a
+      >
+      for details.<code>help</code>([<em>object</em>])
+    </p>
+    <p>
+      Invoke the built-in help system. (This function is intended for
+      interactive use.) If no argument is given, the interactive help system
+      starts on the interpreter console. If the argument is a string, then the
+      string is looked up as the name of a module, function, class, method,
+      keyword, or documentation topic, and a help page is printed on the
+      console. If the argument is any other kind of object, a help page on the
+      object is generated.
+    </p>
+    <p>
+      Note that if a slash(/) appears in the parameter list of a function, when
+      invoking
+      <a href="https://docs.python.org/3/library/functions.html#help"
+        ><code>help()</code></a
+      >, it means that the parameters prior to the slash are positional-only.
+      For more info, see
+      <a
+        href="https://docs.python.org/3/faq/programming.html#faq-positional-only-arguments"
+        >the FAQ entry on positional-only parameters</a
+      >.
+    </p>
+    <p>
+      This function is added to the built-in namespace by the
+      <a href="https://docs.python.org/3/library/site.html#module-site"
+        ><code>site</code></a
+      >
+      module.
+    </p>
+    <p>
+      Changed in version 3.4: Changes to
+      <a href="https://docs.python.org/3/library/pydoc.html#module-pydoc"
+        ><code>pydoc</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/inspect.html#module-inspect"
+        ><code>inspect</code></a
+      >
+      mean that the reported signatures for callables are now more comprehensive
+      and consistent.<code>hex</code>(<em>x</em>)
+    </p>
+    <p>
+      Convert an integer number to a lowercase hexadecimal string prefixed with
+      “0x”. If <em>x</em> is not a Python
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      object, it has to define an
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >
+      method that returns an integer. Some examples:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; hex(255)
+&#39;0xff&#39;
+&gt;&gt;&gt; hex(-42)
+&#39;-0x2a&#39;</code></pre>
+    <p>
+      If you want to convert an integer number to an uppercase or lower
+      hexadecimal string with prefix or not, you can use either of the following
+      ways:&gt;&gt;&gt;
+    </p>
+    <pre
+      class="text"
+    ><code>&gt;&gt;&gt; &#39;%#x&#39; % 255, &#39;%x&#39; % 255, &#39;%X&#39; % 255
+(&#39;0xff&#39;, &#39;ff&#39;, &#39;FF&#39;)
+&gt;&gt;&gt; format(255, &#39;#x&#39;), format(255, &#39;x&#39;), format(255, &#39;X&#39;)
+(&#39;0xff&#39;, &#39;ff&#39;, &#39;FF&#39;)
+&gt;&gt;&gt; f&#39;{255:#x}&#39;, f&#39;{255:x}&#39;, f&#39;{255:X}&#39;
+(&#39;0xff&#39;, &#39;ff&#39;, &#39;FF&#39;)</code></pre>
+    <p>
+      See also
+      <a href="https://docs.python.org/3/library/functions.html#format"
+        ><code>format()</code></a
+      >
+      for more information.
+    </p>
+    <p>
+      See also
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int()</code></a
+      >
+      for converting a hexadecimal string to an integer using a base of 16.
+    </p>
+    <p>Note</p>
+    <p>
+      To obtain a hexadecimal string representation for a float, use the
+      <a href="https://docs.python.org/3/library/stdtypes.html#float.hex"
+        ><code>float.hex()</code></a
+      >
+      method.<code>id</code>(<em>object</em>)
+    </p>
+    <p>
+      Return the “identity” of an object. This is an integer which is guaranteed
+      to be unique and constant for this object during its lifetime. Two objects
+      with non-overlapping lifetimes may have the same
+      <a href="https://docs.python.org/3/library/functions.html#id"
+        ><code>id()</code></a
+      >
+      value.
+    </p>
+    <p>
+      <strong>CPython implementation detail:</strong> This is the address of the
+      object in memory.
+    </p>
+    <p>
+      Raises an
+      <a href="https://docs.python.org/3/library/sys.html#auditing"
+        >auditing event</a
+      >
+      <code>builtins.id</code> with argument
+      <code>id</code>.<code>input</code>([<em>prompt</em>])
+    </p>
+    <p>
+      If the <em>prompt</em> argument is present, it is written to standard
+      output without a trailing newline. The function then reads a line from
+      input, converts it to a string (stripping a trailing newline), and returns
+      that. When EOF is read,
+      <a href="https://docs.python.org/3/library/exceptions.html#EOFError"
+        ><code>EOFError</code></a
+      >
+      is raised. Example:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; s = input(&#39;--&gt; &#39;)
+--&gt; Monty Python&#39;s Flying Circus
+&gt;&gt;&gt; s
+&quot;Monty Python&#39;s Flying Circus&quot;</code></pre>
+    <p>
+      If the
+      <a href="https://docs.python.org/3/library/readline.html#module-readline"
+        ><code>readline</code></a
+      >
+      module was loaded, then
+      <a href="https://docs.python.org/3/library/functions.html#input"
+        ><code>input()</code></a
+      >
+      will use it to provide elaborate line editing and history features.
+    </p>
+    <p>
+      Raises an
+      <a href="https://docs.python.org/3/library/sys.html#auditing"
+        >auditing event</a
+      >
+      <code>builtins.input</code> with argument <code>prompt</code> before
+      reading input
+    </p>
+    <p>
+      Raises an auditing event <code>builtins.input/result</code> with the
+      result after successfully reading input.
+    </p>
+    <p>
+      <em>class</em> <code>int</code>([<em>x</em>])<em>class</em>
+      <code>int</code>(<em>x</em>, <em>base=10</em>)
+    </p>
+    <p>
+      Return an integer object constructed from a number or string <em>x</em>,
+      or return <code>0</code> if no arguments are given. If <em>x</em> defines
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__int__"
+        ><code>__int__()</code></a
+      >, <code>int(x)</code> returns <code>x.__int__()</code>. If
+      <em>x</em> defines
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >, it returns <code>x.__index__()</code>. If <em>x</em> defines
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__trunc__"
+        ><code>__trunc__()</code></a
+      >, it returns <code>x.__trunc__()</code>. For floating point numbers, this
+      truncates towards zero.
+    </p>
+    <p>
+      If <em>x</em> is not a number or if <em>base</em> is given, then
+      <em>x</em> must be a string,
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytes"
+        ><code>bytes</code></a
+      >, or
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytearray"
+        ><code>bytearray</code></a
+      >
+      instance representing an
+      <a
+        href="https://docs.python.org/3/reference/lexical_analysis.html#integers"
+        >integer literal</a
+      >
+      in radix <em>base</em>. Optionally, the literal can be preceded by
+      <code>+</code> or <code>-</code> (with no space in between) and surrounded
+      by whitespace. A base-n literal consists of the digits 0 to n-1, with
+      <code>a</code> to <code>z</code> (or <code>A</code> to <code>Z</code>)
+      having values 10 to 35. The default <em>base</em> is 10. The allowed
+      values are 0 and 2–36. Base-2, -8, and -16 literals can be optionally
+      prefixed with <code>0b</code>/<code>0B</code>,
+      <code>0o</code>/<code>0O</code>, or <code>0x</code>/<code>0X</code>, as
+      with integer literals in code. Base 0 means to interpret exactly as a code
+      literal, so that the actual base is 2, 8, 10, or 16, and so that
+      <code>int('010', 0)</code> is not legal, while <code>int('010')</code> is,
+      as well as <code>int('010', 8)</code>.
+    </p>
+    <p>
+      The integer type is described in
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesnumeric"
+        >Numeric Types — int, float, complex</a
+      >.
+    </p>
+    <p>
+      Changed in version 3.4: If <em>base</em> is not an instance of
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      and the <em>base</em> object has a
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>base.__index__</code></a
+      >
+      method, that method is called to obtain an integer for the base. Previous
+      versions used
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__int__"
+        ><code>base.__int__</code></a
+      >
+      instead of
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>base.__index__</code></a
+      >.
+    </p>
+    <p>
+      Changed in version 3.6: Grouping digits with underscores as in code
+      literals is allowed.
+    </p>
+    <p>
+      Changed in version 3.7: <em>x</em> is now a positional-only parameter.
+    </p>
+    <p>
+      Changed in version 3.8: Falls back to
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >
+      if
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__int__"
+        ><code>__int__()</code></a
+      >
+      is not defined.<code>isinstance</code>(<em>object</em>,
+      <em>classinfo</em>)
+    </p>
+    <p>
+      Return <code>True</code> if the <em>object</em> argument is an instance of
+      the <em>classinfo</em> argument, or of a (direct, indirect or
+      <a href="https://docs.python.org/3/glossary.html#term-abstract-base-class"
+        >virtual</a
+      >) subclass thereof. If <em>object</em> is not an object of the given
+      type, the function always returns <code>False</code>. If
+      <em>classinfo</em> is a tuple of type objects (or recursively, other such
+      tuples), return <code>True</code> if <em>object</em> is an instance of any
+      of the types. If <em>classinfo</em> is not a type or tuple of types and
+      such tuples, a
+      <a href="https://docs.python.org/3/library/exceptions.html#TypeError"
+        ><code>TypeError</code></a
+      >
+      exception is raised.<code>issubclass</code>(<em>class</em>,
+      <em>classinfo</em>)
+    </p>
+    <p>
+      Return <code>True</code> if <em>class</em> is a subclass (direct, indirect
+      or
+      <a href="https://docs.python.org/3/glossary.html#term-abstract-base-class"
+        >virtual</a
+      >) of <em>classinfo</em>. A class is considered a subclass of itself.
+      <em>classinfo</em> may be a tuple of class objects, in which case every
+      entry in <em>classinfo</em> will be checked. In any other case, a
+      <a href="https://docs.python.org/3/library/exceptions.html#TypeError"
+        ><code>TypeError</code></a
+      >
+      exception is raised.<code>iter</code>(<em>object</em>[,
+      <em>sentinel</em>])
+    </p>
+    <p>
+      Return an
+      <a href="https://docs.python.org/3/glossary.html#term-iterator"
+        >iterator</a
+      >
+      object. The first argument is interpreted very differently depending on
+      the presence of the second argument. Without a second argument,
+      <em>object</em> must be a collection object which supports the iteration
+      protocol (the
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__iter__"
+        ><code>__iter__()</code></a
+      >
+      method), or it must support the sequence protocol (the
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__getitem__"
+        ><code>__getitem__()</code></a
+      >
+      method with integer arguments starting at <code>0</code>). If it does not
+      support either of those protocols,
+      <a href="https://docs.python.org/3/library/exceptions.html#TypeError"
+        ><code>TypeError</code></a
+      >
+      is raised. If the second argument, <em>sentinel</em>, is given, then
+      <em>object</em> must be a callable object. The iterator created in this
+      case will call <em>object</em> with no arguments for each call to its
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__"
+        ><code>__next__()</code></a
+      >
+      method; if the value returned is equal to <em>sentinel</em>,
+      <a href="https://docs.python.org/3/library/exceptions.html#StopIteration"
+        ><code>StopIteration</code></a
+      >
+      will be raised, otherwise the value will be returned.
+    </p>
+    <p>
+      See also
+      <a href="https://docs.python.org/3/library/stdtypes.html#typeiter"
+        >Iterator Types</a
+      >.
+    </p>
+    <p>
+      One useful application of the second form of
+      <a href="https://docs.python.org/3/library/functions.html#iter"
+        ><code>iter()</code></a
+      >
+      is to build a block-reader. For example, reading fixed-width blocks from a
+      binary database file until the end of file is reached:
+    </p>
+    <pre class="text"><code>from functools import partial
+with open(&#39;mydata.db&#39;, &#39;rb&#39;) as f:
+    for block in iter(partial(f.read, 64), b&#39;&#39;):
+        process_block(block)</code></pre>
+    <p><code>len</code>(<em>s</em>)</p>
+    <p>
+      Return the length (the number of items) of an object. The argument may be
+      a sequence (such as a string, bytes, tuple, list, or range) or a
+      collection (such as a dictionary, set, or frozen set).
+    </p>
+    <p>
+      <strong>CPython implementation detail:</strong> <code>len</code> raises
+      <a href="https://docs.python.org/3/library/exceptions.html#OverflowError"
+        ><code>OverflowError</code></a
+      >
+      on lengths larger than
+      <a href="https://docs.python.org/3/library/sys.html#sys.maxsize"
+        ><code>sys.maxsize</code></a
+      >, such as
+      <a href="https://docs.python.org/3/library/stdtypes.html#range"
+        ><code>range(2 ** 100)</code></a
+      >._class_ <code>list</code>([<em>iterable</em>])
+    </p>
+    <p>
+      Rather than being a function,
+      <a href="https://docs.python.org/3/library/stdtypes.html#list"
+        ><code>list</code></a
+      >
+      is actually a mutable sequence type, as documented in
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesseq-list"
+        >Lists</a
+      >
+      and
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesseq"
+        >Sequence Types — list, tuple, range</a
+      >.<code>locals</code>()
+    </p>
+    <p>
+      Update and return a dictionary representing the current local symbol
+      table. Free variables are returned by
+      <a href="https://docs.python.org/3/library/functions.html#locals"
+        ><code>locals()</code></a
+      >
+      when it is called in function blocks, but not in class blocks. Note that
+      at the module level,
+      <a href="https://docs.python.org/3/library/functions.html#locals"
+        ><code>locals()</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/functions.html#globals"
+        ><code>globals()</code></a
+      >
+      are the same dictionary.
+    </p>
+    <p>Note</p>
+    <p>
+      The contents of this dictionary should not be modified; changes may not
+      affect the values of local and free variables used by the
+      interpreter.<code>map</code>(<em>function</em>, <em>iterable</em>,
+      <em>…</em>)
+    </p>
+    <p>
+      Return an iterator that applies <em>function</em> to every item of
+      <em>iterable</em>, yielding the results. If additional
+      <em>iterable</em> arguments are passed, <em>function</em> must take that
+      many arguments and is applied to the items from all iterables in parallel.
+      With multiple iterables, the iterator stops when the shortest iterable is
+      exhausted. For cases where the function inputs are already arranged into
+      argument tuples, see
+      <a
+        href="https://docs.python.org/3/library/itertools.html#itertools.starmap"
+        ><code>itertools.starmap()</code></a
+      >.<code>max</code>(<em>iterable</em>, <em>*</em>[, <em>key</em>,
+      <em>default</em>])<code>max</code>(<em>arg1</em>, <em>arg2</em>,
+      <em>*args</em>[, <em>key</em>])
+    </p>
+    <p>
+      Return the largest item in an iterable or the largest of two or more
+      arguments.
+    </p>
+    <p>
+      If one positional argument is provided, it should be an
+      <a href="https://docs.python.org/3/glossary.html#term-iterable"
+        >iterable</a
+      >. The largest item in the iterable is returned. If two or more positional
+      arguments are provided, the largest of the positional arguments is
+      returned.
+    </p>
+    <p>
+      There are two optional keyword-only arguments. The <em>key</em> argument
+      specifies a one-argument ordering function like that used for
+      <a href="https://docs.python.org/3/library/stdtypes.html#list.sort"
+        ><code>list.sort()</code></a
+      >. The <em>default</em> argument specifies an object to return if the
+      provided iterable is empty. If the iterable is empty and
+      <em>default</em> is not provided, a
+      <a href="https://docs.python.org/3/library/exceptions.html#ValueError"
+        ><code>ValueError</code></a
+      >
+      is raised.
+    </p>
+    <p>
+      If multiple items are maximal, the function returns the first one
+      encountered. This is consistent with other sort-stability preserving tools
+      such as <code>sorted(iterable, key=keyfunc, reverse=True)[0]</code> and
+      <code>heapq.nlargest(1, iterable, key=keyfunc)</code>.
+    </p>
+    <p>New in version 3.4: The <em>default</em> keyword-only argument.</p>
+    <p>
+      Changed in version 3.8: The <em>key</em> can be <code>None</code>._class_
+      <code>memoryview</code>(<em>object</em>)
+    </p>
+    <p>
+      Return a “memory view” object created from the given argument. See
+      <a href="https://docs.python.org/3/library/stdtypes.html#typememoryview"
+        >Memory Views</a
+      >
+      for more information.<code>min</code>(<em>iterable</em>, <em>*</em>[,
+      <em>key</em>, <em>default</em>])<code>min</code>(<em>arg1</em>,
+      <em>arg2</em>, <em>*args</em>[, <em>key</em>])
+    </p>
+    <p>
+      Return the smallest item in an iterable or the smallest of two or more
+      arguments.
+    </p>
+    <p>
+      If one positional argument is provided, it should be an
+      <a href="https://docs.python.org/3/glossary.html#term-iterable"
+        >iterable</a
+      >. The smallest item in the iterable is returned. If two or more
+      positional arguments are provided, the smallest of the positional
+      arguments is returned.
+    </p>
+    <p>
+      There are two optional keyword-only arguments. The <em>key</em> argument
+      specifies a one-argument ordering function like that used for
+      <a href="https://docs.python.org/3/library/stdtypes.html#list.sort"
+        ><code>list.sort()</code></a
+      >. The <em>default</em> argument specifies an object to return if the
+      provided iterable is empty. If the iterable is empty and
+      <em>default</em> is not provided, a
+      <a href="https://docs.python.org/3/library/exceptions.html#ValueError"
+        ><code>ValueError</code></a
+      >
+      is raised.
+    </p>
+    <p>
+      If multiple items are minimal, the function returns the first one
+      encountered. This is consistent with other sort-stability preserving tools
+      such as <code>sorted(iterable, key=keyfunc)[0]</code> and
+      <code>heapq.nsmallest(1, iterable, key=keyfunc)</code>.
+    </p>
+    <p>New in version 3.4: The <em>default</em> keyword-only argument.</p>
+    <p>
+      Changed in version 3.8: The <em>key</em> can be
+      <code>None</code>.<code>next</code>(<em>iterator</em>[, <em>default</em>])
+    </p>
+    <p>
+      Retrieve the next item from the <em>iterator</em> by calling its
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__"
+        ><code>__next__()</code></a
+      >
+      method. If <em>default</em> is given, it is returned if the iterator is
+      exhausted, otherwise
+      <a href="https://docs.python.org/3/library/exceptions.html#StopIteration"
+        ><code>StopIteration</code></a
+      >
+      is raised._class_ <code>object</code>
+    </p>
+    <p>
+      Return a new featureless object.
+      <a href="https://docs.python.org/3/library/functions.html#object"
+        ><code>object</code></a
+      >
+      is a base for all classes. It has the methods that are common to all
+      instances of Python classes. This function does not accept any arguments.
+    </p>
+    <p>Note</p>
+    <p>
+      <a href="https://docs.python.org/3/library/functions.html#object"
+        ><code>object</code></a
+      >
+      does <em>not</em> have a
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >, so you can’t assign arbitrary attributes to an instance of the
+      <a href="https://docs.python.org/3/library/functions.html#object"
+        ><code>object</code></a
+      >
+      class.<code>oct</code>(<em>x</em>)
+    </p>
+    <p>
+      Convert an integer number to an octal string prefixed with “0o”. The
+      result is a valid Python expression. If <em>x</em> is not a Python
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      object, it has to define an
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__index__"
+        ><code>__index__()</code></a
+      >
+      method that returns an integer. For example:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; oct(8)
+&#39;0o10&#39;
+&gt;&gt;&gt; oct(-56)
+&#39;-0o70&#39;</code></pre>
+    <p>
+      If you want to convert an integer number to octal string either with
+      prefix “0o” or not, you can use either of the following ways.&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; &#39;%#o&#39; % 10, &#39;%o&#39; % 10
+(&#39;0o12&#39;, &#39;12&#39;)
+&gt;&gt;&gt; format(10, &#39;#o&#39;), format(10, &#39;o&#39;)
+(&#39;0o12&#39;, &#39;12&#39;)
+&gt;&gt;&gt; f&#39;{10:#o}&#39;, f&#39;{10:o}&#39;
+(&#39;0o12&#39;, &#39;12&#39;)</code></pre>
+    <p>
+      See also
+      <a href="https://docs.python.org/3/library/functions.html#format"
+        ><code>format()</code></a
+      >
+      for more information.
+    </p>
+    <blockquote></blockquote>
+    <p>
+      <code>open</code>(<em>file</em>, <em>mode=‘r’</em>, <em>buffering=-1</em>,
+      <em>encoding=None</em>, <em>errors=None</em>, <em>newline=None</em>,
+      <em>closefd=True</em>, <em>opener=None</em>)
+    </p>
+    <p>
+      Open <em>file</em> and return a corresponding
+      <a href="https://docs.python.org/3/glossary.html#term-file-object"
+        >file object</a
+      >. If the file cannot be opened, an
+      <a href="https://docs.python.org/3/library/exceptions.html#OSError"
+        ><code>OSError</code></a
+      >
+      is raised. See
+      <a href="https://docs.python.org/3/tutorial/inputoutput.html#tut-files"
+        >Reading and Writing Files</a
+      >
+      for more examples of how to use this function.
+    </p>
+    <p>
+      <em>file</em> is a
+      <a href="https://docs.python.org/3/glossary.html#term-path-like-object"
+        >path-like object</a
+      >
+      giving the pathname (absolute or relative to the current working
+      directory) of the file to be opened or an integer file descriptor of the
+      file to be wrapped. (If a file descriptor is given, it is closed when the
+      returned I/O object is closed, unless <em>closefd</em> is set to
+      <code>False</code>.)
+    </p>
+    <p>
+      <em>mode</em> is an optional string that specifies the mode in which the
+      file is opened. It defaults to <code>'r'</code> which means open for
+      reading in text mode. Other common values are <code>'w'</code> for writing
+      (truncating the file if it already exists), <code>'x'</code> for exclusive
+      creation and <code>'a'</code> for appending (which on <em>some</em> Unix
+      systems, means that <em>all</em> writes append to the end of the file
+      regardless of the current seek position). In text mode, if
+      <em>encoding</em> is not specified the encoding used is platform
+      dependent: <code>locale.getpreferredencoding(False)</code> is called to
+      get the current locale encoding. (For reading and writing raw bytes use
+      binary mode and leave <em>encoding</em> unspecified.) The available modes
+      are:
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: left">Character</th>
+          <th style="text-align: left">Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: left"><code>'r'</code></td>
+          <td style="text-align: left">open for reading (default)</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left"><code>'w'</code></td>
+          <td style="text-align: left">
+            open for writing, truncating the file first
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left"><code>'x'</code></td>
+          <td style="text-align: left">
+            open for exclusive creation, failing if the file already exists
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left"><code>'a'</code></td>
+          <td style="text-align: left">
+            open for writing, appending to the end of the file if it exists
+          </td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left"><code>'b'</code></td>
+          <td style="text-align: left">binary mode</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left"><code>'t'</code></td>
+          <td style="text-align: left">text mode (default)</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left"><code>'+'</code></td>
+          <td style="text-align: left">
+            open for updating (reading and writing)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      The default mode is <code>'r'</code> (open for reading text, synonym of
+      <code>'rt'</code>). Modes <code>'w+'</code> and <code>'w+b'</code> open
+      and truncate the file. Modes <code>'r+'</code> and <code>'r+b'</code> open
+      the file with no truncation.
+    </p>
+    <p>
+      As mentioned in the
+      <a href="https://docs.python.org/3/library/io.html#io-overview"
+        >Overview</a
+      >, Python distinguishes between binary and text I/O. Files opened in
+      binary mode (including <code>'b'</code> in the <em>mode</em> argument)
+      return contents as
+      <a href="https://docs.python.org/3/library/stdtypes.html#bytes"
+        ><code>bytes</code></a
+      >
+      objects without any decoding. In text mode (the default, or when
+      <code>'t'</code> is included in the <em>mode</em> argument), the contents
+      of the file are returned as
+      <a href="https://docs.python.org/3/library/stdtypes.html#str"
+        ><code>str</code></a
+      >, the bytes having been first decoded using a platform-dependent encoding
+      or using the specified <em>encoding</em> if given.
+    </p>
+    <p>
+      There is an additional mode character permitted, <code>'U'</code>, which
+      no longer has any effect, and is considered deprecated. It previously
+      enabled
+      <a href="https://docs.python.org/3/glossary.html#term-universal-newlines"
+        >universal newlines</a
+      >
+      in text mode, which became the default behaviour in Python 3.0. Refer to
+      the documentation of the
+      <a
+        href="https://docs.python.org/3/library/functions.html#open-newline-parameter"
+        >newline</a
+      >
+      parameter for further details.
+    </p>
+    <p>Note</p>
+    <p>
+      Python doesn’t depend on the underlying operating system’s notion of text
+      files; all the processing is done by Python itself, and is therefore
+      platform-independent.
+    </p>
+    <p>
+      <em>buffering</em> is an optional integer used to set the buffering
+      policy. Pass 0 to switch buffering off (only allowed in binary mode), 1 to
+      select line buffering (only usable in text mode), and an integer &gt; 1 to
+      indicate the size in bytes of a fixed-size chunk buffer. When no
+      <em>buffering</em> argument is given, the default buffering policy works
+      as follows:
+    </p>
+    <ul>
+      <li>
+        Binary files are buffered in fixed-size chunks; the size of the buffer
+        is chosen using a heuristic trying to determine the underlying device’s
+        “block size” and falling back on
+        <a
+          href="https://docs.python.org/3/library/io.html#io.DEFAULT_BUFFER_SIZE"
+          ><code>io.DEFAULT_BUFFER_SIZE</code></a
+        >. On many systems, the buffer will typically be 4096 or 8192 bytes
+        long.
+      </li>
+      <li>
+        “Interactive” text files (files for which
+        <a href="https://docs.python.org/3/library/io.html#io.IOBase.isatty"
+          ><code>isatty()</code></a
+        >
+        returns <code>True</code>) use line buffering. Other text files use the
+        policy described above for binary files.
+      </li>
+    </ul>
+    <p>
+      <em>encoding</em> is the name of the encoding used to decode or encode the
+      file. This should only be used in text mode. The default encoding is
+      platform dependent (whatever
+      <a
+        href="https://docs.python.org/3/library/locale.html#locale.getpreferredencoding"
+        ><code>locale.getpreferredencoding()</code></a
+      >
+      returns), but any
+      <a href="https://docs.python.org/3/glossary.html#term-text-encoding"
+        >text encoding</a
+      >
+      supported by Python can be used. See the
+      <a href="https://docs.python.org/3/library/codecs.html#module-codecs"
+        ><code>codecs</code></a
+      >
+      module for the list of supported encodings.
+    </p>
+    <p>
+      <em>errors</em> is an optional string that specifies how encoding and
+      decoding errors are to be handled—this cannot be used in binary mode. A
+      variety of standard error handlers are available (listed under
+      <a href="https://docs.python.org/3/library/codecs.html#error-handlers"
+        >Error Handlers</a
+      >), though any error handling name that has been registered with
+      <a
+        href="https://docs.python.org/3/library/codecs.html#codecs.register_error"
+        ><code>codecs.register_error()</code></a
+      >
+      is also valid. The standard names include:
+    </p>
+    <ul>
+      <li>
+        <code>'strict'</code> to raise a
+        <a href="https://docs.python.org/3/library/exceptions.html#ValueError"
+          ><code>ValueError</code></a
+        >
+        exception if there is an encoding error. The default value of
+        <code>None</code> has the same effect.
+      </li>
+      <li>
+        <code>'ignore'</code> ignores errors. Note that ignoring encoding errors
+        can lead to data loss.
+      </li>
+      <li>
+        <code>'replace'</code> causes a replacement marker (such as
+        <code>'?'</code>) to be inserted where there is malformed data.
+      </li>
+      <li>
+        <code>'surrogateescape'</code> will represent any incorrect bytes as low
+        surrogate code units ranging from U+DC80 to U+DCFF. These surrogate code
+        units will then be turned back into the same bytes when the
+        <code>surrogateescape</code> error handler is used when writing data.
+        This is useful for processing files in an unknown encoding.
+      </li>
+      <li>
+        <code>'xmlcharrefreplace'</code> is only supported when writing to a
+        file. Characters not supported by the encoding are replaced with the
+        appropriate XML character reference <code>&amp;#nnn;</code>.
+      </li>
+      <li>
+        <code>'backslashreplace'</code> replaces malformed data by Python’s
+        backslashed escape sequences.
+      </li>
+      <li>
+        <code>'namereplace'</code> (also only supported when writing) replaces
+        unsupported characters with <code>\N{...}</code> escape sequences.
+      </li>
+    </ul>
+    <p>
+      <em>newline</em> controls how
+      <a href="https://docs.python.org/3/glossary.html#term-universal-newlines"
+        >universal newlines</a
+      >
+      mode works (it only applies to text mode). It can be <code>None</code>,
+      <code>''</code>, <code>'\n'</code>, <code>'\r'</code>, and
+      <code>'\r\n'</code>. It works as follows:
+    </p>
+    <ul>
+      <li>
+        When reading input from the stream, if <em>newline</em> is
+        <code>None</code>, universal newlines mode is enabled. Lines in the
+        input can end in <code>'\n'</code>, <code>'\r'</code>, or
+        <code>'\r\n'</code>, and these are translated into
+        <code>'\n'</code> before being returned to the caller. If it is
+        <code>''</code>, universal newlines mode is enabled, but line endings
+        are returned to the caller untranslated. If it has any of the other
+        legal values, input lines are only terminated by the given string, and
+        the line ending is returned to the caller untranslated.
+      </li>
+      <li>
+        When writing output to the stream, if <em>newline</em> is
+        <code>None</code>, any <code>'\n'</code> characters written are
+        translated to the system default line separator,
+        <a href="https://docs.python.org/3/library/os.html#os.linesep"
+          ><code>os.linesep</code></a
+        >. If <em>newline</em> is <code>''</code> or <code>'\n'</code>, no
+        translation takes place. If <em>newline</em> is any of the other legal
+        values, any <code>'\n'</code> characters written are translated to the
+        given string.
+      </li>
+    </ul>
+    <p>
+      If <em>closefd</em> is <code>False</code> and a file descriptor rather
+      than a filename was given, the underlying file descriptor will be kept
+      open when the file is closed. If a filename is given <em>closefd</em> must
+      be <code>True</code> (the default) otherwise an error will be raised.
+    </p>
+    <p>
+      A custom opener can be used by passing a callable as <em>opener</em>. The
+      underlying file descriptor for the file object is then obtained by calling
+      <em>opener</em> with (<em>file</em>, <em>flags</em>). <em>opener</em> must
+      return an open file descriptor (passing
+      <a href="https://docs.python.org/3/library/os.html#os.open"
+        ><code>os.open</code></a
+      >
+      as <em>opener</em> results in functionality similar to passing
+      <code>None</code>).
+    </p>
+    <p>
+      The newly created file is
+      <a href="https://docs.python.org/3/library/os.html#fd-inheritance"
+        >non-inheritable</a
+      >.
+    </p>
+    <p>
+      The following example uses the
+      <a href="https://docs.python.org/3/library/os.html#dir-fd">dir_fd</a>
+      parameter of the
+      <a href="https://docs.python.org/3/library/os.html#os.open"
+        ><code>os.open()</code></a
+      >
+      function to open a file relative to a given directory:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; import os
+&gt;&gt;&gt; dir_fd = os.open(&#39;somedir&#39;, os.O_RDONLY)
+&gt;&gt;&gt; def opener(path, flags):
+...     return os.open(path, flags, dir_fd=dir_fd)
+...
+&gt;&gt;&gt; with open(&#39;spamspam.txt&#39;, &#39;w&#39;, opener=opener) as f:
+...     print(&#39;This will be written to somedir/spamspam.txt&#39;, file=f)
+...
+&gt;&gt;&gt; os.close(dir_fd)  # don&#39;t leak a file descriptor</code></pre>
+    <p>
+      The type of
+      <a href="https://docs.python.org/3/glossary.html#term-file-object"
+        >file object</a
+      >
+      returned by the
+      <a href="https://docs.python.org/3/library/functions.html#open"
+        ><code>open()</code></a
+      >
+      function depends on the mode. When
+      <a href="https://docs.python.org/3/library/functions.html#open"
+        ><code>open()</code></a
+      >
+      is used to open a file in a text mode (<code>'w'</code>, <code>'r'</code>,
+      <code>'wt'</code>, <code>'rt'</code>, etc.), it returns a subclass of
+      <a href="https://docs.python.org/3/library/io.html#io.TextIOBase"
+        ><code>io.TextIOBase</code></a
+      >
+      (specifically
+      <a href="https://docs.python.org/3/library/io.html#io.TextIOWrapper"
+        ><code>io.TextIOWrapper</code></a
+      >). When used to open a file in a binary mode with buffering, the returned
+      class is a subclass of
+      <a href="https://docs.python.org/3/library/io.html#io.BufferedIOBase"
+        ><code>io.BufferedIOBase</code></a
+      >. The exact class varies: in read binary mode, it returns an
+      <a href="https://docs.python.org/3/library/io.html#io.BufferedReader"
+        ><code>io.BufferedReader</code></a
+      >; in write binary and append binary modes, it returns an
+      <a href="https://docs.python.org/3/library/io.html#io.BufferedWriter"
+        ><code>io.BufferedWriter</code></a
+      >, and in read/write mode, it returns an
+      <a href="https://docs.python.org/3/library/io.html#io.BufferedRandom"
+        ><code>io.BufferedRandom</code></a
+      >. When buffering is disabled, the raw stream, a subclass of
+      <a href="https://docs.python.org/3/library/io.html#io.RawIOBase"
+        ><code>io.RawIOBase</code></a
+      >,
+      <a href="https://docs.python.org/3/library/io.html#io.FileIO"
+        ><code>io.FileIO</code></a
+      >, is returned.
+    </p>
+    <p>
+      See also the file handling modules, such as,
+      <a
+        href="https://docs.python.org/3/library/fileinput.html#module-fileinput"
+        ><code>fileinput</code></a
+      >,
+      <a href="https://docs.python.org/3/library/io.html#module-io"
+        ><code>io</code></a
+      >
+      (where
+      <a href="https://docs.python.org/3/library/functions.html#open"
+        ><code>open()</code></a
+      >
+      is declared),
+      <a href="https://docs.python.org/3/library/os.html#module-os"
+        ><code>os</code></a
+      >,
+      <a href="https://docs.python.org/3/library/os.path.html#module-os.path"
+        ><code>os.path</code></a
+      >,
+      <a href="https://docs.python.org/3/library/tempfile.html#module-tempfile"
+        ><code>tempfile</code></a
+      >, and
+      <a href="https://docs.python.org/3/library/shutil.html#module-shutil"
+        ><code>shutil</code></a
+      >.
+    </p>
+    <p>
+      Raises an
+      <a href="https://docs.python.org/3/library/sys.html#auditing"
+        >auditing event</a
+      >
+      <code>open</code> with arguments <code>file</code>, <code>mode</code>,
+      <code>flags</code>.
+    </p>
+    <p>
+      The <code>mode</code> and <code>flags</code> arguments may have been
+      modified or inferred from the original call.
+    </p>
+    <blockquote>
+      <p>Changed in version 3.3:</p>
+      <ul>
+        <li>The <em>opener</em> parameter was added.</li>
+        <li>The <code>'x'</code> mode was added.</li>
+        <li>
+          <a href="https://docs.python.org/3/library/exceptions.html#IOError"
+            ><code>IOError</code></a
+          >
+          used to be raised, it is now an alias of
+          <a href="https://docs.python.org/3/library/exceptions.html#OSError"
+            ><code>OSError</code></a
+          >.
+        </li>
+        <li>
+          <a
+            href="https://docs.python.org/3/library/exceptions.html#FileExistsError"
+            ><code>FileExistsError</code></a
+          >
+          is now raised if the file opened in exclusive creation mode
+          (<code>'x'</code>) already exists.
+        </li>
+      </ul>
+    </blockquote>
+    <blockquote>
+      <p>Changed in version 3.4:</p>
+      <ul>
+        <li>The file is now non-inheritable.</li>
+      </ul>
+    </blockquote>
+    <p>
+      Deprecated since version 3.4, will be removed in version 3.10: The
+      <code>'U'</code> mode.
+    </p>
+    <blockquote>
+      <p>Changed in version 3.5:</p>
+      <ul>
+        <li>
+          If the system call is interrupted and the signal handler does not
+          raise an exception, the function now retries the system call instead
+          of raising an
+          <a
+            href="https://docs.python.org/3/library/exceptions.html#InterruptedError"
+            ><code>InterruptedError</code></a
+          >
+          exception (see
+          <a href="https://www.python.org/dev/peps/pep-0475"
+            ><strong>PEP 475</strong></a
+          >
+          for the rationale).
+        </li>
+        <li>The <code>'namereplace'</code> error handler was added.</li>
+      </ul>
+    </blockquote>
+    <blockquote>
+      <p>Changed in version 3.6:</p>
+      <ul>
+        <li>
+          Support added to accept objects implementing
+          <a href="https://docs.python.org/3/library/os.html#os.PathLike"
+            ><code>os.PathLike</code></a
+          >.
+        </li>
+        <li>
+          On Windows, opening a console buffer may return a subclass of
+          <a href="https://docs.python.org/3/library/io.html#io.RawIOBase"
+            ><code>io.RawIOBase</code></a
+          >
+          other than
+          <a href="https://docs.python.org/3/library/io.html#io.FileIO"
+            ><code>io.FileIO</code></a
+          >.
+        </li>
+      </ul>
+    </blockquote>
+    <p><code>ord</code>(<em>c</em>)</p>
+    <p>
+      Given a string representing one Unicode character, return an integer
+      representing the Unicode code point of that character. For example,
+      <code>ord('a')</code> returns the integer <code>97</code> and
+      <code>ord('€')</code> (Euro sign) returns <code>8364</code>. This is the
+      inverse of
+      <a href="https://docs.python.org/3/library/functions.html#chr"
+        ><code>chr()</code></a
+      >.<code>pow</code>(<em>base</em>, <em>exp</em>[, <em>mod</em>])
+    </p>
+    <p>
+      Return <em>base</em> to the power <em>exp</em>; if <em>mod</em> is
+      present, return <em>base</em> to the power <em>exp</em>, modulo
+      <em>mod</em> (computed more efficiently than
+      <code>pow(base, exp) % mod</code>). The two-argument form
+      <code>pow(base, exp)</code> is equivalent to using the power operator:
+      <code>base**exp</code>.
+    </p>
+    <p>
+      The arguments must have numeric types. With mixed operand types, the
+      coercion rules for binary arithmetic operators apply. For
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      operands, the result has the same type as the operands (after coercion)
+      unless the second argument is negative; in that case, all arguments are
+      converted to float and a float result is delivered. For example,
+      <code>10**2</code> returns <code>100</code>, but
+      <code>10**-2</code> returns <code>0.01</code>.
+    </p>
+    <p>
+      For
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      operands <em>base</em> and <em>exp</em>, if <em>mod</em> is present,
+      <em>mod</em> must also be of integer type and <em>mod</em> must be
+      nonzero. If <em>mod</em> is present and <em>exp</em> is negative,
+      <em>base</em> must be relatively prime to <em>mod</em>. In that case,
+      <code>pow(inv_base, -exp, mod)</code> is returned, where
+      <em>inv_base</em> is an inverse to <em>base</em> modulo <em>mod</em>.
+    </p>
+    <p>
+      Here’s an example of computing an inverse for <code>38</code> modulo
+      <code>97</code>:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; pow(38, -1, mod=97)
+23
+&gt;&gt;&gt; 23 * 38 % 97 == 1
+True</code></pre>
+    <p>
+      Changed in version 3.8: For
+      <a href="https://docs.python.org/3/library/functions.html#int"
+        ><code>int</code></a
+      >
+      operands, the three-argument form of <code>pow</code> now allows the
+      second argument to be negative, permitting computation of modular
+      inverses.
+    </p>
+    <p>
+      Changed in version 3.8: Allow keyword arguments. Formerly, only positional
+      arguments were supported.<code>print</code>(<em>*objects</em>,
+      <em>sep=’ ’</em>, <em>end=‘’</em>, <em>file=sys.stdout</em>,
+      <em>flush=False</em>)
+    </p>
+    <p>
+      Print <em>objects</em> to the text stream <em>file</em>, separated by
+      <em>sep</em> and followed by <em>end</em>. <em>sep</em>, <em>end</em>,
+      <em>file</em> and <em>flush</em>, if present, must be given as keyword
+      arguments.
+    </p>
+    <p>
+      All non-keyword arguments are converted to strings like
+      <a href="https://docs.python.org/3/library/stdtypes.html#str"
+        ><code>str()</code></a
+      >
+      does and written to the stream, separated by <em>sep</em> and followed by
+      <em>end</em>. Both <em>sep</em> and <em>end</em> must be strings; they can
+      also be <code>None</code>, which means to use the default values. If no
+      <em>objects</em> are given,
+      <a href="https://docs.python.org/3/library/functions.html#print"
+        ><code>print()</code></a
+      >
+      will just write <em>end</em>.
+    </p>
+    <p>
+      The <em>file</em> argument must be an object with a
+      <code>write(string)</code> method; if it is not present or
+      <code>None</code>,
+      <a href="https://docs.python.org/3/library/sys.html#sys.stdout"
+        ><code>sys.stdout</code></a
+      >
+      will be used. Since printed arguments are converted to text strings,
+      <a href="https://docs.python.org/3/library/functions.html#print"
+        ><code>print()</code></a
+      >
+      cannot be used with binary mode file objects. For these, use
+      <code>file.write(...)</code> instead.
+    </p>
+    <p>
+      Whether output is buffered is usually determined by <em>file</em>, but if
+      the <em>flush</em> keyword argument is true, the stream is forcibly
+      flushed.
+    </p>
+    <p>
+      Changed in version 3.3: Added the <em>flush</em> keyword argument._class_
+      <code>property</code>(<em>fget=None</em>, <em>fset=None</em>,
+      <em>fdel=None</em>, <em>doc=None</em>)
+    </p>
+    <p>Return a property attribute.</p>
+    <p>
+      <em>fget</em> is a function for getting an attribute value.
+      <em>fset</em> is a function for setting an attribute value.
+      <em>fdel</em> is a function for deleting an attribute value. And
+      <em>doc</em> creates a docstring for the attribute.
+    </p>
+    <p>A typical use is to define a managed attribute <code>x</code>:</p>
+    <pre class="text"><code>class C:
+    def __init__(self):
+        self._x = None
+
+    def getx(self):
+        return self._x
+
+    def setx(self, value):
+        self._x = value
+
+    def delx(self):
+        del self._x
+
+    x = property(getx, setx, delx, &quot;I&#39;m the &#39;x&#39; property.&quot;)</code></pre>
+    <p>
+      If <em>c</em> is an instance of <em>C</em>, <code>c.x</code> will invoke
+      the getter, <code>c.x = value</code> will invoke the setter and
+      <code>del c.x</code> the deleter.
+    </p>
+    <p>
+      If given, <em>doc</em> will be the docstring of the property attribute.
+      Otherwise, the property will copy <em>fget</em>’s docstring (if it
+      exists). This makes it possible to create read-only properties easily
+      using
+      <a href="https://docs.python.org/3/library/functions.html#property"
+        ><code>property()</code></a
+      >
+      as a
+      <a href="https://docs.python.org/3/glossary.html#term-decorator"
+        >decorator</a
+      >:
+    </p>
+    <pre class="text"><code>class Parrot:
+    def __init__(self):
+        self._voltage = 100000
+
+    @property
+    def voltage(self):
+        &quot;&quot;&quot;Get the current voltage.&quot;&quot;&quot;
+        return self._voltage</code></pre>
+    <p>
+      The <code>@property</code> decorator turns the
+      <code>voltage()</code> method into a “getter” for a read-only attribute
+      with the same name, and it sets the docstring for <em>voltage</em> to “Get
+      the current voltage.”
+    </p>
+    <p>
+      A property object has <code>getter</code>, <code>setter</code>, and
+      <code>deleter</code> methods usable as decorators that create a copy of
+      the property with the corresponding accessor function set to the decorated
+      function. This is best explained with an example:
+    </p>
+    <pre class="text"><code>class C:
+    def __init__(self):
+        self._x = None
+
+    @property
+    def x(self):
+        &quot;&quot;&quot;I&#39;m the &#39;x&#39; property.&quot;&quot;&quot;
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        self._x = value
+
+    @x.deleter
+    def x(self):
+        del self._x</code></pre>
+    <p>
+      This code is exactly equivalent to the first example. Be sure to give the
+      additional functions the same name as the original property (<code
+        >x</code
+      >
+      in this case.)
+    </p>
+    <p>
+      The returned property object also has the attributes <code>fget</code>,
+      <code>fset</code>, and <code>fdel</code> corresponding to the constructor
+      arguments.
+    </p>
+    <p>
+      Changed in version 3.5: The docstrings of property objects are now
+      writeable._class_ <code>range</code>(<em>stop</em>)<em>class</em>
+      <code>range</code>(<em>start</em>, <em>stop</em>[, <em>step</em>])
+    </p>
+    <p>
+      Rather than being a function,
+      <a href="https://docs.python.org/3/library/stdtypes.html#range"
+        ><code>range</code></a
+      >
+      is actually an immutable sequence type, as documented in
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesseq-range"
+        >Ranges</a
+      >
+      and
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesseq"
+        >Sequence Types — list, tuple, range</a
+      >.<code>repr</code>(<em>object</em>)
+    </p>
+    <p>
+      Return a string containing a printable representation of an object. For
+      many types, this function makes an attempt to return a string that would
+      yield an object with the same value when passed to
+      <a href="https://docs.python.org/3/library/functions.html#eval"
+        ><code>eval()</code></a
+      >, otherwise the representation is a string enclosed in angle brackets
+      that contains the name of the type of the object together with additional
+      information often including the name and address of the object. A class
+      can control what this function returns for its instances by defining a
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"
+        ><code>__repr__()</code></a
+      >
+      method.<code>reversed</code>(<em>seq</em>)
+    </p>
+    <p>
+      Return a reverse
+      <a href="https://docs.python.org/3/glossary.html#term-iterator"
+        >iterator</a
+      >. <em>seq</em> must be an object which has a
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__reversed__"
+        ><code>__reversed__()</code></a
+      >
+      method or supports the sequence protocol (the
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__len__"
+        ><code>__len__()</code></a
+      >
+      method and the
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__getitem__"
+        ><code>__getitem__()</code></a
+      >
+      method with integer arguments starting at
+      <code>0</code>).<code>round</code>(<em>number</em>[, <em>ndigits</em>])
+    </p>
+    <p>
+      Return <em>number</em> rounded to <em>ndigits</em> precision after the
+      decimal point. If <em>ndigits</em> is omitted or is <code>None</code>, it
+      returns the nearest integer to its input.
+    </p>
+    <p>
+      For the built-in types supporting
+      <a href="https://docs.python.org/3/library/functions.html#round"
+        ><code>round()</code></a
+      >, values are rounded to the closest multiple of 10 to the power minus
+      <em>ndigits</em>; if two multiples are equally close, rounding is done
+      toward the even choice (so, for example, both <code>round(0.5)</code> and
+      <code>round(-0.5)</code> are <code>0</code>, and
+      <code>round(1.5)</code> is <code>2</code>). Any integer value is valid for
+      <em>ndigits</em> (positive, zero, or negative). The return value is an
+      integer if <em>ndigits</em> is omitted or <code>None</code>. Otherwise the
+      return value has the same type as <em>number</em>.
+    </p>
+    <p>
+      For a general Python object <code>number</code>,
+      <code>round</code> delegates to <code>number.__round__</code>.
+    </p>
+    <p>Note</p>
+    <p>
+      The behavior of
+      <a href="https://docs.python.org/3/library/functions.html#round"
+        ><code>round()</code></a
+      >
+      for floats can be surprising: for example,
+      <code>round(2.675, 2)</code> gives <code>2.67</code> instead of the
+      expected <code>2.68</code>. This is not a bug: it’s a result of the fact
+      that most decimal fractions can’t be represented exactly as a float. See
+      <a
+        href="https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues"
+        >Floating Point Arithmetic: Issues and Limitations</a
+      >
+      for more information._class_ <code>set</code>([<em>iterable</em>])
+    </p>
+    <p>
+      Return a new
+      <a href="https://docs.python.org/3/library/stdtypes.html#set"
+        ><code>set</code></a
+      >
+      object, optionally with elements taken from <em>iterable</em>.
+      <code>set</code> is a built-in class. See
+      <a href="https://docs.python.org/3/library/stdtypes.html#set"
+        ><code>set</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/stdtypes.html#types-set"
+        >Set Types — set, frozenset</a
+      >
+      for documentation about this class.
+    </p>
+    <p>
+      For other containers see the built-in
+      <a href="https://docs.python.org/3/library/stdtypes.html#frozenset"
+        ><code>frozenset</code></a
+      >,
+      <a href="https://docs.python.org/3/library/stdtypes.html#list"
+        ><code>list</code></a
+      >,
+      <a href="https://docs.python.org/3/library/stdtypes.html#tuple"
+        ><code>tuple</code></a
+      >, and
+      <a href="https://docs.python.org/3/library/stdtypes.html#dict"
+        ><code>dict</code></a
+      >
+      classes, as well as the
+      <a
+        href="https://docs.python.org/3/library/collections.html#module-collections"
+        ><code>collections</code></a
+      >
+      module.<code>setattr</code>(<em>object</em>, <em>name</em>,
+      <em>value</em>)
+    </p>
+    <p>
+      This is the counterpart of
+      <a href="https://docs.python.org/3/library/functions.html#getattr"
+        ><code>getattr()</code></a
+      >. The arguments are an object, a string and an arbitrary value. The
+      string may name an existing attribute or a new attribute. The function
+      assigns the value to the attribute, provided the object allows it. For
+      example, <code>setattr(x, 'foobar', 123)</code> is equivalent to
+      <code>x.foobar = 123</code>.
+    </p>
+    <p>Note</p>
+    <p>
+      Since
+      <a
+        href="https://docs.python.org/3/reference/expressions.html#private-name-mangling"
+        >private name mangling</a
+      >
+      happens at compilation time, one must manually mangle a private
+      attribute’s (attributes with two leading underscores) name in order to set
+      it with
+      <a href="https://docs.python.org/3/library/functions.html#setattr"
+        ><code>setattr()</code></a
+      >._class_ <code>slice</code>(<em>stop</em>)<em>class</em>
+      <code>slice</code>(<em>start</em>, <em>stop</em>[, <em>step</em>])
+    </p>
+    <p>
+      Return a
+      <a href="https://docs.python.org/3/glossary.html#term-slice">slice</a>
+      object representing the set of indices specified by
+      <code>range(start, stop, step)</code>. The <em>start</em> and
+      <em>step</em> arguments default to <code>None</code>. Slice objects have
+      read-only data attributes <code>start</code>, <code>stop</code> and
+      <code>step</code> which merely return the argument values (or their
+      default). They have no other explicit functionality; however they are used
+      by Numerical Python and other third party extensions. Slice objects are
+      also generated when extended indexing syntax is used. For example:
+      <code>a[start:stop:step]</code> or <code>a[start:stop, i]</code>. See
+      <a
+        href="https://docs.python.org/3/library/itertools.html#itertools.islice"
+        ><code>itertools.islice()</code></a
+      >
+      for an alternate version that returns an
+      iterator.<code>sorted</code>(<em>iterable</em>, <em>*</em>,
+      <em>key=None</em>, <em>reverse=False</em>)
+    </p>
+    <p>Return a new sorted list from the items in <em>iterable</em>.</p>
+    <p>
+      Has two optional arguments which must be specified as keyword arguments.
+    </p>
+    <p>
+      <em>key</em> specifies a function of one argument that is used to extract
+      a comparison key from each element in <em>iterable</em> (for example,
+      <code>key=str.lower</code>). The default value is
+      <code>None</code> (compare the elements directly).
+    </p>
+    <p>
+      <em>reverse</em> is a boolean value. If set to <code>True</code>, then the
+      list elements are sorted as if each comparison were reversed.
+    </p>
+    <p>
+      Use
+      <a
+        href="https://docs.python.org/3/library/functools.html#functools.cmp_to_key"
+        ><code>functools.cmp_to_key()</code></a
+      >
+      to convert an old-style <em>cmp</em> function to a <em>key</em> function.
+    </p>
+    <p>
+      The built-in
+      <a href="https://docs.python.org/3/library/functions.html#sorted"
+        ><code>sorted()</code></a
+      >
+      function is guaranteed to be stable. A sort is stable if it guarantees not
+      to change the relative order of elements that compare equal — this is
+      helpful for sorting in multiple passes (for example, sort by department,
+      then by salary grade).
+    </p>
+    <p>
+      For sorting examples and a brief sorting tutorial, see
+      <a href="https://docs.python.org/3/howto/sorting.html#sortinghowto"
+        >Sorting HOW TO</a
+      >.<code>@staticmethod</code>
+    </p>
+    <p>Transform a method into a static method.</p>
+    <p>
+      A static method does not receive an implicit first argument. To declare a
+      static method, use this idiom:
+    </p>
+    <pre class="text"><code>class C:
+    @staticmethod
+    def f(arg1, arg2, ...): ...</code></pre>
+    <p>
+      The <code>@staticmethod</code> form is a function
+      <a href="https://docs.python.org/3/glossary.html#term-decorator"
+        >decorator</a
+      >
+      – see
+      <a href="https://docs.python.org/3/reference/compound_stmts.html#function"
+        >Function definitions</a
+      >
+      for details.
+    </p>
+    <p>
+      A static method can be called either on the class (such as
+      <code>C.f()</code>) or on an instance (such as <code>C().f()</code>).
+    </p>
+    <p>
+      Static methods in Python are similar to those found in Java or C++. Also
+      see
+      <a href="https://docs.python.org/3/library/functions.html#classmethod"
+        ><code>classmethod()</code></a
+      >
+      for a variant that is useful for creating alternate class constructors.
+    </p>
+    <p>
+      Like all decorators, it is also possible to call
+      <code>staticmethod</code> as a regular function and do something with its
+      result. This is needed in some cases where you need a reference to a
+      function from a class body and you want to avoid the automatic
+      transformation to instance method. For these cases, use this idiom:
+    </p>
+    <pre class="text"><code>class C:
+    builtin_open = staticmethod(open)</code></pre>
+    <p>
+      For more information on static methods, see
+      <a href="https://docs.python.org/3/reference/datamodel.html#types"
+        >The standard type hierarchy</a
+      >._class_ <code>str</code>(<em>object=’’</em>)<em>class</em>
+      <code>str</code>(<em>object=b’’</em>, <em>encoding=‘utf-8’</em>,
+      <em>errors=‘strict’</em>)
+    </p>
+    <p>
+      Return a
+      <a href="https://docs.python.org/3/library/stdtypes.html#str"
+        ><code>str</code></a
+      >
+      version of <em>object</em>. See
+      <a href="https://docs.python.org/3/library/stdtypes.html#str"
+        ><code>str()</code></a
+      >
+      for details.
+    </p>
+    <p>
+      <code>str</code> is the built-in string
+      <a href="https://docs.python.org/3/glossary.html#term-class">class</a>.
+      For general information about strings, see
+      <a href="https://docs.python.org/3/library/stdtypes.html#textseq"
+        >Text Sequence Type — str</a
+      >.<code>sum</code>(<em>iterable</em>, <em>/</em>, <em>start=0</em>)
+    </p>
+    <p>
+      Sums <em>start</em> and the items of an <em>iterable</em> from left to
+      right and returns the total. The <em>iterable</em>’s items are normally
+      numbers, and the start value is not allowed to be a string.
+    </p>
+    <p>
+      For some use cases, there are good alternatives to
+      <a href="https://docs.python.org/3/library/functions.html#sum"
+        ><code>sum()</code></a
+      >. The preferred, fast way to concatenate a sequence of strings is by
+      calling <code>''.join(sequence)</code>. To add floating point values with
+      extended precision, see
+      <a href="https://docs.python.org/3/library/math.html#math.fsum"
+        ><code>math.fsum()</code></a
+      >. To concatenate a series of iterables, consider using
+      <a href="https://docs.python.org/3/library/itertools.html#itertools.chain"
+        ><code>itertools.chain()</code></a
+      >.
+    </p>
+    <p>
+      Changed in version 3.8: The <em>start</em> parameter can be specified as a
+      keyword argument.<code>super</code>([<em>type</em>[,
+      <em>object-or-type</em>]])
+    </p>
+    <p>
+      Return a proxy object that delegates method calls to a parent or sibling
+      class of <em>type</em>. This is useful for accessing inherited methods
+      that have been overridden in a class.
+    </p>
+    <p>
+      The <em>object-or-type</em> determines the
+      <a
+        href="https://docs.python.org/3/glossary.html#term-method-resolution-order"
+        >method resolution order</a
+      >
+      to be searched. The search starts from the class right after the
+      <em>type</em>.
+    </p>
+    <p>
+      For example, if
+      <a href="https://docs.python.org/3/library/stdtypes.html#class.__mro__"
+        ><code>__mro__</code></a
+      >
+      of <em>object-or-type</em> is
+      <code>D -&gt; B -&gt; C -&gt; A -&gt; object</code> and the value of
+      <em>type</em> is <code>B</code>, then
+      <a href="https://docs.python.org/3/library/functions.html#super"
+        ><code>super()</code></a
+      >
+      searches <code>C -&gt; A -&gt; object</code>.
+    </p>
+    <p>
+      The
+      <a href="https://docs.python.org/3/library/stdtypes.html#class.__mro__"
+        ><code>__mro__</code></a
+      >
+      attribute of the <em>object-or-type</em> lists the method resolution
+      search order used by both
+      <a href="https://docs.python.org/3/library/functions.html#getattr"
+        ><code>getattr()</code></a
+      >
+      and
+      <a href="https://docs.python.org/3/library/functions.html#super"
+        ><code>super()</code></a
+      >. The attribute is dynamic and can change whenever the inheritance
+      hierarchy is updated.
+    </p>
+    <p>
+      If the second argument is omitted, the super object returned is unbound.
+      If the second argument is an object,
+      <code>isinstance(obj, type)</code> must be true. If the second argument is
+      a type, <code>issubclass(type2, type)</code> must be true (this is useful
+      for classmethods).
+    </p>
+    <p>
+      There are two typical use cases for <em>super</em>. In a class hierarchy
+      with single inheritance, <em>super</em> can be used to refer to parent
+      classes without naming them explicitly, thus making the code more
+      maintainable. This use closely parallels the use of <em>super</em> in
+      other programming languages.
+    </p>
+    <p>
+      The second use case is to support cooperative multiple inheritance in a
+      dynamic execution environment. This use case is unique to Python and is
+      not found in statically compiled languages or languages that only support
+      single inheritance. This makes it possible to implement “diamond diagrams”
+      where multiple base classes implement the same method. Good design
+      dictates that such implementations have the same calling signature in
+      every case (because the order of calls is determined at runtime, because
+      that order adapts to changes in the class hierarchy, and because that
+      order can include sibling classes that are unknown prior to runtime).
+    </p>
+    <p>For both use cases, a typical superclass call looks like this:</p>
+    <pre class="text"><code>class C(B):
+    def method(self, arg):
+        super().method(arg)    # This does the same thing as:
+                               # super(C, self).method(arg)</code></pre>
+    <p>
+      In addition to method lookups,
+      <a href="https://docs.python.org/3/library/functions.html#super"
+        ><code>super()</code></a
+      >
+      also works for attribute lookups. One possible use case for this is
+      calling
+      <a href="https://docs.python.org/3/glossary.html#term-descriptor"
+        >descriptors</a
+      >
+      in a parent or sibling class.
+    </p>
+    <p>
+      Note that
+      <a href="https://docs.python.org/3/library/functions.html#super"
+        ><code>super()</code></a
+      >
+      is implemented as part of the binding process for explicit dotted
+      attribute lookups such as <code>super().__getitem__(name)</code>. It does
+      so by implementing its own
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__getattribute__"
+        ><code>__getattribute__()</code></a
+      >
+      method for searching classes in a predictable order that supports
+      cooperative multiple inheritance. Accordingly,
+      <a href="https://docs.python.org/3/library/functions.html#super"
+        ><code>super()</code></a
+      >
+      is undefined for implicit lookups using statements or operators such as
+      <code>super()[name]</code>.
+    </p>
+    <p>
+      Also note that, aside from the zero argument form,
+      <a href="https://docs.python.org/3/library/functions.html#super"
+        ><code>super()</code></a
+      >
+      is not limited to use inside methods. The two argument form specifies the
+      arguments exactly and makes the appropriate references. The zero argument
+      form only works inside a class definition, as the compiler fills in the
+      necessary details to correctly retrieve the class being defined, as well
+      as accessing the current instance for ordinary methods.
+    </p>
+    <p>
+      For practical suggestions on how to design cooperative classes using
+      <a href="https://docs.python.org/3/library/functions.html#super"
+        ><code>super()</code></a
+      >, see
+      <a
+        href="https://rhettinger.wordpress.com/2011/05/26/super-considered-super/"
+        >guide to using super()</a
+      >._class_ <code>tuple</code>([<em>iterable</em>])
+    </p>
+    <p>
+      Rather than being a function,
+      <a href="https://docs.python.org/3/library/stdtypes.html#tuple"
+        ><code>tuple</code></a
+      >
+      is actually an immutable sequence type, as documented in
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesseq-tuple"
+        >Tuples</a
+      >
+      and
+      <a href="https://docs.python.org/3/library/stdtypes.html#typesseq"
+        >Sequence Types — list, tuple, range</a
+      >._class_ <code>type</code>(<em>object</em>)<em>class</em>
+      <code>type</code>(<em>name</em>, <em>bases</em>, <em>dict</em>,
+      <em>**kwds</em>)
+    </p>
+    <p>
+      With one argument, return the type of an <em>object</em>. The return value
+      is a type object and generally the same object as returned by
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#instance.__class__"
+        ><code>object.__class__</code></a
+      >.
+    </p>
+    <p>
+      The
+      <a href="https://docs.python.org/3/library/functions.html#isinstance"
+        ><code>isinstance()</code></a
+      >
+      built-in function is recommended for testing the type of an object,
+      because it takes subclasses into account.
+    </p>
+    <p>
+      With three arguments, return a new type object. This is essentially a
+      dynamic form of the
+      <a href="https://docs.python.org/3/reference/compound_stmts.html#class"
+        ><code>class</code></a
+      >
+      statement. The <em>name</em> string is the class name and becomes the
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#definition.__name__"
+        ><code>__name__</code></a
+      >
+      attribute. The <em>bases</em> tuple contains the base classes and becomes
+      the
+      <a href="https://docs.python.org/3/library/stdtypes.html#class.__bases__"
+        ><code>__bases__</code></a
+      >
+      attribute; if empty,
+      <a href="https://docs.python.org/3/library/functions.html#object"
+        ><code>object</code></a
+      >, the ultimate base of all classes, is added. The
+      <em>dict</em> dictionary contains attribute and method definitions for the
+      class body; it may be copied or wrapped before becoming the
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >
+      attribute. The following two statements create identical
+      <a href="https://docs.python.org/3/library/functions.html#type"
+        ><code>type</code></a
+      >
+      objects:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; class X:
+...     a = 1
+...
+&gt;&gt;&gt; X = type(&#39;X&#39;, (), dict(a=1))</code></pre>
+    <p>
+      See also
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#bltin-type-objects"
+        >Type Objects</a
+      >.
+    </p>
+    <p>
+      Keyword arguments provided to the three argument form are passed to the
+      appropriate metaclass machinery (usually
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__init_subclass__"
+        ><code>__init_subclass__()</code></a
+      >) in the same way that keywords in a class definition (besides
+      <em>metaclass</em>) would.
+    </p>
+    <p>
+      See also
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#class-customization"
+        >Customizing class creation</a
+      >.
+    </p>
+    <p>
+      Changed in version 3.6: Subclasses of
+      <a href="https://docs.python.org/3/library/functions.html#type"
+        ><code>type</code></a
+      >
+      which don’t override <code>type.__new__</code> may no longer use the
+      one-argument form to get the type of an
+      object.<code>vars</code>([<em>object</em>])
+    </p>
+    <p>
+      Return the
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >
+      attribute for a module, class, instance, or any other object with a
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >
+      attribute.
+    </p>
+    <p>
+      Objects such as modules and instances have an updateable
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >
+      attribute; however, other objects may have write restrictions on their
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >
+      attributes (for example, classes use a
+      <a
+        href="https://docs.python.org/3/library/types.html#types.MappingProxyType"
+        ><code>types.MappingProxyType</code></a
+      >
+      to prevent direct dictionary updates).
+    </p>
+    <p>
+      Without an argument,
+      <a href="https://docs.python.org/3/library/functions.html#vars"
+        ><code>vars()</code></a
+      >
+      acts like
+      <a href="https://docs.python.org/3/library/functions.html#locals"
+        ><code>locals()</code></a
+      >. Note, the locals dictionary is only useful for reads since updates to
+      the locals dictionary are ignored.
+    </p>
+    <p>
+      A
+      <a href="https://docs.python.org/3/library/exceptions.html#TypeError"
+        ><code>TypeError</code></a
+      >
+      exception is raised if an object is specified but it doesn’t have a
+      <a href="https://docs.python.org/3/library/stdtypes.html#object.__dict__"
+        ><code>__dict__</code></a
+      >
+      attribute (for example, if its class defines the
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__slots__"
+        ><code>__slots__</code></a
+      >
+      attribute).<code>zip</code>(<em>*iterables</em>)
+    </p>
+    <p>Make an iterator that aggregates elements from each of the iterables.</p>
+    <p>
+      Returns an iterator of tuples, where the <em>i</em>-th tuple contains the
+      <em>i</em>-th element from each of the argument sequences or iterables.
+      The iterator stops when the shortest input iterable is exhausted. With a
+      single iterable argument, it returns an iterator of 1-tuples. With no
+      arguments, it returns an empty iterator. Equivalent to:
+    </p>
+    <pre class="text"><code>def zip(*iterables):
+    # zip(&#39;ABCD&#39;, &#39;xy&#39;) --&gt; Ax By
+    sentinel = object()
+    iterators = [iter(it) for it in iterables]
+    while iterators:
+        result = []
+        for it in iterators:
+            elem = next(it, sentinel)
+            if elem is sentinel:
+                return
+            result.append(elem)
+        yield tuple(result)</code></pre>
+    <p>
+      The left-to-right evaluation order of the iterables is guaranteed. This
+      makes possible an idiom for clustering a data series into n-length groups
+      using <code>zip(*[iter(s)]*n)</code>. This repeats the
+      <em>same</em> iterator <code>n</code> times so that each output tuple has
+      the result of <code>n</code> calls to the iterator. This has the effect of
+      dividing the input into n-length chunks.
+    </p>
+    <p>
+      <a href="https://docs.python.org/3/library/functions.html#zip"
+        ><code>zip()</code></a
+      >
+      should only be used with unequal length inputs when you don’t care about
+      trailing, unmatched values from the longer iterables. If those values are
+      important, use
+      <a
+        href="https://docs.python.org/3/library/itertools.html#itertools.zip_longest"
+        ><code>itertools.zip_longest()</code></a
+      >
+      instead.
+    </p>
+    <p>
+      <a href="https://docs.python.org/3/library/functions.html#zip"
+        ><code>zip()</code></a
+      >
+      in conjunction with the <code>*</code> operator can be used to unzip a
+      list:&gt;&gt;&gt;
+    </p>
+    <pre class="text"><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; y = [4, 5, 6]
+&gt;&gt;&gt; zipped = zip(x, y)
+&gt;&gt;&gt; list(zipped)
+[(1, 4), (2, 5), (3, 6)]
+&gt;&gt;&gt; x2, y2 = zip(*zip(x, y))
+&gt;&gt;&gt; x == list(x2) and y == list(y2)
+True</code></pre>
+    <p>
+      <code>__import__</code>(<em>name</em>, <em>globals=None</em>,
+      <em>locals=None</em>, <em>fromlist=()</em>, <em>level=0</em>)
+    </p>
+    <p>Note</p>
+    <p>
+      This is an advanced function that is not needed in everyday Python
+      programming, unlike
+      <a
+        href="https://docs.python.org/3/library/importlib.html#importlib.import_module"
+        ><code>importlib.import_module()</code></a
+      >.
+    </p>
+    <p>
+      This function is invoked by the
+      <a href="https://docs.python.org/3/reference/simple_stmts.html#import"
+        ><code>import</code></a
+      >
+      statement. It can be replaced (by importing the
+      <a href="https://docs.python.org/3/library/builtins.html#module-builtins"
+        ><code>builtins</code></a
+      >
+      module and assigning to <code>builtins.__import__</code>) in order to
+      change semantics of the <code>import</code> statement, but doing so is
+      <strong>strongly</strong> discouraged as it is usually simpler to use
+      import hooks (see
+      <a href="https://www.python.org/dev/peps/pep-0302"
+        ><strong>PEP 302</strong></a
+      >) to attain the same goals and does not cause issues with code which
+      assumes the default import implementation is in use. Direct use of
+      <a href="https://docs.python.org/3/library/functions.html#__import__"
+        ><code>__import__()</code></a
+      >
+      is also discouraged in favor of
+      <a
+        href="https://docs.python.org/3/library/importlib.html#importlib.import_module"
+        ><code>importlib.import_module()</code></a
+      >.
+    </p>
+    <p>
+      The function imports the module <em>name</em>, potentially using the given
+      <em>globals</em> and <em>locals</em> to determine how to interpret the
+      name in a package context. The <em>fromlist</em> gives the names of
+      objects or submodules that should be imported from the module given by
+      <em>name</em>. The standard implementation does not use its
+      <em>locals</em> argument at all, and uses its <em>globals</em> only to
+      determine the package context of the
+      <a href="https://docs.python.org/3/reference/simple_stmts.html#import"
+        ><code>import</code></a
+      >
+      statement.
+    </p>
+    <p>
+      <em>level</em> specifies whether to use absolute or relative imports.
+      <code>0</code> (the default) means only perform absolute imports. Positive
+      values for <em>level</em> indicate the number of parent directories to
+      search relative to the directory of the module calling
+      <a href="https://docs.python.org/3/library/functions.html#__import__"
+        ><code>__import__()</code></a
+      >
+      (see
+      <a href="https://www.python.org/dev/peps/pep-0328"
+        ><strong>PEP 328</strong></a
+      >
+      for the details).
+    </p>
+    <p>
+      When the <em>name</em> variable is of the form
+      <code>package.module</code>, normally, the top-level package (the name up
+      till the first dot) is returned, <em>not</em> the module named by
+      <em>name</em>. However, when a non-empty <em>fromlist</em> argument is
+      given, the module named by <em>name</em> is returned.
+    </p>
+    <p>
+      For example, the statement <code>import spam</code> results in bytecode
+      resembling the following code:
+    </p>
+    <pre
+      class="text"
+    ><code>spam = __import__(&#39;spam&#39;, globals(), locals(), [], 0)</code></pre>
+    <p>The statement <code>import spam.ham</code> results in this call:</p>
+    <pre
+      class="text"
+    ><code>spam = __import__(&#39;spam.ham&#39;, globals(), locals(), [], 0)</code></pre>
+    <p>
+      Note how
+      <a href="https://docs.python.org/3/library/functions.html#__import__"
+        ><code>__import__()</code></a
+      >
+      returns the toplevel module here because this is the object that is bound
+      to a name by the
+      <a href="https://docs.python.org/3/reference/simple_stmts.html#import"
+        ><code>import</code></a
+      >
+      statement.
+    </p>
+    <p>
+      On the other hand, the statement
+      <code>from spam.ham import eggs, sausage as saus</code> results in
+    </p>
+    <pre
+      class="text"
+    ><code>_temp = __import__(&#39;spam.ham&#39;, globals(), locals(), [&#39;eggs&#39;, &#39;sausage&#39;], 0)
+eggs = _temp.eggs
+saus = _temp.sausage</code></pre>
+  </body>
+</html>

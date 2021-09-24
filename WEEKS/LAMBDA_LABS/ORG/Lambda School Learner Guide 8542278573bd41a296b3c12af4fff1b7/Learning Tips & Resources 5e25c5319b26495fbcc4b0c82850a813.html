@@ -1,0 +1,645 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Learning Tips &amp; Resources</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5e25c531-9b26-495f-bcc4-b0c82850a813" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🗄</span></div><h1 class="page-title">Learning Tips &amp; Resources</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="de7ad908-f3d4-4108-b2f2-892d8c3507ea"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">There are a lot of resources out there when it comes to learning tips and tricks, these are a few of our favorites. Every Learner is different, so Learners should explore the resources below, search for additional resources and tools, and implement what works for them. </div></figure><h1 id="e44e3443-9cd4-486a-831d-e87bfe66bb72" class="">Importance of Repetition </h1><p id="24633e9e-8609-4576-9bd8-a22651716d8d" class="">Rote learning is a memorization technique based on repetition. The idea is that one will be able to quickly recall meaning of the material the more that one repeats it. This technique is widely used in the mastery of foundational knowledge. Examples are utilizing flashcards to study information, mnemonic devices and creating outline notes. This can also include reading over notes or a textbook several times. A common rote learning technique used in college is rewriting lecture notes.</p><p id="2d3fdb5c-f425-4e71-8e0a-29d5d7904c7d" class="">There are many concepts in programming, design and data science that are just going to take a lot of &quot;reps&quot;. The act of typing in code examples over and over again eventually makes the syntax become second nature.</p><p id="13fd9a56-7f4d-43c9-8bc1-5d46cdf9d876" class="">
+</p><p id="ea141261-e4c1-43d1-a40c-d021f767015c" class=""><strong>Recommended Resources: </strong></p><p id="aeb61d76-5eff-4668-aa27-1e5fe68988f0" class=""><a href="https://www.researchgate.net/publication/228318502_Repetition_is_the_First_Principle_of_All_Learning">Repetition is the First Principle in All Learning</a></p><p id="c3a5ce15-d044-4ec5-aff7-4a633130ad32" class=""><a href="https://collegeinfogeek.com/spaced-repetition-memory-technique/">Spaced Repetition Memory Technique</a></p><h1 id="63c9fb79-580a-4166-b557-bfca0c0a5bd2" class="">Asking for Help</h1><ul id="43d6e5b4-cf6c-410d-9c67-825aec2b17f9" class="toggle"><li><details open=""><summary>The 20 minute rule</summary><p id="a139a695-0830-4ad2-b571-c3bed14b7b48" class="">There is a standard rule at Lambda School that Leaners should try to solve a problem on their own for 20 minutes and then seek help.</p><p id="446a9af9-e0e8-451f-89dc-b09b3560649e" class="">This seems to be the right amount of time to define the problem, research on their own and try a couple different tactics. </p><p id="ae882762-65c4-4538-8f52-3b7b579bc056" class="">After 20 minutes Learners are wasting precious time and start to get frustrated. Learners can reach out by creating a message in the Slack channel for their class.</p></details></li></ul><ul id="3f3cff73-ebca-4ccb-9b0b-5f3f237d31b3" class="toggle"><li><details open=""><summary>How to Ask for Help at Lambda School</summary><p id="8d2740b5-8def-41ba-a6c3-602c809ebfdc" class="">Lambda school is focused on Student success and all of our processes are geared toward helping Learners succeed. We also want Learner&#x27;s to be competent professionals that have critical thinking skills, know how to learn, and are great at problem solving. The material Learners are learning will be difficult and they will struggle. Below is a framework on solving a problem that Learners can use to create a great question or possibly solve their own problem along the way.</p><ol type="1" id="bd7df41a-fdb3-499a-9272-97e711e4b979" class="numbered-list" start="1"><li>Clearly define the problem- In order to solve the problem, Learners need to be able to describe it succinctly. No handwaving. Vague, overarching problems are not solvable. So before a Student can even state the problem they may need to gather supporting information. If they can&#x27;t, that becomes their first problem to solve.</li></ol><ol type="1" id="6c8a63c8-522e-4709-87ab-9e607eb23745" class="numbered-list" start="2"><li>What is the desired outcome?- Does a Student want a link to a useful resource or someone to talk them through the example again? What is going to be the most helpful answer for them? This outcome statement becomes their north star as they brainstorm solutions.</li></ol><ol type="1" id="21440d59-dd29-41e9-9def-8e793b0fc663" class="numbered-list" start="3"><li>Brainstorm potential solutions- Take some time to think about how to solve this problem. What resources does the Student have available?</li></ol><ol type="1" id="a40a28c4-b722-4151-a917-b3027011b58c" class="numbered-list" start="4"><li>Ask the question- We have a guideline of a 20 minute rule. Work on your problem for 20 minutes by clearly defining it, figuring out the desired outcome and brainstorming solutions. If the Student&#x27;s problem is not solved in these steps then it is time to reach out for assistance. Instead of a generic &quot;I can&#x27;t do this, I don&#x27;t even know where to start&quot; Learners should have a &quot;In the last section of this piece of code I don&#x27;t understand this particular part and would like assistance finding this particular resource&quot;. This makes the Student&#x27;s question easier to answer for instructors, team leads and staff. It also shows that they took the time to try to think critically and problem solve before asking. No one wants a Student to be stuck, frustrated and contemplating quitting. But, we do want Learners to learn how to learn and be resilient when things get hard.</li></ol></details></li></ul><ul id="c7589262-295a-4e93-8568-95f8c7bb7b42" class="toggle"><li><details open=""><summary>Who to Ask for Help At Lambda School</summary><p id="24187d4a-f1b7-4fef-803c-7169efabc2ca" class="">Who Learners ask for help depends on what type of question they have. If Learners have an instructional question, posting in their course help channel in Slack would be appropriate. If they have a non-instructional question using the /frontdesk command in Slack to submit a question would get them an official answer. Also, Student should use their peer mentors and Track Teams as sources of help and support.</p></details></li></ul><h1 id="b859eaaf-ccb7-4c43-9ebe-7d920d531ce2" class="">Pair Programming</h1><p id="7f9d9aea-868b-461d-8431-439487db9d4a" class="">Pair programming is the practice of working through complex challenges with another person. Because of Lambda School&#x27;s remote learning environment, pair programming is a vital experience for each Student in a programming track. Learning how to work through complex problems with other people is a major skill in the workplace. Let&#x27;s take a look at both the strengths and weaknesses of pair programming.</p><ul id="f4f079c8-5586-4c65-aa10-477f26c30436" class="toggle"><li><details open=""><summary>Strengths of Pair Programming</summary><ul id="34a9f1a9-64db-49d0-8975-8a6e9fde0e17" class="bulleted-list"><li style="list-style-type:disc">Allows Learners to teach and learn at the same time</li></ul><ul id="b8d9f5e6-0bcd-4f53-96ce-4c924297f560" class="bulleted-list"><li style="list-style-type:disc">Provides a safe place to work on hard problems</li></ul><ul id="f6720c71-6042-45c4-9099-4941ec54989b" class="bulleted-list"><li style="list-style-type:disc">Expands Student&#x27;s perspective on problems they may have already solved in the past</li></ul><ul id="cd08acff-7bab-43a0-81c6-8b228c6b701e" class="bulleted-list"><li style="list-style-type:disc">Introduces Learners to working with team members in the workplace</li></ul></details></li></ul><ul id="a2a41e7e-2547-4e10-b7b4-77863205f7cd" class="toggle"><li><details open=""><summary>Problems with Pair Programming</summary><ul id="df5a7842-7f0e-45f2-8b66-5e117e3de3de" class="bulleted-list"><li style="list-style-type:disc">Relying too heavily on the Student&#x27;s pair programming peer to get a project done</li></ul><ul id="24e19f77-cd2b-45fd-b57c-5fb9530b0f5e" class="bulleted-list"><li style="list-style-type:disc">Strong personalities can take over driving the decision making for too long with out realizing it</li></ul><ul id="4f46f84c-6c0b-47f3-988c-002a0c627969" class="bulleted-list"><li style="list-style-type:disc">Copy and pasting of code or ideas without understanding how they work</li></ul><ul id="78a4cc4c-a337-48c2-bc13-4221efcc9fcc" class="bulleted-list"><li style="list-style-type:disc">Working for extended periods of time on complex problems with peers can create emotional burn out and strain communication </li></ul></details></li></ul><p id="1c7fdf51-019f-46f3-9704-53f9e3be8231" class="">Being aware of both the strengths and weaknesses of pair programming will allow Learners to identify how effectively they are using it. If Learners notice a trend toward the problems, they should take a break and step away from the code. Pair programming can be one of the best learning experiences at Lambda School if Learners make a concerted effort to keep it positive.</p><h1 id="d33954f7-fe33-4f11-a4c2-de26434c0b63" class="">Having a Clear Sense of Purpose</h1><p id="ed15417a-54d1-44e1-94cf-58246ccfce8d" class="">Learners knowing their “why” is an important first step in figuring out how to achieve the goals that excite them and create a life they enjoy living. We want to solidify a Student&#x27;s choice to join Lambda school and reinforce their career goal of becoming a developer, designer or data scientist.</p><ul id="313f2653-9b11-4274-975d-e236761f4974" class="toggle"><li><details open=""><summary><strong>Everyone Has a Why</strong></summary><p id="d73b1837-1431-44a7-acdc-77c6a85f638d" class="">A Student&#x27;s “why” is a deep-seated purpose that is the source of their passion and inspiration. Learners may not know what theirs is or how to express it in words. A Student&#x27;s “why” is what has brought them to this point. If they were content in their current situation, they wouldn’t be committing to going to Lambda School since it is going to take a lot of their energy and time.</p></details></li></ul><ul id="dca73645-f980-4b46-a753-2204b8300809" class="toggle"><li><details open=""><summary><strong>To Get a Better Job</strong></summary><p id="51db186e-e6db-474b-aa31-073b37806f39" class="">The first answer that may come to mind when asked “What’s Your Why?” may be “to get a better job”. This is a good place to start, but we have to dig a little deeper to find out all the ways this would improve their life and how that fits into the impact they want to have on the world.</p><p id="283732cb-13e0-483d-827b-8d25e43aee1b" class="">What part of a better job is the most crucial to the Student?</p><ul id="7470b807-6460-4cd9-8702-586364bb2086" class="bulleted-list"><li style="list-style-type:disc">Will the increased salary help with their financial security and allow them to provide for themself and the ones they love?</li></ul><ul id="4286ac01-10dd-4999-9a50-198e95fe82df" class="bulleted-list"><li style="list-style-type:disc">Will the professional work schedule and flexibility allow them to spend more time doing what they enjoy?</li></ul><ul id="5af034e4-f82d-48fa-936b-56230b1a29de" class="bulleted-list"><li style="list-style-type:disc">Does the Student just feel that they have more intellect to offer an employer and isn&#x27;t fulfilled in their current job?</li></ul><ul id="57d4cf54-f554-44e7-bb7a-e344545f22f9" class="bulleted-list"><li style="list-style-type:disc">Do they want to be surrounded by other people that are successful and doing what they love?</li></ul><ul id="cb359ea0-5bfb-402f-8e8c-a6e7c3f8f6bf" class="bulleted-list"><li style="list-style-type:disc">Do they want to set a good example for friends and family that they can positively change their situation?</li></ul><p id="48cb6a8b-0395-4c9e-836f-cbe68aad238b" class="">These are just some examples and a Student&#x27;s “why” might not be any of these things. But, hopefully it gives Learners some inspiration for discovering their personal “why”.</p></details></li></ul><ul id="5127a524-138d-499f-929f-92b19d5c5dd4" class="toggle"><li><details open=""><summary><strong>When to Use a Student&#x27;s “Why”</strong></summary><blockquote id="aae92087-c1c9-40fd-a073-7bcaf372d5b0" class="">“He who has a why can endure any how.”- Friederick Nietzsche</blockquote><h3 id="c283a21f-3e9b-4430-af3c-4b6064c7b39d" class=""><strong>When They Can’t Focus</strong></h3><p id="1d5c3b1a-3a43-4ae5-ad49-70ce1d89e56b" class="">Whether its social media, video games or Netflix there are a lot of tempting distractions when Learners are in front of their computer all day. A quick break to relax may be useful but a half-day deep dive is not how they probably want to be spending their precious time. Being reminded of their “why” and the big changes they are trying to make can be just the thing to help them get back to work.</p><h3 id="671b9be3-bde3-49a2-b405-80ba2dfa244d" class=""><strong>When They Consider Quitting</strong></h3><p id="20c4300b-c3c3-4c47-8331-c1fc0e2100b2" class="">It can be easy to lose sight of why a Student is working so hard when they have a bad day, week or month. It is good to remind themself why they are doing the hard work and the benefits they will have at the end of it. Leaners should trust their initial decision and motivations to start this journey and refuse to quit.</p><h3 id="f16df7d6-152f-460c-9cef-7532f8b640bc" class=""><strong>When They Are Interviewing</strong></h3><p id="f138cda7-316d-445d-bff8-be301f969097" class="">Employers want to know that Learners are passionate about their work. If a Student can clearly explain their why and how their job is everything they&#x27;ve been working towards it will make them stand out. If the problems their employer is solving in the world match with the Student&#x27;s purpose that is a powerful thing.</p></details></li></ul><h1 id="6a4232a2-f8c6-478e-bd52-7d5ca40aa304" class="">Creating a Conducive Learning Environment</h1><p id="a714970d-76d2-4d6e-8991-dfbcd0c139bd" class="">Technically, Leaners could have their laptop on their lap on a comfy couch, TV going in the background, kids running around them screaming and be working on the technical curriculum they are expected to learn. Some people can work that way, others need to have a better environment to maintain their focus.</p><ul id="f6705db4-3b50-40ee-95af-14cd6a741acc" class="toggle"><li><details open=""><summary>Here are some tips for setting Learners up for success:</summary><ul id="9b9d61d5-c400-48c0-ab04-35cf239a7251" class="bulleted-list"><li style="list-style-type:disc">Think about ergonomics. Leaners will be sitting at a desk for long periods of time so a decent chair and a monitor at the proper height are a necessity.</li></ul><ul id="069c3692-d698-4a77-a781-01e85cae36c6" class="bulleted-list"><li style="list-style-type:disc">Organize the workspace both physically and virtually. Incorporate organization into each task that a Student does. Practice good file management and keep physical notes organized.</li></ul><ul id="680e8b58-b0c8-4f72-a725-173563a88b52" class="bulleted-list"><li style="list-style-type:disc">Use time management strategies so that they have focused work time and restful breaks. It can be tempting to work without a break but efficiency will decrease and frustration will increase.</li></ul><ul id="cc856e3c-22f2-4fd7-8839-ffddf57b0ec4" class="bulleted-list"><li style="list-style-type:disc">It is important to get adequate sleep, eat nutritious meals and maintain a routine. If a Leaner&#x27;s basic needs are not being met, they will not be able to learn difficult content.</li></ul><ul id="721592db-ad3c-4845-b4bf-6bff50107191" class="bulleted-list"><li style="list-style-type:disc">When we face new challenges, frustration can be a natural side effect. But, afterward, there is often a rewarding sense of accomplishment. Plan things for the day that will help relieve the stress and frustration. That may be exercise, a gaming session, a chat with a good friend or watching the next episode of a Student&#x27;s favorite show.</li></ul><ul id="e91a92be-f821-47c1-9341-afcd1c7d7a3a" class="bulleted-list"><li style="list-style-type:disc">Minimize distractions while they are working. Turn off unnecessary notifications, wear noise-canceling headphones and avoid social media.</li></ul><ul id="88895247-db43-4e10-a8c6-b1b5856f6b27" class="bulleted-list"><li style="list-style-type:disc">Set social boundaries with friends and family. A Student may be “home” but they are not “available”. Set aside some quality time with them so they are supportive of the Student&#x27;s commitment to Lambda School.</li></ul><ul id="d0cb60d4-680c-4f44-97ef-6d58467af865" class="bulleted-list"><li style="list-style-type:disc">Going to school online can be intimidating, and it can also be a blessing. When Leaners understand the factors that go into successfully managing themself and maintaining meaningful connection with their classmates, along with caring for their own well-being, the word “remote” will become less of a connotation for isolation and more of a tool for choosing their own channels to thrive.</li></ul></details></li></ul><h1 id="ccae546c-592c-4dd8-a342-2f016d6f54e0" class="">Meaningful Communication</h1><ul id="8abf9c65-c17f-4e3c-91b2-7e7be6649be3" class="toggle"><li><details open=""><summary>It can be isolating learning online. To make a commitment to Lambda Leaner&#x27;s will have less time to socialize with families and friends. It’s important to feel connected to Lambda School instructors, support staff and fellow learner. Here are a few tips about communicating online:</summary><ul id="310bebff-d05d-46fe-b3a9-50bbf61373dc" class="bulleted-list"><li style="list-style-type:disc">When Learners are studying remotely, a good amount of communication with their fellow Learners, instructors, and Team Leads may feel unnatural because they don’t want to “bother” anyone or seem too needy. In a remote setting their teammates will not know they are working on something unless the Student tells them. Communicate early and often!</li></ul><ul id="9b689ed4-68bf-4fda-a062-0d88ac527d3c" class="bulleted-list"><li style="list-style-type:disc">Nothing galvanizes people more than working through challenging times together and succeeding. Focus on communicating about coursework but don’t forget to share hobbies and interests so that Learner&#x27;s know the people they are working with.</li></ul><ul id="bd1c6b71-a39a-412f-83d8-7be4f1f9f4c7" class="bulleted-list"><li style="list-style-type:disc">After Learners have created, toiled and rocked it, it’s just as important to applaud themself for a job well-done as it is to do the job well. Celebrate! Share accomplishments with classmates. Congratulate them when they share as well.</li></ul></details></li></ul><h1 id="e1cbc435-d7f3-4223-8b48-3aa88561cc05" class="">Becoming an Independent Learner</h1><ul id="14972c39-5ab2-45ff-b211-4a7205e26d5b" class="toggle"><li><details open=""><summary>There are eight basic characteristics of an independent learner that Learners should focus on:</summary><ol type="1" id="8cf5d281-f18a-4543-9702-9487b0e2c30d" class="numbered-list" start="1"><li><em><strong>Curiosity</strong></em>- Independent learners want to find out more about the world and seek out additional resources. They learn from various angles and formats, not just traditional instruction. They are proactive and find ways to access extra lesson supplements on their own.</li></ol><ol type="1" id="c4437830-2e88-4dda-aff3-4dab9f53681f" class="numbered-list" start="2"><li><em><strong>Motivation</strong></em>- Independent learners are motivated by setting internal goals to achieve. They are driven by their own personal achievement. When tasked with a challenge they keep coming back to it until they have it solved.</li></ol><ol type="1" id="6b0b9861-3d5e-4f0d-a790-227cbead43c7" class="numbered-list" start="3"><li><em><strong>Self-knowledge</strong></em>- Where have they been and where are they going? Independent learners know how to evaluate themselves. They can see their strengths and weaknesses and are willing to work on improving both. They strive for measurable progress and appreciate critical feedback so that they can improve.</li></ol><ol type="1" id="8af7e702-9da1-4303-9fbc-d0cdb27073ad" class="numbered-list" start="4"><li><em><strong>Responsibility</strong></em>- Responsibility means knowing what Learners have to do and doing it without anyone telling them to. It is being sure they meet objectives and meet due dates. An independent learner becomes less dependent on outside sources for discipline or motivation.</li></ol><ol type="1" id="df06f2a4-6603-4d0a-8b9f-b51056018de0" class="numbered-list" start="5"><li><em><strong>Critical Thinking</strong></em>- Independent learners think critically about a situation. They examine all possibilities and often come up with many solutions. They don’t memorize. Rather they ask “why?” and formulate answers based on real-world observation and intelligent deduction.</li></ol><ol type="1" id="4c670c42-a49b-4539-9c3c-6160a7dd76bf" class="numbered-list" start="6"><li><em><strong>Perseverance</strong></em>- Independent learners don’t give up. They strive to understand a concept as much as possible on their own before asking for help. They also apply self-discipline in not finding the easy answer to a problem. They teach themselves and generally only ask questions after failure to find a solution on their own. An independent learner understands that seeking support is a strength not a weakness, so when they hit a block they do reach out.</li></ol><ol type="1" id="a0fa775f-3f4c-4bd5-a9be-f094b4bc679e" class="numbered-list" start="7"><li><em><strong>Positive Attitude</strong></em>- When things get tough and frustration sets in an independent learner maintains a positive attitude. They have the outlook that they will eventually figure out the solution to any problem. It just might take more time and there is no need to get upset.</li></ol><ol type="1" id="8eafd158-3a1a-4429-839f-d186f3b84d2e" class="numbered-list" start="8"><li><em><strong>Learning from Failure</strong></em>- One of the major obstacles preventing learners from becoming more independent is a fear of failure. To become independent Learner&#x27;s must see failure as an opportunity to learn, rather than something to be avoided at all costs.</li></ol></details></li></ul><p id="3deec164-99cb-4578-9e31-8d86ab935fc8" class="">At this point this list may not reflect what type of learner a Student sees themself as. This list is not an “end point”, it is a continuum, Learner&#x27;s can always improve their skills at learning. At Lambda school Learner&#x27;s will build the skills needed to become an independent learner. Be patient and trust the process.</p><h1 id="fd82be7f-4f04-4086-92e3-d60c16eab7ca" class=""><strong>Million Dollar Moment</strong></h1><p id="68f14d98-5aa3-42a3-8a09-b1f2557d38e9" class="">It’s extremely common for Learner&#x27;s to ask us to change the curriculum, loosen the requirements, switch to another class, or <em>anything</em> to make what they’re learning a little easier. Most of the time that’s not the solution; <strong>what Learner&#x27;s actually need are more reps</strong>.</p><p id="eee936df-cf81-4ffd-b767-d0a075349b0a" class="">A natural reaction to frustration is finding something external to blame. If a Student finds themself struggling with a concept or assignment and they think the requirements are too tough or the curriculum isn’t teaching them the things they need to be a successful programmer, nine times out of ten the best solution is to keep on keeping on and power through.</p><p id="6d47207d-011c-4429-be93-6122da30903e" class="">We call this the “<em>million dollar moment</em>,” because what Learner&#x27;s decide to do in this situation can easily swing their future net worth millions of dollars one way or the other. This is the time to &quot;put up their dukes&quot; and fight harder than they ever fought before, <em>not</em> to give up and force their circumstances to change.</p><p id="cbc16d90-ab19-4e38-a06f-839498f3e613" class="">It’s normal to have several “<em>million dollar moments</em>” during the course of Lambda School. &quot;Student&#x27;s are not stupid, they are not behind, and they shouldn’t be discouraged because they don’t see other Students having these moments. At some point in the course, every Student will encounter their own “<em>million dollar moment</em>,” other Learners just might not be aware of their struggle.</p><p id="2cae7770-f504-48c1-abb0-21cc5e6b818d" class="">
+</p><p id="d5414622-768b-4589-90e9-8f45ab9a5ece" class="">
+</p><p id="81621a32-786d-4a9b-8e11-d4f2a8f3bb18" class="">
+</p><p id="9eec27d1-21a5-45a9-8883-7af7572da237" class="">
+</p><p id="238b7f57-ca44-4bb9-b9ba-2e19ab6b3565" class="">
+</p><p id="a0b9b257-c294-4a7b-b372-5a2265c05251" class="">
+</p><ul id="3b56be48-96d8-40d6-8304-3f0247fb12e7" class="toggle"><li><details open=""><summary>Revision History</summary><p id="50ffac6e-f9a7-46f8-bbfc-ba610d462144" class="">October 24, 2019, shared with students October 25, 2019</p><p id="fc92a087-15a9-4977-b980-d1be62c7381e" class="">September 29, 2020, shared with students September 29, 2020</p><p id="ff4f4ea1-713e-46d2-aa3d-d5c2e54b01fb" class="">
+</p></details></li></ul><p id="977163e2-75d1-4d83-b51b-c517099894ae" class="">
+</p><p id="f4b3f2cf-66a7-4b45-84da-a8660eddd57e" class="">Copyright Lambda School 2020, All Rights Reserved</p></div></article></body></html>

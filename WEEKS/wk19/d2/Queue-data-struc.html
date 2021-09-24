@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Queue-data-struc</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="queue-data-structure-studytonight">
+      Queue Data Structure | Studytonight
+    </h1>
+    <blockquote>
+      <p>
+        Queue is an abstract data type or a linear data structure or FIFO data
+        structure. This tutorial will help you understand Queue data structure,
+        its implementation and its application and usage in real world.
+      </p>
+    </blockquote>
+    <p>
+      <strong>Queue</strong> is also an abstract data type or a linear data
+      structure, just like
+      <a
+        href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stack-data-structure"
+        >stack data structure</a
+      >, in which the first element is inserted from one end called the
+      <strong>REAR</strong>(also called <strong>tail</strong>), and the removal
+      of existing element takes place from the other end called as
+      <strong>FRONT</strong>(also called <strong>head</strong>).
+    </p>
+    <p>
+      Before you continue reading about queue data structure, check these topics
+      before to understand it clearly:
+    </p>
+    <ul>
+      <li>
+        <a
+          href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/introduction-to-data-structures"
+          >Data Structures and Algorithms</a
+        >
+      </li>
+      <li>
+        <a
+          href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stack-data-structure"
+          >Stack Data Structure</a
+        >
+      </li>
+    </ul>
+    <p>
+      This makes queue as <strong>FIFO</strong>(First in First Out) data
+      structure, which means that element inserted first will be removed first.
+    </p>
+    <p>
+      Which is exactly how queue system works in real world. If you go to a
+      ticket counter to buy movie tickets, and are first in the queue, then you
+      will be the first one to get the tickets. Right? Same is the case with
+      Queue data structure. Data inserted first, will leave the queue first.
+    </p>
+    <p>
+      The process to add an element into queue is called
+      <strong>Enqueue</strong> and the process of removal of an element from
+      queue is called <strong>Dequeue</strong>.
+    </p>
+    <figure>
+      <img
+        src="https://static.studytonight.com/data-structures/images/introduction-to-queue.png"
+        alt="Introduction to Queue"
+      />
+      <figcaption>Introduction to Queue</figcaption>
+    </figure>
+    <hr />
+    <h2 id="basic-features-of-queue">Basic features of Queue</h2>
+    <ol type="1">
+      <li>
+        Like stack, queue is also an ordered list of elements of similar data
+        types.
+      </li>
+      <li>Queue is a FIFO( First in First Out ) structure.</li>
+      <li>
+        Once a new element is inserted into the Queue, all the elements inserted
+        before the new element in the queue must be removed, to remove the new
+        element.
+      </li>
+      <li>
+        <code>peek( )</code> function is oftenly used to return the value of
+        first element without dequeuing it.
+      </li>
+    </ol>
+    <hr />
+    <h2 id="applications-of-queue">Applications of Queue</h2>
+    <p>
+      Queue, as the name suggests is used whenever we need to manage any group
+      of objects in an order in which the first one coming in, also gets out
+      first while the others wait for their turn, like in the following
+      scenarios:
+    </p>
+    <ol type="1">
+      <li>
+        Serving requests on a single shared resource, like a printer, CPU task
+        scheduling etc.
+      </li>
+      <li>
+        In real life scenario, Call Center phone systems uses Queues to hold
+        people calling them in an order, until a service representative is free.
+      </li>
+      <li>
+        Handling of interrupts in real-time systems. The interrupts are handled
+        in the same order as they arrive i.e First come first served.
+      </li>
+    </ol>
+    <hr />
+    <h2 id="implementation-of-queue-data-structure">
+      Implementation of Queue Data Structure
+    </h2>
+    <p>
+      Queue can be implemented using an
+      <a
+        href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/c/arrays-in-c.php"
+        >Array</a
+      >,
+      <a
+        href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stack-data-structure"
+        >Stack</a
+      >
+      or
+      <a
+        href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/introduction-to-linked-list"
+        >Linked List</a
+      >. The easiest way of implementing a queue is by using an Array.
+    </p>
+    <p>
+      Initially the <strong>head</strong>(FRONT) and the
+      <strong>tail</strong>(REAR) of the queue points at the first index of the
+      array (starting the index of array from <code>0</code>). As we add
+      elements to the queue, the <strong>tail</strong> keeps on moving ahead,
+      always pointing to the position where the next element will be inserted,
+      while the <strong>head</strong> remains at the first index.
+    </p>
+    <figure>
+      <img
+        src="https://static.studytonight.com/data-structures/images/implementation-of-queue.png"
+        alt="implementation of queue"
+      />
+      <figcaption>implementation of queue</figcaption>
+    </figure>
+    <p>
+      When we remove an element from Queue, we can follow two possible
+      approaches (mentioned [A] and [B] in above diagram). In [A] approach, we
+      remove the element at <strong>head</strong> position, and then one by one
+      shift all the other elements in forward position.
+    </p>
+    <p>
+      In approach [B] we remove the element from <strong>head</strong> position
+      and then move <strong>head</strong> to the next position.
+    </p>
+    <p>
+      In approach [A] there is an
+      <strong>overhead of shifting the elements one position forward</strong>
+      every time we remove the first element.
+    </p>
+    <p>
+      In approach [B] there is no such overhead, but whenever we move head one
+      position ahead, after removal of first element, the
+      <strong>size on Queue is reduced by one space</strong> each time.
+    </p>
+    <hr />
+    <h3 id="algorithm-for-enqueue-operation">
+      Algorithm for ENQUEUE operation
+    </h3>
+    <ol type="1">
+      <li>Check if the queue is full or not.</li>
+      <li>
+        If the queue is full, then print overflow error and exit the program.
+      </li>
+      <li>
+        If the queue is not full, then increment the tail and add the element.
+      </li>
+    </ol>
+    <h3 id="algorithm-for-dequeue-operation">
+      Algorithm for DEQUEUE operation
+    </h3>
+    <ol type="1">
+      <li>Check if the queue is empty or not.</li>
+      <li>
+        If the queue is empty, then print underflow error and exit the program.
+      </li>
+      <li>
+        If the queue is not empty, then print the element at the head and
+        increment the head.
+      </li>
+    </ol>
+    <p>
+      To implement approach [A], you simply need to change the
+      <code>dequeue</code> method, and include a <code>for</code> loop which
+      will shift all the remaining elements by one position.
+    </p>
+    <hr />
+    <h3 id="complexity-analysis-of-queue-operations">
+      Complexity Analysis of Queue Operations
+    </h3>
+    <p>
+      Just like Stack, in case of a Queue too, we know exactly, on which
+      position new element will be added and from where an element will be
+      removed, hence both these operations requires a single step.
+    </p>
+    <ul>
+      <li>Enqueue: <strong>O(1)</strong></li>
+      <li>Dequeue: <strong>O(1)</strong></li>
+      <li>Size: <strong>O(1)</strong></li>
+    </ul>
+    <hr />
+    <hr />
+    <p>
+      <a
+        href="https://www.studytonight.com/data-structures/queue-data-structure"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>

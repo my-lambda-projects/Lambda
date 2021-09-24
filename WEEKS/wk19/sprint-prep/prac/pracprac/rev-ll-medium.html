@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>rev-ll-medium</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="reversing-a-linked-list-easy-as-1-2-3">
+      Reversing a Linked List: Easy as 1, 2, 3
+    </h1>
+    <blockquote>
+      <p>
+        A common interview question asked at larger companies, reversing a
+        linked list is a problem I’ve seen trip up a lot of engineers
+        throughout…
+      </p>
+    </blockquote>
+    <p>[</p>
+    <figure>
+      <img
+        src="https://miro.medium.com/fit/c/96/96/0*eujYC2aAv0Wq5lhJ."
+        alt="Sergey Piterman"
+      />
+      <figcaption>Sergey Piterman</figcaption>
+    </figure>
+    <p>
+      ](https://sergeypiterman.medium.com/?source=post_page—–560fbffe2088——————————–)
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*iwHAPh-6vYhKHs4-wD4CiA.png"
+      />
+    </p>
+    <p>
+      A common interview question asked at larger companies, reversing a linked
+      list is a problem I’ve seen trip up a lot of engineers throughout my time
+      at <a href="https://www.outco.io/">Outco</a>.
+    </p>
+    <p>
+      Often being unable to solve this problem stems from an engineer not being
+      familiar with what linked lists are ahead of time, or not understanding
+      the difference between a linked list and an array.
+    </p>
+    <p>
+      This post assumes that you know what a linked list is, and some of its
+      basic properties. If you don’t, here’s a good primer on Geeks for Geeks:
+    </p>
+    <p>
+      There are two common erroneous approaches I see that on the surface seem
+      to work.
+    </p>
+    <p>
+      The first is to start from the head and the tail, and swap the elements in
+      the list, as if you were operating on an array. This would be done with
+      two pointers, and after a swap the front pointer would move up and the
+      rear pointer would move back. This would continue until the two pointers
+      meet in the middle.
+    </p>
+    <p>The problem with this is if your ListNode class looks like this:</p>
+    <p>
+      class ListNode { constructor(value) { this.value = value;<br />
+      this.next = null; }<br />
+      }let node1 = new ListNode(1);/* How node1 looks on the inside:{<br />
+      value: 1<br />
+      next: null<br />
+      }*/
+    </p>
+    <p>
+      Then you only have a single reference to the next node in the list, but no
+      reference to the previous node. This means there’s no way for the pointer
+      at the end to move backwards through the list.
+    </p>
+    <p>
+      The second approach is to dump the contents of a linked list into some
+      other data structure, like an array, and then create a new linked list,
+      starting from the back of the array, or by first reversing that array.
+    </p>
+    <p>
+      This seems like a reasonable approach, and works well when the data we’re
+      working with in the nodes is small, or we don’t have a large number of
+      nodes. Like in this example, where our nodes are only holding integers as
+      their values, and we only have 3 nodes.
+    </p>
+    <ol type="1">
+      <li>
+        -&gt; (2) -&gt; (3) ==&gt; [1, 2, 3] ==&gt; [3, 2, 1]==&gt; (3) -&gt;
+        (2) -&gt; (1)
+      </li>
+    </ol>
+    <p>
+      But the problem with doing this is that it eats up a lot of unnecessary
+      space. What if instead of integers, we were holding much more complex
+      data? Or what if we had A LOT of nodes and we can’t just replicate all
+      their contents because we just don’t have the RAM or disk space?
+    </p>
+    <p>
+      In the real world you most likely won’t have to implement this exact
+      function. But it is good to think about why duplicating data isn’t the
+      most efficient approach. Dumping all the contents into the array, even if
+      you’re not duplicating them, and are just referencing them, still takes up
+      <code>O(N)</code> space.
+    </p>
+    <p>
+      And the prompt might say to modify the original linked list, or that you
+      are only allowed to use <code>O(1)</code> space complexity. At which
+      point, this solution falls apart.
+    </p>
+    <p>
+      What I want to demonstrate with this post, is a simple way of reversing a
+      list, with just 3 pointers. This runs in <code>O(N)</code> time and
+      <code>O(1)</code> space.
+    </p>
+    <p>Let’s start by talking about what reversing actually means.</p>
+    <p>
+      In a singly linked list, order is determined by a given node’s
+      <code>next</code> property. This property can either reference another
+      node or will point to <code>null</code> if this is the last node in the
+      list. So reversing a linked list, simply means reassigning all the
+      <code>next</code> properties, on every node.
+    </p>
+    <p>So we are really just going from this:</p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*01ihuE25BK8ypI9B7qmchg.png"
+      />
+    </p>
+    <p>To this:</p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*SircT6-WtggLRZ5RSQCPDw.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*SircT6-WtggLRZ5RSQCPDw.png"
+      />
+    </p>
+    <p>Let’s look at what happens on an individual node level:</p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*LevCgUHbn0T0FpVdTvN9Mg.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*LevCgUHbn0T0FpVdTvN9Mg.png"
+      />
+    </p>
+    <p>
+      To do a reassignment on a single node (in this example it will be the 2
+      node) we just need two variables, let’s call them <code>previous</code> ,
+      <code>current</code> . And all we’re doing is taking
+      <code>current.next</code> (which is represented by the arrow) and setting
+      it equal to <code>previous</code> .
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*PxlvqAro7JCBXPXfAWBBmg.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*PxlvqAro7JCBXPXfAWBBmg.png"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*2TtrSO7CCZlt8_XC6jEaUQ.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*2TtrSO7CCZlt8_XC6jEaUQ.png"
+      />
+    </p>
+    <p>
+      But now we’ve lost our reference to the node the <code>current</code> was
+      originally pointing to. So to make sure we don’t lose track of that node,
+      we need a third variable: <code>following</code> . This has to be set
+      BEFORE we do the reassignment.
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*SAQakKLGIW3ACMJtIgzcTQ.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*SAQakKLGIW3ACMJtIgzcTQ.png"
+      />
+    </p>
+    <p>
+      This lays out the basic mechanics of pointer reassignment, now let’s start
+      to look at how this works on the list as a whole.
+    </p>
+    <p>
+      Because we need to repeat this process throughout the entire list if we
+      want to fully reverse it. We can do this by moving each of those variables
+      up through the list, from front to back, after each reassignment. We just
+      have to be careful in our order of operations.
+    </p>
+    <p>There are four tricky pieces to all this:</p>
+    <ol type="1">
+      <li>Knowing what to assign the variables to initially.</li>
+      <li>Knowing when to end this process of reassignments.</li>
+      <li>
+        Making sure the order of operations is correct so we don’t lose track of
+        any nodes.
+      </li>
+      <li>Returning the correct value.</li>
+    </ol>
+    <p>
+      Let’s start with the first point. Initially, we want both the
+      <code>current</code> and the <code>following</code> equal to the
+      <code>head</code> that is given as the input.
+    </p>
+    <p>
+      This is because we can’t assume the length of the linked list. What if
+      <code>head</code> was <code>null</code> and we’re looking at an empty
+      list?
+    </p>
+    <p>
+      function reverse(head) {// Step 1<br />
+      let previous = null<br />
+      let current = head<br />
+      let following = head}
+    </p>
+    <p>
+      If we do have at least one node in our list, we will end up assigning our
+      <code>following</code> variable to whatever comes next, but we first need
+      to be sure we have at least one.
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*_mI2H8ml4185vxUDv5jDlw.png"
+      />
+    </p>
+    <p>
+      Which brings us to our next point, how long do we keep running our
+      reassignment algorithm? Or put another way, how do we know when to end
+      this series of reassignments?
+    </p>
+    <p>
+      Well if your goal is to look at EVERY node, and reassign its
+      <code>next</code> property to whatever came before it, we need to make
+      sure that our <code>current</code> variable is assigned once to every
+      node. This means doing a linear scan through the list, starting at the
+      head.
+    </p>
+    <p>
+      Eventually though, it will reach the last node’s <code>next</code>, which
+      ALWAYS points to <code>null</code> . So we can can run this function
+      <code>while (current !== null)</code>
+    </p>
+    <p>
+      function reverse(head) {// Step 1<br />
+      let previous = null<br />
+      let current = head<br />
+      let following = head// Step 2<br />
+      while(current !== null) { }}
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*e-YtIM0myJ8u4pHbf-oK0Q.png"
+      />
+    </p>
+    <p>
+      The third step is to figure out the order of operations so we don’t lose
+      track of anything.
+    </p>
+    <p>
+      That while loop we just made won’t run unless we have at least one node.
+      But once it does, the first thing we want to do is set
+      <code>following</code> to <code>following.next</code> so we don’t lose
+      track of what comes after <code>current</code> .
+    </p>
+    <p>
+      Remember, before this point <code>following</code> was equal to
+      <code>current</code>.
+    </p>
+    <p>
+      function reverse(head) {// Step 1<br />
+      let previous = null<br />
+      let current = head<br />
+      let following = head// Step 2<br />
+      while(current !== null) {<br />
+      following = following.next // &lt;===== 2a }}
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*0Jans-aYx82quNdQzLHXVQ.png"
+      />
+    </p>
+    <p>
+      Then we want to do the reassignment of <code>current.next</code> , since
+      we have all three pointers in place. This is the logic of actually
+      reversing the linked list. We set <code>current.next</code> equal to
+      <code>previous</code> , which at this point is equal to
+      <code>null</code> .
+    </p>
+    <p>
+      function reverse(head) {// Step 1<br />
+      let previous = null<br />
+      let current = head<br />
+      let following = head// Step 2<br />
+      while(current !== null) {<br />
+      following = following.next<br />
+      current.next = previous // &lt;===== 2b }}
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*NZ4AlSDZo35AyIyaEwQWDQ.png"
+      />
+    </p>
+    <p>
+      Once we’ve done that, we can move <code>previous</code> up to equal
+      <code>current</code> , since we’re done with that node.
+    </p>
+    <p>
+      function reverse(head) {// Step 1<br />
+      let previous = null<br />
+      let current = head<br />
+      let following = head// Step 2<br />
+      while(current !== null) {<br />
+      following = following.next<br />
+      current.next = previous<br />
+      previous = current // &lt;===== 2c }}
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*Wzo9aRkPWI6YV4FFAEtv-Q.png"
+      />
+    </p>
+    <p>
+      And then finally we can move <code>current</code> up by setting it equal
+      to <code>following</code> .
+    </p>
+    <p>
+      function reverse(head) {// Step 1<br />
+      let previous = null<br />
+      let current = head<br />
+      let following = head// Step 2<br />
+      while(current !== null) {<br />
+      following = following.next<br />
+      current.next = previous<br />
+      previous = current<br />
+      current = following // &lt;===== 2d }}
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*3QHZ51QY_MfiDj3GB-FxDw.png"
+      />
+    </p>
+    <p>So to summarize those steps:</p>
+    <ol type="1">
+      <li>Set <code>following</code> equal to <code>following.next</code></li>
+      <li>Set <code>current.next</code> equal to <code>previous</code></li>
+      <li>Set <code>previous</code> equal to <code>current</code></li>
+      <li>Set <code>current</code> equal to <code>following</code></li>
+    </ol>
+    <p>
+      And that completes one round of reversals. We just need to apply these
+      same operations then to every node until we reach the end of the list.
+    </p>
+    <p>
+      One way to think about what we’re doing, is that we’re looking at a small
+      window around each node. We’re keeping track of the node before it so that
+      we can point its <code>next</code> pointer to it. And we’re keeping track
+      of the node after it so we don’t lose it and we can continue to move
+      through the list.
+    </p>
+    <p>Which brings us to our final step, on what to return.</p>
+    <p>
+      Well following the diagram and code it should be pretty clear. Since the
+      while loop is running as long as <code>current</code> is not
+      <code>null</code> , then <code>current</code> must be
+      <code>null</code> for us to break out of the loop.
+      <code>following</code> also isn’t an option because at the end of a single
+      loop, it’s equal to <code>current</code> .
+    </p>
+    <p>
+      Which means we’re going to be returning <code>previous</code> , since it’s
+      pointing to the node right before <code>current</code>.
+    </p>
+    <p>
+      function reverse(head) {// Step 1<br />
+      let previous = null<br />
+      let current = head<br />
+      let following = head// Step 2<br />
+      while(current !== null) {<br />
+      following = following.next<br />
+      current.next = previous<br />
+      previous = current<br />
+      current = following }// Step 3<br />
+      return previous}
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*Z8Of0kzeo3AuPaJ-l9c9gw.png"
+      />
+    </p>
+    <p>
+      And that concludes the algorithm. As you can see it takes only 10 lines of
+      code, and shouldn’t be something that trips you up on an interview.
+    </p>
+    <p>
+      If you’re looking for a challenge from here, try swapping two nodes in a
+      linked list. Here’s a link to the problem description and a diagram as a
+      hint:
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*TXCD55tQMdZTINvKILEMVA.png"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*3yL7LvtDZoqf6G3pj6dlVw.png"
+      />
+    </p>
+    <p>Enjoy!</p>
+    <p>
+      <a
+        href="https://medium.com/outco/reversing-a-linked-list-easy-as-1-2-3-560fbffe2088"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>

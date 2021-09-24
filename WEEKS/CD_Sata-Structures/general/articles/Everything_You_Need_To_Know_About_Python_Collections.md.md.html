@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Everything_You_Need_To_Know_About_Python_Collections.md.md</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a
+        href="https://medium.com/@aayushijohari?source=post_page-----d0bc0ed8d938--------------------------------"
+        ><img
+          src="https://miro.medium.com/fit/c/96/96/0*qi14KVra23cQqJzE"
+          alt="Aayushi Johari"
+      /></a>
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1280/1*Pxbi0ced43gIrPcily-hog.png"
+      />
+    </p>
+    <p>Collections in Python — Edureka</p>
+    <p>
+      Python programming language has four collection data types- list, tuple,
+      sets, and dictionary. But python also comes with a built-in module known
+      as collections which have specialized data structures which basically
+      covers for the shortcomings of the four data types. In this article, we
+      will go through each of those specialized data structures in detail.
+      Following are the subjects shrouded in this article:
+    </p>
+    <ul>
+      <li>What Are Collections In Python?</li>
+      <li>Specialized Collection Data Structures</li>
+    </ul>
+    <ol type="1">
+      <li>namedtuple( )</li>
+      <li>deque</li>
+      <li>ChainMap</li>
+      <li>Counter</li>
+      <li>OrderedDict</li>
+      <li>defaultdict</li>
+      <li>UserDict</li>
+      <li>UserList</li>
+    </ol>
+    <p>
+      Collections in python are basically container data types, namely lists,
+      sets, tuples, dictionary. They have different characteristics based on the
+      declaration and usage.
+    </p>
+    <ul>
+      <li>
+        A list is declared in square brackets, it is mutable, stores duplicate
+        values and elements can be accessed using indexes.
+      </li>
+      <li>
+        A tuple is ordered and immutable in nature, although duplicate entries
+        can be there inside a tuple.
+      </li>
+      <li>
+        A set is unordered and declared in square brackets. It is not indexed
+        and does not have duplicate entries as well.
+      </li>
+      <li>
+        A dictionary has key-value pairs and is mutable in nature. We use square
+        brackets to declare a dictionary.
+      </li>
+    </ul>
+    <p>
+      These are the python’s general-purpose built-in container data types. But
+      as we all know, python always has a little something extra to offer. It
+      comes with a python module named collections which has specialized data
+      structures.
+    </p>
+    <p>
+      Collections module in python implements specialized data structures which
+      provide an alternative to python’s built-in container data types.
+      Following are the specialized data structures in the collections module.
+    </p>
+    <ol type="1">
+      <li>namedtuple( )</li>
+      <li>deque</li>
+      <li>Chainmap</li>
+      <li>Counter</li>
+      <li>OrderedDict</li>
+      <li>defaultdict</li>
+      <li>UserDict</li>
+      <li>UserList</li>
+      <li>UserString</li>
+    </ol>
+    <h2 id="namedtuple">namedtuple( )</h2>
+    <p>
+      It returns a tuple with a named entry, which means there will be a name
+      assigned to each value in the tuple. It overcomes the problem of accessing
+      the elements using the index values. With namedtuple( ) it becomes easier
+      to access these values since you do not have to remember the index values
+      to get specific elements.
+    </p>
+    <p><strong>How It Works?</strong></p>
+    <p>
+      First of all, you must import the collections module, it does not require
+      installation.
+    </p>
+    <p>from collections import namedtuple</p>
+    <p>Look at the following code to understand how you can use namedtuple.</p>
+    <p>
+      a = namedtuple(‘courses’ , ‘name , tech’)<br />
+      s = a(‘data science’ , ‘python’)<br />
+      print(s)
+    </p>
+    <p>#the output will be courses(name=‘python’ , tech=‘python’)</p>
+    <p><strong>How To Create A namedtuple Using A List?</strong></p>
+    <p>
+      s._make([‘data science’ , ‘python’])<br />
+      #the output will be same as before.
+    </p>
+    <h2 id="deque">deque</h2>
+    <p>
+      deque pronounced as ‘deck’ is an optimized list to perform insertion and
+      deletion easily.
+    </p>
+    <p><strong>How it works?</strong></p>
+    <p>
+      #creating a deque<br />
+      from collections import deque
+    </p>
+    <p>
+      a = [‘d’ , ‘u’ , ‘r’ , ‘e’ , ‘k’]<br />
+      a1 = deque(a)<br />
+      print(a1)<br />
+      #the output will be deque([ ‘d’ , ‘u’ , ‘r’ , ‘e’ , ‘k’ ])
+    </p>
+    <p>
+      Now let’s take a look at how we will insert and remove items from deque.
+    </p>
+    <p>
+      a1.append(‘a’)<br />
+      print(a1)<br />
+      # the output will be deque([ ‘d’ , ‘u’ , ‘r’ , ‘e’ , ‘k’ , ‘a’ ])<br />
+      a1.appendleft(‘e’)<br />
+      print(a1)<br />
+      # the output will be deque([‘e’ , ‘d’ , ‘u’ , ‘r’ , ‘e’ , ‘k’ , ‘a’ ])
+    </p>
+    <p>
+      As should be obvious, inserting a component is enhanced utilizing deque,
+      also you can remove components as well.
+    </p>
+    <p>
+      a1.pop()<br />
+      print(a1)<br />
+      #the output will be deque([ ‘e’ , ‘d’ , ‘u’ , ‘r’ , ‘e’ , ‘k’ ])<br />
+      a1.popleft()<br />
+      print(a1)<br />
+      #the output will be deque([ ‘d’ , ‘u’ , ‘r’ , ‘e’ , ‘k’ ])
+    </p>
+    <p>
+      Similar to the built-in data types, there are several other operations
+      that we can perform on a deque. Like counting elements or clearing the
+      deque etc.
+    </p>
+    <h2 id="chainmap">ChainMap</h2>
+    <p>
+      It is a dictionary-like class which is able to make a single view of
+      multiple mappings. It basically returns a list of several other
+      dictionaries. Suppose you have two dictionaries with several key-value
+      pairs, in this case, ChainMap will make a single list with both the
+      dictionaries in it.
+    </p>
+    <p><strong>How it works?</strong></p>
+    <p>
+      from collections import ChainMap<br />
+      a = { 1: ‘edureka’ , 2: ‘python’}<br />
+      b = {3: ‘data science’ , 4: ‘Machine learning’}<br />
+      c = ChainMap(a,b)<br />
+      print(c)<br />
+      #the output will be ChainMap[{1: ‘edureka’ , 2: ‘python’} , {3: ‘data
+      science’ , 4: ‘Machine learning’}]
+    </p>
+    <p>
+      To access or insert elements we use the keys as an index. But to add a new
+      dictionary in the ChainMap we use the following approach.
+    </p>
+    <p>
+      a1 = { 5: ‘AI’ , 6: ‘neural networks’}<br />
+      c1 = c.new_child(a1)<br />
+      print(c1)<br />
+      #the output will be ChainMap[{1: ‘edureka’ , 2: ‘python’} , {3: ‘data
+      science’ , 4: ‘Machine learning’}, { 5: ‘AI’ , 6: ‘neural networks’}]
+    </p>
+    <h2 id="counter">Counter</h2>
+    <p>It is a dictionary subclass which is used to count hashable objects.</p>
+    <p><strong>How it works?</strong></p>
+    <p>
+      from collections import Counter<br />
+      a = [1,1,1,1,2,3,3,4,3,3,4]<br />
+      c = Counter(a)<br />
+      print(c)<br />
+      #the output will be Counter = ({1:4 , 2:1 , 3:4 , 4:2})
+    </p>
+    <p>
+      In addition to the operations, you can perform on a dictionary Counter has
+      3 more operations that we can perform.
+    </p>
+    <ol type="1">
+      <li>
+        element function — It returns a list containing all the elements in the
+        Counter.
+      </li>
+      <li>
+        Most_common( ) — It returns a sorted list with the count of each element
+        in the Counter.
+      </li>
+      <li>
+        Subtract( ) — It takes an iterable object as an argument and deducts the
+        count of the elements in the Counter.
+      </li>
+    </ol>
+    <h2 id="ordereddict">OrderedDict</h2>
+    <p>
+      It is a dictionary subclass which remembers the order in which the entries
+      were added. Basically, even if you change the value of the key, the
+      position will not be changed because of the order in which it was inserted
+      in the dictionary.
+    </p>
+    <p><strong>How it works?</strong></p>
+    <p>
+      from collections import OrderedDict<br />
+      od = OrderedDict()<br />
+      od[1] = ‘e’<br />
+      od[2] = ‘d’<br />
+      od[3] = ‘u’<br />
+      od[4] = ‘r’<br />
+      od[5] = ‘e’<br />
+      od[6] = ‘k’<br />
+      od[7] = ‘a’<br />
+      print(od)<br />
+      #the output will be OrderedDict[(1 , ‘e’), (2 , ‘d’) , (3 , ‘u’), (4 ,
+      ‘r’), (5 , ‘e’), (6 , ‘k’), (7 , ‘a’)]
+    </p>
+    <p>
+      It does not matter what value gets inserted in the dictionary, the
+      OrderedDict remembers the order in which it was inserted and gets the
+      output accordingly. Even if we change the value of the key. Let’s say, if
+      we change the key-value 4 to 8, the order will not change in the output.
+    </p>
+    <h2 id="defaultdict">defaultdict</h2>
+    <p>
+      It is a dictionary subclass which calls a factory function to supply
+      missing values. In general, it does not throw any errors when a missing
+      key value is called in a dictionary.
+    </p>
+    <p><strong>How it works?</strong></p>
+    <p>
+      from collections import defaultdict<br />
+      d = defaultdict(int)<br />
+      #we have to specify a type as well.<br />
+      d[1] = ‘edureka’<br />
+      d[2] = ‘python’<br />
+      print(d[3])<br />
+      #it will give the output as 0 instead of keyerror.
+    </p>
+    <h2 id="userdict">UserDict</h2>
+    <p>
+      This class acts as a wrapper around dictionary objects. The need for this
+      class came from the necessity to subclass directly from dict. It becomes
+      easier to work with this class as the underlying dictionary becomes an
+      attribute.
+    </p>
+    <p>class collections.UserDict([initialdata])</p>
+    <p>
+      This class simulates a dictionary. The content of the instance are kept in
+      a regular dictionary which can be accessed with the ‘data’ attribute of
+      the class UserDict. The reference of initial data is not kept, for it to
+      be used for other purposes.
+    </p>
+    <h2 id="userlist">UserList</h2>
+    <p>
+      This class acts like a wrapper around the list-objects. It is a useful
+      base class for other lists like classes which can inherit from them and
+      override the existing methods or even add fewer new ones as well.
+    </p>
+    <p>
+      The need for this class came from the necessity to subclass directly from
+      the list. It becomes easier to work with this class as the underlying list
+      becomes an attribute.
+    </p>
+    <p>class collections.UserList([list])</p>
+    <p>
+      It is the class that simulates a list. The contents of the instance are
+      kept in a customary list. The sub-classes of the list are relied upon to
+      offer a constructor which can be called with either no or one contention.
+    </p>
+    <p>
+      In this article, we have learned about the specialized data structures
+      that come with the collections module in python. Optimization leads to
+      better performance and enhanced results. Same applies to our own career
+      and skills as well. If you wish to check out more articles on the market’s
+      most trending technologies like Artificial Intelligence, DevOps, Ethical
+      Hacking, then you can refer to
+      <a
+        href="https://www.edureka.co/blog/?utm_source=medium&amp;utm_medium=content-link&amp;utm_campaign=collections-in-python"
+        >Edureka’s official site.</a
+      >
+    </p>
+    <p>
+      Do look out for other articles in this series which will explain the
+      various other aspects of Python and Data Science.
+    </p>
+    <blockquote>
+      <p>
+        1.
+        <a
+          href="https://medium.com/edureka/machine-learning-classifier-c02fbd8400c9"
+          >Machine Learning Classifier in Python</a
+        >
+      </p>
+      <p>
+        2.
+        <a
+          href="https://medium.com/edureka/python-scikit-learn-cheat-sheet-9786382be9f5"
+          >Python Scikit-Learn Cheat Sheet</a
+        >
+      </p>
+      <p>
+        3.
+        <a
+          href="https://medium.com/edureka/python-libraries-for-data-science-and-machine-learning-1c502744f277"
+          >Machine Learning Tools</a
+        >
+      </p>
+      <p>
+        4.
+        <a
+          href="https://medium.com/edureka/python-libraries-for-data-science-and-machine-learning-1c502744f277"
+          >Python Libraries For Data Science And Machine Learning</a
+        >
+      </p>
+      <p>
+        5.
+        <a
+          href="https://medium.com/edureka/how-to-make-a-chatbot-in-python-b68fd390b219"
+          >Chatbot In Python</a
+        >
+      </p>
+      <p>
+        6.
+        <a
+          href="https://medium.com/edureka/web-scraping-with-python-d9e6506007bf"
+          >Web Scraping With Python</a
+        >
+      </p>
+      <p>
+        7.
+        <a href="https://medium.com/edureka/python-modules-abb0145a5963"
+          >Python Modules</a
+        >
+      </p>
+      <p>
+        8.
+        <a
+          href="https://medium.com/edureka/python-developer-skills-371583a69be1"
+          >Python developer Skills</a
+        >
+      </p>
+      <p>
+        9.
+        <a
+          href="https://medium.com/edureka/oops-interview-questions-621fc922cdf4"
+          >OOPs Interview Questions and Answers</a
+        >
+      </p>
+      <p>
+        10.
+        <a
+          href="https://medium.com/edureka/python-developer-resume-ded7799b4389"
+          >Resume For A Python Developer</a
+        >
+      </p>
+      <p>
+        11.
+        <a
+          href="https://medium.com/edureka/exploratory-data-analysis-in-python-3ee69362a46e"
+          >Exploratory Data Analysis In Python</a
+        >
+      </p>
+      <p>
+        12.
+        <a href="https://medium.com/edureka/python-turtle-module-361816449390"
+          >Snake Game With Python’s Turtle Module</a
+        >
+      </p>
+      <p>
+        13.
+        <a
+          href="https://medium.com/edureka/python-developer-salary-ba2eff6a502e"
+          >Python Developer Salary</a
+        >
+      </p>
+      <ol start="14" type="1">
+        <li>
+          <a
+            href="https://medium.com/edureka/principal-component-analysis-69d7a4babc96"
+            >Principal Component Analysis</a
+          >
+        </li>
+      </ol>
+      <p>
+        15.
+        <a href="https://medium.com/edureka/python-vs-cpp-c3ffbea01eec"
+          >Python vs C++</a
+        >
+      </p>
+      <p>
+        16.
+        <a href="https://medium.com/edureka/scrapy-tutorial-5584517658fb"
+          >Scrapy Tutorial</a
+        >
+      </p>
+      <p>
+        17.
+        <a href="https://medium.com/edureka/scipy-tutorial-38723361ba4b"
+          >Python SciPy</a
+        >
+      </p>
+      <p>
+        18.
+        <a
+          href="https://medium.com/edureka/least-square-regression-40b59cca8ea7"
+          >Least Squares Regression Method</a
+        >
+      </p>
+      <p>
+        19.
+        <a
+          href="https://medium.com/edureka/jupyter-notebook-cheat-sheet-88f60d1aca7"
+          >Jupyter Notebook Cheat Sheet</a
+        >
+      </p>
+      <p>
+        20.
+        <a href="https://medium.com/edureka/python-basics-f371d7fc0054"
+          >Python Basics</a
+        >
+      </p>
+      <p>
+        21.
+        <a
+          href="https://medium.com/edureka/python-pattern-programs-75e1e764a42f"
+          >Python Pattern Programs</a
+        >
+      </p>
+      <p>
+        22.
+        <a href="https://medium.com/edureka/generators-in-python-258f21e3d3ff"
+          >Generators in Python</a
+        >
+      </p>
+      <p>
+        23.
+        <a
+          href="https://medium.com/edureka/python-decorator-tutorial-bf7b21278564"
+          >Python Decorator</a
+        >
+      </p>
+      <ol start="24" type="1">
+        <li>
+          <a href="https://medium.com/edureka/spyder-ide-2a91caac4e46"
+            >Python Spyder IDE</a
+          >
+        </li>
+      </ol>
+      <p>
+        25.
+        <a href="https://medium.com/edureka/kivy-tutorial-9a0f02fe53f5"
+          >Mobile Applications Using Kivy In Python</a
+        >
+      </p>
+      <p>
+        26.
+        <a href="https://medium.com/edureka/best-books-for-python-11137561beb7"
+          >Top 10 Best Books To Learn &amp; Practice Python</a
+        >
+      </p>
+      <p>
+        27.
+        <a
+          href="https://medium.com/edureka/robot-framework-tutorial-f8a75ab23cfd"
+          >Robot Framework With Python</a
+        >
+      </p>
+      <p>
+        28.
+        <a href="https://medium.com/edureka/snake-game-with-pygame-497f1683eeaa"
+          >Snake Game in Python using PyGame</a
+        >
+      </p>
+      <p>
+        29.
+        <a
+          href="https://medium.com/edureka/django-interview-questions-a4df7bfeb7e8"
+          >Django Interview Questions and Answers</a
+        >
+      </p>
+      <p>
+        30.
+        <a href="https://medium.com/edureka/python-applications-18b780d64f3b"
+          >Top 10 Python Applications</a
+        >
+      </p>
+      <p>
+        31.
+        <a
+          href="https://medium.com/edureka/hash-tables-and-hashmaps-in-python-3bd7fc1b00b4"
+          >Hash Tables and Hashmaps in Python</a
+        >
+      </p>
+      <p>
+        32.
+        <a href="https://medium.com/edureka/whats-new-python-3-8-7d52cda747b"
+          >Python 3.8</a
+        >
+      </p>
+      <p>
+        33.
+        <a
+          href="https://medium.com/edureka/support-vector-machine-in-python-539dca55c26a"
+          >Support Vector Machine</a
+        >
+      </p>
+      <p>
+        34.
+        <a href="https://medium.com/edureka/python-tutorial-be1b3d015745"
+          >Python Tutorial</a
+        >
+      </p>
+    </blockquote>
+  </body>
+</html>

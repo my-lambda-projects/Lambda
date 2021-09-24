@@ -1,0 +1,652 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Labs Learner Guide</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7902c27b-97b0-47a4-92f6-e036d86d1de3" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1532634993-15f421e42ec0?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 48.419999999999995%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧪</span></div><h1 class="page-title">Labs Learner Guide</h1></header><div class="page-body"><hr id="a819cf46-987c-4ffb-ac55-b11c6b688897"/><h1 id="8cfee21c-73b6-4d99-9541-f3b5c1f9a57a" class="">Overview</h1><p id="3970a68f-852b-4eb7-8585-e9e649bccc87" class="">Once students have completed their core track of Instruction, they will attend Lambda School Labs. We develop our curriculum with hiring manager expectations in mind. Based on hiring manager input for each program, the Labs team designs projects for students to demonstrate their ability to ideate, plan, collaborate, and deliver value for organizations that will hire them.</p><p id="853451fb-6b65-42e3-90c6-53b4216cd98e" class="">
+</p><p id="48e2ff15-8a2f-4836-9be9-07508dbc1e03" class="">Labs is an experiential learning program that places learners in the environment of a high-performing software engineering organization. The primary goal of Labs is to provide the experience of working on large products, within a complex organization, with a real stakeholder and an ever-changing set of new and unique challenges.</p><h1 id="b836760a-a0a7-48fb-8429-ec98bac9a8aa" class="">The Labs Mission</h1><p id="696b6be2-8cbd-43fa-9bef-bb90edffa46b" class="">Labs gives learners:</p><ul id="330c1cbc-7507-4334-a1c6-0b6694801246" class="bulleted-list"><li style="list-style-type:disc">team <strong>experience</strong> building real products for real clients</li></ul><ul id="62c50b28-bec6-4504-aaec-8d380b10a0cf" class="bulleted-list"><li style="list-style-type:disc">practice <strong>pitching</strong> that experience in interviews</li></ul><ul id="3290005f-0603-454f-971b-44b3cf1c0e9d" class="bulleted-list"><li style="list-style-type:disc">the skills to <strong>succeed on the job</strong></li></ul><p id="ade37269-3277-4be1-aa0f-3975243c51bb" class="">
+</p><blockquote id="25f24aa5-bfb5-4ba8-8948-bc1d525bf7b9" class="">Everything we do in Labs is meant to give learners the experience of working in a real job.</blockquote><p id="fc9d7daa-6d61-4f93-9be9-55228a0516a3" class="">
+</p><p id="baf6ee52-41c6-4829-a59c-cc8389085c76" class="">Labs is an essential differentiator for Lambda School learners—it empowers them to talk about real experience during the interview process. Labs also enables learners to become highly productive employees much faster, as the program teaches them how to contribute in a fast-moving and often chaotic working environment.</p><p id="bf1cd94b-0a85-4c53-8e6c-285938bc1624" class="">
+</p><p id="15ad4f83-ad89-44ba-b846-d636c860ba99" class=""><strong>Labs is all about the cross-functional team.</strong></p><p id="55057065-734b-45be-a199-be0c902e2c44" class="">In the real world, a development team can have designers, mobile developers, data scientists, marketers, project managers, front-end web developers and back-end web developers. Cross-functional team members can often have conflicting priorities and objectives. To prepare learners for this environment, they will be grouped in cross-functional teams to collaborate together toward a shared product goal.</p><p id="0de9062d-2685-46c6-8e89-06f822b73823" class="">
+</p><h2 id="5a3e4ece-91ca-4c7a-adf6-9a305ea3885e" class="">During Labs, learners will:</h2><ul id="1eda15ab-1826-4677-8671-ce07135156a3" class="bulleted-list"><li style="list-style-type:disc">Contribute meaningfully to a software project with a team of peers and practice all phases of the Software Development Lifecycle</li></ul><ul id="0831012f-f9f3-4f67-acd7-63aa05f98a1c" class="bulleted-list"><li style="list-style-type:disc">Experience product development with real user problems to solve</li></ul><ul id="6a16b94a-ee8c-4f54-ae26-f090f0eb2ae8" class="bulleted-list"><li style="list-style-type:disc">Demonstrate a proficiency of teamwork, individual contribution, problem-solving, and professionalism</li></ul><p id="c0cdfb6f-6e63-44e8-a4af-d7e2e87bb2fc" class="">
+</p><p id="34efe235-3ae2-4f56-a9e2-62e577a0cab9" class="">We want to prepare learners to go into an interview armed with a portfolio of experiences that they can speak to confidently and will demonstrate to hiring managers that the they&#x27;re ready to contribute on day one of a job. </p><p id="8478fafe-1b44-4db8-afff-c7057cc4444e" class="">
+</p><hr id="75132c5d-8db5-478c-b05c-30a42b293b56"/><h1 id="fcc12660-1b30-450e-b899-1715edd905b8" class="">How Labs Works</h1><p id="3ac926fd-7e27-4596-9e11-35d88a3982f2" class=""><strong>We believe that practical application and real-world experience are fundamental to a learner&#x27;s success. We train learners on how to do the job in a highly-structured, real-world, career environment.</strong></p><h3 id="f6c8e8a2-cee8-402d-9287-b1830a0a10d9" class=""><strong>This is achieved through :</strong></h3><p id="33f2d53a-dd85-4aff-ba5a-ece1b9b8e5fd" class=""><strong>Teamwork and Contribution</strong></p><ul id="75f0231a-845e-41ab-9641-2b1d3221e8aa" class="bulleted-list"><li style="list-style-type:disc"><strong>Practical Experience</strong>: Learners can <strong>demonstrate meaningful, individual contribution</strong> on a project that meets hiring manager expectations</li></ul><ul id="fe08d147-7272-4485-b352-60669f051421" class="bulleted-list"><li style="list-style-type:disc"><strong>Teamwork &amp; Feedback</strong>: Learners can<strong> work well with others,</strong> and <strong>respond appropriately</strong> to feedback</li></ul><ul id="0f0cef62-9252-49cc-82fa-6e905947a27c" class="bulleted-list"><li style="list-style-type:disc"><strong>Work-approach</strong>: Learners can plan, manage their time effectively, deliver agreed upon work, and measure the impact of their delivery</li></ul><p id="5caef0d0-c5db-4f21-8590-725e66f7e7bd" class=""><strong>Learning and Communication</strong></p><ul id="ae537900-bfce-463a-9127-efdecf597d96" class="bulleted-list"><li style="list-style-type:disc"><strong>Self-Learning</strong>: Learners can take new concepts and difficult ideas and <strong>learn on their own</strong></li></ul><ul id="61dc3fad-2344-4e2e-b7d7-69ccf25eab69" class="bulleted-list"><li style="list-style-type:disc"><strong>Technical Communication</strong>: Learners can <strong>effectively describe their key learnings</strong>, technical choices, and experiences in a way that demonstrates <strong>growth and personal skill</strong></li></ul><h2 id="a061ad47-ab1b-46bd-a8d6-9b35d2287a10" class="">Common Terms and Roles New to Learners:</h2><p id="997cd7a3-c143-4abe-93f3-ec07d1e08c26" class="">When Learners start a new job, they will be onboarded. Similarly, we have resources and a handful of sessions to get learners up to speed as quickly as possible in Labs.</p><p id="cdecbfbc-5c44-4ddf-a0c2-75e911dd608a" class="">Learners encounter new words and phrases when they enter a professional product environment. We’ve created a couple of glossaries that will help explain the terminology we use in Labs:</p><p id="508e0b9c-0404-42da-8500-4bed09170899" class="">
+</p><p id="3b2d3cf4-4d04-4021-b1c9-69a022ef16bb" class="">
+</p><p id="9bc983bd-8ac7-46e4-93d4-999e4723a7e6" class="">There is a whole team of people ready to support learners in Labs! We have roles defined to help Students with specific problems. The Student&#x27;s Release Manager can help route them to the right person. Never hesitate to ask for help!</p><p id="31b7a957-41da-49f2-857a-0b8daf7408ec" class="">
+</p><h1 id="17f8763d-a70e-4a1c-a80e-b5672a6018de" class="">Have questions? </h1><p id="30a5ad7b-01fd-4e53-b40c-e476a6a6478a" class="">Reach out to a Labs Release Manager, or contact Learner Success via <code>/frontdesk</code> on Slack.</p><p id="19915018-ba3b-4540-8f1f-694a2c1d7e58" class="">
+</p><p id="6faaf2a9-a9eb-4746-b68f-920765ca843a" class="">
+</p><p id="29e235d5-21fb-4494-bf82-689d22ac8060" class="">
+</p><ul id="56afbffe-457a-423f-8248-107a1628c90b" class="toggle"><li><details open=""><summary>Revision History</summary><p id="17d9c37e-0b12-4ae7-8abd-1096994235ae" class="">October 24, 2019, shared with students October 25, 2019</p><p id="a102a4d2-6416-4050-886e-e0bb531f8852" class="">July 31, 2020, shared with students August, 3, 2020</p><p id="e977f055-48d9-4838-98ee-283cfdfa0590" class="">August 27, 2021, shared with learners August 27, 2021</p><p id="0408c1bc-cf41-43d6-ae53-43176b341284" class="">
+</p></details></li></ul><p id="8c42f700-3d99-44ed-9884-f6b35ed3d0d2" class="">
+</p><p id="684faedb-1005-4d64-bd18-79df74b3093b" class="">Copyright Lambda School 2021, All Rights Reserved</p><p id="f6029bcc-e3c6-4030-81d1-efeb2bd55403" class="">
+</p></div></article></body></html>

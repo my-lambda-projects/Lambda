@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>BIGO-py</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="big-o-how-to-calculate-time-and-space-complexity---in-out-code">
+      Big O: How to Calculate Time and Space Complexity - In Out Code
+    </h1>
+    <blockquote>
+      <p>
+        Guide to calculating Big O time and space complexity. Includes Big O of
+        operations for data structures, and a step-by-step guide for your own
+        algorithms.
+      </p>
+    </blockquote>
+    <h2 id="what-is-big-o">What is Big O?</h2>
+    <p>
+      Big O notation is used to quantify how quickly runtime or memory
+      utilization will grow when an algorithm runs, in a worst-case scenario,
+      relative to the size of the input data (<strong><em>n</em></strong
+      >). It is also sometimes referred to as an asymptotic upper bound.
+    </p>
+    <p>We can use Big O notation to describe two things:</p>
+    <ol type="1">
+      <li>
+        <strong>Time complexity</strong><br />
+        How quickly the duration of the algorithm grows, relative to the input
+      </li>
+      <li>
+        <strong>Space complexity</strong><br />
+        How much space the algorithm requires as it grows
+      </li>
+    </ol>
+    <p>
+      This guide will walk you through how to use
+      <strong>Big O</strong> notation, with clear, commented code samples.
+    </p>
+    <ul>
+      <li><a href="#Why">Why use Big O?</a></li>
+      <li><a href="#Calculate">How to calculate Big O</a></li>
+      <li><a href="#Functions">Common Big O functions</a></li>
+      <li><a href="#Time">Time complexity</a></li>
+      <li><a href="#Space">Space complexity</a></li>
+      <li><a href="#Case">Best, average and worst case</a></li>
+      <li><a href="#DataStructures">Big O for data structures</a></li>
+      <li><a href="#Python">Big O for Python operations</a></li>
+      <li><a href="#Resources">Other useful resources</a></li>
+    </ul>
+    <hr />
+    <h2 id="why-use-big-o">Why Use Big O?</h2>
+    <p>
+      For any given problem, there could be a range of solutions. But if you
+      measure the execution time using seconds, you’re exposed to fluctuations
+      caused by physical factors. This includes the amount of memory on the
+      machine used to run the solution, CPU speed, and other programs running
+      concurrently on the system.
+    </p>
+    <blockquote>
+      <p>
+        Big O is used to compare the efficiency of a solution, excluding
+        physical factors.
+      </p>
+    </blockquote>
+    <p>
+      Each algorithm carries its own space and time complexities. In many
+      situations, the best solution will be a balance of the two.
+    </p>
+    <p>
+      For example, if we need a fast solution, and we’re not too worried about
+      space requirements, an acceptable tradeoff could be an algorithm with
+      lower time complexity and higher space complexity. e.g. Merge Sort.
+    </p>
+    <p>So, how do you calculate the Big O for a given algorithm?</p>
+    <hr />
+    <h2 id="how-to-calculate-big-o">How to Calculate Big O</h2>
+    <p>
+      To calculate Big O, you first need to consider how many operations are
+      being performed.
+    </p>
+    <p><strong>A simple 5-step guide:</strong></p>
+    <ol type="1">
+      <li>Split your algorithm into operations</li>
+      <li>Calculate the Big O of each operation</li>
+      <li>Add the Big O from each operation</li>
+      <li>Strip out the constants</li>
+      <li>Find the highest order term</li>
+    </ol>
+    <p>
+      The examples below will walk you through each step in detail, but it’s
+      worth mentioning why we strip out the constants.
+    </p>
+    <p>
+      Our definition of Big O included the phrase ‘relative to the size of the
+      input data (<strong><em>n</em></strong
+      >)’. This means that as <strong><em>n</em></strong> gets arbitrarily
+      large, fixed-size operations, such as adding 100 or dividing by 2, have a
+      decreasingly significant effect on the time it takes to execute an
+      algorithm.
+    </p>
+    <p>
+      There’s similar reasoning behind why we look for the most significant
+      term. Big O measures worst case, which means we should always use the
+      slowest time complexity for any operation within an algorithm. As
+      <strong><em>n</em></strong> gets arbitrarily large, less significant terms
+      won’t have the same impact on run time as the most significant term.
+    </p>
+    <p><strong>Example 1: Adding two numbers</strong></p>
+    <p>total = nums[0] + nums[1] # O(1) - Constant</p>
+    <p>return total # O(1) - Constant</p>
+    <p>
+      def add_nums(nums): total = nums[0] + nums[1] # O(1) - Constant return
+      total # O(1) - Constant add_nums([1, 2, 3])
+    </p>
+    <p>
+      def add_nums(nums): total = nums[0] + nums[1] # O(1) - Constant return
+      total # O(1) - Constant
+    </p>
+    <p>add_nums([1, 2, 3])</p>
+    <p>
+      In example 1, we’re adding two numbers from a given list, by performing a
+      lookup on index.
+    </p>
+    <p>
+      For <code>total = nums[0] + nums[1]</code>, we’re performing three
+      operations, each of which has O(1) constant time complexity:
+    </p>
+    <ul>
+      <li>
+        <strong>Operation 1:</strong><br />
+        nums[0] – This is a lookup. O(1)
+      </li>
+      <li>
+        <strong>Operation 2:</strong><br />
+        nums[1] – This is a lookup. O(1)
+      </li>
+      <li>
+        <strong>Operation 3:</strong><br />
+        total = nums[0] + nums[1] – This is an assignment. O(1)
+      </li>
+    </ul>
+    <p>
+      We then <code>return total</code>, which is another O(1) operation. The
+      highest order term in this example is therefore O(1).
+    </p>
+    <p><strong>Example 2: Simple loops</strong></p>
+    <p>print(lst[0]) # Operation 1: O(1) - Constant</p>
+    <p>midpoint = len(lst)/2 # Operation 2: O(n/2)</p>
+    <p>for val in lst[:midpoint]: # Operation 3: O( 1/2 * n )</p>
+    <p>for x in range(10): # Operation 4: O(10)</p>
+    <p>
+      def comp(lst): print(lst[0]) # Operation 1: O(1) - Constant midpoint =
+      len(lst)/2 # Operation 2: O(n/2) for val in lst[:midpoint]: # Operation 3:
+      O( 1/2 * n ) print val for x in range(10): # Operation 4: O(10)
+      print(‘Hello World’)
+    </p>
+    <p>
+      def comp(lst): print(lst[0]) # Operation 1: O(1) - Constant midpoint =
+      len(lst)/2 # Operation 2: O(n/2) for val in lst[:midpoint]: # Operation 3:
+      O( 1/2 * n ) print val for x in range(10): # Operation 4: O(10)
+      print(‘Hello World’)
+    </p>
+    <p>Adding these notations up for each of the three operations, we get:</p>
+    <pre><code>O(1 + n/2 + 1/2n + 10)</code></pre>
+    <p>
+      As constants are removed, this gets rid of the 1, /2, 1/2, and 10. So we
+      get:
+    </p>
+    <pre><code>O(n)</code></pre>
+    <p>
+      Constants are removed because they have significantly lower importance as
+      we approach infinity.
+    </p>
+    <p>
+      The final Big O of an algorithm that contains multiple operations, is the
+      operation that has the highest complexity.
+    </p>
+    <hr />
+    <h2 id="common-big-o-functions">Common Big O Functions</h2>
+    <p>
+      The examples above have provided a quick introduction to how we calculate
+      the Big O for a given algorithm. But what do O(1), O(n) and the other
+      complexities really mean?
+    </p>
+    <p>Some of the most common functions are:</p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Name</th>
+          <th>Big-O</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>Constant</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Logarithmic</td>
+          <td>O(log(n))</td>
+        </tr>
+        <tr class="odd">
+          <td>Linear</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>Log Linear</td>
+          <td>O(n log(n))</td>
+        </tr>
+        <tr class="odd">
+          <td>Quadratic</td>
+          <td>O(n^2)</td>
+        </tr>
+        <tr class="even">
+          <td>Cubic</td>
+          <td>O(n^3)</td>
+        </tr>
+        <tr class="odd">
+          <td>Exponential</td>
+          <td>O(2^n)</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h2 id="time-complexity">Time Complexity</h2>
+    <h3 id="constant-time-o1">Constant Time: O(1)</h3>
+    <p>
+      Properties of an algorithm with <strong>constant</strong> time complexity:
+    </p>
+    <ul>
+      <li>
+        Algorithm execution time is not dependent on the size of the input data
+      </li>
+      <li>Time complexity is always the same, regardless of input</li>
+    </ul>
+    <p><strong>Some of the operations with O(1) time complexity:</strong></p>
+    <ul>
+      <li>get item (lookup by index/key)</li>
+      <li>set item (assignment)</li>
+      <li>an arithmetic operation (e.g. 1 + 1, 2 – 1, etc.)</li>
+      <li>a comparison test (e.g. x == 1)</li>
+    </ul>
+    <p>
+      Any method that performs a fixed number of basic operations each time it’s
+      called requires constant time.
+    </p>
+    <p><strong>Example 1: Get index value</strong></p>
+    <p>
+      def get_first(data): return data[0] data = [1, 2, 9, 8, 3]
+      print(get_first(data))
+    </p>
+    <p>
+      def get_first(data): return data[0] data = [1, 2, 9, 8, 3]
+      print(get_first(data))
+    </p>
+    <p>
+      When retrieving the value of an element at a specific index, the time
+      complexity is O(1). In the example above, whether our list holds 5
+      elements or 500, the complexity of retrieving the value at index 0 remains
+      O(1).
+    </p>
+    <p>
+      The reason for this is because the operations required to access an
+      element in memory remains constant, regardless of how many elements are in
+      the array.
+    </p>
+    <p>
+      Given the starting memory address of an array, you can simply multiply the
+      size of the data type in bytes by the index of the item you’re searching
+      for.
+    </p>
+    <p>
+      <strong>Example:</strong> Start address of array is 10. Searching for 5th
+      element in array of integers. Integer data type is 4 bytes. So the address
+      of the item we’re searching for is: <code>(10 + (5 * 4))</code>
+    </p>
+    <hr />
+    <h3 id="logarithmic-time-olog-n">Logarithmic Time: O(log n)</h3>
+    <p>
+      Properties of an algorithm with <strong>logarithmic</strong> time
+      complexity:
+    </p>
+    <ul>
+      <li>Reduces the size of the input data in each step</li>
+      <li>No need to look at all values</li>
+      <li>
+        The next action will only be performed on one of several possible
+        elements
+      </li>
+    </ul>
+    <p>
+      <strong>Example operations:</strong> Binary Search, operations on binary
+      search trees
+    </p>
+    <p>
+      Algorithms with a ‘divide and conquer’ approach are considered to have a
+      logarithmic time complexity, such as binary search.
+    </p>
+    <p><strong>Example 1: Print every third value in a range</strong></p>
+    <p>for index in range(0, len(data), 3):</p>
+    <p>for index in range(0, len(data), 3): print(data[index])</p>
+    <p>for index in range(0, len(data), 3): print(data[index])</p>
+    <p><strong>Example 2: Find a value using binary search</strong></p>
+    <p>def binarySearch(sortedList, target):</p>
+    <p>right = len(sortedList) - 1</p>
+    <p>if (sortedList(mid) == target):</p>
+    <p>elif(sortedList(mid) &lt; target):</p>
+    <p># If target is not in the list, return -1</p>
+    <p>binarySearch([1,3,9,22],22)</p>
+    <p>
+      def binarySearch(sortedList, target): left = 0 right = len(sortedList) - 1
+      while (left &lt;= right): mid = (left + right)/2 if (sortedList(mid) ==
+      target): return mid elif(sortedList(mid) &lt; target): left = mid + 1
+      else: right = mid - 1 # If target is not in the list, return -1 return -1
+      binarySearch([1,3,9,22],22) # return 3
+    </p>
+    <p>
+      def binarySearch(sortedList, target): left = 0 right = len(sortedList) - 1
+      while (left &lt;= right): mid = (left + right)/2 if (sortedList(mid) ==
+      target): return mid elif(sortedList(mid) &lt; target): left = mid + 1
+      else: right = mid - 1
+    </p>
+    <h1 id="if-target-is-not-in-the-list-return--1">
+      If target is not in the list, return -1
+    </h1>
+    <p>return -1</p>
+    <p>binarySearch([1,3,9,22],22)</p>
+    <h1 id="return-3">return 3</h1>
+    <hr />
+    <h3 id="linear-time-on">Linear Time: O(n)</h3>
+    <p>
+      Properties of an algorithm with <strong>linear</strong> time complexity:
+    </p>
+    <ul>
+      <li>
+        Number of operations taking place scales linearly with the size of
+        <strong>n</strong>
+      </li>
+      <li>
+        e.g. Performing the print operation 100 times, once per item, in a list
+        containing 100 items
+      </li>
+    </ul>
+    <p>
+      <strong>Example operations:</strong> copy, insert into an array, delete
+      from an array, iteration
+    </p>
+    <p><strong>Algorithms:</strong> Linear Search</p>
+    <p>
+      An algorithm with linear time complexity is considered the optimal
+      solution when all values must be examined.
+    </p>
+    <p><strong>Example 1: Print every value in a range</strong></p>
+    <p>data = [1, 7, 3, 19, 2, 100]</p>
+    <p>for index in range(len(data)):</p>
+    <p>
+      data = [1, 7, 3, 19, 2, 100] for index in range(len(data)):
+      print(data[index])
+    </p>
+    <p>data = [1, 7, 3, 19, 2, 100]</p>
+    <p>for index in range(len(data)): print(data[index])</p>
+    <p>
+      In the above example, the print operation itself is O(1), but the number
+      of iterations we perform in the <code>for</code> loop is directly
+      proportional to the size of the input data. Because we always take the
+      higher order term, the Big O time complexity is O(n).
+    </p>
+    <p>
+      <strong
+        >Example 2: Print every value in n twice, as two separate
+        operations</strong
+      >
+    </p>
+    <p>def print_twice(lst): # O(n) - O(2n) but we drop the constant</p>
+    <p>
+      def print_twice(lst): # O(n) - O(2n) but we drop the constant for val in
+      lst: # O(n) print val for val in lst: # O(n) print val
+    </p>
+    <p>
+      def print_twice(lst): # O(n) - O(2n) but we drop the constant for val in
+      lst: # O(n) print val for val in lst: # O(n) print val
+    </p>
+    <p>
+      In example 2, we combine the two time complexities to get
+      <code>O(n) + O(n) = O(2n)</code>. We now drop the constant (2) to get
+      O(n).
+    </p>
+    <p><strong>Example 3: Find item in a sorted list</strong></p>
+    <p>def linearSearch(sortedList, target):</p>
+    <p>for i in range(len(sortedList)):</p>
+    <p>if (sortedList[i] == target):</p>
+    <p># If target is not in the list, return -1</p>
+    <p>linearSearch([1,3,9,22],22)</p>
+    <p>
+      def linearSearch(sortedList, target): for i in range(len(sortedList)): if
+      (sortedList[i] == target): return i # If target is not in the list, return
+      -1 return -1 linearSearch([1,3,9,22],22) # return 3
+    </p>
+    <p>
+      def linearSearch(sortedList, target): for i in range(len(sortedList)): if
+      (sortedList[i] == target): return i
+    </p>
+    <h1 id="if-target-is-not-in-the-list-return--1-1">
+      If target is not in the list, return -1
+    </h1>
+    <p>return -1</p>
+    <p>linearSearch([1,3,9,22],22)</p>
+    <h1 id="return-3-1">return 3</h1>
+    <p>
+      In Example 3, we’re performing a linear search on a sorted array. A faster
+      approach, because the array is sorted, would be to use binary search,
+      which has a logarithmic time complexity of O(log n).
+    </p>
+    <hr />
+    <h3 id="quasilinear-time-on-log-n">Quasilinear Time: O(n log n)</h3>
+    <p>
+      Properties of an algorithm with <strong>log linear</strong> (also known as
+      <strong>quasilinear</strong>) time complexity:
+    </p>
+    <ul>
+      <li>Each operation in the input data has a logarithm time complexity</li>
+      <li>
+        e.g. for each value in the data1 (O(n)) use the binary search (O(log n))
+        to search the same value in data2
+      </li>
+    </ul>
+    <p><strong>Example operations:</strong> Sort a list</p>
+    <p>Algorithms with O(n log n) time complexity:</p>
+    <ul>
+      <li>Mergesort</li>
+      <li>Heapsort</li>
+      <li>Cubesort</li>
+    </ul>
+    <p><strong>Example 1:</strong></p>
+    <p>result.append(binary_search(data2, value))</p>
+    <p>for value in data1: result.append(binary_search(data2, value))</p>
+    <p>for value in data1: result.append(binary_search(data2, value))</p>
+    <hr />
+    <h3 id="quadratic-time-on²">Quadratic Time: O(n²)</h3>
+    <p>
+      Properties of an algorithm with <strong>quadratic</strong> time
+      complexity:
+    </p>
+    <ul>
+      <li>Perform a linear time operation for each value in the input data</li>
+      <li>
+        For a list of n items, we perform n operations for each item. e.g. 10
+        items has 10^2 operations.
+      </li>
+    </ul>
+    <p><strong>Example operations:</strong> Nested loops.</p>
+    <p><strong>Algorithms:</strong></p>
+    <ul>
+      <li>Bubble Sort</li>
+      <li>Quicksort</li>
+      <li>Insertion Sort</li>
+      <li>Selection Sort</li>
+      <li>Tree Sort</li>
+      <li>Bucket Sort</li>
+    </ul>
+    <p><strong>Example 1: Nested loop</strong></p>
+    <p>for x in data: for y in data: print(x, y)</p>
+    <p>for x in data: for y in data: print(x, y)</p>
+    <hr />
+    <h3 id="exponential-time-o2n">Exponential Time: O(2^n)</h3>
+    <p>
+      Properties of an algorithm with <strong>exponential</strong> time
+      complexity:
+    </p>
+    <ul>
+      <li>Growth doubles with each addition to the input data set</li>
+      <li>e.g. ‘Towers of Hanoi’ problem</li>
+    </ul>
+    <p><strong>Algorithms:</strong> Recursive Fibonacci</p>
+    <p>
+      <strong>Example 1: Recursive calculation of Fibonacci numbers</strong>
+    </p>
+    <p>return fibonacci(number - 2) + fibonacci(number - 1)</p>
+    <p>
+      def fibonacci(num): if (num &lt;= 1): return num return fibonacci(number -
+      2) + fibonacci(number - 1)
+    </p>
+    <p>
+      def fibonacci(num): if (num &lt;= 1): return num return fibonacci(number -
+      2) + fibonacci(number - 1)
+    </p>
+    <hr />
+    <h3 id="factorial-time-on">Factorial Time: O(n!)</h3>
+    <p>
+      Properties of an algorithm with <strong>factorial</strong> time
+      complexity:
+    </p>
+    <ul>
+      <li>
+        Grows in a factorial based way based on the size of the input data
+      </li>
+      <li>Grows fast even for a small size input</li>
+    </ul>
+    <p>
+      <strong>Algorithms:</strong> Heap’s algorithm - Used to generate all
+      possible permutations of n objects
+    </p>
+    <p><strong>Example 1: Heap’s algorithm</strong></p>
+    <p>def heap_permutation(data, n):</p>
+    <p>heap_permutation(data, n - 1)</p>
+    <p>data[i], data[n-1] = data[n-1], data[i]</p>
+    <p>data[0], data[n-1] = data[n-1], data[0]</p>
+    <p>heap_permutation(data, len(data))</p>
+    <p>
+      def heap_permutation(data, n): if n == 1: print(data) return for i in
+      range(n): heap_permutation(data, n - 1) if n % 2 == 0: data[i], data[n-1]
+      = data[n-1], data[i] else: data[0], data[n-1] = data[n-1], data[0] data =
+      [1, 2, 3] heap_permutation(data, len(data))
+    </p>
+    <p>
+      def heap_permutation(data, n): if n == 1: print(data) return for i in
+      range(n): heap_permutation(data, n - 1) if n % 2 == 0: data[i], data[n-1]
+      = data[n-1], data[i] else: data[0], data[n-1] = data[n-1], data[0] data =
+      [1, 2, 3] heap_permutation(data, len(data))
+    </p>
+    <hr />
+    <h2 id="space-complexity">Space Complexity</h2>
+    <p>
+      In some situations, we want to optimize for space instead of time, or to
+      find a balance between the two. For this, we need to calculate the space
+      complexity.
+    </p>
+    <p>
+      Space complexity is measured using the same notation as time complexity,
+      but we consider the total memory allocation required, relative to the size
+      of the input.
+    </p>
+    <p><strong>Example 1: O(n) space complexity</strong></p>
+    <p># [‘new’, ‘new’, ‘new’, ‘new’, ‘new’]</p>
+    <p>
+      def create_list(n): new_list = [] for num in range(n):
+      new_list.append(‘new’) return new_list create_list(5) # [‘new’, ‘new’,
+      ‘new’, ‘new’, ‘new’]
+    </p>
+    <p>
+      def create_list(n): new_list = [] for num in range(n):
+      new_list.append(‘new’) return new_list create_list(5)
+    </p>
+    <h1 id="new-new-new-new-new">[‘new’, ‘new’, ‘new’, ‘new’, ‘new’]</h1>
+    <p>
+      The above code has a space complexity of O(n), as the amount of space
+      required increases with size of n (linear).
+    </p>
+    <p><strong>Example 2: O(1) space complexity</strong></p>
+    <p>for x in range(len(n)): # Time Complexity - O(n)</p>
+    <p>print(‘Hello World!’) # Space Complexity - O(1)</p>
+    <p>
+      def hello_world(n): for x in range(len(n)): # Time Complexity - O(n)
+      print(‘Hello World!’) # Space Complexity - O(1)
+    </p>
+    <p>def hello_world(n):</p>
+    <pre><code>    for x in range(len(n)): # Time Complexity - O(n)
+        print(&#39;Hello World!&#39;) # Space Complexity - O(1)</code></pre>
+    <p>
+      In example 2, the number of times we iterate through the loop is directly
+      proportional to the size of the input. Therefore, we have a linear time
+      complexity of O(n).
+    </p>
+    <p>
+      The <code>print</code> operation requires constant space, whether we call
+      it once or 100 times. This means we have a constant space complexity of
+      O(1).
+    </p>
+    <hr />
+    <h2 id="best-case-average-case-and-worst-case">
+      Best Case, Average Case and Worst Case
+    </h2>
+    <p>
+      When calculating Big O, we’re only interested in the worst case. But it
+      can also be important to consider the average case, and know about best
+      case.
+    </p>
+    <p>
+      For example, when searching an unsorted array for a value, the best case
+      would be that the value was the first item in the array. This would result
+      in O(1). Conversely, if the value searched for was the last item in the
+      array, or wasn’t in the array, worst case would be O(n).
+    </p>
+    <p>lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</p>
+    <p>
+      def matcher(lst, match): for item in lst: if item == match: return True
+      return False lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    </p>
+    <p>
+      def matcher(lst, match): for item in lst: if item == match: return True
+      return False
+    </p>
+    <p>lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</p>
+    <p><strong>Best case:</strong> Find the item at first position.</p>
+    <pre><code>matcher(lst, 1) # O(1) - Constant</code></pre>
+    <p><strong>Worst case:</strong> Find item at last position.</p>
+    <pre><code>matcher(lst,10) # O(n) - Linear</code></pre>
+    <hr />
+    <h2 id="big-o-for-data-structures">Big O for Data Structures</h2>
+    <hr />
+    <h3 id="linked-lists">Linked Lists</h3>
+    <p>Compared to arrays, linked lists require more time, but less space.</p>
+    <p>
+      Linked lists save on memory because you only create the items you need,
+      there’s no need to create a fixed-size array ahead of time for a static
+      array, or cope with the copying process that comes with a dynamic array.
+    </p>
+    <p>
+      The downside is it takes longer to retrieve items. That’s because when
+      nodes are created, they might not be close to each other in memory. This
+      means we can’t perform the same O(1) calculation to determine a value
+      given its index, like we can with an array.
+    </p>
+    <p>
+      With linked lists, when retrieving item <strong>‘n’</strong>, we need to
+      walk the list from the head to the <strong>nth</strong> item. Therefore,
+      linked list retrieval has a Big O time complexity of O(n), which is
+      linear.
+    </p>
+    <p>
+      The same logic applies for appending a new item to a linked list. You need
+      to walk from the head to the last item, then set the ‘next’ pointer of the
+      last item to be the new node. This is why appends are also considered O(n)
+      time.
+    </p>
+    <p>
+      In contrast, adding an item to the front of a linked list is an O(1)
+      constant time operation. We simply need to set the new node to be the head
+      of the linked list, the point it to the previous head node. The number of
+      operations performed isn’t affected by the list size.
+    </p>
+    <p>
+      The only way you could make appends an O(1) operation would be to maintain
+      a reference to the tail node of the linked list. This way you could:
+    </p>
+    <ol type="1">
+      <li>Create your new node</li>
+      <li>Set the ‘next’ attribute of the tail node to be the new node</li>
+      <li>Set the ‘tail’ reference to point to your new node</li>
+    </ol>
+    <hr />
+    <h3 id="hash-tables">Hash Tables</h3>
+    <p>
+      Time complexity of hash table operations depends heavily on the quality of
+      the hash function. Even assuming the hash function computes the hash of a
+      key in constant time O(1), if all values hash to the same slot, and you
+      use a linked list to handle collisions, the result will be O(n) search.
+    </p>
+    <p>
+      Inserting into a hash table will only be O(1) if you use a linked list to
+      handle collisions, and maintain a pointer to the tail for O(1) appends.
+    </p>
+    <hr />
+    <h3 id="doubly-linked-lists">Doubly Linked Lists</h3>
+    <p>
+      The main advantage doubly linked lists (DLLs) have over singly linked
+      lists (SLLs), in terms of time complexity, is that you can use them to
+      find the previous node in constant time.
+    </p>
+    <p>
+      With an SLL, if we’re given a node and told to find the previous node, we
+      have to walk from the head until we find the given node. In the worst
+      case, this would be O(n).
+    </p>
+    <p>
+      Each node in a DLL contains a pointer to the previous node, so we can
+      simply use this pointer to retrieve the previous node value in O(1) time.
+    </p>
+    <hr />
+    <h2 id="big-o-for-python-operations">Big O for Python Operations</h2>
+    <h3 id="list-operations">List Operations</h3>
+    <p>
+      Some list methods perform the same number of basic operations,
+      irrespective of list size, so use constant time complexity of O(1). For
+      other list methods, the number of operations they perform is proportional
+      to the number of items in the list, so use linear time complexity of O(n).
+    </p>
+    <p><strong>Simple example:</strong></p>
+    <ul>
+      <li>
+        <strong>O(1):</strong> The <code>pop()</code> method always removes an
+        item at the end of the list. It doesn’t matter how large the list is,
+        only one operation needs to be performed.
+      </li>
+      <li>
+        <strong>O(n):</strong> The <code>remove()</code> method has to fill the
+        gap by moving over all of the items to the right of the one that was
+        removed. In the worst case, the first item will be removed, which means
+        all items in the list need to be moved.
+      </li>
+    </ul>
+    <p>
+      <strong>More complex example:</strong> O(n): The
+      <code>append()</code> method adds an item to the end of the list. If the
+      memory allocated to the list was already large enough to hold the existing
+      items and the new item, then the time complexity would be constant O(1).
+    </p>
+    <p>
+      However, if the list was full before the <code>append()</code>, you need
+      to allocate a new array with a size large enough to hold all existing
+      items, plus the item you’re adding. Python would then copy all the items
+      over from the old array to the new array, making the worst case time
+      complexity proportional to the list size. Therefore the
+      <code>insert()</code> list operation has linear time complexity of O(n).
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Operation</th>
+          <th>Example</th>
+          <th>Big-O</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>Index</td>
+          <td>list[0]</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Store</td>
+          <td>list[0] = 0</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="odd">
+          <td>Append</td>
+          <td>list.append(4)</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Pop</td>
+          <td>list.pop()</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="odd">
+          <td>Clear</td>
+          <td>list.clear()</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Length</td>
+          <td>len(list)</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="odd">
+          <td>Pop Index</td>
+          <td>list.pop(0)</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>Remove</td>
+          <td>list.remove(‘x’)</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="odd">
+          <td>Insert</td>
+          <td>list.insert(0,‘a’)</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>Del operator</td>
+          <td>del list</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="odd">
+          <td>Iteration</td>
+          <td>for v in list:</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>Containment</td>
+          <td>‘x’ in list1</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="odd">
+          <td>Equality</td>
+          <td>list1 == list2</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>Copy</td>
+          <td>list.copy()</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="odd">
+          <td>Reverse</td>
+          <td>list.reverse()</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>get slice [x:y]</td>
+          <td>list[a:b]</td>
+          <td>O(k)</td>
+        </tr>
+        <tr class="odd">
+          <td>del slice</td>
+          <td>del list[a:b]</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>set slice</td>
+          <td></td>
+          <td>O(n+k)</td>
+        </tr>
+        <tr class="odd">
+          <td>concatenate</td>
+          <td></td>
+          <td>O(k)</td>
+        </tr>
+        <tr class="even">
+          <td>Sort</td>
+          <td>list.sort()</td>
+          <td>O(n log n)</td>
+        </tr>
+        <tr class="odd">
+          <td>Multiply</td>
+          <td>5 * list</td>
+          <td>O(k n)</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h3 id="dictionary-operations">Dictionary Operations</h3>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Operation</th>
+          <th>Example</th>
+          <th>Big-O</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>Index</td>
+          <td>dict[0]</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Store</td>
+          <td>dict[0] = ‘value’</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="odd">
+          <td>Length</td>
+          <td>len(dict)</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Delete</td>
+          <td>del dict[0]</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="odd">
+          <td>Get</td>
+          <td>dict.get(0)</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Pop</td>
+          <td>dict.pop()</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="odd">
+          <td>Pop item</td>
+          <td>dict.popitem()</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Clear</td>
+          <td>dict.clear()</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="odd">
+          <td>View</td>
+          <td>dict.keys()</td>
+          <td>O(1)</td>
+        </tr>
+        <tr class="even">
+          <td>Iteration</td>
+          <td>for k in dict:</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="odd">
+          <td>Containment</td>
+          <td>x in dict:</td>
+          <td>O(n)</td>
+        </tr>
+        <tr class="even">
+          <td>Copy</td>
+          <td>dict.copy()</td>
+          <td>O(n)</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h3 id="set-operations">Set Operations</h3>
+    <p>
+      Sets have more operations that are O(1) compared to lists or dictionaries.
+      Not having to keep the data in order reduces the complexity.
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Operation</th>
+          <th>Example</th>
+          <th>Big-O</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>Length</td>
+          <td>len(set)</td>
+          <td>O(1)</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td>Add</td>
+          <td>set.add(4)</td>
+          <td>O(1)</td>
+          <td></td>
+        </tr>
+        <tr class="odd">
+          <td>Containment</td>
+          <td>x in set</td>
+          <td>O(1)</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td>Remove</td>
+          <td>set.remove(4)</td>
+          <td>O(1)</td>
+          <td></td>
+        </tr>
+        <tr class="odd">
+          <td>Discard</td>
+          <td>set.discard(4)</td>
+          <td>O(1)</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td>Pop</td>
+          <td>set.pop()</td>
+          <td>O(1)</td>
+          <td></td>
+        </tr>
+        <tr class="odd">
+          <td>Clear</td>
+          <td>set.clear()</td>
+          <td>O(1)</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td>Union</td>
+          <td>set1</td>
+          <td>set2</td>
+          <td>O(len(s) + len(t))</td>
+        </tr>
+        <tr class="odd">
+          <td>Intersection</td>
+          <td>set1 &amp; set2</td>
+          <td>O(len(s) + len(t))</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td>Difference</td>
+          <td>set1 - set2</td>
+          <td>O(len(s) + len(t))</td>
+          <td></td>
+        </tr>
+        <tr class="odd">
+          <td>Symmetric Diff</td>
+          <td>set1 ^ set2</td>
+          <td>O(len(s) + len(t))</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td>Iteration</td>
+          <td>for v in set:</td>
+          <td>O(n)</td>
+          <td></td>
+        </tr>
+        <tr class="odd">
+          <td>Copy</td>
+          <td>set.copy()</td>
+          <td>O(n)</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h2 id="other-useful-resources">Other Useful Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="http://stackoverflow.com/questions/487258/plain-english-explanation-of-big-o/487278#487278"
+          >Plain English Explanation</a
+        >
+      </li>
+      <li>
+        <a
+          href="http://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly"
+          >What does log n mean?</a
+        >
+      </li>
+      <li>
+        <a
+          href="http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1172/lectures/11-BigO/11-BigO.pdf"
+          >Stanford Lecture</a
+        >
+      </li>
+      <li>
+        <a href="http://web.mit.edu/16.070/www/lecture/big_o.pdf"
+          >MIT Lecture</a
+        >
+      </li>
+      <li><a href="http://bigocheatsheet.com/">Cheat Sheet</a></li>
+    </ul>
+    <p><a href="https://www.inoutcode.com/concepts/big-o/">Source</a></p>
+  </body>
+</html>

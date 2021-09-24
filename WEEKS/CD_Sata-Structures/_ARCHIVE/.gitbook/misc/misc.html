@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>misc</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="misc">Misc</h1>
+    <p>Links:</p>
+    <p>
+      {% embed
+      url=“https://gist.github.com/bgoonz/9fb85e86115881a212a293c9829aade2” %}
+    </p>
+    <h2 id="read-from-file">
+      Read From File
+      <img
+        src="https://www.practicepython.org/assets/img/chili-liz-20x20.png"
+      />
+    </h2>
+    <h3 id="exercise-22-and-solution">
+      Exercise 22 (and
+      <a
+        href="https://www.practicepython.org/solution/2014/12/14/22-read-from-file-solutions.html"
+        >Solution</a
+      >) <a id="exercise-22-and-solution"></a>
+    </h3>
+    <p>
+      Given a <code>.txt</code> file that has a list of a bunch of names, count
+      how many of each name there are in the file, and print out the results to
+      the screen. I have a <code>.txt</code> file for you, if you want to
+      <a href="http://www.practicepython.org/assets/nameslist.txt">use it</a>!
+    </p>
+    <p>Extra:</p>
+    <ul>
+      <li>
+        Instead of using the <code>.txt</code> file from above (or instead of,
+        if you want the challenge), take
+        <a href="http://www.practicepython.org/assets/Training_01.txt"
+          >this <code>.txt</code> file</a
+        >, and count how many of each “category” of each image there are. This
+        text file is actually a list of files corresponding to the
+        <a href="http://sundatabase.mit.edu/">SUN database</a> scene recognition
+        database, and lists the file directory hierarchy for the images. Once
+        you take a look at the first line or two of the file, it will be clear
+        which part represents the scene category. To do this, you’re going to
+        have to remember a bit about string parsing in Python 3. I talked a
+        little bit about it
+        <a
+          href="https://www.practicepython.org/exercise/2014/03/12/06-string-lists.html"
+          >in this post</a
+        >.
+      </li>
+    </ul>
+    <h3 id="discussion">Discussion <a id="discussion"></a></h3>
+    <p>Topics:</p>
+    <ol type="1">
+      <li>Reading a file</li>
+      <li>Dictionaries</li>
+    </ol>
+    <h4 id="reading-a-file">Reading a File <a id="reading-a-file"></a></h4>
+    <p>
+      Reading a file is very analogous to writing a file, as
+      <a
+        href="https://www.practicepython.org/exercise/2014/11/30/21-write-to-a-file.html"
+        >I discussed before in Exercise 21</a
+      >. But, the best source is always the
+      <a
+        href="https://docs.python.org/3.3/tutorial/inputoutput.html#reading-and-writing-files"
+        >official Python 3.3 documentation</a
+      >.
+    </p>
+    <p>Simply, reading to a file takes two steps:</p>
+    <ol type="1">
+      <li>Opening the file for reading</li>
+      <li>Read!</li>
+    </ol>
+    <p>
+      Opening a file for reading is the same as opening for writing, just using
+      a different flag:
+    </p>
+    <pre
+      class="text"
+    ><code>  with open(&#39;file_to_read.txt&#39;, &#39;r&#39;) as open_file:
+    all_text = open_file.read()</code></pre>
+    <p>
+      Note how the <code>'r'</code> flag stands for “read”. The code sample from
+      above reads the entire <code>open_file</code> all at once into the
+      <code>all_text</code> variable. But, this means that we now have a long
+      string in <code>all_text</code> that can then be manipulated in Python
+      using any string methods you want.
+    </p>
+    <p>Another way of reading data from the file is line by line:</p>
+    <pre
+      class="text"
+    ><code>  with open(&#39;file_to_read.txt&#39;, &#39;r&#39;) as open_file:
+    line = open_file.readline()
+    while line:
+        print(line)
+        line = open_file.readline()</code></pre>
+    <p>
+      Instead of <code>print(line)</code>, you can imagine doing anything you
+      want to the line of text… If you save it to a variable, you have a string
+      that you can then use something like <code>.strip()</code> or
+      <code>.split()</code> with.
+    </p>
+    <h4 id="dictionaries">Dictionaries <a id="dictionaries"></a></h4>
+    <p>
+      Dictionaries are Python’s way of associating two pieces of data together.
+      The
+      <a
+        href="https://docs.python.org/3.3/tutorial/datastructures.html#dictionaries"
+        >official documentation</a
+      >
+      says it all.
+    </p>
+    <pre
+      class="text"
+    ><code>  student_scores = {&#39;Adama&#39;: 100, &#39;Starbuck&#39;: 75, &#39;Apollo&#39;: 80, &#39;Athena&#39;: 85, &#39;Agathon&#39;: 90}</code></pre>
+    <p>
+      The strings (or whatever happens to the left of the <code>:</code> sign),
+      are called <code>keys</code>. When I want to access the
+      <code>values</code> (the things to the right of the <code>:</code> sign),
+      I need to ask the dictionary for the value associated with the key:
+    </p>
+    <pre
+      class="text"
+    ><code>  adama_score = student_scores[&#39;Adama&#39;]</code></pre>
+    <p>You can then modify the score and save it back to the dictionary:</p>
+    <pre class="text"><code>  adama_score = student_scores[&#39;Adama&#39;]
+  adama_score += 100    % adama_score is now 200. This doesn&#39;t change the dictionary value
+  student_scores[&#39;Adama&#39;] = adama_score     % the score in the dictionary is now updated</code></pre>
+    <p>
+      I can’t ask the dictionary for the key associated with a value, but I can
+      get a list of all the keys, and the same for all the values:
+    </p>
+    <pre class="text"><code>  all_scores = student_scores.keys()
+  all_names = student_scores.values()</code></pre>
+    <p>
+      I can use the <code>in</code> keyword (just like in lists), do
+      <code>dictionary comprehensions</code> like list comprehensions (these are
+      cool, take a look at the
+      <a
+        href="https://docs.python.org/3.3/tutorial/datastructures.html#dictionaries"
+        >official bit about these</a
+      >), and iterate over the elements in the dictionary (the syntax is just a
+      little bit different).
+    </p>
+    <pre class="text"><code>  for pair in student_scores.items():
+    print(pair)</code></pre>
+    <p>
+      And this prints out pairs of keys and values that look like:
+      <code>(Adama, 100)</code>, etc.
+    </p>
+    <p>
+      Because dictionaries are not ordered, looping through them does not
+      guarantee the key / value pairs coming out in a particular order. So be
+      careful.
+    </p>
+  </body>
+</html>

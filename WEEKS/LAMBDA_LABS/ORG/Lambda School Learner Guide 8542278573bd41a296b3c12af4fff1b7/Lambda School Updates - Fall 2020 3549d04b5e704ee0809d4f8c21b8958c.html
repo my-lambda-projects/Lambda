@@ -1,0 +1,650 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lambda School Updates - Fall 2020</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3549d04b-5e70-4ee0-809d-4f8c21b8958c" class="page sans"><header><h1 class="page-title">Lambda School Updates - Fall 2020</h1></header><div class="page-body"><p id="4d88918b-71e6-4aa3-98a9-444a4f52ab31" class=""><em>Starting on Monday (9/28), many of the changes to the school we shared in our School Assembly on 9/4 will begin to roll out to Lambda students. Today, we want to let you know how these changes will impact you, since they will affect each cohort a bit differently depending where the cohort is in the Lambda School journey.</em></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e4f5d84b-1350-4299-aba8-9b241b28042e"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%"><strong>For Lambda students starting Unit 3 on 9/28, here’s what’s new for you:</strong></div></figure><p id="fc30a2cf-d0a4-4845-a4b0-c63e66c8e9a7" class="">
+</p><h2 id="ce8ebe55-b732-4a25-8c04-322b3607f058" class=""><span style="border-bottom:0.05em solid"><em>Lambda Leadership</em></span></h2><p id="6a601cf3-b440-432b-bb8a-b427b7b31859" class="">Employers are looking for new hires who not only have technical knowledge, but also the ability to communicate clearly and work effectively together on professional teams. <a href="https://lambdaschool.com/lambda-leadership">Lambda Leadership</a> helps you build your leadership skills, strengthen your technical skills, and expand your network.</p><p id="e3503643-a20f-4e04-9ee9-309ebb494c4d" class="">
+</p><figure id="998b7e8d-1567-42bb-b4c6-a87c2b845b85" class="image"><a href="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/5f52c621a2fbc069a092b583_llp.jpg"><img style="width:624px" src="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/5f52c621a2fbc069a092b583_llp.jpg"/></a></figure><h3 id="3a600fab-5d21-479b-9691-1b65c031f341" class="">What&#x27;s Changing?</h3><p id="34f8a5d6-504e-4cc0-8965-4991842feccb" class="">There are two main components to the Lambda Leadership Program that we’re introducing on 9/28:</p><ul id="5fd13cb9-9f1a-43d3-8c9b-4e0ec1a349ab" class="bulleted-list"><li style="list-style-type:disc"><strong>Peer Mentorship</strong> is designed to give students the opportunity to both be matched with a peer mentor and be peer mentors themselves. Research shows that this type of social learning can help students solidify their knowledge and build critical team skills - and that these specific skills are in high demand among hiring managers in the industry.</li></ul><ul id="5edf3652-3190-4ee3-8c52-092876c61e34" class="bulleted-list"><li style="list-style-type:disc"><strong>Track Teams </strong>are made up of students from each cohort in a track, and will replace the current cohort stand-up groups. On Track Teams, students will rotate into various leadership roles. In most cases, the Track Team will become your Build Sprint team.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="54d1f7e1-2232-4ce6-bf63-5532b961b274"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">We’ve been piloting both of these programs for several months, and based on student feedback, we’ve made adjustments such as adding more mentor skills training and refining content for Track Teams.</div></figure><p id="796ffd85-2556-4158-aaae-4a3084c9e634" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8df2082b-c0c4-481f-aab3-bbc4a758b28f"><div style="font-size:1.5em"><span class="icon">📚</span></div><div style="width:100%">While we’re rolling out the Lambda Leadership Program this fall, we’re also in the process of <strong>doubling our number of instructors across Web and Data Science</strong> to provide extra technical support to students. These additional instructors will enable Lambda School to offer additional support hours and thematic Q&amp;A sessions. Instructors will also be available to provide more 1:1 guidance to students who need focused support.</div></figure><p id="7471a3e1-eb1a-4961-a8c2-96e77bdb793c" class="">
+</p><h3 id="5376536d-5c00-47c8-9974-54d0396f6da4" class=""><strong>How this affects you and other students starting Unit 3 on 9/28:	</strong></h3><ul id="be485a7b-ef72-42cf-9490-d0c42b8829ca" class="bulleted-list"><li style="list-style-type:disc">You’ll be assigned a peer mentor who is further along in your track. With your peer mentor, you’ll talk through projects, practice technical interview skills, and get 1:1 support from someone further along in their Lambda journey. You’ll also serve as a peer mentor to someone earlier in their Lambda journey. Before you become a peer mentor, we’ll provide training on best practices to set you up for success.</li></ul><ul id="2d9c55f0-1456-4326-84c9-60dc2bb1c3fa" class="bulleted-list"><li style="list-style-type:disc">You’ll also be added to a Track Team. With your Track Team, you’ll receive leadership training, build team skills, and gain valuable practice on behavioral and technical interview skills during stand-up time in Sprints 1-3.</li></ul><ul id="c324c812-673d-46e7-b59e-f5b68d3c1b5d" class="bulleted-list"><li style="list-style-type:disc">Full-time students will receive a Slack message by Monday morning about their Track Teams, peer mentor, and peer mentee. Part-time students will receive a Slack message on Wednesday before class starts.</li></ul><ul id="bcdc5f2c-d364-4f36-835c-cab7cc1283cd" class="bulleted-list"><li style="list-style-type:disc">There will be an orientation for Lambda Leadership the week of 9/28 - stay tuned for more news in your cohort channel!</li></ul><p id="ffb6e63f-5d1c-49fa-83a3-79977df47477" class="">
+</p><h2 id="4bc9cd5f-8148-4e7b-ae5f-5793024c5548" class=""><span style="border-bottom:0.05em solid"><em>Shortened School Schedule</em></span></h2><p id="030cd67a-2bd7-47ac-93be-ac8a8c5b7a39" class="">We know that it can be difficult to take this much time to focus on Lambda School. Many of you are dealing with real challenges around how to financially support yourselves and your families, or how to manage other commitments such as child care. In response to your concerns, we’ve worked hand-in-hand with hiring managers to develop a new curriculum that can prepare you for a tech job in a shorter amount of time.</p><p id="a8a21d30-349d-4adc-b4b9-4d3544770434" class="">
+</p><figure id="16083f92-4f40-4327-9cc2-93b27947d838" class="image"><a href="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/5f52c9eb80177e7d6a318be4_shortenschool.jpg"><img style="width:624px" src="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/5f52c9eb80177e7d6a318be4_shortenschool.jpg"/></a></figure><h3 id="bbe3908c-0902-4693-9d5e-2a0d2877a801" class=""><strong>What’s changing?</strong></h3><ul id="cd6faf0b-a9a0-4b3f-bc01-2bbe3fee7bfd" class="bulleted-list"><li style="list-style-type:disc"><strong>CS: </strong>We’ve updated and streamlined CS content into one unit instead of two based on what we’re seeing in industry. The new CS curriculum will focus on the CS skills you’ll need to succeed in technical interviews and early on in your new jobs. For more on what exactly is changing in the CS curriculum, <a href="https://www.notion.so/FAQ-regarding-New-CS-Curriculum-9881388a95c24d388323e0b01a269aa4">please see this FAQ</a>.</li></ul><ul id="19c0d84c-504f-4601-bc78-6417ad255990" class="bulleted-list"><li style="list-style-type:disc"><strong>Labs: </strong>We’ve updated and streamlined Labs content into one unit instead of two. Hiring managers overwhelmingly told us they are looking for practical teamwork experience over portfolio pieces - and we believe you can attain this experience in one unit.</li></ul><ul id="3176d4ef-03fe-4a2e-b4fc-c2d2b1634c11" class="bulleted-list"><li style="list-style-type:disc">The updated CS and Labs curriculum allows Lambda School to be 24 Sprints long instead of 32 Sprints.</li></ul><h3 id="5d3ac706-42c6-494b-b179-dd665e909ba9" class=""><strong>How this affects you and others starting Unit 3 on 9/28:			</strong></h3><ul id="be4589e9-d29c-442b-9f70-f884f9ddf66d" class="bulleted-list"><li style="list-style-type:disc">Students starting Unit 3, like you, will complete Lambda School’s program in <strong>24 sprints.</strong></li></ul><ul id="027add01-6dc2-4997-afce-66090aa7fcf7" class="bulleted-list"><li style="list-style-type:disc"><strong>As a current student, you have the option to opt out of this change and complete all 32 sprints. </strong>The final deadline to opt out will be the end of the last day of your first sprint of Labs, but before that date, we’ll check in with you about what you’d like to do. <strong>There’s</strong> <strong>no need to let us know sooner</strong> that you’d like to opt out; we’ll be in touch with you when the deadline is approaching.</li></ul><ul id="a7f00d99-d0df-47dc-8c4c-398d772e0c0f" class="bulleted-list"><li style="list-style-type:disc">Please note existing FT students who flex into cohorts that start on 9/28 or prior and PT students who flex into cohorts that start 10/26 or prior will still have the ability to opt-out of the shortened school schedule. However, we will no longer be able to offer opting-out of the shortened school schedule for cohorts starting after 9/28 for FT and after 10/26 for PT.</li></ul><p id="6d7f8c6d-b388-4e6b-b633-ba9a70feb8fe" class="">
+</p><h2 id="c3440284-94c6-48ce-bff4-d284aed6cdb7" class=""><span style="border-bottom:0.05em solid"><em>Career Services</em></span></h2><p id="45b6d277-c7b4-4675-9105-a22a0cf55960" class="">To support students in their job search, we’ve redesigned our Career Services to give students more practice with career-building skills throughout the program and after graduation.</p><p id="bcb8683d-2174-4c06-b841-63c2c69371f4" class="">
+</p><figure id="7545715a-d01f-4118-b8a6-550b78b522a4" class="image"><a href="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/zoom.jpg"><img style="width:528px" src="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/zoom.jpg"/></a></figure><p id="9791cc2b-7e9c-4bff-a7a1-8c39107bc1b2" class="">
+</p><h3 id="e766f289-d5b1-431e-ac70-d91ea5a47d3a" class=""><strong>What’s changing?</strong></h3><ul id="3cc792cf-936e-405b-85fc-61fb7b412e7a" class="bulleted-list"><li style="list-style-type:disc"><strong>Networking</strong>: During your Career Lessons and Track Team meetings, we’ve integrated additional networking lessons and resources. Topics will include how to build your resume, how to refine your social media profiles, how to conduct cold outreach to industry professionals, and more.</li></ul><ul id="6dd07fb1-12d7-4ea2-9189-e2600efb546a" class="bulleted-list"><li style="list-style-type:disc"><strong>Interview Practice</strong>: <a href="https://my.lambdaschool.com/interviewing">Practice for technical and behavioral interviews</a> will now occur more frequently throughout the program. This will take many forms, from explaining technical concepts with your peer mentor to in-depth coding assessments in CS. During your Lambda experience, you’ll also take interviews with professional technical interviewers to prepare for the job search. Students who would like additional support with interview skills will have access to <a href="https://my.lambdaschool.com/career-help">Career Coaches</a> throughout their journey.</li></ul><ul id="6adce180-a70a-4a13-89a8-e87ab37c0755" class="bulleted-list"><li style="list-style-type:disc"><strong>Industry Mentors: </strong>We’re expanding our popular <strong><a href="https://www.notion.so/Industry-Mentor-Program-28782181f2e04060b266d447b10cdee0">Industry Mentorship Program</a></strong> so that all students can participate once they reach Labs. Working with an Industry Mentor will help you build your network and give you more real-world career skills.</li></ul><ul id="8082bc41-55cb-4c6b-a418-0e555ced0eb4" class="bulleted-list"><li style="list-style-type:disc"><strong>Job Search</strong>: After you graduate, you’ll receive <a href="https://my.lambdaschool.com/job-search">dedicated support to help you land a job</a>. You will work 1:1 with <a href="https://my.lambdaschool.com/career-help">a Job Search Trainer</a>, use our <a href="https://careers.lambdaschool.com/">Job Board</a> to track your progress, and receive access to Career Coaches to prepare for your scheduled interviews. We’ll work hard to match you with job opportunities from our hiring partners, too.</li></ul><h3 id="9b38e7a8-5c63-4119-9b76-ac34926215da" class=""><strong>How this affects you and others starting Unit 3 on 9/28:</strong></h3><ul id="916cdbd4-4aee-4301-b85f-eced21f2a115" class="bulleted-list"><li style="list-style-type:disc">Students starting in Unit 3, like you, will quickly notice the greater emphasis on networking and interview practice integrated into the program.</li></ul><ul id="aee01603-8a56-4fa4-ad68-06172601e566" class="bulleted-list"><li style="list-style-type:disc">You’ll be matched with an industry mentor when you reach Labs.</li></ul><ul id="8ea6394c-c303-47da-8565-b3e50285cea7" class="bulleted-list"><li style="list-style-type:disc">The Job Search resources will be available to you once you graduate.</li></ul><p id="f204e1ca-50f5-4f78-a191-39750397d096" class="">
+</p><figure id="862e7fe5-4fd7-4df1-8831-386cd0b76b3d" class="image"><a href="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/5f52c975c84b87b890d6ca62_canvas.jpg"><img style="width:576px" src="Lambda%20School%20Updates%20-%20Fall%202020%20d1eed9a6d9944ae3bac2f19ac45ae219/5f52c975c84b87b890d6ca62_canvas.jpg"/></a></figure><p id="da845425-2893-48f2-93bc-37547c726031" class="">
+</p><p id="cd0e61ea-f5ca-43eb-8110-0fa60fa445e0" class="">In addition to the changes described above, you’ll notice a few other changes rolling out this month to support your learning experience:</p><ul id="1b3ee85d-7449-40e8-8b89-feff27d04670" class="bulleted-list"><li style="list-style-type:disc">We’ll be <strong>migrating students from Training Kit to a platform called Canvas </strong>to improve the curriculum experience. We’ve been piloting Canvas with select cohorts, and the pilot groups have found the Canvas platform to be easy-to-use and valuable in guiding the learning experience. Starting on 9/28, you&#x27;ll use Canvas to find your course content, assignments, guided project materials, and more. You’ll also use Canvas to submit assignments, which will include check-for-understanding questions, self-reflections, and the ability to provide feedback on your experience. We’re offering training on Canvas tomorrow (Friday) for FT and Monday for PT cohorts; the details are on your cohort calendar.</li></ul><ul id="1882eaa6-9aa9-40a3-9bda-4617327537b2" class="bulleted-list"><li style="list-style-type:disc">We’ve already <strong>rolled out an </strong><a href="Flex%20327badd4502a4fc099db0effa1e69474.html"><strong>improved Flex policy</strong></a><strong> earlier this month</strong>. Going forward, we’ll continue to iterate on this policy based on student and staff feedback. We’ll be in touch to make you aware of any future changes to flex policies or procedures.</li></ul><ul id="f148ec6a-9c80-4e6c-a699-87d17a845a6c" class="bulleted-list"><li style="list-style-type:disc">We’re <strong>revamping our /frontdesk support </strong>to ensure we can respond to your questions and requests more promptly. Please remember that responses to /frontdesk inquires will still reach you <strong>via your Lambda school email.</strong></li></ul><ul id="10e24043-a86c-48d4-8323-7e0e3695575b" class="bulleted-list"><li style="list-style-type:disc">Again, we’re <strong>doubling our number of instructors across Web and Data Science</strong> to provide additional technical support to students. These additional instructors will enable us to offer more support hours, thematic Q&amp;A sessions, and 1:1 guidance to students who need focused support.</li></ul><p id="014dc795-9495-42f0-bc4a-9423821c967f" class="">
+</p><p id="61639ff0-d53f-4e30-915a-59d5692025de" class="">❓<strong>What if you Flex and repeat Unit 2?</strong> Don’t worry! We&#x27;ll reach out to be sure you understand exactly what&#x27;s changing for Unit 2 students starting on 9/28.</p><p id="06df8d62-1f12-45b4-9de8-911cd79f9b98" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="770ba0fc-9fb4-4a94-9777-e6826bd51f30"><div style="font-size:1.5em"><span class="icon">☎️</span></div><div style="width:100%">Thanks for reading - we know this is a lot of information! As a reminder, we’ll be hosting an optional Q&amp;A session for your cohort tomorrow (Friday). <strong>The Zoom link for your cohort’s session is in your cohort calendar.</strong> In advance of the Q&amp;A session, please add any questions you may have to the Slido for your cohort’s session (link in both the Slack message and your cohort calendar). </div></figure><p id="07dd42cb-3762-4143-bf13-7460ef8ff1b8" class="">
+</p></div></article></body></html>

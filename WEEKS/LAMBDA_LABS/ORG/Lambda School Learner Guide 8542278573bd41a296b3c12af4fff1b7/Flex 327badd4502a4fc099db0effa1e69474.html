@@ -1,0 +1,650 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Flex</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="327badd4-502a-4fc0-99db-0effa1e69474" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/woodcuts_14.jpg" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🎓</span></div><h1 class="page-title">Flex</h1></header><div class="page-body"><h2 id="01f5f3b4-1818-4d96-912a-4a55aa6b1edf" class="block-color-teal_background"><strong>What is Flex?</strong></h2><p id="47497f85-d510-4c93-930d-4b116a7b66b2" class="">
+</p><p id="6ba220b1-98a0-4a74-a2e5-71e1396f31ca" class="">The flex program is an opportunity for students to repeat content that they have not yet mastered.</p><p id="3afa552e-4c09-4892-93e5-eecbcafa9ca2" class="">At Lambda School, we want students to feel confident in their skills and abilities every step of the way. That means mastering each set of objectives before moving on to the next.</p><p id="cafb4048-3eb4-4531-aa8c-e3c08ffcb505" class="">Flex allows students to repeat content when they need to, taking the time to build a solid foundation and master the skills they need to move forward. Flex puts students in the driver&#x27;s seat of their learning - allowing a student to say, “I’ve got this, I am ready to move on” or “I haven’t yet mastered this content and I would like to repeat the unit.” It is one thing to put in the reps to understand the concepts - it is another to be able to truly demonstrate that you have mastered the objectives to the point of being ready for the job search.</p><p id="5edb6169-81fa-4c9f-b768-42bf77dbec14" class="">When we see that a student may need additional help with the content, we’ll proactively reach out to support the student. We have resources in place that can help students on their learning journey, including support hours and academic success planning. In addition, students can always reach out to us directly for support via Front Desk or reach out to the Learner Success Advisor.</p><p id="0d37d6df-3728-4b30-a8fc-404e4612d1e8" class="">Based on the number of Sprints a student does not successfully complete, a student will fall into one of two categories:</p><ol type="1" id="c53a8f6c-c106-4ede-bfae-dc113b93fc9a" class="numbered-list" start="1"><li>Flex optional</li></ol><ol type="1" id="80f87a3f-7da9-4b25-bf02-5a98e9d3aa35" class="numbered-list" start="2"><li>Flex required</li></ol><p id="46939f1b-5f9d-4c6a-a561-24b28b153baf" class="">Flex optional is reserved for students who choose to opt into flex, but have otherwise passed the unit requirements. This option is for students who have demonstrated mastery over the objectives, however, they would like to repeat the unit to gain further mastery before moving on to the next unit. We don’t want you to just go through the motions and move forward - we want you ready to land the job when it comes time. Sometimes that means repeating content to fully master the objectives.</p><p id="e2a1f3dd-39ce-4eaa-824b-3717fe798f68" class="">Please read the remaining information below to understand how and when a student will know what category they may fall into in any given unit.</p><h2 id="f8dc77ff-4ce6-45e5-ae37-fc53c669dfbc" class="block-color-teal_background"><strong>What does it mean to complete a Sprint?</strong></h2><p id="973be362-fa94-44a6-a9ba-e4ac78dfe7fc" class="">
+</p><p id="7dc6f3e4-a862-4c5f-9f64-22f1d70611fa" class="">At Lambda School, we look at a comprehensive picture of each Sprint to determine how a student is doing. This includes, but is not limited to: Checks for Understanding, Pulse Checks, Sprint Assessments, and Sprint Retros. For units such as Unit 4, Computer Science, and Labs - this may also include interviews, code challenge assessments, and the CodeSignal General Code Assessment (GCA). These interview and assessment markers are one way that we determine whether or not a student has mastered the necessary skills and is job ready.</p><p id="f7d4f1f1-93a0-4ed7-858a-72373231ad61" class="">Please note that a successful sprint completion is not based on the sprint assessment or retro alone - it is based on mastery of the sprint’s objectives, as demonstrated through each assessment throughout the sprint.</p><h2 id="8ba26c05-85c7-4760-a55e-27253d61f133" class="block-color-teal_background"><strong>What happens if a Student does not demonstrate competency in one or more Sprints in a unit?</strong></h2><p id="f7c32ad8-2a65-41d8-a785-b0bd2f260706" class="">
+</p><p id="21c9999c-9eed-4e59-8a2c-ff19063cb702" class="">When we identify that a student may be struggling with the content, we will get the student connected with an instructor to talk about the areas the student may need additional support. During these conversations, students and instructors will determine support needs and options, as well as determine if the student needs to repeat the unit or if they are able to move forward.</p><p id="f1c77d9b-8b18-49f1-966f-111abbb97767" class="">Students will receive specific unit level requirements regarding what it means to successfully complete a sprint and the unit.</p><h2 id="4808aabd-cff0-479c-8013-b540efe55aa7" class="block-color-teal_background"><strong>How do I let Lambda School know that I want to Flex or move forward?</strong></h2><p id="daa50dd9-1175-49ac-b691-882a077d1767" class="">At Lambda School, we believe that students know themselves best. Therefore, they may decide that what is best for their learning is to repeat the content and flex. All students are on their own journey with learning the content, and we encourage ownership over what it takes to develop the foundation and skills to get there. Students may reach out through Front Desk to talk to a Learner Success Advisor about opting into flex. However, if a learner has been required to flex by an instructor, the learner must repeat the unit and is not eligible to continue forward in the curriculum. Please note that the maximum attempts at any given unit is two, and is the same whether the person opted into flex or the flex was required by the instructor.</p><h2 id="42536d49-c3e3-4f8f-9411-b379787e61f4" class="">FAQs:</h2><ul id="5b52175f-8fad-465d-921b-ec624b425532" class="toggle"><li><details open=""><summary><strong>Will Flex still be on a unit basis?</strong> </summary><p id="353932c2-7bb9-4a8e-8db8-625fc9e09d60" class="">At this time, yes.</p></details></li></ul><ul id="efc18feb-bba6-4909-bfed-3643bb2a2be4" class="toggle"><li><details open=""><summary><strong>Can I opt into Flex before Sprint 4?</strong></summary><p id="539b88fe-8e61-4289-b05e-8fc35f3ae4a7" class="">No, the opt-in flex window will begin Monday of sprint 4 and will close on Thursday of sprint 4 at 5:00pm PST. If you successfully complete all of the sprints, but feel like you do not have mastery over the content and would like to repeat the unit, you may opt-in.</p></details></li></ul><ul id="0beae48e-0eaa-442c-9d22-31a2c442e340" class="toggle"><li><details open=""><summary><strong>Can I be required to Flex? If so, by whom?</strong></summary><p id="52df946f-2ad1-4935-8fed-178acd90f205" class="">Yes. Students may be required by an instructor to repeat the content of a unit in order to master the objectives if they are unable to demonstrate that they have solid mastery.</p><p id="63bde9f1-6a7a-4b86-998c-a89d9ec9c384" class="">Additionally, in Unit 4, Computer Science, and Labs there are additional graduation requirements that show that you are ready for the job search and job. These must be successfully completed prior to moving on to the next portion of the program (please see requirements in your cohort channel for specifics).</p></details></li></ul><ul id="908ce15e-2e55-4d75-8d69-4f9c5a150f25" class="toggle"><li><details open=""><summary><strong>Does this mean that I do not need to submit assignments and forms and/or submit them by the deadlines?</strong></summary><p id="53b6ec8c-54ae-4c27-ae58-c9976314206e" class="">No. Expectations for submission deadlines are still in place. Think of this as you would your future place of work, there are deadlines in place that you must meet as a requirement of your work and to demonstrate progress towards bigger goals. We expect that all students will adhere to the deadlines.</p><p id="244eabbd-3b83-4243-9c18-ac0a18817743" class="">We are looking at students more holistically throughout the sprint in terms of mastery of objectives. It is important that you not only submit the assignments each day, but that you do so on time.</p></details></li></ul><ul id="92610a28-b953-4d0b-9abb-7928505032ff" class="toggle"><li><details open=""><summary><strong>Can I/should I still attempt to resubmit my assignments?</strong></summary><p id="1305796b-08b7-4a21-801c-3ee92eab9313" class="">Yes! The goal is solid mastery over the content. If there is content that you need to work on, we encourage you to keep trying, keep practicing, and keep reaching out for support!</p><p id="9aefea30-5294-4afe-ad75-0422d7e3d7f6" class="">While sprint by sprint, your submissions will give us a picture of where you are at in the moment, your resubmissions will give us a clear picture at the end of the unit to determine where you are in terms of mastery of the objectives.</p><p id="94b8fce7-7217-4f11-97e6-1393709d0829" class="">Please note that all resubmissions to be considered on the unit level need to be complete no later than the deadline for Sprint 4, unless otherwise noted in your cohort communications (for example, CS, Labs, and Unit 4).</p></details></li></ul><ul id="79cc265b-0cfb-40a4-b911-bfcdc61a7ea2" class="toggle"><li><details open=""><summary><strong>What is expected of me if I want to Flex and there is still a Sprint or two left in the unit? </strong></summary><p id="c199d89f-904d-43be-bb02-d60e241ec39e" class="">We believe that it is important that you continue to actively participate for the remainder of the unit. First, it helps with mastery when you repeat if you have seen and attempted the content before. Second, you will be able to identify the key areas that you need to hone in on and plan for when you flex. Finally, it builds good habits! Dropping off and/or not meeting expectations doesn’t set you up for success the next time around.</p><p id="71e98567-4d68-45fe-85ad-ff2d61a33790" class="">We require that all students continue to adhere to expectations on attendance, participation, and submission of assignments. Failure to continue participation and engagement in the unit, including build sprint may lead to removal from the program. Keep working hard and keep asking for support - it will help you in the long run!</p></details></li></ul><ul id="4c085a85-6c91-484d-ba32-b252def70f61" class="toggle"><li><details open=""><summary><strong>How many times am I able to Flex?</strong></summary><p id="40466ca4-0860-4159-b8a9-be89bcbf5da6" class="">Students may flex one time per unit, meaning that they may go through the same unit a total of two times.</p><p id="dd1bcc89-90d8-443d-9215-eb1308bf6ffd" class="">Students may flex one time per unit - there is no limit to the number of separate units a student flexes in their time at Lambda School. For example, a student may flex unit 1, unit 2, unit 3, unit 4, CS, and labs.</p><p id="d895249a-765c-4872-afa7-3291bc0f2303" class="">Students who are not able to complete the unit on the second attempt will be withdrawn from the program.</p></details></li></ul><ul id="a72d9c6e-abbe-49bc-8641-bcad52d7c7fd" class="toggle"><li><details open=""><summary><strong>If I Flex, do I have to re-do all the work for that Unit? Or just the work that needs improvement? </strong></summary><p id="24694b62-3d03-4f78-bc31-4eb77e71c941" class="">Students who Flex a Unit must redo all projects, quizzes and sprint challenges. Please delete older versions of sprint challenges from GitHub and re-fork/ clone the assignment to ensure you are working on the most up to date version. Ensure that you are completing the assignments in the Canvas course for your current cohort. Work completed in a past unit or sprint will not be accepted. A score of 0 will be given if a student doesn&#x27;t turn in newly completed work.</p></details></li></ul><ul id="416c25e0-6995-4735-ba94-7d6cb630e953" class="toggle"><li><details open=""><summary><strong>If I passed a Unit, but choose to Flex, can my passing score be the one that counts? </strong></summary><p id="0c3a9934-ae40-46a8-b421-d7138099047e" class="">For the purposes of course completion, Learner Success looks to your most recent attempt at a Unit, because this reflects your current level of effort and mastery of the material. </p></details></li></ul><p id="b566be5a-702b-4be4-a882-23c8eb835366" class=""><a href="">Back to Top</a></p><h1 id="5dba5f7e-86ac-42f6-a74f-1f3916ae7dd9" class="">Have Questions?</h1><p id="fb8e6687-18cc-4669-9d5a-f09ca8ec1ead" class="">Contact Student Success via <code>/frontdesk</code> on Slack.</p><p id="49e1796b-1a12-48a1-aa91-ddc0d0f172e3" class=""><a href="">Back to Top</a></p><p id="72771dda-2372-4668-b0da-2654787fb3dc" class="">
+</p><ul id="73504891-c2e5-4f02-bd31-e98968b33e3e" class="toggle"><li><details open=""><summary>Revision History</summary><p id="48fa9b1c-a79f-4062-8f34-856917861ba3" class="">October 11, 2019, shared with students October 11, 2019</p><p id="baa77dfd-8adf-409e-b021-31d1faf5c52f" class="">June 11, 2020, shared with students June 11, 2020</p><p id="f818c393-ff40-41ad-b5b7-01429383be12" class="">July 31, 2020, shared with students July 31, 2020</p><p id="12d0bb36-6909-4824-8fa7-e8074b08ecbc" class="">September 9, 2020, shared with students September 9, 2020</p><p id="1f95665c-66ab-43ba-a050-464ab920f04c" class="">October 28, 2020, shared with students October 28, 2020</p><p id="19880ee0-0bb3-422e-8e1c-42e45d53423a" class="">April 19, 2021</p></details></li></ul><p id="e8a63ac7-696f-455a-a975-9f4114be3f56" class="">
+</p><p id="3bf20304-f37f-4c2e-839c-78bba7f39570" class="">
+</p><p id="28b8c92b-6c8a-41a7-b046-03ffc0aa3d84" class="">Copyright Lambda School 2020, All Rights Reserved</p><p id="12fe7301-101b-4647-a150-d4fc63d250ec" class="">
+</p><p id="7c57aa69-2f6d-458c-bec7-808c749cba84" class="">
+</p><p id="f1a013f5-33d8-453d-9c98-8f5e7b6ec516" class="">
+</p><p id="98a453f9-f57d-4b5e-b22c-e23272bc42ea" class="">
+</p><p id="459ade3d-87fc-451c-86f9-90f3582323b4" class="">
+</p><p id="a32c1bfa-6e17-497f-ac31-3e17c6ed31c1" class="">
+</p><p id="14249450-6777-4f0e-8b9a-37934ffdea32" class="">
+</p><p id="5e3b567a-0884-4ea9-92a7-14c91d6599e4" class="">
+</p></div></article></body></html>

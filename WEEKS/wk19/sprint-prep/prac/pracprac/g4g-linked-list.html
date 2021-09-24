@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>g4g-linked-list</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="python-program-to-reverse-a-linked-list---geeksforgeeks">
+      Python Program to Reverse a linked list - GeeksforGeeks
+    </h1>
+    <blockquote>
+      <p>
+        A Computer Science portal for geeks. It contains well written, well
+        thought and well explained computer science and programming articles,
+        quizzes and practice/competitive programming/company interview
+        Questions.
+      </p>
+    </blockquote>
+    <p>
+      Given pointer to the head node of a linked list, the task is to reverse
+      the linked list. We need to reverse the list by changing links between
+      nodes.<br />
+      Examples: 
+    </p>
+    <p>
+      Input : Head of following linked list<br />
+      1-&gt;2-&gt;3-&gt;4-&gt;NULL Output : Linked list should be changed to,
+      4-&gt;3-&gt;2-&gt;1-&gt;NULL
+    </p>
+    <p>
+      Input : Head of following linked list<br />
+      1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL Output : Linked list should be changed
+      to, 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+    </p>
+    <p>Input : NULL Output : NULL</p>
+    <p>Input : 1-&gt;NULL Output : 1-&gt;NULL</p>
+    <p><strong>Iterative Method</strong>  </p>
+    <ul>
+      <li>Python</li>
+    </ul>
+    <h2 id="python">Python</h2>
+    <p><code>class</code> <code>Node:</code></p>
+    <p><code>def</code> <code>__init__(``self``, data):</code></p>
+    <p><code>self``.data</code> <code>=</code> <code>data</code></p>
+    <p><code>self``.``next</code> <code>=</code> <code>None</code></p>
+    <p><code>class</code> <code>LinkedList:</code></p>
+    <p><code>def</code> <code>__init__(``self``):</code></p>
+    <p><code>self``.head</code> <code>=</code> <code>None</code></p>
+    <p><code>def</code> <code>reverse(``self``):</code></p>
+    <p><code>prev</code> <code>=</code> <code>None</code></p>
+    <p><code>current</code> <code>=</code> <code>self``.head</code></p>
+    <p>
+      <code>while``(current</code> <code>is</code> <code>not</code>
+      <code>None``):</code>
+    </p>
+    <p><code>next</code> <code>=</code> <code>current.``next</code></p>
+    <p><code>current.``next</code> <code>=</code> <code>prev</code></p>
+    <p><code>prev</code> <code>=</code> <code>current</code></p>
+    <p><code>current</code> <code>=</code> <code>next</code></p>
+    <p><code>self``.head</code> <code>=</code> <code>prev</code></p>
+    <p><code>def</code> <code>push(``self``, new_data):</code></p>
+    <p><code>new_node</code> <code>=</code> <code>Node(new_data)</code></p>
+    <p><code>new_node.``next</code> <code>=</code> <code>self``.head</code></p>
+    <p><code>self``.head</code> <code>=</code> <code>new_node</code></p>
+    <p><code>def</code> <code>printList(``self``):</code></p>
+    <p><code>temp</code> <code>=</code> <code>self``.head</code></p>
+    <p><code>while``(temp):</code></p>
+    <p><code>print</code> <code>temp.data,</code></p>
+    <p><code>temp</code> <code>=</code> <code>temp.``next</code></p>
+    <p><code>llist</code> <code>=</code> <code>LinkedList()</code></p>
+    <p><code>llist.push(``20``)</code></p>
+    <p><code>llist.push(``4``)</code></p>
+    <p><code>llist.push(``15``)</code></p>
+    <p><code>llist.push(``85``)</code></p>
+    <p><code>print</code> <code>"Given Linked List"</code></p>
+    <p><code>llist.printList()</code></p>
+    <p><code>llist.reverse()</code></p>
+    <p><code>print</code> <code>"\nReversed Linked List"</code></p>
+    <p><code>llist.printList()</code></p>
+    <p><strong>Output:</strong> </p>
+    <p>Given Linked List 85 15 4 20 Reversed Linked List 20 4 15 85</p>
+    <p><strong>A Simpler and Tail Recursive Method</strong> </p>
+    <ul>
+      <li>Python</li>
+    </ul>
+    <h2 id="python-1">Python</h2>
+    <p><code>class</code> <code>Node:</code></p>
+    <p><code>def</code> <code>__init__(``self``, data):</code></p>
+    <p><code>self``.data</code> <code>=</code> <code>data</code></p>
+    <p><code>self``.``next</code> <code>=</code> <code>None</code></p>
+    <p><code>class</code> <code>LinkedList:</code></p>
+    <p><code>def</code> <code>__init__(``self``):</code></p>
+    <p><code>self``.head</code> <code>=</code> <code>None</code></p>
+    <p><code>def</code> <code>reverseUtil(``self``, curr, prev):</code></p>
+    <p>
+      <code>if</code> <code>curr.``next</code> <code>is</code>
+      <code>None``:</code>
+    </p>
+    <p><code>self``.head</code> <code>=</code> <code>curr</code></p>
+    <p><code>curr.``next</code> <code>=</code> <code>prev</code></p>
+    <p><code>return</code></p>
+    <p><code>next</code> <code>=</code> <code>curr.``next</code></p>
+    <p><code>curr.``next</code> <code>=</code> <code>prev</code></p>
+    <p><code>self``.reverseUtil(``next``, curr)</code></p>
+    <p><code>def</code> <code>reverse(``self``):</code></p>
+    <p>
+      <code>if</code> <code>self``.head</code> <code>is</code>
+      <code>None``:</code>
+    </p>
+    <p><code>return</code></p>
+    <p><code>self``.reverseUtil(``self``.head,</code> <code>None``)</code></p>
+    <p><code>def</code> <code>push(``self``, new_data):</code></p>
+    <p><code>new_node</code> <code>=</code> <code>Node(new_data)</code></p>
+    <p><code>new_node.``next</code> <code>=</code> <code>self``.head</code></p>
+    <p><code>self``.head</code> <code>=</code> <code>new_node</code></p>
+    <p><code>def</code> <code>printList(``self``):</code></p>
+    <p><code>temp</code> <code>=</code> <code>self``.head</code></p>
+    <p><code>while``(temp):</code></p>
+    <p><code>print</code> <code>temp.data,</code></p>
+    <p><code>temp</code> <code>=</code> <code>temp.``next</code></p>
+    <p><code>llist</code> <code>=</code> <code>LinkedList()</code></p>
+    <p><code>llist.push(``8``)</code></p>
+    <p><code>llist.push(``7``)</code></p>
+    <p><code>llist.push(``6``)</code></p>
+    <p><code>llist.push(``5``)</code></p>
+    <p><code>llist.push(``4``)</code></p>
+    <p><code>llist.push(``3``)</code></p>
+    <p><code>llist.push(``2``)</code></p>
+    <p><code>llist.push(``1``)</code></p>
+    <p><code>print</code> <code>"Given linked list"</code></p>
+    <p><code>llist.printList()</code></p>
+    <p><code>llist.reverse()</code></p>
+    <p><code>print</code> <code>"\nReverse linked list"</code></p>
+    <p><code>llist.printList()</code></p>
+    <p>
+      Please refer complete article on
+      <a href="https://www.geeksforgeeks.org/reverse-a-linked-list/"
+        >Reverse a linked list</a
+      >
+      for more details!
+    </p>
+    <p>
+      <a
+        href="https://www.geeksforgeeks.org/python-program-for-reverse-a-linked-list/"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>

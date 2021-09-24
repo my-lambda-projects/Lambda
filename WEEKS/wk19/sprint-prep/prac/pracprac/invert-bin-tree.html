@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>invert-bin-tree</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h4 id="understanding-the-problem">Understanding the problem</h4>
+    <p>Problem description: Invert a binary tree.</p>
+    <p>
+      An inverted form of a Binary Tree is another Binary Tree with left and
+      right children of all non-leaf nodes interchanged. You may also call it
+      the mirror of the input tree.
+    </p>
+    <p>
+      NOTE: The tree is binary so there could be a maximum of two child nodes.
+      This problem was originally inspired by <a
+        href="https://twitter.com/mxcl/status/608682016205344768"
+        >this tweet</a
+      > by <a href="https://twitter.com/mxcl">Max Howell</a> .
+    </p>
+    <p>
+      Now, figure out that what does the interviewer mean when he says invert a
+      binary tree, it would be helpful when you start looking at an example.
+    </p>
+    <p>Example 1</p>
+    <p>
+      <img
+        src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/invert-a-binary-tree-input1-4aa635c761b7a493.png"
+      />
+    </p>
+    <p>Example 2</p>
+    <p>
+      <img
+        src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/invert-a-bianry-tree-input2-2bcb260fdb270621.png"
+      />
+    </p>
+    <p>
+      Explanation : You can observe that the root’s left pointer started
+      pointing towards the right child and the right pointer towards the left
+      child and a similar condition is noticed for all the sub root nodes.
+    </p>
+    <p>The node structure for the BST passed to your function will be</p>
+    <pre><code>class TreeNode
+{
+    int val
+    TreeNode left
+    TreeNode right
+}</code></pre>
+    <h4 id="recursive-and-iterative-solutions">
+      Recursive and iterative solutions
+    </h4>
+    <p>We will be discussing three approaches to solve this problem</p>
+    <ol type="1">
+      <li>
+        Recursive solution (similar to pre-order traversal) :  Solve the problem
+        by swapping the left and right child for the root of each subtree
+        recursively.
+      </li>
+      <li>
+        Using Iterative Preorder Traversal : We can convert the above recursive
+        solution to iterative using stack.
+      </li>
+      <li>Using Level order traversal : iterative approach using queue</li>
+    </ol>
+    <h4 id="recursive-solution">1. Recursive Solution</h4>
+    <p>
+      The key insight here is to realize that in order to invert a binary tree
+      we only need to swap the children and recursively solve the two smaller
+      sub-problems (same problem but for smaller input size) of left and right
+      sub-tree. This looks similar to the idea of pre-order traversal.
+    </p>
+    <p>The steps to be followed are  :</p>
+    <ul>
+      <li>
+        When the tree is empty return NULL. This is also our base case to stop
+        recursive calls.
+      </li>
+      <li>
+        For every node encountered we swap its left and right child before
+        recursively inverting its left and right subtree.
+      </li>
+    </ul>
+    <blockquote>
+      <p>Pseudo Code</p>
+    </blockquote>
+    <pre><code>// Function to invert given binary Tree using preorder traversal
+void invertBinaryTree(TreeNode root)
+{
+    // base case: if tree is empty
+    if (root == Null)
+        return
+    // swap left subtree with right subtree
+    swap(root.left, root.right)
+    // invert left subtree
+    invertBinaryTree(root.left)
+    // invert right subtree
+    invertBinaryTree(root.right)
+}</code></pre>
+    <blockquote>
+      <p>Complexity Analysis</p>
+    </blockquote>
+    <p>
+      In the above approach, we are traversing each node of the tree only
+      once. Time complexity: O(n)
+    </p>
+    <p>
+      Space Complexity of this algorithm is proportional to the maximum depth of
+      recursion tree generated which is equal to the height of the tree (h).
+    </p>
+    <p>
+      Space complexity: O(h) for recursion call stack, where h is the height of
+      the tree.
+    </p>
+    <blockquote>
+      <p>Critical ideas to think</p>
+    </blockquote>
+    <ul>
+      <li>
+        Can we use idea similar to post-order traversal for solving this
+        problem? or, can we use some other recursive idea for solution?
+      </li>
+      <li>
+        Why recursion help us to solve the tree problems easily? Explore the
+        properties of Pre-order, In-Order and Post-Order traversal.
+      </li>
+      <li>What is the space complexity in the worst and best-case scenario?</li>
+    </ul>
+    <h4 id="using-iterative-preorder-traversal">
+      2. Using Iterative Preorder Traversal
+    </h4>
+    <p>
+      Here, a Iterative Preorder Traversal is used to traverse the tree using a
+      LIFO stack. To convert recursive procedures to iterative, we need an
+      explicit stack during the implementation.
+    </p>
+    <blockquote>
+      <p>Solution Steps</p>
+    </blockquote>
+    <ol type="1">
+      <li>When the tree is empty return NULL.</li>
+      <li>Create an empty stack S and push root node to stack.</li>
+      <li>Do following while S is not empty :</li>
+    </ol>
+    <ul>
+      <li>Pop an item from stack S and swap the left child with right child</li>
+      <li>Push right child of popped item to the stack S.</li>
+      <li>Push left child of popped item to the stack S</li>
+    </ul>
+    <p>
+      Right child is pushed before left child to make sure that left subtree is
+      processed first.
+    </p>
+    <blockquote>
+      <p>Pseudo Code</p>
+    </blockquote>
+    <pre><code>// Iterative Function to invert given binary Tree using stack
+void invertBinaryTree(TreeNode root)
+{
+    // base case: if tree is empty
+    if (root is null)
+        return
+    // create an empty stack and push root node
+    stack S
+    S.push(root)
+    // iterate until the stack is not empty
+    while (S is not empty)
+    {
+        // pop top node from stack
+        TreeNode curr = S.top()
+        S.pop()
+        // swap left child with right child
+        swap(curr.left, curr.right)
+        // push right child of popped node to the stack
+        if (curr.right)
+            S.push(curr.right)
+        // push left child of popped node to the stack
+        if (curr.left)
+            S.push(curr.left)
+    }
+}</code></pre>
+    <blockquote>
+      <p>Complexity Analysis</p>
+    </blockquote>
+    <p>
+      For each node in the tree, we are performing push() and pop() operation
+      only once. Total no of stack operations = 2n (Think!)
+    </p>
+    <p>Time complexity: O(n), where n is the total number of nodes.</p>
+    <p>Space Complexity: O(n)(Think!)</p>
+    <blockquote>
+      <p>Critical Ideas to think</p>
+    </blockquote>
+    <ul>
+      <li>Visualize the stack operations via simple examples.</li>
+      <li>Explore the best and worst case scenario of space complexity.</li>
+      <li>
+        Design iterative algorithms for in-order and post-order traversal (using
+        stack).
+      </li>
+      <li>Can we solve this problem using level-order traversal?</li>
+    </ul>
+    <figure>
+      <img
+        src="https://afteracademy.com/assets/android-course-subscription-banner.png"
+        alt="Thumbnail Image"
+      />
+      <figcaption>Thumbnail Image</figcaption>
+    </figure>
+    <p>NEW</p>
+    <h5 id="android-app-development-online-course-by-mindorks">
+      Android App Development Online Course by MindOrks
+    </h5>
+    <p>
+      Start your career in Android Development. Learn by doing real projects.
+    </p>
+    <p>
+      <a href="https://mindorks.com/android-app-development-online-course"
+        >CHECK NOW</a
+      >
+    </p>
+    <h4 id="using-level-order-traversal">3. Using Level order traversal</h4>
+    <p>
+      We can solve this problem using Level Order Traversal. Here we the
+      traverse the tree using a FIFO Queue.
+    </p>
+    <p>In each iteration :</p>
+    <ul>
+      <li>
+        We are deleting one node from the queue : TreeNode curr = Q.dequeue()
+      </li>
+      <li>Swapping the left and right child : swap(curr.left, curr.right)</li>
+      <li>Inserting left and right child to the queue</li>
+    </ul>
+    <pre><code>if (curr.left)
+   Q.enqueue(curr.left)
+if (curr.right)
+   Q.enqueue(curr.right)</code></pre>
+    <blockquote>
+      <p>Pseudo Code</p>
+    </blockquote>
+    <pre><code>// Iterative Function to invert given binary Tree using queue
+void invertBinaryTree(TreeNode root)
+{
+    // base case: if tree is empty
+    if (root is NULL)
+        return
+    // maintain a queue and push push root node
+    queue Q
+    Q.enqueue(root)
+    // iterate untill queue is not empty
+    while (Q is not empty)
+    {
+        // pop top node from queue
+        TreeNode curr = Q.dequeue()
+        // swap left child with right child
+        swap(curr.left, curr.right)
+        // push left child of popped node to the queue
+        if (curr.left)
+            Q.enqueue(curr.left)
+        // push right child of popped node to the queue
+        if (curr.right)
+            Q.enqueue(curr.right)
+    }
+}</code></pre>
+    <blockquote>
+      <p>Complexity Analysis</p>
+    </blockquote>
+    <p>
+      For each node in the tree, we are performing enqueue() and dequeue()
+      operation only once. Total no of queue operations = 2n (Think!)
+    </p>
+    <p>Time complexity: O(n), where n is the total number of nodes.</p>
+    <p>Space Complexity: O(n) (Think!)</p>
+    <blockquote>
+      <p>Critical Ideas to think</p>
+    </blockquote>
+    <ul>
+      <li>Can you use a similar approach if the tree is generic?</li>
+      <li>Explore the best and worst case scenario of space complexity.</li>
+      <li>
+        Can we write a recursive code for level order traversal? If yes then,
+        compare its performance with Iterative Implementation (level order
+        traversal using queue).
+      </li>
+    </ul>
+    <h4 id="comparison-of-different-solutions">
+      Comparison of different solutions
+    </h4>
+    <p>
+      <img
+        src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/invert-a-binary-tree-comparison-115195e1d6b62099.png"
+      />
+    </p>
+    <h4 id="suggested-problem-to-solve">Suggested Problem to solve</h4>
+    <h1 id="invert-binary-tree-iterative-and-recursive-solution">
+      Invert Binary Tree – Iterative and Recursive Solution
+    </h1>
+    <p>Given a binary tree, write an efficient algorithm to invert it.</p>
+    <p>For example,</p>
+    <figure>
+      <img
+        src="https://www.techiedelight.com/wp-content/uploads/invert-binary-tree.png"
+        alt="Invert Binary Tree"
+      />
+      <figcaption>Invert Binary Tree</figcaption>
+    </figure>
+    <h2 id="recursive-solution-1">Recursive Solution</h2>
+    <p>
+      This is one of the most famous interview questions and can be easily
+      solved recursively. The idea is to traverse the tree in a <a
+        href="https://www.techiedelight.com/preorder-tree-traversal-iterative-recursive/"
+        >preorder fashion</a
+      >, and for every node encountered, swap its left and right child before
+      recursively inverting its left and right subtree. We can also traverse the
+      tree in a <a
+        href="https://www.techiedelight.com/postorder-tree-traversal-iterative-recursive/"
+        >postorder fashion</a
+      >.
+    </p>
+    <p>The algorithm can be implemented as follows in C++, Java, and Python:</p>
+    <ul>
+      <li>C++</li>
+      <li>Java</li>
+      <li>Python</li>
+    </ul>
+    <div class="line-block"></div>
+    <p>|</p>
+    <h1 id="a-class-to-store-a-binary-tree-node">
+      A class to store a binary tree node
+    </h1>
+    <p>class Node:</p>
+    <p>    def <strong>init</strong>(self, data, left=None, right=None):</p>
+    <p>        self.data = data</p>
+    <p>        self.left = left</p>
+    <p>        self.right = right</p>
+    <h1 id="function-to-perform-preorder-traversal-on-a-given-binary-tree">
+      Function to perform preorder traversal on a given binary tree
+    </h1>
+    <p>def preorder(root):</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    print(root.data, end=’ ’)</p>
+    <p>    preorder(root.left)</p>
+    <p>    preorder(root.right)</p>
+    <h1 id="utility-function-to-swap-left-subtree-with-right-subtree">
+      Utility function to swap left subtree with right subtree
+    </h1>
+    <p>def swap(root):</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    temp = root.left</p>
+    <p>    root.left = root.right</p>
+    <p>    root.right = temp</p>
+    <h1 id="function-to-invert-a-given-binary-tree-using-preorder-traversal">
+      Function to invert a given binary tree using preorder traversal
+    </h1>
+    <p>def invertBinaryTree(root):</p>
+    <p>    # base case: if the tree is empty</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    # swap left subtree with right subtree</p>
+    <p>    swap(root)</p>
+    <p>    # invert left subtree</p>
+    <p>    invertBinaryTree(root.left)</p>
+    <p>    # invert right subtree</p>
+    <p>    invertBinaryTree(root.right)</p>
+    <p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+    <p>    ’’’ Construct the following tree</p>
+    <p>              1</p>
+    <p>            /</p>
+    <p>           /</p>
+    <p>          2       3</p>
+    <p>         /      /</p>
+    <p>        4   5   6   7</p>
+    <p>    ’’’</p>
+    <p>    root = Node(1)</p>
+    <p>    root.left = Node(2)</p>
+    <p>    root.right = Node(3)</p>
+    <p>    root.left.left = Node(4)</p>
+    <p>    root.left.right = Node(5)</p>
+    <p>    root.right.left = Node(6)</p>
+    <p>    root.right.right = Node(7)</p>
+    <p>    invertBinaryTree(root)</p>
+    <p>    preorder(root)</p>
+    <p>|</p>
+    <p>
+      <a href="https://www.techiedelight.com/code/1RVuNTP">Download</a>  <a
+        href="https://techiedelight.com/compiler/?run=1RVuNTP"
+        >Run Code</a
+      >
+    </p>
+    <p>Output:</p>
+    <p>1 3 7 6 2 5 4</p>
+    <p>
+      The time complexity of the above recursive solution is O(n),
+      where <code>n</code> is the total number of nodes in the binary tree. The
+      program requires O(h) extra space for the call stack,
+      where <code>h</code> is the height of the tree.
+    </p>
+    <h2 id="iterative-solution">Iterative Solution</h2>
+    <p>
+      We can easily convert the above recursive solution into an iterative one
+      using a <a
+        href="https://www.techiedelight.com/circular-queue-implementation-c/"
+        >queue</a
+      > or <a href="https://www.techiedelight.com/stack-implementation/"
+        >stack</a
+      > to store tree nodes.
+    </p>
+    <h3 id="using-queue">1. Using Queue:</h3>
+    <p>
+      The code is almost similar to the <a
+        href="https://www.techiedelight.com/level-order-traversal-binary-tree/"
+        >level order traversal</a
+      > of a binary tree. This is demonstrated below in C++, Java, and Python:
+    </p>
+    <ul>
+      <li>C++</li>
+      <li>Java</li>
+      <li>Python</li>
+    </ul>
+    <div class="line-block"></div>
+    <p>|</p>
+    <p>from collections import deque</p>
+    <h1 id="a-class-to-store-a-binary-tree-node-1">
+      A class to store a binary tree node
+    </h1>
+    <p>class Node:</p>
+    <p>    def <strong>init</strong>(self, data, left=None, right=None):</p>
+    <p>        self.data = data</p>
+    <p>        self.left = left</p>
+    <p>        self.right = right</p>
+    <h1 id="function-to-perform-preorder-traversal-on-a-given-binary-tree-1">
+      Function to perform preorder traversal on a given binary tree
+    </h1>
+    <p>def preorder(root):</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    print(root.data, end=’ ’)</p>
+    <p>    preorder(root.left)</p>
+    <p>    preorder(root.right)</p>
+    <h1 id="utility-function-to-swap-left-subtree-with-right-subtree-1">
+      Utility function to swap left subtree with right subtree
+    </h1>
+    <p>def swap(root):</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    temp = root.left</p>
+    <p>    root.left = root.right</p>
+    <p>    root.right = temp</p>
+    <h1 id="iterative-function-to-invert-a-given-binary-tree-using-a-queue">
+      Iterative function to invert a given binary tree using a queue
+    </h1>
+    <p>def invertBinaryTree(root):</p>
+    <p>    # base case: if the tree is empty</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    # maintain a queue and push the root node</p>
+    <p>    q = deque()</p>
+    <p>    q.append(root)</p>
+    <p>    # loop till queue is empty</p>
+    <p>    while q:</p>
+    <p>        # dequeue front node</p>
+    <p>        curr = q.popleft()</p>
+    <p>        # swap the left child with the right child</p>
+    <p>        swap(curr)</p>
+    <p>        # enqueue left child of the popped node</p>
+    <p>        if curr.left:</p>
+    <p>            q.append(curr.left)</p>
+    <p>        # enqueue right child of the popped node</p>
+    <p>        if curr.right:</p>
+    <p>            q.append(curr.right)</p>
+    <p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+    <p>    ’’’ Construct the following tree</p>
+    <p>              1</p>
+    <p>            /</p>
+    <p>           /</p>
+    <p>          2       3</p>
+    <p>         /      /</p>
+    <p>        4   5   6   7</p>
+    <p>    ’’’</p>
+    <p>    root = Node(1)</p>
+    <p>    root.left = Node(2)</p>
+    <p>    root.right = Node(3)</p>
+    <p>    root.left.left = Node(4)</p>
+    <p>    root.left.right = Node(5)</p>
+    <p>    root.right.left = Node(6)</p>
+    <p>    root.right.right = Node(7)</p>
+    <p>    invertBinaryTree(root)</p>
+    <p>    preorder(root)</p>
+    <p>|</p>
+    <p>
+      <a href="https://www.techiedelight.com/code/WQVdYP">Download</a>  <a
+        href="https://techiedelight.com/compiler/?run=WQVdYP"
+        >Run Code</a
+      >
+    </p>
+    <p>Output:</p>
+    <p>1 3 7 6 2 5 4</p>
+    <h3 id="using-stack">2. Using Stack:</h3>
+    <p>
+      The code is almost similar to the <a
+        href="https://www.techiedelight.com/preorder-tree-traversal-iterative-recursive/"
+        >iterative preorder traversal</a
+      > of a binary tree. This is demonstrated below in C++, Java, and Python:
+    </p>
+    <ul>
+      <li>C++</li>
+      <li>Java</li>
+      <li>Python</li>
+    </ul>
+    <div class="line-block"></div>
+    <p>|</p>
+    <p>from collections import deque</p>
+    <h1 id="a-class-to-store-a-binary-tree-node-2">
+      A class to store a binary tree node
+    </h1>
+    <p>class Node:</p>
+    <p>    def <strong>init</strong>(self, data, left=None, right=None):</p>
+    <p>        self.data = data</p>
+    <p>        self.left = left</p>
+    <p>        self.right = right</p>
+    <h1 id="function-to-perform-preorder-traversal-on-a-given-binary-tree-2">
+      Function to perform preorder traversal on a given binary tree
+    </h1>
+    <p>def preorder(root):</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    print(root.data, end=’ ’)</p>
+    <p>    preorder(root.left)</p>
+    <p>    preorder(root.right)</p>
+    <h1 id="utility-function-to-swap-left-subtree-with-right-subtree-2">
+      Utility function to swap left subtree with right subtree
+    </h1>
+    <p>def swap(root):</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    temp = root.left</p>
+    <p>    root.left = root.right</p>
+    <p>    root.right = temp</p>
+    <h1 id="iterative-function-to-invert-a-given-binary-tree-using-stack">
+      Iterative function to invert a given binary tree using stack
+    </h1>
+    <p>def invertBinaryTree(root):</p>
+    <p>    # base case: if the tree is empty</p>
+    <p>    if root is None:</p>
+    <p>        return</p>
+    <p>    # create an empty stack and push the root node</p>
+    <p>    s = deque()</p>
+    <p>    s.append(root)</p>
+    <p>    # loop till stack is empty</p>
+    <p>    while s:</p>
+    <p>        # pop the top node from the stack</p>
+    <p>        curr = s.pop()</p>
+    <p>        # swap the left child with the right child</p>
+    <p>        swap(curr)</p>
+    <p>        # enqueue right child of the popped node</p>
+    <p>        if curr.right:</p>
+    <p>            s.append(curr.right)</p>
+    <p>        # push the left child of the popped node into the stack</p>
+    <p>        if curr.left:</p>
+    <p>            s.append(curr.left)</p>
+    <p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+    <p>    ’’’ Construct the following tree</p>
+    <p>              1</p>
+    <p>            /</p>
+    <p>           /</p>
+    <p>          2       3</p>
+    <p>         /      /</p>
+    <p>        4   5   6   7</p>
+    <p>    ’’’</p>
+    <p>    root = Node(1)</p>
+    <p>    root.left = Node(2)</p>
+    <p>    root.right = Node(3)</p>
+    <p>    root.left.left = Node(4)</p>
+    <p>    root.left.right = Node(5)</p>
+    <p>    root.right.left = Node(6)</p>
+    <p>    root.right.right = Node(7)</p>
+    <p>    invertBinaryTree(root)</p>
+    <p>    preorder(root)</p>
+    <p>|</p>
+    <p>
+      <a href="https://www.techiedelight.com/code/LqKj6KP">Download</a>  <a
+        href="https://techiedelight.com/compiler/?run=LqKj6KP"
+        >Run Code</a
+      >
+    </p>
+    <p>Output:</p>
+    <p>1 3 7 6 2 5 4</p>
+    <p>
+      The time complexity of both above-discussed iterative methods is O(n),
+      where <code>n</code> is the total number of nodes in the binary tree. The
+      program requires O(n) extra space for storing nodes present in any level
+      of the binary tree. The worst case happens for a full binary tree, in
+      which the last level has <code>n/2</code> nodes.
+    </p>
+    <p>Rate this post</p>
+    <p>Average rating 4.91/5. Vote count: 80</p>
+    <p>Thanks for reading.</p>
+    <p>
+      Please use our <a href="https://techiedelight.com/compiler/"
+        >online compiler</a
+      > to post code in comments using C, C++, Java, Python, JavaScript, C#,
+      PHP, and many more popular programming languages.
+    </p>
+    <p>Like us? Refer us to your friends and help us grow. Happy coding 🙂</p>
+  </body>
+</html>
