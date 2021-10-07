@@ -106,5 +106,5 @@ module.exports = {
   addFriend,
   setUsersToPremium,
   sumUserPostLikes,
-  addCalculateDiscountPriceMethod
+  addCalculateDiscountPriceMethod,
 };

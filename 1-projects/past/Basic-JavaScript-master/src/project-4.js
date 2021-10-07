@@ -35,5 +35,5 @@ module.exports = {
   sumNums,
   multiplyNums,
   contains,
-  removeDuplicates
+  removeDuplicates,
 };

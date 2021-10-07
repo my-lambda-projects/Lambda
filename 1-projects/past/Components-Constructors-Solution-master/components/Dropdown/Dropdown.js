@@ -14,4 +14,4 @@ class Dropdown {
 }
 
 let dropdowns = document.querySelectorAll(".Dropdown");
-dropdowns = Array.from(dropdowns).map(dropdown => new Dropdown(dropdown));
+dropdowns = Array.from(dropdowns).map((dropdown) => new Dropdown(dropdown));

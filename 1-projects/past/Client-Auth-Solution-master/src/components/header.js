@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   getLinks() {
@@ -25,9 +25,7 @@ class Header extends Component {
     return (
       <div>
         <Link to="/">Client Auth</Link>
-        <ul>
-          {this.getLinks()}
-        </ul>
+        <ul>{this.getLinks()}</ul>
       </div>
     );
   }

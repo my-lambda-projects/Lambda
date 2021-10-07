@@ -2,15 +2,15 @@
 // all unique pairs of elements in the array. The function doesn't need to return any value. It
 // should just print to the terminal.
 
-let pairPrint = function ( array ) {
-  for ( let i = 0; i < array.length; i++ ) {
-    for ( let j = i + 1; j < array.length; j++ ) {
-      console.log( array[ i ] + ' - ' + array[ j ] );
+let pairPrint = function (array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      console.log(array[i] + " - " + array[j]);
     }
   }
 };
 
-pairPrint( [ "artichoke", "broccoli", "carrot", "daikon" ] );
+pairPrint(["artichoke", "broccoli", "carrot", "daikon"]);
 // prints
 //  artichoke - broccoli
 //  artichoke - carrot
@@ -19,7 +19,7 @@ pairPrint( [ "artichoke", "broccoli", "carrot", "daikon" ] );
 //  broccoli - daikon
 //  carrot - daikon
 
-pairPrint( [ "apple", "banana", "clementine" ] );
+pairPrint(["apple", "banana", "clementine"]);
 // prints
 //  apple - banana
 //  apple - clementine

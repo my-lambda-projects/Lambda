@@ -2,13 +2,13 @@
 // each character of the string, one by one. The function doesn't need to return any value. It should
 // just print to the terminal.
 
-let stringIterate = function ( string ) {
-  for ( let i = 0; i < string.length; i++ ) {
-    console.log( string[ i ] );
+let stringIterate = function (string) {
+  for (let i = 0; i < string.length; i++) {
+    console.log(string[i]);
   }
 };
 
-stringIterate( "celery" );
+stringIterate("celery");
 // prints
 //  c
 //  e
@@ -17,7 +17,7 @@ stringIterate( "celery" );
 //  r
 //  y
 
-stringIterate( "hat" );
+stringIterate("hat");
 // prints
 //  h
 //  a

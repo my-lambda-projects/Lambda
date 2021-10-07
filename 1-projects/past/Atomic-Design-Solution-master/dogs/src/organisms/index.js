@@ -1,5 +1,3 @@
-import SplitThirds from './SplitThirds';
+import SplitThirds from "./SplitThirds";
 
-export {
-  SplitThirds
-}
+export { SplitThirds };

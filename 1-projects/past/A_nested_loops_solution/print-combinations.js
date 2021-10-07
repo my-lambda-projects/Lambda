@@ -3,21 +3,20 @@
 // and an element from the second array. The function doesn't need to return any value. It
 // should just print to the terminal.
 
+let printCombinations = function (array1, array2) {
+  for (let i = 0; i < array1.length; i++) {
+    let ele1 = array1[i];
 
-let printCombinations = function ( array1, array2 ) {
-  for ( let i = 0; i < array1.length; i++ ) {
-    let ele1 = array1[ i ];
-
-    for ( let j = 0; j < array2.length; j++ ) {
-      let ele2 = array2[ j ];
-      console.log( ele1, ele2 );
+    for (let j = 0; j < array2.length; j++) {
+      let ele2 = array2[j];
+      console.log(ele1, ele2);
     }
   }
 };
 
-let colors = [ "gray", "cream", "cyan" ];
-let clothes = [ "shirt", "flannel" ];
-printCombinations( colors, clothes );
+let colors = ["gray", "cream", "cyan"];
+let clothes = ["shirt", "flannel"];
+printCombinations(colors, clothes);
 // prints
 //  gray shirt
 //  gray flannel
@@ -26,7 +25,7 @@ printCombinations( colors, clothes );
 //  cyan shirt
 //  cyan flannel
 
-printCombinations( [ "hot", "cold" ], [ "soup", "tea" ] );
+printCombinations(["hot", "cold"], ["soup", "tea"]);
 // prints
 //  hot soup
 //  hot tea

@@ -1,5 +1,5 @@
-import React from 'react';
-import './SplitThirds.css';
+import React from "react";
+import "./SplitThirds.css";
 
 function SplitThirds(props) {
   return (

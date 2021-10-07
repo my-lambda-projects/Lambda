@@ -8,13 +8,7 @@
     "esModuleInterop": true
   },
   "typeAcquisition": {
-    "include": [
-      "mocha",
-      "chai"
-    ]
+    "include": ["mocha", "chai"]
   },
-  "exclude": [
-    "node_modules",
-    "**/node_modules/*"
-  ]
+  "exclude": ["node_modules", "**/node_modules/*"]
 }

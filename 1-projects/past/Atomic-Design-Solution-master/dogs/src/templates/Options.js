@@ -1,12 +1,11 @@
-import React from 'react';
-import { SplitThirds } from '../organisms';
-import { List } from '../molecules';
-import { Image } from '../atoms';
+import React from "react";
+import { SplitThirds } from "../organisms";
+import { List } from "../molecules";
+import { Image } from "../atoms";
 
 function Options(props) {
-
-  const leftComponent = ( <List list={props.list} /> );
-  const rightComponent = ( <Image label={props.imgLabel} url={props.imgUrl}/> );
+  const leftComponent = <List list={props.list} />;
+  const rightComponent = <Image label={props.imgLabel} url={props.imgUrl} />;
 
   return (
     <div className="Options">

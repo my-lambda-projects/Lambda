@@ -1,5 +1,3 @@
-import Options from './Options.js';
+import Options from "./Options.js";
 
-export {
-  Options
-}
+export { Options };

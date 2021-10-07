@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { logout } from '../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { logout } from "../actions";
 
 class SignOut extends Component {
   componentWillMount() {
@@ -8,9 +8,7 @@ class SignOut extends Component {
   }
 
   render() {
-    return (
-      <div>You have been logged out</div>
-    );
+    return <div>You have been logged out</div>;
   }
 }
 

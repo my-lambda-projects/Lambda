@@ -1,19 +1,22 @@
 // Complete the component in this file.
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { register } from '../actions';
-import { reduxForm, Field } from 'redux-form';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { register } from "../actions";
+import { reduxForm, Field } from "redux-form";
 
 class SignUp extends Component {
   handleFormSubmit = ({ username, password, confirmPassword }) => {
-    this.props.register(username, password, confirmPassword, this.props.history);
+    this.props.register(
+      username,
+      password,
+      confirmPassword,
+      this.props.history
+    );
   };
 
   renderAlert = () => {
     if (!this.props.error) return null;
-    return (
-      <h3>{this.props.error}</h3>
-    );
+    return <h3>{this.props.error}</h3>;
   };
 
   render() {
@@ -42,13 +45,13 @@ class SignUp extends Component {
 const mapStateToProps = (state) => {
   return {
     error: state.auth.error,
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
   };
 };
 
 SignUp = connect(mapStateToProps, { register })(SignUp);
 
 export default reduxForm({
-  form: 'signup',
-  fields: ['username', 'password', 'confirmPassword'],
+  form: "signup",
+  fields: ["username", "password", "confirmPassword"],
 })(SignUp);

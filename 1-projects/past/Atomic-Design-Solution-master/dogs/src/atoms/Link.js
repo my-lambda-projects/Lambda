@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Link.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Link.css";
 
 function StyledLink(props) {
-  return(
+  return (
     <div className="Link">
       <Link to={props.path}>{props.label}</Link>
     </div>

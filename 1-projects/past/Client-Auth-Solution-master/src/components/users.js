@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getUsers } from '../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getUsers } from "../actions";
 
 class Users extends Component {
   componentDidMount() {
     this.props.getUsers();
   }
-  
+
   render() {
     return (
       <ul>

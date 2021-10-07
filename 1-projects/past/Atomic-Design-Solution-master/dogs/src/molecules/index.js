@@ -1,5 +1,3 @@
-import List from './List.js';
+import List from "./List.js";
 
-export {
-  List
-}
+export { List };

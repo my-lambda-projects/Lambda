@@ -14,10 +14,6 @@
     "ecmaVersion": 2018
   },
   "rules": {
-    "no-unused-vars": [
-      "error",
-      { "varsIgnorePattern": "should|expect" }
-    ]
-
+    "no-unused-vars": ["error", { "varsIgnorePattern": "should|expect" }]
   }
 }

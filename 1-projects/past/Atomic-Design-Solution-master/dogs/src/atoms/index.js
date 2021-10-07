@@ -1,9 +1,5 @@
-import Label from './Label.js';
-import Link from './Link.js';
-import Image from './Image.js';
+import Label from "./Label.js";
+import Link from "./Link.js";
+import Image from "./Image.js";
 
-export {
-  Label,
-  Link,
-  Image
-}
+export { Label, Link, Image };

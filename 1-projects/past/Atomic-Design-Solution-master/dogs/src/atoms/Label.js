@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Label(props) {
-  return <h3>{props.label}</h3>
+  return <h3>{props.label}</h3>;
 }
 
 export default Label;

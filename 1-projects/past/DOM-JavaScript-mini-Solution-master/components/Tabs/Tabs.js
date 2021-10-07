@@ -1,4 +1,3 @@
-
 class TabItem {
   constructor(element) {
     this.element = element;
@@ -16,10 +15,10 @@ class TabItem {
 class TabLink {
   constructor(element) {
     this.element = element;
-    this.element.addEventListener('click', (event) => {
+    this.element.addEventListener("click", (event) => {
       event.tabData = this.element.dataset.tab;
     });
-  };
+  }
 
   select() {
     this.element.classList.add("Tabs__link-selected");
@@ -49,12 +48,12 @@ class Tabs {
     }, {});
 
     // Listens for a click event in its children or self
-    this.element.addEventListener('click', (event) => {
+    this.element.addEventListener("click", (event) => {
       if (event.tabData) {
-       this.updateActive(event.tabData);
-       event.stopPropagation(); 
+        this.updateActive(event.tabData);
+        event.stopPropagation();
       }
-    })
+    });
 
     this.activeData = element.querySelector(".Tabs__default");
     this.activeData = this.activeData ? this.activeData.dataset.tab : null;
@@ -72,8 +71,7 @@ class Tabs {
     this.items[data].select();
     this.activeData = data;
   }
-
 }
 
 let tabs = document.querySelectorAll(".Tabs");
-tabs = Array.from(tabs).map(tabs => new Tabs(tabs));
+tabs = Array.from(tabs).map((tabs) => new Tabs(tabs));

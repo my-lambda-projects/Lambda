@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { login } from '../actions';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { reduxForm, Field } from "redux-form";
+import { login } from "../actions";
+import { connect } from "react-redux";
 
 class SignIn extends Component {
   handleFormSubmit = ({ username, password }) => {
     this.props.login(username, password, this.props.history);
-  }
+  };
 
   renderAlert() {
     if (!this.props.error) return null;
-    return (
-      <h3>{this.props.error}</h3>
-    );
+    return <h3>{this.props.error}</h3>;
   }
 
   render() {
@@ -45,6 +43,6 @@ const mapStateToProps = (state) => {
 SignIn = connect(mapStateToProps, { login })(SignIn);
 
 export default reduxForm({
-  form: 'signin',
-  fields: ['username', 'password'],
+  form: "signin",
+  fields: ["username", "password"],
 })(SignIn);

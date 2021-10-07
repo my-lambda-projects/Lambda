@@ -5,9 +5,10 @@ class LimitedArray {
   }
 
   checkLimit(index) {
-    if (typeof index !== 'number') throw new Error('The supplied index needs to be a number');
+    if (typeof index !== "number")
+      throw new Error("The supplied index needs to be a number");
     if (this.limit <= index) {
-      throw new Error('The supplied index lies out of the array\'s bounds');
+      throw new Error("The supplied index lies out of the array's bounds");
     }
   }
 
