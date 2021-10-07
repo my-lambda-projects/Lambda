@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', 'Arial Narrow', 'Arial', sans;
+  font-family: "Roboto", "Arial Narrow", "Arial", sans;
   margin: 0;
   padding: 0;
 }
@@ -12,7 +12,7 @@ body {
 
 .sb {
   background-color: cornflowerblue;
-  border-bottom: 1px solid #645DED;
+  border-bottom: 1px solid #645ded;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   color: white;
   display: flex;
@@ -53,7 +53,7 @@ body {
   height: 178px;
   left: 55px;
   position: absolute;
-  transition: margin-top .25s;
+  transition: margin-top 0.25s;
   width: 188px;
 }
 

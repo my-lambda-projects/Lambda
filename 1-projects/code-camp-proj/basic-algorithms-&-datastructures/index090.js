@@ -1,6 +1,6 @@
 const newsFeed = {
   page: "front_page",
-  articles:  [
+  articles: [
     {
       headline: "Programming: Expectations vs. Reality",
       image: [],
@@ -8,7 +8,7 @@ const newsFeed = {
       date_modified: "2019-01-05T09:20:00+08:00",
       author: {
         username: "Mr. Coffee",
-        name: "Pat Comb"
+        name: "Pat Comb",
       },
       likes: 10571,
       dislikes: 14,
@@ -16,9 +16,9 @@ const newsFeed = {
       comments: 461,
       section: {
         name: "Programming",
-        subscribers: 18101
+        subscribers: 18101,
       },
-      url: "http://www.binary-bugle.com/programming-expectations-vs-reality"
+      url: "http://www.binary-bugle.com/programming-expectations-vs-reality",
     },
     {
       headline: "Will Web Development Ever Rule the World?",
@@ -27,7 +27,7 @@ const newsFeed = {
       date_modified: "",
       author: {
         username: "webly_weberson",
-        name: "Julie Holmes"
+        name: "Julie Holmes",
       },
       likes: 8945,
       dislikes: 31,
@@ -35,10 +35,9 @@ const newsFeed = {
       comments: 109,
       section: {
         name: "Web Development",
-        subscribers: 9183
+        subscribers: 9183,
       },
-      url:
-        "http://www.binary-bugle.com/will-web-development-ever-rule-the-world"
+      url: "http://www.binary-bugle.com/will-web-development-ever-rule-the-world",
     },
     {
       headline: "The Next Big Thing in Algorithms",
@@ -47,7 +46,7 @@ const newsFeed = {
       date_modified: "",
       author: {
         username: "enigmaGadget",
-        name: "Steve Ramsey"
+        name: "Steve Ramsey",
       },
       likes: 459,
       dislikes: 2,
@@ -55,9 +54,9 @@ const newsFeed = {
       comments: 64,
       section: {
         name: "Algorithms",
-        subscribers: 5743
+        subscribers: 5743,
       },
-      url: "http://www.binary-bugle.com/the-next-big-thing-in-algorithms"
+      url: "http://www.binary-bugle.com/the-next-big-thing-in-algorithms",
     },
     {
       headline: "Programming Explained in Fewer than 140 Characters",
@@ -66,7 +65,7 @@ const newsFeed = {
       date_modified: "",
       author: {
         username: "Mr. Coffee",
-        name: "Pat Comb"
+        name: "Pat Comb",
       },
       likes: 308,
       dislikes: 0,
@@ -74,10 +73,9 @@ const newsFeed = {
       comments: 29,
       section: {
         name: "Programming",
-        subscribers: 18101
+        subscribers: 18101,
       },
-      url:
-        "http://www.binary-bugle.com/programming-explained-in-fewer-than-140-characters"
+      url: "http://www.binary-bugle.com/programming-explained-in-fewer-than-140-characters",
     },
     {
       headline: "This Week's Top Stories About Web Development",
@@ -86,7 +84,7 @@ const newsFeed = {
       date_modified: "",
       author: {
         username: "webly_weberson",
-        name: "Julie Holmes"
+        name: "Julie Holmes",
       },
       likes: 127,
       dislikes: 10,
@@ -94,10 +92,9 @@ const newsFeed = {
       comments: 34,
       section: {
         name: "Web Development",
-        subscribers: 9183
+        subscribers: 9183,
       },
-      url:
-        "http://www.binary-bugle.com/this-weeks-top-stories-about-web-development"
+      url: "http://www.binary-bugle.com/this-weeks-top-stories-about-web-development",
     },
     {
       headline: "Everything You've Ever Wanted to Know About A.I.",
@@ -106,7 +103,7 @@ const newsFeed = {
       date_modified: "",
       author: {
         username: "notarobot",
-        name: "Trista Campbell"
+        name: "Trista Campbell",
       },
       likes: 99,
       dislikes: 3,
@@ -114,12 +111,11 @@ const newsFeed = {
       comments: 31,
       section: {
         name: "Artificial Intelligence",
-        subscribers: 2374
+        subscribers: 2374,
       },
-      url:
-        "http://www.binary-bugle.com/everything-youve-ever-wanted-to-know-about-ai"
-    }
-  ]
+      url: "http://www.binary-bugle.com/everything-youve-ever-wanted-to-know-about-ai",
+    },
+  ],
 };
 
 /*

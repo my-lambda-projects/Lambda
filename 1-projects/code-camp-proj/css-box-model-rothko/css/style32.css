@@ -28,10 +28,10 @@
   height: 200px;
   background-color: #8f0401;
   margin: 0 auto 20px;
-  
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 

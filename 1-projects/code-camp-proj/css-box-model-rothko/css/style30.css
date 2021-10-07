@@ -27,7 +27,8 @@
   margin: 0 auto 20px;
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 
@@ -38,5 +39,4 @@
   height: 28%;
   background-color: #b20403;
   margin: auto;
-
 }

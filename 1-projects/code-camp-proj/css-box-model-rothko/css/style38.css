@@ -34,10 +34,10 @@ Rotate `two` clockwise slightly by adding the `transform` property with the valu
   margin: 0 auto 20px;
   box-shadow: 0 0 3px 3px #8f0401;
   border-radius: 8px 10px;
-
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 

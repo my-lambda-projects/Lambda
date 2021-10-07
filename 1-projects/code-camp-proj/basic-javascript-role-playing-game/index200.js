@@ -25,13 +25,13 @@ button3.onclick = fightDragon;
 // When a player clicks the 'Go to store' button, the buttons and text in the game should change. Remove the code inside the `goStore` function. Add a new line of code inside the function that updates the text of `button1` so that it says "Buy 10 health (10 gold)". For example, this code updates the text of `button` to say "Click Me": `button.innerText = "Click Me";`.
 
 function goStore() {
-	console.log("Going to store.");
+  console.log("Going to store.");
 }
 
 function goCave() {
-	console.log("Going to cave.");
+  console.log("Going to cave.");
 }
 
 function fightDragon() {
-	console.log("Fighting dragon.");
+  console.log("Fighting dragon.");
 }

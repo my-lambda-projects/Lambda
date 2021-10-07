@@ -32,10 +32,10 @@ Set the `border-radius` of `two` to "8px 10px". This will round its top-left and
   background-color: #8f0401;
   margin: 0 auto 20px;
   box-shadow: 0 0 3px 3px #8f0401;
-  
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 

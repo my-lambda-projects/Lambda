@@ -1,6 +1,6 @@
-const caseConverter = require('./index');
+const caseConverter = require("./index");
 
-const str = 'hello free Code Camp!';
+const str = "hello free Code Camp!";
 
 /*
 First let's try your `getUpperCase()` function.

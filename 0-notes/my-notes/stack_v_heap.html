@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="./prism.css">
-<script async defer src="./prism.js"></script>
-</head>
-<body>;
-<h1 id="stack-vs-heap-memory-allocation">Stack vs Heap Memory Allocation</h1>
-<p>Memory in a C/C++ program can either be allocated on stack or heap.</p>
-<h2 id="prerequisite-memory-layout-of-c-program">Prerequisite: Memory layout of C program</h2>
-<h2 id="stack-allocation">Stack Allocation</h2>
-<p>The allocation happens on contiguous blocks of memory. We call it stack memory allocation because the allocation happens in function call stack. The size of memory to be allocated is known to compiler and whenever a function is called, its variables get memory allocated on the stack. And whenever the function call is over, the memory for the variables is deallocated. This all happens using some predefined routines in compiler. Programmer does not have to worry about memory allocation and deallocation of stack variables.</p>
-<pre><code>int main() {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./prism.css" />
+    <script async defer src="./prism.js"></script>
+  </head>
+  <body>
+    ;
+    <h1 id="stack-vs-heap-memory-allocation">
+      Stack vs Heap Memory Allocation
+    </h1>
+    <p>Memory in a C/C++ program can either be allocated on stack or heap.</p>
+    <h2 id="prerequisite-memory-layout-of-c-program">
+      Prerequisite: Memory layout of C program
+    </h2>
+    <h2 id="stack-allocation">Stack Allocation</h2>
+    <p>
+      The allocation happens on contiguous blocks of memory. We call it stack
+      memory allocation because the allocation happens in function call stack.
+      The size of memory to be allocated is known to compiler and whenever a
+      function is called, its variables get memory allocated on the stack. And
+      whenever the function call is over, the memory for the variables is
+      deallocated. This all happens using some predefined routines in compiler.
+      Programmer does not have to worry about memory allocation and deallocation
+      of stack variables.
+    </p>
+    <pre><code>int main() {
    // All these variables get memory
    // allocated on stack
    int a;
@@ -22,82 +41,108 @@
    int n = 20;
    int c[n];
 }</code></pre>
-<h2 id="heap-allocation">Heap Allocation</h2>
-<p>The memory is allocated during execution of instructions written by programmers. Note that the name heap has nothing to do with heap data structure. It is called heap because it is a pile of memory space available to programmers to allocated and de-allocate. If a programmer does not handle this memory well, memory leak can happen in the program.</p>
-<pre><code>int main() {
+    <h2 id="heap-allocation">Heap Allocation</h2>
+    <p>
+      The memory is allocated during execution of instructions written by
+      programmers. Note that the name heap has nothing to do with heap data
+      structure. It is called heap because it is a pile of memory space
+      available to programmers to allocated and de-allocate. If a programmer
+      does not handle this memory well, memory leak can happen in the program.
+    </p>
+    <pre><code>int main() {
    // This memory for 10 integers
    // is allocated on heap.
    int *ptr  = new int[10];
 }</code></pre>
-<h2 id="key-differences-between-stack-and-heap-allocations">Key Differences Between Stack and Heap Allocations</h2>
-<ol type="1">
-<li>In a stack, the allocation and deallocation is automatically done by whereas, in heap, it needs to be done by the programmer manually.</li>
-<li>Handling of Heap frame is costlier than handling of stack frame.</li>
-<li>Memory shortage problem is more likely to happen in stack whereas the main issue in heap memory is fragmentation.</li>
-<li>Stack frame access is easier than the heap frame as the stack have small region of memory and is cache friendly, but in case of heap frames which are dispersed throughout the memory so it cause more cache misses.</li>
-<li>Stack is not flexible, the memory size allotted cannot be changed whereas a heap is flexible, and the allotted memory can be altered.</li>
-<li>Accessing time of heap takes is more than a stack.</li>
-</ol>
-<h2 id="comparison-chart">Comparison Chart</h2>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 38%" />
-<col style="width: 36%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">PARAMETER</th>
-<th style="text-align: center;">STACK</th>
-<th>HEAP</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Basic</td>
-<td style="text-align: center;">Memory is allocated in a contiguous block.</td>
-<td>Memory is allocated in any random order.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Allocation and Deallocation</td>
-<td style="text-align: center;">Automatic by compiler instructions.</td>
-<td>Manual by programmer.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Cost</td>
-<td style="text-align: center;">Less</td>
-<td>More</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Implementation</td>
-<td style="text-align: center;">Hard</td>
-<td>Easy</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Access time</td>
-<td style="text-align: center;">Faster</td>
-<td>Slower</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Main Issue</td>
-<td style="text-align: center;">Shortage of memory</td>
-<td>Memory fragmentation</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Locality of reference</td>
-<td style="text-align: center;">Excellent</td>
-<td>Adequate</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Flexibility</td>
-<td style="text-align: center;">Fixed size</td>
-<td>Resizing is possible</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Data type structure</td>
-<td style="text-align: center;">Linear</td>
-<td>Hierarchical</td>
-</tr>
-</tbody>
-</table>
-</body></html>
+    <h2 id="key-differences-between-stack-and-heap-allocations">
+      Key Differences Between Stack and Heap Allocations
+    </h2>
+    <ol type="1">
+      <li>
+        In a stack, the allocation and deallocation is automatically done by
+        whereas, in heap, it needs to be done by the programmer manually.
+      </li>
+      <li>Handling of Heap frame is costlier than handling of stack frame.</li>
+      <li>
+        Memory shortage problem is more likely to happen in stack whereas the
+        main issue in heap memory is fragmentation.
+      </li>
+      <li>
+        Stack frame access is easier than the heap frame as the stack have small
+        region of memory and is cache friendly, but in case of heap frames which
+        are dispersed throughout the memory so it cause more cache misses.
+      </li>
+      <li>
+        Stack is not flexible, the memory size allotted cannot be changed
+        whereas a heap is flexible, and the allotted memory can be altered.
+      </li>
+      <li>Accessing time of heap takes is more than a stack.</li>
+    </ol>
+    <h2 id="comparison-chart">Comparison Chart</h2>
+    <table>
+      <colgroup>
+        <col style="width: 25%" />
+        <col style="width: 38%" />
+        <col style="width: 36%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">PARAMETER</th>
+          <th style="text-align: center">STACK</th>
+          <th>HEAP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">Basic</td>
+          <td style="text-align: center">
+            Memory is allocated in a contiguous block.
+          </td>
+          <td>Memory is allocated in any random order.</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center">Allocation and Deallocation</td>
+          <td style="text-align: center">
+            Automatic by compiler instructions.
+          </td>
+          <td>Manual by programmer.</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">Cost</td>
+          <td style="text-align: center">Less</td>
+          <td>More</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center">Implementation</td>
+          <td style="text-align: center">Hard</td>
+          <td>Easy</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">Access time</td>
+          <td style="text-align: center">Faster</td>
+          <td>Slower</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center">Main Issue</td>
+          <td style="text-align: center">Shortage of memory</td>
+          <td>Memory fragmentation</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">Locality of reference</td>
+          <td style="text-align: center">Excellent</td>
+          <td>Adequate</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center">Flexibility</td>
+          <td style="text-align: center">Fixed size</td>
+          <td>Resizing is possible</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">Data type structure</td>
+          <td style="text-align: center">Linear</td>
+          <td>Hierarchical</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -36,7 +36,8 @@ Use the following to rotate `one` counterclockwise -0.6 degrees: `transform: rot
   border-radius: 8px 10px;
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 

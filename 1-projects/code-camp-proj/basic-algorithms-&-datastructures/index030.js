@@ -1,6 +1,7 @@
 const newsFeed = {
-    page: "front_page",
-    articles: [{},{},{},{},{},{}]}
+  page: "front_page",
+  articles: [{}, {}, {}, {}, {}, {}],
+};
 
 /*
 Nested objects are objects within other objects. In the first nested empty object within the articles array, add the following new properties: 
@@ -11,5 +12,3 @@ Set the property image to an empty array while author should be set to a nested 
 *Bonus, initialize all the values of properties that are unnassigned to null.
 
 */
-
-

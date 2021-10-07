@@ -31,7 +31,8 @@
   border-radius: 8px 10px;
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 
@@ -47,5 +48,4 @@ Round the top-left corner of `three` by 30 pixels, the top-right by 25 pixels, t
   margin: auto;
   filter: blur(2px);
   box-shadow: 0 0 5px 5px #b20403;
-
 }

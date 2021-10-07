@@ -1,5 +1,3 @@
-
-
 <!--
 Now that you have finished your `case_converter` module, let's edit your README.md file.
 README.md is typically a markdown file that contains a brief introduction of your npm module, and includes instructions on how to download, install, and use it.

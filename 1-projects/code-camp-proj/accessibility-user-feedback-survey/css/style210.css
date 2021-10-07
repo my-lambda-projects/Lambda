@@ -49,7 +49,8 @@ a[href] {
   padding: 10px 0;
 }
 
-.top-nav ul, .secondary-nav ul {
+.top-nav ul,
+.secondary-nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -122,7 +123,6 @@ textarea.form-control {
   Finally, align the focused element by giving it a `margin` of `10px 5px`, a
   `padding` of `5px`, and a `top` of `5px`.
 */
-
 
 .skip-nav-link:focus {
   position: relative;

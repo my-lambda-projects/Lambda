@@ -29,7 +29,8 @@
   box-shadow: 0 0 3px 3px #8f0401;
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 
@@ -41,5 +42,4 @@
   background-color: #b20403;
   margin: auto;
   filter: blur(2px);
-
 }

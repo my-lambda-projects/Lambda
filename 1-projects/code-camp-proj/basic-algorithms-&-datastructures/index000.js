@@ -1,5 +1,4 @@
-const newsFeed = {
-}
+const newsFeed = {};
 
 /*
 Let's learn Basic Algorithms by Building an Algorithmic Newsfeed!
@@ -13,4 +12,3 @@ The object ObjectExample has the key of cats which is set to the the numerical v
 
 Create a property for Newsfeed with the key of 'page' and set it to the value of 'front_page'.
 */
-

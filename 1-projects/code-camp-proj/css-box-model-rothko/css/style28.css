@@ -8,7 +8,6 @@ Use the `filter` property with the value "blur(2px)" in the `.canvas`.
   height: 600px;
   background-color: #4d0f00;
   overflow: hidden;
-  
 }
 
 .frame {

@@ -1,7 +1,9 @@
 # Case Converter
+
 'This module provides methods to convert strings to a specific case.'
 
 ## Install
+
 `npm install case_converter`
 
 <!--

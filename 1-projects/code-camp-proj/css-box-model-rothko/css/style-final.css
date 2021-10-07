@@ -33,7 +33,8 @@
   transform: rotate(0.4deg);
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 

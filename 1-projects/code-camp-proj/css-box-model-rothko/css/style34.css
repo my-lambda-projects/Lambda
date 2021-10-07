@@ -24,7 +24,6 @@ Round each corner of `one` by 9 pixels with `border-radius: 9px;`.
   background-color: #efb762;
   margin: 20px auto 20px;
   box-shadow: 0 0 3px 3px #efb762;
-
 }
 
 .two {
@@ -35,7 +34,8 @@ Round each corner of `one` by 9 pixels with `border-radius: 9px;`.
   box-shadow: 0 0 3px 3px #8f0401;
 }
 
-.one, .two {
+.one,
+.two {
   filter: blur(1px);
 }
 

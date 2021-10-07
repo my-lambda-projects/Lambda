@@ -1,25 +1,32 @@
 const newsFeed = {
-    page: "front_page",
-      articles: [{
-        headline: "Programming: Expectations vs. Reality",
-        image: [],
-        date_published: "2019-01-05T08:00:00+08:00",
-        date_modified: "2019-01-05T09:20:00+08:00",
-        author: {
-          username: "PeoplePerson",
-          name: "Pat Comb"
-        },
-        likes: 10571,
-        dislikes: 14,
-        shares: 54,
-        comments: 461,
-        section: {
-          name: "Programming",
-          subscribers: 18101
-        },
-        url: "http://www.binary-bugle.com/programming-expectations-vs-reality"
-      },{},{},{},{},{}
-    ]}
+  page: "front_page",
+  articles: [
+    {
+      headline: "Programming: Expectations vs. Reality",
+      image: [],
+      date_published: "2019-01-05T08:00:00+08:00",
+      date_modified: "2019-01-05T09:20:00+08:00",
+      author: {
+        username: "PeoplePerson",
+        name: "Pat Comb",
+      },
+      likes: 10571,
+      dislikes: 14,
+      shares: 54,
+      comments: 461,
+      section: {
+        name: "Programming",
+        subscribers: 18101,
+      },
+      url: "http://www.binary-bugle.com/programming-expectations-vs-reality",
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+  ],
+};
 
 /*
 
@@ -33,5 +40,3 @@ learnJavascript.Today // "Build an algorithmic newsfeed."
 Access the newsFeed object's property articles in the same manner. 
 
 */
-
-

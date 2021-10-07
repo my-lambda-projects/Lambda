@@ -23,11 +23,11 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function goStore() {
-	console.log("Going to store.");
+  console.log("Going to store.");
 }
 
 function goCave() {
-	console.log("Going to cave.");
+  console.log("Going to cave.");
 }
 
 // Also, create a `fightDragon` function that prints "Fighting dragon." to the console. When you are finished, you can test out your program in the browser.

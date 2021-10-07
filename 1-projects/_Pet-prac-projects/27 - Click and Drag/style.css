@@ -1,10 +1,12 @@
 html {
   box-sizing: border-box;
-  background: url('https://source.unsplash.com/NFs6dRTBgaM/2000x2000') fixed;
+  background: url("https://source.unsplash.com/NFs6dRTBgaM/2000x2000") fixed;
   background-size: cover;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -32,13 +34,13 @@ body {
   transform: scale(0.98);
   will-change: transform;
   position: relative;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   font-size: 0;
   perspective: 500px;
 }
 
 .items.active {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   cursor: grabbing;
   cursor: -webkit-grabbing;
   transform: scale(1);
@@ -52,19 +54,41 @@ body {
   justify-content: center;
   font-size: 80px;
   font-weight: 100;
-  color: rgba(0,0,0,0.15);
-  box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
+  color: rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
-.item:nth-child(9n+1) { background: dodgerblue;}
-.item:nth-child(9n+2) { background: goldenrod;}
-.item:nth-child(9n+3) { background: paleturquoise;}
-.item:nth-child(9n+4) { background: gold;}
-.item:nth-child(9n+5) { background: cadetblue;}
-.item:nth-child(9n+6) { background: tomato;}
-.item:nth-child(9n+7) { background: lightcoral;}
-.item:nth-child(9n+8) { background: darkslateblue;}
-.item:nth-child(9n+9) { background: rebeccapurple;}
+.item:nth-child(9n + 1) {
+  background: dodgerblue;
+}
+.item:nth-child(9n + 2) {
+  background: goldenrod;
+}
+.item:nth-child(9n + 3) {
+  background: paleturquoise;
+}
+.item:nth-child(9n + 4) {
+  background: gold;
+}
+.item:nth-child(9n + 5) {
+  background: cadetblue;
+}
+.item:nth-child(9n + 6) {
+  background: tomato;
+}
+.item:nth-child(9n + 7) {
+  background: lightcoral;
+}
+.item:nth-child(9n + 8) {
+  background: darkslateblue;
+}
+.item:nth-child(9n + 9) {
+  background: rebeccapurple;
+}
 
-.item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
-.item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
+.item:nth-child(even) {
+  transform: scaleX(1.31) rotateY(40deg);
+}
+.item:nth-child(odd) {
+  transform: scaleX(1.31) rotateY(-40deg);
+}

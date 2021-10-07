@@ -1,6 +1,6 @@
 # Case Converter
-'This module provides methods to convert strings to a specific case.'
 
+'This module provides methods to convert strings to a specific case.'
 
 <!--
 Now let's explain how to install your package.

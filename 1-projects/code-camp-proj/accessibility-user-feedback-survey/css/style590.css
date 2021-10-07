@@ -53,7 +53,8 @@ a[href] {
   padding: 10px 0;
 }
 
-.top-nav ul, .secondary-nav ul {
+.top-nav ul,
+.secondary-nav ul {
   margin: 0;
   padding: 0;
   list-style: none;

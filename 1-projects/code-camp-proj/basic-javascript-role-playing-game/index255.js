@@ -25,35 +25,33 @@ button3.onclick = fightDragon;
 // In the `goTown` function, the text and functions need to be updated. Change the text of the buttons to "Go to store", "Go to cave", and "Fight dragon". Change the `onclick` value of the buttons to "goStore", "goCave", "fightDragon". Change the `innerText` of `text` to "You are in the town square. You see a sign that says Store."
 
 function goTown() {
-	button1.innerText = "Buy 10 health (10 gold)";
-	button2.innerText = "Buy weapon (30 gold)";
-	button3.innerText = "Go to town square";
-	button1.onclick = buyHealth;
-	button2.onclick = buyWeapon;
-	button3.onclick = goTown;
-	text.innerText = "You enter the store.";
+  button1.innerText = "Buy 10 health (10 gold)";
+  button2.innerText = "Buy weapon (30 gold)";
+  button3.innerText = "Go to town square";
+  button1.onclick = buyHealth;
+  button2.onclick = buyWeapon;
+  button3.onclick = goTown;
+  text.innerText = "You enter the store.";
 }
 
 function goStore() {
-	button1.innerText = "Buy 10 health (10 gold)";
-	button2.innerText = "Buy weapon (30 gold)";
-	button3.innerText = "Go to town square";
-	button1.onclick = buyHealth;
-	button2.onclick = buyWeapon;
-	button3.onclick = goTown;
-	text.innerText = "You enter the store.";
+  button1.innerText = "Buy 10 health (10 gold)";
+  button2.innerText = "Buy weapon (30 gold)";
+  button3.innerText = "Go to town square";
+  button1.onclick = buyHealth;
+  button2.onclick = buyWeapon;
+  button3.onclick = goTown;
+  text.innerText = "You enter the store.";
 }
 
 function goCave() {
-	console.log("Going to cave.");
+  console.log("Going to cave.");
 }
 
 function fightDragon() {
-	console.log("Fighting dragon.");
+  console.log("Fighting dragon.");
 }
 
-function buyHealth() {
-}
+function buyHealth() {}
 
-function buyWeapon() {
-}
+function buyWeapon() {}
