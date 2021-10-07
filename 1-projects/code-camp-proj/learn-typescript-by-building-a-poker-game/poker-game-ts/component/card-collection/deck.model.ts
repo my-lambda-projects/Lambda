@@ -1,8 +1,8 @@
-import { CardPile } from './card-pile.model';
-import { Card, CardSuit, CardValue } from '../card';
+import { CardPile } from "./card-pile.model";
+import { Card, CardSuit, CardValue } from "../card";
 
 type Cache = {
-    [key in CardSuit]: CardValue[]
+    [key in CardSuit]: CardValue[];
 };
 
 export class Deck extends CardPile {
@@ -11,18 +11,18 @@ export class Deck extends CardPile {
         [CardSuit.Spade]: [],
         [CardSuit.Heart]: [],
         [CardSuit.Club]: [],
-        [CardSuit.Diamond]: []
+        [CardSuit.Diamond]: [],
     };
     count: number = 0;
 
     constructor() {
         super();
-    };
+    }
 
     // Singleton
     public static get instance() {
         return this.self || (this.self = new this());
-    };
+    }
 
     createCardHand(amount): Card[] {
         let cards: Card[] = [];
@@ -46,7 +46,7 @@ export class Deck extends CardPile {
 
     reset() {
         // Reset cache object
-        Object.keys(this.cache).forEach(key => {
+        Object.keys(this.cache).forEach((key) => {
             this.cache[key] = [];
         });
         this.count = 0;
@@ -61,7 +61,7 @@ export class Deck extends CardPile {
             value = this.getRandomElement<CardValue>(this.values);
         } while (this.cache[suit].includes(value));
 
-        return new Card({ suit, value })
+        return new Card({ suit, value });
     }
 
     private getRandomElement<T>(arr: T[]): T {

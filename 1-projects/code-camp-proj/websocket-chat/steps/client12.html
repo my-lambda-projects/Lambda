@@ -36,7 +36,7 @@
           placeholder="Type your message"
         ></textarea>
 
-        <button class="submit-button round-border ">Send</button>
+        <button class="submit-button round-border">Send</button>
       </form>
     </main>
 
@@ -51,7 +51,7 @@
     <script>
       const socket = io("localhost:3000");
 
-      const handleFormSubmit = e => {
+      const handleFormSubmit = (e) => {
         e.preventDefault();
 
         const username = document.querySelector(".username-input").value;
@@ -88,7 +88,7 @@
       };
 
       // Insert a message in the chat history
-      const appendMessageHistory = message =>
+      const appendMessageHistory = (message) =>
         document.querySelector(".chat-history").appendChild(message);
 
       const clearMessageInput = () =>
@@ -100,7 +100,7 @@
         return `${date.getHours()}:${date.getMinutes()}`;
       };
 
-      const createTemplateComponent = templateID => {
+      const createTemplateComponent = (templateID) => {
         // Get the template in the DOM
         const template = document.querySelector(templateID);
 

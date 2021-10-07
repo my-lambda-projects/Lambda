@@ -6,11 +6,9 @@ body {
     flex-direction: column;
 }
 
-
 .mdl-chip__text {
     font-size: 1.5rem;
 }
-
 
 #profile-container {
     display: flex;
@@ -82,7 +80,8 @@ body {
         margin: 1rem;
         min-width: 500px;
 
-        #bot-result-container, #player-result-container {
+        #bot-result-container,
+        #player-result-container {
             display: flex;
             align-items: center;
 
@@ -100,7 +99,7 @@ body {
                     height: 6rem;
                     margin: 1rem;
                     position: relative;
-                    transition: .6s;
+                    transition: 0.6s;
                     transform-style: preserve-3d;
                     border-radius: 6px;
                     border: 1px solid #ccc;
@@ -119,9 +118,27 @@ body {
                         -webkit-transform: rotate(0);
                         -ms-transform: rotate(0);
                         transform: rotate(0);
-                        background: -webkit-repeating-linear-gradient(45deg, tomato, tomato 8px, white 8px, white 16px);
-                        background: -o-repeating-linear-gradient(45deg, tomato, tomato 8px, white 8px, white 16px);
-                        background: repeating-linear-gradient(45deg, tomato, tomato 8px, white 8px, white 16px);
+                        background: -webkit-repeating-linear-gradient(
+                            45deg,
+                            tomato,
+                            tomato 8px,
+                            white 8px,
+                            white 16px
+                        );
+                        background: -o-repeating-linear-gradient(
+                            45deg,
+                            tomato,
+                            tomato 8px,
+                            white 8px,
+                            white 16px
+                        );
+                        background: repeating-linear-gradient(
+                            45deg,
+                            tomato,
+                            tomato 8px,
+                            white 8px,
+                            white 16px
+                        );
                     }
 
                     .poker-hand-card-front {
@@ -132,7 +149,7 @@ body {
 
                         .poker-hand-card-suit {
                             // Or else, emoji won't render as expected
-                            font-family: '';
+                            font-family: "";
                             top: 53%;
                             left: 50%;
                             font-size: 2.5rem;
@@ -185,4 +202,3 @@ body {
         justify-content: space-evenly;
     }
 }
-

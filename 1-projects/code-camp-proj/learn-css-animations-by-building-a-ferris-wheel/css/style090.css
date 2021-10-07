@@ -5,7 +5,6 @@
   border: 2px solid black;
   border-radius: 50%;
   margin-left: 50px;
-  
 }
 
 .line {
@@ -41,7 +40,6 @@
   border: 2px solid;
   background-color: red;
   transform-origin: 50% 0%;
-
 }
 
 /* Create rules for the other `cabin` elements. For the second one, set `right` to "17%" and `top` to "93.5%". Third: set `right` to "67%" and `top` to "93.5%". Fourth: set `left` to "-8.5%" and `top` to "50%". Fifth: set `left` to "17%" and `top` to "7%". Sixth: set `right` to "17%" and `top` to "7%". */

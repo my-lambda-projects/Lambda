@@ -7,9 +7,8 @@
   border-radius: 50%;
   margin-left: 50px;
   animation-name: wheel-spin;
-  animation-duration: 10s; 
+  animation-duration: 10s;
   animation-iteration-count: infinite;
-
 }
 
 .line {
@@ -45,7 +44,6 @@
   border: 2px solid;
   background-color: red;
   transform-origin: 50% 0%;
-
 }
 
 .cabin:nth-of-type(1) {

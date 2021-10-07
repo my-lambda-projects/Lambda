@@ -1,13 +1,15 @@
 // querySelector applies to both HTMLElement (e.g. p tag) and HTMLInputElement (e.g. input tag), hence the &
-export const $ = (query: string): HTMLElement & HTMLInputElement => document.querySelector(query);
-export const $all = (query: string): NodeListOf<Element> => document.querySelectorAll(query);
+export const $ = (query: string): HTMLElement & HTMLInputElement =>
+    document.querySelector(query);
+export const $all = (query: string): NodeListOf<Element> =>
+    document.querySelectorAll(query);
 
 /**
  * @function setContent
  * @desc Update the content (innerHTML) of each element with `id`
  * @param obj - The id of an element, and its content to be set
  */
-export const setContent = obj => {
+export const setContent = (obj) => {
     for (let id in obj) {
         $(`#${id}`).innerHTML = obj[id];
     }
@@ -22,7 +24,7 @@ export const setContent = obj => {
 export const setAttr = ({ id, ...pairs }) => {
     let ref = $(`#${id}`);
     for (let attr in pairs) {
-        if (attr === 'style') {
+        if (attr === "style") {
             let styleObj = pairs.style;
             for (let styleAttr in styleObj) {
                 ref.style[styleAttr] = styleObj[styleAttr];
@@ -42,8 +44,8 @@ export const hide = (id: string) => {
     setAttr({
         id,
         style: {
-            display: 'none'
-        }
+            display: "none",
+        },
     });
 };
 
@@ -68,8 +70,8 @@ export const show = (id: string) => {
     setAttr({
         id,
         style: {
-            display: /container$/.test(id) ? 'flex' : 'block'
-        }
+            display: /container$/.test(id) ? "flex" : "block",
+        },
     });
 };
 

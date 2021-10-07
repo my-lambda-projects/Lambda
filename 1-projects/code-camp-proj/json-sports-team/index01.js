@@ -1,5 +1,3 @@
-
-
 /*
 JavaScript Object Notation (JSON) is a text format that you use to structure data.
 

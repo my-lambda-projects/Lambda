@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -21,4 +21,3 @@ body {
 Develop the hierarchy of your text by increasing the size or weight of its most important elements.
 Create a new rule with the `h1` selector and set `font-weight` to "800".
 */
-

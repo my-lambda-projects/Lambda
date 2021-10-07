@@ -1,13 +1,13 @@
-import { $, hide, hideAll, setAttr, setContent, show, showAll } from './dom';
+import { $, hide, hideAll, setAttr, setContent, show, showAll } from "./dom";
 import { Deck } from "../component/card-collection/deck.model";
-import { Session } from '../app/session';
+import { Session } from "../app/session";
 
 interface MaterialSliderElement extends HTMLInputElement {
     MaterialSlider: {
         change(value: number);
         disable();
         enable();
-    }
+    };
 }
 
 /**
@@ -23,25 +23,30 @@ export class Handler {
     // Singleton
     public static get instance() {
         return this.self || (this.self = new this());
-    };
+    }
 
     constructor() {
         this.deck = Deck.instance;
         this.session = Session.instance;
 
         this.rankMap = {
-            1: 'high card',
-            2: 'a pair',
-            3: 'two pairs',
-            4: 'three of a kind',
-            5: 'a straight',
-            6: 'a flush',
-            7: 'a full house',
-            8: 'four of a kind',
-            9: 'a straight flush/royal flush'
+            1: "high card",
+            2: "a pair",
+            3: "two pairs",
+            4: "three of a kind",
+            5: "a straight",
+            6: "a flush",
+            7: "a full house",
+            8: "four of a kind",
+            9: "a straight flush/royal flush",
         };
 
-        hideAll('cash-container', 'bet-container', 'result-container', 'result-rank-container');
+        hideAll(
+            "cash-container",
+            "bet-container",
+            "result-container",
+            "result-rank-container"
+        );
     }
 
     /**
@@ -49,11 +54,11 @@ export class Handler {
      * @desc Click handler of the #start button
      */
     start() {
-        showAll('bet-container', 'cash-container');
-        hideAll('welcome-container', 'result-container');
+        showAll("bet-container", "cash-container");
+        hideAll("welcome-container", "result-container");
 
-        let userName = $('#user-name-input').value || 'Ninja Cat';
-        let betRangeInputRef = $('#bet-range-input') as MaterialSliderElement;
+        let userName = $("#user-name-input").value || "Ninja Cat";
+        let betRangeInputRef = $("#bet-range-input") as MaterialSliderElement;
 
         // Check if there is an on-going session
         // Create one if not
@@ -64,19 +69,21 @@ export class Handler {
         // Set name and cash
         setContent({
             cash: this.session.cash,
-            'user-name': userName
+            "user-name": userName,
         });
 
         // "Two-way binding" of both (slider and text) input
         // See: https://getmdl.io/components/index.html#sliders-section
-        betRangeInputRef.MaterialSlider.change(+Math.ceil(this.session.cash / 4));
+        betRangeInputRef.MaterialSlider.change(
+            +Math.ceil(this.session.cash / 4)
+        );
         setAttr({
-            id: 'bet-range-input',
-            max: this.session.cash
+            id: "bet-range-input",
+            max: this.session.cash,
         });
 
         setContent({
-            'bet-value-input-val': +Math.ceil(this.session.cash / 4)
+            "bet-value-input-val": +Math.ceil(this.session.cash / 4),
         });
     }
 
@@ -85,11 +92,18 @@ export class Handler {
      * @desc Click handler of the #bet button
      */
     bet() {
-        show('result-container');
-        hideAll('bet-container', 'result-text-container', 'action-container', 'result-rank-container', 'bot-rank', 'player-rank');
+        show("result-container");
+        hideAll(
+            "bet-container",
+            "result-text-container",
+            "action-container",
+            "result-rank-container",
+            "bot-rank",
+            "player-rank"
+        );
 
-        let betValue = +$('#bet-range-input').value;
-        setContent({ 'bet-in-result': betValue });
+        let betValue = +$("#bet-range-input").value;
+        setContent({ "bet-in-result": betValue });
 
         this.session.nextGame(betValue);
     }
@@ -108,7 +122,7 @@ export class Handler {
      * @desc Click handler of the #next button
      */
     next() {
-        hide('result-container');
+        hide("result-container");
         this.start();
     }
 
@@ -117,15 +131,15 @@ export class Handler {
      * @desc Click handler of the #end button
      */
     end() {
-        hideAll('cash-container', 'bet-container', 'result-container');
+        hideAll("cash-container", "bet-container", "result-container");
         setContent({
-            'user-name': ''
+            "user-name": "",
         });
         setAttr({
-            id: 'user-name-input',
-            value: ''
+            id: "user-name-input",
+            value: "",
         });
-        show('welcome-container');
+        show("welcome-container");
 
         this.session.clear();
         // Reset the deck for the new session later on
@@ -137,9 +151,9 @@ export class Handler {
      * @desc Input handler of the #bet-range-input slider
      * @param {Object} e - The event object
      */
-    betRangeInput = e => {
+    betRangeInput = (e) => {
         setContent({
-            'bet-value-input-val': +e.target.value
+            "bet-value-input-val": +e.target.value,
         });
     };
 }

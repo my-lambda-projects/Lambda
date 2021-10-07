@@ -1,12 +1,12 @@
-import { Card, CardSuit, CardValue } from '../component/card';
-import { PokerHand } from '../component/card-collection/hand-type.interface';
+import { Card, CardSuit, CardValue } from "../component/card";
+import { PokerHand } from "../component/card-collection/hand-type.interface";
 
 type Count = { [value in CardSuit]: number } | {};
 
 enum Winner {
     Bot = -1,
     Draw,
-    Player
+    Player,
 }
 
 interface ParsedHand {
@@ -18,7 +18,7 @@ interface ParsedHand {
 interface ComparedResult {
     botRank: PokerHand;
     playerRank: PokerHand;
-    winnerRef: Winner
+    winnerRef: Winner;
 }
 
 export class CardService {
@@ -27,9 +27,9 @@ export class CardService {
     // Singleton
     public static get instance() {
         return this.self || (this.self = new this());
-    };
+    }
 
-    constructor() { }
+    constructor() {}
 
     /**
      * @function getCompareResult
@@ -49,7 +49,7 @@ export class CardService {
 
         if (playerRank !== botRank) {
             return Object.assign(result, {
-                winnerRef: playerRank > botRank ? Winner.Player : Winner.Bot
+                winnerRef: playerRank > botRank ? Winner.Player : Winner.Bot,
             });
         }
 
@@ -62,14 +62,17 @@ export class CardService {
             let botCurr = botValues[index];
             if (playerCurr !== botCurr) {
                 return Object.assign(result, {
-                    winnerRef: this.comparator(playerCurr, botCurr) === 1 ? Winner.Player : Winner.Bot
+                    winnerRef:
+                        this.comparator(playerCurr, botCurr) === 1
+                            ? Winner.Player
+                            : Winner.Bot,
                 });
             }
             index++;
         }
 
         return Object.assign(result, {
-            winnerRef: Winner.Draw
+            winnerRef: Winner.Draw,
         });
     }
 
@@ -98,9 +101,13 @@ export class CardService {
         let countArr = Object.values(value);
 
         if (valueCount === 2) {
-            return countArr.includes(4) ? PokerHand.FourOfAKind : PokerHand.FullHouse;
+            return countArr.includes(4)
+                ? PokerHand.FourOfAKind
+                : PokerHand.FullHouse;
         } else if (valueCount === 3) {
-            return countArr.includes(3) ? PokerHand.ThreeOfAKind : PokerHand.TwoPair;
+            return countArr.includes(3)
+                ? PokerHand.ThreeOfAKind
+                : PokerHand.TwoPair;
         } else if (valueCount === 4) {
             return PokerHand.OnePair;
         } else {
@@ -123,7 +130,7 @@ export class CardService {
                 if (valueCount[a] < valueCount[b]) {
                     return 1;
                 } else if (valueCount[a] > valueCount[b]) {
-                    return -1
+                    return -1;
                 } else {
                     if (a < b) {
                         return 1;
@@ -144,7 +151,9 @@ export class CardService {
     private parseHand(cardList: Card[]): ParsedHand {
         let valueCount = {};
         let suitCount = {};
-        let sortedValue = cardList.map(card => card.value).sort(this.comparator);
+        let sortedValue = cardList
+            .map((card) => card.value)
+            .sort(this.comparator);
 
         // Calculate the count of value and suit
         for (let i = 0; i < cardList.length; i++) {
@@ -175,7 +184,7 @@ export class CardService {
      * @desc A wrapper of isLargerThan, where a transform function of bool => 1 or -1 has been passed in
      *     This may be used as the callback of sort function
      */
-    private comparator = (a, b): number => a > b ? 1 : -1;
+    private comparator = (a, b): number => (a > b ? 1 : -1);
 
     /**
      * @function isWheel
@@ -186,8 +195,13 @@ export class CardService {
      */
     private isWheel(values): boolean {
         // This is the only case to form a wheel
-        return values[0] === 2 && values[1] === 3 && values[2] === 4 &&
-            values[3] === 5 && values[4] === 14;
+        return (
+            values[0] === 2 &&
+            values[1] === 3 &&
+            values[2] === 4 &&
+            values[3] === 5 &&
+            values[4] === 14
+        );
     }
 
     /**

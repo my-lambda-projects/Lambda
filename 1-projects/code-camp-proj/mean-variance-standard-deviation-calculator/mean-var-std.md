@@ -1,6 +1,6 @@
 # Certification Project: Mean-Variance-Standard Deviation Calculator
 
-Create a function named `mean_var_std()` that uses Numpy to output the mean, 
+Create a function named `mean_var_std()` that uses Numpy to output the mean,
 variance, and standard deviation of a 3 x 3 matrix. The input of the function
 should be a list containing 9 digits. The function should convert the list
 into a 3 x 3 Numpy array, and then print the mean, variance, and standard
@@ -10,6 +10,7 @@ For example:
 `mean_var_std([0,1,2,3,4,5,6,7,8])`
 
 Should return:
+
 ```
 Mean
 [3. 4. 5.]
@@ -28,6 +29,7 @@ Standard Deviation
 ```
 
 ## Solution Code:
+
 ```py
 import numpy as np
 

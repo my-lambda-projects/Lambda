@@ -1,12 +1,10 @@
 svg {
-  background-color: #ADD8E6;
+  background-color: #add8e6;
 }
 
 .countries {
   stroke: #fff;
 }
-
-
 
 /*
 With the tooltip in your HTML and created in your script, let's add some initial

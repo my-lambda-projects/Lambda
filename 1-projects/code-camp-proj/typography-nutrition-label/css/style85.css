@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -41,7 +41,8 @@ p {
   float: right;
 }
 
-.md, .lg {
+.md,
+.lg {
   background-color: black;
   border: 0;
 }
@@ -88,5 +89,4 @@ First, add a declaration to `.note` that sets the top and bottom padding to 0, a
 .note {
   font-size: 0.6rem;
   margin: 5px 0;
-  
 }

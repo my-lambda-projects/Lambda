@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -25,5 +25,4 @@ Set the top and bottom margins to "-4px", and the left and right margins to "0".
 h1 {
   font-weight: 800;
   text-align: center;
-
 }

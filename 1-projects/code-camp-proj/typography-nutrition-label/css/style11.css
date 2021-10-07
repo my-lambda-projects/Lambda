@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* 
@@ -13,5 +13,4 @@ Set the `width` property of `.label` to "270px".
 
 .label {
   border: 2px solid black;
-
 }

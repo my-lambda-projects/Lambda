@@ -15,5 +15,5 @@ Our magazine will have a dark theme, so in the `body` rule, add the `color` prop
 */
 
 body {
-  font-family: 'Baskervville', serif;
+  font-family: "Baskervville", serif;
 }

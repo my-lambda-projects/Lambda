@@ -1,15 +1,15 @@
 import { $all, hide, setContent, show, showAll } from "../util";
-import { Card } from '../component/card';
-import { Deck } from '../component/card-collection/deck.model';
+import { Card } from "../component/card";
+import { Deck } from "../component/card-collection/deck.model";
 import { Session } from "./session";
-import { CardService } from '../service/card.service';
-import { ContentService } from '../service/content.service';
+import { CardService } from "../service/card.service";
+import { ContentService } from "../service/content.service";
 import { PokerHand } from "../component/card-collection/hand-type.interface";
 
 enum Winner {
     Bot = -1,
     Draw,
-    Player
+    Player,
 }
 
 interface Result {
@@ -26,22 +26,21 @@ export class Game {
     session: Session = Session.instance;
     private result: Result;
 
-    constructor(
-        private bet: number,
-        private deck: Deck
-    ) {
+    constructor(private bet: number, private deck: Deck) {
         this.card = CardService.instance;
         this.content = ContentService.instance;
         this.botHand = this.deck.createCardHand(5);
         this.playerHand = this.deck.createCardHand(5);
         this.result = this.card.getCompareResult(this.botHand, this.playerHand);
         this.showResult(this.result);
-        setContent(this.content.getHand({
-            botHand: this.botHand,
-            playerHand: this.playerHand,
-        }));
+        setContent(
+            this.content.getHand({
+                botHand: this.botHand,
+                playerHand: this.playerHand,
+            })
+        );
         this.showCard();
-    };
+    }
 
     /**
      * @function showResult
@@ -49,22 +48,24 @@ export class Game {
      * @desc Set content while result container is hidden. Reveal result and update cash after 5 seconds
      */
     private showResult({ botRank, playerRank, winnerRef }: Result) {
-        setContent(this.content.getResult({
-            botRank,
-            playerRank,
-            winnerRef,
-            bet: this.bet,
-        }));
+        setContent(
+            this.content.getResult({
+                botRank,
+                playerRank,
+                winnerRef,
+                bet: this.bet,
+            })
+        );
         this.updateCash(winnerRef);
 
         setTimeout(() => {
-            showAll('result-rank-container', 'bot-rank');
+            showAll("result-rank-container", "bot-rank");
         }, 2500);
 
         setTimeout(() => {
-            showAll('player-rank', 'result-text-container');
+            showAll("player-rank", "result-text-container");
             setContent({
-                cash: this.session.cash
+                cash: this.session.cash,
             });
         }, 5000);
     }
@@ -92,7 +93,7 @@ export class Game {
      * @desc Show all 10 cards at the speed of 1 card per 0.5 second
      */
     private showCard() {
-        const cards = $all('.poker-hand-result-item');
+        const cards = $all(".poker-hand-result-item");
 
         cards.forEach((card, index) => {
             this.rotate(card, index * 500);
@@ -108,7 +109,7 @@ export class Game {
      */
     private rotate(item, timeout) {
         setTimeout(() => {
-            item.style.transform = 'translateX(-100%) rotateY(180deg)';
+            item.style.transform = "translateX(-100%) rotateY(180deg)";
         }, timeout);
     }
 
@@ -119,16 +120,16 @@ export class Game {
      */
     private checkBalance(cash) {
         if (cash > 0) {
-            hide('refill');
-            show('next');
+            hide("refill");
+            show("next");
         } else {
             setTimeout(() => {
-                hide('next');
-                show('refill');
+                hide("next");
+                show("refill");
             }, 5000);
         }
         setTimeout(() => {
-            show('action-container');
+            show("action-container");
         }, 5000);
     }
 }

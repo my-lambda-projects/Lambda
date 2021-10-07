@@ -3,15 +3,13 @@ const chai = require("chai");
 const assert = chai.assert;
 
 describe("Fruit Tree Tests", function () {
-    let myFruitTree;
+  let myFruitTree;
 
-    beforeEach(() => {
-        myFruitTree = new FruitTree("Strawberry");
-    });
+  beforeEach(() => {
+    myFruitTree = new FruitTree("Strawberry");
+  });
 
-    it("should be a fruit tree", function () {
-
-    });
+  it("should be a fruit tree", function () {});
 });
 
 /*

@@ -1,4 +1,4 @@
-const isSpam = msg => {
+const isSpam = (msg) => {
   const re = /./;
 
   return false;

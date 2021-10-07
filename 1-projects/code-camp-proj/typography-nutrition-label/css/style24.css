@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -34,4 +34,3 @@ p {
 }
 
 /* Create a new rule with with the `.bold` selector and set the `font-weight` property to "800". */
-

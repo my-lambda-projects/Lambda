@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: 'Baskervville', serif;
+  font-family: "Baskervville", serif;
   color: linen;
   background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
 }
 
 h2,
@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 a {
@@ -76,7 +76,7 @@ img {
 
 .author {
   font-size: 2rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .author-name a:hover {
@@ -120,15 +120,15 @@ hr {
   color: #00beef;
   font-size: 2.4rem;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .quote::before {
-  content: '“ ';
+  content: "“ ";
 }
 
 .quote::after {
-  content: ' ”';
+  content: " ”";
 }
 
 .text-with-images {
@@ -183,23 +183,22 @@ hr {
   }
 }
 
-
 @media only screen and (max-width: 550px) {
   .hero-title {
     font-size: 6rem;
   }
-  
+
   .hero-subtitle,
   .author,
   .quote,
   .list-header {
     font-size: 1.8rem;
   }
-  
+
   .social-icons {
     font-size: 2rem;
   }
-  
+
   /* 
   Finally set your `.text` class's font size to `1.6rem`. 
   */

@@ -1,11 +1,11 @@
-import { CardSuit, CardValue  } from '../card';
+import { CardSuit, CardValue } from "../card";
 
 export class CardPile {
     protected readonly suits = [
         CardSuit.Spade,
         CardSuit.Heart,
         CardSuit.Club,
-        CardSuit.Diamond
+        CardSuit.Diamond,
     ];
     protected readonly values = [
         CardValue.Two,
@@ -20,8 +20,8 @@ export class CardPile {
         CardValue.Jack,
         CardValue.Queen,
         CardValue.King,
-        CardValue.Ace
+        CardValue.Ace,
     ];
 
-    constructor() { }
+    constructor() {}
 }

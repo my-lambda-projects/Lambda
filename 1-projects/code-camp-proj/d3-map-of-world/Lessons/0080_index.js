@@ -2,8 +2,6 @@
 const svgWidth = 1000;
 const svgHeight = 700;
 
-
-
 /*
 D3 has a `.select()` method that allows you to grab an HTML element in the DOM
 and work with it. For example, you would select the first item with the class

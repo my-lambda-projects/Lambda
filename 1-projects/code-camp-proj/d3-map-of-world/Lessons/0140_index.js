@@ -2,14 +2,13 @@
 const svgWidth = 1000;
 const svgHeight = 700;
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-svg.append("rect")
-
-
+svg.append("rect");
 
 /*
 For the new rectangle element to appear on the page properly, it needs a few more

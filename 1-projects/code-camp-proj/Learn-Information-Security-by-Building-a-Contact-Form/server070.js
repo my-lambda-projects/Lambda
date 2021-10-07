@@ -11,7 +11,7 @@ app.use(helmet.xssFilter());
 app.use(helmet.frameguard());
 app.use(
   helmet.hsts({
-    maxAge: 5184000 /* 60 days in seconds */
+    maxAge: 5184000 /* 60 days in seconds */,
   })
 );
 

@@ -2,7 +2,7 @@ const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
   "*": (x, y) => x * y,
-  "/": (x, y) => x / y
+  "/": (x, y) => x / y,
 };
 
 const infixEval = (str, regex) =>
@@ -10,7 +10,7 @@ const infixEval = (str, regex) =>
     infixToFunction[fn](parseFloat(arg1), parseFloat(arg2))
   );
 
-const highPrecedence = str => str;
+const highPrecedence = (str) => str;
 
 /*
 Arrow functions can have multiple statements:

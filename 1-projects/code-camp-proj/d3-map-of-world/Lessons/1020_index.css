@@ -1,9 +1,7 @@
 svg {
-  background-color: #ADD8E6;
+  background-color: #add8e6;
   cursor: grab;
 }
-
-
 
 /*
 Finally, create a rule to style the cursor as a closed, grabbing hand when the
@@ -11,7 +9,6 @@ user is actively grabbing the map.
 
 You do this with a new rule for `svg:active` and set the `cursor` to `grabbing`.
 */
-
 
 .countries {
   stroke: #fff;
@@ -27,5 +24,5 @@ You do this with a new rule for `svg:active` and set the `cursor` to `grabbing`.
 }
 
 .label {
-  color: #0050A1;
+  color: #0050a1;
 }

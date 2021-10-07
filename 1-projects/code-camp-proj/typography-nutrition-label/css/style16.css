@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -24,5 +24,4 @@ Add the `text-align` property with the value `center` to your `h1` rule.
 
 h1 {
   font-weight: 800;
-
 }

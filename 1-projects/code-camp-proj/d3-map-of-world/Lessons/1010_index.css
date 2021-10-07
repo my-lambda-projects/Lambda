@@ -1,8 +1,5 @@
 svg {
-  background-color: #ADD8E6;
-
-
-
+  background-color: #add8e6;
 }
 
 /*
@@ -14,7 +11,6 @@ style - a hand instead of a pointer - to indicate this is possible on the page.
 
 Add a rule under `svg` that sets the `cursor` to `grab`.
 */
-
 
 .countries {
   stroke: #fff;
@@ -30,5 +26,5 @@ Add a rule under `svg` that sets the `cursor` to `grab`.
 }
 
 .label {
-  color: #0050A1;
+  color: #0050a1;
 }

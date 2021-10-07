@@ -6,7 +6,7 @@
   border-radius: 50%;
   margin-left: 50px;
   animation-name: wheel-spin;
-  animation-duration: 10s; 
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -88,7 +88,6 @@
     background-color: yellow;
   }
   50% {
-
   }
   100% {
     transform: rotate(-360deg);

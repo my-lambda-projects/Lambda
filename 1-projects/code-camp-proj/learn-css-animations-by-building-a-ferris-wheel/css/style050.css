@@ -5,7 +5,6 @@
   border: 2px solid black;
   border-radius: 50%;
   margin-left: 50px;
-  
 }
 
 .line {
@@ -28,6 +27,4 @@ Below the rule for `.line`, create a rule that selects just the second element w
 */
 
 .cabin {
-
 }
-

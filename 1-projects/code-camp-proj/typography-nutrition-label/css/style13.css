@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /*
@@ -15,5 +15,4 @@ Set the `padding` of `.label` to "0 7px" to remove any padding on the top and bo
   border: 2px solid black;
   width: 270px;
   margin: 20px auto;
-
 }

@@ -10,15 +10,13 @@ const svgWidth = 1000;
 const svgHeight = 700;
 const scale = svgWidth / (2 * Math.PI);
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-const projection = d3.geoMercator()
-    .scale(scale)
-
-
+const projection = d3.geoMercator().scale(scale);
 
 /*
 D3 has a `.translate()` method, which is used to set a projection's "translation

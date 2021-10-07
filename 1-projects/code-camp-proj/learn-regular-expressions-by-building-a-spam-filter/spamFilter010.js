@@ -1,4 +1,4 @@
-const isSpam = msg => {
+const isSpam = (msg) => {
   /*
 
   To start with, declare a variable called `re` using `const` and set its value to `/./`.

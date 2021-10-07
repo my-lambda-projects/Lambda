@@ -1,4 +1,4 @@
-const isSpam = msg => {
+const isSpam = (msg) => {
   const re = /viagra|free money|work from home|stock alert|dear friend/i;
   /*
   Good job, but the war on spam is never over!

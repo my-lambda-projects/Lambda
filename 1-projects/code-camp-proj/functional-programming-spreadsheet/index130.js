@@ -2,7 +2,7 @@ const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
   "*": (x, y) => x * y,
-  "/": (x, y) => x / y
+  "/": (x, y) => x / y,
 };
 
 const infixEval = (str, regex) =>

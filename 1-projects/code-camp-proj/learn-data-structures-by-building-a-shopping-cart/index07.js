@@ -2,23 +2,23 @@ const products = [
   {
     id: 0,
     name: "Vanilla buttercream cupcake",
-    price: 2.99
+    price: 2.99,
   },
   {
     id: 1,
     name: "French Macaroon",
-    price: 3.99
+    price: 3.99,
   },
   {
     id: 2,
     name: "Fruit sprinkles cupcake",
-    price: 3.99
+    price: 3.99,
   },
   {
     id: 3,
     name: "Pink flower cupcake",
-    price: 5.99
-  }
+    price: 5.99,
+  },
 ];
 
 /*
@@ -37,5 +37,5 @@ Add a property called addItem to the `shoppingCart` and initialize it as an empt
 Remember, each key-value pair in an object needs to be followed by a comma `,` if another pair succeeds it.
 */
 const shoppingCart = {
-  items: []
+  items: [],
 };

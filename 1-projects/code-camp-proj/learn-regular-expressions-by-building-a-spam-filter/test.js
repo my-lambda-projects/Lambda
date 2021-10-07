@@ -25,57 +25,59 @@ end                              | $
 */
 
 const spamPhrases = [
-  'viagra', 'free money', 'work from home', 'stock alert', 'dear friend'
+  "viagra",
+  "free money",
+  "work from home",
+  "stock alert",
+  "dear friend",
 ];
 
 const mangleMap = {
-  a: [ 'a', '@', '4' ],
-  b: [ 'b', '8' ],
-  c: [ 'c', '{', '[', '(' ],
-  e: [ 'e', '3' ],
-  g: [ 'g', '9' ],
-  i: [ 'i', '1', '|' ],
-  o: [ 'o', '0' ],
-  s: [ 's', '5' ],
-  t: [ 't' , '7' ],
-  z: [ 'z', '2' ]
+  a: ["a", "@", "4"],
+  b: ["b", "8"],
+  c: ["c", "{", "[", "("],
+  e: ["e", "3"],
+  g: ["g", "9"],
+  i: ["i", "1", "|"],
+  o: ["o", "0"],
+  s: ["s", "5"],
+  t: ["t", "7"],
+  z: ["z", "2"],
 };
 
 const tests = [
-  [ 'Hi Michelle,', false ],
-  [ 'The PPT from the meeting is attached', false ],
-  [ 'Are you free on Wednesday 19th?', false ],
-  [ 'I\'ll see you at work tomorrow.', false ],
-  [ 'This may be gibberish, but it\'s harmless gibberish', false ],
-  [ '', false ]
+  ["Hi Michelle,", false],
+  ["The PPT from the meeting is attached", false],
+  ["Are you free on Wednesday 19th?", false],
+  ["I'll see you at work tomorrow.", false],
+  ["This may be gibberish, but it's harmless gibberish", false],
+  ["", false],
 ];
 
-const randInt = max => Math.floor(Math.random() * (max + 1));
+const randInt = (max) => Math.floor(Math.random() * (max + 1));
 
-const manglePhrase = phrase => {
-  const mangledPhrase = phrase.split('').map(char => {
+const manglePhrase = (phrase) => {
+  const mangledPhrase = phrase.split("").map((char) => {
     const mangledChars = mangleMap[char];
     if (!mangledChars) return char;
     else {
       const len = mangledChars.length;
       const c = mangleMap[char][randInt(len - 1)];
-      return c[randInt(1) === 1 ? 'toUpperCase' : 'toLowerCase']();
+      return c[randInt(1) === 1 ? "toUpperCase" : "toLowerCase"]();
     }
   });
 
-  return mangledPhrase.join(' '.repeat(randInt(2)));
+  return mangledPhrase.join(" ".repeat(randInt(2)));
 };
 
-spamPhrases.forEach(phrase => {
+spamPhrases.forEach((phrase) => {
   for (let i = 0; i < 5; i++) {
     const mangled = manglePhrase(phrase);
     tests.push([mangled, true]);
   }
 });
 
-
-tests.forEach(test => {
+tests.forEach((test) => {
   if (isSpam(test[0]) !== test[1]) console.log(test);
   // isSpam is currently a global defined in spamFilter.js
 });
-

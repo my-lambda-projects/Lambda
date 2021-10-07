@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -45,9 +45,9 @@ Look closely and you'll see that there's still a 1 pixel gray border at the bott
 Set the `border` property of your `.md, .lg` rule to "0" to get rid of it.
 */
 
-.md, .lg {
+.md,
+.lg {
   background-color: black;
-
 }
 
 .lg {

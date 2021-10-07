@@ -1,4 +1,4 @@
-const isSpam = msg => {
+const isSpam = (msg) => {
   const re = /./;
   /*
   Now, let's start making our `re` regex more useful.

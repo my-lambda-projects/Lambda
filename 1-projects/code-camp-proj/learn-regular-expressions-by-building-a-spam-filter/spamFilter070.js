@@ -1,10 +1,10 @@
-const isSpam = msg => {
+const isSpam = (msg) => {
   const blacklistRegexes = [
     /viagra/i,
     /free money/i,
     /work from home/i,
     /stock alert/i,
-    /dear friend/i
+    /dear friend/i,
   ];
   /*
   Great, refactoring is done, now back to business! Let's start handling those M4ngL3D stR1Ng5 ("mangled strings")!
@@ -18,5 +18,5 @@ const isSpam = msg => {
   Change all occurrences of the character `i` in our `blacklistRegexes` to match `i`, `1`, or `|`. Note that this doesn't include the `i` flags at the end!
   */
 
-  return blacklistRegexes.some(re => re.test(msg));
+  return blacklistRegexes.some((re) => re.test(msg));
 };

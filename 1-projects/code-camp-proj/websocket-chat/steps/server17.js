@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 const messages = [];
 
-io.on("connection", socket => {
+io.on("connection", (socket) => {
   socket.emit("previousMessages", messages);
 
   socket.on("newMessage", ({ username, msg }) => {

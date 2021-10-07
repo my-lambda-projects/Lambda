@@ -3,23 +3,23 @@ const chai = require("chai");
 const assert = chai.assert;
 
 describe("Fruit Tree Tests", function () {
-    let myFruitTree;
+  let myFruitTree;
 
-    beforeEach(() => {
-        myFruitTree = new FruitTree("Strawberry");
-    });
+  beforeEach(() => {
+    myFruitTree = new FruitTree("Strawberry");
+  });
 
-    it("should be a fruit tree", function () {
-        assert.instanceOf(myFruitTree, FruitTree);
-    });
+  it("should be a fruit tree", function () {
+    assert.instanceOf(myFruitTree, FruitTree);
+  });
 
-    it("should be given a name", function () {
-        assert.equal(myFruitTree.name, "Strawberry");
-    });
+  it("should be given a name", function () {
+    assert.equal(myFruitTree.name, "Strawberry");
+  });
 
-    it("should be watered", function () {
-        myFruitTree.water();
-    });
+  it("should be watered", function () {
+    myFruitTree.water();
+  });
 });
 
 /*

@@ -3,15 +3,13 @@ const chai = require("chai");
 const assert = chai.assert;
 
 describe("Plant Tests", function () {
-    let myPlant;
+  let myPlant;
 
-    beforeEach(() => {
-        myPlant = new Plant("Sunflower");
-    });
+  beforeEach(() => {
+    myPlant = new Plant("Sunflower");
+  });
 
-    it("should be a plant", function () {
-
-    });
+  it("should be a plant", function () {});
 });
 
 /*

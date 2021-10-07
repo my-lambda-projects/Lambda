@@ -1,10 +1,10 @@
-const isSpam = msg => {
+const isSpam = (msg) => {
   const blacklistRegexes = [
     /viagra/i,
     /free money/i,
     /work from home/i,
     /stock alert/i,
-    /dear friend/i
+    /dear friend/i,
   ];
 
   // return re.test(msg);

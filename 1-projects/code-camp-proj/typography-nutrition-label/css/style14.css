@@ -4,13 +4,12 @@ By default, your browser includes the dimensions of the border and padding when 
 Create a new rule using the universal `*` selector to target all elements on the page and set the `box-sizing` property to `border-box`.
 */
 
-
 html {
   font-size: 16px;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {

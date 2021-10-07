@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -33,5 +33,4 @@ Set the `margin` of the `divider` class to "2px 0" to increase the space above a
 
 .divider {
   border-bottom: 1px solid #888989;
-
 }

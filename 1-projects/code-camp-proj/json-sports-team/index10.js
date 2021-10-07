@@ -1,22 +1,22 @@
 const myTeam = {
-  "Team": "Argentina",
-  "Sport": "Football",
-  "Year": 1986,
+  Team: "Argentina",
+  Sport: "Football",
+  Year: 1986,
   "Is World Cup Winner": true,
   "Head Coach": {
-    "Name": "Carlos Bilardo",
-    "Matches": 7
+    Name: "Carlos Bilardo",
+    Matches: 7,
   },
-  "Players": [
+  Players: [
     {
-      "Name": "Sergio Batista",
-      "Position": "MF",
-      "Number": 2,
-      "isCaptain": false,
-      "Nickname": null
-    }
-  ]
-}
+      Name: "Sergio Batista",
+      Position: "MF",
+      Number: 2,
+      isCaptain: false,
+      Nickname: null,
+    },
+  ],
+};
 
 /*
 Now you've seen an example of each valid data type in JSON: strings, numbers, Boolean values, objects, arrays, and `null`.

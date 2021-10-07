@@ -35,7 +35,10 @@ a {
 
 main {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
   row-gap: 3rem;
 }
 
@@ -47,7 +50,6 @@ main {
   row-gap: 1.5rem;
 }
 
-
 .hero {
   grid-column: 1 / -1;
   position: relative;
@@ -57,7 +59,6 @@ img {
   width: 100%;
   object-fit: cover;
 }
-
 
 .hero-title {
   position: absolute;
@@ -75,7 +76,7 @@ img {
 
 .author {
   font-size: 2rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .author-name a:hover {

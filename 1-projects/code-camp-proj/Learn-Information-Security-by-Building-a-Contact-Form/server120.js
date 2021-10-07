@@ -9,9 +9,9 @@ const helmetConfig = {
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'"],
-      styleSrc: ["'self'"]
-    }
-  }
+      styleSrc: ["'self'"],
+    },
+  },
 };
 
 app.use(helmet(helmetConfig));

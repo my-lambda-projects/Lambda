@@ -1,7 +1,8 @@
 // documentation generation
 
-const spamPhrasesMD = '**Spam phrases:**\n\n'
-  + spamPhrases.map(phrase => `* ${phrase}`).join('\n');
+const spamPhrasesMD =
+  "**Spam phrases:**\n\n" +
+  spamPhrases.map((phrase) => `* ${phrase}`).join("\n");
 
 /*
 **Spam phrases:**
@@ -16,7 +17,12 @@ const spamPhrasesMD = '**Spam phrases:**\n\n'
 const mangleMapMD = `
 Character | Mangled versions
 ----------|-----------------
-${Object.keys(mangleMap).map(key => `${key.padEnd('Character'.length, ' ')} | ${mangleMap[key].join(', ')}`).join('\n')}
+${Object.keys(mangleMap)
+  .map(
+    (key) =>
+      `${key.padEnd("Character".length, " ")} | ${mangleMap[key].join(", ")}`
+  )
+  .join("\n")}
 `;
 
 /*

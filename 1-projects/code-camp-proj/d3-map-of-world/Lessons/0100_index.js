@@ -2,10 +2,7 @@
 const svgWidth = 1000;
 const svgHeight = 700;
 
-const svg = d3.select("#map")
-    .append("svg")
-
-
+const svg = d3.select("#map").append("svg");
 
 /*
 The last step to create an `svg` element is to assign `width` and `height` attributes

@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -40,7 +40,8 @@ p {
   float: right;
 }
 
-.md, .lg {
+.md,
+.lg {
   background-color: black;
   border: 0;
 }
@@ -60,7 +61,6 @@ In `.calories-info h1`, set the `overflow` property to "hidden" to prevent this.
 
 .calories-info h1 {
   margin: -5px -2px;
-  
 }
 
 .calories-info span {

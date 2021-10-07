@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
@@ -9,7 +9,7 @@ const ReviewSchema = new Schema({
   date: { type: Date, required: true },
 });
 
-module.exports = mongoose.model('SomeModel', SomeModelSchema );
+module.exports = mongoose.model("SomeModel", SomeModelSchema);
 
 /*
 Great! Now it's time to use this model in the server.

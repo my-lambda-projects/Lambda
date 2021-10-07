@@ -10,16 +10,16 @@ const svgWidth = 1000;
 const svgHeight = 700;
 const scale = svgWidth / (2 * Math.PI);
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-const projection = d3.geoMercator()
-    .scale(scale)
-    .translate([svgWidth / 2, svgHeight / 2])
-
-
+const projection = d3
+  .geoMercator()
+  .scale(scale)
+  .translate([svgWidth / 2, svgHeight / 2]);
 
 /*
 The last part of the `projection` declaration will use D3's `.center()` method.

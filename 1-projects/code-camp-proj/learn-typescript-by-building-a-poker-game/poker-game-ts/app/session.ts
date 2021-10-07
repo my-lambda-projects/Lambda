@@ -1,5 +1,5 @@
-import { Deck } from '../component/card-collection/deck.model';
-import { Game } from './game';
+import { Deck } from "../component/card-collection/deck.model";
+import { Game } from "./game";
 
 export class Session {
     private static self: Session;
@@ -11,7 +11,7 @@ export class Session {
     // Singleton
     public static get instance() {
         return this.self || (this.self = new this());
-    };
+    }
 
     constructor() {
         this.user = null;
@@ -42,7 +42,7 @@ export class Session {
      * @desc Initialize a session
      * @param {string} userName - The user name based on user input, default to "Ninja Cat"
      */
-    init(userName: string = 'Ninja Cat'): Session {
+    init(userName: string = "Ninja Cat"): Session {
         this.user = userName;
         this.cash = 100;
 
@@ -66,4 +66,3 @@ export class Session {
         this.cash = amount;
     }
 }
-

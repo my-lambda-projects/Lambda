@@ -1,13 +1,13 @@
 /* box model reset */
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
-*, *::before, *::after {
-    box-sizing: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
-
 
 /* 
   Let's start styling and giving form to the piano. Create a

@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* 
@@ -15,5 +15,4 @@ Set the `margin` of `.label` to "20px auto" to add a 20 pixel margin to the top 
 .label {
   border: 2px solid black;
   width: 270px;
-
 }

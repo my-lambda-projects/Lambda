@@ -13,13 +13,14 @@ demographic data. Here is a sample of what the data looks like:
 ```
 
 You must use Pandas to answer the following questions:
-* How many of each race (race feature) are represented in this dataset?
-* What is the average age (age feature) of men?
-* What is the percentage of United States citizens (native-country feature)?
-* What are mean value and standard deviation of the age of those who recieve more than 50K per year (salary feature) and those who receive less than 50K per year?
-* What is the minumum number of hours a person works per week (hours-per-week feature)?
-* What percentage of the people that work the minumum number of hours per week have a salary of >50K?
-* Identify the top occupation for those who earn a little and a lot (salary) for each country (native-country).
+
+- How many of each race (race feature) are represented in this dataset?
+- What is the average age (age feature) of men?
+- What is the percentage of United States citizens (native-country feature)?
+- What are mean value and standard deviation of the age of those who recieve more than 50K per year (salary feature) and those who receive less than 50K per year?
+- What is the minumum number of hours a person works per week (hours-per-week feature)?
+- What percentage of the people that work the minumum number of hours per week have a salary of >50K?
+- Identify the top occupation for those who earn a little and a lot (salary) for each country (native-country).
 
 Use the code starter code. Update the code so all variables set to "None" are set to the apporpriate calculation or code.
 

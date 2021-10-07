@@ -1,4 +1,4 @@
-import { Garden } from '../src/Garden';
+import { Garden } from "../src/Garden";
 const chai = require("chai");
 const assert = chai.assert;
 

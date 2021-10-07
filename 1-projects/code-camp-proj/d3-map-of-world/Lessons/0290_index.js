@@ -9,8 +9,6 @@ const popPath = "./worldPopulation.csv";
 const svgWidth = 1000;
 const svgHeight = 700;
 
-
-
 /*
 D3 provides a useful `.scale()` method that you can chain to the Mercator projection,
 which scales the map larger or smaller when it first loads. You pass a number into
@@ -25,11 +23,10 @@ Using the `const` keyword, declare a variable named `scale` and set it to the
 `svgWidth` divided by `(2 * Math.PI)`.
 */
 
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
-
-const projection = d3.geoMercator()
-
+const projection = d3.geoMercator();

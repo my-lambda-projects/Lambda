@@ -1,5 +1,5 @@
 svg {
-  background-color: #ADD8E6;
+  background-color: #add8e6;
 }
 
 .countries {
@@ -14,8 +14,6 @@ svg {
   opacity: 0;
   border-radius: 5px;
 }
-
-
 
 /*
 You may have noticed that there was a `label` class added to the `span` elements

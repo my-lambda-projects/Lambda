@@ -1,4 +1,4 @@
-document.getElementById('calorie-form').onsubmit = calculate;
+document.getElementById("calorie-form").onsubmit = calculate;
 
 function calculate(e) {
   e.preventDefault();

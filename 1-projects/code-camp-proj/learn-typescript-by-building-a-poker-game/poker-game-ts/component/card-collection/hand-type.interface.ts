@@ -9,6 +9,5 @@ export enum PokerHand {
     FullHouse,
     FourOfAKind,
     SteelWheel,
-    StraightOrRoyalFlush
+    StraightOrRoyalFlush,
 }
-

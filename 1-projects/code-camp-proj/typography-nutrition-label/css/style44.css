@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -40,7 +40,8 @@ p {
   float: right;
 }
 
-.md, .lg {
+.md,
+.lg {
   background-color: black;
   border: 0;
 }
@@ -65,5 +66,4 @@ Set the `margin-top` of your `.calories-info span` rule to "-7px".
 
 .calories-info span {
   font-size: 1.2em;
-
 }

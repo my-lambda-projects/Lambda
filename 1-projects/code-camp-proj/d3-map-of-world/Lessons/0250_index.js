@@ -1,8 +1,6 @@
 // TopoJSON data to draw country outlines
 // Source: Natural Earth 1:50m Cultural Vectors, Admin 0 - Countries
 
-
-
 /*
 Your `svg` shapes were lovely, but it's time to get back to drawing the map of
 the world.
@@ -25,7 +23,8 @@ to the `naturalEarth50TopoJSON.json` file as a string.
 const svgWidth = 1000;
 const svgHeight = 700;
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);

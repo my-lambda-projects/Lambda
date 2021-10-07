@@ -13,7 +13,11 @@
   <body>
     <header>
       <nav class="navbar">
-        <img id="logo" src="./assets/freeCodeCamp.png" alt="freeCodeCamp logo" />
+        <img
+          id="logo"
+          src="./assets/freeCodeCamp.png"
+          alt="freeCodeCamp logo"
+        />
       </nav>
     </header>
 
@@ -30,8 +34,7 @@
             </div>
           </aside>
 
-          <div id="chat-history">          
-          </div>
+          <div id="chat-history"></div>
 
           <form id="chat-form" action="#">
             <textarea
@@ -51,16 +54,16 @@
         <span class="msg-content"></span>
         <span class="msg-timestamp"></span>
       </div>
-		</template>
-		
-		<template class="user-component">
-			<span class="user-list-item"></span>
-		</template>
+    </template>
+
+    <template class="user-component">
+      <span class="user-list-item"></span>
+    </template>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/main.js"></script>
     <script>
-      (function() {
+      (function () {
         app.chat();
       })();
     </script>

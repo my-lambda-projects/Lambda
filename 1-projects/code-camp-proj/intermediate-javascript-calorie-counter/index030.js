@@ -1,4 +1,4 @@
-document.getElementById('calorie-form');
+document.getElementById("calorie-form");
 
 /*Now we need to specify what should be done with the form when the user submits it by clicking the Calculate button.
 

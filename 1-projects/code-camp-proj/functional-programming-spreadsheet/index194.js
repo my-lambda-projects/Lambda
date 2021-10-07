@@ -2,7 +2,7 @@ const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
   "*": (x, y) => x * y,
-  "/": (x, y) => x / y
+  "/": (x, y) => x / y,
 };
 
 const infixEval = (str, regex) =>
@@ -10,19 +10,19 @@ const infixEval = (str, regex) =>
     infixToFunction[fn](parseFloat(arg1), parseFloat(arg2))
   );
 
-const highPrecedence = str => {
+const highPrecedence = (str) => {
   const regex = /([0-9.]+)([*\/])([0-9.]+)/;
   const str2 = infixEval(str, regex);
   return str === str2 ? str : highPrecedence(str2);
 };
 
 const spreadsheetFunctions = {
-  "": x => x
+  "": (x) => x,
 };
 
-const applyFn = str => {
+const applyFn = (str) => {
   const noHigh = highPrecedence(str);
-}
+};
 
 /*
 Set `infix` to `/([0-9.]+)([+-])([0-9.]+)/` in `applyFn`.

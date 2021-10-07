@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .label {
@@ -40,7 +40,8 @@ p {
   float: right;
 }
 
-.md, .lg {
+.md,
+.lg {
   background-color: black;
   border: 0;
 }
@@ -56,4 +57,3 @@ p {
 /* 
 Create a new rule with the selector `.calories-info h1` and set the top and bottom margin to "-5px", and the left and right margin to "-2px".
 */
-

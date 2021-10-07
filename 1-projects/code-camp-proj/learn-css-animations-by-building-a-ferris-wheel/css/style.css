@@ -5,8 +5,8 @@
   border: 2px solid black;
   margin-left: 50px;
   border-radius: 50%;
-  animation-name: wheel-spin; 
-  animation-duration: 10s; 
+  animation-name: wheel-spin;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }

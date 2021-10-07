@@ -11,18 +11,17 @@ export enum CardValue {
     Jack,
     Queen,
     King,
-    Ace
+    Ace,
 }
 
 export enum CardSuit {
     Spade,
     Heart,
     Club,
-    Diamond
+    Diamond,
 }
 
 export interface CardInterface {
     suit: CardSuit;
     value: CardValue;
 }
-

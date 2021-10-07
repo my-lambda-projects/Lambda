@@ -18,35 +18,35 @@ interface TemplateObject {
 }
 
 interface HandContent {
-    'bot-result': string;
-    'player-result': string;
+    "bot-result": string;
+    "player-result": string;
 }
 
 type ResultPartial = {
-    'winner-text': string,
-    'cash-result': string,
-}
+    "winner-text": string;
+    "cash-result": string;
+};
 
 type ResultContent = {
-    'bot-rank': string,
-    'player-rank': string,
+    "bot-rank": string;
+    "player-rank": string;
 } & ResultPartial;
 
 enum Winner {
     Bot = -1,
     Draw,
-    Player
+    Player,
 }
 export class ContentService {
-    private suitArr = ['♠️', '♥️', '♣️', '♦️'];
+    private suitArr = ["♠️", "♥️", "♣️", "♦️"];
     private static self: ContentService;
 
     // Singleton
     public static get instance() {
         return this.self || (this.self = new this());
-    };
+    }
 
-    constructor() { }
+    constructor() {}
 
     /**
      * @function getHand
@@ -56,8 +56,8 @@ export class ContentService {
      */
     getHand({ botHand, playerHand }): HandContent {
         return {
-            'bot-result': this.cardResult(botHand),
-            'player-result': this.cardResult(playerHand),
+            "bot-result": this.cardResult(botHand),
+            "player-result": this.cardResult(playerHand),
         };
     }
 
@@ -69,8 +69,8 @@ export class ContentService {
      */
     getResult({ botRank, playerRank, winnerRef, bet }): ResultContent {
         let res = {
-            'bot-rank': `The bot has ${this.getRankText(botRank)}.`,
-            'player-rank': `Your have ${this.getRankText(playerRank)}.`,
+            "bot-rank": `The bot has ${this.getRankText(botRank)}.`,
+            "player-rank": `Your have ${this.getRankText(playerRank)}.`,
         };
 
         return Object.assign({}, res, this.getWinnerContent(winnerRef, bet));
@@ -85,18 +85,18 @@ export class ContentService {
      */
     private getWinnerContent(winnerRef: Winner, bet: number) {
         let content = {
-            'winner-text': '',
-            'cash-result': ''
+            "winner-text": "",
+            "cash-result": "",
         };
 
         if (winnerRef === Winner.Draw) {
-            content['winner-text'] = `😉 It's a Draw!`;
+            content["winner-text"] = `😉 It's a Draw!`;
         } else if (winnerRef === Winner.Player) {
-            content['winner-text'] = `😄 You're the winner! Yay!`;
-            content['cash-result'] = `🤑 You won $${bet}!`;
+            content["winner-text"] = `😄 You're the winner! Yay!`;
+            content["cash-result"] = `🤑 You won $${bet}!`;
         } else {
-            content['winner-text'] = `😒 The bot won! Darn it!`;
-            content['cash-result'] = `💸 You lost $${bet}!`;
+            content["winner-text"] = `😒 The bot won! Darn it!`;
+            content["cash-result"] = `💸 You lost $${bet}!`;
         }
 
         return content;
@@ -109,9 +109,19 @@ export class ContentService {
      * @return The text of a poker hand, to be displayed in the result section
      */
     private getRankText(hand: PokerHand): string {
-        const handType = ['high card', 'a pair', 'two pairs', 'three of a kind',
-            'a wheel', 'a straight', 'a flush', 'a full house', 'four of a kind',
-            'a steel wheel', 'a straight flush/royal flush'];
+        const handType = [
+            "high card",
+            "a pair",
+            "two pairs",
+            "three of a kind",
+            "a wheel",
+            "a straight",
+            "a flush",
+            "a full house",
+            "four of a kind",
+            "a steel wheel",
+            "a straight flush/royal flush",
+        ];
         return handType[hand];
     }
 
@@ -124,33 +134,40 @@ export class ContentService {
      */
     private cardResult(cardList: Card[]) {
         return this.tag({
-            name: 'div',
-            className: 'poker-hand-result',
-            content: cardList.map(card => ({
-                name: 'div',
-                className: 'poker-hand-result-item',
-                content: [{
-                    name: 'div',
-                    className: 'poker-hand-card-front',
-                    content: [{
-                        name: 'div',
-                        className: 'poker-hand-card-value-top',
-                        content: this.getPoint(card.value)
-                    }, {
-                        name: 'div',
-                        className: 'poker-hand-card-suit',
-                        content: this.suitArr[card.suit]
-                    }, {
-                        name: 'div',
-                        className: 'poker-hand-card-value-bottom',
-                        content: this.getPoint(card.value)
-                    }]
-                }, {
-                    name: 'div',
-                    className: 'poker-hand-card-back',
-                    content: ''
-                }]
-            }))
+            name: "div",
+            className: "poker-hand-result",
+            content: cardList.map((card) => ({
+                name: "div",
+                className: "poker-hand-result-item",
+                content: [
+                    {
+                        name: "div",
+                        className: "poker-hand-card-front",
+                        content: [
+                            {
+                                name: "div",
+                                className: "poker-hand-card-value-top",
+                                content: this.getPoint(card.value),
+                            },
+                            {
+                                name: "div",
+                                className: "poker-hand-card-suit",
+                                content: this.suitArr[card.suit],
+                            },
+                            {
+                                name: "div",
+                                className: "poker-hand-card-value-bottom",
+                                content: this.getPoint(card.value),
+                            },
+                        ],
+                    },
+                    {
+                        name: "div",
+                        className: "poker-hand-card-back",
+                        content: "",
+                    },
+                ],
+            })),
         });
     }
 
@@ -161,7 +178,7 @@ export class ContentService {
      * @return {string} The string representation of the card value, which is from '2' - '10' and 'J' to 'A'
      */
     private getPoint(value: CardValue): string {
-        const royal = ['J', 'Q', 'K', 'A'];
+        const royal = ["J", "Q", "K", "A"];
 
         if (value > 10) {
             return royal[value - 11];
@@ -181,17 +198,19 @@ export class ContentService {
         className,
         content,
         name,
-        idName = ''
+        idName = "",
     }: TemplateObject): string {
         // Construct attribute string
         let attributes = this.attr({
             class: className,
-            id: idName
+            id: idName,
         });
 
         // Recursive call when the content is of type TemplateObject[]
         if (Array.isArray(content)) {
-            return `<${name}${attributes}>${content.map(e => this.tag(e)).join('')}</${name}>`
+            return `<${name}${attributes}>${content
+                .map((e) => this.tag(e))
+                .join("")}</${name}>`;
         }
 
         return `<${name}${attributes}>${content}</${name}>`;
@@ -206,6 +225,8 @@ export class ContentService {
      * @return {string} - The attribute string to be used
      */
     private attr(obj): string {
-        return Object.keys(obj).map(key => obj[key] && ` ${key}="${obj[key]}"`).join('');
+        return Object.keys(obj)
+            .map((key) => obj[key] && ` ${key}="${obj[key]}"`)
+            .join("");
     }
 }

@@ -1,4 +1,4 @@
-import { CardInterface, CardSuit, CardValue } from './card.interface';
+import { CardInterface, CardSuit, CardValue } from "./card.interface";
 
 export class Card implements CardInterface {
     readonly suit: CardSuit;

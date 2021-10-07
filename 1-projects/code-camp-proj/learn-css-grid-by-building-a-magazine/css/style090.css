@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  font-family: 'Baskervville', serif;
+  font-family: "Baskervville", serif;
   color: linen;
   background-color: rgb(20, 30, 40);
 }
 
 h1 {
-  font-family: 'Anton', serif;
+  font-family: "Anton", serif;
 }
 
 h2,
@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 /* 

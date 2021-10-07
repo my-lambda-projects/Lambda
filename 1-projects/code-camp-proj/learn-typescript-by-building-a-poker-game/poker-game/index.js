@@ -1,4 +1,4 @@
-import Listener from './util/bind-listener.js';
+import Listener from "./util/bind-listener.js";
 
 /**
  * @summary This module controls the overall process of the poker game
@@ -19,4 +19,3 @@ import Listener from './util/bind-listener.js';
  */
 
 new Listener().bind();
-

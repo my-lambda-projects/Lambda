@@ -2,23 +2,21 @@
 const svgWidth = 1000;
 const svgHeight = 700;
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-svg.append("rect")
-    .attr("x", 400)
-    .attr("y", 300)
-    .attr("width", 200)
-    .attr("height", 100)
-    .attr("fill", "yellow");
+svg
+  .append("rect")
+  .attr("x", 400)
+  .attr("y", 300)
+  .attr("width", 200)
+  .attr("height", 100)
+  .attr("fill", "yellow");
 
-svg.append("path")
-    .attr("stroke", "orange")
-    .attr("d", "M 20 20 H 90")
-
-
+svg.append("path").attr("stroke", "orange").attr("d", "M 20 20 H 90");
 
 /*
 The next command will tell the page to draw a vertical line. This command is
