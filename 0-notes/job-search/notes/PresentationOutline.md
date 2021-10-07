@@ -9,4 +9,4 @@
 - Key Skills and Expertise
 - Case studies/examples of the problems you have solved at your past jobs
 - Your vision for your future role.
-- What exactly you can bring in as the candidate 
+- What exactly you can bring in as the candidate

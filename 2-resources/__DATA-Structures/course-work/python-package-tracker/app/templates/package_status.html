@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Packages</h1>
+{% for package in packages %}
+<h3>{{ package.recipient }}'s package</h3>
+<ul>
+  <li>{{ package.sender }}</li>
+  <li>{{ package.recipient }}</li>
+  <li>{{ package.origin }}</li>
+  <li>{{ package.destination }}</li>
+  <li>{{ package.location }}</li>
+</ul>
+{% endfor %} {% endblock %}

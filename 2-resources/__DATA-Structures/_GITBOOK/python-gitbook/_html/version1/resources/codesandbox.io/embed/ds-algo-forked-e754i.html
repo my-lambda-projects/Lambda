@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="twitter:creator" content="@codesandbox" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Source Code Pro:500"
+      rel="stylesheet"
+    />
+    <link
+      crossorigin="anonymous"
+      rel="preload"
+      href="/static/fonts/inter/Inter-Regular.woff2"
+      as="font"
+    />
+    <link
+      crossorigin="anonymous"
+      rel="preload"
+      href="/static/fonts/inter/Inter-Medium.woff2"
+      as="font"
+    />
+    <link
+      crossorigin="anonymous"
+      rel="preload"
+      href="/static/fonts/inter/Inter-Bold.woff2"
+      as="font"
+    />
+    <link href="/static/fonts/inter/inter.css" rel="stylesheet" />
+    <link href="/static/fonts/monolisa.css" rel="stylesheet" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="mask-icon" href="/csb-ios.svg" color="#fff" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>ds-algo (forked) - CodeSandbox</title>
+    <!-- Google Tag Manager -->
+    <script>
+      !(function (e, t, a, n) {
+        (e[n] = e[n] || []),
+          e[n].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js',
+          });
+        var g = t.getElementsByTagName(a)[0],
+          m = t.createElement(a);
+        (m.async = !0),
+          (m.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-T3L6RFK'),
+          g.parentNode.insertBefore(m, g);
+      })(window, document, 'script', 'dataLayer');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script
+      src="https://codesandbox.io/static/browserfs12/browserfs.min.js"
+      type="text/javascript"
+    ></script>
+    <script>
+      BrowserFS &&
+        ((window.process = {
+          env: {
+            VSCODE_DEV: !1,
+          },
+          nextTick: function (e) {
+            return requestAnimationFrame(e);
+          },
+          once: BrowserFS.BFSRequire('process').once,
+          removeListener: function () {},
+        }),
+        (window.Buffer = BrowserFS.BFSRequire('buffer').Buffer));
+    </script>
+    <!-- AMD Loader for Monaco -->
+    <script src="/public/14/vs/loader.js"></script>
+    <script>
+      window.require.config({
+        url: '/public/14/vs/loader.js',
+        paths: {
+          vs: '/public/14/vs',
+        },
+      });
+    </script>
+    <script>
+      window.__SANDBOX_DATA__ = {
+        forked_template: {
+          color: '#3AA855',
+          icon_url: 'github',
+          id: '2bbad915-3fc4-46f9-b850-c1f0a7717903',
+          official: false,
+          published: true,
+          title: 'static',
+          url: null,
+        },
+        npm_dependencies: {},
+        pr_number: null,
+        original_git_commit_sha: '312eabdfd38e00b86d7f127f5c7d82e2cde34945',
+        alias: 'ds-algo-forked-e754i',
+        room_id: null,
+        id: 'e754i',
+        git: null,
+        fork_count: 2,
+        custom_template: null,
+        view_count: 786,
+        always_on: false,
+        is_sse: false,
+        forked_template_sandbox: {
+          alias: 'static-rjk9n4zj7m',
+          custom_template: {
+            color: '#3AA855',
+            icon_url: 'github',
+            id: '2bbad915-3fc4-46f9-b850-c1f0a7717903',
+            official: false,
+            published: true,
+            title: 'static',
+            url: null,
+          },
+          git: {
+            branch: 'master',
+            commit_sha: '312eabdfd38e00b86d7f127f5c7d82e2cde34945',
+            path: '',
+            repo: 'static-template',
+            username: 'codesandbox-app',
+          },
+          id: 'rjk9n4zj7m',
+          inserted_at: '2018-10-31T15:16:47',
+          privacy: 0,
+          template: 'static',
+          title: 'static',
+          updated_at: '2020-05-20T15:22:27',
+        },
+        permissions: {
+          prevent_sandbox_export: false,
+          prevent_sandbox_leaving: false,
+        },
+        screenshot_url:
+          'https:\u002F\u002Fscreenshots.codesandbox.io\u002Fe754i\u002F1.png',
+        preview_secret: null,
+        directories: [
+          {
+            directory_shortid: null,
+            id: '162384d8-64a7-437e-bc35-f2fb16bcbbcb',
+            inserted_at: '2021-08-31T22:35:37',
+            shortid: 'SJONpQ2bF',
+            source_id: 'edcae77c-9917-437d-a27c-435c0788fc76',
+            title: '.codesandbox',
+            updated_at: '2021-08-31T22:29:03',
+          },
+        ],
+        inserted_at: '2021-08-31T22:35:37',
+        entry: 'index.html',
+        updated_at: '2021-08-31T22:35:57',
+        owned: false,
+        npm_registries: [],
+        feature_flags: {
+          comments: false,
+          container_lsp: false,
+        },
+        authorization: 'read',
+        forked_from_sandbox: {
+          alias: 'ds-algo-forked-pyrle',
+          custom_template: null,
+          git: null,
+          id: 'pyrle',
+          inserted_at: '2021-08-31T22:35:05',
+          privacy: 0,
+          template: 'static',
+          title: 'ds-algo (forked)',
+          updated_at: '2021-08-31T22:35:05',
+        },
+        title: 'ds-algo (forked)',
+        privacy: 0,
+        modules: [
+          {
+            code: '{\n  "name": "ds-algo",\n  "version": "1.0.0",\n  "description": "",\n  "main": "index.html",\n  "scripts": {\n    "start": "serve",\n    "build": "echo This is a static template, there is no bundler or bundling involved!"\n  },\n  "repository": {\n    "type": "git",\n    "url": "git+https:\u002F\u002Fgithub.com\u002Fcodesandbox-app\u002Fstatic-template.git"\n  },\n  "keywords": [],\n  "author": "Ives van Hoorne",\n  "license": "MIT",\n  "bugs": {\n    "url": "https:\u002F\u002Fgithub.com\u002Fcodesandbox-app\u002Fstatic-template\u002Fissues"\n  },\n  "homepage": "https:\u002F\u002Fgithub.com\u002Fcodesandbox-app\u002Fstatic-template#readme",\n  "devDependencies": {\n    "serve": "^11.2.0"\n  }\n}',
+            directory_shortid: null,
+            id: 'eabdcfe7-5e5f-49f9-ac43-4256f8c57687',
+            inserted_at: '2021-08-31T22:35:37',
+            is_binary: false,
+            sha: null,
+            shortid: 'rJe2NopMjU',
+            source_id: 'edcae77c-9917-437d-a27c-435c0788fc76',
+            title: 'package.json',
+            updated_at: '2021-08-31T22:33:17',
+            upload_id: null,
+          },
+          {
+            code: '{\n  "template": "static"\n}\n',
+            directory_shortid: null,
+            id: 'c24ca4e0-e3fb-4932-993a-b633150581d5',
+            inserted_at: '2021-08-31T22:35:37',
+            is_binary: false,
+            sha: null,
+            shortid: 'BJZ3VsaMi8',
+            source_id: 'edcae77c-9917-437d-a27c-435c0788fc76',
+            title: 'sandbox.config.json',
+            updated_at: '2020-05-20T15:22:27',
+            upload_id: null,
+          },
+          {
+            code: '\u003C!DOCTYPE html\u003E\n\u003Chtml lang="en"\u003E\n  \u003Chead\u003E\n    \u003Cmeta charset="UTF-8"\u003E\n    \u003Cmeta name="viewport"  initial-scale=1.0"\u003E\n    \u003Cmeta http-equiv="X-UA-Compatible" content="ie=edge"\u003E\n    \u003Ctitle\u003Eiframe inception\u003C\u002Ftitle\u003E\n  \u003C\u002Fhead\u003E\n  \u003Cbody\u003E\n\n    \u003Ciframe src="https:\u002F\u002Fthealgorithms.netlify.app\u002F#." loading="lazy" style="resize:both;width:100%;height:1000px;"\u003E\n  \u003C\u002Fbody\u003E\n\u003C\u002Fhtml\u003E',
+            directory_shortid: null,
+            id: '9f41d38d-dc3f-4276-a0fd-722eefbe65c8',
+            inserted_at: '2021-08-31T22:35:37',
+            is_binary: false,
+            sha: null,
+            shortid: 'SynEipfsL',
+            source_id: 'edcae77c-9917-437d-a27c-435c0788fc76',
+            title: 'index.html',
+            updated_at: '2021-08-31T22:35:57',
+            upload_id: null,
+          },
+          {
+            code: '{\n  "responsive-preview": {\n    "Mobile": [\n      320,\n      675\n    ],\n    "Tablet": [\n      1024,\n      765\n    ],\n    "Desktop": [\n      1400,\n      800\n    ],\n    "Desktop HD": [\n      1920,\n      1080\n    ]\n  }\n}',
+            directory_shortid: 'SJONpQ2bF',
+            id: '9a4e84fb-3d8a-485a-acae-111ced29f91d',
+            inserted_at: '2021-08-31T22:35:37',
+            is_binary: false,
+            sha: null,
+            shortid: 'H1lu4amhbF',
+            source_id: 'edcae77c-9917-437d-a27c-435c0788fc76',
+            title: 'workspace.json',
+            updated_at: '2021-08-31T22:29:03',
+            upload_id: null,
+          },
+        ],
+        like_count: 0,
+        base_git: null,
+        is_frozen: false,
+        picks: [],
+        original_git: null,
+        author: {
+          avatar_url:
+            'https:\u002F\u002Favatars3.githubusercontent.com\u002Fu\u002F66654881?v=4',
+          id: '29ea8c23-d462-4dee-ae47-e23e80972ce6',
+          name: 'Bryan C Guner',
+          personal_workspace_id: 'da478b6b-a4b4-4f0b-bf97-6036bfd8dc97',
+          subscription_plan: null,
+          subscription_since: null,
+          username: 'bgoonz',
+        },
+        source_id: 'edcae77c-9917-437d-a27c-435c0788fc76',
+        user_liked: false,
+        tags: [],
+        collection: false,
+        template: 'static',
+        external_resources: [],
+        version: 1,
+        team: {
+          avatar_url: null,
+          id: 'da478b6b-a4b4-4f0b-bf97-6036bfd8dc97',
+          name: 'bgoonz',
+        },
+        description: null,
+      };
+    </script>
+    <style>
+      body,
+      html {
+        overscroll-behavior-x: none;
+      }
+    </style>
+    <link
+      href="https://codesandbox.io/static/css/common.0cbbfe89.chunk.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://codesandbox.io/static/css/default~app~embed.ef8b5814.chunk.css"
+      rel="stylesheet"
+    />
+    <meta
+      property="og:title"
+      name="og:title"
+      content="ds-algo (forked) - CodeSandbox"
+    />
+    <meta
+      property="twitter:title"
+      name="twitter:title"
+      content="ds-algo (forked) - CodeSandbox"
+    />
+    <meta
+      property="description"
+      name="description"
+      content="ds-algo (forked) by bgoonz"
+    />
+    <meta
+      property="og:description"
+      name="og:description"
+      content="ds-algo (forked) by bgoonz"
+    />
+    <meta
+      property="twitter:description"
+      name="twitter:description"
+      content="ds-algo (forked) by bgoonz"
+    />
+    <meta property="og:author" name="og:author" content="bgoonz" />
+    <meta property="article:author" name="article:author" content="bgoonz" />
+    <meta
+      property="article:published_time"
+      name="article:published_time"
+      content="2021-08-31T22:35:37"
+    />
+    <meta
+      property="article:modified_time"
+      name="article:modified_time"
+      content="2021-08-31T22:35:57"
+    />
+    <meta property="article:section" name="article:section" content="static" />
+    <meta property="og:type" name="og:type" content="article" />
+    <meta
+      property="og:url"
+      name="og:url"
+      content="https://codesandbox.io/s/e754i"
+    />
+    <meta property="twitter:site" name="twitter:site" content="@codesandbox" />
+    <script type="application/ld+json">
+      {
+        "author": {
+          "image": "https://avatars3.githubusercontent.com/u/66654881?v=4",
+          "name": "bgoonz",
+          "url": "https://codesandbox.io/u/bgoonz",
+          "@type": "Person"
+        },
+        "codeRepository": "https://codesandbox.io/s/e754i",
+        "codeSampleType": "full solution",
+        "dateCreated": "2021-08-31T22:35:37",
+        "dateModified": "2021-08-31T22:35:57",
+        "image": {
+          "url": "https://codesandbox.io/api/v1/sandboxes/e754i/screenshot.png",
+          "@type": "ImageObject"
+        },
+        "isBasedOn": "https://codesandbox.io/s/pyrle",
+        "keywords": "static",
+        "name": "ds-algo (forked)",
+        "programmingLanguage": "static",
+        "publisher": {
+          "logo": {
+            "height": 630,
+            "url": "https://codesandbox.io/static/img/banner.png",
+            "width": 1200,
+            "@type": "ImageObject"
+          },
+          "name": "CodeSandbox",
+          "@type": "Organization"
+        },
+        "text": null,
+        "thumbnailUrl": "https://codesandbox.io/api/v1/sandboxes/e754i/screenshot.png",
+        "url": "https://codesandbox.io/s/e754i",
+        "workExample": {
+          "applicationCategory": "static",
+          "operatingSystem": "Web app",
+          "screenshot": "https://codesandbox.io/api/v1/sandboxes/e754i/screenshot.png",
+          "url": "https://e754i.csb.app",
+          "@type": "SoftwareApplication"
+        },
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode"
+      }
+    </script>
+    <link rel="canonical" href="https://codesandbox.io/s/pyrle" />
+    <meta
+      property="og:image"
+      name="og:image"
+      content="https://codesandbox.io/api/v1/sandboxes/e754i/screenshot.png"
+    />
+    <meta
+      property="twitter:image:src"
+      name="twitter:image:src"
+      content="https://codesandbox.io/api/v1/sandboxes/e754i/screenshot.png"
+    />
+    <meta
+      property="og:image:alt"
+      name="og:image:alt"
+      content="A preview of ds-algo (forked)"
+    />
+    <meta property="og:image:width" name="og:image:width" content="1200" />
+    <meta
+      property="twitter:image:width"
+      name="twitter:image:width"
+      content="1200"
+    />
+    <meta property="og:image:height" name="og:image:height" content="630" />
+    <meta
+      property="twitter:image:height"
+      name="twitter:image:height"
+      content="630"
+    />
+    <meta
+      property="twitter:card"
+      name="twitter:card"
+      content="summary_large_image"
+    />
+  </head>
+
+  <body
+    style="margin: 0; padding: 0; background-color: #191d1f; overflow: hidden"
+  >
+    <!-- Google Tag Manager (noscript) --><noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T3L6RFK"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+    <script
+      src="https://codesandbox.io/static/js/vendors~app~embed~sandbox~sandbox-startup.bcc15d438.chunk.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://codesandbox.io/static/js/common-sandbox.01ff5f8d0.chunk.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://codesandbox.io/static/js/0.84205e20b.chunk.js"></script>
+    <script
+      src="https://codesandbox.io/static/js/vendors~app~embed~sandbox-startup.6e3433fd3.chunk.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://codesandbox.io/static/js/common.9517b6661.chunk.js"></script>
+    <script
+      src="https://codesandbox.io/static/js/default~app~embed~sandbox.87dc08a00.chunk.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://codesandbox.io/static/js/default~app~embed.f7fb0cb3e.chunk.js"></script>
+    <script src="https://codesandbox.io/static/js/embed.a11727b1f.js"></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"rayId":"68b58b828d921982","token":"7449176f14aa420c959831edd48bd5b7","version":"2021.8.1","si":10}'
+    ></script>
+  </body>
+</html>

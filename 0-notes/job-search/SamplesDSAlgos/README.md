@@ -2,9 +2,9 @@
 
 Notes about individual data structures and algorithms may be found directly within samples.
 
-**theoretical CS**:  writing big O complexity analysis
+**theoretical CS**: writing big O complexity analysis
 <br>
-**experimental CS**:  run function with 100k inputs & measure how long it took
+**experimental CS**: run function with 100k inputs & measure how long it took
 <br>
 
 ## Table of Contents
@@ -63,12 +63,13 @@ Notes about individual data structures and algorithms may be found directly with
 
 [Backtracking by Geeks for Geeks](https://www.geeksforgeeks.org/backtracking-introduction/)
 
-**backtracking**:  a general algorithmic technique that considers searching every possible combination in order to solve a computational problem; an algorithmic-technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, removing those solutions that fail to satisfy the constraints of the problem at any point of time (by time, here, is referred to the time elapsed till reaching any level of the search tree).
+**backtracking**: a general algorithmic technique that considers searching every possible combination in order to solve a computational problem; an algorithmic-technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, removing those solutions that fail to satisfy the constraints of the problem at any point of time (by time, here, is referred to the time elapsed till reaching any level of the search tree).
 
 - three types of problems in backtracking:
-  - **decision**:  search for a feasible solution
-  - **optimization**:  search for the best solution
-  - **enumeration**:  find all feasible solutions
+
+  - **decision**: search for a feasible solution
+  - **optimization**: search for the best solution
+  - **enumeration**: find all feasible solutions
 
 - generally exponential in both time and space complexity
 
@@ -111,18 +112,18 @@ boolean findSolutions(n, other params):
 
 ### Big O
 
-|           |  Time Best  | Time Average | Time Worst |Worst Space|
-|:---------:|:-----------:|:------------:|:----------:|:---------:|
-|   Quick   | O(n log(n)) | O(n log(n)) | O(n^2) | O(log(n)) |
-|   Merge   | O(n log(n)) | O(n log(n)) | O(n^2) |    O(n)   |
-|    Heap   |     O(n)    | O(n log(n)) | O(n^2) |    O(1)   |
-|   Bubble  |     O(n)    |    O(n^2)   | O(n^2) |    O(1)   |
-| Insertion |     O(n)    |    O(n^2)   | O(n^2) |    O(1)   |
-| Selection |    O(n^2)   |    O(n^2)   | O(n^2) |    O(1)   |
-|    Tree   | O(n log(n)) | O(n log(n)) | O(n^2) |    O(n)   |
-|   Bucket  |    O(n+k)   |    O(n+k)   | O(n^2) |    O(n)   |
-|   Radix   |    O(nk)    |    O(nk)    |  O(nk) |   O(n+k)  |
-|  Counting |    O(n+k)   |    O(n+k)   | O(n+k) |    O(k)   |
+|           |  Time Best  | Time Average | Time Worst | Worst Space |
+| :-------: | :---------: | :----------: | :--------: | :---------: |
+|   Quick   | O(n log(n)) | O(n log(n))  |   O(n^2)   |  O(log(n))  |
+|   Merge   | O(n log(n)) | O(n log(n))  |   O(n^2)   |    O(n)     |
+|   Heap    |    O(n)     | O(n log(n))  |   O(n^2)   |    O(1)     |
+|  Bubble   |    O(n)     |    O(n^2)    |   O(n^2)   |    O(1)     |
+| Insertion |    O(n)     |    O(n^2)    |   O(n^2)   |    O(1)     |
+| Selection |   O(n^2)    |    O(n^2)    |   O(n^2)   |    O(1)     |
+|   Tree    | O(n log(n)) | O(n log(n))  |   O(n^2)   |    O(n)     |
+|  Bucket   |   O(n+k)    |    O(n+k)    |   O(n^2)   |    O(n)     |
+|   Radix   |    O(nk)    |    O(nk)     |   O(nk)    |   O(n+k)    |
+| Counting  |   O(n+k)    |    O(n+k)    |   O(n+k)   |    O(k)     |
 
 ### Search
 
@@ -146,6 +147,7 @@ space complexity:  O(1)
 [Sample](https://github.com/evoingram/endorsement/blob/master/SamplesDSAlgos/search/search_depth_breadth_first.py)
 
 - Algorithm explores as far as possible along each branch before backtracking
+
   - for each node, process node, process left subtree, then right subtree, then add, copy, etc.
 
   - one that continues traveling forward on each branch until a dead end is reached
@@ -165,9 +167,9 @@ time complexity:   O(n)
 space complexity:  O(1)
 ```
 
-- **In-Order**:  recursively call method on left tree, process node, call method on right tree
+- **In-Order**: recursively call method on left tree, process node, call method on right tree
   - use for sorted list out of BST
-- **Pre-Order**:  process node, recursively call method on left tree, call method on right tree
+- **Pre-Order**: process node, recursively call method on left tree, call method on right tree
   - use for deep copy of tree
 - **Post-Order**: recursively call method on left tree, call method on right tree, process node
   - use for deleting tree
@@ -182,13 +184,14 @@ space complexity:  O(1)
 ```
 
 - Algorithm explores all neighbor nodes at present depth prior to moving on to next level
+
   - can be resolved iteratively (preferred) or recursively
   - useful when what you're seeking is closer to root node
   - process one layer/level at a time
   - process node, add left child to queue, then right child
   - dequeue them off queue and call function on that node
   - repeat until none left
-  
+
   - opposite of depth-first
   - explore layer by layer, moving outward from starting point
   - at each node, we discover to list of nodes to explore
@@ -293,7 +296,7 @@ space complexity:  O(1)
   - always satisfies the heap property
 - root element of heap is max value of all heap elements
 - array representing the data structure
-- has to be sorted in particular way to represent that tree priority queues often 
+- has to be sorted in particular way to represent that tree priority queues often
   - represented as heaps
   - often these terms used interchangeably
 - priority queues are often heaps; easy to tell largest number
@@ -325,7 +328,7 @@ space complexity:  O(1)
   - always satisfies the heap property
 - root element of heap is max value of all heap elements
 - array representing the data structure
-- has to be sorted in particular way to represent that tree priority queues often 
+- has to be sorted in particular way to represent that tree priority queues often
   - represented as heaps
   - often these terms used interchangeably
 - priority queues are often heaps; easy to tell largest number
@@ -425,42 +428,42 @@ space complexity:  O(1)
 ### Big O Chart
 
 |   Data Structure   | Average Access | Worst Access | Average Search | Worst Search | Average Insertion | Worst Insertion | Average Deletion | Worst Deletion | Worst Space |
-|:------------------:|:--------------:|--------------|:--------------:|--------------|:-----------------:|-----------------|:----------------:|----------------|-------------|
-|        Array       |      O(1)      | O(1)         |      O(n)      | O(n)         |        O(n)       | O(n)            |       O(n)       | O(n)           | O(n)        |
-|        Stack       |      O(n)      | O(n)         |      O(n)      | O(n)         |        O(1)       | O(1)            |       O(1)       | O(1)           | O(n)        |
-|        Queue       |      O(n)      | O(n)         |      O(n)      | O(n)         |        O(1)       | O(1)            |       O(1)       | O(1)           | O(n)        |
-| Singly Linked List |      O(n)      | O(n)         |      O(n)      | O(n)         |        O(1)       | O(1)            |       O(1)       | O(1)           | O(n)        |
-| Doubly Linked List |      O(n)      | O(n)         |      O(n)      | O(n)         |        O(1)       | O(1)            |       O(1)       | O(1)           | O(n)        |
-|      Skip List     |    O(log(n))   | O(n)         |    O(log(n))   | O(n)         |     O(log(n))     | O(n)            |     O(log(n))    | O(n)           | O(n log(n)) |
-|     Hash Table     |       N/A      | N/A          |      O(1)      | O(n)         |        O(1)       | O(n)            |       O(1)       | O(n)           | O(n)        |
-| Binary Search Tree |    O(log(n))   | O(n)         |    O(log(n))   | O(n)         |     O(log(n))     | O(n)            |     O(log(n))    | O(n)           | O(n)        |
-|      AVL Tree      |    O(log(n))   | O(log(n))    |    O(log(n))   | O(log(n))    |     O(log(n))     | O(log(n))       |     O(log(n))    | O(log(n))      | O(n)        |
+| :----------------: | :------------: | ------------ | :------------: | ------------ | :---------------: | --------------- | :--------------: | -------------- | ----------- |
+|       Array        |      O(1)      | O(1)         |      O(n)      | O(n)         |       O(n)        | O(n)            |       O(n)       | O(n)           | O(n)        |
+|       Stack        |      O(n)      | O(n)         |      O(n)      | O(n)         |       O(1)        | O(1)            |       O(1)       | O(1)           | O(n)        |
+|       Queue        |      O(n)      | O(n)         |      O(n)      | O(n)         |       O(1)        | O(1)            |       O(1)       | O(1)           | O(n)        |
+| Singly Linked List |      O(n)      | O(n)         |      O(n)      | O(n)         |       O(1)        | O(1)            |       O(1)       | O(1)           | O(n)        |
+| Doubly Linked List |      O(n)      | O(n)         |      O(n)      | O(n)         |       O(1)        | O(1)            |       O(1)       | O(1)           | O(n)        |
+|     Skip List      |   O(log(n))    | O(n)         |   O(log(n))    | O(n)         |     O(log(n))     | O(n)            |    O(log(n))     | O(n)           | O(n log(n)) |
+|     Hash Table     |      N/A       | N/A          |      O(1)      | O(n)         |       O(1)        | O(n)            |       O(1)       | O(n)           | O(n)        |
+| Binary Search Tree |   O(log(n))    | O(n)         |   O(log(n))    | O(n)         |     O(log(n))     | O(n)            |    O(log(n))     | O(n)           | O(n)        |
+|      AVL Tree      |   O(log(n))    | O(log(n))    |   O(log(n))    | O(log(n))    |     O(log(n))     | O(log(n))       |    O(log(n))     | O(log(n))      | O(n)        |
 
 ### Time Definitions
 
-- **constant**:  does not scale with input, will take same amount of time
+- **constant**: does not scale with input, will take same amount of time
   - for any input size n, constant time performs same number of operations every time
-- **logarithmic**:  increases number of operations it performs as logarithmic function of input size n
+- **logarithmic**: increases number of operations it performs as logarithmic function of input size n
   - function log n grows very slowly, so as n gets longer, number of operations the algorithm needs to perform doesn't increase very much
-- **linear**:  increases number of operations it performs as linear function of input size n
+- **linear**: increases number of operations it performs as linear function of input size n
   - number of additional operations needed to perform grows in direct proportion to increase in input size n
-- **log-linear**:  increases number of operations it performs as log-linear function of input size n
+- **log-linear**: increases number of operations it performs as log-linear function of input size n
   - looking over every element and doing work on each one
-- **quadratic**:  increases number of operations it performs as quadratic function of input size n
-- **exponential**:  increases number of operations it performs as exponential function of input size n
+- **quadratic**: increases number of operations it performs as quadratic function of input size n
+- **exponential**: increases number of operations it performs as exponential function of input size n
   - number of nested loops increases as function of n
-- **polynomial**:  as size of input increases, runtime/space used will grow at a faster rate
-- **factorial**:  as size of input increases, runtime/space used will grow astronomically even with relatively small inputs
-- **rate of growth**:  how fast a function grows with input size
+- **polynomial**: as size of input increases, runtime/space used will grow at a faster rate
+- **factorial**: as size of input increases, runtime/space used will grow astronomically even with relatively small inputs
+- **rate of growth**: how fast a function grows with input size
 
-| Big O | Classification | Rate |
-|:-----:|:--------------:|:----:|
-| O(c) | constant | Better |
-| O(log(n)) | logarithmic |  |
-| O(n) | linear |  |
-| O(n log(n)) | log-linear |  |
-| O(n^c) | quadratic |  |
-| O(c^n) | exponential | Worst |
+|    Big O    | Classification |  Rate  |
+| :---------: | :------------: | :----: |
+|    O(c)     |    constant    | Better |
+|  O(log(n))  |  logarithmic   |        |
+|    O(n)     |     linear     |        |
+| O(n log(n)) |   log-linear   |        |
+|   O(n^c)    |   quadratic    |        |
+|   O(c^n)    |  exponential   | Worst  |
 
 ### Singly Linked Lists
 
@@ -489,7 +492,7 @@ space complexity:  O(n)
 - A singly linked list is a set of nodes where each node has two fields ‘data’ and ‘link’.
   - The ‘data’ field stores actual piece of information and ‘link’ field is used to point to next node.
   - Basically ‘link’ field is nothing but address only.
--A doubly linked list contains an extra pointer, typically called previous pointer, together with next pointer and data which are there in singly linked list.
+    -A doubly linked list contains an extra pointer, typically called previous pointer, together with next pointer and data which are there in singly linked list.
 
 ### Doubly Linked Lists
 
@@ -521,7 +524,7 @@ space complexity:  O(n)
 - A singly linked list is a set of nodes where each node has two fields ‘data’ and ‘link’.
   - The ‘data’ field stores actual piece of information and ‘link’ field is used to point to next node.
   - Basically ‘link’ field is nothing but address only.
--A doubly linked list contains an extra pointer, typically called previous pointer, together with next pointer and data which are there in singly linked list.
+    -A doubly linked list contains an extra pointer, typically called previous pointer, together with next pointer and data which are there in singly linked list.
 
 ### Reverse Linked List
 
@@ -568,11 +571,11 @@ space complexity:  O(n)
 
 #### RELATED TERMS
 
-- **root**:      topmost node in tree
-- **child**:     node directly connected to another node when moving away from root node
-- **parent**:    node directly connected to another node when moving towards root node
-- **siblings**:  nodes sharing same parent
-- **leaf**:      node with no children
+- **root**: topmost node in tree
+- **child**: node directly connected to another node when moving away from root node
+- **parent**: node directly connected to another node when moving towards root node
+- **siblings**: nodes sharing same parent
+- **leaf**: node with no children
 
 ![Image of Binary Search Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/300px-Binary_search_tree.svg.png)
 
@@ -603,6 +606,7 @@ space complexity:  O(n)
   - can balloon quickly
 - need good hashing algorithm that spits out viable table address
 - needs several qualities:
+
   - idempotent (critical), good distribution of values, performant
 
 - key/value data storage & retrieval
@@ -612,22 +616,22 @@ space complexity:  O(n)
 
 #### HT RELATED TERMS
 
-- **hash function**:  one-way mapping from arbitrary data to fixed data size & type
+- **hash function**: one-way mapping from arbitrary data to fixed data size & type
   - different hash functions with different attributes:
     - deterministic
     - uniform distribution
     - non-invertible
     - continuous versus non-continuous
-- **hash-table collision**:  when two keys hash to same index
+- **hash-table collision**: when two keys hash to same index
   - collisions are unavoidable
   - open addressing & linked-list chaining to avoid collisions
-- **linked-list chaining**:  elements in hash table are stored as linked lists
+- **linked-list chaining**: elements in hash table are stored as linked lists
   - when retrieving a value, traverse down linked list until you find matching key
-- **hash-table resizing**:  can occur when load factor passes certain threshhold
+- **hash-table resizing**: can occur when load factor passes certain threshhold
   - create new hash table with double capacity
   - copy elements from old to new one at a time
   - resizing = O(n) & occurs at O(log (n)) frequency
-- **load factor**:  number of entries / hash-table capacity
+- **load factor**: number of entries / hash-table capacity
 
 ### Queues
 
@@ -646,9 +650,9 @@ space complexity:  O(n)
 
 #### difference between using an array vs. a linked list when implementing a Queue
 
-- Major difference is, arrays are index-based data structure and each element of the array is associated with an index.  
-- With a linked list, it relies on pointers; each node has the data and then pointers to both previous and next elements.  
-- You use binary or linear searches to traverse arrays; linear to traverse linked lists.  
+- Major difference is, arrays are index-based data structure and each element of the array is associated with an index.
+- With a linked list, it relies on pointers; each node has the data and then pointers to both previous and next elements.
+- You use binary or linear searches to traverse arrays; linear to traverse linked lists.
 - Arrays are directly or randomly accessed and you can access any element in them; queues are accessed via first pointer only.
 
 ### Stacks
@@ -668,9 +672,9 @@ space complexity:  O(n)
 
 #### difference between using an array vs. a linked list when implementing a Stack
 
-- Major difference is, arrays are index-based data structure and each element of the array is associated with an index.  
-- With a linked list, it relies on pointers; each node has the data and then pointers to both previous and next elements.  
-- You use binary or linear searches to traverse arrays; linear to traverse linked lists.  
+- Major difference is, arrays are index-based data structure and each element of the array is associated with an index.
+- With a linked list, it relies on pointers; each node has the data and then pointers to both previous and next elements.
+- You use binary or linear searches to traverse arrays; linear to traverse linked lists.
 - Arrays are directly or randomly accessed and you can access any element in them; stacks are accessed via last or first pointer only.
 
 ### Skip List
@@ -687,11 +691,13 @@ space complexity:  O(n log(n))
 ```
 
 - Can we search in a sorted linked list in better than O(n) time?
+
   - The worst case search time for a sorted linked list is O(n) as we can only linearly traverse the list and cannot skip nodes while searching.
   - For a Balanced Binary Search Tree, we skip almost half of the nodes after one comparison with root.
   - For a sorted array, we have random access and we can apply binary search on arrays.
 
 - Can we augment sorted linked lists to make the search faster?
+
   - The answer is skip list.
   - The idea is simple, we create multiple layers so that we can skip some nodes.
   - See the following example list with 16 nodes and two layers.
@@ -702,6 +708,7 @@ space complexity:  O(n log(n))
   - In following example, we start from 30 on “normal lane” and with linear search, we find 50.
 
 - What is the time complexity with two layers?
+
   - The worst case time complexity is number of nodes on “express lane” plus number of nodes in a segment (A segment is number of “normal lane” nodes between two “express lane” nodes) of “normal lane”.
   - So if we have n nodes on “normal lane”, √n (square root of n) nodes on “express lane” and we equally divide the “normal lane”, then there will be √n nodes in every segment of “normal lane” .
   - √n is actually optimal division with two layers. With this arrangement, the number of nodes traversed for a search will be O(√n).
@@ -728,7 +735,7 @@ Deciding nodes level
 ```
 
 - Max level is the upper bound on number of levels in the skip list.
-- It can be determined as – L(N) = log_{p/2}{N}.
+- It can be determined as – L(N) = log\_{p/2}{N}.
 - Above algorithm assure that random level will never be greater than MaxLevel.
 - Here p is the fraction of the nodes with level i pointers also having level i+1 pointers and N is the number of nodes in the list.
 
@@ -740,6 +747,7 @@ A level i node carries i forward pointers indexed through 0 to i.
 <br>
 Skip Node
 <br>
+
 - We will start from highest level in the list and compare key of next node of the current node with the key to be inserted.
 - Basic idea is if:
   - key of next node is less than key to be inserted, then we keep on moving forward on the same level
@@ -809,7 +817,7 @@ space complexity:  O(1)
   - always satisfies the heap property
 - root element of heap is max value of all heap elements
 - array representing the data structure
-- has to be sorted in particular way to represent that tree priority queues often 
+- has to be sorted in particular way to represent that tree priority queues often
   - represented as heaps
   - often these terms used interchangeably
 - priority queues are often heaps; easy to tell largest number
@@ -853,6 +861,7 @@ HASH TABLE PORTION:
 ```
 
 - Use two data structures to implement an LRU Cache:
+
   - Queue which is implemented using a doubly linked list.
     - The maximum size of the queue will be equal to the total number of frames available (cache size).
     - The most recently used pages will be near front endpygame.examples.aliens.main()
@@ -865,9 +874,9 @@ HASH TABLE PORTION:
 - In simple words, we add a new node to the front of the queue and update the corresponding node address in the hash.
 - If the queue is full, i.e. all the frames are full, we remove a node from the rear of the queue, and add the new node to the front of the queue.
 
-----
+---
 
-An LRU (Least Recently Used) cache is an in-memory storage structure that adheres to the [Least Recently Used](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) caching strategy.
+An LRU (Least Recently Used) cache is an in-memory storage structure that adheres to the [Least Recently Used](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>) caching strategy.
 
 In essence, you can think of an LRU cache as a data structure that keeps track of the order in which elements (which take the form of key-value pairs) it holds are added and updated. The cache also has a max number of entries it can hold. This is important because once the cache is holding the max number of entries, if a new entry is to be inserted, another pre-existing entry needs to be evicted from the cache. Because the cache is using a least-recently used strategy, the oldest entry (the one that was added/updated the longest time ago) is removed to make space for the new entry.
 
@@ -897,7 +906,6 @@ space complexity:  O(1)
 A max heap is pretty useful, but what's even more useful is to have our heap be generic such that the user can define their own priority function and pass it to the heap to use.
 
 Augment your heap implementation so that it exhibits this behavior. If no comparator function is passed in to the heap constructor, it should default to being a max heap.
-
 
 ### AVL Tree
 
@@ -937,15 +945,15 @@ The tree's `insert` method should perform the same logic as what was implemented
 
 #### AVL-Tree Related Terms
 
-- **rebalance**:  if one side of tree gets too heavy, then we need to perform a rotation to get the tree back in balance
-- **"too heavy"**:  max height of 1 child = 2+ than max height of other child
-- **double rotation**:  when opposite child is heavy during rotation
+- **rebalance**: if one side of tree gets too heavy, then we need to perform a rotation to get the tree back in balance
+- **"too heavy"**: max height of 1 child = 2+ than max height of other child
+- **double rotation**: when opposite child is heavy during rotation
 
 ## Stack vs Heap Memory Allocation
 
 Memory in a C/C++ program can either be allocated on stack or heap.
 
-### Prerequisite:  Memory layout of C program
+### Prerequisite: Memory layout of C program
 
 ### Stack Allocation
 
@@ -985,14 +993,14 @@ int main() {
 
 ### Comparison Chart
 
-|          PARAMETER          |                    STACK                   | HEAP                                     |
-|:---------------------------:|:------------------------------------------:|------------------------------------------|
+|          PARAMETER          |                   STACK                    | HEAP                                     |
+| :-------------------------: | :----------------------------------------: | ---------------------------------------- |
 |            Basic            | Memory is allocated in a contiguous block. | Memory is allocated in any random order. |
-| Allocation and Deallocation |     Automatic by compiler instructions.    | Manual by programmer.                    |
-|             Cost            |                    Less                    | More                                     |
-|        Implementation       |                    Hard                    | Easy                                     |
+| Allocation and Deallocation |    Automatic by compiler instructions.     | Manual by programmer.                    |
+|            Cost             |                    Less                    | More                                     |
+|       Implementation        |                    Hard                    | Easy                                     |
 |         Access time         |                   Faster                   | Slower                                   |
-|          Main Issue         |             Shortage of memory             | Memory fragmentation                     |
-|    Locality of reference    |                  Excellent                 | Adequate                                 |
+|         Main Issue          |             Shortage of memory             | Memory fragmentation                     |
+|    Locality of reference    |                 Excellent                  | Adequate                                 |
 |         Flexibility         |                 Fixed size                 | Resizing is possible                     |
 |     Data type structure     |                   Linear                   | Hierarchical                             |

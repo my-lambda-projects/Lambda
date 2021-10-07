@@ -1,19 +1,18 @@
 # Graphs
 
-**graph**:  collections of data represented by nodes and connections between nodes
-**graphs**:  way to formally represent network; ordered pairs
-**graphs**:  modeling relations between many items; Facebook friends (you = node; friendship = edge; bidirectional); twitter = unidirectional
-**graph theory**:  study of graphs
-**big O of graphs**:  G = V(E)
-
+**graph**: collections of data represented by nodes and connections between nodes
+**graphs**: way to formally represent network; ordered pairs
+**graphs**: modeling relations between many items; Facebook friends (you = node; friendship = edge; bidirectional); twitter = unidirectional
+**graph theory**: study of graphs
+**big O of graphs**: G = V(E)
 
 trees are a type of graph
 
 Components required to make a graph:
 
-- **nodes or vertices**:  represent objects in a dataset (cities, animals, web pages)
-- **edges**:  connections between vertices; can be bidirectional
-- **weight**:  cost to travel across an edge; optional (aka cost)
+- **nodes or vertices**: represent objects in a dataset (cities, animals, web pages)
+- **edges**: connections between vertices; can be bidirectional
+- **weight**: cost to travel across an edge; optional (aka cost)
 
 Useful for:
 
@@ -24,22 +23,22 @@ Useful for:
 
 Types of Graphs:
 
-- **directed**:  can only move in one direction along edges; which direction indicated by arrows
-- **undirected**:  allows movement in both directions along edges; bidirectional
-- **cyclic**:  weighted; edges allow you to revisit at least 1 vertex; example weather
-- **acyclical**:  vertices can only be visited once; example recipe
+- **directed**: can only move in one direction along edges; which direction indicated by arrows
+- **undirected**: allows movement in both directions along edges; bidirectional
+- **cyclic**: weighted; edges allow you to revisit at least 1 vertex; example weather
+- **acyclical**: vertices can only be visited once; example recipe
 
 Two common ways to represent graphs in code:
 
-- **adjacency lists**:  graph stores list of vertices; for each vertex, it stores list of connected vertices
-- **adjacency matrices**:  two-dimensional array of lists with built-in edge weights; denotes no relationship
+- **adjacency lists**: graph stores list of vertices; for each vertex, it stores list of connected vertices
+- **adjacency matrices**: two-dimensional array of lists with built-in edge weights; denotes no relationship
 
 Both have strengths and weaknesses.
 
-| type | space complexity | add vertex | remove vertex | add edge | remove edge | find edge | get all edges from vertex |
-|:----:|:----------------:|:----------:|:-------------:|:--------:|:-----------:|:---------:|:-------------------------:|
-| adjacency matrix | O(v^2) | O(v) | O(v^2) | O(1) | O(1) | O(1) | O(v) |
-| adjacency list | O(v+E) | O(1) | O(v) | O(1) | O(1) | O(1) | O(1) |
+|       type       | space complexity | add vertex | remove vertex | add edge | remove edge | find edge | get all edges from vertex |
+| :--------------: | :--------------: | :--------: | :-----------: | :------: | :---------: | :-------: | :-----------------------: |
+| adjacency matrix |      O(v^2)      |    O(v)    |    O(v^2)     |   O(1)   |    O(1)     |   O(1)    |           O(v)            |
+|  adjacency list  |      O(v+E)      |    O(1)    |     O(v)      |   O(1)   |    O(1)     |   O(1)    |           O(1)            |
 
 Worst-case space complexity of adjacency list is when graph is dense.
 
@@ -63,9 +62,9 @@ Can use breadth-first search when searching a graph; explores graph outward in r
 
 It's useful to color vertexes as you arrive at them and as you leave them behind as already searched.
 
-**unlisted**:  white
-**vertices whose neighbors are being explored**:  gray
-**vertices with no unexplored neighbors**:  black
+**unlisted**: white
+**vertices whose neighbors are being explored**: gray
+**vertices with no unexplored neighbors**: black
 
 ### BFS Pseudocode
 
@@ -154,7 +153,7 @@ def DFS_visit(v):
 
 ## Connected Components
 
-**connected components**:  in a disjoint graph, groups of nodes on a graph that are connected with each other
+**connected components**: in a disjoint graph, groups of nodes on a graph that are connected with each other
 
 ### Uses
 
@@ -163,7 +162,7 @@ def DFS_visit(v):
 - networks (which devices can reach one another)
 - epidemics (how spread, who started, where next)
 
-**key to finding connected components**:  searching algorithms, breadth-first search
+**key to finding connected components**: searching algorithms, breadth-first search
 
 ### How to find connected componnents
 
@@ -174,4 +173,4 @@ def DFS_visit(v):
   - if yes, already in connected component
   - go to next node
 
-**strongly connected components**:  any node in this group can get to any other node
+**strongly connected components**: any node in this group can get to any other node

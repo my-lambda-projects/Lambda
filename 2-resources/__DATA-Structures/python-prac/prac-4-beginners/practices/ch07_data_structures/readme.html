@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="practice-exercises-for-data-structures">
+      Practice exercises for data structures
+    </h1>
+    <h2 id="overview">Overview</h2>
+    <p>
+      In this section, you’ll have a chance to practice the concepts you’ve
+      learned in the videos. First, review the core concepts covered that you’ll
+      need to keep in mind. Then go through the exercises below.
+    </p>
+    <p>
+      Remember, these are for your own benefit. Feel free to skip them if you
+      don’t find a particular exercise valuable or you get stuck for too long.
+    </p>
+    <h2 id="core-concepts">Core concepts</h2>
+    <h3 id="creating-a-static-dictionary">Creating a static dictionary</h3>
+    <p>
+      You can create a dictionary a number of ways. How you do this depends on
+      how much data is static and how much is dynamic as part of the program’s
+      execution.
+    </p>
+    <pre><code># Static data styles:
+
+# empty dictionary
+names = {}
+
+# A dictionary with players start at zero score
+two_names = {&#39;player1&#39;: 0, &#39;player2&#39;: 0}
+
+# This is the same as before
+two_names = dict(player1=0, player2=0)</code></pre>
+    <h3 id="creating-a-dynamic-dictionary">Creating a dynamic dictionary</h3>
+    <p>If you have dynamic data, this requires something else to build them:</p>
+    <pre><code>names = get_list_of_names()
+scores = {}
+for n in names:
+     scores[n] = 0
+
+# We can condense this using a dictionary comprehension.
+# Same as above:
+names = get_list_of_names()
+scores = {n: 0 for n in names}</code></pre>
+    <h3 id="reading-values-from-a-dictionary">
+      Reading values from a dictionary
+    </h3>
+    <pre><code># Access a *known* value in the dictionary:
+p1_score = scores[&#39;player1&#39;]
+
+# Access a score, unsure whether player1 is a key, if it isn&#39;t there, return 0.
+p1_score = scores.get(&#39;player1&#39;, 0)</code></pre>
+    <h2 id="exercises">Exercises</h2>
+    <p>Now it’s your turn. Try this practice below.</p>
+    <p>
+      The core idea in this chapter was about dictionaries and data structures
+      in general. Create a simple program that creates a dictionary called
+      <code>d</code> such that the following runs without error and prints what
+      is expected:
+    </p>
+    <pre><code># d = create d using core concepts above.
+
+print(d[&quot;Sam&quot;])          # outputs 7
+print(d[&#39;rolls&#39;])        # outputs [&#39;rock&#39;, &#39;paper&#39;, &#39;scissors&#39;]
+print(d.get(&#39;Sarah&#39;))    # outputs None
+print(d.get(&#39;Jeff&#39;, -1)) # outputs -1
+print(d[&#39;done&#39;])         # outputs True</code></pre>
+  </body>
+</html>

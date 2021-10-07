@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>FAQ</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="data-structures-faq">Data Structures FAQ</h1>
+    <h2 id="contents">Contents</h2>
+    <h3 id="general">General</h3>
+    <h4 id="what-are-real-world-use-cases-for-a-queue-data-structure">
+      What are real-world use-cases for a Queue data structure?
+    </h4>
+    <h4 id="what-are-real-world-use-cases-for-a-linked-list-data-structure">
+      What are real-world use-cases for a Linked List data structure?
+    </h4>
+    <h4
+      id="what-are-real-world-use-cases-for-a-binary-search-tree-data-structure"
+    >
+      What are real-world use-cases for a Binary Search Tree data structure?
+    </h4>
+    <p>
+      A BST in the way that is being implemented for this Sprint is a bit too
+      simple to see any real-world use-cases. There are many (more complex)
+      variants of BSTs that do see production use. One very notable variant is
+      the <a href="https://en.wikipedia.org/wiki/B-tree">B-tree</a>, which is a
+      self-balancing ordered variant of the BST. B-trees play a critical role in
+      database and file system indexing. Other notable variants include the AVL
+      tree, which is a self-balancing BST and the prefix tree, which is
+      specialized for handling text.
+    </p>
+    <h4 id="how-is-the-root-element-of-a-binary-search-tree-decided">
+      How is the root element of a Binary Search Tree decided?
+    </h4>
+    <p>
+      The first element added to a BST is the root of the tree. However, doing
+      it this way means that it’s a very simple matter to end up with a lopsided
+      BST. If we simply insert a monotonically ascending or descending sequence
+      of values, then the tree would essentially flatten down to a linked list,
+      and we’d lose all the benefits that a BST is supposed to confer.
+      Self-balancing variants of the BST exist in order to alleviate this exact
+      problem.
+    </p>
+    <h4 id="what-are-real-world-use-cases-for-a-heap-data-structure">
+      What are real-world use-cases for a Heap data structure?
+    </h4>
+  </body>
+</html>

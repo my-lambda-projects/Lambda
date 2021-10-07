@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="practice-exercises-for-file-io">Practice Exercises for file I/O</h1>
+    <h2 id="overview">Overview</h2>
+    <p>
+      In this section, you’ll have a chance to practice the concepts you’ve
+      learned in the videos. First, review the core concepts covered that you’ll
+      need to keep in mind. Then go through the exercises below.
+    </p>
+    <p>
+      Remember, these are for your own benefit. Feel free to skip them if you
+      don’t find a particular exercise valuable or you get stuck for too long.
+    </p>
+    <h2 id="core-concepts">Core concepts</h2>
+    <h3 id="determining-the-full-path-to-a-file">
+      Determining the full path to a file
+    </h3>
+    <p>
+      Remember that the file location when loading files like
+      <code>the_file.txt</code> depend on the working directory, which your
+      program probably doesn’t control. So we need to use the
+      <code>os</code> module to work from known locations.
+    </p>
+    <pre><code>directory = os.path.dirname(__file__)
+filename = os.path.join(directory, &#39;the_file.txt&#39;)
+# Now filename is a full path</code></pre>
+    <h3 id="opening-a-file-for-reading">Opening a file for reading</h3>
+    <p>
+      To open a file we use, well, the <code>open()</code> function. But as we
+      saw, we should do this within a <code>with</code> block to ensure it’s
+      closed and flushed in a timely manner. Note the <strong>r</strong> passed
+      to open for read.
+    </p>
+    <pre><code>with open(filename, &#39;r&#39;, encoding=&#39;utf-8&#39;) as fin:
+    # work with fin here
+
+# fin is closed and useless at this point.</code></pre>
+    <h3 id="writing-to-a-file">Writing to a file</h3>
+    <p>
+      Writing to a file is similar to reading, it’s just about how you open it.
+      Note the <strong>w</strong> for write and <strong>fout</strong> to tell us
+      that it’s an output not input file stream.
+    </p>
+    <pre><code>with open(filename, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fout:
+    # work with four here</code></pre>
+    <h3 id="using-json-module-with-file-streams">
+      Using json module with file streams
+    </h3>
+    <p>
+      Given a file stream, json can read or write objects to/from the json file
+      format.
+    </p>
+    <pre><code>import json
+
+# load the rolls from fin input stream
+rolls = json.load(fin)
+
+# save the leader dictionary to the fout file stream
+json.dump(leaders, fout)</code></pre>
+    <h2 id="exercises">Exercises</h2>
+    <p>
+      Now it’s your turn. In this practice, go back to the tic tac toe game we
+      created back in the chapter on problem solving. Alternatively, if you made
+      it through Connect 4, you can work with that one instead. Your job will be
+      to:
+    </p>
+    <ul>
+      <li>Add a leader board (feel free to use JSON like we did).</li>
+      <li>
+        Add a running log file (test with <code>tail -n 20 -f FILENAME</code> on
+        macOS and Linux, just open in PyCharm on Windows and it’ll change).
+      </li>
+      <li>
+        For extra credit, you can try to use
+        <a href="https://logbook.readthedocs.io/en/stable/">LogBook</a> to
+        improve the logging (but it will require a few concepts we haven’t
+        covered yet).
+      </li>
+    </ul>
+  </body>
+</html>

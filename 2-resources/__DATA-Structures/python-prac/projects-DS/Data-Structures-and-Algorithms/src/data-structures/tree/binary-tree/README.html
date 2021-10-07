@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="binary-tree">Binary Tree</h1>
+    <p>
+      Trees are commonly represented as <strong>binary trees</strong>, a
+      <em>rooted</em> tree structure in which each node has no more than two
+      children.
+    </p>
+    <h2 id="constraints">Constraints</h2>
+    <ul>
+      <li>
+        A child has only <em>one</em> parent and the root node has
+        <em>no</em> parent.
+      </li>
+      <li>Each node can have a max of 2 children.</li>
+    </ul>
+    <p><img src="../../../../assets/binary_tree.svg" width="600" /></p>
+    <p>
+      A <strong>node</strong> of a binary tree is represented by a structure
+      containing <strong>data</strong> and two pointers (<strong>left</strong>
+      and <strong>right</strong>) to other structures of the same type.
+    </p>
+    <p><img src="../../../../assets/binary_tree_node.svg" width="300" /></p>
+    <h4 id="an-example-of-a-node-written-in-javascript">
+      An example of a node written in JavaScript:
+    </h4>
+    <pre><code>class Node {
+  constructor(value = null) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}</code></pre>
+    <hr />
+    <p><a href="../">← go back to trees</a></p>
+  </body>
+</html>

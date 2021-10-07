@@ -1,4 +1,3 @@
-
 # Interview Questions To Ask
 
 - Can you tell me more about the day-to-day responsibilities of this job?
@@ -20,5 +19,5 @@
 - How do you support juniors?
 - How do you evaluate the work of your employees?
 - How do you deal with overtime?
-- What does success look like in this role?  
+- What does success look like in this role?
 - What does going above and beyond look like?

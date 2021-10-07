@@ -4,24 +4,19 @@
 
 ![cover of the report on microservice architecture in 2020](https://tsh.io/wp-content/uploads/2020/03/state-of-microservices-2020-report-cover.png)
 
-*   ![](https://tsh.io/wp-content/uploads/2020/03/icon-book.svg)
-    
-    Report based on a microservices survey conducted among 650+ tech leaders
-    ------------------------------------------------------------------------
-    
-*   ![](https://tsh.io/wp-content/uploads/2020/03/icon-expert.svg)
-    
-    Results explained by experts from DAZN, Cooperpress, Vercel and more
-    --------------------------------------------------------------------
-    
-*   ![](https://tsh.io/wp-content/uploads/2020/03/icon-hot.svg)
-    
-    Over 2000 views in the first week alone
-    ---------------------------------------
-    
+- ![](https://tsh.io/wp-content/uploads/2020/03/icon-book.svg)
 
-What can I learn from the microservices report?
------------------------------------------------
+  ## Report based on a microservices survey conducted among 650+ tech leaders
+
+- ![](https://tsh.io/wp-content/uploads/2020/03/icon-expert.svg)
+
+  ## Results explained by experts from DAZN, Cooperpress, Vercel and more
+
+- ![](https://tsh.io/wp-content/uploads/2020/03/icon-hot.svg)
+
+  ## Over 2000 views in the first week alone
+
+## What can I learn from the microservices report?
 
 ![](https://tsh.io/wp-content/uploads/2020/03/icon-business-1.svg)
 
@@ -59,8 +54,7 @@ on the future of microservice solutions and monolithic applications
 
 everything based on the data collected from real developers
 
-Who created the State of Microservices 2020 report?
----------------------------------------------------
+## Who created the State of Microservices 2020 report?
 
 ![](https://tsh.io/wp-content/uploads/2020/03/marek-gajda-large.png)
 
@@ -102,8 +96,7 @@ Head of Growth at Vercel
 
 — The findings in the report are consistent with the trends we’ve been noticing here at Vercel (formerly ZEIT). Consumers today are more impatient than ever, demanding top-notch performance from the applications they use.
 
-State of Microservices 2020
----------------------------
+## State of Microservices 2020
 
 Part 01: **Developers**
 
@@ -129,21 +122,21 @@ So, without further ado, I present you the complete State of Microservices 2020 
 
 How would you describe your seniority?
 
-*   Lead developer, Head of technology
-*   Senior developer
-*   Mid-level developer
-*   Chief technology officer
-*   Junior developer
-*   Other
+- Lead developer, Head of technology
+- Senior developer
+- Mid-level developer
+- Chief technology officer
+- Junior developer
+- Other
 
 How big is the company you are working in?
 
-*   11-50 employees
-*   51-200 employees
-*   501+ employees
-*   2-10 employees
-*   201-500 employees
-*   I’m the one-person company
+- 11-50 employees
+- 51-200 employees
+- 501+ employees
+- 2-10 employees
+- 201-500 employees
+- I’m the one-person company
 
 Part 02: **Maturity**
 
@@ -163,11 +156,11 @@ All in all, microservice architecture is not a cure for all of your software pro
 
 For how long have you been using microservices?
 
-*   More than 1 year
-*   More than 3 years
-*   6 months – 1 year
-*   Less than 6 months
-*   More than 5 years
+- More than 1 year
+- More than 3 years
+- 6 months – 1 year
+- Less than 6 months
+- More than 5 years
 
 Rate in scale 1–5 how you enjoy working with microservices when it comes to…
 
@@ -215,14 +208,14 @@ Now, it’s a part of their developer DNA – and it makes building and maintain
 
 What are your architecture’s main technologies?
 
-*   JavaScript/TypeScript
-*   Java
-*   .Net
-*   Python
-*   PHP
-*   Go
-*   Ruby
-*   Other
+- JavaScript/TypeScript
+- Java
+- .Net
+- Python
+- PHP
+- Go
+- Ruby
+- Other
 
 Part 04: **Deployment and serverless**
 
@@ -242,21 +235,21 @@ All in all, while we can definitely see that Amazon Web Services are leading whe
 
 Where do you usually deploy your microservices to?
 
-*   Amazon Web Services
-*   My own server
-*   Azure
-*   Google Cloud Platform
-*   Other
+- Amazon Web Services
+- My own server
+- Azure
+- Google Cloud Platform
+- Other
 
 Do you use serverless technology?
 
 Which serverless solution is your preferred one?
 
-*   AWS Lambda
-*   Google Functions
-*   Azure Functions
-*   ZEIT Now
-*   Other
+- AWS Lambda
+- Google Functions
+- Azure Functions
+- ZEIT Now
+- Other
 
 Do you use AWS Serverless Application Model?
 
@@ -276,9 +269,9 @@ However, much like the almost universal growth of CI (after initially being more
 
 How do you like your code stored?
 
-*   Multiple repositories
-*   Monorepo
-*   Other
+- Multiple repositories
+- Monorepo
+- Other
 
 Part 06: **Varia**
 
@@ -286,27 +279,27 @@ Part 06: **Varia**
 
 How do your microservices communicate with each other?
 
-*   Http
-*   Events
-*   gRPC
-*   WebSockets
-*   Other
+- Http
+- Events
+- gRPC
+- WebSockets
+- Other
 
 How do you take care of authorisation?
 
-*   Only the gateway API authorises the request
-*   Each system authorises the request
-*   Other
+- Only the gateway API authorises the request
+- Each system authorises the request
+- Other
 
 Do you use message brokers?
 
 Which message-broker software do you prefer?
 
-*   RabbitMQ
-*   Kafka
-*   Redis
-*   Nats
-*   Other
+- RabbitMQ
+- Kafka
+- Redis
+- Nats
+- Other
 
 Part 07: **Continuous integration**
 
@@ -332,14 +325,14 @@ Do you use Continuous Integration?
 
 Which CI solution do you prefer?
 
-*   GitLab CI
-*   Jenkins
-*   GitHub Actions
-*   Circle CI
-*   Bitbucket Pipelines
-*   Travis CI
-*   Azure DevOps/Pipelines
-*   Other
+- GitLab CI
+- Jenkins
+- GitHub Actions
+- Circle CI
+- Bitbucket Pipelines
+- Travis CI
+- Azure DevOps/Pipelines
+- Other
 
 Part 08: **Debugging**
 
@@ -359,11 +352,11 @@ Microservice architecture is a great invention and I must say we benefit from it
 
 What are your favourite debugging solutions?
 
-*   Logs
-*   Tracing
-*   Metrics
-*   Health checks
-*   Other
+- Logs
+- Tracing
+- Metrics
+- Health checks
+- Other
 
 Part 09: **Consumption of APIs**
 
@@ -387,11 +380,11 @@ Thanks to integrations with GitHub, BitBucket, GitLab, and Slack – the adoptio
 
 How are you consuming the responses of your microservices?
 
-*   Service to service
-*   Static frontend
-*   Mobile apps
-*   SSR frontend
-*   Other
+- Service to service
+- Static frontend
+- Mobile apps
+- SSR frontend
+- Other
 
 Part 10: **Micro frontends**
 
@@ -413,11 +406,11 @@ Have you used micro frontends?
 
 How do you compose your micro frontends?
 
-*   Web components
-*   Server-side rendering
-*   Micro frontends as npm packages
-*   iFrame
-*   Other
+- Web components
+- Server-side rendering
+- Micro frontends as npm packages
+- iFrame
+- Other
 
 Part 11: **Future**
 
@@ -437,15 +430,14 @@ However, with these two principles – which will become almost invisible featur
 
 What do you think about the future of microservice architecture?
 
-*   It will be a standard but only for more complex systems
-*   It will become the industry standard for backend development
-*   It will be completely dethroned by some new architectural solution
-*   It will end up as a curiosity used only by a group of fanatic developers
-*   Other
+- It will be a standard but only for more complex systems
+- It will become the industry standard for backend development
+- It will be completely dethroned by some new architectural solution
+- It will end up as a curiosity used only by a group of fanatic developers
+- Other
 
 🤔 **Do you like the report?** Make sure to [share the good news on your Twitter profile](https://ctt.ac/71XKg) (or anywhere you like).
 
 :
-
 
 [Source](https://tsh.io/state-of-microservices/#ebook)

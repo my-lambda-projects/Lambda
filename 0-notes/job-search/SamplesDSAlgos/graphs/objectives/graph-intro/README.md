@@ -4,9 +4,9 @@
 
 ## Objectives
 
-* Learn what graphs are
-* Learn the components of graphs
-* Learn what graphs are useful for
+- Learn what graphs are
+- Learn the components of graphs
+- Learn what graphs are useful for
 
 ## What Are Graphs?
 
@@ -15,7 +15,6 @@ Graphs are collections of related data. They're like trees, except connections c
 The nodes in a graph are called _vertexes_ (or _vertices_ or _verts_), and the connections between the verts are called _edges_.
 
 And edge denotes a relationship or linkage between the two verts.
-
 
 ## What can they represent?
 
@@ -44,11 +43,11 @@ and the graph is an _undirected_ graph.
 
 ![Undirected Graph](img/social_graph_undirected.jpg)
 
-This is an __undirected graph__ which could represent a social network like Facebook. Alice is friends with Bob, Carol and Dave, Bob is friends with Alice and Dave, Carol is only friend with Alice, and Dave is friends with only Alice and Bob. In this example, the nodes represent people and the edges represent friendship.
+This is an **undirected graph** which could represent a social network like Facebook. Alice is friends with Bob, Carol and Dave, Bob is friends with Alice and Dave, Carol is only friend with Alice, and Dave is friends with only Alice and Bob. In this example, the nodes represent people and the edges represent friendship.
 
 ![Directed Graph](img/social_graph_directed.jpg)
 
-This is an __directed graph__ which could represent a social network like Twitter or Instagram. Since Twitter/Instagram follows are one-way as opposed to always-mutual Facebook friendships, they are represented with arrows. In the above directed graph, Alice and Bob follow each other, Dave follows Alice and Bob, and Carol only follows Alice.
+This is an **directed graph** which could represent a social network like Twitter or Instagram. Since Twitter/Instagram follows are one-way as opposed to always-mutual Facebook friendships, they are represented with arrows. In the above directed graph, Alice and Bob follow each other, Dave follows Alice and Bob, and Carol only follows Alice.
 
 ### Cyclic/Acyclic Graphs
 
@@ -101,7 +100,7 @@ no way to go back and form a repeating loop in the git commit hierarchy.
 
 Draw examples of the following:
 
-* Undirected graph of 4 verts.
-* Directed graph of 5 verts.
-* Cyclic directed graph of 6 verts.
-* DAG of 7 verts.
+- Undirected graph of 4 verts.
+- Directed graph of 5 verts.
+- Cyclic directed graph of 6 verts.
+- DAG of 7 verts.
