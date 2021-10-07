@@ -1,4 +1,4 @@
-'''
+"""
 This Bellman-Ford Code is for determination whether we can get
 shortest path from given graph or not for single-source shortest-paths problem.
 In other words, if given graph has any negative-weight cycle that is reachable
@@ -12,7 +12,8 @@ graph = {
     'd': {'a': 2, 'c': 7},
     'e': {'b': -3}
 }
-'''
+"""
+
 
 def bellman_ford(graph, source):
     weight = {}
@@ -34,11 +35,11 @@ def bellman_ford(graph, source):
 
     return True
 
+
 def initialize_single_source(graph, source, weight, pre_node):
 
     for node in graph:
-        weight[node] = float('inf')
+        weight[node] = float("inf")
         pre_node[node] = None
 
     weight[source] = 0
-    

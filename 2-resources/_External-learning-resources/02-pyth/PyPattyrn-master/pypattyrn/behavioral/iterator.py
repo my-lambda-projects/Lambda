@@ -8,6 +8,7 @@ class Iterator(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#iterator-pattern}
     - External Iterator Pattern documentation: U{https://en.wikipedia.org/wiki/Iterator_pattern}
     """
+
     def __init__(self, iterable):
         """
         Initialize a new Iterator instance.
@@ -31,6 +32,7 @@ class Iterable(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#iterator-pattern}
     - External Iterator Pattern documentation: U{https://en.wikipedia.org/wiki/Iterator_pattern}
     """
+
     @abstractmethod
     def __next__(self):
         """

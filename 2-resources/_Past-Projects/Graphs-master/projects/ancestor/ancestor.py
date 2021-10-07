@@ -1,12 +1,24 @@
-test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
+test_ancestors = [
+    (1, 3),
+    (2, 3),
+    (3, 6),
+    (5, 6),
+    (5, 7),
+    (4, 5),
+    (4, 8),
+    (8, 9),
+    (11, 8),
+    (10, 1),
+]
+
 
 def earliest_ancestor(ancestry_list, node):
     # If no parent node, return -1
     valid_node = False
     for parent in ancestry_list:
-            if parent[1] == node:
-                valid_node = True
-                break
+        if parent[1] == node:
+            valid_node = True
+            break
     if valid_node == False:
         return -1
 
@@ -14,7 +26,7 @@ def earliest_ancestor(ancestry_list, node):
     # Create an empty Queue to store paths to visited ancestors
     q = []
     # Enqueue with starting node
-    q.append( [node] )
+    q.append([node])
     visited = set()
 
     # While the queue is not empty...
@@ -26,7 +38,7 @@ def earliest_ancestor(ancestry_list, node):
         # Find curr_node's ancestors
         if curr_node not in visited:
             visited.add(curr_node)
-        
+
         no_parent = False
 
         for parent in ancestry_list:
@@ -49,5 +61,6 @@ def earliest_ancestor(ancestry_list, node):
                 earliest = list(path)
 
     return earliest[-1]
+
 
 print(earliest_ancestor(test_ancestors, 6))

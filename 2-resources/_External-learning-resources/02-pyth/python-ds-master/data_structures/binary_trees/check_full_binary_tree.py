@@ -1,7 +1,7 @@
 # A full binary tree is one which has 0 or 2 children only
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -19,4 +19,3 @@ def check(root):
         return check(root.left) and check(root.right)
 
     return False
-

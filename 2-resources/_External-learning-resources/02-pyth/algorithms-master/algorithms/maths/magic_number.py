@@ -21,7 +21,7 @@ def magic_number(n):
     # AND
     # sum becomes single digit.
     while n > 0 or total_sum > 9:
-        
+
         # when n becomes 0 but we have a total_sum,
         # we update the value of n with the value of the sum digits
         if n == 0:
@@ -32,5 +32,3 @@ def magic_number(n):
 
     # Return true if sum becomes 1
     return total_sum == 1
-
-

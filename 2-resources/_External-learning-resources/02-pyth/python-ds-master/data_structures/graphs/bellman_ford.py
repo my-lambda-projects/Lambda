@@ -26,8 +26,8 @@ Space complexity - O(V)
 
 from collections import defaultdict
 
-class Edge:
 
+class Edge:
     def __init__(self, source, dest, weight):
         self.source = source
         self.dest = dest
@@ -35,18 +35,14 @@ class Edge:
 
 
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
         self.edges = {}
 
-
     def add_edge(self, u, v, weight):
         self.graph[u].append(v)
         self.edges[(u, v)] = Edge(u, v, weight)
-
 
     def bellman_ford(self, source, destination):
         parent = [-1] * self.vertices
@@ -65,27 +61,27 @@ class Graph:
         # Now for the Vth iteration, check for the negative cycle
 
         negative_cycle_present = False
-        
+
         for (u, v) in self.edges:
             wt = self.edges[(u, v)].weight
             if distance[v] > distance[u] + wt:
-                print('h - ', u, v)
+                print("h - ", u, v)
                 negative_cycle_present = True
                 break
 
         if negative_cycle_present:
-            print('Contains negative cycle')
+            print("Contains negative cycle")
         else:
-            print('No negative cycle')
+            print("No negative cycle")
 
         # Printing the shortest path from source to destination
 
         while True:
-            print(f'{destination}', end=' ')
+            print(f"{destination}", end=" ")
             destination = parent[destination]
 
             if destination == source:
-                break         
+                break
 
 
 g = Graph(5)

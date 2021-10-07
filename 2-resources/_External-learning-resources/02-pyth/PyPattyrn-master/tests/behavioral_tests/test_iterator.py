@@ -6,12 +6,13 @@ class IterableTestCase(TestCase):
     """
     Unit testing class for the Iterable class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
         """
-        class Counter(Iterable):
 
+        class Counter(Iterable):
             def __init__(self, max):
                 self.count = 0
                 self.max = max
@@ -50,12 +51,13 @@ class IteratorTestCase(TestCase):
     """
     Unit testing class for the Iterator class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
         """
-        class Counter(Iterable):
 
+        class Counter(Iterable):
             def __init__(self, max):
                 self.count = 0
                 self.max = max
@@ -68,7 +70,6 @@ class IteratorTestCase(TestCase):
                     return self.count - 1
 
         class CounterIterator(Iterator):
-
             def __init__(self):
                 super().__init__(Counter(10))
 

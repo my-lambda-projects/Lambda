@@ -1,24 +1,23 @@
-
 # coding: utf-8
 
 # # Table of Contents
 #  <p><div class="lev1 toc-item"><a href="#NetHack's-functions-Rne,-Rn2-and-Rnz-in-Python-3" data-toc-modified-id="NetHack's-functions-Rne,-Rn2-and-Rnz-in-Python-3-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>NetHack's functions Rne, Rn2 and Rnz in Python 3</a></div><div class="lev2 toc-item"><a href="#Rn2-distribution" data-toc-modified-id="Rn2-distribution-11"><span class="toc-item-num">1.1&nbsp;&nbsp;</span><code>Rn2</code> distribution</a></div><div class="lev2 toc-item"><a href="#Rne-distribution" data-toc-modified-id="Rne-distribution-12"><span class="toc-item-num">1.2&nbsp;&nbsp;</span><code>Rne</code> distribution</a></div><div class="lev2 toc-item"><a href="#Rnz-distribution" data-toc-modified-id="Rnz-distribution-13"><span class="toc-item-num">1.3&nbsp;&nbsp;</span><code>Rnz</code> distribution</a></div><div class="lev2 toc-item"><a href="#Examples" data-toc-modified-id="Examples-14"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Examples</a></div><div class="lev3 toc-item"><a href="#For-x=350" data-toc-modified-id="For-x=350-141"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>For <code>x=350</code></a></div><div class="lev2 toc-item"><a href="#Conclusion" data-toc-modified-id="Conclusion-15"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Conclusion</a></div>
 
 # # NetHack's functions Rne, Rn2 and Rnz in Python 3
-# 
+#
 # I liked [this blog post](https://eev.ee/blog/2018/01/02/random-with-care/#beware-gauss) by [Eevee](https://eev.ee/blog/).
 # He wrote about interesting things regarding random distributions, and linked to [this page](https://nethackwiki.com/wiki/Rnz) which describes a weird distribution implemented as `Rnz` in the [NetHack](https://www.nethack.org/) game.
-# 
+#
 # > Note: I never heard of any of those before today.
-# 
+#
 # I wanted to implement and experiment with the `Rnz` distribution myself.
 # Its code ([see here](https://nethackwiki.com/wiki/Source:NetHack_3.6.0/src/rnd.c#rnz)) uses two other distributions, `Rne` and `Rn2`.
 
 # In[41]:
 
 
-get_ipython().run_line_magic('load_ext', 'watermark')
-get_ipython().run_line_magic('watermark', '-v -m -p numpy,matplotlib')
+get_ipython().run_line_magic("load_ext", "watermark")
+get_ipython().run_line_magic("watermark", "-v -m -p numpy,matplotlib")
 
 
 # In[39]:
@@ -30,14 +29,14 @@ import matplotlib.pyplot as plt
 
 
 # ## `Rn2` distribution
-# 
+#
 # [The `Rn2` distribution](https://nethackwiki.com/wiki/Rn2) is simply an integer uniform distribution, between $0$ and $x-1$.
 
 # In[19]:
 
 
 def rn2(x):
-    return random.randint(0, x-1)
+    return random.randint(0, x - 1)
 
 
 # In[20]:
@@ -73,7 +72,7 @@ Counter([rn2(10) == 0 for _ in range(10000)])
 
 
 # ## `Rne` distribution
-# 
+#
 # [The `Rne` distribution]() is a truncated geometric distribution.
 
 # In[88]:
@@ -114,7 +113,7 @@ plt.hist(np.asarray([rne(4, truncation=10) for _ in range(10000)]), bins=10)
 
 
 # Let's check what [this page](https://nethackwiki.com/wiki/Rnz#Probability_density_function) says about `rne(4)`:
-# 
+#
 # > The rne(4) call returns an integer from 1 to 5, with the following probabilities:
 # >
 # > |Number| Probability |
@@ -123,12 +122,12 @@ plt.hist(np.asarray([rne(4, truncation=10) for _ in range(10000)]), bins=10)
 # > | 2 | 3/16 |
 # > | 3 | 3/64 |
 # > | 4 | 3/256 |
-# > | 5 | 1/256 | 
+# > | 5 | 1/256 |
 
 # In[96]:
 
 
-ref_table = {1: 3/4, 2: 3/16, 3: 3/64, 4: 3/256, 5: 1/256}
+ref_table = {1: 3 / 4, 2: 3 / 16, 3: 3 / 64, 4: 3 / 256, 5: 1 / 256}
 ref_table
 
 
@@ -150,13 +149,15 @@ rel_diff = lambda x, y: abs(x - y) / x
 for k in ref_table:
     x, y = ref_table[k], table[k]
     r = rel_diff(x, y)
-    print(f"For k={k}: relative difference is {r:.3g} between {x:.3g} (expectation) and {y:.3g} (with N={N} samples).")
+    print(
+        f"For k={k}: relative difference is {r:.3g} between {x:.3g} (expectation) and {y:.3g} (with N={N} samples)."
+    )
 
 
 # > Seems true !
 
 # ## `Rnz` distribution
-# 
+#
 # It's not too hard to write.
 
 # In[112]:

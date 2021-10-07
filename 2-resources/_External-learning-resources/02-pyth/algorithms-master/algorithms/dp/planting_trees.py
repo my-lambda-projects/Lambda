@@ -9,6 +9,7 @@ distance that the trees have to be moved before they are all in a valid position
 from math import sqrt
 import sys
 
+
 def planting_trees(trees, L, W):
     """
     Returns the minimum distance that trees have to be moved before they are all in a valid state.
@@ -23,23 +24,26 @@ def planting_trees(trees, L, W):
     """
     trees = [0] + trees
 
-    n_pairs = int(len(trees)/2)
+    n_pairs = int(len(trees) / 2)
 
-    space_between_pairs = L/(n_pairs-1)
+    space_between_pairs = L / (n_pairs - 1)
 
-    target_locations = [location*space_between_pairs for location in range(n_pairs)]
+    target_locations = [location * space_between_pairs for location in range(n_pairs)]
 
-    cmatrix = [[0 for _ in range(n_pairs+1)] for _ in range(n_pairs+1)]
-    for ri in range(1, n_pairs+1):
-        cmatrix[ri][0] = cmatrix[ri-1][0] + sqrt(W + abs(trees[ri]-target_locations[ri-1])**2)
-    for li in range(1, n_pairs+1):
-        cmatrix[0][li] = cmatrix[0][li-1] + abs(trees[li]-target_locations[li-1])
+    cmatrix = [[0 for _ in range(n_pairs + 1)] for _ in range(n_pairs + 1)]
+    for ri in range(1, n_pairs + 1):
+        cmatrix[ri][0] = cmatrix[ri - 1][0] + sqrt(
+            W + abs(trees[ri] - target_locations[ri - 1]) ** 2
+        )
+    for li in range(1, n_pairs + 1):
+        cmatrix[0][li] = cmatrix[0][li - 1] + abs(trees[li] - target_locations[li - 1])
 
-    for ri in range(1, n_pairs+1):
-        for li in range(1, n_pairs+1):
+    for ri in range(1, n_pairs + 1):
+        for li in range(1, n_pairs + 1):
             cmatrix[ri][li] = min(
-                cmatrix[ri-1][li] + sqrt(W + (trees[li + ri]-target_locations[ri-1])**2),
-                cmatrix[ri][li-1] + abs(trees[li + ri]-target_locations[li-1])
+                cmatrix[ri - 1][li]
+                + sqrt(W + (trees[li + ri] - target_locations[ri - 1]) ** 2),
+                cmatrix[ri][li - 1] + abs(trees[li + ri] - target_locations[li - 1]),
             )
 
     return cmatrix[n_pairs][n_pairs]

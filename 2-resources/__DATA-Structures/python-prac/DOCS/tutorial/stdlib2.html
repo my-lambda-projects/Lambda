@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>stdlib2</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="navigation">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li>
+        <a href="venv.html" title="12. Virtual Environments and Packages"
+          >next</a
+        >
+        |
+      </li>
+      <li>
+        <a href="stdlib.html" title="10. Brief Tour of the Standard Library"
+          >previous</a
+        >
+        |
+      </li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+    <p><span id="tut-brieftourtwo"></span></p>
+    <h1 id="brief-tour-of-the-standard-library-part-ii">
+      <span class="section-number">11. </span>Brief Tour of the Standard Library
+      — Part II<a
+        href="#brief-tour-of-the-standard-library-part-ii"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h1>
+    <p>
+      This second tour covers more advanced modules that support professional
+      programming needs. These modules rarely occur in small scripts.
+    </p>
+    <p><span id="tut-output-formatting"></span></p>
+    <h2 id="output-formatting">
+      <span class="section-number">11.1. </span>Output Formatting<a
+        href="#output-formatting"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/reprlib.html#module-reprlib"
+        class="reference internal"
+        title="reprlib: Alternate repr() implementation with size limits."
+        ><code class="sourceCode python">reprlib</code></a
+      >
+      module provides a version of
+      <a
+        href="https://docs.python.org/3/library/functions.html#repr"
+        class="reference internal"
+        title="repr"
+        ><code class="sourceCode python"
+          ><span class="bu">repr</span>()</code
+        ></a
+      >
+      customized for abbreviated displays of large or deeply nested containers:
+    </p>
+    <pre><code>&gt;&gt;&gt; import reprlib
+&gt;&gt;&gt; reprlib.repr(set(&#39;supercalifragilisticexpialidocious&#39;))
+&quot;{&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, ...}&quot;</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/pprint.html#module-pprint"
+        class="reference internal"
+        title="pprint: Data pretty printer."
+        ><code class="sourceCode python">pprint</code></a
+      >
+      module offers more sophisticated control over printing both built-in and
+      user defined objects in a way that is readable by the interpreter. When
+      the result is longer than one line, the “pretty printer” adds line breaks
+      and indentation to more clearly reveal data structure:
+    </p>
+    <pre><code>&gt;&gt;&gt; import pprint
+&gt;&gt;&gt; t = [[[[&#39;black&#39;, &#39;cyan&#39;], &#39;white&#39;, [&#39;green&#39;, &#39;red&#39;]], [[&#39;magenta&#39;,
+...     &#39;yellow&#39;], &#39;blue&#39;]]]
+...
+&gt;&gt;&gt; pprint.pprint(t, width=30)
+[[[[&#39;black&#39;, &#39;cyan&#39;],
+   &#39;white&#39;,
+   [&#39;green&#39;, &#39;red&#39;]],
+  [[&#39;magenta&#39;, &#39;yellow&#39;],
+   &#39;blue&#39;]]]</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/textwrap.html#module-textwrap"
+        class="reference internal"
+        title="textwrap: Text wrapping and filling"
+        ><code class="sourceCode python">textwrap</code></a
+      >
+      module formats paragraphs of text to fit a given screen width:
+    </p>
+    <pre><code>&gt;&gt;&gt; import textwrap
+&gt;&gt;&gt; doc = &quot;&quot;&quot;The wrap() method is just like fill() except that it returns
+... a list of strings instead of one big string with newlines to separate
+... the wrapped lines.&quot;&quot;&quot;
+...
+&gt;&gt;&gt; print(textwrap.fill(doc, width=40))
+The wrap() method is just like fill()
+except that it returns a list of strings
+instead of one big string with newlines
+to separate the wrapped lines.</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/locale.html#module-locale"
+        class="reference internal"
+        title="locale: Internationalization services."
+        ><code class="sourceCode python">locale</code></a
+      >
+      module accesses a database of culture specific data formats. The grouping
+      attribute of locale’s format function provides a direct way of formatting
+      numbers with group separators:
+    </p>
+    <pre><code>&gt;&gt;&gt; import locale
+&gt;&gt;&gt; locale.setlocale(locale.LC_ALL, &#39;English_United States.1252&#39;)
+&#39;English_United States.1252&#39;
+&gt;&gt;&gt; conv = locale.localeconv()          # get a mapping of conventions
+&gt;&gt;&gt; x = 1234567.8
+&gt;&gt;&gt; locale.format(&quot;%d&quot;, x, grouping=True)
+&#39;1,234,567&#39;
+&gt;&gt;&gt; locale.format_string(&quot;%s%.*f&quot;, (conv[&#39;currency_symbol&#39;],
+...                      conv[&#39;frac_digits&#39;], x), grouping=True)
+&#39;$1,234,567.80&#39;</code></pre>
+    <p><span id="tut-templating"></span></p>
+    <h2 id="templating">
+      <span class="section-number">11.2. </span>Templating<a
+        href="#templating"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/string.html#module-string"
+        class="reference internal"
+        title="string: Common string operations."
+        ><code class="sourceCode python">string</code></a
+      >
+      module includes a versatile
+      <a
+        href="https://docs.python.org/3/library/string.html#string.Template"
+        class="reference internal"
+        title="string.Template"
+        ><code class="sourceCode python">Template</code></a
+      >
+      class with a simplified syntax suitable for editing by end-users. This
+      allows users to customize their applications without having to alter the
+      application.
+    </p>
+    <p>
+      The format uses placeholder names formed by <code>$</code> with valid
+      Python identifiers (alphanumeric characters and underscores). Surrounding
+      the placeholder with braces allows it to be followed by more alphanumeric
+      letters with no intervening spaces. Writing <code>$$</code> creates a
+      single escaped <code>$</code>:
+    </p>
+    <pre><code>&gt;&gt;&gt; from string import Template
+&gt;&gt;&gt; t = Template(&#39;${village}folk send $$10 to $cause.&#39;)
+&gt;&gt;&gt; t.substitute(village=&#39;Nottingham&#39;, cause=&#39;the ditch fund&#39;)
+&#39;Nottinghamfolk send $10 to the ditch fund.&#39;</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/string.html#string.Template.substitute"
+        class="reference internal"
+        title="string.Template.substitute"
+        ><code class="sourceCode python">substitute()</code></a
+      >
+      method raises a
+      <a
+        href="https://docs.python.org/3/library/exceptions.html#KeyError"
+        class="reference internal"
+        title="KeyError"
+        ><code class="sourceCode python"
+          ><span class="pp">KeyError</span></code
+        ></a
+      >
+      when a placeholder is not supplied in a dictionary or a keyword argument.
+      For mail-merge style applications, user supplied data may be incomplete
+      and the
+      <a
+        href="https://docs.python.org/3/library/string.html#string.Template.safe_substitute"
+        class="reference internal"
+        title="string.Template.safe_substitute"
+        ><code class="sourceCode python">safe_substitute()</code></a
+      >
+      method may be more appropriate — it will leave placeholders unchanged if
+      data is missing:
+    </p>
+    <pre><code>&gt;&gt;&gt; t = Template(&#39;Return the $item to $owner.&#39;)
+&gt;&gt;&gt; d = dict(item=&#39;unladen swallow&#39;)
+&gt;&gt;&gt; t.substitute(d)
+Traceback (most recent call last):
+  ...
+KeyError: &#39;owner&#39;
+&gt;&gt;&gt; t.safe_substitute(d)
+&#39;Return the unladen swallow to $owner.&#39;</code></pre>
+    <p>
+      Template subclasses can specify a custom delimiter. For example, a batch
+      renaming utility for a photo browser may elect to use percent signs for
+      placeholders such as the current date, image sequence number, or file
+      format:
+    </p>
+    <pre><code>&gt;&gt;&gt; import time, os.path
+&gt;&gt;&gt; photofiles = [&#39;img_1074.jpg&#39;, &#39;img_1076.jpg&#39;, &#39;img_1077.jpg&#39;]
+&gt;&gt;&gt; class BatchRename(Template):
+...     delimiter = &#39;%&#39;
+&gt;&gt;&gt; fmt = input(&#39;Enter rename style (%d-date %n-seqnum %f-format):  &#39;)
+Enter rename style (%d-date %n-seqnum %f-format):  Ashley_%n%f
+
+&gt;&gt;&gt; t = BatchRename(fmt)
+&gt;&gt;&gt; date = time.strftime(&#39;%d%b%y&#39;)
+&gt;&gt;&gt; for i, filename in enumerate(photofiles):
+...     base, ext = os.path.splitext(filename)
+...     newname = t.substitute(d=date, n=i, f=ext)
+...     print(&#39;{0} --&gt; {1}&#39;.format(filename, newname))
+
+img_1074.jpg --&gt; Ashley_0.jpg
+img_1076.jpg --&gt; Ashley_1.jpg
+img_1077.jpg --&gt; Ashley_2.jpg</code></pre>
+    <p>
+      Another application for templating is separating program logic from the
+      details of multiple output formats. This makes it possible to substitute
+      custom templates for XML files, plain text reports, and HTML web reports.
+    </p>
+    <p><span id="tut-binary-formats"></span></p>
+    <h2 id="working-with-binary-data-record-layouts">
+      <span class="section-number">11.3. </span>Working with Binary Data Record
+      Layouts<a
+        href="#working-with-binary-data-record-layouts"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/struct.html#module-struct"
+        class="reference internal"
+        title="struct: Interpret bytes as packed binary data."
+        ><code class="sourceCode python">struct</code></a
+      >
+      module provides
+      <a
+        href="https://docs.python.org/3/library/struct.html#struct.pack"
+        class="reference internal"
+        title="struct.pack"
+        ><code class="sourceCode python">pack()</code></a
+      >
+      and
+      <a
+        href="https://docs.python.org/3/library/struct.html#struct.unpack"
+        class="reference internal"
+        title="struct.unpack"
+        ><code class="sourceCode python">unpack()</code></a
+      >
+      functions for working with variable length binary record formats. The
+      following example shows how to loop through header information in a ZIP
+      file without using the
+      <a
+        href="https://docs.python.org/3/library/zipfile.html#module-zipfile"
+        class="reference internal"
+        title="zipfile: Read and write ZIP-format archive files."
+        ><code class="sourceCode python">zipfile</code></a
+      >
+      module. Pack codes <code>"H"</code> and <code>"I"</code> represent two and
+      four byte unsigned numbers respectively. The <code>"&lt;"</code> indicates
+      that they are standard size and in little-endian byte order:
+    </p>
+    <pre><code>import struct
+
+with open(&#39;myfile.zip&#39;, &#39;rb&#39;) as f:
+    data = f.read()
+
+start = 0
+for i in range(3):                      # show the first 3 file headers
+    start += 14
+    fields = struct.unpack(&#39;&lt;IIIHH&#39;, data[start:start+16])
+    crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+
+    start += 16
+    filename = data[start:start+filenamesize]
+    start += filenamesize
+    extra = data[start:start+extra_size]
+    print(filename, hex(crc32), comp_size, uncomp_size)
+
+    start += extra_size + comp_size     # skip to the next header</code></pre>
+    <p><span id="tut-multi-threading"></span></p>
+    <h2 id="multi-threading">
+      <span class="section-number">11.4. </span>Multi-threading<a
+        href="#multi-threading"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Threading is a technique for decoupling tasks which are not sequentially
+      dependent. Threads can be used to improve the responsiveness of
+      applications that accept user input while other tasks run in the
+      background. A related use case is running I/O in parallel with
+      computations in another thread.
+    </p>
+    <p>
+      The following code shows how the high level
+      <a
+        href="https://docs.python.org/3/library/threading.html#module-threading"
+        class="reference internal"
+        title="threading: Thread-based parallelism."
+        ><code class="sourceCode python">threading</code></a
+      >
+      module can run tasks in background while the main program continues to
+      run:
+    </p>
+    <pre><code>import threading, zipfile
+
+class AsyncZip(threading.Thread):
+    def __init__(self, infile, outfile):
+        threading.Thread.__init__(self)
+        self.infile = infile
+        self.outfile = outfile
+
+    def run(self):
+        f = zipfile.ZipFile(self.outfile, &#39;w&#39;, zipfile.ZIP_DEFLATED)
+        f.write(self.infile)
+        f.close()
+        print(&#39;Finished background zip of:&#39;, self.infile)
+
+background = AsyncZip(&#39;mydata.txt&#39;, &#39;myarchive.zip&#39;)
+background.start()
+print(&#39;The main program continues to run in foreground.&#39;)
+
+background.join()    # Wait for the background task to finish
+print(&#39;Main program waited until background was done.&#39;)</code></pre>
+    <p>
+      The principal challenge of multi-threaded applications is coordinating
+      threads that share data or other resources. To that end, the threading
+      module provides a number of synchronization primitives including locks,
+      events, condition variables, and semaphores.
+    </p>
+    <p>
+      While those tools are powerful, minor design errors can result in problems
+      that are difficult to reproduce. So, the preferred approach to task
+      coordination is to concentrate all access to a resource in a single thread
+      and then use the
+      <a
+        href="https://docs.python.org/3/library/queue.html#module-queue"
+        class="reference internal"
+        title="queue: A synchronized queue class."
+        ><code class="sourceCode python">queue</code></a
+      >
+      module to feed that thread with requests from other threads. Applications
+      using
+      <a
+        href="https://docs.python.org/3/library/queue.html#queue.Queue"
+        class="reference internal"
+        title="queue.Queue"
+        ><code class="sourceCode python">Queue</code></a
+      >
+      objects for inter-thread communication and coordination are easier to
+      design, more readable, and more reliable.
+    </p>
+    <p><span id="tut-logging"></span></p>
+    <h2 id="logging">
+      <span class="section-number">11.5. </span>Logging<a
+        href="#logging"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/logging.html#module-logging"
+        class="reference internal"
+        title="logging: Flexible event logging system for applications."
+        ><code class="sourceCode python">logging</code></a
+      >
+      module offers a full featured and flexible logging system. At its
+      simplest, log messages are sent to a file or to <code>sys.stderr</code>:
+    </p>
+    <pre><code>import logging
+logging.debug(&#39;Debugging information&#39;)
+logging.info(&#39;Informational message&#39;)
+logging.warning(&#39;Warning:config file %s not found&#39;, &#39;server.conf&#39;)
+logging.error(&#39;Error occurred&#39;)
+logging.critical(&#39;Critical error -- shutting down&#39;)</code></pre>
+    <p>This produces the following output:</p>
+    <pre><code>WARNING:root:Warning:config file server.conf not found
+ERROR:root:Error occurred
+CRITICAL:root:Critical error -- shutting down</code></pre>
+    <p>
+      By default, informational and debugging messages are suppressed and the
+      output is sent to standard error. Other output options include routing
+      messages through email, datagrams, sockets, or to an HTTP Server. New
+      filters can select different routing based on message priority:
+      <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>,
+      <code>ERROR</code>, and <code>CRITICAL</code>.
+    </p>
+    <p>
+      The logging system can be configured directly from Python or can be loaded
+      from a user editable configuration file for customized logging without
+      altering the application.
+    </p>
+    <p><span id="tut-weak-references"></span></p>
+    <h2 id="weak-references">
+      <span class="section-number">11.6. </span>Weak References<a
+        href="#weak-references"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Python does automatic memory management (reference counting for most
+      objects and
+      <a
+        href="https://docs.python.org/3/glossary.html#term-garbage-collection"
+        class="reference internal"
+        ><span class="xref std std-term">garbage collection</span></a
+      >
+      to eliminate cycles). The memory is freed shortly after the last reference
+      to it has been eliminated.
+    </p>
+    <p>
+      This approach works fine for most applications but occasionally there is a
+      need to track objects only as long as they are being used by something
+      else. Unfortunately, just tracking them creates a reference that makes
+      them permanent. The
+      <a
+        href="https://docs.python.org/3/library/weakref.html#module-weakref"
+        class="reference internal"
+        title="weakref: Support for weak references and weak dictionaries."
+        ><code class="sourceCode python">weakref</code></a
+      >
+      module provides tools for tracking objects without creating a reference.
+      When the object is no longer needed, it is automatically removed from a
+      weakref table and a callback is triggered for weakref objects. Typical
+      applications include caching objects that are expensive to create:
+    </p>
+    <pre><code>&gt;&gt;&gt; import weakref, gc
+&gt;&gt;&gt; class A:
+...     def __init__(self, value):
+...         self.value = value
+...     def __repr__(self):
+...         return str(self.value)
+...
+&gt;&gt;&gt; a = A(10)                   # create a reference
+&gt;&gt;&gt; d = weakref.WeakValueDictionary()
+&gt;&gt;&gt; d[&#39;primary&#39;] = a            # does not create a reference
+&gt;&gt;&gt; d[&#39;primary&#39;]                # fetch the object if it is still alive
+10
+&gt;&gt;&gt; del a                       # remove the one reference
+&gt;&gt;&gt; gc.collect()                # run garbage collection right away
+0
+&gt;&gt;&gt; d[&#39;primary&#39;]                # entry was automatically removed
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+    d[&#39;primary&#39;]                # entry was automatically removed
+  File &quot;C:/python39/lib/weakref.py&quot;, line 46, in __getitem__
+    o = self.data[key]()
+KeyError: &#39;primary&#39;</code></pre>
+    <p><span id="tut-list-tools"></span></p>
+    <h2 id="tools-for-working-with-lists">
+      <span class="section-number">11.7. </span>Tools for Working with Lists<a
+        href="#tools-for-working-with-lists"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Many data structure needs can be met with the built-in list type. However,
+      sometimes there is a need for alternative implementations with different
+      performance trade-offs.
+    </p>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/array.html#module-array"
+        class="reference internal"
+        title="array: Space efficient arrays of uniformly typed numeric values."
+        ><code class="sourceCode python">array</code></a
+      >
+      module provides an
+      <a
+        href="https://docs.python.org/3/library/array.html#array.array"
+        class="reference internal"
+        title="array.array"
+        ><code class="sourceCode python">array()</code></a
+      >
+      object that is like a list that stores only homogeneous data and stores it
+      more compactly. The following example shows an array of numbers stored as
+      two byte unsigned binary numbers (typecode <code>"H"</code>) rather than
+      the usual 16 bytes per entry for regular lists of Python int objects:
+    </p>
+    <pre><code>&gt;&gt;&gt; from array import array
+&gt;&gt;&gt; a = array(&#39;H&#39;, [4000, 10, 700, 22222])
+&gt;&gt;&gt; sum(a)
+26932
+&gt;&gt;&gt; a[1:3]
+array(&#39;H&#39;, [10, 700])</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/collections.html#module-collections"
+        class="reference internal"
+        title="collections: Container datatypes"
+        ><code class="sourceCode python">collections</code></a
+      >
+      module provides a
+      <a
+        href="https://docs.python.org/3/library/collections.html#collections.deque"
+        class="reference internal"
+        title="collections.deque"
+        ><code class="sourceCode python">deque()</code></a
+      >
+      object that is like a list with faster appends and pops from the left side
+      but slower lookups in the middle. These objects are well suited for
+      implementing queues and breadth first tree searches:
+    </p>
+    <pre><code>&gt;&gt;&gt; from collections import deque
+&gt;&gt;&gt; d = deque([&quot;task1&quot;, &quot;task2&quot;, &quot;task3&quot;])
+&gt;&gt;&gt; d.append(&quot;task4&quot;)
+&gt;&gt;&gt; print(&quot;Handling&quot;, d.popleft())
+Handling task1
+
+unsearched = deque([starting_node])
+def breadth_first_search(unsearched):
+    node = unsearched.popleft()
+    for m in gen_moves(node):
+        if is_goal(m):
+            return m
+        unsearched.append(m)</code></pre>
+    <p>
+      In addition to alternative list implementations, the library also offers
+      other tools such as the
+      <a
+        href="https://docs.python.org/3/library/bisect.html#module-bisect"
+        class="reference internal"
+        title="bisect: Array bisection algorithms for binary searching."
+        ><code class="sourceCode python">bisect</code></a
+      >
+      module with functions for manipulating sorted lists:
+    </p>
+    <pre><code>&gt;&gt;&gt; import bisect
+&gt;&gt;&gt; scores = [(100, &#39;perl&#39;), (200, &#39;tcl&#39;), (400, &#39;lua&#39;), (500, &#39;python&#39;)]
+&gt;&gt;&gt; bisect.insort(scores, (300, &#39;ruby&#39;))
+&gt;&gt;&gt; scores
+[(100, &#39;perl&#39;), (200, &#39;tcl&#39;), (300, &#39;ruby&#39;), (400, &#39;lua&#39;), (500, &#39;python&#39;)]</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/heapq.html#module-heapq"
+        class="reference internal"
+        title="heapq: Heap queue algorithm (a.k.a. priority queue)."
+        ><code class="sourceCode python">heapq</code></a
+      >
+      module provides functions for implementing heaps based on regular lists.
+      The lowest valued entry is always kept at position zero. This is useful
+      for applications which repeatedly access the smallest element but do not
+      want to run a full list sort:
+    </p>
+    <pre><code>&gt;&gt;&gt; from heapq import heapify, heappop, heappush
+&gt;&gt;&gt; data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
+&gt;&gt;&gt; heapify(data)                      # rearrange the list into heap order
+&gt;&gt;&gt; heappush(data, -5)                 # add a new entry
+&gt;&gt;&gt; [heappop(data) for i in range(3)]  # fetch the three smallest entries
+[-5, 0, 1]</code></pre>
+    <p><span id="tut-decimal-fp"></span></p>
+    <h2 id="decimal-floating-point-arithmetic">
+      <span class="section-number">11.8. </span>Decimal Floating Point
+      Arithmetic<a
+        href="#decimal-floating-point-arithmetic"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/decimal.html#module-decimal"
+        class="reference internal"
+        title="decimal: Implementation of the General Decimal Arithmetic  Specification."
+        ><code class="sourceCode python">decimal</code></a
+      >
+      module offers a
+      <a
+        href="https://docs.python.org/3/library/decimal.html#decimal.Decimal"
+        class="reference internal"
+        title="decimal.Decimal"
+        ><code class="sourceCode python">Decimal</code></a
+      >
+      datatype for decimal floating point arithmetic. Compared to the built-in
+      <a
+        href="https://docs.python.org/3/library/functions.html#float"
+        class="reference internal"
+        title="float"
+        ><code class="sourceCode python"><span class="bu">float</span></code></a
+      >
+      implementation of binary floating point, the class is especially helpful
+      for
+    </p>
+    <ul>
+      <li>
+        <p>
+          financial applications and other uses which require exact decimal
+          representation,
+        </p>
+      </li>
+      <li><p>control over precision,</p></li>
+      <li>
+        <p>control over rounding to meet legal or regulatory requirements,</p>
+      </li>
+      <li><p>tracking of significant decimal places, or</p></li>
+      <li>
+        <p>
+          applications where the user expects the results to match calculations
+          done by hand.
+        </p>
+      </li>
+    </ul>
+    <p>
+      For example, calculating a 5% tax on a 70 cent phone charge gives
+      different results in decimal floating point and binary floating point. The
+      difference becomes significant if the results are rounded to the nearest
+      cent:
+    </p>
+    <pre><code>&gt;&gt;&gt; from decimal import *
+&gt;&gt;&gt; round(Decimal(&#39;0.70&#39;) * Decimal(&#39;1.05&#39;), 2)
+Decimal(&#39;0.74&#39;)
+&gt;&gt;&gt; round(.70 * 1.05, 2)
+0.73</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/decimal.html#decimal.Decimal"
+        class="reference internal"
+        title="decimal.Decimal"
+        ><code class="sourceCode python">Decimal</code></a
+      >
+      result keeps a trailing zero, automatically inferring four place
+      significance from multiplicands with two place significance. Decimal
+      reproduces mathematics as done by hand and avoids issues that can arise
+      when binary floating point cannot exactly represent decimal quantities.
+    </p>
+    <p>
+      Exact representation enables the
+      <a
+        href="https://docs.python.org/3/library/decimal.html#decimal.Decimal"
+        class="reference internal"
+        title="decimal.Decimal"
+        ><code class="sourceCode python">Decimal</code></a
+      >
+      class to perform modulo calculations and equality tests that are
+      unsuitable for binary floating point:
+    </p>
+    <pre><code>&gt;&gt;&gt; Decimal(&#39;1.00&#39;) % Decimal(&#39;.10&#39;)
+Decimal(&#39;0.00&#39;)
+&gt;&gt;&gt; 1.00 % 0.10
+0.09999999999999995
+
+&gt;&gt;&gt; sum([Decimal(&#39;0.1&#39;)]*10) == Decimal(&#39;1.0&#39;)
+True
+&gt;&gt;&gt; sum([0.1]*10) == 1.0
+False</code></pre>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/library/decimal.html#module-decimal"
+        class="reference internal"
+        title="decimal: Implementation of the General Decimal Arithmetic  Specification."
+        ><code class="sourceCode python">decimal</code></a
+      >
+      module provides arithmetic with as much precision as needed:
+    </p>
+    <pre><code>&gt;&gt;&gt; getcontext().prec = 36
+&gt;&gt;&gt; Decimal(1) / Decimal(7)
+Decimal(&#39;0.142857142857142857142857142857142857&#39;)</code></pre>
+    <h3 id="table-of-contents">
+      <a href="https://docs.python.org/3/contents.html">Table of Contents</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="#" class="reference internal"
+          >11. Brief Tour of the Standard Library — Part II</a
+        >
+        <ul>
+          <li>
+            <a href="#output-formatting" class="reference internal"
+              >11.1. Output Formatting</a
+            >
+          </li>
+          <li>
+            <a href="#templating" class="reference internal"
+              >11.2. Templating</a
+            >
+          </li>
+          <li>
+            <a
+              href="#working-with-binary-data-record-layouts"
+              class="reference internal"
+              >11.3. Working with Binary Data Record Layouts</a
+            >
+          </li>
+          <li>
+            <a href="#multi-threading" class="reference internal"
+              >11.4. Multi-threading</a
+            >
+          </li>
+          <li>
+            <a href="#logging" class="reference internal">11.5. Logging</a>
+          </li>
+          <li>
+            <a href="#weak-references" class="reference internal"
+              >11.6. Weak References</a
+            >
+          </li>
+          <li>
+            <a href="#tools-for-working-with-lists" class="reference internal"
+              >11.7. Tools for Working with Lists</a
+            >
+          </li>
+          <li>
+            <a
+              href="#decimal-floating-point-arithmetic"
+              class="reference internal"
+              >11.8. Decimal Floating Point Arithmetic</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="previous-topic">Previous topic</h4>
+    <p>
+      <a href="stdlib.html" title="previous chapter"
+        ><span class="section-number">10. </span>Brief Tour of the Standard
+        Library</a
+      >
+    </p>
+    <h4 id="next-topic">Next topic</h4>
+    <p>
+      <a href="venv.html" title="next chapter"
+        ><span class="section-number">12. </span>Virtual Environments and
+        Packages</a
+      >
+    </p>
+    <h3 id="this-page">This Page</h3>
+    <ul>
+      <li><a href="https://docs.python.org/3/bugs.html">Report a Bug</a></li>
+      <li>
+        <a
+          href="https://github.com/python/cpython/blob/3.9/Doc/tutorial/stdlib2.rst"
+          >Show Source</a
+        >
+      </li>
+    </ul>
+    <h3 id="navigation-1">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li>
+        <a href="venv.html" title="12. Virtual Environments and Packages"
+          >next</a
+        >
+        |
+      </li>
+      <li>
+        <a href="stdlib.html" title="10. Brief Tour of the Standard Library"
+          >previous</a
+        >
+        |
+      </li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+  </body>
+</html>

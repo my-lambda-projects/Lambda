@@ -26,8 +26,9 @@ _super = super
 try:
     from contextlib import nested  # Python 2
     from thread import get_ident
+
     # with nested statements now raise a DeprecationWarning. Should be replaced with ExitStack-like approaches.
-    warnings.simplefilter('ignore', DeprecationWarning)
+    warnings.simplefilter("ignore", DeprecationWarning)
 
 except ImportError:
     from contextlib import ExitStack, contextmanager
@@ -51,7 +52,7 @@ class PicklableLock(object):
         self.lock = Lock()
 
     def __getstate__(self):
-        return ''
+        return ""
 
     def __setstate__(self, value):
         return self.__init__()
@@ -64,7 +65,6 @@ class PicklableLock(object):
 
 
 class IdentManager:
-
     def __init__(self):
         self.current = 0
 
@@ -106,7 +106,7 @@ class LockedMachine(Machine):
         self._ident = IdentManager()
 
         try:
-            self.machine_context = listify(kwargs.pop('machine_context'))
+            self.machine_context = listify(kwargs.pop("machine_context"))
         except KeyError:
             self.machine_context = [PicklableLock()]
 
@@ -128,7 +128,7 @@ class LockedMachine(Machine):
         output = _super(LockedMachine, self).add_model(models, initial)
 
         for mod in models:
-            mod = self if mod == 'self' else mod
+            mod = self if mod == "self" else mod
             self.model_context_map[mod].extend(self.machine_context)
             self.model_context_map[mod].extend(model_context)
 
@@ -147,8 +147,8 @@ class LockedMachine(Machine):
     def __getattribute__(self, item):
         get_attr = _super(LockedMachine, self).__getattribute__
         tmp = get_attr(item)
-        if not item.startswith('_') and inspect.ismethod(tmp):
-            return partial(get_attr('_locked_method'), tmp)
+        if not item.startswith("_") and inspect.ismethod(tmp):
+            return partial(get_attr("_locked_method"), tmp)
         return tmp
 
     def __getattr__(self, item):
@@ -161,7 +161,9 @@ class LockedMachine(Machine):
     # not been created by Machine.__getattr__.
     # https://github.com/tyarkoni/transitions/issues/214
     def _add_model_to_state(self, state, model):
-        super(LockedMachine, self)._add_model_to_state(state, model)  # pylint: disable=protected-access
+        super(LockedMachine, self)._add_model_to_state(
+            state, model
+        )  # pylint: disable=protected-access
         for prefix in self.state_cls.dynamic_methods:
             callback = "{0}_{1}".format(prefix, self._get_qualified_state_name(state))
             func = getattr(model, callback, None)

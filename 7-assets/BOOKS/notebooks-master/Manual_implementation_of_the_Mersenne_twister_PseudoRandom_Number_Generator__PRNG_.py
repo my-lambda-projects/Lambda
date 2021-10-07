@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # # Table of Contents
@@ -6,15 +5,15 @@
 
 # # Manual implementation of the Mersenne twister PseudoRandom Number Generator (PRNG)
 # This small notebook is a short experiment, to see if I can implement the [Mersenne twister](https://en.wikipedia.org/wiki/Mersenne_twister) PseudoRandom Number Generator ([PRNG](https://en.wikipedia.org/wiki/Pseudo-random_number_generator)).
-# 
+#
 # And then I want to use it to define a `rand()` function, and use it to samples from the most famous discrete and continuous probability distributions.
 # Random permutations will also be studied.
-# 
+#
 # - *Reference*: [Wikipedia](https://en.wikipedia.org/wiki/Mersenne_twister), and this book: ["Simulation and the Monte-Carlo method", by R.Y.Rubinstein & D.P.Kroese](http://www.wiley.com/WileyCDA/WileyTitle/productCd-1118632168.html) ([Rubinstein & Kroese, 2017]), chapter 2 pages 52-53. If you are curious, [this webpage](https://realpython.com/python-random/) is a good explanation of the difference between PRNG, Cryptographically Secure PRNG (CSPRNG) and "True" NRG.
 # - *Date*: 11 March 2017.
 # - *Author*: [Lilian Besson](https://GitHub.com/Naereen/notebooks).
 # - *License*: [MIT Licensed](https://lbesson.mit-license.org/).
-# 
+#
 # ----
 
 # ## Common API for the PRNG defined here
@@ -31,17 +30,18 @@ import numpy as np
 
 class PRNG(object):
     """Base class for any Pseudo-Random Number Generator."""
+
     def __init__(self, X0=0):
         """Create a new PRNG with seed X0."""
         self.X0 = X0
         self.X = X0
         self.t = 0
         self.max = 0
-    
+
     def __iter__(self):
         """self is already an iterator!"""
         return self
-    
+
     def seed(self, X0=None):
         """Reinitialize the current value with X0, or self.X0.
         
@@ -49,13 +49,13 @@ class PRNG(object):
         """
         self.t = 0
         self.X = self.X0 if X0 is None else X0
-    
+
     def __next__(self):
         """Produce a next value and return it."""
         # This default PRNG does not produce random numbers!
         self.t += 1
         return self.X
-    
+
     def randint(self, *args, **kwargs):
         """Return an integer number in [| 0, self.max - 1 |] from the PRNG."""
         return self.__next__()
@@ -78,10 +78,10 @@ class PRNG(object):
 # ----
 # ## First example: a simple linear congruential generator
 # Let me start by implementing a simple linear congruential generator, with three parameters $m$, $a$, $c$, defined like this :
-# 
+#
 # - Start from $X_0$,
 # - And then follow the recurrence equation: $$ X_{t+1} = (a X_t + c) \mod m. $$
-# 
+#
 # This algorithm produces a sequence $(X_t)_{t\in\mathbb{N}} \in \mathbb{N}^{\mathbb{N}}$.
 
 # In[133]:
@@ -89,13 +89,14 @@ class PRNG(object):
 
 class LinearCongruentialGenerator(PRNG):
     """A simple linear congruential Pseudo-Random Number Generator."""
+
     def __init__(self, m, a, c, X0=0):
         """Create a new PRNG with seed X0."""
         super(LinearCongruentialGenerator, self).__init__(X0=X0)
         self.m = self.max = m
         self.a = a
         self.c = c
-    
+
     def __next__(self):
         """Produce a next value and return it, following the recurrence equation: X_{t+1} = (a X_t + c) mod m."""
         self.t += 1
@@ -127,7 +128,11 @@ FirstExample = LinearCongruentialGenerator(m=m, a=a, c=c)
 
 def test(example, nb=3):
     for t, x in enumerate(example):
-        print("{:>3}th value for {.__class__.__name__} is X_t = {:>10}".format(t, example, x))
+        print(
+            "{:>3}th value for {.__class__.__name__} is X_t = {:>10}".format(
+                t, example, x
+            )
+        )
         if t >= nb - 1:
             break
 
@@ -172,18 +177,22 @@ test(SecondExample)
 # Thanks to https://nbviewer.jupyter.org/gist/minrk/7715212
 from __future__ import print_function
 from IPython.core import page
+
+
 def myprint(s):
     try:
-        print(s['text/plain'])
+        print(s["text/plain"])
     except (KeyError, TypeError):
         print(s)
+
+
 page.page = myprint
 
 
 # In[142]:
 
 
-get_ipython().run_line_magic('load_ext', 'cython')
+get_ipython().run_line_magic("load_ext", "cython")
 
 
 # Then we define a function `LinearCongruentialGenerator_next`, in a Cython cell.
@@ -191,15 +200,20 @@ get_ipython().run_line_magic('load_ext', 'cython')
 # In[143]:
 
 
-get_ipython().run_cell_magic('cython', '', 'def nextLCG(int x, int a, int c, int m):\n    """Compute x, nextx = (a * x + c) % m, x in Cython."""\n    cdef int nextx = (a * x + c) % m\n    return (x, nextx)')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    'def nextLCG(int x, int a, int c, int m):\n    """Compute x, nextx = (a * x + c) % m, x in Cython."""\n    cdef int nextx = (a * x + c) % m\n    return (x, nextx)',
+)
 
 
 # In[144]:
 
 
 from __main__ import nextLCG
+
 nextLCG
-get_ipython().run_line_magic('pinfo', 'nextLCG')
+get_ipython().run_line_magic("pinfo", "nextLCG")
 
 
 # Then it's easy to use it to define another Linear Congruential Generator.
@@ -209,7 +223,7 @@ get_ipython().run_line_magic('pinfo', 'nextLCG')
 
 class CythonLinearCongruentialGenerator(LinearCongruentialGenerator):
     """A simple linear congruential Pseudo-Random Number Generator, with Cython accelerated function __next__."""
-    
+
     def __next__(self):
         """Produce a next value and return it, following the recurrence equation: X_{t+1} = (a X_t + c) mod m."""
         self.t += 1
@@ -240,14 +254,20 @@ test(CythonSecondExample)
 # In[148]:
 
 
-get_ipython().run_line_magic('timeit', '[ NotCythonSecondExample.randint() for _ in range(1000000) ]')
-get_ipython().run_line_magic('timeit', '[ CythonSecondExample.randint() for _ in range(1000000) ]')
+get_ipython().run_line_magic(
+    "timeit", "[ NotCythonSecondExample.randint() for _ in range(1000000) ]"
+)
+get_ipython().run_line_magic(
+    "timeit", "[ CythonSecondExample.randint() for _ in range(1000000) ]"
+)
 
 
 # In[149]:
 
 
-get_ipython().run_line_magic('prun', 'min(CythonSecondExample.randint() for _ in range(1000000))')
+get_ipython().run_line_magic(
+    "prun", "min(CythonSecondExample.randint() for _ in range(1000000))"
+)
 
 
 # ----
@@ -277,16 +297,19 @@ import random
 import numpy.random
 
 print(np.mean(SecondExample.float_samples(shape)))
-print(np.mean([ [ random.random() for _ in range(shape[0]) ] for _ in range(shape[1]) ]))
+print(np.mean([[random.random() for _ in range(shape[0])] for _ in range(shape[1])]))
 print(np.mean(numpy.random.random(shape)))
 
 
 # In[153]:
 
 
-get_ipython().run_line_magic('timeit', 'SecondExample.float_samples(shape)')
-get_ipython().run_line_magic('timeit', '[ [ random.random() for _ in range(shape[0]) ] for _ in range(shape[1]) ]')
-get_ipython().run_line_magic('timeit', 'numpy.random.random(shape)')
+get_ipython().run_line_magic("timeit", "SecondExample.float_samples(shape)")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ [ random.random() for _ in range(shape[0]) ] for _ in range(shape[1]) ]",
+)
+get_ipython().run_line_magic("timeit", "numpy.random.random(shape)")
 
 
 # This was expected: of course `numpy.random.` functions are written and optimized to generate thousands of samples quickly, and of course my hand-written Python implementation for `LinearCongruentialGenerator` is slower than the C-code generating the module `random`.
@@ -297,13 +320,14 @@ get_ipython().run_line_magic('timeit', 'numpy.random.random(shape)')
 # In[268]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+get_ipython().run_line_magic("matplotlib", "inline")
 import matplotlib.pyplot as plt
+
 
 def showimage(image):
     plt.figure(figsize=(8, 8))
-    plt.imshow(image, cmap='gray', interpolation='none')
-    plt.axis('off')
+    plt.imshow(image, cmap="gray", interpolation="none")
+    plt.axis("off")
     plt.show()
 
 
@@ -314,7 +338,7 @@ showimage(image)
 
 
 # It looks good already! We can't see any recurrence, but we see a regularity, with small squares.
-# 
+#
 # And it does not seem to depend too much on the seed:
 
 # In[270]:
@@ -357,10 +381,10 @@ plotHistogram(SecondExample, 1000000, 200)
 # ----
 # ## A second example: Multiple-Recursive Generator
 # Let start by writing a generic Multiple Recursive Generator, which is defined by the following linear recurrence equation, of order $k \geq 1$:
-# 
+#
 # - Start from $X_0$, with a false initial history of $(X_{-k+1}, X_{-k}, \dots, X_{-1})$,
 # - And then follow the recurrence equation: $$ X_{t} = (a_1 X_{t-1} + \dots + a_k X_{t-k}) \mod m. $$
-# 
+#
 # This algorithm produces a sequence $(X_t)_{t\in\mathbb{N}} \in \mathbb{N}^{\mathbb{N}}$.
 
 # In[160]:
@@ -368,13 +392,16 @@ plotHistogram(SecondExample, 1000000, 200)
 
 class MultipleRecursiveGenerator(PRNG):
     """A Multiple Recursive Pseudo-Random Number Generator (MRG), with one sequence (X_t)."""
+
     def __init__(self, m, a, X0):
         """Create a new PRNG with seed X0."""
-        assert np.shape(a) == np.shape(X0), "Error: the weight vector a must have the same shape as X0."
+        assert np.shape(a) == np.shape(
+            X0
+        ), "Error: the weight vector a must have the same shape as X0."
         super(MultipleRecursiveGenerator, self).__init__(X0=X0)
         self.m = self.max = m
         self.a = a
-    
+
     def __next__(self):
         """Produce a next value and return it, following the recurrence equation: X_t = (a_1 X_{t-1} + ... + a_k X_{t-k}) mod m."""
         self.t += 1
@@ -414,8 +441,8 @@ np.mean(image), np.var(image)
 # In[163]:
 
 
-get_ipython().run_line_magic('timeit', 'SecondExample.float_samples(shape)')
-get_ipython().run_line_magic('timeit', 'ThirdExample.float_samples(shape)')
+get_ipython().run_line_magic("timeit", "SecondExample.float_samples(shape)")
+get_ipython().run_line_magic("timeit", "ThirdExample.float_samples(shape)")
 
 
 # And it seems to work fine as well:
@@ -436,12 +463,12 @@ plotHistogram(ThirdExample, 1000000, 200)
 
 # ----
 # ## A third example: combined Multiple-Recursive Generator, with `MRG32k3a`
-# 
+#
 # Let start by writing a generic Multiple Recursive Generator, which is defined by the following coupled linear recurrence equation, of orders $k_1, k_2 \geq 1$:
-# 
+#
 # - Start from $X_0$ and $Y_0$, with a false initial history of $(X_{-k_1 + 1}, X_{-k_1}, \dots, X_{-1})$ and $(Y_{-k_2 + 1}, Y_{-k_2}, \dots, Y_{-1})$,
 # - And then follow the recurrence equation: $$ X_{t} = (a_1 X_{t-1} + \dots + a_{k_1} X_{t-k_1}) \mod m. $$ and $$ Y_{t} = (b_1 Y_{t-1} + \dots + b_{k_2} Y_{t-k_2}) \mod m. $$
-# 
+#
 # This algorithm produces two sequences $(X_t)_{t\in\mathbb{N}} \in \mathbb{N}^{\mathbb{N}}$ and $(X_t)_{t\in\mathbb{N}} \in \mathbb{N}^{\mathbb{N}}$, and usually the sequence used for the output is $U_t = X_t - Y_t + \max(m_1, m_2)$.
 
 # In[166]:
@@ -449,10 +476,15 @@ plotHistogram(ThirdExample, 1000000, 200)
 
 class CombinedMultipleRecursiveGenerator(PRNG):
     """A Multiple Recursive Pseudo-Random Number Generator (MRG), with two sequences (X_t, Y_t)."""
+
     def __init__(self, m1, a, X0, m2, b, Y0):
         """Create a new PRNG with seeds X0, Y0."""
-        assert np.shape(a) == np.shape(X0), "Error: the weight vector a must have the same shape as X0."
-        assert np.shape(b) == np.shape(Y0), "Error: the weight vector b must have the same shape as Y0."
+        assert np.shape(a) == np.shape(
+            X0
+        ), "Error: the weight vector a must have the same shape as X0."
+        assert np.shape(b) == np.shape(
+            Y0
+        ), "Error: the weight vector b must have the same shape as Y0."
         self.t = 0
         # For X
         self.m1 = m1
@@ -464,7 +496,7 @@ class CombinedMultipleRecursiveGenerator(PRNG):
         self.Y0 = self.Y = Y0
         # Maximum integer number produced is max(m1, m2)
         self.m = self.max = max(m1, m2)
-    
+
     def __next__(self):
         """Produce a next value and return it, following the recurrence equation: X_t = (a_1 X_{t-1} + ... + a_k X_{t-k}) mod m."""
         self.t += 1
@@ -488,12 +520,12 @@ class CombinedMultipleRecursiveGenerator(PRNG):
 # In[167]:
 
 
-m1 = (1 << 32) - 209                  # important choice!
-a = np.array([0, 1403580, -810728])   # important choice!
+m1 = (1 << 32) - 209  # important choice!
+a = np.array([0, 1403580, -810728])  # important choice!
 X0 = np.array([1000, 10000, 100000])  # arbitrary choice!
 
-m2 = (1 << 32) - 22853                # important choice!
-b = np.array([527612, 0, -1370589])   # important choice!
+m2 = (1 << 32) - 22853  # important choice!
+b = np.array([527612, 0, -1370589])  # important choice!
 Y0 = np.array([5000, 50000, 500000])  # arbitrary choice!
 
 MRG32k3a = CombinedMultipleRecursiveGenerator(m1, a, X0, m2, b, Y0)
@@ -516,9 +548,9 @@ np.mean(image), np.var(image)
 # In[169]:
 
 
-get_ipython().run_line_magic('timeit', 'SecondExample.float_samples(shape)')
-get_ipython().run_line_magic('timeit', 'ThirdExample.float_samples(shape)')
-get_ipython().run_line_magic('timeit', 'MRG32k3a.float_samples(shape)')
+get_ipython().run_line_magic("timeit", "SecondExample.float_samples(shape)")
+get_ipython().run_line_magic("timeit", "ThirdExample.float_samples(shape)")
+get_ipython().run_line_magic("timeit", "MRG32k3a.float_samples(shape)")
 
 
 # In[279]:
@@ -537,10 +569,10 @@ plotHistogram(MRG32k3a, 1000000, 200)
 
 # ----
 # ## Finally, the Mersenne twister PRNG
-# 
+#
 # I won't explain all the details, and will follow closely the notations from my reference book [Rubinstein & Kroese, 2017].
 # It will be harder to implement!
-# 
+#
 # First, let us compute the period of the PRNG we will implement, with the default values for the parameters $w = 32$ (word length) and $n = 624$ ("big" integer).
 
 # ### Period
@@ -558,14 +590,15 @@ n = 624
 def MersenneTwisterPeriod(n, w):
     return (1 << (w * (n - 1) + 1)) - 1
 
+
 MersenneTwisterPeriod(n, w) == (2 ** 19937) - 1
 
 
 # ### Random seeds
 # Then we need to use a previously defined PRNG to set the random seeds.
-# 
+#
 # To try to have "really random" seeds, let me use that classical trick of using the system time as a source of initial randomness.
-# 
+#
 # - Namely, I will use the number of microseconds in the current time stamp as the seed for a `LinearCongruentialGenerator`,
 # - Then use it to generate the seeds for a `MRG32k3a` generator,
 # - And finally use it to get the seed for the Mersenne twister.
@@ -574,6 +607,7 @@ MersenneTwisterPeriod(n, w) == (2 ** 19937) - 1
 
 
 from datetime import datetime
+
 
 def get_seconds():
     d = datetime.today().timestamp()
@@ -593,19 +627,23 @@ get_seconds()  # Example
 def seed_rows(example, n, w):
     return example.int_samples((n,))
 
+
 def random_Mersenne_seed(n, w):
-    linear = LinearCongruentialGenerator(m=(1 << 31) - 1, a=7 ** 4, c=0, X0=get_seconds())
+    linear = LinearCongruentialGenerator(
+        m=(1 << 31) - 1, a=7 ** 4, c=0, X0=get_seconds()
+    )
     assert w == 32, "Error: only w = 32 was implemented"
-    m1 = (1 << 32) - 209                  # important choice!
-    a = np.array([0, 1403580, -810728])   # important choice!
+    m1 = (1 << 32) - 209  # important choice!
+    a = np.array([0, 1403580, -810728])  # important choice!
     X0 = np.array(linear.int_samples((3,)))  # random choice!
-    m2 = (1 << 32) - 22853                # important choice!
-    b = np.array([527612, 0, -1370589])   # important choice!
+    m2 = (1 << 32) - 22853  # important choice!
+    b = np.array([527612, 0, -1370589])  # important choice!
     Y0 = np.array(linear.int_samples((3,)))  # random choice!
     MRG32k3a = CombinedMultipleRecursiveGenerator(m1, a, X0, m2, b, Y0)
     seed = seed_rows(MRG32k3a, n, w)
     assert np.shape(seed) == (n,)
     return seed
+
 
 example_seed = random_Mersenne_seed(n, w)
 example_seed
@@ -626,10 +664,22 @@ for xi in example_seed:
 
 class MersenneTwister(PRNG):
     """The Mersenne twister Pseudo-Random Number Generator (MRG)."""
-    def __init__(self, seed=None,
-                 w=32, n=624, m=397, r=31,
-                 a=0x9908B0DF, b=0x9D2C5680, c=0xEFC60000,
-                 u=11, s=7, v=15, l=18):
+
+    def __init__(
+        self,
+        seed=None,
+        w=32,
+        n=624,
+        m=397,
+        r=31,
+        a=0x9908B0DF,
+        b=0x9D2C5680,
+        c=0xEFC60000,
+        u=11,
+        s=7,
+        v=15,
+        l=18,
+    ):
         """Create a new Mersenne twister PRNG with this seed."""
         self.t = 0
         # Parameters
@@ -651,7 +701,7 @@ class MersenneTwister(PRNG):
         self.X = np.copy(seed)
         # Maximum integer number produced is 2**w - 1
         self.max = (1 << w) - 1
-        
+
     def __next__(self):
         """Produce a next value and return it, following the Mersenne twister algorithm."""
         self.t += 1
@@ -660,31 +710,33 @@ class MersenneTwister(PRNG):
         # 1.1.b. Last w - r bits of x_{t+1} : right = x & ((1 << (w - r)) - 1)
         # 1.1.c. Concatenate them together in a binary vector x : x = left + right
         left = self.X[0] >> (self.w - self.r)
-        right = (self.X[1] & ((1 << (self.w - self.r)) - 1))
+        right = self.X[1] & ((1 << (self.w - self.r)) - 1)
         x = (left << (self.w - self.r)) + right
-        xw = x % 2             # 1.2. get xw
+        xw = x % 2  # 1.2. get xw
         if xw == 0:
-            xtilde = (x >> 1)            # if xw = 0, xtilde = (x >> 1)
+            xtilde = x >> 1  # if xw = 0, xtilde = (x >> 1)
         else:
-            xtilde = (x >> 1) ^ self.a   # if xw = 1, xtilde = (x >> 1) ⊕ a
+            xtilde = (x >> 1) ^ self.a  # if xw = 1, xtilde = (x >> 1) ⊕ a
         nextx = self.X[self.m] ^ xtilde  # 1.3. x_{t+n} = x_{t+m} ⊕ \tilde{x}
         # 2. --- Shift the content of the n rows
-        oldx0 = self.X[0]          # 2.a. First, forget x0
-        self.X[:-1] = self.X[1:]   # 2.b. shift one index on the left, x1..xn-1 to x0..xn-2
-        self.X[-1]  = nextx        # 2.c. write new xn-1
+        oldx0 = self.X[0]  # 2.a. First, forget x0
+        self.X[:-1] = self.X[
+            1:
+        ]  # 2.b. shift one index on the left, x1..xn-1 to x0..xn-2
+        self.X[-1] = nextx  # 2.c. write new xn-1
         # 3. --- Then use it to compute the answer, y
-        y = nextx                      # 3.a. y = x_{t+n}
-        y ^= (y >> self.u)             # 3.b. y = y ⊕ (y >> u)
-        y ^= ((y << self.s) & self.b)  # 3.c. y = y ⊕ ((y << s) & b)
-        y ^= ((y << self.v) & self.c)  # 3.d. y = y ⊕ ((y << v) & c)
-        y ^= (y >> self.l)             # 3.e. y = y ⊕ (y >> l)
+        y = nextx  # 3.a. y = x_{t+n}
+        y ^= y >> self.u  # 3.b. y = y ⊕ (y >> u)
+        y ^= (y << self.s) & self.b  # 3.c. y = y ⊕ ((y << s) & b)
+        y ^= (y << self.v) & self.c  # 3.d. y = y ⊕ ((y << v) & c)
+        y ^= y >> self.l  # 3.e. y = y ⊕ (y >> l)
         return y
 
 
 # ### Small review of bitwise operations
-# 
+#
 # The Python documentation explains how to [use bitwise operations easily](https://docs.python.org/3/library/stdtypes.html?highlight=bitwise#bitwise-operations-on-integer-types), and also [this page](https://wiki.python.org/moin/BitwiseOperators) and [this StackOverflow answer](http://stackoverflow.com/a/1746642/).
-# 
+#
 # The only difficult part of the algorithm is the first step, when we need to take the first $r$ bits of $X_t =$ `X[0]`, and the last $w - r$ bits of $X_{t+1} =$ `X[1]`.
 # On some small examples, let quickly check that I implemented this correctly:
 
@@ -698,10 +750,15 @@ def testsplit(x, r=None, w=None):
         r = w - 1
     assert x.bit_length() == w
     left = x >> (w - r)
-    right = x % 2 if w == 1 else x & ((1 << (w-r) - 1))
+    right = x % 2 if w == 1 else x & ((1 << (w - r) - 1))
     x2 = (left << (w - r)) + right
     assert x == x2
-    print("x = {:10} -> left r={} = {:10} and right w-r={} = {:4} -> x2 = {:10}".format(bin(x), r, bin(left), w-r, bin(right), bin(x2)))
+    print(
+        "x = {:10} -> left r={} = {:10} and right w-r={} = {:4} -> x2 = {:10}".format(
+            bin(x), r, bin(left), w - r, bin(right), bin(x2)
+        )
+    )
+
 
 x = 0b10011010
 testsplit(x)
@@ -717,20 +774,24 @@ testsplit(x)
 
 # ### Mersenne twister algorithm in [`cython`](http://www.cython.org/)
 # As for the first example, let us write a Cython function to (try to) compute the next numbers more easily.
-# 
+#
 # My reference was [this page of the Cython documentation](http://docs.cython.org/en/latest/src/userguide/numpy_tutorial.html).
 
 # In[262]:
 
 
-get_ipython().run_cell_magic('cython', '', 'from __future__ import division\nimport cython\nimport numpy as np\n# "cimport" is used to import special compile-time information\n# about the numpy module (this is stored in a file numpy.pxd which is\n# currently part of the Cython distribution).\ncimport numpy as np\n\n# We now need to fix a datatype for our arrays. I\'ve used the variable\n# DTYPE for this, which is assigned to the usual NumPy runtime\n# type info object.\nDTYPE = np.int64\n# "ctypedef" assigns a corresponding compile-time type to DTYPE_t. For\n# every type in the numpy module there\'s a corresponding compile-time\n# type with a _t-suffix.\nctypedef np.int64_t DTYPE_t\n\n\n@cython.boundscheck(False) # turn off bounds-checking for entire function\ndef nextMersenneTwister(np.ndarray[DTYPE_t, ndim=1] X, unsigned long w, unsigned long m, unsigned long r, unsigned long a, unsigned long u, unsigned long s, unsigned long b, unsigned long v, unsigned long c, unsigned long l):\n    """Produce a next value and return it, following the Mersenne twister algorithm, implemented in Cython."""\n    assert X.dtype == DTYPE\n    # 1. --- Compute x_{t+n}\n    # 1.1.a. First r bits of x_t : left = (x_t >> (w - r)) << (w - r)\n    # 1.1.b. Last w - r bits of x_{t+1} : right = x & ((1 << (w - r)) - 1)\n    # 1.1.c. Concatenate them together in a binary vector x : x = left + right\n    cdef unsigned long x = ((X[0] >> (w - r)) << (w - r)) + (X[1] & ((1 << (w - r)) - 1))\n    cdef unsigned long xtilde = 0\n    if x % 2 == 0:  # 1.2. get xw\n        xtilde = (x >> 1)            # if xw = 0, xtilde = (x >> 1)\n    else:\n        xtilde = (x >> 1) ^ a   # if xw = 1, xtilde = (x >> 1) ⊕ a\n    cdef unsigned long nextx = X[m] ^ xtilde  # 1.3. x_{t+n} = x_{t+m} ⊕ \\tilde{x}\n    # 2. --- Shift the content of the n rows\n    # oldx0 = X[0]            # 2.a. First, forget x0\n    X[:-1] = X[1:]            # 2.b. shift one index on the left, x1..xn-1 to x0..xn-2\n    X[-1]  = nextx            # 2.c. write new xn-1\n    # 3. --- Then use it to compute the answer, y\n    cdef unsigned long y = nextx        # 3.a. y = x_{t+n}\n    y ^= (y >> u)             # 3.b. y = y ⊕ (y >> u)\n    y ^= ((y << s) & b)       # 3.c. y = y ⊕ ((y << s) & b)\n    y ^= ((y << v) & c)       # 3.d. y = y ⊕ ((y << v) & c)\n    y ^= (y >> l)             # 3.e. y = y ⊕ (y >> l)\n    return y')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    'from __future__ import division\nimport cython\nimport numpy as np\n# "cimport" is used to import special compile-time information\n# about the numpy module (this is stored in a file numpy.pxd which is\n# currently part of the Cython distribution).\ncimport numpy as np\n\n# We now need to fix a datatype for our arrays. I\'ve used the variable\n# DTYPE for this, which is assigned to the usual NumPy runtime\n# type info object.\nDTYPE = np.int64\n# "ctypedef" assigns a corresponding compile-time type to DTYPE_t. For\n# every type in the numpy module there\'s a corresponding compile-time\n# type with a _t-suffix.\nctypedef np.int64_t DTYPE_t\n\n\n@cython.boundscheck(False) # turn off bounds-checking for entire function\ndef nextMersenneTwister(np.ndarray[DTYPE_t, ndim=1] X, unsigned long w, unsigned long m, unsigned long r, unsigned long a, unsigned long u, unsigned long s, unsigned long b, unsigned long v, unsigned long c, unsigned long l):\n    """Produce a next value and return it, following the Mersenne twister algorithm, implemented in Cython."""\n    assert X.dtype == DTYPE\n    # 1. --- Compute x_{t+n}\n    # 1.1.a. First r bits of x_t : left = (x_t >> (w - r)) << (w - r)\n    # 1.1.b. Last w - r bits of x_{t+1} : right = x & ((1 << (w - r)) - 1)\n    # 1.1.c. Concatenate them together in a binary vector x : x = left + right\n    cdef unsigned long x = ((X[0] >> (w - r)) << (w - r)) + (X[1] & ((1 << (w - r)) - 1))\n    cdef unsigned long xtilde = 0\n    if x % 2 == 0:  # 1.2. get xw\n        xtilde = (x >> 1)            # if xw = 0, xtilde = (x >> 1)\n    else:\n        xtilde = (x >> 1) ^ a   # if xw = 1, xtilde = (x >> 1) ⊕ a\n    cdef unsigned long nextx = X[m] ^ xtilde  # 1.3. x_{t+n} = x_{t+m} ⊕ \\tilde{x}\n    # 2. --- Shift the content of the n rows\n    # oldx0 = X[0]            # 2.a. First, forget x0\n    X[:-1] = X[1:]            # 2.b. shift one index on the left, x1..xn-1 to x0..xn-2\n    X[-1]  = nextx            # 2.c. write new xn-1\n    # 3. --- Then use it to compute the answer, y\n    cdef unsigned long y = nextx        # 3.a. y = x_{t+n}\n    y ^= (y >> u)             # 3.b. y = y ⊕ (y >> u)\n    y ^= ((y << s) & b)       # 3.c. y = y ⊕ ((y << s) & b)\n    y ^= ((y << v) & c)       # 3.d. y = y ⊕ ((y << v) & c)\n    y ^= (y >> l)             # 3.e. y = y ⊕ (y >> l)\n    return y',
+)
 
 
 # In[263]:
 
 
 nextMersenneTwister
-get_ipython().run_line_magic('pinfo', 'nextMersenneTwister')
+get_ipython().run_line_magic("pinfo", "nextMersenneTwister")
 
 
 # That should be enough to define a Cython version of our `MersenneTwister` class.
@@ -744,7 +805,19 @@ class CythonMersenneTwister(MersenneTwister):
     def __next__(self):
         """Produce a next value and return it, following the Mersenne twister algorithm."""
         self.t += 1
-        return nextMersenneTwister(self.X, self.w, self.m, self.r, self.a, self.u, self.s, self.b, self.v, self.c, self.l)
+        return nextMersenneTwister(
+            self.X,
+            self.w,
+            self.m,
+            self.r,
+            self.a,
+            self.u,
+            self.s,
+            self.b,
+            self.v,
+            self.c,
+            self.l,
+        )
 
 
 # ### Testing our implementations
@@ -768,8 +841,12 @@ CythonForthExample.int_samples((10,))
 # In[267]:
 
 
-get_ipython().run_line_magic('timeit', '[ ForthExample.randint() for _ in range(100000) ]')
-get_ipython().run_line_magic('timeit', '[ CythonForthExample.randint() for _ in range(100000) ]')
+get_ipython().run_line_magic(
+    "timeit", "[ ForthExample.randint() for _ in range(100000) ]"
+)
+get_ipython().run_line_magic(
+    "timeit", "[ CythonForthExample.randint() for _ in range(100000) ]"
+)
 
 
 # Using Cython gives only a speedup of $2 \times$, that's disappointing!
@@ -777,18 +854,22 @@ get_ipython().run_line_magic('timeit', '[ CythonForthExample.randint() for _ in 
 # In[187]:
 
 
-get_ipython().run_line_magic('prun', '[ ForthExample.randint() for _ in range(1000000) ]')
+get_ipython().run_line_magic(
+    "prun", "[ ForthExample.randint() for _ in range(1000000) ]"
+)
 
 
 # In[188]:
 
 
-get_ipython().run_line_magic('prun', '[ CythonForthExample.randint() for _ in range(1000000) ]')
+get_ipython().run_line_magic(
+    "prun", "[ CythonForthExample.randint() for _ in range(1000000) ]"
+)
 
 
 # $\implies$ the Cython version is twice as fast as the pure-Python version.
 # We can still improve this, I am sure.
-# 
+#
 # ----
 
 # We can again check for the mean and the variance of the generated sequence.
@@ -807,10 +888,10 @@ np.mean(image), np.var(image)
 # In[190]:
 
 
-get_ipython().run_line_magic('timeit', 'SecondExample.float_samples(shape)')
-get_ipython().run_line_magic('timeit', 'ThirdExample.float_samples(shape)')
-get_ipython().run_line_magic('timeit', 'MRG32k3a.float_samples(shape)')
-get_ipython().run_line_magic('timeit', 'ForthExample.float_samples(shape)')
+get_ipython().run_line_magic("timeit", "SecondExample.float_samples(shape)")
+get_ipython().run_line_magic("timeit", "ThirdExample.float_samples(shape)")
+get_ipython().run_line_magic("timeit", "MRG32k3a.float_samples(shape)")
+get_ipython().run_line_magic("timeit", "ForthExample.float_samples(shape)")
 
 
 # That's not too bad, for $400 \times 400 = 160000$ samples, but obviously it is incredibly slower than the optimized PRNG found in the [`numpy.random`](https://docs.scipy.org/doc/numpy/reference/routines.random.html) package.
@@ -818,7 +899,7 @@ get_ipython().run_line_magic('timeit', 'ForthExample.float_samples(shape)')
 # In[191]:
 
 
-get_ipython().run_line_magic('timeit', 'numpy.random.random_sample(shape)')
+get_ipython().run_line_magic("timeit", "numpy.random.random_sample(shape)")
 
 
 # A good surprise is that this implementation Mersenne appears faster than the combined MRG of order $k = 3$ (i.e., `MRG32k3a`).
@@ -838,7 +919,7 @@ plotHistogram(ForthExample, 1000000, 200)
 # ----
 # ## Conclusion
 # Well, that's it, I just wanted to implement a few Pseudo-Random Number Generators, and compare them.
-# 
+#
 # I should finish the job:
 # - implement a test for "randomness", and check the various PRNG I implemented against it,
 # - use these various `rand()` functions (uniform in $[0,1)$) to generate other distributions.
@@ -846,7 +927,7 @@ plotHistogram(ForthExample, 1000000, 200)
 # ----
 # # Generating samples from other distributions
 # So far, I implemented some PRNG, which essentially give a function `rand()` to produce float number uniformly sampled from $[0, 1)$.
-# 
+#
 # Let use it to generate samples from other distributions.
 
 # In[194]:
@@ -858,6 +939,7 @@ def newrand():
     rand = mersenne.rand
     return rand
 
+
 rand = newrand()
 
 
@@ -867,7 +949,7 @@ rand = newrand()
 
 
 def plotHistogramOfDistribution(distr, nb=10000, bins=200):
-    numbers = [ distr() for _ in range(nb) ]
+    numbers = [distr() for _ in range(nb)]
     plt.figure(figsize=(14, 3))
     plt.hist(numbers, bins=bins, normed=True, alpha=0.8)
     plt.xlabel("Random numbers from function %s" % distr.__name__)
@@ -885,16 +967,18 @@ def plotHistogramOfDistribution(distr, nb=10000, bins=200):
 
 def bernoulli(p=0.5):
     """Get one random sample X ~ Bern(p)."""
-    assert 0 <= p <= 1, "Error: the parameter p for a bernoulli distribution has to be in [0, 1]."
+    assert (
+        0 <= p <= 1
+    ), "Error: the parameter p for a bernoulli distribution has to be in [0, 1]."
     return int(rand() < p)
 
 
 # In[197]:
 
 
-print([ bernoulli(0.5) for _ in range(20) ])
-print([ bernoulli(0.1) for _ in range(20) ])  # lots of 0
-print([ bernoulli(0.9) for _ in range(20) ])  # lots of 1
+print([bernoulli(0.5) for _ in range(20)])
+print([bernoulli(0.1) for _ in range(20)])  # lots of 0
+print([bernoulli(0.9) for _ in range(20)])  # lots of 1
 
 
 # We can quickly check that the frequency of $1$ in a large sample of size $n$ will converge to $p$ as $n \to +\infty$:
@@ -903,7 +987,7 @@ print([ bernoulli(0.9) for _ in range(20) ])  # lots of 1
 
 
 def delta_p_phat_bernoulli(p, nb=100000):
-    samples = [ bernoulli(p) for _ in range(nb) ]
+    samples = [bernoulli(p) for _ in range(nb)]
     return np.abs(np.mean(samples) - p)
 
 
@@ -942,6 +1026,7 @@ def uniform(a, b):
 def uniform_3_5():
     return uniform(3, 5)
 
+
 plotHistogramOfDistribution(uniform_3_5, 100000)
 
 
@@ -964,6 +1049,7 @@ def randint(a, b):
 def uniform_int_18_42():
     return randint(18, 42)
 
+
 plotHistogramOfDistribution(uniform_int_18_42, 100000)
 
 
@@ -976,6 +1062,7 @@ plotHistogramOfDistribution(uniform_int_18_42, 100000)
 
 
 from math import log
+
 
 def exponential(lmbda=1):
     """Get one random sample X ~ Exp(lmbda)."""
@@ -997,14 +1084,17 @@ plotHistogramOfDistribution(exponential)
 # In[207]:
 
 
-get_ipython().run_line_magic('timeit', '[ exponential(1.) for _ in range(10000) ]')
-get_ipython().run_line_magic('timeit', '[ np.random.exponential(1.) for _ in range(10000) ]  # about 50 times slower, not too bad!')
+get_ipython().run_line_magic("timeit", "[ exponential(1.) for _ in range(10000) ]")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.exponential(1.) for _ in range(10000) ]  # about 50 times slower, not too bad!",
+)
 
 
 # ----
 # ## Gaussian distribution (normal)
 # By using the Box-Muller approach, if $U_1, U_2 \sim U(0, 1)$ are independent, then setting $X = \sqrt{- 2 \ln U_1} \cos(2 \pi U_2)$ and $Y = \sqrt{- 2 \ln U_1} \sin(2 \pi U_2)$ leads to $X, Y \sim N(0, 1)$.
-# 
+#
 # Then $Z = \mu + \sigma * X$ will be distributed according to the Gaussian distribution of *mean* $\mu$ and *variance* $\sigma > 0$: $Z \sim N(\mu, \sigma)$.
 
 # In[208]:
@@ -1012,11 +1102,12 @@ get_ipython().run_line_magic('timeit', '[ np.random.exponential(1.) for _ in ran
 
 from math import sqrt, cos, pi
 
+
 def normal(mu=0, sigma=1):
     """Get one random sample X ~ N(mu, sigma)."""
     assert sigma > 0, "Error: the parameter sigma for normal(mu, sigma) must be > 0."
     u1, u2 = rand(), rand()
-    x = sqrt(- 2 * log(u1)) * cos(2 * pi * u2)
+    x = sqrt(-2 * log(u1)) * cos(2 * pi * u2)
     return mu + sigma * x
 
 
@@ -1031,8 +1122,10 @@ plotHistogramOfDistribution(normal, 100000)
 # In[210]:
 
 
-get_ipython().run_line_magic('timeit', '[ normal(0, 1) for _ in range(10000) ]')
-get_ipython().run_line_magic('timeit', 'np.random.normal(0, 1, 10000)  # 550 times quicker! oh boy!')
+get_ipython().run_line_magic("timeit", "[ normal(0, 1) for _ in range(10000) ]")
+get_ipython().run_line_magic(
+    "timeit", "np.random.normal(0, 1, 10000)  # 550 times quicker! oh boy!"
+)
 
 
 # ----
@@ -1042,11 +1135,11 @@ get_ipython().run_line_magic('timeit', 'np.random.normal(0, 1, 10000)  # 550 tim
 # In[211]:
 
 
-def erlang(m=1., lmbda=1.):
+def erlang(m=1.0, lmbda=1.0):
     """Get one random sample X ~ Erl(m, lmbda)."""
     assert m > 0, "Error: the parameter m for erlang(m, lmbda) must be > 0."
     assert lmbda > 0, "Error: the parameter lmbda for erlang(m, lmbda) must be > 0."
-    return - 1. / lmbda * sum(log(rand()) for _ in range(int(m)) )
+    return -1.0 / lmbda * sum(log(rand()) for _ in range(int(m)))
 
 
 # In[212]:
@@ -1054,6 +1147,7 @@ def erlang(m=1., lmbda=1.):
 
 def erlang_20_10():
     return erlang(20, 10)
+
 
 plotHistogramOfDistribution(erlang_20_10)
 
@@ -1066,24 +1160,24 @@ plotHistogramOfDistribution(erlang_20_10)
 # In[213]:
 
 
-def gamma(alpha=1., lmbda=1.):
+def gamma(alpha=1.0, lmbda=1.0):
     """Get one random sample X ~ Gamma(alpha, lmbda)."""
     assert alpha > 0, "Error: the parameter alpha for gamma(alpha, lmbda) must be > 0."
     assert lmbda > 0, "Error: the parameter lmbda for gamma(alpha, lmbda) must be > 0."
     if alpha <= 1:
-        x = gamma(alpha + 1., lmbda)
+        x = gamma(alpha + 1.0, lmbda)
         u = rand()
-        return x * (u ** (1. / alpha))
+        return x * (u ** (1.0 / alpha))
     else:
-        d = alpha - (1. / 3.)
-        oneByC = sqrt(9. * d)
-        c = 1. / oneByC
+        d = alpha - (1.0 / 3.0)
+        oneByC = sqrt(9.0 * d)
+        c = 1.0 / oneByC
         while True:
             z = normal(0, 1)
-            if z > - oneByC:
-                v = (1. + c * z)**3
+            if z > -oneByC:
+                v = (1.0 + c * z) ** 3
                 u = rand()
-                if log(u) < (.5 * (z**2)) + d*(v + log(v)):
+                if log(u) < (0.5 * (z ** 2)) + d * (v + log(v)):
                     break
         return d * v / lmbda
 
@@ -1094,6 +1188,7 @@ def gamma(alpha=1., lmbda=1.):
 def gamma_pi_5():
     return gamma(pi, 5)
 
+
 plotHistogramOfDistribution(gamma_pi_5)
 
 
@@ -1102,8 +1197,11 @@ plotHistogramOfDistribution(gamma_pi_5)
 # In[215]:
 
 
-get_ipython().run_line_magic('timeit', '[ gamma(pi, 5) for _ in range(10000) ]')
-get_ipython().run_line_magic('timeit', '[ np.random.gamma(pi, 5) for _ in range(10000) ]  # 500 times quicker! oh boy!')
+get_ipython().run_line_magic("timeit", "[ gamma(pi, 5) for _ in range(10000) ]")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.gamma(pi, 5) for _ in range(10000) ]  # 500 times quicker! oh boy!",
+)
 
 
 # ----
@@ -1114,12 +1212,12 @@ get_ipython().run_line_magic('timeit', '[ np.random.gamma(pi, 5) for _ in range(
 # In[216]:
 
 
-def beta(a=1., b=1.):
+def beta(a=1.0, b=1.0):
     """Get one random sample X ~ Beta(a, b)."""
     assert a > 0, "Error: the parameter a for beta(a, b) must be > 0."
     assert b > 0, "Error: the parameter b for beta(a, b) must be > 0."
-    y1 = gamma(a, 1.)
-    y2 = gamma(b, 1.)
+    y1 = gamma(a, 1.0)
+    y2 = gamma(b, 1.0)
     return y1 / float(y1 + y2)
 
 
@@ -1129,10 +1227,13 @@ def beta(a=1., b=1.):
 def beta_40_5():
     return beta(40, 5)
 
+
 plotHistogramOfDistribution(beta_40_5)
+
 
 def beta_3_55():
     return beta(3, 55)
+
 
 plotHistogramOfDistribution(beta_3_55)
 
@@ -1142,10 +1243,16 @@ plotHistogramOfDistribution(beta_3_55)
 # In[218]:
 
 
-get_ipython().run_line_magic('timeit', '[ beta(pi, 5*pi) for _ in range(1000) ]')
-get_ipython().run_line_magic('timeit', '[ beta(5*pi, pi) for _ in range(1000) ]')
-get_ipython().run_line_magic('timeit', '[ np.random.beta(pi, 5*pi) for _ in range(1000) ]  # 200 times quicker! oh boy!')
-get_ipython().run_line_magic('timeit', '[ np.random.beta(5*pi, pi) for _ in range(1000) ]  # 200 times quicker! oh boy!')
+get_ipython().run_line_magic("timeit", "[ beta(pi, 5*pi) for _ in range(1000) ]")
+get_ipython().run_line_magic("timeit", "[ beta(5*pi, pi) for _ in range(1000) ]")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.beta(pi, 5*pi) for _ in range(1000) ]  # 200 times quicker! oh boy!",
+)
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.beta(5*pi, pi) for _ in range(1000) ]  # 200 times quicker! oh boy!",
+)
 
 
 # ----
@@ -1169,6 +1276,7 @@ def int_beta(m=1, n=1):
 def int_beta_40_5():
     return int_beta(40, 5)
 
+
 plotHistogramOfDistribution(int_beta_40_5)
 
 
@@ -1177,10 +1285,16 @@ plotHistogramOfDistribution(int_beta_40_5)
 # In[221]:
 
 
-get_ipython().run_line_magic('timeit', '[ int_beta(40, 5) for _ in range(1000) ]')
-get_ipython().run_line_magic('timeit', '[ int_beta(3, 55) for _ in range(1000) ]')
-get_ipython().run_line_magic('timeit', '[ np.random.beta(40, 5) for _ in range(1000) ]  # 1500 times quicker! oh boy!')
-get_ipython().run_line_magic('timeit', '[ np.random.beta(3, 55) for _ in range(1000) ]  # 2000 times quicker! oh boy!')
+get_ipython().run_line_magic("timeit", "[ int_beta(40, 5) for _ in range(1000) ]")
+get_ipython().run_line_magic("timeit", "[ int_beta(3, 55) for _ in range(1000) ]")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.beta(40, 5) for _ in range(1000) ]  # 1500 times quicker! oh boy!",
+)
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.beta(3, 55) for _ in range(1000) ]  # 2000 times quicker! oh boy!",
+)
 
 
 # ----
@@ -1204,6 +1318,7 @@ def binomial(n=1, p=0.5):
 def bin_50_half():
     return binomial(50, 0.5)
 
+
 plotHistogramOfDistribution(bin_50_half)
 
 
@@ -1214,8 +1329,11 @@ plotHistogramOfDistribution(bin_50_half)
 # In[224]:
 
 
-get_ipython().run_line_magic('timeit', '[ binomial(10, 1. / pi) for _ in range(1000) ]')
-get_ipython().run_line_magic('timeit', '[ np.random.binomial(10, 1. / pi) for _ in range(1000) ]  # 100 times quicker! oh boy!')
+get_ipython().run_line_magic("timeit", "[ binomial(10, 1. / pi) for _ in range(1000) ]")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.binomial(10, 1. / pi) for _ in range(1000) ]  # 100 times quicker! oh boy!",
+)
 
 
 # ----
@@ -1228,7 +1346,7 @@ get_ipython().run_line_magic('timeit', '[ np.random.binomial(10, 1. / pi) for _ 
 def geometric(p=0.5):
     """Get one random sample X ~ Geom(p)."""
     assert 0 <= p <= 1, "Error: the parameter p for binomial(n, p) has to be in [0, 1]."
-    y = exponential(- log(1. - p))
+    y = exponential(-log(1.0 - p))
     return 1 + int(y)
 
 
@@ -1238,15 +1356,20 @@ def geometric(p=0.5):
 def geom_05():
     return geometric(0.5)
 
+
 plotHistogramOfDistribution(geom_05)
+
 
 def geom_01():
     return geometric(0.1)
 
+
 plotHistogramOfDistribution(geom_01)
+
 
 def geom_001():
     return geometric(0.01)
+
 
 plotHistogramOfDistribution(geom_001)
 
@@ -1256,8 +1379,11 @@ plotHistogramOfDistribution(geom_001)
 # In[227]:
 
 
-get_ipython().run_line_magic('timeit', '[ geometric(1. / pi) for _ in range(10000) ]')
-get_ipython().run_line_magic('timeit', '[ np.random.geometric(1. / pi) for _ in range(10000) ]  # 50 times quicker, not too bad!')
+get_ipython().run_line_magic("timeit", "[ geometric(1. / pi) for _ in range(10000) ]")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.geometric(1. / pi) for _ in range(10000) ]  # 50 times quicker, not too bad!",
+)
 
 
 # ----
@@ -1268,7 +1394,7 @@ get_ipython().run_line_magic('timeit', '[ np.random.geometric(1. / pi) for _ in 
 # In[228]:
 
 
-def poisson(lmbda=1.):
+def poisson(lmbda=1.0):
     """Get one random sample X ~ Poisson(lmbda)."""
     assert lmbda > 0, "Error: the parameter lmbda for poisson(lmbda) has to be > 0."
     n = 0
@@ -1284,12 +1410,15 @@ def poisson(lmbda=1.):
 
 
 def poisson_5():
-    return poisson(5.)
+    return poisson(5.0)
+
 
 plotHistogramOfDistribution(poisson_5)
 
+
 def poisson_50():
-    return poisson(50.)
+    return poisson(50.0)
+
 
 plotHistogramOfDistribution(poisson_50)
 
@@ -1299,8 +1428,11 @@ plotHistogramOfDistribution(poisson_50)
 # In[230]:
 
 
-get_ipython().run_line_magic('timeit', '[ poisson(12 * pi) for _ in range(1000) ]')
-get_ipython().run_line_magic('timeit', '[ np.random.poisson(12 * pi) for _ in range(1000) ]  # 1000 times quicker! oh boy!')
+get_ipython().run_line_magic("timeit", "[ poisson(12 * pi) for _ in range(1000) ]")
+get_ipython().run_line_magic(
+    "timeit",
+    "[ np.random.poisson(12 * pi) for _ in range(1000) ]  # 1000 times quicker! oh boy!",
+)
 
 
 # ---
@@ -1309,9 +1441,9 @@ get_ipython().run_line_magic('timeit', '[ np.random.poisson(12 * pi) for _ in ra
 
 # ----
 # # Generating vectors
-# 
+#
 # Now that we have a nice Pseudo-Random Number Generator, using Mersenne twister, and that we have demonstrated how to use its `rand()` function to produce samples from the most common distributions, we can continue and explain how to produce vectors of samples.
-# 
+#
 # For instance, one would need a `choice()` function to get a random sample from a list of $n$ values, following any discrete distribution, or a `shuffle()` function to randomly shuffle a list.
 
 # ----
@@ -1325,12 +1457,16 @@ def discrete(p):
     """Return a random index i in [0..n-1] from the discrete distribution p = [p0,..,pn-1]."""
     n = len(p)
     assert n > 0, "Error: the distribution p for discrete(p) must not be empty!"
-    assert all(0 <= pi <= 1 for pi in p), "Error: all coordinates of the distribution p for discrete(p) must be 0 <= pi <= 1."
-    assert abs(sum(p) - 1) < 1e-9, "Error: the distribution p for discrete(p) does not sum to 1."
+    assert all(
+        0 <= pi <= 1 for pi in p
+    ), "Error: all coordinates of the distribution p for discrete(p) must be 0 <= pi <= 1."
+    assert (
+        abs(sum(p) - 1) < 1e-9
+    ), "Error: the distribution p for discrete(p) does not sum to 1."
     u = rand()
     i = 0
     s = p[0]
-    while i < n-1 and u > s:
+    while i < n - 1 and u > s:
         i += 1
         s += p[i]
     return i
@@ -1355,6 +1491,7 @@ def one_choice(values, p=None):
 def example_choice():
     return one_choice(range(10))
 
+
 plotHistogramOfDistribution(example_choice)
 
 
@@ -1366,9 +1503,9 @@ plotHistogramOfDistribution(example_choice)
 def choices_with_replacement(values, m=1, p=None):
     """Get m random sample from the values, with replacement, from the discrete distribution p = [p0,..,pn-1]."""
     if p is None:
-        return [ values[randint(0, len(values))] for _ in range(m) ]
+        return [values[randint(0, len(values))] for _ in range(m)]
     else:
-        return [ values[discrete(p)] for _ in range(m) ]
+        return [values[discrete(p)] for _ in range(m)]
 
 
 # It is harder to handle the case without replacements. My approach is simple but slow: once a value is drawn, remove it from the input list, and update the discrete distribution accordingly.
@@ -1378,6 +1515,7 @@ def choices_with_replacement(values, m=1, p=None):
 
 
 from copy import copy
+
 
 def choices_without_replacement(values, m=1, p=None):
     """Get m random sample from the values, without replacement, from the discrete distribution p = [p0,..,pn-1]."""
@@ -1397,7 +1535,7 @@ def choices_without_replacement(values, m=1, p=None):
             del values[i]
             del p[i]
             renormalize_cst = float(sum(p))
-            p = [ pi / renormalize_cst for pi in p ]
+            p = [pi / renormalize_cst for pi in p]
     return samples
 
 
@@ -1429,10 +1567,15 @@ print(choices_without_replacement(values, 5, p))
 
 def example_with_replacement():
     return np.sum(choices_with_replacement(values, 5, p))
+
+
 plotHistogramOfDistribution(example_with_replacement)
+
 
 def example2_with_replacement():
     return np.sum(choices_with_replacement(values, 5))
+
+
 plotHistogramOfDistribution(example2_with_replacement)
 
 
@@ -1442,17 +1585,22 @@ plotHistogramOfDistribution(example2_with_replacement)
 def example_without_replacement():
     # this sum is at least >= 10 = 0 + 1 + 2 + 3 + 4 (5 smallest values)
     return np.sum(choices_without_replacement(values, 5, p))
+
+
 plotHistogramOfDistribution(example_without_replacement)
+
 
 def example2_without_replacement():
     # this sum is at least >= 10 = 0 + 1 + 2 + 3 + 4 (5 smallest values)
     return np.sum(choices_without_replacement(values, 5))
+
+
 plotHistogramOfDistribution(example2_without_replacement)
 
 
 # ----
 # ## Generating a random vector uniformly on a n-dimensional ball
-# 
+#
 # The acceptance-rejection method is easy to apply in this case.
 # We use `uniform(-1, 1)` $n$ times to get a random vector in $[0,1]^n$, and keep trying as long as it is not in the $n$-dim ball.
 
@@ -1461,10 +1609,10 @@ plotHistogramOfDistribution(example2_without_replacement)
 
 def on_a_ball(n=1, R=1):
     """Generate a vector of dimension n, uniformly from the n-dim ball of radius R."""
-    rsquare = float('inf')
-    Rsquare = R**2
+    rsquare = float("inf")
+    Rsquare = R ** 2
     while rsquare > Rsquare:
-        values = [ uniform(-R, R) for _ in range(n) ]
+        values = [uniform(-R, R) for _ in range(n)]
         rsquare = sum(xi ** 2 for xi in values)
     return values
 
@@ -1481,7 +1629,8 @@ print(on_a_ball(4, 1))
 
 
 def random_radius_dim3():
-    return sqrt(sum(xi**2 for xi in on_a_ball(3, 1)))
+    return sqrt(sum(xi ** 2 for xi in on_a_ball(3, 1)))
+
 
 plotHistogramOfDistribution(random_radius_dim3, 100000)
 
@@ -1493,13 +1642,13 @@ plotHistogramOfDistribution(random_radius_dim3, 100000)
 
 def on_a_sphere(n=1, R=1):
     """Generate a vector of dimension n, uniformly on the surface of the n-dim ball of radius R."""
-    rsquare = float('inf')
-    Rsquare = R**2
+    rsquare = float("inf")
+    Rsquare = R ** 2
     while rsquare > Rsquare:
-        values = [ uniform(-1, 1) for _ in range(n) ]
+        values = [uniform(-1, 1) for _ in range(n)]
         rsquare = sum(xi ** 2 for xi in values)
     r = sqrt(rsquare)
-    return [ xi / r for xi in values ]
+    return [xi / r for xi in values]
 
 
 # All such samples have the same radius, but it can be interesting the see the smallest gap between two coordinates.
@@ -1510,12 +1659,13 @@ def on_a_sphere(n=1, R=1):
 def random_delta_dim3():
     return np.min(np.diff(sorted(on_a_sphere(3, 1))))
 
+
 plotHistogramOfDistribution(random_radius_dim3, 100000)
 
 
 # ----
 # ## Generating a random permutation
-# 
+#
 # The first approach is simple to write and understand, and it uses `choices_without_replacement([0..n-1], n)` with a uniform distribution $p$.
 
 # In[245]:
@@ -1534,7 +1684,7 @@ for _ in range(10):
 
 
 # It seems random enough!
-# 
+#
 # To check this first implementation, we can implement the stupidest sorting algorithm, the "shuffle sort":
 # shuffle the input list, as long as it is not correctly sorted.
 
@@ -1550,12 +1700,17 @@ def is_sorted(values, debug=False):
     for i in range(1, n + 1):
         if xn > xnext:
             if debug:
-                print("Values x[{}] = {} > x[{}+1] = {} are not in the good order!".format(xn, i, i, xnext))
+                print(
+                    "Values x[{}] = {} > x[{}+1] = {} are not in the good order!".format(
+                        xn, i, i, xnext
+                    )
+                )
             return False
         if i >= n:
             return True
         xn, xnext = xnext, values[i]
     return True
+
 
 print(is_sorted([1, 2, 3, 4], debug=True))
 print(is_sorted([1, 2, 3, 4, 0], debug=True))
@@ -1571,6 +1726,7 @@ print(is_sorted([1, 6, 3, 4], debug=True))
 def apply_perm(values, perm):
     """Apply the permutation perm to the values."""
     return [values[pi] for pi in perm]
+
 
 def shuffled(values):
     """Return a random permutation of the values."""
@@ -1638,21 +1794,21 @@ for _ in range(10):
 
 
 # It seems random enough too!
-# 
+#
 # Let compare which of the two algorithms is the fastest:
 
 # In[255]:
 
 
-get_ipython().run_line_magic('timeit', 'random_permutation(100)')
-get_ipython().run_line_magic('timeit', 'random_permutation_2(100)')
+get_ipython().run_line_magic("timeit", "random_permutation(100)")
+get_ipython().run_line_magic("timeit", "random_permutation_2(100)")
 
 
 # In[256]:
 
 
-get_ipython().run_line_magic('timeit', 'random_permutation(10000)')
-get_ipython().run_line_magic('timeit', 'random_permutation_2(10000)')
+get_ipython().run_line_magic("timeit", "random_permutation(10000)")
+get_ipython().run_line_magic("timeit", "random_permutation_2(10000)")
 
 
 # It seems that the first algorithm is slower, but this comes from the naively-written `choice_without_replacement()`, in fact we can implement it more efficiently.
@@ -1681,15 +1837,17 @@ for _ in range(10):
 # In[259]:
 
 
-get_ipython().run_line_magic('timeit', 'random_permutation(1000)')
-get_ipython().run_line_magic('timeit', 'random_permutation_2(1000)')
-get_ipython().run_line_magic('timeit', 'random_permutation_3(1000)')
-get_ipython().run_line_magic('timeit', 'numpy.random.permutation(1000)')
+get_ipython().run_line_magic("timeit", "random_permutation(1000)")
+get_ipython().run_line_magic("timeit", "random_permutation_2(1000)")
+get_ipython().run_line_magic("timeit", "random_permutation_3(1000)")
+get_ipython().run_line_magic("timeit", "numpy.random.permutation(1000)")
 
-get_ipython().run_line_magic('timeit', 'random_permutation(10000)')
-get_ipython().run_line_magic('timeit', 'random_permutation_2(10000)')
-get_ipython().run_line_magic('timeit', 'random_permutation_3(10000)')
-get_ipython().run_line_magic('timeit', 'numpy.random.permutation(10000)  # About 1000 times slower! Oh boy!!')
+get_ipython().run_line_magic("timeit", "random_permutation(10000)")
+get_ipython().run_line_magic("timeit", "random_permutation_2(10000)")
+get_ipython().run_line_magic("timeit", "random_permutation_3(10000)")
+get_ipython().run_line_magic(
+    "timeit", "numpy.random.permutation(10000)  # About 1000 times slower! Oh boy!!"
+)
 
 
 # Hoho, not so sure on small lists...
@@ -1698,10 +1856,12 @@ get_ipython().run_line_magic('timeit', 'numpy.random.permutation(10000)  # About
 # In[260]:
 
 
-get_ipython().run_line_magic('timeit', 'random_permutation(100000)')
-get_ipython().run_line_magic('timeit', 'random_permutation_2(100000)')
-get_ipython().run_line_magic('timeit', 'random_permutation_3(100000)')
-get_ipython().run_line_magic('timeit', 'numpy.random.permutation(100000)  # About 1000 times slower! Oh boy!!')
+get_ipython().run_line_magic("timeit", "random_permutation(100000)")
+get_ipython().run_line_magic("timeit", "random_permutation_2(100000)")
+get_ipython().run_line_magic("timeit", "random_permutation_3(100000)")
+get_ipython().run_line_magic(
+    "timeit", "numpy.random.permutation(100000)  # About 1000 times slower! Oh boy!!"
+)
 
 
 # And the second algorithm wins, as it uses the optimized `numpy.argsort()` function as its core operator.
@@ -1710,6 +1870,6 @@ get_ipython().run_line_magic('timeit', 'numpy.random.permutation(100000)  # Abou
 # ## Conclusion
 # This last part presented how to generate from any discrete distribution, and then two algorithms to generate a random permutation, uniformly sampled from $\Sigma_n$ (set of $n!$ permutations of $\{0,\dots,n-1\}$).
 # We applied them to the (very stupid) "shuffle sort" algorithm, to check their correctness.
-# 
+#
 # ----
 # > *That's it for today, folks!*

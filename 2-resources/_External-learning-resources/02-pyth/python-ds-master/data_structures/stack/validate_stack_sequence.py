@@ -3,6 +3,7 @@
 
 # this sequence is possible
 
+
 def verify(pushed, popped):
     i = 0
     stack = []

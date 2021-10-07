@@ -8,10 +8,10 @@ def gcd(a, b):
     b_int = isinstance(b, int)
     a = abs(a)
     b = abs(b)
-    if not(a_int or b_int):
+    if not (a_int or b_int):
         raise ValueError("Input arguments are not integers")
 
-    if (a == 0) or (b == 0) :
+    if (a == 0) or (b == 0):
         raise ValueError("One or more input arguments equals zero")
 
     while b != 0:
@@ -36,6 +36,7 @@ Input : 40(101000)
 Output : 3
 """
 
+
 def trailing_zero(x):
     cnt = 0
     while x and not x & 1:
@@ -43,10 +44,12 @@ def trailing_zero(x):
         x >>= 1
     return cnt
 
+
 """
 Given two non-negative integer a and b,
 computes the greatest common divisor of a and b using bitwise operator.
 """
+
 
 def gcd_bit(a, b):
     tza = trailing_zero(a)
@@ -59,5 +62,3 @@ def gcd_bit(a, b):
         a -= b
         a >>= trailing_zero(a)
     return a << min(tza, tzb)
-
-

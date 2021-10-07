@@ -1,4 +1,4 @@
-'''
+"""
 How do we sort the numbers efficiently?
 
     A simple way is to apply a comparison based sorting algorithm. 
@@ -7,14 +7,14 @@ How do we sort the numbers efficiently?
 
 Count sort can't be used as we use keys as index in count sort. 
 Here keys are floating point numbers. 
-'''
+"""
 # BUCKET SORT
 
-    # mainly useful when input is uniformly distributed over a range.
-    # buckets created to put elements into
-        # number of elements = number of buckets
-    # apply insertion sort to each bucket
-    # concatenate buckets to get sorted array
+# mainly useful when input is uniformly distributed over a range.
+# buckets created to put elements into
+# number of elements = number of buckets
+# apply insertion sort to each bucket
+# concatenate buckets to get sorted array
 
 # time complexity:  Best O(n+k)   |   Avg O(n+k)   |   Worst O(n^2)
 # space complexity:  O(n)
@@ -28,8 +28,10 @@ def insertion_sort(bucket):
         # get previous bucket index
         previous_bucket_index = bucket_index - 1
         # while previous bucket index is at least 0 AND
-            # value of previous bucket item > current bucket item
-        while previous_bucket_index >= 0 and bucket[previous_bucket_index] > current_item:
+        # value of previous bucket item > current bucket item
+        while (
+            previous_bucket_index >= 0 and bucket[previous_bucket_index] > current_item
+        ):
             current_bucket_index = previous_bucket_index + 1
             # set item at current bucket index as value of previous bucket item
             bucket[current_bucket_index] = bucket[previous_bucket_index]
@@ -40,6 +42,7 @@ def insertion_sort(bucket):
         bucket[current_bucket_index] = current_item
     # return sorted bucket
     return bucket
+
 
 def bucket_sort(original_array):
     bucket_holder = []
@@ -69,8 +72,9 @@ def bucket_sort(original_array):
             original_array_index += 1
     return original_array
 
+
 x = [0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434]
-print("Original Array is " + str(x)) 
+print("Original Array is " + str(x))
 print("Sorted Array is   " + str(bucket_sort(x)))
 
 # contributed by Oneil Hsiao

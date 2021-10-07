@@ -8,18 +8,15 @@ Do DFS and see if every vertex can be visited from a source vertex and check for
 
 from collections import defaultdict
 
+
 class Graph:
-
-
     def __init__(self, vertices):
         self.vertices = vertices
         self.graph = defaultdict(list)
 
-    
     def add_edge(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
-
 
     def is_tree(self, s):
         visited = [False] * self.vertices
@@ -47,7 +44,7 @@ class Graph:
         else:
             return "Not a tree"
 
-        
+
 g = Graph(7)
 g.add_edge(0, 1)
 g.add_edge(0, 2)

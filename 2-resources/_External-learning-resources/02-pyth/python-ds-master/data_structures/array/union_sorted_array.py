@@ -23,8 +23,7 @@ def union(arr1, arr2):
     return res
 
 
-arr1 = [1,3,5,6,7,9]
-arr2 = [2,4,5,8,10]
+arr1 = [1, 3, 5, 6, 7, 9]
+arr2 = [2, 4, 5, 8, 10]
 
 print(union(arr1, arr2))
-        

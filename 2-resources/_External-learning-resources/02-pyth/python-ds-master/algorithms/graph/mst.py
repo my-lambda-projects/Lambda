@@ -1,6 +1,7 @@
 # i checked your other py files and decided that i would go for default dict
 # i used same structure as needed for this repository.
 from collections import defaultdict
+
 r = range
 
 
@@ -25,18 +26,17 @@ class Graph:
         return index
 
     def union(self, ranks, parent_ranks, fir, sec):
-        fir, sec = self.search(parent_ranks, fir), self.search(
-            parent_ranks, sec)
+        fir, sec = self.search(parent_ranks, fir), self.search(parent_ranks, sec)
 
         # 3 steps. ranks lower, higher, same
 
-        if (ranks[fir] > ranks[sec]):
+        if ranks[fir] > ranks[sec]:
             parent_ranks[sec] = fir
 
-        elif (ranks[fir] < ranks[sec]):
+        elif ranks[fir] < ranks[sec]:
             parent_ranks[fir] = sec
 
-        elif (ranks[fir] == ranks[sec]):
+        elif ranks[fir] == ranks[sec]:
             parent_ranks[sec] = fir
             ranks[fir] += 1
 
@@ -46,15 +46,17 @@ class Graph:
         edge, index = 0, 0
 
         while True:
-            if ((self.vertices - 1) <= edge):
+            if (self.vertices - 1) <= edge:
                 break
 
             # Take value
             value = self.graph[index]
 
             # check cycle
-            fir, sec = self.search(parent_ranks, value[0]), self.search(
-                parent_ranks, value[1])
+            fir, sec = (
+                self.search(parent_ranks, value[0]),
+                self.search(parent_ranks, value[1]),
+            )
 
             if fir != sec:
                 edge += 1  # increase edge

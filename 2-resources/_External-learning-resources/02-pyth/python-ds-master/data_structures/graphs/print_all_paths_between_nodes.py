@@ -1,16 +1,13 @@
 from collections import defaultdict
 
+
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def print_path(self, s, d, visited, path):
         visited[s] = True
@@ -26,7 +23,6 @@ class Graph:
 
         path.pop()
         visited[s] = False
-        
 
     def print_all_paths(self, s, d):
         visited = [False] * self.vertices
@@ -46,5 +42,5 @@ g.add_edge(2, 1)
 s = 2
 d = 3
 
-print(f'Paths from {s} to {d} are - ')
+print(f"Paths from {s} to {d} are - ")
 g.print_all_paths(s, d)

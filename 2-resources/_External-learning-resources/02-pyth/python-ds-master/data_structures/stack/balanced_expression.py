@@ -1,5 +1,7 @@
 # simple program to check if an expression is balanced using stack
 stack = []
+
+
 def checkBalanced(expr):
     for i in expr:
         if i == "{" or i == "[" or i == "(":
@@ -14,6 +16,7 @@ def checkBalanced(expr):
                 return False
 
     return True
+
 
 # main function
 expr = input()

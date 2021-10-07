@@ -12,9 +12,9 @@ def longest_palindromic_substring_DP(s):
             # We check if the above cases is valid or i
             # they are larger, we use DP to check the substring
             # in between j and i
-            S[i][j] = s[i] == s[j] and (j - i < 3 or S[i+1][j-1])
+            S[i][j] = s[i] == s[j] and (j - i < 3 or S[i + 1][j - 1])
             if S[i][j] and j - i + 1 > len(max_palindrome):
-                max_palindrome = s[i:j+1]
+                max_palindrome = s[i : j + 1]
 
     return max_palindrome
 
@@ -29,10 +29,10 @@ def longest_palindromic_substring_expansion(s):
             o = 0
             ind = i // 2
             while ind + o < len(s) and ind - o >= 0:
-                if(s[ind + o] != s[ind - o]):
+                if s[ind + o] != s[ind - o]:
                     break
                 if ind + o - (ind - o) + 1 > len(max_palindrome):
-                    max_palindrome = s[ind-o:ind+o + 1]
+                    max_palindrome = s[ind - o : ind + o + 1]
                 o += 1
         else:
             # This is when you are "in the middle of" two characters
@@ -41,10 +41,10 @@ def longest_palindromic_substring_expansion(s):
             sind = i // 2
             eind = i // 2 + 1
             while sind - o >= 0 and eind + o < len(s):
-                if(s[sind - o] != s[eind + o]):
+                if s[sind - o] != s[eind + o]:
                     break
                 if eind + o - (sind - o) + 1 > len(max_palindrome):
-                    max_palindrome = s[sind - o:eind + o + 1]
+                    max_palindrome = s[sind - o : eind + o + 1]
                 o += 1
 
     return max_palindrome

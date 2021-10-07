@@ -11,6 +11,6 @@ def main():
     pass  # TODO
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # TODO - parse argv
     main()

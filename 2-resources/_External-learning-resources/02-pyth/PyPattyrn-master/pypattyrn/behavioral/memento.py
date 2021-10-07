@@ -8,6 +8,7 @@ class Memento(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#memento-pattern}
     - External Memento Pattern documentation: U{https://en.wikipedia.org/wiki/Memento_pattern}
     """
+
     def __init__(self, state):
         """
         Initialize a new Memento instance.
@@ -29,6 +30,7 @@ class Originator(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#memento-pattern}
     - External Mediator Pattern documentation: U{https://en.wikipedia.org/wiki/Memento_pattern}
     """
+
     def commit(self):
         """
         Commit this objects state to a memento.

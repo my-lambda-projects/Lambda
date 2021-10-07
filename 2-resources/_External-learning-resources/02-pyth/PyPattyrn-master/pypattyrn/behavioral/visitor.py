@@ -8,6 +8,7 @@ class Visitor(metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#visitor-pattern}
     - External Visitor Design Pattern documentation: U{https://en.wikipedia.org/wiki/Visitor_pattern}
     """
+
     def visit(self, node, *args, **kwargs):
         """
         Visit the visitor with some object.
@@ -19,7 +20,7 @@ class Visitor(metaclass=ABCMeta):
         """
         method = None
         for cls in node.__class__.__mro__:
-            method_name = 'visit_' + cls.__name__.lower()
+            method_name = "visit_" + cls.__name__.lower()
             method = getattr(self, method_name, None)
             if method:
                 break
@@ -46,6 +47,7 @@ class Visitee(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#behavioral-patterns}
     - External Visitor Design Pattern documentation: U{https://en.wikipedia.org/wiki/Visitor_pattern}
     """
+
     def accept(self, visitor, *args, **kwargs):
         """
         Have a visitor visit this class instance.

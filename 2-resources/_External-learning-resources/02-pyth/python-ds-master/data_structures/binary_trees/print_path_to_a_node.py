@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -18,7 +17,7 @@ def has_path(root, arr, x):
     if has_path(root.left, arr, x) or has_path(root.right, arr, x):
         return True
 
-    # If the required node is not in the left or right subtree, remove 
+    # If the required node is not in the left or right subtree, remove
     # the parent node from where the fork starts
     arr.pop()
     return False
@@ -29,6 +28,6 @@ def print_path(root, x):
 
     if has_path(root, arr, x):
         for i in arr:
-            print(i, end=' ')
+            print(i, end=" ")
     else:
-        print('Path not present')
+        print("Path not present")

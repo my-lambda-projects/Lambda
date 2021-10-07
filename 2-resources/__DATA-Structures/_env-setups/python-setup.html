@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>python-setup</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="python-installation-instructions">
+      Python Installation Instructions
+    </h1>
+    <p>Python is the second programming language we will use in this course.</p>
+    <blockquote>
+      <p>
+        Note: We do not install the python using the installer from the
+        python.org website in this course. If you have one installed you should
+        uninstall it before installing this version of python.
+      </p>
+    </blockquote>
+    <p>
+      Currently the curriclum for this course is compatible with Python 3.9.
+    </p>
+    <h2 id="installing-pyenv">Installing pyenv</h2>
+    <p>
+      The first thing we need is to install the Python version manager (<a
+        href="https://github.com/pyenv/pyenv"
+        >pyenv</a
+      >). This is similar to the <code>nvm</code> tool we used to install
+      Node.JS, except it controls what versions of python we use on our system.
+    </p>
+    <p>
+      To install pyenv we use the
+      <a href="https://github.com/pyenv/pyenv-installer">pyenv-installer</a>
+    </p>
+    <p>
+      From the installation instructions on the
+      <a href="https://github.com/pyenv/pyenv-installer">pyenv-installer</a>
+      website, it says we run the following command:
+    </p>
+    <pre class="shell"><code>curl https://pyenv.run | bash</code></pre>
+    <p>
+      Unlike <code>nvm</code>, <code>pyenv</code> does not automatically add
+      it’s startup lines to your shell startup file.
+    </p>
+    <p>
+      The files that you have to change will depend on which shell you are
+      running (you can check which shell you have by running
+      <code>echo $SHELL</code>). Follow the instructions to update the startup
+      files associated with the shell that you are running.
+    </p>
+    <h3 id="if-your-shell-is-zsh">If your shell is <code>zsh</code></h3>
+    <ol type="1">
+      <li>
+        Open up your <code>.profile</code> file with the following command.
+      </li>
+    </ol>
+    <pre class="shell"><code>code ~/.profile</code></pre>
+    <ol start="2" type="1">
+      <li>Add the following lines to your <code>.profile</code>.</li>
+    </ol>
+    <pre class="shell"><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init --path)&quot;</code></pre>
+    <ol start="3" type="1">
+      <li>
+        Open up your <code>.zprofile</code> file with the following command.
+      </li>
+    </ol>
+    <pre class="shell"><code>code ~/.zprofile</code></pre>
+    <ol start="4" type="1">
+      <li>
+        Add the following lines to your <code>.zprofile</code>. (Yes, these are
+        the same as above.)
+      </li>
+    </ol>
+    <pre class="shell"><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init --path)&quot;</code></pre>
+    <ol start="5" type="1">
+      <li>Open your <code>.zshrc</code> with the following command</li>
+    </ol>
+    <pre class="shell"><code>code ~/.zshrc</code></pre>
+    <ol start="6" type="1">
+      <li>Add the following line.</li>
+    </ol>
+    <pre class="shell"><code>eval &quot;$(pyenv init -)&quot;</code></pre>
+    <h3 id="if-your-shell-is-bash">If your shell is <code>bash</code></h3>
+    <ol type="1">
+      <li>
+        Open up your <code>.profile</code> file with the following command.
+      </li>
+    </ol>
+    <pre class="shell"><code>code ~/.profile</code></pre>
+    <ol start="2" type="1">
+      <li>Add the following lines.</li>
+    </ol>
+    <pre class="shell"><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init --path)&quot;</code></pre>
+    <ol start="3" type="1">
+      <li>
+        Check if you have a <code>.bash_profile</code>. Run the following at the
+        command line if you don’t know.
+      </li>
+    </ol>
+    <pre
+      class="shell"
+    ><code>if [ -f ~/.bash_profile ]; then echo &quot;bash_profile exists&quot;; else echo &quot;bash_profile does not exist&quot;; fi</code></pre>
+    <p>
+      If you don’t have a <code>.bash_profile</code>, you can skip the rest of
+      this step. If you do, open up your <code>.bash_profile</code> file with
+      the following command.
+    </p>
+    <pre class="shell"><code>code ~/.bash_profile</code></pre>
+    <ol start="4" type="1">
+      <li>
+        Add the following lines to your <code>.bash_profile</code>. (Yes, these
+        are the same as above.)
+      </li>
+    </ol>
+    <pre class="shell"><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init --path)&quot;</code></pre>
+    <ol start="5" type="1">
+      <li>Open your <code>.bashrc</code> with the following command</li>
+    </ol>
+    <pre class="shell"><code>code ~/.bashrc</code></pre>
+    <ol start="6" type="1">
+      <li>Add the following line.</li>
+    </ol>
+    <pre class="shell"><code>eval &quot;$(pyenv init -)&quot;</code></pre>
+    <p>To get your startup file to execute, restart your terminal.</p>
+    <h2 id="installing-dependencies-on-windows-and-ubuntu">
+      Installing dependencies on Windows and Ubuntu
+    </h2>
+    <p>If you use macOS you can skip this step.</p>
+    <p>
+      For Windows and Ubuntu users you will need to install some extra
+      dependencies for python. (See here for more information about the
+      prerequisites:
+      <a href="https://github.com/pyenv/pyenv/wiki/Common-build-problems"
+        >pyenv Prerequities</a
+      >)
+    </p>
+    <p>First run this command to update your apt repositories:</p>
+    <pre class="shell"><code>sudo apt update</code></pre>
+    <p>
+      and then run this command to install the packages listed on the pyenv.
+    </p>
+    <pre
+      class="shell"
+    ><code>sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl git</code></pre>
+    <h2 id="installing-python-itself">Installing python itself</h2>
+    <p>
+      Now we are ready to install python. We will be installing Python version
+      3.9.4.
+    </p>
+    <p>
+      Then run this command to install python (you’ll notice pyenv makes us put
+      in the <em>exact</em> version instead of being able to just say
+      <code>3.9</code> or <code>3</code>)
+    </p>
+    <pre class="shell"><code>pyenv install 3.9.4</code></pre>
+    <p>
+      After some time this should complete without any errors. It could take a
+      while since you are compiling python from source code.
+    </p>
+    <p>
+      Once this is finished we also need to tell pyenv this is our default
+      version of python using this command:
+    </p>
+    <pre class="shell"><code>pyenv global 3.9.4</code></pre>
+    <p>
+      Ensure that these changes take effect by closing your terminal and opening
+      a new one. Then, we can verify our python is the correct version by typing
+    </p>
+    <pre class="shell"><code>python --version
+python3 --version</code></pre>
+    <p>Both of these commands should show 3.9.4</p>
+    <h2 id="pipenv">Pipenv</h2>
+    <p>
+      Another piece of software we will use in class is Pipenv. Don’t worry
+      about what this is right now, it’s just enough to install it.
+    </p>
+    <pre class="shell"><code>pip install pipenv</code></pre>
+    <p>
+      Then after you have installed pipenv, add this line to your shell startup
+      file (either your <code>.bashrc</code> or your <code>.zshrc</code>)
+      somewhere after the <code>eval "$(pyenv init -)"</code>.
+    </p>
+    <pre class="shell"><code>export PIPENV_VENV_IN_PROJECT=1</code></pre>
+    <p>
+      Congratulations! If you’ve completed all these steps you are ready to code
+      in Python!
+    </p>
+  </body>
+</html>

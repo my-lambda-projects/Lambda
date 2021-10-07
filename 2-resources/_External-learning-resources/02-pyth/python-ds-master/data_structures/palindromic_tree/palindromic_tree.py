@@ -24,7 +24,10 @@ class PalindromicTree:
         self.previous = self.imaginary_root
 
     def add_letter(self, string, index):
-        while index - 1 - self.previous.length < 0 or string[index - 1 - self.previous.length] != string[index]:
+        while (
+            index - 1 - self.previous.length < 0
+            or string[index - 1 - self.previous.length] != string[index]
+        ):
             self.previous = self.previous.suffix
 
         if self.previous.next.get(string[index]) is not None:
@@ -45,7 +48,10 @@ class PalindromicTree:
             self.previous = new_node
         else:
             self.previous = self.previous.suffix
-            while index - 1 - self.previous.length < 0 or string[index - 1 - self.previous.length] != string[index]:
+            while (
+                index - 1 - self.previous.length < 0
+                or string[index - 1 - self.previous.length] != string[index]
+            ):
                 self.previous = self.previous.suffix
             new_node.suffix = self.previous.next[string[index]]
             self.previous = new_node
@@ -65,4 +71,3 @@ s = "abaxxaba"
 for i in range(len(s)):
     tree.add_letter(s, i)
 tree.how_many_palindromes()
-

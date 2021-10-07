@@ -1,22 +1,26 @@
-class Queue():
+class Queue:
     def __init__(self):
         self.queue = []
+
     def enqueue(self, value):
         self.queue.append(value)
+
     def dequeue(self):
         if self.size() > 0:
             return self.queue.pop(0)
         else:
             return None
+
     def size(self):
         return len(self.queue)
 
 
 class Graph:
-    '''
+    """
     Represent a graph as a dictionary of vertices mapping labels to edges
     Easy to read, not a dense graph so preferable to a matrix, and no adverse consequences are apparent.
-    '''
+    """
+
     def __init__(self):
         self.vertices = {}
 
@@ -28,7 +32,7 @@ class Graph:
         else:
             # Error
             pass
-    
+
     def add_edge(self, vertex_from, vertex_to):
         # Make sure vertices exist
         if vertex_from in self.vertices and vertex_to in self.vertices:
@@ -49,14 +53,13 @@ def earliest_ancestor(ancestors, starting_node):
         graph.add_vertex(pair[0])
         graph.add_vertex(pair[1])
 
-    # Add edge (child to parent)
+        # Add edge (child to parent)
         graph.add_edge(pair[1], pair[0])
-    
 
     # Traverse the graph with BFS
     # Look for the shortest paths between any two nodes
     q = Queue()
-    q.enqueue( [starting_node] )
+    q.enqueue([starting_node])
 
     # Track length of current longest path, and current earliest ancestor
     max_path_length = 1
@@ -69,12 +72,13 @@ def earliest_ancestor(ancestors, starting_node):
         parent = path[-1]
 
         # If a tie, return lowest node number
-        if ((len(path) > max_path_length) or
-            (len(path) == max_path_length and parent < earliest_ancestor)):
+        if (len(path) > max_path_length) or (
+            len(path) == max_path_length and parent < earliest_ancestor
+        ):
 
             earliest_ancestor = parent
             max_path_length = len(path)
-        
+
         for neighbor in graph.vertices[parent]:
             new_path = list(path)
             new_path.append(neighbor)
@@ -83,20 +87,33 @@ def earliest_ancestor(ancestors, starting_node):
     # Return where the longest path ends
     return earliest_ancestor
 
-test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
+
+test_ancestors = [
+    (1, 3),
+    (2, 3),
+    (3, 6),
+    (5, 6),
+    (5, 7),
+    (4, 5),
+    (4, 8),
+    (8, 9),
+    (11, 8),
+    (10, 1),
+]
 
 
 ########################
 
 # Alternate solution:
 
+
 def earliest_ancestor1(ancestry_list, node):
     # If no parent node, return -1
     valid_node = False
     for parent in ancestry_list:
-            if parent[1] == node:
-                valid_node = True
-                break
+        if parent[1] == node:
+            valid_node = True
+            break
     if valid_node == False:
         return -1
 
@@ -104,7 +121,7 @@ def earliest_ancestor1(ancestry_list, node):
     # Create an empty Queue to store paths to visited ancestors
     q = []
     # Enqueue with starting node
-    q.append( [node] )
+    q.append([node])
     visited = set()
 
     # While the queue is not empty...
@@ -116,7 +133,7 @@ def earliest_ancestor1(ancestry_list, node):
         # Find curr_node's ancestors
         if curr_node not in visited:
             visited.add(curr_node)
-        
+
         no_parent = False
 
         for parent in ancestry_list:
@@ -146,7 +163,7 @@ def earliest_ancestor1(ancestry_list, node):
 # WORD LIST PROBLEM
 
 # Open our word file as read only
-f = open('words.txt', 'r')
+f = open("words.txt", "r")
 
 # Stores a list of all the words, split by each line
 words = f.read().split("\n")
@@ -168,21 +185,22 @@ def get_neighbors(word):
 
     for i in range(len(compare_word)):
         # loop through compare_word and change each letter to a new letter, checking if that new version is a word in the word dictionary
-        for letter in list('abcdefghijklmnopqrstuvwxyz'):
+        for letter in list("abcdefghijklmnopqrstuvwxyz"):
             temp_word = list(compare_word)
             temp_word[i] = letter
             new_word = "".join(temp_word)
             # Make sure the mutated word doesn't equal the starting word
             if new_word != word and new_word in word_set:
                 neighbors.append(new_word)
-    
+
     return neighbors
+
 
 # Search
 def find_word_ladder(beginWord, endWord):
     visited = list()
     q = Queue()
-    q.enqueue( [beginWord] )
+    q.enqueue([beginWord])
 
     while q.size() > 0:
         path = q.dequeue()
@@ -194,7 +212,7 @@ def find_word_ladder(beginWord, endWord):
             # End when we find endWord
             if vertex == endWord:
                 return path
-            
+
             # If not endWord, find next word neighbors and keep searching
             for neighbor in get_neighbors(vertex):
                 path_copy = list(path)
@@ -202,11 +220,11 @@ def find_word_ladder(beginWord, endWord):
                 q.enqueue(path_copy)
 
 
-print(find_word_ladder('hit', 'cog'))
+print(find_word_ladder("hit", "cog"))
 # return: ['hit', 'hot', 'cot', 'cog']
 
-print(find_word_ladder('sail', 'boat'))
+print(find_word_ladder("sail", "boat"))
 # ['sail', 'bail', 'boil', 'boll', 'bolt', 'boat']
 
-print(find_word_ladder('hungry', 'happy'))
+print(find_word_ladder("hungry", "happy"))
 # None

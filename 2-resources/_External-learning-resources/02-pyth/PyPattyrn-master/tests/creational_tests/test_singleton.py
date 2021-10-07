@@ -11,13 +11,12 @@ class SingletonTestCase(TestCase):
         """
         Initialize testing data.
         """
-        class DummySingletonOne(object, metaclass=Singleton):
 
+        class DummySingletonOne(object, metaclass=Singleton):
             def __init__(self):
                 pass
 
         class DummySingletonTwo(object, metaclass=Singleton):
-
             def __init__(self):
                 pass
 
@@ -48,8 +47,16 @@ class SingletonTestCase(TestCase):
         dummy_class_two_instance_one = self.dummy_class_two()
         dummy_class_two_instance_two = self.dummy_class_two()
 
-        self.assertEquals(id(dummy_class_one_instance_one), id(dummy_class_one_instance_two))
-        self.assertEquals(id(dummy_class_two_instance_one), id(dummy_class_two_instance_two))
+        self.assertEquals(
+            id(dummy_class_one_instance_one), id(dummy_class_one_instance_two)
+        )
+        self.assertEquals(
+            id(dummy_class_two_instance_one), id(dummy_class_two_instance_two)
+        )
 
-        self.assertNotEquals(id(dummy_class_one_instance_one), id(dummy_class_two_instance_one))
-        self.assertNotEquals(id(dummy_class_one_instance_two), id(dummy_class_two_instance_two))
+        self.assertNotEquals(
+            id(dummy_class_one_instance_one), id(dummy_class_two_instance_one)
+        )
+        self.assertNotEquals(
+            id(dummy_class_one_instance_two), id(dummy_class_two_instance_two)
+        )

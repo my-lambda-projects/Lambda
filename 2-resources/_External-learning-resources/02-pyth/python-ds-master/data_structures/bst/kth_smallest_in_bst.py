@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -38,4 +37,3 @@ root.right.left = Node(6)
 root.right.right = Node(8)
 
 print(inorder(root, 3))
-

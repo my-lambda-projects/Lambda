@@ -1,16 +1,15 @@
-
 # coding: utf-8
 
 # # Vérification de numéros de Cartes Bleues, RIB (IBAN) et NIRPP (sécu)
-# 
+#
 # Ce petit notebook va implémenter les algorithmes de vérification des numéros de :
-# 
+#
 # - cartes bleues, sur $4\times4$ chiffres, avec un chiffre de vérification,
 # - RIB (identifiant de compte, sur les IBAN), avec deux chiffres de vérifications,
 # - NIRPP (numéro de sécurité sociale en France), avec deux chiffres de vérifications.
-# 
+#
 # > J'avais déjà implementé les deux derniers, cf. ces scripts : [check_IBAN.py](https://bitbucket.org/lbesson/bin/src/master/check_IBAN.py), et [check_NIRPP.py](https://bitbucket.org/lbesson/bin/src/master/check_NIRPP.py).
-# 
+#
 # Si vous êtes curieux de l'aspect historique, [ce petit article](https://spectrum.ieee.org/tech-history/silicon-revolution/hans-peter-luhn-and-the-birth-of-the-hashing-algorithm) explique très bien les origines de ces chiffres de contrôles et de la [formule de Luhn](https://fr.wikipedia.org/wiki/Formule_de_Luhn).
 
 # Je vais utiliser cette fonction plusieurs fois, qui permet de transformer une lettre 'A',...,'Z' en entier.
@@ -22,18 +21,18 @@ def l_to_c(l):
     try:
         return str(int(l))
     except ValueError:
-        return str(10 + ord(l.upper()) - ord('A'))
+        return str(10 + ord(l.upper()) - ord("A"))
 
 
 # In[2]:
 
 
-for l in 'ABCDEFGHIJKLMNROPQRSTUVWXYZ':
+for l in "ABCDEFGHIJKLMNROPQRSTUVWXYZ":
     print("l = {} --> c = {}".format(l, l_to_c(l)))
 
 
 # ## Cartes Bleues
-# 
+#
 # - Références : https://www.hellolife.fr/article/a-quoi-correspondent-les-chiffres-sur-ma-carte-bancaire_a466/1 et https://fr.wikipedia.org/wiki/Carte_de_paiement#Num%C3%A9ro_de_carte_bancaire et https://fr.wikipedia.org/wiki/Formule_de_Luhn
 # - Exemple :
 # <img width="65%" src="data/Exemple_CB.jpg"/>
@@ -50,7 +49,7 @@ exemple_cb = "4970 1012 3456 7890"  # pas valide
 
 
 def verifie_Luhn(numeros):
-    numeros = numeros.replace(' ', '')
+    numeros = numeros.replace(" ", "")
     nb_chiffres = len(numeros)
     parite = nb_chiffres % 2
     chiffres = [int(l_to_c(l)) for l in numeros]
@@ -68,15 +67,15 @@ def verifie_Luhn(numeros):
 # In[5]:
 
 
-verifie_Luhn('972 487 086')
+verifie_Luhn("972 487 086")
 
 
 # In[6]:
 
 
-verifie_Luhn('972 487 081')
-verifie_Luhn('972 487 082')
-verifie_Luhn('972 487 087')
+verifie_Luhn("972 487 081")
+verifie_Luhn("972 487 082")
+verifie_Luhn("972 487 087")
 
 
 # In[7]:
@@ -117,7 +116,7 @@ verifie_cb("4976 5301 7218 3533")
 
 
 # ## RIB/IBAN
-# 
+#
 # - Référence : https://fr.wikipedia.org/wiki/International_Bank_Account_Number#Algorithme_de_v.C3.A9rification_de_l.27IBAN
 # - Exemple :
 # <img width="45%" src="data/Exemple_RIB.jpg"/>
@@ -133,15 +132,17 @@ exemple_iban = "FR76 1254 8029 9838 3759 0150 071"
 
 def verifie_iban(iban):
     print("\nVérification du nombre IBAN '%s'..." % iban)
-    ib = iban.replace(' ', '')
+    ib = iban.replace(" ", "")
     ib = ib[4:] + ib[:4]
     print("  De longueur", len(ib))
-    i = int(''.join(l_to_c(l) for l in ib))
+    i = int("".join(l_to_c(l) for l in ib))
     check = (i % 97) == 1
     if check:
         print("OK '%s' semble être un nombre IBAN valide." % iban)
     else:
-        print("[ATTENTION] PAS OK '%s' semble ne pas être un nombre IBAN valide!" % iban)
+        print(
+            "[ATTENTION] PAS OK '%s' semble ne pas être un nombre IBAN valide!" % iban
+        )
     return check
 
 
@@ -199,13 +200,14 @@ exemple_nirpp = "2 69 05 49 588 157 80"
 
 length_checksum = 2
 
+
 def verifie_nirpp(nirpp, length_checksum=length_checksum):
     print("\nVérification du nombre NIRPP '%s' ..." % nirpp)
-    ib = nirpp.replace(' ', '')
+    ib = nirpp.replace(" ", "")
     checksum = int(ib[-length_checksum:])
     ib = ib[:-length_checksum]
     print("  De longueur", len(ib))
-    num_nirpp = int(''.join(l_to_c(l) for l in ib))
+    num_nirpp = int("".join(l_to_c(l) for l in ib))
     print("  De somme de contrôle num_nirpp =", num_nirpp)
     print("  Module à 97 =", (97 - (num_nirpp % 97)))
     print("  Et la somme de contrôle attendue était", checksum)
@@ -213,7 +215,9 @@ def verifie_nirpp(nirpp, length_checksum=length_checksum):
     if check:
         print("OK '%s' semble être un nombre NIRPP valide." % nirpp)
     else:
-        print("[ATTENTION] PAS OK '%s' semble ne pas être un nombre NIRPP valide!" % nirpp)
+        print(
+            "[ATTENTION] PAS OK '%s' semble ne pas être un nombre NIRPP valide!" % nirpp
+        )
     return check
 
 
@@ -227,7 +231,7 @@ verifie_nirpp(exemple_nirpp)
 
 # ### Bonus : affichage d'un NIRPP
 # - Référence : https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_France#Signification_des_chiffres_du_NIR
-# 
+#
 # Il suffit de récupérer les informations de chaque morceau du code NIRPP, et les stocker comme ça :
 
 # In[21]:
@@ -240,14 +244,14 @@ information_nirpp = {
             "1": "homme",
             "2": "femme",
             "3": "personne étrangère de sexe masculin en cours d'immatriculation en France",
-            "4": "personne étrangère de sexe féminin en cours d'immatriculation en France"
-        }
+            "4": "personne étrangère de sexe féminin en cours d'immatriculation en France",
+        },
     },
     (1, 2): {
         "meaning": "deux derniers chiffres de l'année de naissance",
         "mapping": {
             # DONE nothing to do for this information
-        }
+        },
     },
     (3, 2): {
         "meaning": "mois de naissance",
@@ -264,7 +268,7 @@ information_nirpp = {
             "10": "octobre",
             "11": "novembre",
             "12": "décembre",
-        }
+        },
     },
     # Only case A : TODO implement case B and C
     (5, 2): {
@@ -379,20 +383,19 @@ information_nirpp = {
             "986": "Wallis-et-Futuna",
             "987": "Polynésie française",
             "988": "Nouvelle-Calédonie",
-            "989": "Île de Clipperton"
-        }
+            "989": "Île de Clipperton",
+        },
     },
     (7, 3): {
         "meaning": "code officiel de la commune de naissance",
-        "mapping": {  # TODO
-        }
+        "mapping": {},  # TODO
     },
     (10, 3): {
         "meaning": "numéro d’ordre de la naissance dans le mois et la commune (ou le pays)",
         "mapping": {
             # DONE nothing to do for this information
-        }
-    }
+        },
+    },
 }
 
 
@@ -401,13 +404,13 @@ information_nirpp = {
 # In[22]:
 
 
-get_ipython().system('ls data/')
+get_ipython().system("ls data/")
 
 
 # In[23]:
 
 
-get_ipython().system('wc data/comsimp2016.txt')
+get_ipython().system("wc data/comsimp2016.txt")
 
 
 # Il ressemble à ça :
@@ -415,7 +418,7 @@ get_ipython().system('wc data/comsimp2016.txt')
 # In[24]:
 
 
-get_ipython().system('head data/comsimp2016.txt')
+get_ipython().system("head data/comsimp2016.txt")
 
 
 # Briançon est bien dans la liste :
@@ -432,43 +435,48 @@ get_ipython().system('grep "BRIANCON" data/comsimp2016.txt')
 
 
 import subprocess
+
 length_checksum = 2
 
 
 def pprint_nirpp(nirpp, length_checksum=length_checksum):
     print("\nAffichage d'informations contenues dans le numéro NIRPP '%s' ..." % nirpp)
-    nirpp = nirpp.replace(' ', '')
+    nirpp = nirpp.replace(" ", "")
     ib = nirpp[:-length_checksum]
     # Printing
     for (i, l) in sorted(information_nirpp):
-        n = nirpp[i: i + l]
+        n = nirpp[i : i + l]
         info = information_nirpp[(i, l)]
         if n in info["mapping"]:
-            explain = "\"{}\"".format(info["mapping"][n])
+            explain = '"{}"'.format(info["mapping"][n])
         else:
             explain = n
         # For towns, durty hack to extract the town from the INSEE database
         if i == 7:
             try:
                 args = [
-                    "grep", "--", "',{},{},'".format(
-                        nirpp[5: 5 + 2],
-                        nirpp[7: 7 + 3]
-                    ),
+                    "grep",
+                    "--",
+                    "',{},{},'".format(nirpp[5 : 5 + 2], nirpp[7 : 7 + 3]),
                     "data/comsimp2016.txt",
-                    "|", "cut", "-d,", "-f10"
+                    "|",
+                    "cut",
+                    "-d,",
+                    "-f10",
                 ]
-                command = ' '.join(args)
+                command = " ".join(args)
                 # print("Executing subprocess.check_output to \"{}\"".format(command))
                 explain = subprocess.check_output(command, shell=True)
                 explain = explain[:-1].decode()
                 # print("explain =", explain)
-                explain = "{} (code {})".format(explain, nirpp[7: 7 + 3])
+                explain = "{} (code {})".format(explain, nirpp[7 : 7 + 3])
             except Exception as e:
                 # print("e =", e)
                 explain = n
-        print("- Le nombre '{}' (indice {}:{}) signifie:\n\t\"{}\" : \t{}".format(
-            n, i, i + l, info["meaning"], explain)
+        print(
+            "- Le nombre '{}' (indice {}:{}) signifie:\n\t\"{}\" : \t{}".format(
+                n, i, i + l, info["meaning"], explain
+            )
         )
 
 
@@ -489,7 +497,7 @@ pprint_nirpp("1 93 01 05 023 122 23")
 # ## IMEI
 # Les numéros d'identification des téléphones portables ([les IMEI](https://fr.wikipedia.org/wiki/International_Mobile_Equipment_Identity#Structure)) terminent aussi par un chiffre de contrôle, qui utilise aussi la [formule de Luhn](https://fr.wikipedia.org/wiki/Formule_de_Luhn).
 # Je termine ce notebook en implémentant aussi cette vérification.
-# 
+#
 # <img width="40%" src="data/Exemple_IMEI.jpg"/>
 
 # In[29]:
@@ -507,7 +515,9 @@ def verifie_imei(imei):
     if check:
         print("OK '%s' semble être un numéro IMEI valide." % imei)
     else:
-        print("[ATTENTION] PAS OK '%s' semble ne pas être un numéro IMEI valide!" % imei)
+        print(
+            "[ATTENTION] PAS OK '%s' semble ne pas être un numéro IMEI valide!" % imei
+        )
     return check
 
 
@@ -562,7 +572,7 @@ verifie_imei(mon_faux_imei_2)
 
 
 # ## Conclusion
-# 
+#
 # Voilà, c'est tout pour aujourd'hui !
-# 
+#
 # > Allez lire [ici pour voir mes autres notebooks](https://GitHub.com/Naereen/notebooks).

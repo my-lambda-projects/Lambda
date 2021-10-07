@@ -1,8 +1,8 @@
-# A binary tree is perfect if all the internal nodes have 2 children and 
+# A binary tree is perfect if all the internal nodes have 2 children and
 # all the leaves are at the same level
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -11,7 +11,7 @@ class Node:
 
 # Returns depth of leftmost leaf
 def find_depth(root):
-    d = 0 
+    d = 0
     while root:
         d += 1
         root = root.left
@@ -30,7 +30,9 @@ def check_perfect(root, d, level=0):
     if root.left is None or root.right is None:
         return False
 
-    return check_perfect(root.left, d, level+1) and check_perfect(root.right, d, level+1)
+    return check_perfect(root.left, d, level + 1) and check_perfect(
+        root.right, d, level + 1
+    )
 
 
 def is_perfect(root):

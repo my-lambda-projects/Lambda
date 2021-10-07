@@ -1,12 +1,10 @@
-class AdjNode():
-
+class AdjNode:
     def __init__(self, val):
         self.vertex = val
         self.next = None
 
 
 class Graph:
-
     def __init__(self, vertices):
         self.V = vertices
         self.graph = [None] * self.V
@@ -24,7 +22,6 @@ class Graph:
         node.next = self.graph[dest]
         self.graph[dest] = node
 
-
     def print_graph(self):
         for i in range(self.V):
             print("Adjacency list of vertex {}\n head".format(i), end="")
@@ -33,5 +30,3 @@ class Graph:
                 print(" -> {}".format(temp.vertex), end="")
                 temp = temp.next
             print(" \n")
-
-

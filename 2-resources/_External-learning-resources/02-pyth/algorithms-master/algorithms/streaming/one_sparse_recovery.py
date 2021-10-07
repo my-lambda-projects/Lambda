@@ -17,45 +17,46 @@ Output: None
 Comment: Not 1-sparse
 """
 
+
 def one_sparse(array):
-  sum_signs = 0 
-  bitsum = [0]*32 
-  sum_values = 0 
-  for val,sign in array: 
-    if sign == "+": 
-      sum_signs += 1
-      sum_values += val
+    sum_signs = 0
+    bitsum = [0] * 32
+    sum_values = 0
+    for val, sign in array:
+        if sign == "+":
+            sum_signs += 1
+            sum_values += val
+        else:
+            sum_signs -= 1
+            sum_values -= val
+
+        _get_bit_sum(bitsum, val, sign)
+
+    if sum_signs > 0 and _check_every_number_in_bitsum(bitsum, sum_signs):
+        return int(sum_values / sum_signs)
     else:
-      sum_signs -= 1 
-      sum_values -= val
-    
-    _get_bit_sum(bitsum,val,sign)
-  
-  if sum_signs > 0 and _check_every_number_in_bitsum(bitsum,sum_signs):
-    return int(sum_values/sum_signs)
-  else:
-    return None
-   
-#Helper function to check that every entry in the list is either 0 or  the same as the
-#sum of signs
-def _check_every_number_in_bitsum(bitsum,sum_signs):
-  for val in bitsum: 
-    if val != 0 and val != sum_signs : 
-      return False
-  return True
+        return None
+
+
+# Helper function to check that every entry in the list is either 0 or  the same as the
+# sum of signs
+def _check_every_number_in_bitsum(bitsum, sum_signs):
+    for val in bitsum:
+        if val != 0 and val != sum_signs:
+            return False
+    return True
+
 
 # Adds bit representation value to bitsum array
-def _get_bit_sum(bitsum,val,sign):
-  i = 0 
-  if sign == "+":
-    while(val):
-      bitsum[i] += val & 1
-      i +=1
-      val >>=1
-  else :
-    while(val):
-      bitsum[i] -= val & 1
-      i +=1
-      val >>=1
-
-
+def _get_bit_sum(bitsum, val, sign):
+    i = 0
+    if sign == "+":
+        while val:
+            bitsum[i] += val & 1
+            i += 1
+            val >>= 1
+    else:
+        while val:
+            bitsum[i] -= val & 1
+            i += 1
+            val >>= 1

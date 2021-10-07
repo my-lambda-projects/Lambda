@@ -45,7 +45,7 @@ try:
             # Ignore blank values
             if num == "":
                 continue
-            
+
             # Set x to the number, of base 2
             x = int(num, 2)
 
@@ -54,4 +54,3 @@ try:
 except FileNotFoundError:
     print(f"{sys.argv[0]}: {sys.argv[1]} not found")
     sys.exit(2)
-

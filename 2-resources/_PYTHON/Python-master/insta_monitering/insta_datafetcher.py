@@ -24,7 +24,6 @@ except:
 
 
 class PorxyApplyingDecorator(object):
-
     def __init__(self):
         filename = os.getcwd() + "/" + "ipList.txt"
         with open(filename, "r") as f:
@@ -34,12 +33,14 @@ class PorxyApplyingDecorator(object):
     def __call__(self, function_to_call_for_appling_proxy):
         SOCKS5_PROXY_HOST = self._IP
         # default_socket = socket.socket
-        socks.set_default_proxy(socks.SOCKS5,
-                                SOCKS5_PROXY_HOST,
-                                config.SOCKS5_PROXY_PORT,
-                                True,
-                                config.auth,
-                                config.passcode)
+        socks.set_default_proxy(
+            socks.SOCKS5,
+            SOCKS5_PROXY_HOST,
+            config.SOCKS5_PROXY_PORT,
+            True,
+            config.auth,
+            config.passcode,
+        )
         socket.socket = socks.socksocket
 
         def wrapper_function(url):
@@ -53,13 +54,13 @@ class PorxyApplyingDecorator(object):
 async def dataprocess(htmldata):
     bs4obj = bs4.BeautifulSoup(htmldata, "html.parser")
     scriptsdata = bs4obj.findAll("script", {"type": "text/javascript"})
-    datatext = ''
+    datatext = ""
     for i in scriptsdata:
         datatext = i.text
         if "window._sharedData =" in datatext:
             break
     datajson = re.findall("{(.*)}", datatext)
-    datajson = '{' + datajson[0] + '}'
+    datajson = "{" + datajson[0] + "}"
     datadict = ujson.loads(datajson)
     maindict = {}
     datadict = datadict["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]
@@ -74,14 +75,17 @@ async def dataprocess(htmldata):
 
 async def datapullpost(future, url):
     while True:
+
         @PorxyApplyingDecorator()
         async def request_pull(url):
             data = None
             print(url)
             urllib3.disable_warnings()
-            user_agent = {'User-agent': 'Mozilla/17.0'}
+            user_agent = {"User-agent": "Mozilla/17.0"}
             try:
-                data = requests.get(url=url, headers=user_agent, timeout=10, verify=False).text
+                data = requests.get(
+                    url=url, headers=user_agent, timeout=10, verify=False
+                ).text
             except:
                 data = None
             finally:
@@ -95,8 +99,7 @@ async def datapullpost(future, url):
     future.set_result(data)
 
 
-class MoniteringClass():
-
+class MoniteringClass:
     def __init__(self, user, tags, type, productId):
 
         try:
@@ -116,8 +119,8 @@ class MoniteringClass():
         try:
             if not isinstance(data, dict):
                 raise Exception
-            media_post = data['tag']["media"]["nodes"]
-            top_post = data['tag']["top_posts"]["nodes"]
+            media_post = data["tag"]["media"]["nodes"]
+            top_post = data["tag"]["top_posts"]["nodes"]
             print("media post ::", len(media_post))
             print("top_post::", len(top_post))
             futures = []
@@ -188,14 +191,17 @@ class MoniteringClass():
     def request_data_from_instagram(self):
         try:
             while True:
+
                 @PorxyApplyingDecorator()
                 def reqest_pull(url):
                     print(url)
                     data = None
                     urllib3.disable_warnings()
-                    user_agent = {'User-agent': 'Mozilla/17.0'}
+                    user_agent = {"User-agent": "Mozilla/17.0"}
                     try:
-                        data = requests.get(url=url, headers=user_agent, timeout=24, verify=False).text
+                        data = requests.get(
+                            url=url, headers=user_agent, timeout=24, verify=False
+                        ).text
                     except:
                         data = None
                     finally:
@@ -206,7 +212,9 @@ class MoniteringClass():
                     break
             datadict = ujson.loads(data)
             userdata, media_post, top_post = self._dataProcessing(datadict)
-            finallydata = (self._lastProcess(userdata=userdata, media_post=media_post, top_post=top_post))
+            finallydata = self._lastProcess(
+                userdata=userdata, media_post=media_post, top_post=top_post
+            )
             # print(ujson.dumps(finallydata))
         except:
             print("error::Monitering.request_data_from_instagram>>", sys.exc_info()[1])
@@ -224,7 +232,6 @@ def hashtags(user, tags, type, productId):
 
 
 class theradPorcess(multiprocessing.Process):
-
     def __init__(self, user, tags, type, productId):
         try:
             multiprocessing.Process.__init__(self)
@@ -237,13 +244,14 @@ class theradPorcess(multiprocessing.Process):
 
     def run(self):
         try:
-            hashtags(user=self.user, tags=self.tags, type=self.type, productId=self.productId)
+            hashtags(
+                user=self.user, tags=self.tags, type=self.type, productId=self.productId
+            )
         except:
             print("error::run>>", sys.exc_info()[1])
 
 
-class InstaPorcessClass():
-
+class InstaPorcessClass:
     def _dbProcessReader(self, user, tags, productId):
         value = True
         mon = pymongo.MongoClient(host=config.host, port=config.mongoPort)
@@ -334,8 +342,7 @@ class InstaPorcessClass():
             return result
 
 
-class DBDataFetcher():
-
+class DBDataFetcher:
     def __init__(self, user, tags, type, productId):
         try:
             self.mon = pymongo.MongoClient(host=config.host, port=config.mongoPort)
@@ -366,9 +373,15 @@ class DBDataFetcher():
             limit = int(limit)
             date = int(date)
             if date != 0:
-                doc = self._collection.find({"date": {"$gt": date}}).sort("date", pymongo.ASCENDING).limit(limit)
+                doc = (
+                    self._collection.find({"date": {"$gt": date}})
+                    .sort("date", pymongo.ASCENDING)
+                    .limit(limit)
+                )
             else:
-                doc = self._collection.find().sort("date", pymongo.ASCENDING).limit(limit)
+                doc = (
+                    self._collection.find().sort("date", pymongo.ASCENDING).limit(limit)
+                )
             for i in doc:
                 del i["_id"]
                 mainlist.append(i)
@@ -389,7 +402,11 @@ class DBDataFetcher():
                 raise Exception
             limit = int(limit)
             date = int(date)
-            doc = self._collection.find({"date": {"$lt": date}}).limit(limit).sort("date", pymongo.DESCENDING)
+            doc = (
+                self._collection.find({"date": {"$lt": date}})
+                .limit(limit)
+                .sort("date", pymongo.DESCENDING)
+            )
             for i in doc:
                 del i["_id"]
                 mainlist.append(i)
@@ -417,5 +434,5 @@ def main():
         print("error::main>>", sys.exc_info()[1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

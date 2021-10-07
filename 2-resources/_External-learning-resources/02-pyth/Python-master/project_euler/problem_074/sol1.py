@@ -43,15 +43,7 @@ DIGIT_FACTORIALS = {
 
 CACHE_SUM_DIGIT_FACTORIALS = {145: 145}
 
-CHAIN_LENGTH_CACHE = {
-    145: 0,
-    169: 3,
-    36301: 3,
-    1454: 3,
-    871: 2,
-    45361: 2,
-    872: 2,
-}
+CHAIN_LENGTH_CACHE = {145: 0, 169: 3, 36301: 3, 1454: 3, 871: 2, 45361: 2, 872: 2}
 
 
 def sum_digit_factorials(n: int) -> int:

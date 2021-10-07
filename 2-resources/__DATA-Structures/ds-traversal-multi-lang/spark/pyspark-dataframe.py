@@ -3,7 +3,7 @@ from pyspark.sql import functions as f
 from pyspark.sql import Window
 
 
-json_val = '''
+json_val = """
 [
   {
     "title": "Getting started",
@@ -32,9 +32,9 @@ json_val = '''
     ]
   }
 ]
-'''
+"""
 
-json_schema = '''
+json_schema = """
     ARRAY<
       STRUCT<
         title: STRING,
@@ -44,21 +44,52 @@ json_schema = '''
         >
       >
     >
-'''
+"""
 
-df = spark.createDataFrame([(json_val,)], ['j'])
+df = spark.createDataFrame([(json_val,)], ["j"])
 
 df = (
-  df.select(f.from_json('j', json_schema).alias('j'))
-    .select(f.posexplode('j').alias('section_idx', 'section'))
-    .select('section_idx', 'section.title', 'section.reset_lesson_position', 'section.lessons')
-    .withColumn('reset', f.when(f.expr('section_idx = 0 or reset_lesson_position'), 1).otherwise(0))
-    .withColumn('unit', f.sum('reset').over(Window.orderBy('section_idx')))
-    .select('unit', 'title', 'reset_lesson_position', 'section_idx', f.posexplode('lessons').alias('lesson_idx', 'lesson'))
-    .withColumn('lesson_position', f.row_number().over(Window.partitionBy('unit').orderBy('section_idx', 'lesson_idx')))
-    .withColumn('lesson', f.struct(f.col('lesson.name').alias('name'), f.col('lesson_position').alias('position')))
-    .select('title', 'reset_lesson_position', (f.col('section_idx') + 1).alias('position'), 'lesson')
-    .groupby('title', 'reset_lesson_position', 'position').agg(f.collect_list('lesson').alias('lessons'))
+    df.select(f.from_json("j", json_schema).alias("j"))
+    .select(f.posexplode("j").alias("section_idx", "section"))
+    .select(
+        "section_idx",
+        "section.title",
+        "section.reset_lesson_position",
+        "section.lessons",
+    )
+    .withColumn(
+        "reset",
+        f.when(f.expr("section_idx = 0 or reset_lesson_position"), 1).otherwise(0),
+    )
+    .withColumn("unit", f.sum("reset").over(Window.orderBy("section_idx")))
+    .select(
+        "unit",
+        "title",
+        "reset_lesson_position",
+        "section_idx",
+        f.posexplode("lessons").alias("lesson_idx", "lesson"),
+    )
+    .withColumn(
+        "lesson_position",
+        f.row_number().over(
+            Window.partitionBy("unit").orderBy("section_idx", "lesson_idx")
+        ),
+    )
+    .withColumn(
+        "lesson",
+        f.struct(
+            f.col("lesson.name").alias("name"),
+            f.col("lesson_position").alias("position"),
+        ),
+    )
+    .select(
+        "title",
+        "reset_lesson_position",
+        (f.col("section_idx") + 1).alias("position"),
+        "lesson",
+    )
+    .groupby("title", "reset_lesson_position", "position")
+    .agg(f.collect_list("lesson").alias("lessons"))
 )
 
 print(json.dumps(df.toJSON().map(json.loads).collect(), indent=4))

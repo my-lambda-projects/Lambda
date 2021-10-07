@@ -4,6 +4,7 @@
 # Avoid storing additional nodes in a data structure.
 # NOTE:  This is not necessarily a binary search tree.
 
+
 class BinarySearchTree:
     def __init__(self, value):
         self.value = value
@@ -25,4 +26,3 @@ class BinarySearchTree:
                 first_common(root1, root2.right)
                 if root1 == root2:
                     return root1
-                    

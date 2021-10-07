@@ -5,6 +5,7 @@ class Null(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#null-object-pattern}
     - External Null Object Pattern documentation: U{https://en.wikipedia.org/wiki/Null_Object_pattern}
     """
+
     def __init__(self, *args, **kwargs):
         """
         Do nothing.
@@ -54,7 +55,7 @@ class Null(object):
         @return: An empty string.
         @rtype: String
         """
-        return ''
+        return ""
 
     def __str__(self):
         """
@@ -63,7 +64,7 @@ class Null(object):
         @return: An empty string.
         @rtype: String
         """
-        return ''
+        return ""
 
     def __bool__(self):
         """

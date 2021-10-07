@@ -1,4 +1,4 @@
-# Use these facts - 
+# Use these facts -
 
 # If there are even number of negative numbers and no zeros,
 # then the min product is the product of all except the max
@@ -19,8 +19,8 @@ def find(arr):
 
     count_negative = 0
     count_zero = 0
-    max_neg = float('-inf')
-    min_pos = float('inf')
+    max_neg = float("-inf")
+    min_pos = float("inf")
 
     prod = 1
 

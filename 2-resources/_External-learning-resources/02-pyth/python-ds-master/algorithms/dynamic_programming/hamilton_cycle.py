@@ -1,5 +1,6 @@
 import functools
 
+
 def hamilton_cycle(graph, n):
     height = 1 << n
 
@@ -21,7 +22,7 @@ def hamilton_cycle(graph, n):
 
             for z in zeros:
                 if graph[o][z]:
-                    new_val =  i + (1 << z)
+                    new_val = i + (1 << z)
                     dp[new_val][z] = True
 
     return functools.reduce(lambda a, b: a or b, dp[height - 1])

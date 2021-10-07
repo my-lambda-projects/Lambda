@@ -8,6 +8,7 @@ class Receiver(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#command-pattern}
     - External Command Pattern documentation: U{https://en.wikipedia.org/wiki/Command_pattern}
     """
+
     def action(self, name, *args, **kwargs):
         """
         Delegates which method to be called for a desired action.
@@ -20,7 +21,7 @@ class Receiver(object, metaclass=ABCMeta):
         try:
             return getattr(self, name)(*args, **kwargs)
         except AttributeError:
-            raise AttributeError('Invalid Action.')
+            raise AttributeError("Invalid Action.")
 
 
 class Command(object, metaclass=ABCMeta):
@@ -30,6 +31,7 @@ class Command(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#command-pattern}
     - External Command Pattern documentation: U{https://en.wikipedia.org/wiki/Command_pattern}
     """
+
     def __init__(self, receiver):
         """
         Initialize a new command instance.
@@ -61,6 +63,7 @@ class Invoker(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#command-pattern}
     - External Command Pattern documentation: U{https://en.wikipedia.org/wiki/Command_pattern}
     """
+
     def __init__(self, valid_commands):
         """
         Initialize a new Invoker instance.
@@ -78,7 +81,7 @@ class Invoker(object, metaclass=ABCMeta):
         @type command: Command
         """
         if command.__class__ not in self._valid_commands:
-            raise AttributeError('Invalid Command')
+            raise AttributeError("Invalid Command")
         else:
             self._history.append(command)
             return command.execute()

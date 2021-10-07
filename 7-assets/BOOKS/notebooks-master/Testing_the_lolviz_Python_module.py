@@ -1,18 +1,17 @@
-
 # coding: utf-8
 
 # # Table of Contents
 #  <p><div class="lev1 toc-item"><a href="#Testing-lolviz" data-toc-modified-id="Testing-lolviz-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Testing <a href="https://github.com/parrt/lolviz" target="_blank">lolviz</a></a></div><div class="lev2 toc-item"><a href="#Testing-naively" data-toc-modified-id="Testing-naively-11"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Testing naively</a></div><div class="lev2 toc-item"><a href="#Testing-from-within-a-Jupyter-notebook" data-toc-modified-id="Testing-from-within-a-Jupyter-notebook-12"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Testing from within a Jupyter notebook</a></div><div class="lev3 toc-item"><a href="#List" data-toc-modified-id="List-121"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>List</a></div><div class="lev3 toc-item"><a href="#List-of-lists" data-toc-modified-id="List-of-lists-122"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>List of lists</a></div><div class="lev3 toc-item"><a href="#List-of-lists-of-lists???" data-toc-modified-id="List-of-lists-of-lists???-123"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>List of lists of lists???</a></div><div class="lev3 toc-item"><a href="#Tree" data-toc-modified-id="Tree-124"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>Tree</a></div><div class="lev3 toc-item"><a href="#Objects" data-toc-modified-id="Objects-125"><span class="toc-item-num">1.2.5&nbsp;&nbsp;</span>Objects</a></div><div class="lev3 toc-item"><a href="#Calls" data-toc-modified-id="Calls-126"><span class="toc-item-num">1.2.6&nbsp;&nbsp;</span>Calls</a></div><div class="lev3 toc-item"><a href="#String" data-toc-modified-id="String-127"><span class="toc-item-num">1.2.7&nbsp;&nbsp;</span>String</a></div><div class="lev2 toc-item"><a href="#Conclusion" data-toc-modified-id="Conclusion-13"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Conclusion</a></div>
 
 # # Testing [lolviz](https://github.com/parrt/lolviz)
-# 
+#
 # I liked how the [lolviz](https://github.com/parrt/lolviz) module looked like. Let's try it!
 
 # In[1]:
 
 
-get_ipython().run_line_magic('load_ext', 'watermark')
-get_ipython().run_line_magic('watermark', '-v -m -p lolviz')
+get_ipython().run_line_magic("load_ext", "watermark")
+get_ipython().run_line_magic("watermark", "-v -m -p lolviz")
 
 
 # In[3]:
@@ -26,18 +25,18 @@ from lolviz import *
 # In[4]:
 
 
-data = ['hi', 'mom', {3, 4}, {"parrt": "user"}]
+data = ["hi", "mom", {3, 4}, {"parrt": "user"}]
 g = listviz(data)
-print(g.source) # if you want to see the graphviz source
-g.view() # render and show graphviz.files.Source object
+print(g.source)  # if you want to see the graphviz source
+g.view()  # render and show graphviz.files.Source object
 
 
 # It opened a window showing me this image:
-# 
+#
 # <img src="data/Testing_the_lolviz_Python_module_1.png" width=55%>
 
 # ## Testing from within a Jupyter notebook
-# 
+#
 # I test here all [the features of lolviz](https://github.com/parrt/lolviz#functionality) :
 
 # ### List
@@ -45,7 +44,7 @@ g.view() # render and show graphviz.files.Source object
 # In[13]:
 
 
-squares = [ i**2 for i in range(10) ]
+squares = [i ** 2 for i in range(10)]
 
 
 # In[14]:
@@ -87,11 +86,9 @@ lolviz(example_matrix)
 
 
 n, m, o = 2, 3, 4
-example_3D_matrix = [[[
-    1 if i < j < k else 0
-    for i in range(n)]
-    for j in range(m)]
-    for k in range(o)]
+example_3D_matrix = [
+    [[1 if i < j < k else 0 for i in range(n)] for j in range(m)] for k in range(o)
+]
 
 
 # In[23]:
@@ -116,12 +113,8 @@ lolviz(example_3D_matrix)
 
 anakin = {
     "name": "Anakin Skywalker",
-    "son": {
-        "name": "Luke Skywalker",
-    },
-    "daughter": {
-        "name": "Leia Skywalker",
-    },
+    "son": {"name": "Luke Skywalker"},
+    "daughter": {"name": "Leia Skywalker"},
 }
 
 
@@ -129,17 +122,18 @@ anakin = {
 
 
 from pprint import pprint
+
 pprint(anakin)
 
 
 # In[42]:
 
 
-treeviz(anakin, leftfield='son', rightfield='daugther')
+treeviz(anakin, leftfield="son", rightfield="daugther")
 
 
 # It doesn't work out of the box for dictionaries, sadly.
-# 
+#
 # Let's check another example:
 
 # In[67]:
@@ -150,13 +144,13 @@ class Tree:
         self.value = value
         self.left = left
         self.right = right
-        
-root = Tree('parrt',
-            Tree('mary',
-                 Tree('jim',
-                      Tree('srinivasan'),
-                      Tree('april'))),
-            Tree('xue',None,Tree('mike')))
+
+
+root = Tree(
+    "parrt",
+    Tree("mary", Tree("jim", Tree("srinivasan"), Tree("april"))),
+    Tree("xue", None, Tree("mike")),
+)
 
 treeviz(root)
 
@@ -186,7 +180,7 @@ objviz(anakin.items())
 # In[74]:
 
 
-z = 1+4j
+z = 1 + 4j
 
 
 # In[75]:
@@ -209,9 +203,12 @@ objviz(z)
 
 
 def factorial(n):
-    if n < 0: return 0
-    elif n == 0: return 1
-    else: return n * factorial(n - 1)
+    if n < 0:
+        return 0
+    elif n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
 
 
 # In[57]:
@@ -234,9 +231,12 @@ from IPython.display import display
 
 def factorial2(n):
     display(callsviz(varnames=["n"]))
-    if n < 0: return 0
-    elif n == 0: return 1
-    else: return n * factorial2(n - 1)
+    if n < 0:
+        return 0
+    elif n == 0:
+        return 1
+    else:
+        return n * factorial2(n - 1)
 
 
 # In[73]:
@@ -254,6 +254,7 @@ print(f"{n}! = {factorial2(n)}")
 
 
 import string
+
 string.hexdigits
 
 

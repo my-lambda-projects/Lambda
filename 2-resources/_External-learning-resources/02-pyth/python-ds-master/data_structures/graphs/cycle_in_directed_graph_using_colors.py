@@ -5,30 +5,28 @@ Gray - vertices that are in DFS
 Black - fully traversed vertices (i.e its progenies are also done)
 
 If while traversing any adjacent node is colored Gray, that means cycle exists
-"""  
+"""
 
 from collections import defaultdict
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.vertices = vertices
         self.graph = defaultdict(list)
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
 
-
     def detect_cycle(self):
-        color = ['white'] * self.vertices
+        color = ["white"] * self.vertices
         visited = [False] * self.vertices
 
         stack = []
 
         for v in range(self.vertices):
-            if color[v] == 'white':
-                color[v] = 'gray'
+            if color[v] == "white":
+                color[v] = "gray"
 
                 stack.append(v)
 
@@ -36,14 +34,14 @@ class Graph:
                     s = stack.pop()
 
                     for i in self.graph[s]:
-                        if color[i] == 'white':
+                        if color[i] == "white":
                             stack.append(i)
-                            color[i] = 'gray'
-                        elif color[i] == 'gray':
+                            color[i] = "gray"
+                        elif color[i] == "gray":
                             return "Cycle detected"
 
-            color[v] = 'black'
-        
+            color[v] = "black"
+
         return "Cycle not present"
 
 

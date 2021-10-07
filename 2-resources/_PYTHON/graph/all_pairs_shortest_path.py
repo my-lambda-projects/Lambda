@@ -16,6 +16,7 @@ result
 """
 import copy
 
+
 def all_pairs_shortest_path(adjacency_matrix):
     new_array = copy.deepcopy(adjacency_matrix)
 
@@ -23,6 +24,6 @@ def all_pairs_shortest_path(adjacency_matrix):
         for i in range(len(new_array)):
             for j in range(len(new_array)):
                 if new_array[i][j] > new_array[i][k] + new_array[k][j]:
-                    new_array[i][j] = new_array[i][k] + new_array[k][j]           
-    
+                    new_array[i][j] = new_array[i][k] + new_array[k][j]
+
     return new_array

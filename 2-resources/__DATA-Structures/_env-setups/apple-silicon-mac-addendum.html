@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>apple-silicon-mac-addendum</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1 id="apple-silicon-macs-and-software-development">
+      Apple Silicon Macs and Software Development
+    </h1>
+    <blockquote>
+      <p>
+        Note this document will change often. As new software gets updated for
+        Apple Silicon this document will be ever-evolving.
+      </p>
+    </blockquote>
+    <p>
+      In November 2020, Apple released their first Macintosh computers running
+      custom Apple designed CPUs instead of using the Intel CPUs they had used
+      in the prior decade. These CPUs run an architecture called ARM (Acorn Risc
+      Machine)
+    </p>
+    <h2 id="what-is-an-architecture">What is an architecture?</h2>
+    <p>
+      At the lowest level, the CPU (Central Processing Unit) of a computer uses
+      something called an <em>instruction set</em> to actually do the work of
+      running programs.
+    </p>
+    <p>
+      In this course we learn JavaScript and Python which are both
+      <em>high-level languages</em>.
+    </p>
+    <p>
+      So we don’t have to worry about the instruction set of our CPUs do we?
+    </p>
+    <p>
+      Not directly, but since we’ve had more than a decade of Apple computers
+      using the Intel x86 instruction set (sometimes abbreviated x86, x64,
+      x86_64 or i386) much of the software we use hasn’t been
+      <em>compiled</em> for the new Apple Silicon architecture called ARM (Acorn
+      Risc Machines, sometimes abbreviated as arm64).
+    </p>
+    <p>
+      Your Apple Silicon based Mac has a piece of software called Rosetta 2 that
+      will translate x86 instuctions into ARM instructions, and this is mostly
+      transparent, although the software does run with about 70% of the
+      performance of software compiled directly for ARM.
+    </p>
+    <p>
+      <strong
+        >Luckily as of March 2021, we don’t have to use Rosetta 2 for most of
+        our development tools.</strong
+      >
+    </p>
+    <h2 id="a-note-on-universal-apps">A Note on Universal Apps</h2>
+    <p>
+      Some apps are ‘universal’ on macOS. This means they’ve been compiled for
+      BOTH Intel and ARM architectures, and the file for the app contains BOTH
+      sets of instructions. An example of this is the zsh shell. You can use the
+      <code>file</code> command in macOS to determine if an apple is intel, arm
+      or universal.
+    </p>
+    <pre class="shell"><code>file /bin/zsh
+/bin/zsh: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64e:Mach-O 64-bit executable arm64e]
+/bin/zsh (for architecture x86_64):     Mach-O 64-bit executable x86_64
+/bin/zsh (for architecture arm64e):     Mach-O 64-bit executable arm64e</code></pre>
+    <p>
+      You can see zsh is universal since it lists both x86_64 and arm64e
+      architectures.
+    </p>
+    <h2 id="what-this-means-for-developers">What this means for developers</h2>
+    <p>
+      Whenever we compile software from the command prompt, that software must
+      be turned into <em>machine code</em> for whatever processor our computer
+      has. Since macOS can run both x86 programs and ARM programs, we need a way
+      to tell our computer we would like to run things in Rosetta or not from
+      the command line.
+    </p>
+    <p>
+      macOS ships with a command to do just that, the <code>arch</code> command.
+    </p>
+    <p>
+      You can run it at anytime and it will print out the current architecture
+      of your shell.
+    </p>
+    <pre class="shell"><code>&gt; arch
+arm64</code></pre>
+    <p>
+      If it prints <code>arm64</code> you are running natively on Apple Silicon.
+      If it prints out <code>i386</code> you are running under Rosetta 2.
+    </p>
+    <p>
+      You can also preface any command with <code>arch</code> to force it to run
+      under any particular architecture. For instance if we would like to run
+      our shell <code>zsh</code> under Rosetta 2 we can do this:
+    </p>
+    <pre class="shell"><code>arch -x86_64 zsh</code></pre>
+    <p>
+      This starts a brand new shell that is running in Rosetta 2. If you use the
+      <code>arch</code> command by itself now, you’ll see it prints out
+      <code>i386</code>.
+    </p>
+    <p>This is handy for when we want to run something in Rosetta 2.</p>
+    <p>
+      However, as of March 2021, several improvments have been made to how
+      homebrew, node and python work on Apple Silicon machines, and it is
+      possible to install them as native ARM compiled binaries so we won’t need
+      to use Rosetta 2 much for our development.
+    </p>
+    <h3 id="homebrew-for-arm">Homebrew for ARM</h3>
+    <p>
+      If you run the homebrew installer on an M1 Mac. Homebrew will install the
+      ARM version of homebrew into the <code>/opt/homebrew</code> folder instead
+      of the usual <code>/usr/local</code> folder used on Intel macs. So follow
+      the normal instructions for setting up Homebrew on macOS.
+    </p>
+    <h3 id="python-3.9-and-arm">Python 3.9 and ARM</h3>
+    <p>
+      Python 3.9 will compile under ARM, so we mostly use the regular macOS
+      instructions to install it, however….
+    </p>
+    <p>
+      Python 3.9 needs homebrew ARM versions of <code>openssl</code> and
+      <code>readline</code> installed.
+    </p>
+    <p>We can install these with homebrew:</p>
+    <pre class="shell"><code>brew install openssl readline</code></pre>
+    <p>
+      After this you can install the ARM version of python 3.9 (substitute the
+      latest 3.9 version here)
+    </p>
+    <pre class="shell"><code>pyenv install 3.9.4</code></pre>
+    <p>Compiling python from source can take quite a while.</p>
+    <p>
+      You can check what architecture your python is compiled with by running
+      this at the python REPL once Python is installed.
+    </p>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> platform</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="op">&gt;&gt;&gt;</span> platform.machine()</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">&#39;arm64&#39;</span></a></code></pre>
+    </div>
+    <h3 id="node.js-and-arm">Node.JS and ARM</h3>
+    <p>
+      Node.JS 12 and 14 have both been updated to compile correctly on Apple
+      Silicon.
+    </p>
+    <p>
+      Node.JS will compile under ARM when you try to install it under nvm but
+      ONLY if your python is ALSO compiled as ARM. (This is because the Node.JS
+      compile process uses python scripts to determine the architecture.)
+    </p>
+    <p>So make sure you do the python install first.</p>
+    <p><code>nvm install 12</code></p>
+    <p>
+      You can verify what architecture your node is compiled for by starting the
+      Node.JS REPL and typing the following:
+    </p>
+    <div class="sourceCode" id="cb7">
+      <pre
+        class="sourceCode js"
+      ><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="op">&gt;</span> <span class="va">os</span>.<span class="at">arch</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="st">&#39;arm64&#39;</span></a></code></pre>
+    </div>
+    <p>
+      <em
+        >Note: This will take longer to install since it must compile
+        Node.JS.</em
+      >
+    </p>
+    <h2 id="google-chrome">Google Chrome</h2>
+    <p>
+      Google Chrome already has an Apple Silicon version of itself. You should
+      definitely install this version when downloading Chrome.
+    </p>
+    <h3 id="recommendation-install-the-apple-chip-version-of-chrome">
+      <strong>Recommendation:</strong> Install the Apple Chip version of Chrome
+    </h3>
+    <h2 id="visual-studio-code">Visual Studio Code</h2>
+    <p>
+      Visual Studio Code is available compiled as either Intel, Apple Silicon or
+      as a Universal App.
+    </p>
+    <p>
+      You can install either the Apple Silicon or Universal Version and it will
+      work well on your Apple Silicon based Mac.
+    </p>
+    <h3 id="recomendation-install-the-apple-silicon-or-universal-version">
+      <strong>Recomendation:</strong> Install the Apple Silicon or Universal
+      Version
+    </h3>
+    <h3 id="docker">Docker</h3>
+    <p>
+      Docker is generally available for Apple Silicon. You can install it by
+      downloading docker desktop from this location:
+    </p>
+    <p>
+      <a href="https://www.docker.com/products/docker-desktop"
+        >Docker Desktop for M1</a
+      >
+    </p>
+    <h3 id="recommendation-install-the-docker-desktop-for-mac-with-apple-chip">
+      <strong>Recommendation:</strong> Install the Docker Desktop for Mac with
+      Apple Chip
+    </h3>
+  </body>
+</html>

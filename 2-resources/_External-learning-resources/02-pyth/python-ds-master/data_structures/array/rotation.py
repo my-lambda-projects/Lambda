@@ -1,7 +1,7 @@
 def gcd(a, b):
     if b == 0:
         return a
-    return gcd(b, a%b)
+    return gcd(b, a % b)
 
 
 def rotate(arr, d):
@@ -20,8 +20,8 @@ def rotate(arr, d):
             arr[j] = arr[k]
             j = k
         arr[j] = temp
-        
 
-arr = [1,2,3,4,5]
+
+arr = [1, 2, 3, 4, 5]
 rotate(arr, 3)
 print(arr)

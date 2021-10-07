@@ -1,5 +1,6 @@
 # The array is sorted in decreasing order
 
+
 def count(arr):
     start = 0
     end = len(arr) - 1
@@ -15,6 +16,6 @@ def count(arr):
     return 0
 
 
-arr = [0,0,0,0]
+arr = [0, 0, 0, 0]
 
 print(count(arr))

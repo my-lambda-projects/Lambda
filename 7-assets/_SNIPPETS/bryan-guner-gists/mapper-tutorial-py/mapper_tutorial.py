@@ -28,7 +28,12 @@ while len(new_urls):
     print("Processing %s" % url)
     try:
         response = requests.get(url)
-    except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError, requests.exceptions.InvalidURL, requests.exceptions.InvalidSchema):
+    except (
+        requests.exceptions.MissingSchema,
+        requests.exceptions.ConnectionError,
+        requests.exceptions.InvalidURL,
+        requests.exceptions.InvalidSchema,
+    ):
         # add broken urls to it's own set, then continue
         broken_urls.add(url)
         continue
@@ -38,21 +43,21 @@ while len(new_urls):
     base = "{0.netloc}".format(parts)
     strip_base = base.replace("www.", "")
     base_url = "{0.scheme}://{0.netloc}".format(parts)
-    path = url[:url.rfind('/')+1] if '/' in parts.path else url
+    path = url[: url.rfind("/") + 1] if "/" in parts.path else url
 
     # create a beutiful soup for the html document
     soup = BeautifulSoup(response.text, "lxml")
 
-    for link in soup.find_all('a'):
+    for link in soup.find_all("a"):
         # extract link url from the anchor
-        anchor = link.attrs["href"] if "href" in link.attrs else ''
+        anchor = link.attrs["href"] if "href" in link.attrs else ""
 
-        if anchor.startswith('/'):
+        if anchor.startswith("/"):
             local_link = base_url + anchor
             local_urls.add(local_link)
         elif strip_base in anchor:
             local_urls.add(anchor)
-        elif not anchor.startswith('http'):
+        elif not anchor.startswith("http"):
             local_link = path + anchor
             local_urls.add(local_link)
         else:

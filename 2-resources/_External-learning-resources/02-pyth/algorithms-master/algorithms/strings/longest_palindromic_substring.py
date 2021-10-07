@@ -1,4 +1,4 @@
-'''
+"""
 Given string s, find the longest palindromic substring.
 
 Example1:
@@ -13,13 +13,14 @@ Example2:
 
 Manacher's algorithm
 
-'''
+"""
+
 
 def longest_palindrome(s):
     if len(s) < 2:
         return s
 
-    n_str = '#' + '#'.join(s) + '#'
+    n_str = "#" + "#".join(s) + "#"
     p = [0] * len(n_str)
     mx, loc = 0, 0
     index, maxlen = 0, 0
@@ -29,8 +30,11 @@ def longest_palindrome(s):
         else:
             p[i] = 1
 
-        while p[i] + i < len(n_str) and i - p[i] >= 0 and n_str[
-                i - p[i]] == n_str[i + p[i]]:
+        while (
+            p[i] + i < len(n_str)
+            and i - p[i] >= 0
+            and n_str[i - p[i]] == n_str[i + p[i]]
+        ):
             p[i] += 1
 
         if i + p[i] > mx:
@@ -40,5 +44,5 @@ def longest_palindrome(s):
         if p[i] > maxlen:
             index = i
             maxlen = p[i]
-    s = n_str[index - p[index] + 1:index + p[index]]
-    return s.replace('#', '')
+    s = n_str[index - p[index] + 1 : index + p[index]]
+    return s.replace("#", "")

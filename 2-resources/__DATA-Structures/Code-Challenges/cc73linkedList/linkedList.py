@@ -1,5 +1,5 @@
 # cc73linkedList https://repl.it/student/submissions/1891345
-'''
+"""
 Now it's time to implement a linked list in Python!
 The main takeaway of this exercise is to delve into classes and OOP in Python.
 
@@ -19,4 +19,4 @@ Note that when we invoke a class method, you don't actually pass self into the
 class method. For example, if we want to instantiate a new Node instance, we can
 do that with new_node = Node(data), where data is the piece of data we want the
 Node to hold. We don't need to actually pass in some context as the first parameter.
-'''
+"""

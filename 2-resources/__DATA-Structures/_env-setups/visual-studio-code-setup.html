@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>visual-studio-code-setup</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="visual-studio-code">Visual Studio Code</h1>
+    <p>
+      Our code editor of choice in this course is Microsoft’s Visual Studio
+      Code.
+    </p>
+    <p>
+      This is an open source cross-platform code editor built with
+      Javascript.<br />
+      Don’t confuse this with Microsoft’s other product
+      <em>Visual Studio</em> which is designed to only program for the Windows
+      platform. Visual Studio Code (or VSCode) is a multi-language editor that
+      can handle almost any programming language for any platform.
+    </p>
+    <p>
+      Go to website for
+      <a href="https://code.visualstudio.com/">Visual Studio Code</a>, then
+      download and install VS Code.
+    </p>
+    <p>You’ll want to make sure you download the Stable release.</p>
+    <h2 id="macos">macOS</h2>
+    <p>
+      Download the DMG (Disk Image) file for VSCode and open it up. This will
+      mount as virtual ‘disk’ on your desktop. Drag the VSCode icon to your
+      Applications folder and then eject the virtual disk on the Desktop by
+      dragging it to the Trash.
+    </p>
+    <p>
+      In macOS the command line utility <code>code</code> isn’t instaled by
+      default when you install VSCode.
+    </p>
+    <p>
+      Open the VS Code editor, open the Command Palette
+      (<code>Cmd+Shift+P</code>) and type type <code>shell command</code> to
+      find the
+      <code>Shell Command: Install 'code' command in PATH</code> command.
+    </p>
+    <p>
+      This will now allow you to easily open files in VS Code from the terminal
+      using the <code>code</code> command followed by a file or directory.
+    </p>
+    <h2 id="windows">Windows</h2>
+    <p>
+      In Windows we will be using VSCode alongside WSL (Windows Subsystem for
+      Linux)
+    </p>
+    <p>
+      In order to do this, we must make sure we install this VSCode extension:
+    </p>
+    <p>
+      <a
+        href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl"
+        >Remote: WSL by Microsoft</a
+      >
+    </p>
+    <p>
+      Once you’ve installed this you can open VSCode and connect to your WSL
+      instance.
+    </p>
+    <p>
+      Make sure you read this tutorial from Microsoft on how to use WSL and
+      VSCode together:
+    </p>
+    <p>
+      <a href="https://code.visualstudio.com/docs/remote/wsl-tutorial"
+        >Remote Development in WSL</a
+      >
+    </p>
+    <h2 id="ubuntu">Ubuntu</h2>
+    <p>
+      To install VSCode in Ubuntu Linux, download the 64-bit .deb file to your
+      Downloads folder, the open that folder in your File Manager and double
+      click on it to install it.
+    </p>
+  </body>
+</html>

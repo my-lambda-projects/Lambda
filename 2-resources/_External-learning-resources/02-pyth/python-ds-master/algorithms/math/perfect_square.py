@@ -14,7 +14,7 @@ def is_perfect_square(num):
         return True
     else:
         return False
-        
+
 
 # Test
 print(is_perfect_square(16))

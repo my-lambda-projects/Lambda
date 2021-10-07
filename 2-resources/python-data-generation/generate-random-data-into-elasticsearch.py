@@ -5,6 +5,8 @@ import json
 
 esDomainEndpoint = "http://search-endpoint:80"
 es = Elasticsearch(esDomainEndpoint)
+
+
 def create_names(fake):
     for x in range(100):
         genUname = fake.slug()
@@ -15,7 +17,7 @@ def create_names(fake):
         genProfile = fake.profile()
         go = es.index(
             index="profiles",
-            #doc_type="users",
+            # doc_type="users",
             id=genUname,
             body={
                 "name": genName,
@@ -23,10 +25,12 @@ def create_names(fake):
                 "country": genCountry,
                 "notes": genText,
                 "profile_details": genProfile,
-                "timestamp": datetime.now()
-            }
+                "timestamp": datetime.now(),
+            },
         )
         print(json.dumps(go))
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     fake = Factory.create()
     create_names(fake)

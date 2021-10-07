@@ -9,15 +9,18 @@ import time
 
 try:
     sessions = Table(
-        table_name='usertable',
-        schema=[HashKey('id')],
+        table_name="usertable",
+        schema=[HashKey("id")],
         connection=DynamoDBConnection(
-        region=RegionInfo(name='eu-west-1',
-                          endpoint='dynamodb.eu-west-1.amazonaws.com')
-        ))
+            region=RegionInfo(
+                name="eu-west-1", endpoint="dynamodb.eu-west-1.amazonaws.com"
+            )
+        ),
+    )
 
 except:
     print("connection not successful")
+
 
 def create_session():
     id = str(uuid.uuid4())
@@ -26,20 +29,23 @@ def create_session():
     users_id = Factory.create().slug()
     users_name = Factory.create().first_name()
     users_surname = Factory.create().last_name()
-    res = sessions.put_item(data={
-        'username': id,
-        'data': {
-            'user_id': users_id,
-            'name' : users_name,
-            'surname' : users_surname,
-            'ip': str(ipv4),
-            'datetime': timestamp
+    res = sessions.put_item(
+        data={
+            "username": id,
+            "data": {
+                "user_id": users_id,
+                "name": users_name,
+                "surname": users_surname,
+                "ip": str(ipv4),
+                "datetime": timestamp,
+            },
         }
-    })
+    )
 
-    print('Created: ' + str(res))
+    print("Created: " + str(res))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
 
     for x in range(20):
         create_session()

@@ -17,6 +17,7 @@ Swedish alphabet only extends the Latin one.
 
 from string import ascii_lowercase
 
+
 def panagram(string):
     """
     Returns whether the input string is an English panagram or not.

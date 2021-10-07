@@ -8,6 +8,7 @@ class Observer(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#observer-pattern}
     - External Observer Pattern documentation: U{https://en.wikipedia.org/wiki/Observer_pattern}
     """
+
     @abstractmethod
     def update(self, **state):
         """
@@ -23,6 +24,7 @@ class Observable(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#observer-pattern}
     - External Observer Pattern documentation: U{https://en.wikipedia.org/wiki/Observer_pattern}
     """
+
     def __init__(self):
         """
         Initialize a new Observable instance.
@@ -55,6 +57,9 @@ class Observable(object):
         Notify all attached Observers of the state of this Observable.
         """
         for observer in self._observers:
-            state = {k: v for k, v in self.__dict__.items() if not k.startswith('__') and not k.startswith('_')}
+            state = {
+                k: v
+                for k, v in self.__dict__.items()
+                if not k.startswith("__") and not k.startswith("_")
+            }
             observer.update(**state)
-

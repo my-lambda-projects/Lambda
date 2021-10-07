@@ -1,13 +1,11 @@
-class TreeNode():
-
-    def __init__(self, val ,left, right):
+class TreeNode:
+    def __init__(self, val, left, right):
         self.val = val
         self.left = None
         self.right = None
 
 
-class LLNode():
-
+class LLNode:
     def __init__(self, val, next):
         self.val = val
         self.next = None
@@ -30,4 +28,3 @@ def ll_to_bst_recur(head, n):
         return None
     # TODO: Fix me!
     # left = ll_to_bst_recur(
-    

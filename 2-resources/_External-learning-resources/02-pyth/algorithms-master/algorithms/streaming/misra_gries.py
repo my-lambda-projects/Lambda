@@ -1,4 +1,3 @@
-
 """
 Implementation of the Misra-Gries algorithm.
 Given a list of items and a value k, it returns the every item in the list that appears at least n/k times, where n is the length of the array
@@ -17,33 +16,33 @@ Output {'0':4,'1':3}
 Input misras_gries([0,0,0,1,1,1]
 Output None
 """
-def misras_gries(array,k=2):
-  keys = {}
-  for i in range(len(array)):
-    val = str(array[i])
-    if val in keys:
-      keys[val] = keys[val] + 1
 
-    elif len(keys) < k - 1:
-      keys[val] = 1
 
-    else:
-      for key in list(keys):
-        keys[key] = keys[key] - 1
-        if keys[key] == 0:
-          del keys[key]
+def misras_gries(array, k=2):
+    keys = {}
+    for i in range(len(array)):
+        val = str(array[i])
+        if val in keys:
+            keys[val] = keys[val] + 1
 
-  suspects =  keys.keys()
-  frequencies = {}
-  for suspect in suspects:
-    freq = _count_frequency(array,int(suspect))
-    if freq >= len(array) / k:
-      frequencies[suspect] = freq
+        elif len(keys) < k - 1:
+            keys[val] = 1
 
-  return frequencies if len(frequencies) > 0 else None
-  
+        else:
+            for key in list(keys):
+                keys[key] = keys[key] - 1
+                if keys[key] == 0:
+                    del keys[key]
 
-def _count_frequency(array,element):
-  return array.count(element)
+    suspects = keys.keys()
+    frequencies = {}
+    for suspect in suspects:
+        freq = _count_frequency(array, int(suspect))
+        if freq >= len(array) / k:
+            frequencies[suspect] = freq
 
-      
+    return frequencies if len(frequencies) > 0 else None
+
+
+def _count_frequency(array, element):
+    return array.count(element)

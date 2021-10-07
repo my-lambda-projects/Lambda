@@ -1,8 +1,8 @@
 # Check whether a tree statisfies children sum property
 # Children sum property is such that every partent = left + right child
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None

@@ -1,31 +1,40 @@
-class Queue():
+class Queue:
     def __init__(self):
         self.queue = []
+
     def enqueue(self, value):
         self.queue.append(value)
+
     def dequeue(self):
         if self.size() > 0:
             return self.queue.pop(0)
         else:
             return None
+
     def size(self):
         return len(self.queue)
 
-class Stack():
+
+class Stack:
     def __init__(self):
         self.stack = []
+
     def push(self, value):
         self.stack.append(value)
+
     def pop(self):
         if self.size() > 0:
             return self.stack.pop()
         else:
             return None
+
     def size(self):
         return len(self.stack)
 
+
 class Graph:
     """Represent a graph as a dictionary of vertices mapping labels to edges."""
+
     def __init__(self):
         self.vertices = {}
 
@@ -126,11 +135,11 @@ class Graph:
         starting_vertex to destination_vertex in
         breadth-first order.
         """
-        #Create an empty list to store the visited vertices
+        # Create an empty list to store the visited vertices
         visited = []
         # Create an empty Queue and enqueue & PATH TO the starting vertex
         q = Queue()
-        q.enqueue( [starting_vertex] )
+        q.enqueue([starting_vertex])
 
         # While the queue is not empty...
         while q.size() > 0:
@@ -158,7 +167,7 @@ class Graph:
 
         # If nothing matched and we hit the end, we return None
         return None
-    
+
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
@@ -198,8 +207,8 @@ class Graph:
 
         return None
 
-    
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     graph = Graph()
     graph.add_vertex(1)
     graph.add_vertex(2)

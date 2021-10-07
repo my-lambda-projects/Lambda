@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>modules</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="navigation">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li><a href="inputoutput.html" title="7. Input and Output">next</a> |</li>
+      <li>
+        <a href="datastructures.html" title="5. Data Structures">previous</a> |
+      </li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+    <p><span id="tut-modules"></span></p>
+    <h1 id="modules">
+      <span class="section-number">6. </span>Modules<a
+        href="#modules"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h1>
+    <p>
+      If you quit from the Python interpreter and enter it again, the
+      definitions you have made (functions and variables) are lost. Therefore,
+      if you want to write a somewhat longer program, you are better off using a
+      text editor to prepare the input for the interpreter and running it with
+      that file as input instead. This is known as creating a <em>script</em>.
+      As your program gets longer, you may want to split it into several files
+      for easier maintenance. You may also want to use a handy function that
+      you’ve written in several programs without copying its definition into
+      each program.
+    </p>
+    <p>
+      To support this, Python has a way to put definitions in a file and use
+      them in a script or in an interactive instance of the interpreter. Such a
+      file is called a <em>module</em>; definitions from a module can be
+      <em>imported</em> into other modules or into the <em>main</em> module (the
+      collection of variables that you have access to in a script executed at
+      the top level and in calculator mode).
+    </p>
+    <p>
+      A module is a file containing Python definitions and statements. The file
+      name is the module name with the suffix <code>.py</code> appended. Within
+      a module, the module’s name (as a string) is available as the value of the
+      global variable <code>__name__</code>. For instance, use your favorite
+      text editor to create a file called <code>fibo.py</code> in the current
+      directory with the following contents:
+    </p>
+    <pre><code># Fibonacci numbers module
+
+def fib(n):    # write Fibonacci series up to n
+    a, b = 0, 1
+    while a &lt; n:
+        print(a, end=&#39; &#39;)
+        a, b = b, a+b
+    print()
+
+def fib2(n):   # return Fibonacci series up to n
+    result = []
+    a, b = 0, 1
+    while a &lt; n:
+        result.append(a)
+        a, b = b, a+b
+    return result</code></pre>
+    <p>
+      Now enter the Python interpreter and import this module with the following
+      command:
+    </p>
+    <pre><code>&gt;&gt;&gt; import fibo</code></pre>
+    <p>
+      This does not enter the names of the functions defined in
+      <code>fibo</code> directly in the current symbol table; it only enters the
+      module name <code>fibo</code> there. Using the module name you can access
+      the functions:
+    </p>
+    <pre><code>&gt;&gt;&gt; fibo.fib(1000)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+&gt;&gt;&gt; fibo.fib2(100)
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+&gt;&gt;&gt; fibo.__name__
+&#39;fibo&#39;</code></pre>
+    <p>
+      If you intend to use a function often you can assign it to a local name:
+    </p>
+    <pre><code>&gt;&gt;&gt; fib = fibo.fib
+&gt;&gt;&gt; fib(500)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377</code></pre>
+    <p><span id="tut-moremodules"></span></p>
+    <h2 id="more-on-modules">
+      <span class="section-number">6.1. </span>More on Modules<a
+        href="#more-on-modules"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      A module can contain executable statements as well as function
+      definitions. These statements are intended to initialize the module. They
+      are executed only the <em>first</em> time the module name is encountered
+      in an import statement.
+      <a href="#id2" id="id1" class="footnote-reference brackets">1</a> (They
+      are also run if the file is executed as a script.)
+    </p>
+    <p>
+      Each module has its own private symbol table, which is used as the global
+      symbol table by all functions defined in the module. Thus, the author of a
+      module can use global variables in the module without worrying about
+      accidental clashes with a user’s global variables. On the other hand, if
+      you know what you are doing you can touch a module’s global variables with
+      the same notation used to refer to its functions,
+      <code>modname.itemname</code>.
+    </p>
+    <p>
+      Modules can import other modules. It is customary but not required to
+      place all
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#import"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >import</code
+        ></a
+      >
+      statements at the beginning of a module (or script, for that matter). The
+      imported module names are placed in the importing module’s global symbol
+      table.
+    </p>
+    <p>
+      There is a variant of the
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#import"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >import</code
+        ></a
+      >
+      statement that imports names from a module directly into the importing
+      module’s symbol table. For example:
+    </p>
+    <pre><code>&gt;&gt;&gt; from fibo import fib, fib2
+&gt;&gt;&gt; fib(500)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377</code></pre>
+    <p>
+      This does not introduce the module name from which the imports are taken
+      in the local symbol table (so in the example, <code>fibo</code> is not
+      defined).
+    </p>
+    <p>There is even a variant to import all names that a module defines:</p>
+    <pre><code>&gt;&gt;&gt; from fibo import *
+&gt;&gt;&gt; fib(500)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377</code></pre>
+    <p>
+      This imports all names except those beginning with an underscore
+      (<code>_</code>). In most cases Python programmers do not use this
+      facility since it introduces an unknown set of names into the interpreter,
+      possibly hiding some things you have already defined.
+    </p>
+    <p>
+      Note that in general the practice of importing <code>*</code> from a
+      module or package is frowned upon, since it often causes poorly readable
+      code. However, it is okay to use it to save typing in interactive
+      sessions.
+    </p>
+    <p>
+      If the module name is followed by <code>as</code>, then the name following
+      <code>as</code> is bound directly to the imported module.
+    </p>
+    <pre><code>&gt;&gt;&gt; import fibo as fib
+&gt;&gt;&gt; fib.fib(500)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377</code></pre>
+    <p>
+      This is effectively importing the module in the same way that
+      <code>import fibo</code> will do, with the only difference of it being
+      available as <code>fib</code>.
+    </p>
+    <p>
+      It can also be used when utilising
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#from"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >from</code
+        ></a
+      >
+      with similar effects:
+    </p>
+    <pre><code>&gt;&gt;&gt; from fibo import fib as fibonacci
+&gt;&gt;&gt; fibonacci(500)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377</code></pre>
+    <p>Note</p>
+    <p>
+      For efficiency reasons, each module is only imported once per interpreter
+      session. Therefore, if you change your modules, you must restart the
+      interpreter – or, if it’s just one module you want to test interactively,
+      use
+      <a
+        href="https://docs.python.org/3/library/importlib.html#importlib.reload"
+        class="reference internal"
+        title="importlib.reload"
+        ><code class="sourceCode python"
+          >importlib.<span class="bu">reload</span>()</code
+        ></a
+      >, e.g. <code>import importlib; importlib.reload(modulename)</code>.
+    </p>
+    <p><span id="tut-modulesasscripts"></span></p>
+    <h3 id="executing-modules-as-scripts">
+      <span class="section-number">6.1.1. </span>Executing modules as scripts<a
+        href="#executing-modules-as-scripts"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>When you run a Python module with</p>
+    <pre><code>python fibo.py &lt;arguments&gt;</code></pre>
+    <p>
+      the code in the module will be executed, just as if you imported it, but
+      with the <code>__name__</code> set to <code>"__main__"</code>. That means
+      that by adding this code at the end of your module:
+    </p>
+    <pre><code>if __name__ == &quot;__main__&quot;:
+    import sys
+    fib(int(sys.argv[1]))</code></pre>
+    <p>
+      you can make the file usable as a script as well as an importable module,
+      because the code that parses the command line only runs if the module is
+      executed as the “main” file:
+    </p>
+    <pre><code>$ python fibo.py 50
+0 1 1 2 3 5 8 13 21 34</code></pre>
+    <p>If the module is imported, the code is not run:</p>
+    <pre><code>&gt;&gt;&gt; import fibo
+&gt;&gt;&gt;</code></pre>
+    <p>
+      This is often used either to provide a convenient user interface to a
+      module, or for testing purposes (running the module as a script executes a
+      test suite).
+    </p>
+    <p><span id="tut-searchpath"></span></p>
+    <h3 id="the-module-search-path">
+      <span class="section-number">6.1.2. </span>The Module Search Path<a
+        href="#the-module-search-path"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      When a module named <code>spam</code> is imported, the interpreter first
+      searches for a built-in module with that name. If not found, it then
+      searches for a file named <code>spam.py</code> in a list of directories
+      given by the variable
+      <a
+        href="https://docs.python.org/3/library/sys.html#sys.path"
+        class="reference internal"
+        title="sys.path"
+        ><code class="sourceCode python">sys.path</code></a
+      >.
+      <a
+        href="https://docs.python.org/3/library/sys.html#sys.path"
+        class="reference internal"
+        title="sys.path"
+        ><code class="sourceCode python">sys.path</code></a
+      >
+      is initialized from these locations:
+    </p>
+    <ul>
+      <li>
+        <p>
+          The directory containing the input script (or the current directory
+          when no file is specified).
+        </p>
+      </li>
+      <li>
+        <p>
+          <span id="index-1" class="target"></span
+          ><a
+            href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH"
+            class="reference internal"
+            ><code class="xref std std-envvar docutils literal notranslate"
+              >PYTHONPATH</code
+            ></a
+          >
+          (a list of directory names, with the same syntax as the shell variable
+          <span id="index-2" class="target"></span><code>PATH</code>).
+        </p>
+      </li>
+      <li><p>The installation-dependent default.</p></li>
+    </ul>
+    <p>Note</p>
+    <p>
+      On file systems which support symlinks, the directory containing the input
+      script is calculated after the symlink is followed. In other words the
+      directory containing the symlink is <strong>not</strong> added to the
+      module search path.
+    </p>
+    <p>
+      After initialization, Python programs can modify
+      <a
+        href="https://docs.python.org/3/library/sys.html#sys.path"
+        class="reference internal"
+        title="sys.path"
+        ><code class="sourceCode python">sys.path</code></a
+      >. The directory containing the script being run is placed at the
+      beginning of the search path, ahead of the standard library path. This
+      means that scripts in that directory will be loaded instead of modules of
+      the same name in the library directory. This is an error unless the
+      replacement is intended. See section
+      <a href="#tut-standardmodules" class="reference internal"
+        ><span class="std std-ref">Standard Modules</span></a
+      >
+      for more information.
+    </p>
+    <h3 id="compiled-python-files">
+      <span class="section-number">6.1.3. </span>“Compiled” Python files<a
+        href="#compiled-python-files"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      To speed up loading modules, Python caches the compiled version of each
+      module in the <code>__pycache__</code> directory under the name
+      <code>module.version.pyc</code>, where the version encodes the format of
+      the compiled file; it generally contains the Python version number. For
+      example, in CPython release 3.3 the compiled version of spam.py would be
+      cached as <code>__pycache__/spam.cpython-33.pyc</code>. This naming
+      convention allows compiled modules from different releases and different
+      versions of Python to coexist.
+    </p>
+    <p>
+      Python checks the modification date of the source against the compiled
+      version to see if it’s out of date and needs to be recompiled. This is a
+      completely automatic process. Also, the compiled modules are
+      platform-independent, so the same library can be shared among systems with
+      different architectures.
+    </p>
+    <p>
+      Python does not check the cache in two circumstances. First, it always
+      recompiles and does not store the result for the module that’s loaded
+      directly from the command line. Second, it does not check the cache if
+      there is no source module. To support a non-source (compiled only)
+      distribution, the compiled module must be in the source directory, and
+      there must not be a source module.
+    </p>
+    <p>Some tips for experts:</p>
+    <ul>
+      <li>
+        <p>
+          You can use the
+          <a
+            href="https://docs.python.org/3/using/cmdline.html#cmdoption-o"
+            class="reference internal"
+            ><code class="xref std std-option docutils literal notranslate"
+              >-O</code
+            ></a
+          >
+          or
+          <a
+            href="https://docs.python.org/3/using/cmdline.html#cmdoption-oo"
+            class="reference internal"
+            ><code class="xref std std-option docutils literal notranslate"
+              >-OO</code
+            ></a
+          >
+          switches on the Python command to reduce the size of a compiled
+          module. The <code>-O</code> switch removes assert statements, the
+          <code>-OO</code> switch removes both assert statements and __doc__
+          strings. Since some programs may rely on having these available, you
+          should only use this option if you know what you’re doing. “Optimized”
+          modules have an <code>opt-</code> tag and are usually smaller. Future
+          releases may change the effects of optimization.
+        </p>
+      </li>
+      <li>
+        <p>
+          A program doesn’t run any faster when it is read from a
+          <code>.pyc</code> file than when it is read from a
+          <code>.py</code> file; the only thing that’s faster about
+          <code>.pyc</code> files is the speed with which they are loaded.
+        </p>
+      </li>
+      <li>
+        <p>
+          The module
+          <a
+            href="https://docs.python.org/3/library/compileall.html#module-compileall"
+            class="reference internal"
+            title="compileall: Tools for byte-compiling all Python source files in a directory tree."
+            ><code class="sourceCode python">compileall</code></a
+          >
+          can create .pyc files for all modules in a directory.
+        </p>
+      </li>
+      <li>
+        <p>
+          There is more detail on this process, including a flow chart of the
+          decisions, in <span id="index-3" class="target"></span
+          ><a
+            href="https://www.python.org/dev/peps/pep-3147"
+            class="pep reference external"
+            ><strong>PEP 3147</strong></a
+          >.
+        </p>
+      </li>
+    </ul>
+    <p><span id="tut-standardmodules"></span></p>
+    <h2 id="standard-modules">
+      <span class="section-number">6.2. </span>Standard Modules<a
+        href="#standard-modules"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Python comes with a library of standard modules, described in a separate
+      document, the Python Library Reference (“Library Reference” hereafter).
+      Some modules are built into the interpreter; these provide access to
+      operations that are not part of the core of the language but are
+      nevertheless built in, either for efficiency or to provide access to
+      operating system primitives such as system calls. The set of such modules
+      is a configuration option which also depends on the underlying platform.
+      For example, the
+      <a
+        href="https://docs.python.org/3/library/winreg.html#module-winreg"
+        class="reference internal"
+        title="winreg: Routines and objects for manipulating the Windows registry. (Windows)"
+        ><code class="sourceCode python">winreg</code></a
+      >
+      module is only provided on Windows systems. One particular module deserves
+      some attention:
+      <a
+        href="https://docs.python.org/3/library/sys.html#module-sys"
+        class="reference internal"
+        title="sys: Access system-specific parameters and functions."
+        ><code class="sourceCode python">sys</code></a
+      >, which is built into every Python interpreter. The variables
+      <code>sys.ps1</code> and <code>sys.ps2</code> define the strings used as
+      primary and secondary prompts:
+    </p>
+    <pre><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.ps1
+&#39;&gt;&gt;&gt; &#39;
+&gt;&gt;&gt; sys.ps2
+&#39;... &#39;
+&gt;&gt;&gt; sys.ps1 = &#39;C&gt; &#39;
+C&gt; print(&#39;Yuck!&#39;)
+Yuck!
+C&gt;</code></pre>
+    <p>
+      These two variables are only defined if the interpreter is in interactive
+      mode.
+    </p>
+    <p>
+      The variable <code>sys.path</code> is a list of strings that determines
+      the interpreter’s search path for modules. It is initialized to a default
+      path taken from the environment variable
+      <span id="index-5" class="target"></span
+      ><a
+        href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH"
+        class="reference internal"
+        ><code class="xref std std-envvar docutils literal notranslate"
+          >PYTHONPATH</code
+        ></a
+      >, or from a built-in default if <span id="index-6" class="target"></span
+      ><a
+        href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH"
+        class="reference internal"
+        ><code class="xref std std-envvar docutils literal notranslate"
+          >PYTHONPATH</code
+        ></a
+      >
+      is not set. You can modify it using standard list operations:
+    </p>
+    <pre><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path.append(&#39;/ufs/guido/lib/python&#39;)</code></pre>
+    <p><span id="tut-dir"></span></p>
+    <h2 id="the-dir-function">
+      <span class="section-number">6.3. </span>The
+      <a
+        href="https://docs.python.org/3/library/functions.html#dir"
+        class="reference internal"
+        title="dir"
+        ><code class="sourceCode python"><span class="bu">dir</span>()</code></a
+      >
+      Function<a
+        href="#the-dir-function"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The built-in function
+      <a
+        href="https://docs.python.org/3/library/functions.html#dir"
+        class="reference internal"
+        title="dir"
+        ><code class="sourceCode python"><span class="bu">dir</span>()</code></a
+      >
+      is used to find out which names a module defines. It returns a sorted list
+      of strings:
+    </p>
+    <pre><code>&gt;&gt;&gt; import fibo, sys
+&gt;&gt;&gt; dir(fibo)
+[&#39;__name__&#39;, &#39;fib&#39;, &#39;fib2&#39;]
+&gt;&gt;&gt; dir(sys)
+[&#39;__breakpointhook__&#39;, &#39;__displayhook__&#39;, &#39;__doc__&#39;, &#39;__excepthook__&#39;,
+ &#39;__interactivehook__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;,
+ &#39;__stderr__&#39;, &#39;__stdin__&#39;, &#39;__stdout__&#39;, &#39;__unraisablehook__&#39;,
+ &#39;_clear_type_cache&#39;, &#39;_current_frames&#39;, &#39;_debugmallocstats&#39;, &#39;_framework&#39;,
+ &#39;_getframe&#39;, &#39;_git&#39;, &#39;_home&#39;, &#39;_xoptions&#39;, &#39;abiflags&#39;, &#39;addaudithook&#39;,
+ &#39;api_version&#39;, &#39;argv&#39;, &#39;audit&#39;, &#39;base_exec_prefix&#39;, &#39;base_prefix&#39;,
+ &#39;breakpointhook&#39;, &#39;builtin_module_names&#39;, &#39;byteorder&#39;, &#39;call_tracing&#39;,
+ &#39;callstats&#39;, &#39;copyright&#39;, &#39;displayhook&#39;, &#39;dont_write_bytecode&#39;, &#39;exc_info&#39;,
+ &#39;excepthook&#39;, &#39;exec_prefix&#39;, &#39;executable&#39;, &#39;exit&#39;, &#39;flags&#39;, &#39;float_info&#39;,
+ &#39;float_repr_style&#39;, &#39;get_asyncgen_hooks&#39;, &#39;get_coroutine_origin_tracking_depth&#39;,
+ &#39;getallocatedblocks&#39;, &#39;getdefaultencoding&#39;, &#39;getdlopenflags&#39;,
+ &#39;getfilesystemencodeerrors&#39;, &#39;getfilesystemencoding&#39;, &#39;getprofile&#39;,
+ &#39;getrecursionlimit&#39;, &#39;getrefcount&#39;, &#39;getsizeof&#39;, &#39;getswitchinterval&#39;,
+ &#39;gettrace&#39;, &#39;hash_info&#39;, &#39;hexversion&#39;, &#39;implementation&#39;, &#39;int_info&#39;,
+ &#39;intern&#39;, &#39;is_finalizing&#39;, &#39;last_traceback&#39;, &#39;last_type&#39;, &#39;last_value&#39;,
+ &#39;maxsize&#39;, &#39;maxunicode&#39;, &#39;meta_path&#39;, &#39;modules&#39;, &#39;path&#39;, &#39;path_hooks&#39;,
+ &#39;path_importer_cache&#39;, &#39;platform&#39;, &#39;prefix&#39;, &#39;ps1&#39;, &#39;ps2&#39;, &#39;pycache_prefix&#39;,
+ &#39;set_asyncgen_hooks&#39;, &#39;set_coroutine_origin_tracking_depth&#39;, &#39;setdlopenflags&#39;,
+ &#39;setprofile&#39;, &#39;setrecursionlimit&#39;, &#39;setswitchinterval&#39;, &#39;settrace&#39;, &#39;stderr&#39;,
+ &#39;stdin&#39;, &#39;stdout&#39;, &#39;thread_info&#39;, &#39;unraisablehook&#39;, &#39;version&#39;, &#39;version_info&#39;,
+ &#39;warnoptions&#39;]</code></pre>
+    <p>
+      Without arguments,
+      <a
+        href="https://docs.python.org/3/library/functions.html#dir"
+        class="reference internal"
+        title="dir"
+        ><code class="sourceCode python"><span class="bu">dir</span>()</code></a
+      >
+      lists the names you have defined currently:
+    </p>
+    <pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; import fibo
+&gt;&gt;&gt; fib = fibo.fib
+&gt;&gt;&gt; dir()
+[&#39;__builtins__&#39;, &#39;__name__&#39;, &#39;a&#39;, &#39;fib&#39;, &#39;fibo&#39;, &#39;sys&#39;]</code></pre>
+    <p>
+      Note that it lists all types of names: variables, modules, functions, etc.
+    </p>
+    <p>
+      <a
+        href="https://docs.python.org/3/library/functions.html#dir"
+        class="reference internal"
+        title="dir"
+        ><code class="sourceCode python"><span class="bu">dir</span>()</code></a
+      >
+      does not list the names of built-in functions and variables. If you want a
+      list of those, they are defined in the standard module
+      <a
+        href="https://docs.python.org/3/library/builtins.html#module-builtins"
+        class="reference internal"
+        title="builtins: The module that provides the built-in namespace."
+        ><code class="sourceCode python">builtins</code></a
+      >:
+    </p>
+    <pre><code>&gt;&gt;&gt; import builtins
+&gt;&gt;&gt; dir(builtins)
+[&#39;ArithmeticError&#39;, &#39;AssertionError&#39;, &#39;AttributeError&#39;, &#39;BaseException&#39;,
+ &#39;BlockingIOError&#39;, &#39;BrokenPipeError&#39;, &#39;BufferError&#39;, &#39;BytesWarning&#39;,
+ &#39;ChildProcessError&#39;, &#39;ConnectionAbortedError&#39;, &#39;ConnectionError&#39;,
+ &#39;ConnectionRefusedError&#39;, &#39;ConnectionResetError&#39;, &#39;DeprecationWarning&#39;,
+ &#39;EOFError&#39;, &#39;Ellipsis&#39;, &#39;EnvironmentError&#39;, &#39;Exception&#39;, &#39;False&#39;,
+ &#39;FileExistsError&#39;, &#39;FileNotFoundError&#39;, &#39;FloatingPointError&#39;,
+ &#39;FutureWarning&#39;, &#39;GeneratorExit&#39;, &#39;IOError&#39;, &#39;ImportError&#39;,
+ &#39;ImportWarning&#39;, &#39;IndentationError&#39;, &#39;IndexError&#39;, &#39;InterruptedError&#39;,
+ &#39;IsADirectoryError&#39;, &#39;KeyError&#39;, &#39;KeyboardInterrupt&#39;, &#39;LookupError&#39;,
+ &#39;MemoryError&#39;, &#39;NameError&#39;, &#39;None&#39;, &#39;NotADirectoryError&#39;, &#39;NotImplemented&#39;,
+ &#39;NotImplementedError&#39;, &#39;OSError&#39;, &#39;OverflowError&#39;,
+ &#39;PendingDeprecationWarning&#39;, &#39;PermissionError&#39;, &#39;ProcessLookupError&#39;,
+ &#39;ReferenceError&#39;, &#39;ResourceWarning&#39;, &#39;RuntimeError&#39;, &#39;RuntimeWarning&#39;,
+ &#39;StopIteration&#39;, &#39;SyntaxError&#39;, &#39;SyntaxWarning&#39;, &#39;SystemError&#39;,
+ &#39;SystemExit&#39;, &#39;TabError&#39;, &#39;TimeoutError&#39;, &#39;True&#39;, &#39;TypeError&#39;,
+ &#39;UnboundLocalError&#39;, &#39;UnicodeDecodeError&#39;, &#39;UnicodeEncodeError&#39;,
+ &#39;UnicodeError&#39;, &#39;UnicodeTranslateError&#39;, &#39;UnicodeWarning&#39;, &#39;UserWarning&#39;,
+ &#39;ValueError&#39;, &#39;Warning&#39;, &#39;ZeroDivisionError&#39;, &#39;_&#39;, &#39;__build_class__&#39;,
+ &#39;__debug__&#39;, &#39;__doc__&#39;, &#39;__import__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;abs&#39;,
+ &#39;all&#39;, &#39;any&#39;, &#39;ascii&#39;, &#39;bin&#39;, &#39;bool&#39;, &#39;bytearray&#39;, &#39;bytes&#39;, &#39;callable&#39;,
+ &#39;chr&#39;, &#39;classmethod&#39;, &#39;compile&#39;, &#39;complex&#39;, &#39;copyright&#39;, &#39;credits&#39;,
+ &#39;delattr&#39;, &#39;dict&#39;, &#39;dir&#39;, &#39;divmod&#39;, &#39;enumerate&#39;, &#39;eval&#39;, &#39;exec&#39;, &#39;exit&#39;,
+ &#39;filter&#39;, &#39;float&#39;, &#39;format&#39;, &#39;frozenset&#39;, &#39;getattr&#39;, &#39;globals&#39;, &#39;hasattr&#39;,
+ &#39;hash&#39;, &#39;help&#39;, &#39;hex&#39;, &#39;id&#39;, &#39;input&#39;, &#39;int&#39;, &#39;isinstance&#39;, &#39;issubclass&#39;,
+ &#39;iter&#39;, &#39;len&#39;, &#39;license&#39;, &#39;list&#39;, &#39;locals&#39;, &#39;map&#39;, &#39;max&#39;, &#39;memoryview&#39;,
+ &#39;min&#39;, &#39;next&#39;, &#39;object&#39;, &#39;oct&#39;, &#39;open&#39;, &#39;ord&#39;, &#39;pow&#39;, &#39;print&#39;, &#39;property&#39;,
+ &#39;quit&#39;, &#39;range&#39;, &#39;repr&#39;, &#39;reversed&#39;, &#39;round&#39;, &#39;set&#39;, &#39;setattr&#39;, &#39;slice&#39;,
+ &#39;sorted&#39;, &#39;staticmethod&#39;, &#39;str&#39;, &#39;sum&#39;, &#39;super&#39;, &#39;tuple&#39;, &#39;type&#39;, &#39;vars&#39;,
+ &#39;zip&#39;]</code></pre>
+    <p><span id="tut-packages"></span></p>
+    <h2 id="packages">
+      <span class="section-number">6.4. </span>Packages<a
+        href="#packages"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Packages are a way of structuring Python’s module namespace by using
+      “dotted module names”. For example, the module name
+      <code>A.B</code> designates a submodule named <code>B</code> in a package
+      named <code>A</code>. Just like the use of modules saves the authors of
+      different modules from having to worry about each other’s global variable
+      names, the use of dotted module names saves the authors of multi-module
+      packages like NumPy or Pillow from having to worry about each other’s
+      module names.
+    </p>
+    <p>
+      Suppose you want to design a collection of modules (a “package”) for the
+      uniform handling of sound files and sound data. There are many different
+      sound file formats (usually recognized by their extension, for example:
+      <code>.wav</code>, <code>.aiff</code>, <code>.au</code>), so you may need
+      to create and maintain a growing collection of modules for the conversion
+      between the various file formats. There are also many different operations
+      you might want to perform on sound data (such as mixing, adding echo,
+      applying an equalizer function, creating an artificial stereo effect), so
+      in addition you will be writing a never-ending stream of modules to
+      perform these operations. Here’s a possible structure for your package
+      (expressed in terms of a hierarchical filesystem):
+    </p>
+    <pre><code>sound/                          Top-level package
+      __init__.py               Initialize the sound package
+      formats/                  Subpackage for file format conversions
+              __init__.py
+              wavread.py
+              wavwrite.py
+              aiffread.py
+              aiffwrite.py
+              auread.py
+              auwrite.py
+              ...
+      effects/                  Subpackage for sound effects
+              __init__.py
+              echo.py
+              surround.py
+              reverse.py
+              ...
+      filters/                  Subpackage for filters
+              __init__.py
+              equalizer.py
+              vocoder.py
+              karaoke.py
+              ...</code></pre>
+    <p>
+      When importing the package, Python searches through the directories on
+      <code>sys.path</code> looking for the package subdirectory.
+    </p>
+    <p>
+      The <code>__init__.py</code> files are required to make Python treat
+      directories containing the file as packages. This prevents directories
+      with a common name, such as <code>string</code>, unintentionally hiding
+      valid modules that occur later on the module search path. In the simplest
+      case, <code>__init__.py</code> can just be an empty file, but it can also
+      execute initialization code for the package or set the
+      <code>__all__</code> variable, described later.
+    </p>
+    <p>
+      Users of the package can import individual modules from the package, for
+      example:
+    </p>
+    <pre><code>import sound.effects.echo</code></pre>
+    <p>
+      This loads the submodule <code>sound.effects.echo</code>. It must be
+      referenced with its full name.
+    </p>
+    <pre><code>sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)</code></pre>
+    <p>An alternative way of importing the submodule is:</p>
+    <pre><code>from sound.effects import echo</code></pre>
+    <p>
+      This also loads the submodule <code>echo</code>, and makes it available
+      without its package prefix, so it can be used as follows:
+    </p>
+    <pre><code>echo.echofilter(input, output, delay=0.7, atten=4)</code></pre>
+    <p>
+      Yet another variation is to import the desired function or variable
+      directly:
+    </p>
+    <pre><code>from sound.effects.echo import echofilter</code></pre>
+    <p>
+      Again, this loads the submodule <code>echo</code>, but this makes its
+      function <code>echofilter()</code> directly available:
+    </p>
+    <pre><code>echofilter(input, output, delay=0.7, atten=4)</code></pre>
+    <p>
+      Note that when using <code>from package import item</code>, the item can
+      be either a submodule (or subpackage) of the package, or some other name
+      defined in the package, like a function, class or variable. The
+      <code>import</code> statement first tests whether the item is defined in
+      the package; if not, it assumes it is a module and attempts to load it. If
+      it fails to find it, an
+      <a
+        href="https://docs.python.org/3/library/exceptions.html#ImportError"
+        class="reference internal"
+        title="ImportError"
+        ><code class="sourceCode python"
+          ><span class="pp">ImportError</span></code
+        ></a
+      >
+      exception is raised.
+    </p>
+    <p>
+      Contrarily, when using syntax like
+      <code>import item.subitem.subsubitem</code>, each item except for the last
+      must be a package; the last item can be a module or a package but can’t be
+      a class or function or variable defined in the previous item.
+    </p>
+    <p><span id="tut-pkg-import-star"></span></p>
+    <h3 id="importing-from-a-package">
+      <span class="section-number">6.4.1. </span>Importing * From a Package<a
+        href="#importing-from-a-package"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      Now what happens when the user writes
+      <code>from sound.effects import *</code>? Ideally, one would hope that
+      this somehow goes out to the filesystem, finds which submodules are
+      present in the package, and imports them all. This could take a long time
+      and importing sub-modules might have unwanted side-effects that should
+      only happen when the sub-module is explicitly imported.
+    </p>
+    <p>
+      The only solution is for the package author to provide an explicit index
+      of the package. The
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#import"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >import</code
+        ></a
+      >
+      statement uses the following convention: if a package’s
+      <code>__init__.py</code> code defines a list named <code>__all__</code>,
+      it is taken to be the list of module names that should be imported when
+      <code>from package import *</code> is encountered. It is up to the package
+      author to keep this list up-to-date when a new version of the package is
+      released. Package authors may also decide not to support it, if they don’t
+      see a use for importing * from their package. For example, the file
+      <code>sound/effects/__init__.py</code> could contain the following code:
+    </p>
+    <pre><code>__all__ = [&quot;echo&quot;, &quot;surround&quot;, &quot;reverse&quot;]</code></pre>
+    <p>
+      This would mean that <code>from sound.effects import *</code> would import
+      the three named submodules of the <code>sound</code> package.
+    </p>
+    <p>
+      If <code>__all__</code> is not defined, the statement
+      <code>from sound.effects import *</code> does <em>not</em> import all
+      submodules from the package <code>sound.effects</code> into the current
+      namespace; it only ensures that the package <code>sound.effects</code> has
+      been imported (possibly running any initialization code in
+      <code>__init__.py</code>) and then imports whatever names are defined in
+      the package. This includes any names defined (and submodules explicitly
+      loaded) by <code>__init__.py</code>. It also includes any submodules of
+      the package that were explicitly loaded by previous
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#import"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >import</code
+        ></a
+      >
+      statements. Consider this code:
+    </p>
+    <pre><code>import sound.effects.echo
+import sound.effects.surround
+from sound.effects import *</code></pre>
+    <p>
+      In this example, the <code>echo</code> and <code>surround</code> modules
+      are imported in the current namespace because they are defined in the
+      <code>sound.effects</code> package when the
+      <code>from...import</code> statement is executed. (This also works when
+      <code>__all__</code> is defined.)
+    </p>
+    <p>
+      Although certain modules are designed to export only names that follow
+      certain patterns when you use <code>import *</code>, it is still
+      considered bad practice in production code.
+    </p>
+    <p>
+      Remember, there is nothing wrong with using
+      <code>from package import specific_submodule</code>! In fact, this is the
+      recommended notation unless the importing module needs to use submodules
+      with the same name from different packages.
+    </p>
+    <h3 id="intra-package-references">
+      <span class="section-number">6.4.2. </span>Intra-package References<a
+        href="#intra-package-references"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      When packages are structured into subpackages (as with the
+      <code>sound</code> package in the example), you can use absolute imports
+      to refer to submodules of siblings packages. For example, if the module
+      <code>sound.filters.vocoder</code> needs to use the
+      <code>echo</code> module in the <code>sound.effects</code> package, it can
+      use <code>from sound.effects import echo</code>.
+    </p>
+    <p>
+      You can also write relative imports, with the
+      <code>from module import name</code> form of import statement. These
+      imports use leading dots to indicate the current and parent packages
+      involved in the relative import. From the <code>surround</code> module for
+      example, you might use:
+    </p>
+    <pre><code>from . import echo
+from .. import formats
+from ..filters import equalizer</code></pre>
+    <p>
+      Note that relative imports are based on the name of the current module.
+      Since the name of the main module is always <code>"__main__"</code>,
+      modules intended for use as the main module of a Python application must
+      always use absolute imports.
+    </p>
+    <h3 id="packages-in-multiple-directories">
+      <span class="section-number">6.4.3. </span>Packages in Multiple
+      Directories<a
+        href="#packages-in-multiple-directories"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      Packages support one more special attribute,
+      <a
+        href="https://docs.python.org/3/reference/import.html#__path__"
+        class="reference internal"
+        title="__path__"
+        ><code class="sourceCode python">path</code></a
+      >. This is initialized to be a list containing the name of the directory
+      holding the package’s <code>__init__.py</code> before the code in that
+      file is executed. This variable can be modified; doing so affects future
+      searches for modules and subpackages contained in the package.
+    </p>
+    <p>
+      While this feature is not often needed, it can be used to extend the set
+      of modules found in a package.
+    </p>
+    <p>Footnotes</p>
+    <p>
+      <span class="brackets"><a href="#id1" class="fn-backref">1</a></span
+      ><br />
+      In fact function definitions are also ‘statements’ that are ‘executed’;
+      the execution of a module-level function definition enters the function
+      name in the module’s global symbol table.
+    </p>
+    <h3 id="table-of-contents">
+      <a href="https://docs.python.org/3/contents.html">Table of Contents</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="#" class="reference internal">6. Modules</a>
+        <ul>
+          <li>
+            <a href="#more-on-modules" class="reference internal"
+              >6.1. More on Modules</a
+            >
+            <ul>
+              <li>
+                <a
+                  href="#executing-modules-as-scripts"
+                  class="reference internal"
+                  >6.1.1. Executing modules as scripts</a
+                >
+              </li>
+              <li>
+                <a href="#the-module-search-path" class="reference internal"
+                  >6.1.2. The Module Search Path</a
+                >
+              </li>
+              <li>
+                <a href="#compiled-python-files" class="reference internal"
+                  >6.1.3. “Compiled” Python files</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#standard-modules" class="reference internal"
+              >6.2. Standard Modules</a
+            >
+          </li>
+          <li>
+            <a href="#the-dir-function" class="reference internal"
+              >6.3. The
+              <code class="sourceCode python"
+                ><span class="bu">dir</span>()</code
+              >
+              Function</a
+            >
+          </li>
+          <li>
+            <a href="#packages" class="reference internal">6.4. Packages</a>
+            <ul>
+              <li>
+                <a href="#importing-from-a-package" class="reference internal"
+                  >6.4.1. Importing * From a Package</a
+                >
+              </li>
+              <li>
+                <a href="#intra-package-references" class="reference internal"
+                  >6.4.2. Intra-package References</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#packages-in-multiple-directories"
+                  class="reference internal"
+                  >6.4.3. Packages in Multiple Directories</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="previous-topic">Previous topic</h4>
+    <p>
+      <a href="datastructures.html" title="previous chapter"
+        ><span class="section-number">5. </span>Data Structures</a
+      >
+    </p>
+    <h4 id="next-topic">Next topic</h4>
+    <p>
+      <a href="inputoutput.html" title="next chapter"
+        ><span class="section-number">7. </span>Input and Output</a
+      >
+    </p>
+    <h3 id="this-page">This Page</h3>
+    <ul>
+      <li><a href="https://docs.python.org/3/bugs.html">Report a Bug</a></li>
+      <li>
+        <a
+          href="https://github.com/python/cpython/blob/3.9/Doc/tutorial/modules.rst"
+          >Show Source</a
+        >
+      </li>
+    </ul>
+    <h3 id="navigation-1">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li><a href="inputoutput.html" title="7. Input and Output">next</a> |</li>
+      <li>
+        <a href="datastructures.html" title="5. Data Structures">previous</a> |
+      </li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+  </body>
+</html>

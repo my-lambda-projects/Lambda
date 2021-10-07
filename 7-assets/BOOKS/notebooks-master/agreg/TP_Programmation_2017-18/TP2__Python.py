@@ -11,6 +11,7 @@
 
 
 from sys import version
+
 print(version)
 
 
@@ -24,13 +25,16 @@ print(version)
 
 
 from typing import TypeVar, List
-_a = TypeVar('alpha')
 
-def taille(liste : List[_a]) -> int:
+_a = TypeVar("alpha")
+
+
+def taille(liste: List[_a]) -> int:
     longueur = 0
     for _ in liste:
         longueur += 1
     return longueur
+
 
 taille([])
 taille([1, 2, 3])
@@ -49,9 +53,11 @@ len([1, 2, 3])
 
 
 from typing import TypeVar, List
-_a = TypeVar('alpha')
 
-def concatene(liste1 : List[_a], liste2 : List[_a]) -> List[_a]:
+_a = TypeVar("alpha")
+
+
+def concatene(liste1: List[_a], liste2: List[_a]) -> List[_a]:
     # return liste1 + liste2  # easy solution
     liste = []
     for i in liste1:
@@ -82,13 +88,16 @@ concatene([1, 2], ["pas", "entier", "?"])
 
 
 from typing import TypeVar, List
-_a = TypeVar('alpha')
 
-def appartient(x : _a, liste : List[_a]) -> bool:
+_a = TypeVar("alpha")
+
+
+def appartient(x: _a, liste: List[_a]) -> bool:
     for y in liste:
         if x == y:
             return True  # on stoppe avant la fin
     return False
+
 
 appartient(1, [])
 appartient(1, [1])
@@ -111,8 +120,8 @@ appartient(4, [1, 2, 3])
 # In[23]:
 
 
-get_ipython().run_line_magic('timeit', 'appartient(1000, list(range(10000)))')
-get_ipython().run_line_magic('timeit', '1000 in list(range(10000))')
+get_ipython().run_line_magic("timeit", "appartient(1000, list(range(10000)))")
+get_ipython().run_line_magic("timeit", "1000 in list(range(10000))")
 
 
 # ## Exercice 4 : `miroir`
@@ -121,9 +130,11 @@ get_ipython().run_line_magic('timeit', '1000 in list(range(10000))')
 
 
 from typing import TypeVar, List
-_a = TypeVar('alpha')
 
-def miroir(liste : List[_a]) -> List[_a]:
+_a = TypeVar("alpha")
+
+
+def miroir(liste: List[_a]) -> List[_a]:
     # return liste[::-1]  # version facile
     liste2 = []
     for x in liste:
@@ -141,8 +152,8 @@ miroir([2, 3, 5, 7, 11])
 # In[29]:
 
 
-get_ipython().run_line_magic('timeit', 'miroir([2, 3, 5, 7, 11])')
-get_ipython().run_line_magic('timeit', '[2, 3, 5, 7, 11][::-1]')
+get_ipython().run_line_magic("timeit", "miroir([2, 3, 5, 7, 11])")
+get_ipython().run_line_magic("timeit", "[2, 3, 5, 7, 11][::-1]")
 
 
 # ## Exercice 5 : `alterne`
@@ -153,9 +164,11 @@ get_ipython().run_line_magic('timeit', '[2, 3, 5, 7, 11][::-1]')
 
 
 from typing import TypeVar, List
-_a = TypeVar('alpha')
 
-def alterne(liste1 : List[_a], liste2 : List[_a]) -> List[_a]:
+_a = TypeVar("alpha")
+
+
+def alterne(liste1: List[_a], liste2: List[_a]) -> List[_a]:
     liste3 = []
     i, j = 0, 0
     n, m = len(liste1), len(liste2)
@@ -189,14 +202,17 @@ alterne([1, 3, 5], [4, 6])
 
 
 from typing import TypeVar, List
-_a = TypeVar('alpha')
 
-def nb_occurrences(x : _a, liste : List[_a]) -> int:
+_a = TypeVar("alpha")
+
+
+def nb_occurrences(x: _a, liste: List[_a]) -> int:
     nb = 0
     for y in liste:
         if x == y:
             nb += 1
     return nb
+
 
 nb_occurrences(0, [1, 2, 3, 4])
 nb_occurrences(2, [1, 2, 3, 4])
@@ -205,13 +221,13 @@ nb_occurrences(5, [1, 2, 3, 4])
 
 
 # ## Exercice 7 : `pairs`
-# 
+#
 # C'est un filtrage :
 
 # In[33]:
 
 
-get_ipython().run_line_magic('pinfo', 'filter')
+get_ipython().run_line_magic("pinfo", "filter")
 
 
 # In[36]:
@@ -219,7 +235,8 @@ get_ipython().run_line_magic('pinfo', 'filter')
 
 from typing import List
 
-def pairs(liste : List[int]) -> List[int]:
+
+def pairs(liste: List[int]) -> List[int]:
     # return list(filter(lambda x : x % 2 == 0, liste))
     return [x for x in liste if x % 2 == 0]
 
@@ -240,7 +257,8 @@ pairs([1, 2, 3, 4, 5, 6, 7, 1000000000000000000])
 
 from typing import List
 
-def myrange(n : int) -> List[int]:
+
+def myrange(n: int) -> List[int]:
     liste = []
     i = 1
     while i <= n:
@@ -260,7 +278,8 @@ myrange(4)
 
 from typing import List
 
-def intervale(a : int, b : int=None) -> List[int]:
+
+def intervale(a: int, b: int = None) -> List[int]:
     if b == None:
         a, b = 1, a
     liste = []
@@ -285,12 +304,13 @@ intervale(1, 4)
 # In[77]:
 
 
-def racine(n : int) -> int:
+def racine(n: int) -> int:
     i = 1
     for i in range(n + 1):
-        if i*i > n:
+        if i * i > n:
             return i - 1
     return i
+
 
 racine(1)
 racine(5)
@@ -303,7 +323,8 @@ racine(120031)
 
 from typing import List
 
-def intervale2(a : int, b : int, pas : int=1) -> List[int]:
+
+def intervale2(a: int, b: int, pas: int = 1) -> List[int]:
     assert pas > 0
     liste = []
     i = a
@@ -325,7 +346,7 @@ intervale2(2, 12, 3)
 # In[80]:
 
 
-def estDivisible(n : int, k : int) -> bool:
+def estDivisible(n: int, k: int) -> bool:
     return (n % k) == 0
 
 
@@ -341,8 +362,12 @@ estDivisible(10, 5)
 # In[107]:
 
 
-def estPremier(n : int) -> bool:
-    return (n == 2) or (n == 3) or not any(map(lambda k: estDivisible(n, k), intervale2(2, racine(n), 1)))
+def estPremier(n: int) -> bool:
+    return (
+        (n == 2)
+        or (n == 3)
+        or not any(map(lambda k: estDivisible(n, k), intervale2(2, racine(n), 1)))
+    )
 
 
 # In[108]:
@@ -357,7 +382,8 @@ for n in range(2, 20):
 
 from typing import List
 
-def premiers(n : int) -> List[int]:
+
+def premiers(n: int) -> List[int]:
     return [p for p in intervale2(2, n, 1) if estPremier(p)]
 
 
@@ -375,21 +401,21 @@ premiers(100)
 
 # ----
 # # Listes simplement chaînée (manuellement définies)
-# 
+#
 # Comme ces exercices étaient un peu foireux à écrire avec les "*listes*" de Python, qui **ne sont pas des listes simplement chaînées**, je propose une autre solution où l'on va définir une petite classe qui représentera une liste simplement chaînée, et on va écrire les fonctions demandées avec cette classe.
 
 # ## La classe `ListeChainee`
-# 
+#
 # On va supposer que les listes que l'on représentera ne contiendront pas la valeur `None`, qui est utilisée pour représenter l'absence de tête et/ou de queue de la liste.
 
 # In[173]:
 
 
-class ListeChainee():
+class ListeChainee:
     def __init__(self, hd=None, tl=None):
         self.hd = hd
         self.tl = tl
-    
+
     def __repr__(self) -> str:
         if self.tl is None:
             if self.hd is None:
@@ -398,7 +424,7 @@ class ListeChainee():
                 return f"{self.hd} :: []"
         else:
             return f"{self.hd} :: {self.tl}"
-    
+
     def jolie(self) -> str:
         if self.tl is None:
             if self.hd is None:
@@ -427,32 +453,32 @@ def insert(hd, tl: ListeChainee) -> ListeChainee:
 
 
 # liste vide, puis des listes plus grandes
-vide = ListeChainee()   # []
-l_1   = insert(1, vide)  # 1 :: [] ~= [1]
-l_12  = insert(2, l_1)   # 2 :: 1 :: [] ~= [2, 1]
+vide = ListeChainee()  # []
+l_1 = insert(1, vide)  # 1 :: [] ~= [1]
+l_12 = insert(2, l_1)  # 2 :: 1 :: [] ~= [2, 1]
 l_123 = insert(3, l_12)  # 3 :: 2 :: 1 :: []
 
 
 # In[176]:
 
 
-print(vide)     # []
-print(l_1)      # 1 :: []
-print(l_12)     # 2 :: 1 :: []
-print(l_123)    # 3 :: 2 :: 1 :: []
+print(vide)  # []
+print(l_1)  # 1 :: []
+print(l_12)  # 2 :: 1 :: []
+print(l_123)  # 3 :: 2 :: 1 :: []
 
 
 # In[177]:
 
 
-print(vide.jolie())     # []
-print(l_1.jolie())      # [1]
-print(l_12.jolie())     # [2, 1]
-print(l_123.jolie())    # [3, 2, 1]
+print(vide.jolie())  # []
+print(l_1.jolie())  # [1]
+print(l_12.jolie())  # [2, 1]
+print(l_123.jolie())  # [3, 2, 1]
 
 
 # ## Exercice 1 : `taille`
-# 
+#
 # Par exemple la longueur sera bien en O(n) si n=taille(liste) avec cette approche récursive :
 
 # In[149]:
@@ -475,14 +501,14 @@ def taille(liste: Optional[ListeChainee]) -> int:
 # In[151]:
 
 
-print(taille(vide))   # 0
-print(taille(l_1))    # 1
-print(taille(l_12))   # 2
+print(taille(vide))  # 0
+print(taille(l_1))  # 1
+print(taille(l_12))  # 2
 print(taille(l_123))  # 3
 
 
 # ## Exercice 2 : `concat`
-# 
+#
 # Je vais déjà commencer par écrire une fonction `copy` qui permet de copier récursivement une liste simplement chaînée, pour être sûr que l'on ne modifie pas en place une des listes données en argument.
 
 # In[152]:
@@ -529,7 +555,7 @@ def concat(liste1: ListeChainee, liste2: ListeChainee) -> ListeChainee:
 
 print(concat(vide, l_1))
 print(vide)  # pas modifiée : []
-print(l_1)   # pas modifiée : 1 :: []
+print(l_1)  #  pas modifiée : 1 :: []
 
 
 # In[135]:
@@ -547,29 +573,29 @@ concat(l_1, l_123)  # 1 :: 3 :: 2 :: 1 :: []
 # In[137]:
 
 
-concat(l_1, vide)   # 1 :: []
+concat(l_1, vide)  # 1 :: []
 
 
 # In[138]:
 
 
-concat(l_12, vide)   # 2 :: 1 :: []
+concat(l_12, vide)  # 2 :: 1 :: []
 
 
 # In[139]:
 
 
-concat(l_12, l_1)   # 2 :: 1 :: 1 :: []
+concat(l_12, l_1)  # 2 :: 1 :: 1 :: []
 
 
 # In[140]:
 
 
-concat(l_123, l_123)   # 3 :: 2 :: 1 :: 3 :: 2 :: 1 :: []
+concat(l_123, l_123)  # 3 :: 2 :: 1 :: 3 :: 2 :: 1 :: []
 
 
 # ## Exercice 3 : `appartient`
-# 
+#
 # C'est en complexité linéaire dans le pire des cas.
 
 # In[141]:
@@ -588,23 +614,23 @@ def appartient(x, liste: ListeChainee) -> bool:
 # In[144]:
 
 
-assert appartient(0, vide)  == False
-assert appartient(0, l_1)   == False
-assert appartient(0, l_12)  == False
+assert appartient(0, vide) == False
+assert appartient(0, l_1) == False
+assert appartient(0, l_12) == False
 assert appartient(0, l_123) == False
-assert appartient(1, l_1)   == True
-assert appartient(1, l_12)  == True
+assert appartient(1, l_1) == True
+assert appartient(1, l_12) == True
 assert appartient(1, l_123) == True
-assert appartient(2, l_1)   == False
-assert appartient(2, l_12)  == True
+assert appartient(2, l_1) == False
+assert appartient(2, l_12) == True
 assert appartient(2, l_123) == True
-assert appartient(3, l_1)   == False
-assert appartient(3, l_12)  == False
+assert appartient(3, l_1) == False
+assert appartient(3, l_12) == False
 assert appartient(3, l_123) == True
 
 
 # ## Exercice 4 : `miroir`
-# 
+#
 # Ce sera en temps quadratique, à cause de toutes les recopies :
 
 # In[178]:
@@ -614,24 +640,24 @@ def miroir(liste: ListeChainee) -> ListeChainee:
     if taille(liste) <= 1:
         return copy(liste)
     else:
-        hd, tl = liste.hd, copy(liste.tl)  # O(n)
-        juste_hd = ListeChainee(hd=hd, tl=None)  # O(1)
+        hd, tl = liste.hd, copy(liste.tl)  #  O(n)
+        juste_hd = ListeChainee(hd=hd, tl=None)  #  O(1)
         return concat(miroir(tl), juste_hd)  # O(n^2) + O(n) à cause de concat
 
 
 # In[255]:
 
 
-print(miroir(vide))   # [] => []
-print(miroir(l_1))    # [1] => [1]
-print(miroir(l_12))   # [2, 1] => [1, 2]
+print(miroir(vide))  # [] => []
+print(miroir(l_1))  # [1] => [1]
+print(miroir(l_12))  # [2, 1] => [1, 2]
 print(miroir(l_123))  # [3, 2, 1] => [1, 2, 3]
 
 
 # ## Exercice 5 : `alterne`
 
 # La sémantique n'était pas très claire, mais on peut imaginer quelque chose comme ça :
-# 
+#
 # - si une des deux listes est vide, on prend l'autre,
 # - si les deux ne sont pas vide, on prend le début de l1, de l2, puis alterne(queue l1, queue l2)
 
@@ -643,7 +669,7 @@ def alterne(liste1: ListeChainee, liste2: ListeChainee) -> ListeChainee:
         return copy(liste2)  # on recopie pour ne rien modifier
     if taille(liste2) == 0:
         return copy(liste1)  # on recopie pour ne rien modifier
-    h1, t1 = liste1.hd, liste1.tl  
+    h1, t1 = liste1.hd, liste1.tl
     h2, t2 = liste2.hd, liste2.tl
     return insert(h1, insert(h2, alterne(t1, t2)))
 
@@ -651,21 +677,21 @@ def alterne(liste1: ListeChainee, liste2: ListeChainee) -> ListeChainee:
 # In[257]:
 
 
-print(alterne(l_1, l_12))     # [1, 2, 1]
-print(alterne(l_12, l_1))     # [2, 1, 1]
-print(alterne(l_123, l_1))    # [3, 1, 2, 1]
-print(alterne(l_123, l_12))   # [3, 2, 2, 1, 1]
+print(alterne(l_1, l_12))  # [1, 2, 1]
+print(alterne(l_12, l_1))  # [2, 1, 1]
+print(alterne(l_123, l_1))  # [3, 1, 2, 1]
+print(alterne(l_123, l_12))  # [3, 2, 2, 1, 1]
 print(alterne(l_123, l_123))  # [3, 3, 2, 2, 1, 1]
-print(alterne(l_12, l_123))   # [2, 3, 1, 2, 1]
-print(alterne(l_1, l_123))    # [1, 3, 2, 1]
+print(alterne(l_12, l_123))  # [2, 3, 1, 2, 1]
+print(alterne(l_1, l_123))  # [1, 3, 2, 1]
 
 
 # La complexité est quadratique en $\mathcal{O}((\max(|\text{liste 1}|, |\text{liste 2}|)^2)$ à cause des recopies.
 
 # ## Exercice 6 : `nb_occurrences`
-# 
+#
 # Ce sera en temps linéaire, dans tous les cas.
-# 
+#
 
 # In[264]:
 
@@ -719,7 +745,7 @@ def nb_occurrences(x, liste: ListeChainee, count=0) -> int:
 
 
 # ## Exercice 7 : `pairs`
-# 
+#
 # C'est un filtrage par le prédicat `x % 2 == 0`.
 # Autant écrire la fonction de filtrage générique :
 
@@ -729,12 +755,12 @@ def nb_occurrences(x, liste: ListeChainee, count=0) -> int:
 def filtrer(liste: ListeChainee, predicate) -> ListeChainee:
     if liste is None or liste.hd is None:  # liste de taille 0
         return ListeChainee(hd=None, tl=None)
-    elif liste.tl is None:  # liste de taille 1
-        if predicate(liste.hd):  # on renvoie [hd]
+    elif liste.tl is None:  #  liste de taille 1
+        if predicate(liste.hd):  #  on renvoie [hd]
             return ListeChainee(hd=liste.hd, tl=None)
         else:  # on renvoie []
             return ListeChainee(hd=None, tl=None)
-    else:  # liste de taille >= 2
+    else:  #  liste de taille >= 2
         if predicate(liste.hd):
             return insert(liste.hd, filtrer(liste.tl, predicate))
         else:
@@ -749,6 +775,7 @@ def filtrer(liste: ListeChainee, predicate) -> ListeChainee:
 def pairs(liste: ListeChainee) -> ListeChainee:
     def predicate(x):
         return (x % 2) == 0
+
     # aussi : predicate = lambda x: (x % 2) == 0
     return filtrer(liste, predicate)
 
@@ -759,33 +786,34 @@ def pairs(liste: ListeChainee) -> ListeChainee:
 def impairs(liste: ListeChainee) -> ListeChainee:
     def predicate(x):
         return (x % 2) == 1
+
     return filtrer(liste, predicate)
 
 
 # In[206]:
 
 
-print(pairs(vide))   # []
-print(pairs(l_1))    # []
-print(pairs(l_12))   # [2]
+print(pairs(vide))  # []
+print(pairs(l_1))  # []
+print(pairs(l_12))  # [2]
 print(pairs(l_123))  # [2]
 print(pairs(insert(4, insert(6, insert(8, l_123)))))  # [4, 6, 8, 2]
-print(pairs(insert(5, insert(6, insert(8, l_123)))))  # [6, 8, 2]
+print(pairs(insert(5, insert(6, insert(8, l_123)))))  #  [6, 8, 2]
 
 
 # In[272]:
 
 
-print(impairs(vide))   # []
-print(impairs(l_1))    # [1]
-print(impairs(l_12))   # [1]
+print(impairs(vide))  # []
+print(impairs(l_1))  # [1]
+print(impairs(l_12))  # [1]
 print(impairs(l_123))  # [3, 1]
 print(impairs(insert(4, insert(6, insert(8, l_123)))))  # [3, 1]
-print(impairs(insert(5, insert(6, insert(8, l_123)))))  # [5, 3, 1]
+print(impairs(insert(5, insert(6, insert(8, l_123)))))  #  [5, 3, 1]
 
 
 # ## Exercice 8 : `range`
-# 
+#
 # Ce sera de complexité temporelle linéaire :
 
 # In[288]:
@@ -798,7 +826,7 @@ def myrange(n: int) -> ListeChainee:
         return ListeChainee(hd=1, tl=None)
         # return insert(1, vide)
     else:
-        return ListeChainee(hd=n, tl=myrange(n-1))
+        return ListeChainee(hd=n, tl=myrange(n - 1))
 
 
 # In[289]:
@@ -816,23 +844,23 @@ print(myrange(4))  # [1, 2, 3, 4]
 # In[216]:
 
 
-def intervale(a: int, b: Optional[int]=None) -> ListeChainee:
+def intervale(a: int, b: Optional[int] = None) -> ListeChainee:
     if b is None:
         a, b = 1, a
     n = b - a
-    if n < 0:     # [a..b] = []
+    if n < 0:  # [a..b] = []
         return ListeChainee(hd=None, tl=None)
-    elif n == 0:  # [a..b] = [a]
+    elif n == 0:  #  [a..b] = [a]
         return ListeChainee(hd=a, tl=None)
-    else:         # [a..b] = a :: [a+1..b]
-        return ListeChainee(hd=a, tl=intervale(a+1, b))
+    else:  # [a..b] = a :: [a+1..b]
+        return ListeChainee(hd=a, tl=intervale(a + 1, b))
 
 
 # In[217]:
 
 
-print(intervale(10))      # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(intervale(1, 4))    # [1, 2, 3, 4]
+print(intervale(10))  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(intervale(1, 4))  # [1, 2, 3, 4]
 print(intervale(13, 13))  # [13]
 print(intervale(13, 10))  # []
 
@@ -846,6 +874,7 @@ print(intervale(13, 10))  # []
 
 
 from typing import Callable
+
 
 def mymap(fonction: Callable, liste: ListeChainee) -> ListeChainee:
     if liste is None or liste.hd is None:  # liste de taille 0
@@ -873,8 +902,8 @@ def intervale_bis(a: int, b: int) -> ListeChainee:
 # In[291]:
 
 
-print(intervale_bis(1, 10))   # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(intervale_bis(1, 4))    # [1, 2, 3, 4]
+print(intervale_bis(1, 10))  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(intervale_bis(1, 4))  # [1, 2, 3, 4]
 print(intervale_bis(13, 13))  # [13]
 print(intervale_bis(13, 10))  # []
 
@@ -882,9 +911,9 @@ print(intervale_bis(13, 10))  # []
 # ## Exercice 9 : `premiers`
 # Plusieurs possibilités. Un filtre d'Erathosthène marche bien, ou une filtrage.
 # Je ne vais pas utiliser de tableaux donc on est un peu réduit d'utiliser une filtrage.
-# 
+#
 # On a besoin des fonctions suivantes :
-# 
+#
 # - calculer la racine entière de $n$, très facile par une boucle,
 # - calculer les nombres impairs entre 5 et $\lfloor \sqrt{n} \rfloor$,
 # - filtrer cette liste de nombres impairs pour garder ceux qui divisent $n$,
@@ -896,12 +925,13 @@ print(intervale_bis(13, 10))  # []
 def racine(n: int) -> int:
     i = 1
     for i in range(n + 1):
-        if i*i > n:
+        if i * i > n:
             return i - 1
     return i
 
-print(racine(1))  # 1
-print(racine(5))  # 2
+
+print(racine(1))  #  1
+print(racine(5))  #  2
 print(racine(102))  # 10
 print(racine(120031))  # 346
 
@@ -909,23 +939,23 @@ print(racine(120031))  # 346
 # In[294]:
 
 
-def intervale2(a: int, b: Optional[int]=None, pas: int=1) -> ListeChainee:
+def intervale2(a: int, b: Optional[int] = None, pas: int = 1) -> ListeChainee:
     if b is None:
         a, b = 1, a
     n = b - a
-    if n < 0:     # [a..b::p] = []
+    if n < 0:  # [a..b::p] = []
         return ListeChainee(hd=None, tl=None)
-    elif n == 0:  # [a..b::p] = [a]
+    elif n == 0:  #  [a..b::p] = [a]
         return ListeChainee(hd=a, tl=None)
-    else:         # [a..b::p] = a :: [a+p..b::p]
+    else:  # [a..b::p] = a :: [a+p..b::p]
         return ListeChainee(hd=a, tl=intervale2(a + pas, b=b, pas=pas))
 
 
 # In[295]:
 
 
-print(intervale2(1, 10, 2))      # [1, 3, 5, 7, 9]
-print(intervale2(1, 4, 2))    # [1, 3]
+print(intervale2(1, 10, 2))  # [1, 3, 5, 7, 9]
+print(intervale2(1, 4, 2))  # [1, 3]
 print(intervale2(13, 13, 2))  # [13]
 print(intervale2(13, 10, 2))  # []
 
@@ -953,8 +983,10 @@ estDivisible(10, 5)
 # In[247]:
 
 
-def estPremier(n : int) -> bool:
-    return taille(filtrer(intervale2(2, racine(n), 1), lambda k: estDivisible(n, k))) == 0
+def estPremier(n: int) -> bool:
+    return (
+        taille(filtrer(intervale2(2, racine(n), 1), lambda k: estDivisible(n, k))) == 0
+    )
 
 
 # En effet il suffit de construire d'abord la liste des entiers impairs de 2 à $\lfloor \sqrt{n} \rfloor$, de les filtrer par ceux qui divisent $n$, et de vérifier si on a aucun diviseur (`taille(..) == 0`) auquel cas $n$ est premier, ou si $n$ a au moins un diviseur auquel cas $n$ n'est pas premier.
@@ -963,7 +995,12 @@ def estPremier(n : int) -> bool:
 
 
 for n in range(2, 20):
-    print("Petits diviseurs de", n, " -> ", filtrer(intervale2(2, racine(n), 1), lambda k: estDivisible(n, k)))
+    print(
+        "Petits diviseurs de",
+        n,
+        " -> ",
+        filtrer(intervale2(2, racine(n), 1), lambda k: estDivisible(n, k)),
+    )
 
 
 # On voit dans l'exemple ci dessus les nombres premiers comme ceux n'ayant aucun diviseurs, et les nombres non premiers comme ceux ayant au moins un diviseur.
@@ -971,7 +1008,7 @@ for n in range(2, 20):
 # In[249]:
 
 
-def premiers(n : int) -> ListeChainee:
+def premiers(n: int) -> ListeChainee:
     return filtrer(intervale2(2, n, 1), estPremier)
 
 
@@ -984,7 +1021,9 @@ premiers(10)  # [2, 3, 5, 7]
 # In[251]:
 
 
-premiers(100)  # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+premiers(
+    100
+)  #  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
 
 # ----
@@ -1004,9 +1043,11 @@ test = [3, 1, 8, 4, 5, 6, 1, 2]
 
 
 from typing import TypeVar, List
-_a = TypeVar('alpha')
 
-def insere(x : _a, liste : List[_a]) -> List[_a]:
+_a = TypeVar("alpha")
+
+
+def insere(x: _a, liste: List[_a]) -> List[_a]:
     if len(liste) == 0:
         return [x]
     else:
@@ -1020,7 +1061,7 @@ def insere(x : _a, liste : List[_a]) -> List[_a]:
 # In[114]:
 
 
-def tri_insertion(liste : List[_a]) -> List[_a]:
+def tri_insertion(liste: List[_a]) -> List[_a]:
     if len(liste) == 0:
         return []
     else:
@@ -1042,9 +1083,11 @@ tri_insertion(test)
 
 
 from typing import TypeVar, List, Callable
-_a = TypeVar('alpha')
 
-def insere2(ordre : Callable[[_a, _a], bool], x : _a, liste : List[_a]) -> List[_a]:
+_a = TypeVar("alpha")
+
+
+def insere2(ordre: Callable[[_a, _a], bool], x: _a, liste: List[_a]) -> List[_a]:
     if len(liste) == 0:
         return [x]
     else:
@@ -1058,7 +1101,7 @@ def insere2(ordre : Callable[[_a, _a], bool], x : _a, liste : List[_a]) -> List[
 # In[122]:
 
 
-def tri_insertion2(ordre : Callable[[_a, _a], bool], liste : List[_a]) -> List[_a]:
+def tri_insertion2(ordre: Callable[[_a, _a], bool], liste: List[_a]) -> List[_a]:
     if len(liste) == 0:
         return []
     else:
@@ -1096,13 +1139,18 @@ tri_insertion2(ordre_decroissant, test)
 
 
 from typing import TypeVar, List, Tuple
-_a = TypeVar('alpha')
 
-def selectionne_min(liste : List[_a]) -> Tuple[_a, List[_a]]:
+_a = TypeVar("alpha")
+
+
+def selectionne_min(liste: List[_a]) -> Tuple[_a, List[_a]]:
     if len(liste) == 0:
         raise ValueError("Selectionne_min sur liste vide")
     else:
-        def cherche_min(mini : _a, autres : List[_a], reste : List[_a]) -> Tuple[_a, List[_a]]:
+
+        def cherche_min(
+            mini: _a, autres: List[_a], reste: List[_a]
+        ) -> Tuple[_a, List[_a]]:
             if len(reste) == 0:
                 return (mini, autres)
             else:
@@ -1111,6 +1159,7 @@ def selectionne_min(liste : List[_a]) -> Tuple[_a, List[_a]]:
                     return cherche_min(t, [mini] + autres, q)
                 else:
                     return cherche_min(mini, [t] + autres, q)
+
         t, q = liste[0], liste[1:]
         return cherche_min(t, [], q)
 
@@ -1127,7 +1176,7 @@ selectionne_min(test)
 # In[130]:
 
 
-def tri_selection(liste : List[_a]) -> List[_a]:
+def tri_selection(liste: List[_a]) -> List[_a]:
     if len(liste) == 0:
         return []
     else:
@@ -1149,9 +1198,11 @@ tri_selection(test)
 
 
 from typing import TypeVar, List, Tuple
-_a = TypeVar('alpha')
 
-def separe(liste : List[_a]) -> Tuple[List[_a], List[_a]]:
+_a = TypeVar("alpha")
+
+
+def separe(liste: List[_a]) -> Tuple[List[_a], List[_a]]:
     if len(liste) == 0:
         return ([], [])
     elif len(liste) == 1:
@@ -1172,7 +1223,7 @@ separe(test)
 # In[134]:
 
 
-def fusion(liste1 : List[_a], liste2 : List[_a]) -> List[_a]:
+def fusion(liste1: List[_a], liste2: List[_a]) -> List[_a]:
     if (len(liste1), len(liste2)) == (0, 0):
         return []
     elif len(liste1) == 0:
@@ -1187,14 +1238,14 @@ def fusion(liste1 : List[_a], liste2 : List[_a]) -> List[_a]:
         else:
             return [y] + fusion([x] + a, b)
 
-        
+
 fusion([1, 3, 7], [2, 3, 8])
 
 
 # In[136]:
 
 
-def tri_fusion(liste : List[_a]) -> List[_a]:
+def tri_fusion(liste: List[_a]) -> List[_a]:
     if len(liste) <= 1:
         return liste
     else:
@@ -1215,15 +1266,16 @@ tri_fusion(test)
 # In[138]:
 
 
-get_ipython().run_line_magic('timeit', 'tri_insertion(test)')
-get_ipython().run_line_magic('timeit', 'tri_selection(test)')
-get_ipython().run_line_magic('timeit', 'tri_fusion(test)')
+get_ipython().run_line_magic("timeit", "tri_insertion(test)")
+get_ipython().run_line_magic("timeit", "tri_selection(test)")
+get_ipython().run_line_magic("timeit", "tri_fusion(test)")
 
 
 # In[152]:
 
 
 from sys import setrecursionlimit
+
 setrecursionlimit(100000)
 # nécessaire pour tester les différentes fonctions récursives sur de grosses listes
 
@@ -1233,14 +1285,16 @@ setrecursionlimit(100000)
 
 import random
 
-def test_random(n : int) -> List[int]:
+
+def test_random(n: int) -> List[int]:
     return [random.randint(-1000, 1000) for _ in range(n)]
+
 
 for n in [10, 100, 1000]:
     print("\nFor n =", n)
     for tri in [tri_insertion, tri_selection, tri_fusion]:
         print("    and tri = {}".format(tri.__name__))
-        get_ipython().run_line_magic('timeit', 'tri(test_random(n))')
+        get_ipython().run_line_magic("timeit", "tri(test_random(n))")
 
 
 # - C'est assez pour vérifier que le tri fusion est **bien plus efficace** que les autres.
@@ -1249,7 +1303,7 @@ for n in [10, 100, 1000]:
 
 # ----
 # # Listes : l'ordre supérieur
-# 
+#
 # Je ne corrige pas les questions qui étaient traitées dans le TP1.
 
 # ## Exercice 16 : `applique`
@@ -1258,9 +1312,11 @@ for n in [10, 100, 1000]:
 
 
 from typing import TypeVar, List, Callable
-_a, _b = TypeVar('_a'), TypeVar('_b')
 
-def applique(f : Callable[[_a], _b], liste : List[_a]) -> List[_b]:
+_a, _b = TypeVar("_a"), TypeVar("_b")
+
+
+def applique(f: Callable[[_a], _b], liste: List[_a]) -> List[_b]:
     # Triche :
     return list(map(f, liste))
     # 1ère approche :
@@ -1272,7 +1328,8 @@ def applique(f : Callable[[_a], _b], liste : List[_a]) -> List[_b]:
     return fliste
     # 3ème approche
     n = len(liste)
-    if n == 0: return []
+    if n == 0:
+        return []
     fliste = [liste[0] for _ in range(n)]
     for i in range(n):
         fliste[i] = f(liste[i])
@@ -1284,8 +1341,8 @@ def applique(f : Callable[[_a], _b], liste : List[_a]) -> List[_b]:
 # In[156]:
 
 
-def premiers_carres_parfaits(n : int) -> List[int]:
-    return applique(lambda x : x * x, list(range(1, n + 1)))
+def premiers_carres_parfaits(n: int) -> List[int]:
+    return applique(lambda x: x * x, list(range(1, n + 1)))
 
 
 # In[157]:
@@ -1300,9 +1357,11 @@ premiers_carres_parfaits(12)
 
 
 from typing import TypeVar, List, Callable
-_a = TypeVar('_a')
 
-def itere(f : Callable[[_a], None], liste : List[_a]) -> None:
+_a = TypeVar("_a")
+
+
+def itere(f: Callable[[_a], None], liste: List[_a]) -> None:
     for x in liste:
         f(x)
 
@@ -1318,10 +1377,11 @@ print_int = lambda i: print("{}".format(i))
 # In[163]:
 
 
-def affiche_liste_entiers(liste : List[int]) -> None:
+def affiche_liste_entiers(liste: List[int]) -> None:
     print("Debut")
     itere(print_int, liste)
     print("Fin")
+
 
 affiche_liste_entiers([1, 2, 4, 5, 12011993])
 
@@ -1332,12 +1392,14 @@ affiche_liste_entiers([1, 2, 4, 5, 12011993])
 
 
 from typing import TypeVar, List, Callable
-_a = TypeVar('_a')
+
+_a = TypeVar("_a")
 
 # Comme all(map(f, liste))
-def qqsoit(f : Callable[[_a], bool], liste : List[_a]) -> bool:
+def qqsoit(f: Callable[[_a], bool], liste: List[_a]) -> bool:
     for x in liste:
-        if not f(x): return False   # arret preliminaire
+        if not f(x):
+            return False  # arret preliminaire
     return True
 
 
@@ -1345,9 +1407,10 @@ def qqsoit(f : Callable[[_a], bool], liste : List[_a]) -> bool:
 
 
 # Comme any(map(f, liste))
-def ilexiste(f : Callable[[_a], bool], liste : List[_a]) -> bool:
+def ilexiste(f: Callable[[_a], bool], liste: List[_a]) -> bool:
     for x in liste:
-        if f(x): return True   # arret preliminaire
+        if f(x):
+            return True  # arret preliminaire
     return False
 
 
@@ -1361,15 +1424,23 @@ ilexiste(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5])
 # In[167]:
 
 
-get_ipython().run_line_magic('timeit', 'qqsoit(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5])')
-get_ipython().run_line_magic('timeit', 'all(map(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5]))')
+get_ipython().run_line_magic(
+    "timeit", "qqsoit(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5])"
+)
+get_ipython().run_line_magic(
+    "timeit", "all(map(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5]))"
+)
 
 
 # In[168]:
 
 
-get_ipython().run_line_magic('timeit', 'ilexiste(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5])')
-get_ipython().run_line_magic('timeit', 'any(map(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5]))')
+get_ipython().run_line_magic(
+    "timeit", "ilexiste(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5])"
+)
+get_ipython().run_line_magic(
+    "timeit", "any(map(lambda x: (x % 2) == 0, [1, 2, 3, 4, 5]))"
+)
 
 
 # ## Exercice 21 : `appartient` version 2
@@ -1377,17 +1448,18 @@ get_ipython().run_line_magic('timeit', 'any(map(lambda x: (x % 2) == 0, [1, 2, 3
 # In[178]:
 
 
-def appartient_curry(x : _a) -> Callable[[List[_a]], bool]:
+def appartient_curry(x: _a) -> Callable[[List[_a]], bool]:
     return lambda liste: ilexiste(lambda y: x == y, liste)
 
-def appartient(x : _a, liste : List[_a]) -> bool:
+
+def appartient(x: _a, liste: List[_a]) -> bool:
     return ilexiste(lambda y: x == y, liste)
 
 
 # In[179]:
 
 
-def toutes_egales(x : _a, liste : List[_a]) -> bool:
+def toutes_egales(x: _a, liste: List[_a]) -> bool:
     return qqsoit(lambda y: x == y, liste)
 
 
@@ -1409,8 +1481,14 @@ toutes_egales(5, [1, 2, 3])
 # In[183]:
 
 
-get_ipython().run_line_magic('timeit', 'appartient(random.randint(-10, 10), [random.randint(-1000, 1000) for _ in range(1000)])')
-get_ipython().run_line_magic('timeit', 'random.randint(-10, 10) in [random.randint(-1000, 1000) for _ in range(1000)]')
+get_ipython().run_line_magic(
+    "timeit",
+    "appartient(random.randint(-10, 10), [random.randint(-1000, 1000) for _ in range(1000)])",
+)
+get_ipython().run_line_magic(
+    "timeit",
+    "random.randint(-10, 10) in [random.randint(-1000, 1000) for _ in range(1000)]",
+)
 
 
 # ## Exercice 22 : `filtre`
@@ -1419,10 +1497,11 @@ get_ipython().run_line_magic('timeit', 'random.randint(-10, 10) in [random.randi
 
 
 from typing import TypeVar, List, Callable
-_a = TypeVar('_a')
+
+_a = TypeVar("_a")
 
 # Comme list(filter(f, liste))
-def filtre(f : Callable[[_a], bool], liste : List[_a]) -> List[_a]:
+def filtre(f: Callable[[_a], bool], liste: List[_a]) -> List[_a]:
     # return [x for x in liste if f(x)]
     liste2 = []
     for x in liste:
@@ -1444,7 +1523,7 @@ filtre(lambda x: (x % 2) != 0, [1, 2, 3, 4, 5])
 # In[189]:
 
 
-pairs   = lambda liste: filtre(lambda x: (x % 2) == 0, liste)
+pairs = lambda liste: filtre(lambda x: (x % 2) == 0, liste)
 impairs = lambda liste: filtre(lambda x: (x % 2) != 0, liste)
 
 
@@ -1461,18 +1540,20 @@ impairs(list(range(10)))
 
 
 from typing import TypeVar, List, Callable
-_a = TypeVar('_a')
+
+_a = TypeVar("_a")
 
 # Comme list(filter(f, liste))
-def reduit_rec(f : Callable[[_a, _b], _a], acc : _a, liste : List[_b]) -> _a:
+def reduit_rec(f: Callable[[_a, _b], _a], acc: _a, liste: List[_b]) -> _a:
     if len(liste) == 0:
         return acc
     else:
         h, q = liste[0], liste[1:]
         return reduit(f, f(acc, h), q)
 
+
 # Version non récursive, bien plus efficace
-def reduit(f : Callable[[_a, _b], _a], acc : _a, liste : List[_b]) -> _a:
+def reduit(f: Callable[[_a, _b], _a], acc: _a, liste: List[_b]) -> _a:
     acc_value = acc
     for x in liste:
         acc_value = f(acc_value, x)
@@ -1487,6 +1568,7 @@ def reduit(f : Callable[[_a, _b], _a], acc : _a, liste : List[_b]) -> _a:
 
 
 from operator import add
+
 somme_rec = lambda liste: reduit_rec(add, 0, liste)
 somme = lambda liste: reduit(add, 0, liste)
 
@@ -1498,9 +1580,9 @@ sum(list(range(10)))
 # In[213]:
 
 
-get_ipython().run_line_magic('timeit', 'somme_rec(list(range(10)))')
-get_ipython().run_line_magic('timeit', 'somme(list(range(10)))')
-get_ipython().run_line_magic('timeit', 'sum(list(range(10)))')
+get_ipython().run_line_magic("timeit", "somme_rec(list(range(10)))")
+get_ipython().run_line_magic("timeit", "somme(list(range(10)))")
+get_ipython().run_line_magic("timeit", "sum(list(range(10)))")
 
 
 # Pour de petites listes, la version récursive est aussi efficace que la version impérative. Chouette !
@@ -1508,15 +1590,16 @@ get_ipython().run_line_magic('timeit', 'sum(list(range(10)))')
 # In[214]:
 
 
-get_ipython().run_line_magic('timeit', 'somme_rec(list(range(1000)))')
-get_ipython().run_line_magic('timeit', 'somme(list(range(1000)))')
-get_ipython().run_line_magic('timeit', 'sum(list(range(1000)))')
+get_ipython().run_line_magic("timeit", "somme_rec(list(range(1000)))")
+get_ipython().run_line_magic("timeit", "somme(list(range(1000)))")
+get_ipython().run_line_magic("timeit", "sum(list(range(1000)))")
 
 
 # In[205]:
 
 
 from operator import mul
+
 produit = lambda liste: reduit(mul, 1, liste)
 
 produit(list(range(1, 6)))  # 5! = 120
@@ -1527,8 +1610,9 @@ produit(list(range(1, 6)))  # 5! = 120
 # In[208]:
 
 
-def factorielle(n : int) -> int:
+def factorielle(n: int) -> int:
     return produit(range(1, n + 1))
+
 
 for n in range(1, 15):
     print("{:>7}! = {:>13}".format(n, factorielle(n)))
@@ -1539,7 +1623,7 @@ for n in range(1, 15):
 # In[220]:
 
 
-miroir = lambda liste: reduit(lambda l, x : [x] + l, [], liste)
+miroir = lambda liste: reduit(lambda l, x: [x] + l, [], liste)
 
 
 # In[221]:
@@ -1575,16 +1659,17 @@ from pprint import pprint
 # In[38]:
 
 
-arbre_test = {'Noeud': (
-        {'Noeud': (
-            {'Noeud': (
-                {'Feuille': None},
-                {'Feuille': None}
-            )},
-            {'Feuille': None}
-        )},
-        {'Feuille': None}
-    )}
+arbre_test = {
+    "Noeud": (
+        {
+            "Noeud": (
+                {"Noeud": ({"Feuille": None}, {"Feuille": None})},
+                {"Feuille": None},
+            )
+        },
+        {"Feuille": None},
+    )
+}
 
 
 # In[39]:
@@ -1598,8 +1683,8 @@ pprint(arbre_test)
 # In[40]:
 
 
-Feuille = {'Feuille': None}
-Noeud = lambda x, y : {'Noeud': (x, y)}
+Feuille = {"Feuille": None}
+Noeud = lambda x, y: {"Noeud": (x, y)}
 
 
 # In[34]:
@@ -1621,13 +1706,13 @@ pprint(arbre_test)
 # In[5]:
 
 
-def taille(a : arbre_bin) -> int:
+def taille(a: arbre_bin) -> int:
     # Pattern matching ~= if, elif,.. sur les clés de la profondeur 1
     # du dictionnaire (une seule clé)
-    if 'Feuille' in a:
+    if "Feuille" in a:
         return 1
-    elif 'Noeud' in a:
-        x, y = a['Noeud']
+    elif "Noeud" in a:
+        x, y = a["Noeud"]
         return 1 + taille(x) + taille(y)
 
 
@@ -1642,11 +1727,11 @@ taille(arbre_test)  # 7
 # In[7]:
 
 
-def hauteur(a : arbre_bin) -> int:
-    if 'Feuille' in a:
+def hauteur(a: arbre_bin) -> int:
+    if "Feuille" in a:
         return 0
-    elif 'Noeud' in a:
-        x, y = a['Noeud']
+    elif "Noeud" in a:
+        x, y = a["Noeud"]
         return 1 + max(hauteur(x), hauteur(y))
 
 
@@ -1672,8 +1757,8 @@ hauteur(arbre_test)  # 3
 
 from typing import TypeVar, Union, List
 
-F = TypeVar('F')
-N = TypeVar('N')
+F = TypeVar("F")
+N = TypeVar("N")
 
 element_parcours = Union[F, N]
 parcours = List[element_parcours]
@@ -1684,12 +1769,13 @@ parcours = List[element_parcours]
 # In[10]:
 
 
-def parcours_prefixe(a : arbre_bin) -> parcours:
-    if 'Feuille' in a:
+def parcours_prefixe(a: arbre_bin) -> parcours:
+    if "Feuille" in a:
         return [F]
-    elif 'Noeud' in a:
-        g, d = a['Noeud']
+    elif "Noeud" in a:
+        g, d = a["Noeud"]
         return [N] + parcours_prefixe(g) + parcours_prefixe(d)
+
 
 parcours_prefixe(arbre_test)
 
@@ -1697,12 +1783,13 @@ parcours_prefixe(arbre_test)
 # In[11]:
 
 
-def parcours_postfixe(a : arbre_bin) -> parcours:
-    if 'Feuille' in a:
+def parcours_postfixe(a: arbre_bin) -> parcours:
+    if "Feuille" in a:
         return [F]
-    elif 'Noeud' in a:
-        g, d = a['Noeud']
+    elif "Noeud" in a:
+        g, d = a["Noeud"]
         return parcours_postfixe(g) + parcours_postfixe(d) + [N]
+
 
 parcours_postfixe(arbre_test)
 
@@ -1710,12 +1797,13 @@ parcours_postfixe(arbre_test)
 # In[12]:
 
 
-def parcours_infixe(a : arbre_bin) -> parcours:
-    if 'Feuille' in a:
+def parcours_infixe(a: arbre_bin) -> parcours:
+    if "Feuille" in a:
         return [F]
-    elif 'Noeud' in a:
-        g, d = a['Noeud']
+    elif "Noeud" in a:
+        g, d = a["Noeud"]
         return parcours_infixe(g) + [N] + parcours_infixe(d)
+
 
 parcours_infixe(arbre_test)
 
@@ -1723,23 +1811,25 @@ parcours_infixe(arbre_test)
 # Pourquoi ont-ils une complexité quadratique ? La concaténation (`@` en OCaml, `+` en Python) ne se fait pas en temps constant mais linéaire dans la taille de la plus longue liste.
 
 # ## Exercice 33 : Parcours linéaires
-# 
+#
 # On ajoute une fonction auxiliaire et un argument `vus` qui est une liste qui stocke les élements observés dans l'ordre du parcours
 
 # In[13]:
 
 
-def parcours_prefixe2(a : arbre_bin) -> parcours:
+def parcours_prefixe2(a: arbre_bin) -> parcours:
     def parcours(vus, b):
-        if 'Feuille' in b:
+        if "Feuille" in b:
             vus.insert(0, F)
             return vus
-        elif 'Noeud' in b:
+        elif "Noeud" in b:
             vus.insert(0, N)
-            g, d = b['Noeud']
+            g, d = b["Noeud"]
             return parcours(parcours(vus, g), d)
+
     p = parcours([], a)
     return p[::-1]
+
 
 parcours_prefixe2(arbre_test)
 
@@ -1747,18 +1837,20 @@ parcours_prefixe2(arbre_test)
 # In[14]:
 
 
-def parcours_postfixe2(a : arbre_bin) -> parcours:
+def parcours_postfixe2(a: arbre_bin) -> parcours:
     def parcours(vus, b):
-        if 'Feuille' in b:
+        if "Feuille" in b:
             vus.insert(0, F)
             return vus
-        elif 'Noeud' in b:
-            g, d = b['Noeud']
+        elif "Noeud" in b:
+            g, d = b["Noeud"]
             p = parcours(parcours(vus, g), d)
             p.insert(0, N)
             return p
+
     p = parcours([], a)
     return p[::-1]
+
 
 parcours_postfixe2(arbre_test)
 
@@ -1766,18 +1858,20 @@ parcours_postfixe2(arbre_test)
 # In[15]:
 
 
-def parcours_infixe2(a : arbre_bin) -> parcours:
+def parcours_infixe2(a: arbre_bin) -> parcours:
     def parcours(vus, b):
-        if 'Feuille' in b:
+        if "Feuille" in b:
             vus.insert(0, F)
             return vus
-        elif 'Noeud' in b:
-            g, d = b['Noeud']
+        elif "Noeud" in b:
+            g, d = b["Noeud"]
             p = parcours(vus, g)
             p.insert(0, N)
             return parcours(p, d)
+
     p = parcours([], a)
     return p[::-1]
+
 
 parcours_infixe2(arbre_test)
 
@@ -1791,7 +1885,8 @@ parcours_infixe2(arbre_test)
 
 from collections import deque
 
-def parcours_largeur(a : arbre_bin) -> parcours:
+
+def parcours_largeur(a: arbre_bin) -> parcours:
     file = deque()
     # fonction avec effet de bord sur la file
     def vasy() -> parcours:
@@ -1799,21 +1894,23 @@ def parcours_largeur(a : arbre_bin) -> parcours:
             return []
         else:
             b = file.pop()
-            if 'Feuille' in b:
+            if "Feuille" in b:
                 # return [F] + vasy()
                 v = vasy()
                 v.insert(0, F)
                 return v
-            elif 'Noeud' in b:
-                g, d = b['Noeud']
+            elif "Noeud" in b:
+                g, d = b["Noeud"]
                 file.insert(0, g)
                 file.insert(0, d)
                 # return [N] + vasy()
                 v = vasy()
                 v.insert(0, N)
                 return v
+
     file.insert(0, a)
     return vasy()
+
 
 parcours_largeur(arbre_test)
 
@@ -1823,7 +1920,7 @@ parcours_largeur(arbre_test)
 # In[17]:
 
 
-def parcours_profondeur(a : arbre_bin) -> parcours:
+def parcours_profondeur(a: arbre_bin) -> parcours:
     pile = []
     # fonction avec effet de bord sur la file
     def vasy() -> parcours:
@@ -1831,21 +1928,23 @@ def parcours_profondeur(a : arbre_bin) -> parcours:
             return []
         else:
             b = pile.pop()
-            if 'Feuille' in b:
+            if "Feuille" in b:
                 # return [F] + vasy()
                 v = vasy()
                 v.append(F)
                 return v
-            elif 'Noeud' in b:
-                g, d = b['Noeud']
+            elif "Noeud" in b:
+                g, d = b["Noeud"]
                 pile.append(g)
                 pile.append(d)
                 # return [N] + vasy()
                 v = vasy()
                 v.insert(0, N)
                 return v
+
     pile.append(a)
     return vasy()
+
 
 parcours_profondeur(arbre_test)
 
@@ -1876,8 +1975,9 @@ test_prefixe
 
 from typing import Tuple
 
-def reconstruit_prefixe(par : parcours) -> arbre_bin:
-    def reconstruit(p : parcours) -> Tuple[arbre_bin, parcours]:
+
+def reconstruit_prefixe(par: parcours) -> arbre_bin:
+    def reconstruit(p: parcours) -> Tuple[arbre_bin, parcours]:
         if len(p) == 0:
             raise ValueError("parcours invalide pour reconstruit_prefixe")
         elif p[0] == F:
@@ -1886,6 +1986,7 @@ def reconstruit_prefixe(par : parcours) -> arbre_bin:
             g, q = reconstruit(p[1:])
             d, r = reconstruit(q)
             return (Noeud(g, d), r)
+
     # call it
     a, p = reconstruit(par)
     if len(p) == 0:
@@ -1932,16 +2033,18 @@ largeur_test
 
 from collections import deque
 
-def reconstruit_largeur(par : parcours) -> arbre_bin:
+
+def reconstruit_largeur(par: parcours) -> arbre_bin:
     file = deque()
     # Fonction avec effets de bord
-    def lire_element(e : element_parcours) -> None:
+    def lire_element(e: element_parcours) -> None:
         if e == F:
             file.append(Feuille)
         elif e == N:
             d = file.popleft()
             g = file.popleft()  # attention à l'ordre !
             file.append(Noeud(g, d))
+
     # Applique cette fonction à chaque élement du parcours
     for e in reversed(par):
         lire_element(e)
@@ -1967,16 +2070,18 @@ arbre_test
 
 from collections import deque
 
-def reconstruit_prefixe2(par : parcours) -> arbre_bin:
+
+def reconstruit_prefixe2(par: parcours) -> arbre_bin:
     pile = deque()
     # Fonction avec effets de bord
-    def lire_element(e : element_parcours) -> None:
+    def lire_element(e: element_parcours) -> None:
         if e == F:
             pile.append(Feuille)
         elif e == N:
             g = pile.pop()
             d = pile.pop()  # attention à l'ordre !
             pile.append(Noeud(g, d))
+
     # Applique cette fonction à chaque élement du parcours
     for e in reversed(par):
         lire_element(e)
@@ -2002,5 +2107,5 @@ arbre_test
 
 # ----
 # # Conclusion
-# 
+#
 # Fin. À la séance prochaine.

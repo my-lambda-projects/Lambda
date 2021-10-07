@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -35,7 +34,7 @@ def delete(root, val):
 
     if val < root.val:
         root.left = delete(root.left, val)
-    
+
     elif val > root.val:
         root.right = delete(root.right, val)
 
@@ -56,7 +55,3 @@ def delete(root, val):
         root.right = delete(root.right, temp.val)
 
     return root
-
-
-
-    

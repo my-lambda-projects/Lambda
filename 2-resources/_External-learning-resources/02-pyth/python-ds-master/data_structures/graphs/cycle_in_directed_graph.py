@@ -2,15 +2,12 @@ from collections import defaultdict
 
 
 class Graph:
-
     def __init__(self, vertices):
         self.V = vertices
         self.graph = defaultdict(list)
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def is_cyclic_util(self, v, visited, rec_stack):
         visited[v] = True
@@ -26,7 +23,6 @@ class Graph:
 
         rec_stack[v] = False
         return False
-
 
     def is_cyclic(self):
         visited = [False] * self.V

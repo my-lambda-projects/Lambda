@@ -6,40 +6,40 @@
 
 # # Titre de l'oral : « *Comment dessiner des droites sur un écran d'ordinateur ?* »
 # ## Texte d'oral de modélisation, agrég maths option D "Droite Discrète" (public 2012 D5)
-# 
+#
 # > Voir : [cette page](https://agreg.org/index.php?id=option-d) et [ce texte (public2012-D5.pdf)](https://agreg.org/Textes/public2012-D5.pdf) :
 # > **2012-D5** À partir du problème de la représentation des droites sur un écran d’ordinateur, on étudie la notion de droite discrète, et le mot binaire périodique associé. On met en évidence la relation biunivoque entre droites discrètes et certains mots binaires, puis entre ces mots et les nombres rationnels de [0, 1]. Mots clefs : algorithmes, géométrie discrète, mots binaires, topologie.
-# 
+#
 # - Auteur : [Lilian Besson](https://github.com/Naereen/)
 # - Écrit en Python 3
 # - License : [MIT Licensed](https://lbesson.mit-license.org/)
 # - Date : 25/01/2021 (j'avais écrit [une solution en OCaml en 2014](https://github.com/Naereen/notebooks/tree/master/agreg/public2012_D5_OCaml.ipynb))
 
 # ## Introduction
-# 
+#
 # Donner un petit discours d'introduction :
-# 
+#
 # > On cherche à dessiner des courbes mathématiques sur un écran d'ordinateur. Pour simplifier l'exposé, on ne va considérer que des écrans quadrillés, où chaque case est un "pixel", et aussi on se restreint à des graphismes en noir et blanc. Ainsi, un écran est un tableau 2D, une matrice, de pixels, et chaque pixel est soit éteint, soit allumé.
 # > Si on cherche à tracer une courbe mathématique, par exemple une droite, un cercle ou d'autres courbes plus compliquée, sur un tel écran d'ordinateur, on va devoir décider quels pixels allumer ou garder éteint, le long du tracé de la courbe.
 # > [faire un dessin au tableau]
-# 
+#
 # > Pour commencer, on va uniquement s'intéresser au cas d'une droite, qui va du pixel O=(0,0) tout en bas à droite de l'écran, jusqu'à un autre point B=(b1,b2) de l'écran (à coordonnées entières, donc), situé à droite et en haut de l'origine O.
 # > On pose $\alpha=b2/b1 \in \mathbb{R} \cup \{\pm\infty\}$ la pente de cette droite.
-# 
+#
 # > Comme on le voit, si la courbe est un cas particulier très facile, il n'y a pas de difficultés particulières.
 # > Les cas faciles sont les courbes horizontales, de pente $1$ ou verticales, soit $\alpha \in \{0,1,\infty\}$.
 # > Dans les autres cas, la pente est toujours rationnelle, mais en général elle ne sera pas entière.
 # > Nous allons d'abord étudier le cas particulier d'une pente $\alpha < 1$, mais il est très facile de généraliser aux sept autres quadrants [faire un dessin], avec des rotations, et en échangeant le point de départ A et l'arrivée B.
-# 
+#
 # > Nous formalisons le problème, en faisant le lien entre les coordonnées réelles des points $M_i = (x_i,y_i)$ sur la droite [AB], qui sont $x_i = i$ et $y_i \in \mathbb{R}$ peut être réel et même irrationnels, et les points $(x_i, \tilde{y_i})$ qui sont les coordonnées
 # > (par convention, le point de référence des pixels est le point en bas à gauche)
-# 
+#
 # > Nous présenterons et implémenterons trois différentes méthodes, qui ont toute la même complexité algorithmique, mais qui donnent des tracés différents dans le cas d'une droite quelconque.
-# 
-# > 
-# 
+#
+# >
+#
 # **Plan** : voir table des matières pour le détail. [écrire au tableau]
-# 
+#
 # - I)   *Introduction*
 # - II)  Tracé de droites, formalisation
 # - III) Trois méthodes différentes : algorithmes, implémentations, exemples *[visualisation si le temps ?]*
@@ -54,17 +54,17 @@
 # ## Formalisation, et hypothèses
 
 # ## Présentation du problème
-# 
+#
 # TODO
-# 
+#
 # TL;DR : on cherche des algorithmes qui évitent de calculer des erreurs sur des nombres réels, parce qu'on sait que les flottants propagent des erreurs de calculs.
 
 # ## Généralisation au delà de ces hypothèses ?
 
-# # Trois méthodes différentes : algorithmes, implémentations, exemples 
+# # Trois méthodes différentes : algorithmes, implémentations, exemples
 
 # ## Implémentation de l'exercice de programmation
-# 
+#
 # <span style="color:red;">ATTENTION</span> depuis 2019, l'*exercice de programmation obligatoire* qui était indiqué dans les anciens textes d'option D est devenu, comme pour les autres options A/B/C, une simple *suggestion*.
 # - Avant 2019, il fallait absolument implémenter l'exercice demandé, et éventuellement faire plus ;
 # - Maintenant, on fait ce qu'on veut. Le jury n'a pas encore diffusé de texte suivant la nouvelle consigne, donc je vous conseille l'approche suivante : pour les vieux textes, il faut juste remplacer *exercice de programmation obligatoire* par *suggestion de programmation*.
@@ -73,7 +73,7 @@
 # > La sortie du programme sera la liste des couples (xi,yi) des points représentant le segment.
 
 # ### Un bidouillage avec Python : un "wrapper" qui gère les symétries, pour ne pas avoir à les coder plusieurs fois
-# 
+#
 # On peut écrire un décorateur Python qui se charge de gérer toutes les symétries, afin de ne pas à avoir à copier-coller ça pour les méthodes suivantes.
 
 # In[198]:
@@ -94,12 +94,13 @@ def gerersymetrie(nom=""):
                 # OK maintenant b2 >= a2
                 print(f"{nom} (avant symétries) avec une pente = +oo")
                 points = [
-                    (a1, a2 + i) for i in range(b2 - a2 + 1)
+                    (a1, a2 + i)
+                    for i in range(b2 - a2 + 1)
                     # droite verticale, même x, y change
                 ]
                 return points
 
-            pente = float(b2-a2) / float(b1-a1)
+            pente = float(b2 - a2) / float(b1 - a1)
 
             if a1 > b1:  # cas facile !
                 print(f"{nom} (avant symétries) avec une pente = {pente}")
@@ -115,11 +116,11 @@ def gerersymetrie(nom=""):
                 print(f"{nom} (avant symétries) avec une pente = {pente}")
                 points = g(A, Bx)
                 # <-- i) symétrie % droite {(x,x)}
-                points = [ (y, x) for (x,y) in points ]
+                points = [(y, x) for (x, y) in points]
                 return points
 
             if a2 > b2:  # cas plus difficile, il faudra calculer une symétrie
-                Ax = [0,0]
+                Ax = [0, 0]
                 # --> i) translation =>
                 Bx = [b1 - a1, b2 - a2]
                 # --> --> ii) symétrie % axe horizontal
@@ -127,19 +128,20 @@ def gerersymetrie(nom=""):
                 print(f"{nom} (avant symétries) avec une pente = {pente}")
                 points = g(Ax, Bxx)
                 # <-- <-- ii) symétrie % axe horizontal
-                points = [ (x, -y) for (x,y) in points ]
+                points = [(x, -y) for (x, y) in points]
                 # <-- i) translation <=
-                points = [ (x + a1, y + a2) for (x,y) in points ]
+                points = [(x + a1, y + a2) for (x, y) in points]
                 return points
-            
-            # cas de base, on propage
+
+            #  cas de base, on propage
             return f(A, B)
 
         if f.__doc__:
             g.__doc__ = f.__doc__
         g.__nom__ = nom
-        # maintenant on a un wrapper g(A,B) qui gère les symétries
+        #  maintenant on a un wrapper g(A,B) qui gère les symétries
         return g
+
     # et voilà on a un decorateur
     return decorator
 
@@ -164,34 +166,40 @@ def methode_bresenham(A, B):
     a1, a2 = int(A[0]), int(A[1])
     b1, b2 = int(B[0]), int(B[1])
 
-    pente = float(b2-a2) / float(b1-a1)
+    pente = float(b2 - a2) / float(b1 - a1)
 
     # vérification des hypothèses 2/2
-    assert 0 <= pente <= 1, f"Erreur : la méthode de Bresenham demande 0 <= pente = {pente} <= 1."
-    print(f"Méthode de Bresenham (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1")
+    assert (
+        0 <= pente <= 1
+    ), f"Erreur : la méthode de Bresenham demande 0 <= pente = {pente} <= 1."
+    print(
+        f"Méthode de Bresenham (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1"
+    )
 
     points = []
-    points.append(A)    # premier point A
+    points.append(A)  # premier point A
 
-    nombre_point = b1 - a1  # c'est le n du texte
-    pente_normalise = b2 - a2  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
+    nombre_point = b1 - a1  #  c'est le n du texte
+    pente_normalise = (
+        b2 - a2
+    )  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
     xi = int(a1)
     yi = int(a2)
     ei = 0
-    
+
     for i in range(1, nombre_point):
         xi += 1
 
         # cette partie spécifique à Bresenham, et change selon les trois méthodes
-        if 2 * ( ei + pente_normalise ) <= nombre_point:
+        if 2 * (ei + pente_normalise) <= nombre_point:
             ei += pente_normalise
-            yi += 0  # inutile, juste pour le montrer
+            yi += 0  #  inutile, juste pour le montrer
         else:
             ei += pente_normalise - nombre_point
             yi += 1
 
         points.append((xi, yi))
-    
+
     # et dernier point B
     points.append(B)
     return points
@@ -215,7 +223,7 @@ print(methode_bresenham(A, B))
 
 
 A = (0, 0)
-B = (4, 0)  # pente 0
+B = (4, 0)  #  pente 0
 print(methode_bresenham(A, B))
 
 
@@ -250,7 +258,7 @@ print(methode_bresenham(A, B))
 
 
 # ### Autres exemples : six autre premiers quadrants, deux autres demi-droites
-# 
+#
 # On fera ces autres exemples quand on aura les deux autres méthodes.
 
 # ## Deux autres méthodes
@@ -282,28 +290,34 @@ def methode_longer_inferieurement(A, B):
     a1, a2 = int(A[0]), int(A[1])
     b1, b2 = int(B[0]), int(B[1])
 
-    pente = float(b2-a2) / float(b1-a1)
+    pente = float(b2 - a2) / float(b1 - a1)
 
     # vérification des hypothèses 2/2
-    assert 0 <= pente <= 1, f"Erreur : la méthode de longer au plus près inférieurement demande 0 <= pente = {pente} <= 1."
-    print(f"Méthode de longer au plus près inférieurement (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1")
+    assert (
+        0 <= pente <= 1
+    ), f"Erreur : la méthode de longer au plus près inférieurement demande 0 <= pente = {pente} <= 1."
+    print(
+        f"Méthode de longer au plus près inférieurement (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1"
+    )
 
     points = []
-    points.append(A)    # premier point A
+    points.append(A)  # premier point A
 
     nombre_point = b1 - a1  # c'est le n du texte
-    pente_normalise = b2 - a2  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
+    pente_normalise = (
+        b2 - a2
+    )  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
     xi = int(a1)
     yi = int(a2)
     ei = 0
-    
+
     for i in range(1, nombre_point):
         xi += 1
         # cette partie est spécifique à cette méthode
-        yi = floor(a2 + pente*i)
+        yi = floor(a2 + pente * i)
 
         points.append((xi, yi))
-    
+
     # et dernier point B
     points.append(B)
     return points
@@ -328,35 +342,41 @@ def methode_longer_superieurement(A, B):
     a1, a2 = int(A[0]), int(A[1])
     b1, b2 = int(B[0]), int(B[1])
 
-    pente = float(b2-a2) / float(b1-a1)
+    pente = float(b2 - a2) / float(b1 - a1)
 
     # vérification des hypothèses 2/2
-    assert 0 <= pente <= 1, f"Erreur : la méthode de longer au plus près supérieurement demande 0 <= pente = {pente} <= 1."
-    print(f"Méthode de longer au plus près supérieurement (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1")
+    assert (
+        0 <= pente <= 1
+    ), f"Erreur : la méthode de longer au plus près supérieurement demande 0 <= pente = {pente} <= 1."
+    print(
+        f"Méthode de longer au plus près supérieurement (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1"
+    )
 
     points = []
-    points.append(A)    # premier point A
+    points.append(A)  # premier point A
 
     nombre_point = b1 - a1  # c'est le n du texte
-    pente_normalise = b2 - a2  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
+    pente_normalise = (
+        b2 - a2
+    )  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
     xi = int(a1)
     yi = int(a2)
     ei = 0
-    
+
     for i in range(1, nombre_point):
         xi += 1
         # cette partie est spécifique à cette méthode
-        yi = ceil(a2 + pente*i)
+        yi = ceil(a2 + pente * i)
 
         points.append((xi, yi))
-    
+
     # et dernier point B
     points.append(B)
     return points
 
 
 # ### Une dernière méthode ?
-# 
+#
 # On peut aussi longer la droite aléatoirement, en prenant inférieurement ou supérieurement uniformément au hasard.
 # Cela n'a pas d'intérêt particulier, mais c'est rapide à écrire alors autant le faire :
 
@@ -369,7 +389,7 @@ import random
 # In[210]:
 
 
-[ random.randint(0, 1) for _ in range(20) ]
+[random.randint(0, 1) for _ in range(20)]
 
 
 # On peut facilement remplacer le calcul de $\tilde{y_i}$ par simplement un choix aléatoire uniforme entre le choix floor et le choix ceil :
@@ -391,33 +411,39 @@ def methode_longer_aleatoirement(A, B):
     a1, a2 = int(A[0]), int(A[1])
     b1, b2 = int(B[0]), int(B[1])
 
-    pente = float(b2-a2) / float(b1-a1)
+    pente = float(b2 - a2) / float(b1 - a1)
 
     # vérification des hypothèses 2/2
-    assert 0 <= pente <= 1, f"Erreur : la méthode de longer aléatoirement demande 0 <= pente = {pente} <= 1."
-    print(f"Méthode de longer aléatoirement (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1")
+    assert (
+        0 <= pente <= 1
+    ), f"Erreur : la méthode de longer aléatoirement demande 0 <= pente = {pente} <= 1."
+    print(
+        f"Méthode de longer aléatoirement (après symétries éventuelles) avec une pente 0 <= pente = {pente} <= 1"
+    )
 
     points = []
-    points.append(A)    # premier point A
+    points.append(A)  # premier point A
 
     nombre_point = b1 - a1  # c'est le n du texte
-    pente_normalise = b2 - a2  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
+    pente_normalise = (
+        b2 - a2
+    )  # le m du texte = b2-a2, c'est la pente normalisée alpha*n
     xi = int(a1)
     yi = int(a2)
     ei = 0
-    
+
     for i in range(1, nombre_point):
         xi += 1
         # cette partie est spécifique à cette méthode
         if random.randint(0, 1) == 0:
-            yi = floor(a2 + pente*i)
+            yi = floor(a2 + pente * i)
         else:
-            yi = ceil(a2 + pente*i)
+            yi = ceil(a2 + pente * i)
         # écrire cela est aussi possible
         # yi += random.randint(0, 1)  # TODO
 
         points.append((xi, yi))
-    
+
     # et dernier point B
     points.append(B)
     return points
@@ -443,7 +469,7 @@ print(methode_longer_aleatoirement(A, B))
 
 
 A = (0, 0)
-B = (4, 0)  # pente 0
+B = (4, 0)  #  pente 0
 print(methode_longer_inferieurement(A, B))
 print(methode_longer_superieurement(A, B))
 print(methode_longer_aleatoirement(A, B))
@@ -486,7 +512,7 @@ print(methode_longer_aleatoirement(A, B))
 
 
 # ### Autres exemples : six autre premiers quadrants, deux autres demi-droites
-# 
+#
 # On fera ces autres exemples quand on aura les deux autres méthodes.
 
 # - Quadrant #3, b1 < a1 mais b2 > a2 et b2 >= b1 :
@@ -571,9 +597,9 @@ print(methode_longer_aleatoirement(A, B))
 
 # ---
 # ## Visualisation ? *[si le temps]*
-# 
+#
 # Ca ne devrait pas être trop compliqué :
-# 
+#
 # - il faut pouvoir donner la pente, comme un rationnel ou un flottant,
 # - et les points [M0,...,MN] donné avec leurs coordonnées (en général, M0=A=O=(0,0) et MN=B=(b1,b2)),
 # - et afficher la courbe et les pixels allumés, comme des gros rectangles.
@@ -583,76 +609,86 @@ print(methode_longer_aleatoirement(A, B))
 
 import matplotlib.pyplot as plt
 
-# https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.patches.Rectangle.html?highlight=rectangle#matplotlib.patches.Rectangle
+#  https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.patches.Rectangle.html?highlight=rectangle#matplotlib.patches.Rectangle
 from matplotlib.patches import Rectangle
 
 
 # In[288]:
 
 
-def plot_discrete_line(points=None,  # liste des coordonnées [M0,...,MN]
-                       A=None, B=None,
-                       methodes=[],  # liste de fonctions à utiliser pour calculer les points, si absents
-                       title="Dessin d'une droite discrète",
-                       width=50, height=None,
-                       figsize=(10,7),
-                       linewidth=2,
-                       fill=True,
-                       edgecolors=['r'],
-                       facecolors=None,
-                       alpha=0.4,
-                       linecolor='k',
-                       equal=True,
-                       pente=None,
-                      ):
+def plot_discrete_line(
+    points=None,  #  liste des coordonnées [M0,...,MN]
+    A=None,
+    B=None,
+    methodes=[],  #  liste de fonctions à utiliser pour calculer les points, si absents
+    title="Dessin d'une droite discrète",
+    width=50,
+    height=None,
+    figsize=(10, 7),
+    linewidth=2,
+    fill=True,
+    edgecolors=["r"],
+    facecolors=None,
+    alpha=0.4,
+    linecolor="k",
+    equal=True,
+    pente=None,
+):
     fig = plt.figure(figsize=figsize)
 
-    if equal: plt.axis('equal')
-    if not facecolors: facecolors = edgecolors
-    if not height: height = width
-        
+    if equal:
+        plt.axis("equal")
+    if not facecolors:
+        facecolors = edgecolors
+    if not height:
+        height = width
+
     use_fake_methode = False
     if not methodes:
         use_fake_methode = True
-        def fake_methode(A, B): return points
+
+        def fake_methode(A, B):
+            return points
+
         fake_methode.__nom__ = "Fake method XXX"
         methodes = [fake_methode]
 
     for i, methode in enumerate(methodes):
         points = methode(A, B)
-    
-        # points in P should be ordored, but not restricted to Mi = (xi, yi) with xi=i
+
+        #  points in P should be ordored, but not restricted to Mi = (xi, yi) with xi=i
         min_x = min(p[0] for p in points)
         max_x = max(p[0] for p in points)
-        plt.xlim((min_x - 0.2)*width, (max_x + 1 + 0.2)*width)
+        plt.xlim((min_x - 0.2) * width, (max_x + 1 + 0.2) * width)
         min_y = min(p[1] for p in points)
         max_y = max(p[1] for p in points)
-        plt.ylim((min_y - 0.2)*height, (max_y + 1 + 0.2)*height)
+        plt.ylim((min_y - 0.2) * height, (max_y + 1 + 0.2) * height)
 
         # plot the points as big rectangles
         for p in points:
             x, y = p
             rect = Rectangle(
-                (x*width, y*height),
-                width, height,
+                (x * width, y * height),
+                width,
+                height,
                 linewidth=linewidth,
-                edgecolor=edgecolors[i], facecolor=facecolors[i],
-                alpha=alpha, fill=fill,
+                edgecolor=edgecolors[i],
+                facecolor=facecolors[i],
+                alpha=alpha,
+                fill=fill,
             )
             plt.gca().add_patch(rect)
-        
+
         _xs = np.linspace(min_x, max_x, 2000)
         _ys = np.linspace(min_y, max_y, 2000)
 
         # Trick to add a legend?
         plt.plot(
-            _xs[:2]*width, _ys[:2]*width,
-            color=edgecolors[i], label=methode.__nom__
+            _xs[:2] * width, _ys[:2] * width, color=edgecolors[i], label=methode.__nom__
         )
-        
+
         # plot the line
-        plt.plot(_xs*width, _ys*width, color=linecolor, linewidth=1+linewidth)
-        
+        plt.plot(_xs * width, _ys * width, color=linecolor, linewidth=1 + linewidth)
 
     if not use_fake_methode:
         plt.legend()
@@ -665,7 +701,7 @@ def plot_discrete_line(points=None,  # liste des coordonnées [M0,...,MN]
 
     fig.tight_layout()
     plt.show()
-    # return fig
+    #  return fig
 
 
 # ### Exemples manuels :
@@ -673,7 +709,7 @@ def plot_discrete_line(points=None,  # liste des coordonnées [M0,...,MN]
 # In[279]:
 
 
-points = [ (0,0), (1,1), (2,2), (3,3), (4,4) ]
+points = [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
 
 plot_discrete_line(points, pente=1.0)
 
@@ -681,7 +717,7 @@ plot_discrete_line(points, pente=1.0)
 # In[280]:
 
 
-points = [ (0,0), (1,0), (2,1), (3,1), (4,2), (5,2) ]
+points = [(0, 0), (1, 0), (2, 1), (3, 1), (4, 2), (5, 2)]
 
 plot_discrete_line(points, pente=0.5)
 
@@ -691,13 +727,13 @@ plot_discrete_line(points, pente=0.5)
 # In[281]:
 
 
-points = [ (0,0), (0,1), (1,2), (1,3), (2,4), (2,5) ]
+points = [(0, 0), (0, 1), (1, 2), (1, 3), (2, 4), (2, 5)]
 
 plot_discrete_line(points, pente=2)
 
 
 # ### Comparaison graphique des trois méthodes :
-# 
+#
 # On va prendre les exemples précédents, et les afficher dans la même figure :
 
 # In[291]:
@@ -707,7 +743,7 @@ methodes = [
     methode_bresenham,
     methode_longer_inferieurement,
     methode_longer_superieurement,
-    methode_longer_aleatoirement
+    methode_longer_aleatoirement,
 ]
 
 
@@ -719,9 +755,12 @@ methodes = [
 A = (0, 0)
 B = (20, 20)  # pente 1
 pente = (B[1] - A[1]) / (B[0] - A[0])
-plot_discrete_line(A=A, B=B, pente=pente,
-                   methodes=methodes,
-                   edgecolors=['red', 'blue', 'orange', 'purple']
+plot_discrete_line(
+    A=A,
+    B=B,
+    pente=pente,
+    methodes=methodes,
+    edgecolors=["red", "blue", "orange", "purple"],
 )
 
 
@@ -731,11 +770,14 @@ plot_discrete_line(A=A, B=B, pente=pente,
 
 
 A = (0, 0)
-B = (20, 0)  # pente 0
+B = (20, 0)  #  pente 0
 pente = (B[1] - A[1]) / (B[0] - A[0])
-plot_discrete_line(A=A, B=B, pente=pente,
-                   methodes=methodes,
-                   edgecolors=['red', 'blue', 'orange', 'purple']
+plot_discrete_line(
+    A=A,
+    B=B,
+    pente=pente,
+    methodes=methodes,
+    edgecolors=["red", "blue", "orange", "purple"],
 )
 
 
@@ -747,9 +789,12 @@ plot_discrete_line(A=A, B=B, pente=pente,
 A = (0, 0)
 B = (20, 7)  # pente 7/20
 pente = (B[1] - A[1]) / (B[0] - A[0])
-plot_discrete_line(A=A, B=B, pente=pente,
-                   methodes=methodes,
-                   edgecolors=['red', 'blue', 'orange', 'purple']
+plot_discrete_line(
+    A=A,
+    B=B,
+    pente=pente,
+    methodes=methodes,
+    edgecolors=["red", "blue", "orange", "purple"],
 )
 
 
@@ -759,9 +804,12 @@ plot_discrete_line(A=A, B=B, pente=pente,
 A = (0, 0)
 B = (7, 20)  # pente 20/7
 pente = (B[1] - A[1]) / (B[0] - A[0])
-plot_discrete_line(A=A, B=B, pente=pente,
-                   methodes=methodes,
-                   edgecolors=['red', 'blue', 'orange', 'purple']
+plot_discrete_line(
+    A=A,
+    B=B,
+    pente=pente,
+    methodes=methodes,
+    edgecolors=["red", "blue", "orange", "purple"],
 )
 
 
@@ -773,19 +821,22 @@ plot_discrete_line(A=A, B=B, pente=pente,
 A = (0, 0)
 B = (0, 7)  # pente +infini
 print(methode_bresenham(A, B))
-pente = '+oo'
-plot_discrete_line(A=A, B=B, pente=pente,
-                   methodes=methodes,
-                   edgecolors=['red', 'blue', 'orange', 'purple']
+pente = "+oo"
+plot_discrete_line(
+    A=A,
+    B=B,
+    pente=pente,
+    methodes=methodes,
+    edgecolors=["red", "blue", "orange", "purple"],
 )
 
 
 # ### Meilleur visualisation avec quatre sous-figures ?
-# 
+#
 # Pas le temps, mais il serait plus approprié de montrer les quatres méthodes m1/m2/m3/m4 comme ça :
 # [ m1 | m2 ]
 # [ m3 | m4 ]
-# 
+#
 # Avec plt.subplots(2,2) ce ne serait pas trop difficile
 
 # In[327]:
@@ -802,29 +853,37 @@ nos_4_methodes = [
 # In[343]:
 
 
-def plot_4_differents_methods(A=None, B=None,
-                       title="Dessin d'une droite discrète",
-                       width=50, height=None,
-                       figsize=(20,14),
-                       linewidth=2,
-                       fill=True,
-                       methodes=nos_4_methodes,
-                       edgecolors=['red', 'blue', 'orange', 'purple'],
-                       facecolors=None,
-                       alpha=0.4,
-                       linecolor='k',
-                       equal=True,
-                       pente=None,
-                      ):
+def plot_4_differents_methods(
+    A=None,
+    B=None,
+    title="Dessin d'une droite discrète",
+    width=50,
+    height=None,
+    figsize=(20, 14),
+    linewidth=2,
+    fill=True,
+    methodes=nos_4_methodes,
+    edgecolors=["red", "blue", "orange", "purple"],
+    facecolors=None,
+    alpha=0.4,
+    linecolor="k",
+    equal=True,
+    pente=None,
+):
     fig, axs = plt.subplots(2, 2, figsize=figsize)
 
-    if not facecolors: facecolors = edgecolors
-    if not height: height = width
-        
+    if not facecolors:
+        facecolors = edgecolors
+    if not height:
+        height = width
+
     use_fake_methode = False
     if not methodes:
         use_fake_methode = True
-        def fake_methode(A, B): return points
+
+        def fake_methode(A, B):
+            return points
+
         fake_methode.__nom__ = "Fake method XXX"
         methodes = [fake_methode]
 
@@ -833,40 +892,43 @@ def plot_4_differents_methods(A=None, B=None,
     for i, methode in enumerate(methodes):
         points = methode(A, B)
         ax = axs[i_x_axis, j_y_axis]
-        if equal: ax.set_aspect('equal')
-    
-        # points in P should be ordored, but not restricted to Mi = (xi, yi) with xi=i
+        if equal:
+            ax.set_aspect("equal")
+
+        #  points in P should be ordored, but not restricted to Mi = (xi, yi) with xi=i
         min_x = min(p[0] for p in points)
         max_x = max(p[0] for p in points)
-        # plt.xlim((min_x - 0.2)*width, (max_x + 1 + 0.2)*width)
+        #  plt.xlim((min_x - 0.2)*width, (max_x + 1 + 0.2)*width)
         min_y = min(p[1] for p in points)
         max_y = max(p[1] for p in points)
-        # plt.ylim((min_y - 0.2)*height, (max_y + 1 + 0.2)*height)
-        
+        #  plt.ylim((min_y - 0.2)*height, (max_y + 1 + 0.2)*height)
+
         _xs = np.linspace(min_x, max_x, 2000)
         _ys = np.linspace(min_y, max_y, 2000)
 
         # Trick to add a legend?
         ax.plot(
-            _xs[:2]*width, _ys[:2]*width,
-            color=edgecolors[i], label=methode.__nom__
+            _xs[:2] * width, _ys[:2] * width, color=edgecolors[i], label=methode.__nom__
         )
-        
+
         # plot the line
-        ax.plot(_xs*width, _ys*width, color=linecolor, linewidth=1+linewidth)
+        ax.plot(_xs * width, _ys * width, color=linecolor, linewidth=1 + linewidth)
 
         # plot the points as big rectangles
         for p in points:
             x, y = p
             rect = Rectangle(
-                (x*width, y*height),
-                width, height,
+                (x * width, y * height),
+                width,
+                height,
                 linewidth=linewidth,
-                edgecolor=edgecolors[i], facecolor=facecolors[i],
-                alpha=alpha, fill=fill,
+                edgecolor=edgecolors[i],
+                facecolor=facecolors[i],
+                alpha=alpha,
+                fill=fill,
             )
             ax.add_patch(rect)
-        
+
         i_x_axis = (i_x_axis + 1) % 2
         if i_x_axis == 1:
             j_y_axis = (j_y_axis + 1) % 2
@@ -883,7 +945,7 @@ def plot_4_differents_methods(A=None, B=None,
             ax.set_title(title)
 
     plt.show()
-    # return fig
+    #  return fig
 
 
 # Un exemple :
@@ -922,14 +984,14 @@ plot_4_differents_methods(A=A, B=B, pente=pente)
 
 # ---
 # # Conclusion de l'oral
-# 
+#
 # Donner une conclusion, scientifique et aussi personnelle, en 2-4 minutes.
-# 
+#
 # Blabla TODO
-# 
+#
 # > Cela peut aussi s'appliquer en dehors des écrans, par exemple les mosaïques ou la broderie subissent les mêmes contraintes de dessins sur un support quadrillé et "pixelisé", et donc les méthodes mises au point sur le premier problème pourraient être aussi utilisées dans ces pratiques artistiques.
 # > On peut même imaginer qu'un artist mosaïste durant l'Antiquité Romaine suivant ce genre de méthodes de "longer au plus près inférieurement", sans même y réfléchir formellement.
-# 
+#
 # *[si le temps]*
 # > Une question en ouverture : et si on passe en 3D, est-ce beaucoup plus compliqué ?
 # > Mon intuition dit que oui ! Et il s'ajoute aussi la difficulté de savoir quel *support* est utilisé pour représenter un objet en 3D.
@@ -937,15 +999,15 @@ plot_4_differents_methods(A=A, B=B, pente=pente)
 # > Même si ce serait intéressant de généraliser notre modélisation et les méthodes développées pour le tracé de courbes, du 2D à la 3D, je peine à voir ce qu'on pourrait généraliser pour la partie plus mathématiques liées au mots binaires.
 
 # ## Autres pistes :
-# 
+#
 # - DONE généraliser à tous les cas d'une droite : verticale, horizontale, et les sept autre quadrants (ici, seulement $0 < \alpha < 1$ et $a_2 \leq b_2$) ;
-# 
+#
 # - DONE écrire une fonction permettant de visualiser cette méthode de Bresenham, et les autres méthodes, par exemple avec ipythonblocks (pratique mais pas possible le jour J des oraux), ou avec matplotlib (ce sera un peu plus long, mais disponible le jour J) ;
-# 
+#
 # - TODO généraliser l'algorithme à un cercle, par exemple, ou d'autres figures dont on connaît des équations et qu'on peut chercher à vouloir longer au plus près inférieurement, supérieurement, ou de façon hybride à la Bresenham ;
-# 
+#
 # - TODO pour s'éloigner davantage du problème de tracés de droite, on peut implémenter des choses concernant les mots binaires (ultimement) périodiques (abbrégés en *mbup*) :
-# 
+#
 #   + représentation d'un *mbup*, affichage ;
 #   + vérification qu'un mot binaire est bien équilibré : est-ce seulement possible, sachant que Déf.5 porte sur un mot infini ?
 #   + transformation d'un *mbup* en une droite discrète (§6) $\sigma \mapsto (M_0,\dots,M_n)$ ;

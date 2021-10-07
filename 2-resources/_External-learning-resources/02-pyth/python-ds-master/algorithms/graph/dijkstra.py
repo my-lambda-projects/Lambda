@@ -2,6 +2,7 @@
 # i used same structure as needed for this repository.
 from collections import defaultdict
 import sys
+
 r = range
 # min weight goes for 0 in this case
 max_weight = sys.maxsize

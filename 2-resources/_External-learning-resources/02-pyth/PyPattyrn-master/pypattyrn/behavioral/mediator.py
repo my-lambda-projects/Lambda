@@ -8,6 +8,7 @@ class Mediator(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#mediator-pattern}
     - External Mediator Pattern documentation: U{https://en.wikipedia.org/wiki/Mediator_pattern}
     """
+
     def __init__(self):
         """
         Initialize a new Mediator instance.

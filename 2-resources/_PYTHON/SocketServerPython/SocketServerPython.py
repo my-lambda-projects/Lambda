@@ -8,27 +8,27 @@ from threading import Timer
 import greengrasssdk
 
 # Creating a greengrass core sdk client
-client = greengrasssdk.client('iot-data')
+client = greengrasssdk.client("iot-data")
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 streamHandler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 streamHandler.setFormatter(formatter)
 logger.addHandler(streamHandler)
 
-base_topic = os.environ['AWS_IOT_THING_NAME'] + '/socketserver'
-output_topic = base_topic + '/output'
+base_topic = os.environ["AWS_IOT_THING_NAME"] + "/socketserver"
+output_topic = base_topic + "/output"
 
-PORT = int(os.environ['PORT'])
+PORT = int(os.environ["PORT"])
 
 
 def greengrass_socket_server_run():
     global PORT
 
-    logger.info('Starting socket server')
+    logger.info("Starting socket server")
 
-    HOST = ''
+    HOST = ""
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((HOST, PORT))
@@ -36,12 +36,13 @@ def greengrass_socket_server_run():
 
     while True:
         conn, addr = s.accept()
-        logger.info('Connected by ' + str(addr))
-        data = b''
+        logger.info("Connected by " + str(addr))
+        data = b""
 
         while 1:
             temp = conn.recv(1024)
-            if not temp: break
+            if not temp:
+                break
             data += temp
 
         conn.close()
@@ -51,7 +52,7 @@ def greengrass_socket_server_run():
 
 def function_handler(event, context):
     # Do nothing
-    logger.info('Doing nothing with inbound message')
+    logger.info("Doing nothing with inbound message")
 
 
 # Asynchronously schedule this function to be run again in 5 seconds

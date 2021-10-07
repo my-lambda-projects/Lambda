@@ -1,5 +1,5 @@
 # cc74 doublyLinkedList https://repl.it/student/submissions/1895354
-'''
+"""
 Implement a doubly-linked list, where each node points to both the node after it
 in the list, as well as the node that came before it.
 
@@ -11,4 +11,4 @@ disservice to you but also to us, the instructors.
 
 If questions arise while you're working on the challenge, please ask questions
 in the appropriate channels to get you unstuck.
-'''
+"""

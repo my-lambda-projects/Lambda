@@ -14,33 +14,30 @@ class ChainLinkTestCase(TestCase):
         """
 
         class ConcreteChainLinkThree(ChainLink):
-
             def handle(self, request):
-                if request == 'handle_three':
+                if request == "handle_three":
                     return "Handled in chain link three"
                 else:
                     return self.successor_handle(request)
 
         class ConcreteChainLinkTwo(ChainLink):
-
             def __init__(self):
                 super().__init__()
                 self.set_successor(ConcreteChainLinkThree())
 
             def handle(self, request):
-                if request == 'handle_two':
+                if request == "handle_two":
                     return "Handled in chain link two"
                 else:
                     return self.successor_handle(request)
 
         class ConcreteChainLinkOne(ChainLink):
-
             def __init__(self):
                 super().__init__()
                 self.set_successor(ConcreteChainLinkTwo())
 
             def handle(self, request):
-                if request == 'handle_one':
+                if request == "handle_one":
                     return "Handled in chain link one"
                 else:
                     return self.successor_handle(request)
@@ -81,44 +78,40 @@ class ChainTestCase(TestCase):
         """
 
         class ConcreteChainLinkThree(ChainLink):
-
             def handle(self, request):
-                if request == 'handle_three':
+                if request == "handle_three":
                     return "Handled in chain link three"
                 else:
                     return self.successor_handle(request)
 
         class ConcreteChainLinkTwo(ChainLink):
-
             def __init__(self):
                 super().__init__()
                 self.set_successor(ConcreteChainLinkThree())
 
             def handle(self, request):
-                if request == 'handle_two':
+                if request == "handle_two":
                     return "Handled in chain link two"
                 else:
                     return self.successor_handle(request)
 
         class ConcreteChainLinkOne(ChainLink):
-
             def __init__(self):
                 super().__init__()
                 self.set_successor(ConcreteChainLinkTwo())
 
             def handle(self, request):
-                if request == 'handle_one':
+                if request == "handle_one":
                     return "Handled in chain link one"
                 else:
                     return self.successor_handle(request)
 
         class ConcreteChain(Chain):
-
             def __init__(self):
                 super().__init__(ConcreteChainLinkOne())
 
             def fail(self):
-                return 'Fail'
+                return "Fail"
 
         self.chain_class = ConcreteChain
 

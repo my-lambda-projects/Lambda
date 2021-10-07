@@ -6,6 +6,7 @@ class NullTestCase(TestCase):
     """
     Unit testing class for the Null class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
@@ -20,8 +21,8 @@ class NullTestCase(TestCase):
         """
         try:
             Null()
-            Null('value')
-            Null('value', param='value')
+            Null("value")
+            Null("value", param="value")
         except:
             raise AssertionError()
 
@@ -32,8 +33,8 @@ class NullTestCase(TestCase):
         @raise AssertionError: If the test fails.
         """
         self.assertEquals(self.null, self.null())
-        self.assertEquals(self.null, self.null('value'))
-        self.assertEquals(self.null, self.null('value', param='value'))
+        self.assertEquals(self.null, self.null("value"))
+        self.assertEquals(self.null, self.null("value", param="value"))
 
     def test_get_attribute(self):
         """
@@ -45,9 +46,9 @@ class NullTestCase(TestCase):
         self.assertEquals(self.null, self.null.attr2)
         self.assertEquals(self.null, self.null.method1())
         self.assertEquals(self.null, self.null.method1().method2())
-        self.assertEquals(self.null, self.null.method('value'))
-        self.assertEquals(self.null, self.null.method(param='value'))
-        self.assertEquals(self.null, self.null.method('value', param='value'))
+        self.assertEquals(self.null, self.null.method("value"))
+        self.assertEquals(self.null, self.null.method(param="value"))
+        self.assertEquals(self.null, self.null.method("value", param="value"))
         self.assertEquals(self.null, self.null.attr1.method1())
         self.assertEquals(self.null, self.null.method1().attr1)
 
@@ -58,8 +59,8 @@ class NullTestCase(TestCase):
         @raise AssertionError: If the test fails.
         """
         try:
-            self.null.attr1 = 'value'
-            self.null.attr1.attr2 = 'value'
+            self.null.attr1 = "value"
+            self.null.attr1.attr2 = "value"
         except:
             raise AssertionError()
 
@@ -81,8 +82,8 @@ class NullTestCase(TestCase):
 
         @raise AssertionError:
         """
-        self.assertEquals('', repr(self.null))
-        self.assertEquals('', str(self.null))
+        self.assertEquals("", repr(self.null))
+        self.assertEquals("", str(self.null))
 
     def test_truthiness(self):
         """

@@ -8,22 +8,23 @@ import numpy as np
 
 url = "https://github.com/BrokenShell/DS-Unit-3-Sprint-2-SQL-and-Databases/raw/master/module2-sql-for-analysis/titanic.csv"
 
-titanic = pd.read_csv(url).rename({
-    "Siblings/Spouses Aboard": "SiblingsSpouses",
-    "Parents/Children Aboard": "ParentsChildren",
-}, axis=1)
+titanic = pd.read_csv(url).rename(
+    {
+        "Siblings/Spouses Aboard": "SiblingsSpouses",
+        "Parents/Children Aboard": "ParentsChildren",
+    },
+    axis=1,
+)
 
-titanic['Name'] = titanic["Name"].str.replace("'", "")
+titanic["Name"] = titanic["Name"].str.replace("'", "")
 
 cloud = psycopg2.connect(
-    dbname=cred.dbname,
-    user=cred.user,
-    password=cred.password,
-    host=cred.host,
+    dbname=cred.dbname, user=cred.user, password=cred.password, host=cred.host
 )
 cursor = cloud.cursor()
 
-cursor.execute("""
+cursor.execute(
+    """
 DROP TABLE IF EXISTS Titanic;
 CREATE TABLE Titanic (
     Survived            INT8,
@@ -34,7 +35,8 @@ CREATE TABLE Titanic (
     SiblingsSpouses     INT8,
     ParentsChildren     INT8,
     Fare                FLOAT8);
-""")
+"""
+)
 
 # for row in titanic.values:
 #     cursor.execute(f"""
@@ -50,11 +52,15 @@ CREATE TABLE Titanic (
 #     VALUES %s;
 #     """, [tuple(row)])
 
-execute_values(cursor, """
+execute_values(
+    cursor,
+    """
     INSERT INTO Titanic
     (Survived, Pclass, Name, Gender, Age, SiblingsSpouses, ParentsChildren, Fare)
     VALUES %s;
-""", [tuple(row) for row in titanic.values])
+""",
+    [tuple(row) for row in titanic.values],
+)
 
 # register_adapter(np.int64, psycopg2._psycopg.AsIs)
 # execute_values(cursor, """
@@ -65,10 +71,12 @@ execute_values(cursor, """
 
 cloud.commit()
 
-cursor.execute("""
+cursor.execute(
+    """
 SELECT *
 FROM Titanic
 LIMIT 1;
-""")
+"""
+)
 
 print(cursor.fetchall())

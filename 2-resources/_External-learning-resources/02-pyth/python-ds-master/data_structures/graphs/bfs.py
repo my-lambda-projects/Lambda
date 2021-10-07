@@ -1,15 +1,13 @@
 from collections import defaultdict
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def bfs(self, s):
         visited = [False] * self.vertices
@@ -23,11 +21,12 @@ class Graph:
 
         while queue:
             s = queue.pop(0)
-            print(s, end=' ')
+            print(s, end=" ")
             for i in self.graph[s]:
                 if visited[i] == False:
                     queue.append(i)
                     visited[i] = True
+
 
 g = Graph(6)
 

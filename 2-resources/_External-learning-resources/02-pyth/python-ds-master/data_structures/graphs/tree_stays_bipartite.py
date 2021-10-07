@@ -7,16 +7,14 @@
 
 # Therefore the answer is = count_color1 * count_color2 - (n-1)
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.vertices = vertices
         self.graph = [[] for i in range(vertices)]
 
-    
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def bfs(self, s):
         visited = [False] * self.vertices
@@ -32,9 +30,11 @@ class Graph:
 
         while queue:
             u = queue.pop(0)
-            
+
             for v in self.graph[u]:
-                if colors[v] == -1: # This is a tree. So not visited and not colored is same as there is no cycle
+                if (
+                    colors[v] == -1
+                ):  # This is a tree. So not visited and not colored is same as there is no cycle
                     colors[v] = 1 - colors[u]
                     queue.append(v)
                     color_count[colors[v]] += 1
@@ -42,11 +42,11 @@ class Graph:
 
         # Counting the max number of edges for graph
         graph_edges = color_count[0] * color_count[1]
-        
+
         return graph_edges
 
 
-# Number of tree nodes 
+# Number of tree nodes
 n = 5
 
 g = Graph(5)

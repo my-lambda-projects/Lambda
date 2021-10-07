@@ -140,7 +140,7 @@ def klExp(x, y):
     inf
     """
     if x <= 0 or y <= 0:
-        return float('+inf')
+        return float("+inf")
     else:
         x = max(x, eps)
         y = max(y, eps)
@@ -173,7 +173,7 @@ def klGamma(x, y, a=1):
     inf
     """
     if x <= 0 or y <= 0:
-        return float('+inf')
+        return float("+inf")
     else:
         x = max(x, eps)
         y = max(y, eps)
@@ -266,7 +266,8 @@ def klGauss(x, y, sig2=0.25):
 
 # --- KL functions, for the KL-UCB policy
 
-def klucb(x, d, kl, upperbound, lowerbound=float('-inf'), precision=1e-6):
+
+def klucb(x, d, kl, upperbound, lowerbound=float("-inf"), precision=1e-6):
     """ The generic KL-UCB index computation.
 
     - x: value of the cum reward,
@@ -282,12 +283,12 @@ def klucb(x, d, kl, upperbound, lowerbound=float('-inf'), precision=1e-6):
     value = max(x, lowerbound)
     u = upperbound
     while u - value > precision:
-        m = (value + u) / 2.
+        m = (value + u) / 2.0
         if kl(x, m) > d:
             u = m
         else:
             value = m
-    return (value + u) / 2.
+    return (value + u) / 2.0
 
 
 def klucbBern(x, d, precision=1e-6):
@@ -319,12 +320,12 @@ def klucbBern(x, d, precision=1e-6):
     >>> klucbBern(0.9, 0.9)  # doctest: +ELLIPSIS
     0.999995...
     """
-    upperbound = min(1., klucbGauss(x, d, sig2=0.25))
+    upperbound = min(1.0, klucbGauss(x, d, sig2=0.25))
     # upperbound = min(1., klucbPoisson(x, d))  # also safe, and better ?
     return klucb(x, d, klBern, upperbound, precision)
 
 
-def klucbGauss(x, d, sig2=0.25, precision=0.):
+def klucbGauss(x, d, sig2=0.25, precision=0.0):
     """ KL-UCB index computation for Gaussian distributions.
 
     - Note that it does not require any search.
@@ -388,7 +389,9 @@ def klucbPoisson(x, d, precision=1e-6):
     >>> klucbPoisson(0.9, 0.9)  # doctest: +ELLIPSIS
     2.831573...
     """
-    upperbound = x + d + sqrt(d * d + 2 * x * d)  # looks safe, to check: left (Gaussian) tail of Poisson dev
+    upperbound = (
+        x + d + sqrt(d * d + 2 * x * d)
+    )  # looks safe, to check: left (Gaussian) tail of Poisson dev
     return klucb(x, d, klPoisson, upperbound, precision)
 
 
@@ -422,7 +425,7 @@ def klucbExp(x, d, precision=1e-6):
     5.031795...
     """
     if d < 0.77:  # XXX where does this value come from?
-        upperbound = x / (1 + 2. / 3 * d - sqrt(4. / 9 * d * d + 2 * d))
+        upperbound = x / (1 + 2.0 / 3 * d - sqrt(4.0 / 9 * d * d + 2 * d))
         # safe, klexp(x,y) >= e^2/(2*(1-2e/3)) if x=y(1-e)
     else:
         upperbound = x * exp(d + 1)
@@ -464,7 +467,7 @@ def klucbGamma(x, d, precision=1e-6):
     5.031...
     """
     if d < 0.77:  # XXX where does this value come from?
-        upperbound = x / (1 + 2. / 3 * d - sqrt(4. / 9 * d * d + 2 * d))
+        upperbound = x / (1 + 2.0 / 3 * d - sqrt(4.0 / 9 * d * d + 2 * d))
         # safe, klexp(x,y) >= e^2/(2*(1-2e/3)) if x=y(1-e)
     else:
         upperbound = x * exp(d + 1)
@@ -478,6 +481,7 @@ def klucbGamma(x, d, precision=1e-6):
 
 # --- max EV functions
 
+
 def maxEV(p, V, klMax):
     """ Maximize expectation of V wrt. q st. KL(p, q) < klMax.
 
@@ -485,7 +489,7 @@ def maxEV(p, V, klMax):
     - Reference: Section 3.2 of [Filippi, Cappé & Garivier - Allerton, 2011](https://arxiv.org/pdf/1004.5229.pdf).
     """
     Uq = np.zeros(len(p))
-    Kb = p > 0.
+    Kb = p > 0.0
     K = ~Kb
     if any(K):
         # Do we need to put some mass on a point where p is zero?
@@ -493,13 +497,15 @@ def maxEV(p, V, klMax):
         eta = np.max(V[K])
         J = K & (V == eta)
         if eta > np.max(V[Kb]):
-            y = np.dot(p[Kb], np.log(eta - V[Kb])) + log(np.dot(p[Kb], (1. / (eta - V[Kb]))))
+            y = np.dot(p[Kb], np.log(eta - V[Kb])) + log(
+                np.dot(p[Kb], (1.0 / (eta - V[Kb])))
+            )
             # print("eta = ", eta, ", y = ", y)
             if y < klMax:
                 rb = exp(y - klMax)
                 Uqtemp = p[Kb] / (eta - V[Kb])
                 Uq[Kb] = rb * Uqtemp / np.sum(Uqtemp)
-                Uq[J] = (1. - rb) / np.sum(J)
+                Uq[J] = (1.0 - rb) / np.sum(J)
                 # or j = min([j for j in range(k) if J[j]])
                 # Uq[j] = r
                 return Uq
@@ -528,12 +534,12 @@ def reseqp(p, V, klMax):
     value = MV + 0.1
     tol = 1e-4
     if MV < mV + tol:
-        return float('inf')
+        return float("inf")
     u = np.dot(p, (1 / (value - V)))
     y = np.dot(p, np.log(value - V)) + log(u) - klMax
     print("value =", value, ", y = ", y)  # DEBUG
     while np.abs(y) > tol:
-        yp = u - np.dot(p, (1 / (value - V)**2)) / u  # derivative
+        yp = u - np.dot(p, (1 / (value - V) ** 2)) / u  # derivative
         value -= y / yp
         print("value = ", value)  # DEBUG  # newton iteration
         if value < MV:
@@ -566,7 +572,7 @@ def reseqp2(p, V, klMax):
     def f(value):
         """ Function fo to minimize."""
         if MV < mV + tol:
-            y = float('inf')
+            y = float("inf")
         else:
             u = np.dot(p, (1 / (value - V)))
             y = np.dot(p, np.log(value - V)) + log(u)
@@ -582,7 +588,10 @@ def reseqp2(p, V, klMax):
 if __name__ == "__main__":
     # Code for debugging purposes.
     from doctest import testmod
-    print("\nTesting automatically all the docstring written in each functions of this module :")
+
+    print(
+        "\nTesting automatically all the docstring written in each functions of this module :"
+    )
     testmod(verbose=True)
 
     # import matplotlib.pyplot as plt
@@ -609,7 +618,19 @@ if __name__ == "__main__":
     print("Uq = ", maxEV(p, V, klMax))
 
     print("\np =", p)
-    p = np.array([0.11794872, 0.27948718, 0.31538462, 0.14102564, 0.0974359, 0.03076923, 0.00769231, 0.01025641, 0.])
+    p = np.array(
+        [
+            0.11794872,
+            0.27948718,
+            0.31538462,
+            0.14102564,
+            0.0974359,
+            0.03076923,
+            0.00769231,
+            0.01025641,
+            0.0,
+        ]
+    )
     print("V =", V)
     V = np.array([0, 1, 2, 3, 4, 5, 6, 7, 10])
     klMax = 0.0168913409484
@@ -624,7 +645,7 @@ if __name__ == "__main__":
     print("d =", d)
     print("klucbExp(x, d) = ", klucbExp(x, d))
 
-    ub = x / (1 + 2. / 3 * d - sqrt(4. / 9 * d * d + 2 * d))
+    ub = x / (1 + 2.0 / 3 * d - sqrt(4.0 / 9 * d * d + 2 * d))
     print("Upper bound = ", ub)
     print("Stupid upperbound = ", x * exp(d + 1))
 

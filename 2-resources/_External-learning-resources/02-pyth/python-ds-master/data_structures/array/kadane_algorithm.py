@@ -6,5 +6,3 @@ def max_sum(arr):
         max_so_far = max(max_so_far, curr_max)
 
     return max_so_far
-
-

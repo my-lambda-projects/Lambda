@@ -12,18 +12,15 @@ another path to reach this vertex - hence a cycle
 
 from collections import defaultdict
 
+
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
-
 
     def dfs(self):
         visited = [False] * self.vertices
@@ -34,7 +31,7 @@ class Graph:
         for v in range(self.vertices):
             if visited[v] == False:
                 visited[v] = True
-            
+
                 stack.append(v)
 
                 while stack:

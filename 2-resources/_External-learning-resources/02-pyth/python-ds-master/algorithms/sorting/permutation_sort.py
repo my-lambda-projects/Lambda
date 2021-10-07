@@ -5,8 +5,9 @@ import random
 
 def bogo_sort(a):
     n = len(a)
-    while (is_sorted(a) == False):
+    while is_sorted(a) == False:
         shuffle(a)
+
 
 # To check if array is sorted or not
 
@@ -14,9 +15,10 @@ def bogo_sort(a):
 def is_sorted(a):
     n = len(a)
     for i in range(0, n - 1):
-        if (a[i] > a[i + 1]):
+        if a[i] > a[i + 1]:
             return False
     return True
+
 
 # To generate permuatation of the array
 

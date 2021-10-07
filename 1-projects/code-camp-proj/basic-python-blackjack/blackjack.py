@@ -1,5 +1,6 @@
 import random
 
+
 class Card:
     def __init__(self, suit, rank):
         self.suit = suit
@@ -14,23 +15,23 @@ class Deck:
         self.cards = []
         suits = ["♠", "♣️", "♥️", "♦️"]
         ranks = [
-                {"rank": "A", "value": 11},
-                {"rank": "2", "value": 2},
-                {"rank": "3", "value": 3},
-                {"rank": "4", "value": 4},
-                {"rank": "5", "value": 5},
-                {"rank": "6", "value": 6},
-                {"rank": "7", "value": 7},
-                {"rank": "8", "value": 8},
-                {"rank": "9", "value": 9},
-                {"rank": "10", "value": 10},
-                {"rank": "J", "value": 10},
-                {"rank": "Q", "value": 10},
-                {"rank": "K", "value": 10},
-            ]
+            {"rank": "A", "value": 11},
+            {"rank": "2", "value": 2},
+            {"rank": "3", "value": 3},
+            {"rank": "4", "value": 4},
+            {"rank": "5", "value": 5},
+            {"rank": "6", "value": 6},
+            {"rank": "7", "value": 7},
+            {"rank": "8", "value": 8},
+            {"rank": "9", "value": 9},
+            {"rank": "10", "value": 10},
+            {"rank": "J", "value": 10},
+            {"rank": "Q", "value": 10},
+            {"rank": "K", "value": 10},
+        ]
         for suit in suits:
-          for rank in ranks:
-            self.cards.append(Card(suit, rank))
+            for rank in ranks:
+                self.cards.append(Card(suit, rank))
 
     def deal(self):
         if len(self.cards) > 1:
@@ -39,7 +40,7 @@ class Deck:
     def shuffle(self):
         if len(self.cards) > 1:
             random.shuffle(self.cards)
-            
+
 
 class Hand:
     def __init__(self, dealer=False):
@@ -69,9 +70,14 @@ class Hand:
         return self.get_value() == 21
 
     def display(self, show_all_dealer_cards=False):
-        print(f'''{"Dealer's" if self.dealer else "Your"} hand:''')
+        print(f"""{"Dealer's" if self.dealer else "Your"} hand:""")
         for index, card in enumerate(self.cards):
-            if index == 0 and self.dealer and not show_all_dealer_cards and not self.is_blackjack():
+            if (
+                index == 0
+                and self.dealer
+                and not show_all_dealer_cards
+                and not self.is_blackjack()
+            ):
                 print("hidden")
             else:
                 print(card)
@@ -90,7 +96,7 @@ class Game:
                 games_to_play = int(input("How many games do you want to play?: "))
             except:
                 print("You must enter a number.")
-        
+
         while game_number < games_to_play:
             game_number += 1
             deck = Deck()
@@ -171,7 +177,7 @@ class Game:
                 print("Dealer wins! 😭")
 
             return True
-        
+
         return False
 
 

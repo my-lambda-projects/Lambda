@@ -1,8 +1,8 @@
 # A continuous tree is such that the absolute difference between two
 # adjacent nodes is 1
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -10,7 +10,7 @@ class Node:
 
 
 def continuous(root):
-    # Can be continuous if 
+    # Can be continuous if
     # 1. Root is none
     # 2. Both left and right STs are none
     # 3. If left ST is none, check for right
@@ -19,7 +19,7 @@ def continuous(root):
 
     if root is None:
         return True
-    
+
     if root.left == None and root.right == None:
         return True
 
@@ -29,5 +29,9 @@ def continuous(root):
     if root.right == None:
         return (abs(root.val - root.left.val) == 1) and continuous(root.left)
 
-    return (abs(root.val - root.right.val) == 1) and (abs(root.left.val - root.val) == 1) and continuous(root.left) and continuous(root.right)
-
+    return (
+        (abs(root.val - root.right.val) == 1)
+        and (abs(root.left.val - root.val) == 1)
+        and continuous(root.left)
+        and continuous(root.right)
+    )

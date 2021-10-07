@@ -9,7 +9,8 @@ def nDigitCombinations(n):
     except:
         # handle all other exceptions
         pass
-    return (numbers)
+    return numbers
+
 
 # An alternate solution:
 # from itertools import product

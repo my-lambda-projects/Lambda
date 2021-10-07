@@ -10,6 +10,7 @@ class Factory(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#factory-pattern}
     - External Factory Pattern documentation: U{https://en.wikipedia.org/wiki/Factory_method_pattern}
     """
+
     @abstractmethod
     def create(self, **kwargs):
         """
@@ -29,6 +30,7 @@ class AbstractFactory(Factory, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#abstract-factory-pattern}
     - External Abstract Factory Pattern documentation: U{https://en.wikipedia.org/wiki/Abstract_factory_pattern}
     """
+
     def __init__(self):
         """
         Initialize the abstract factory.

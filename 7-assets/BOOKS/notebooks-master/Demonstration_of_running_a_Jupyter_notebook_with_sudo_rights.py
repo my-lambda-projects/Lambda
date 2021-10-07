@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # # Table of Contents
@@ -7,19 +6,19 @@
 # # Demonstration of running a Jupyter notebook with sudo rights
 
 # ## Without sudo rights
-# 
+#
 # The next cells were first ran when Jupyter was not running with sudo rights.
 
 # In[5]:
 
 
-get_ipython().system('apt update')
+get_ipython().system("apt update")
 
 
 # In[6]:
 
 
-get_ipython().system('sudo apt update')
+get_ipython().system("sudo apt update")
 
 
 # As we see here, using `sudo ...` asks for a password, but it doesn't work from Jupyter.
@@ -30,11 +29,11 @@ get_ipython().system('sudo apt update')
 # In[6]:
 
 
-get_ipython().system('apt update')
+get_ipython().system("apt update")
 
 
 # It works!
 
 # ## Conclusion
-# 
+#
 # It works!

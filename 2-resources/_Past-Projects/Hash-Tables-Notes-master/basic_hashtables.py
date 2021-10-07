@@ -25,18 +25,22 @@ class BasicHashTable:
 def hash(string, max):
     hash = 5381
     for i in string:
-        hash = (( hash << 5) + hash) + ord(i)
+        hash = ((hash << 5) + hash) + ord(i)
     return hash % max
+
 
 def djb2(key):
     hash = 5381
     for i in key:
-        print(f'Hash: {hash}, Hash * 33: {hash * 33}, ord(i): {ord(i)}. SUM: {(hash*33)+ord(i)}')
+        print(
+            f"Hash: {hash}, Hash * 33: {hash * 33}, ord(i): {ord(i)}. SUM: {(hash*33)+ord(i)}"
+        )
         # On each loop, it adds hash * 33 to the Unicode point of that letter in the string, and updates hash to that sum.
         hash = (hash * 33) + ord(i)
     return hash
 
-print(djb2('pih'))
+
+print(djb2("pih"))
 
 
 # '''
@@ -51,7 +55,9 @@ def hash_table_insert(hash_table, key, value):
 
     if hash_table.storage[index] is not None:
         if pair.key != stored_pair.key:
-            print(f"Warning: Index at {str(index)} is currently ({hash_table.storage[index]}). It will now be overwritten.")
+            print(
+                f"Warning: Index at {str(index)} is currently ({hash_table.storage[index]}). It will now be overwritten."
+            )
 
     # Now lets overwrite it
     hash_table.storage[index] = pair
@@ -65,9 +71,8 @@ def hash_table_insert(hash_table, key, value):
 def hash_table_remove(hash_table, key):
     index = hash(key, hash_table.capacity)
 
-    if (hash_table.storage[index] is None or
-            hash_table.storage[index].key != key):
-        print(f'Unable to remove item with key: {key}')
+    if hash_table.storage[index] is None or hash_table.storage[index].key != key:
+        print(f"Unable to remove item with key: {key}")
     else:
         hash_table.storage[index] = None
 
@@ -83,9 +88,9 @@ def hash_table_retrieve(hash_table, key):
     if hash_table.storage[index] is not None:
         if hash_table.storage[index].key == key:
             return hash_table.storage[index].value
-        print(f'Key {key} at that index does not match.')
+        print(f"Key {key} at that index does not match.")
 
-    print(f'Unable to find value with key: {key}')
+    print(f"Unable to find value with key: {key}")
     return None
 
 

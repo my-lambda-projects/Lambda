@@ -9,6 +9,7 @@ class Prototype(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#prototype-pattern}
     - External Prototype Pattern documentation: U{https://en.wikipedia.org/wiki/Prototype_pattern}
     """
+
     def prototype(self, **attributes):
         """
         Copy the prototype this object and optionally update attributes.

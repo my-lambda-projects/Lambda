@@ -1,13 +1,13 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
 
+
 def delete(head, val):
     if head == None:
         return "List is empty"
-    
+
     curr = head
     prev = None
 
@@ -35,4 +35,3 @@ def delete(head, val):
         prev.next = curr.next
 
     return "Deleted"
-        

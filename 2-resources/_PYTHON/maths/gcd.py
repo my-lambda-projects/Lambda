@@ -24,6 +24,7 @@ Input : 40(101000)
 Output : 3
 """
 
+
 def trailing_zero(x):
     cnt = 0
     while x and not x & 1:
@@ -31,10 +32,12 @@ def trailing_zero(x):
         x >>= 1
     return cnt
 
+
 """
 Given two non-negative integer a and b, 
 computes the greatest common divisor of a and b using bitwise operator.
 """
+
 
 def gcd_bit(a, b):
     tza = trailing_zero(a)
@@ -42,10 +45,8 @@ def gcd_bit(a, b):
     a >>= tza
     b >>= tzb
     while b:
-        if a < b: 
+        if a < b:
             a, b = b, a
         a -= b
         a >>= trailing_zero(a)
     return a << min(tza, tzb)
-
-

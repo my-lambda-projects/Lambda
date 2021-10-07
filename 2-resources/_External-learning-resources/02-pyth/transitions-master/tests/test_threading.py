@@ -32,12 +32,13 @@ def heavy_checking():
 
 
 class TestLockedTransitions(TestCore):
-
     def setUp(self):
         self.machine_cls = MachineFactory.get_predefined(locked=True)
         self.stuff = Stuff(machine_cls=self.machine_cls)
         self.stuff.heavy_processing = heavy_processing
-        self.stuff.machine.add_transition('forward', 'A', 'B', before='heavy_processing')
+        self.stuff.machine.add_transition(
+            "forward", "A", "B", before="heavy_processing"
+        )
 
     def tearDown(self):
         pass
@@ -61,7 +62,7 @@ class TestLockedTransitions(TestCore):
         self.assertEqual(self.stuff.state, "C")
 
     def test_parallel_deep(self):
-        self.stuff.machine.add_transition('deep', source='*', dest='C', after='to_D')
+        self.stuff.machine.add_transition("deep", source="*", dest="C", after="to_D")
         thread = Thread(target=self.stuff.deep)
         thread.start()
         time.sleep(0.01)
@@ -70,19 +71,24 @@ class TestLockedTransitions(TestCore):
         self.assertEqual(self.stuff.state, "C")
 
     def test_conditional_access(self):
-        self.stuff.heavy_checking = heavy_checking  # checking takes 1s and returns False
-        self.stuff.machine.add_transition('advance', 'A', 'B', conditions='heavy_checking')
-        self.stuff.machine.add_transition('advance', 'A', 'D')
+        self.stuff.heavy_checking = (
+            heavy_checking
+        )  # checking takes 1s and returns False
+        self.stuff.machine.add_transition(
+            "advance", "A", "B", conditions="heavy_checking"
+        )
+        self.stuff.machine.add_transition("advance", "A", "D")
         t = Thread(target=self.stuff.advance)
         t.start()
         time.sleep(0.1)
-        logger.info('Check if state transition done...')
+        logger.info("Check if state transition done...")
         # Thread will release lock before Transition is finished
         res = self.stuff.is_D()
         self.assertTrue(res)
 
     def test_pickle(self):
         import sys
+
         if sys.version_info < (3, 4):
             import dill as pickle
         else:
@@ -117,7 +123,6 @@ class TestLockedTransitions(TestCore):
         self.assertAlmostEqual(blocked - begin, 1, delta=0.1)
 
     def test_context_managers(self):
-
         class CounterContext(object):
             def __init__(self):
                 self.counter = 0
@@ -135,8 +140,13 @@ class TestLockedTransitions(TestCore):
 
         M = MachineFactory.get_predefined(locked=True)
         c = CounterContext()
-        m = M(states=['A', 'B', 'C', 'D'], transitions=[['reset', '*', 'A']], initial='A', machine_context=c)
-        m.get_triggers('A')
+        m = M(
+            states=["A", "B", "C", "D"],
+            transitions=[["reset", "*", "A"]],
+            initial="A",
+            machine_context=c,
+        )
+        m.get_triggers("A")
         self.assertEqual(c.max, 1)  # was 3 before
         self.assertEqual(c.counter, 4)  # was 72 (!) before
 
@@ -164,7 +174,6 @@ class TestLockedTransitions(TestCore):
 
 
 class TestMultipleContexts(TestCore):
-
     def setUp(self):
         self.event_list = []
 
@@ -176,13 +185,14 @@ class TestMultipleContexts(TestCore):
         self.c4 = SomeContext(event_list=self.event_list)
 
         self.machine_cls = MachineFactory.get_predefined(locked=True)
-        self.stuff = Stuff(machine_cls=self.machine_cls, extra_kwargs={
-            'machine_context': [self.c1, self.c2]
-        })
+        self.stuff = Stuff(
+            machine_cls=self.machine_cls,
+            extra_kwargs={"machine_context": [self.c1, self.c2]},
+        )
         self.stuff.machine.add_model(self.s1, model_context=[self.c3, self.c4])
         del self.event_list[:]
 
-        self.stuff.machine.add_transition('forward', 'A', 'B')
+        self.stuff.machine.add_transition("forward", "A", "B")
 
     def tearDown(self):
         self.stuff.machine.remove_model(self.s1)
@@ -213,16 +223,26 @@ class TestMultipleContexts(TestCore):
 
 # Same as TestLockedTransition but with LockedHierarchicalMachine
 class TestLockedHierarchicalTransitions(TestsNested, TestLockedTransitions):
-
     def setUp(self):
-        states = ['A', 'B', {'name': 'C', 'children': ['1', '2', {'name': '3', 'children': ['a', 'b', 'c']}]},
-                  'D', 'E', 'F']
+        states = [
+            "A",
+            "B",
+            {
+                "name": "C",
+                "children": ["1", "2", {"name": "3", "children": ["a", "b", "c"]}],
+            },
+            "D",
+            "E",
+            "F",
+        ]
         self.machine_cls = MachineFactory.get_predefined(locked=True, nested=True)
         self.state_cls = self.machine_cls.state_cls
-        self.state_cls.separator = '_'
+        self.state_cls.separator = "_"
         self.stuff = Stuff(states, machine_cls=self.machine_cls)
         self.stuff.heavy_processing = heavy_processing
-        self.stuff.machine.add_transition('forward', '*', 'B', before='heavy_processing')
+        self.stuff.machine.add_transition(
+            "forward", "*", "B", before="heavy_processing"
+        )
 
     def test_parallel_access(self):
         thread = Thread(target=self.stuff.forward)
@@ -236,11 +256,10 @@ class TestLockedHierarchicalTransitions(TestsNested, TestLockedTransitions):
         self.assertEqual(self.stuff.state, "C")
 
     def test_callbacks(self):
-
         class MachineModel(self.stuff.machine_cls):
             def __init__(self):
                 self.mock = MagicMock()
-                super(MachineModel, self).__init__(self, states=['A', 'B', 'C'])
+                super(MachineModel, self).__init__(self, states=["A", "B", "C"])
 
             def on_enter_A(self):
                 self.mock()
@@ -251,21 +270,31 @@ class TestLockedHierarchicalTransitions(TestsNested, TestLockedTransitions):
 
     def test_pickle(self):
         import sys
+
         if sys.version_info < (3, 4):
             import dill as pickle
         else:
             import pickle
 
-        states = ['A', 'B', {'name': 'C', 'children': ['1', '2', {'name': '3', 'children': ['a', 'b', 'c']}]},
-                  'D', 'E', 'F']
-        transitions = [
-            {'trigger': 'walk', 'source': 'A', 'dest': 'B'},
-            {'trigger': 'run', 'source': 'B', 'dest': 'C'},
-            {'trigger': 'sprint', 'source': 'C', 'dest': 'D'}
+        states = [
+            "A",
+            "B",
+            {
+                "name": "C",
+                "children": ["1", "2", {"name": "3", "children": ["a", "b", "c"]}],
+            },
+            "D",
+            "E",
+            "F",
         ]
-        m = self.stuff.machine_cls(states=states, transitions=transitions, initial='A')
+        transitions = [
+            {"trigger": "walk", "source": "A", "dest": "B"},
+            {"trigger": "run", "source": "B", "dest": "C"},
+            {"trigger": "sprint", "source": "C", "dest": "D"},
+        ]
+        m = self.stuff.machine_cls(states=states, transitions=transitions, initial="A")
         m.heavy_processing = heavy_processing
-        m.add_transition('forward', 'A', 'B', before='heavy_processing')
+        m.add_transition("forward", "A", "B", before="heavy_processing")
 
         # # go to non initial state B
         m.to_B()

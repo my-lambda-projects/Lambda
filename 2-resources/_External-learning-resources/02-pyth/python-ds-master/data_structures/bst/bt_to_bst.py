@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -39,4 +38,3 @@ def bt_to_bst(root):
     store_inorder(root, arr)
     arr.sort()
     array_to_bst(arr, root)
-

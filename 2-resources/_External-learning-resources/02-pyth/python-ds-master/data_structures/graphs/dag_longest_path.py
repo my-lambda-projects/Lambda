@@ -4,17 +4,14 @@ The idea is similar to DAG Shortest Path. Only the comparision part changes
 
 from collections import defaultdict
 
+
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-
     def add_edge(self, u, v, w):
         self.graph[u].append((v, w))
-
 
     def topological_sort_util(self, vertex, visited, stack):
         visited[vertex] = True
@@ -25,7 +22,6 @@ class Graph:
 
         stack.insert(0, vertex)
 
-
     def topological_sort(self):
         visited = [False] * self.vertices
         stack = []
@@ -33,9 +29,8 @@ class Graph:
         for v in range(self.vertices):
             if visited[v] == False:
                 self.topological_sort_util(v, visited, stack)
-        
-        return stack
 
+        return stack
 
     def longest_path(self, s):
         stack = self.topological_sort()

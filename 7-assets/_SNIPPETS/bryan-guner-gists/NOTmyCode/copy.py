@@ -52,9 +52,12 @@ import types
 import weakref
 from copyreg import dispatch_table
 
+
 class Error(Exception):
     pass
-error = Error   # backward compatibility
+
+
+error = Error  # backward compatibility
 
 try:
     from org.python.core import PyStringMap
@@ -62,6 +65,7 @@ except ImportError:
     PyStringMap = None
 
 __all__ = ["Error", "copy", "deepcopy"]
+
 
 def copy(x):
     """Shallow copy operation on arbitrary Python objects.
@@ -104,12 +108,31 @@ def copy(x):
 
 _copy_dispatch = d = {}
 
+
 def _copy_immutable(x):
     return x
-for t in (type(None), int, float, bool, complex, str, tuple,
-          bytes, frozenset, type, range, slice, property,
-          types.BuiltinFunctionType, type(Ellipsis), type(NotImplemented),
-          types.FunctionType, weakref.ref):
+
+
+for t in (
+    type(None),
+    int,
+    float,
+    bool,
+    complex,
+    str,
+    tuple,
+    bytes,
+    frozenset,
+    type,
+    range,
+    slice,
+    property,
+    types.BuiltinFunctionType,
+    type(Ellipsis),
+    type(NotImplemented),
+    types.FunctionType,
+    weakref.ref,
+):
     d[t] = _copy_immutable
 t = getattr(types, "CodeType", None)
 if t is not None:
@@ -124,6 +147,7 @@ if PyStringMap is not None:
     d[PyStringMap] = PyStringMap.copy
 
 del d, t
+
 
 def deepcopy(x, memo=None, _nil=[]):
     """Deep copy operation on arbitrary Python objects.
@@ -164,8 +188,7 @@ def deepcopy(x, memo=None, _nil=[]):
                         if reductor:
                             rv = reductor()
                         else:
-                            raise Error(
-                                "un(deep)copyable object of type %s" % cls)
+                            raise Error("un(deep)copyable object of type %s" % cls)
                 if isinstance(rv, str):
                     y = x
                 else:
@@ -174,13 +197,17 @@ def deepcopy(x, memo=None, _nil=[]):
     # If is its own copy, don't memoize.
     if y is not x:
         memo[d] = y
-        _keep_alive(x, memo) # Make sure x lives at least as long as d
+        _keep_alive(x, memo)  # Make sure x lives at least as long as d
     return y
+
 
 _deepcopy_dispatch = d = {}
 
+
 def _deepcopy_atomic(x, memo):
     return x
+
+
 d[type(None)] = _deepcopy_atomic
 d[type(Ellipsis)] = _deepcopy_atomic
 d[type(NotImplemented)] = _deepcopy_atomic
@@ -197,6 +224,7 @@ d[types.FunctionType] = _deepcopy_atomic
 d[weakref.ref] = _deepcopy_atomic
 d[property] = _deepcopy_atomic
 
+
 def _deepcopy_list(x, memo, deepcopy=deepcopy):
     y = []
     memo[id(x)] = y
@@ -204,7 +232,10 @@ def _deepcopy_list(x, memo, deepcopy=deepcopy):
     for a in x:
         append(deepcopy(a, memo))
     return y
+
+
 d[list] = _deepcopy_list
+
 
 def _deepcopy_tuple(x, memo, deepcopy=deepcopy):
     y = [deepcopy(a, memo) for a in x]
@@ -221,7 +252,10 @@ def _deepcopy_tuple(x, memo, deepcopy=deepcopy):
     else:
         y = x
     return y
+
+
 d[tuple] = _deepcopy_tuple
+
 
 def _deepcopy_dict(x, memo, deepcopy=deepcopy):
     y = {}
@@ -229,15 +263,21 @@ def _deepcopy_dict(x, memo, deepcopy=deepcopy):
     for key, value in x.items():
         y[deepcopy(key, memo)] = deepcopy(value, memo)
     return y
+
+
 d[dict] = _deepcopy_dict
 if PyStringMap is not None:
     d[PyStringMap] = _deepcopy_dict
 
-def _deepcopy_method(x, memo): # Copy instance methods
+
+def _deepcopy_method(x, memo):  # Copy instance methods
     return type(x)(x.__func__, deepcopy(x.__self__, memo))
+
+
 d[types.MethodType] = _deepcopy_method
 
 del d
+
 
 def _keep_alive(x, memo):
     """Keeps a reference to the object x in the memo.
@@ -253,11 +293,12 @@ def _keep_alive(x, memo):
         memo[id(memo)].append(x)
     except KeyError:
         # aha, this is the first one :-)
-        memo[id(memo)]=[x]
+        memo[id(memo)] = [x]
 
-def _reconstruct(x, memo, func, args,
-                 state=None, listiter=None, dictiter=None,
-                 deepcopy=deepcopy):
+
+def _reconstruct(
+    x, memo, func, args, state=None, listiter=None, dictiter=None, deepcopy=deepcopy
+):
     deep = memo is not None
     if deep and args:
         args = (deepcopy(arg, memo) for arg in args)
@@ -268,7 +309,7 @@ def _reconstruct(x, memo, func, args,
     if state is not None:
         if deep:
             state = deepcopy(state, memo)
-        if hasattr(y, '__setstate__'):
+        if hasattr(y, "__setstate__"):
             y.__setstate__(state)
         else:
             if isinstance(state, tuple) and len(state) == 2:
@@ -299,5 +340,6 @@ def _reconstruct(x, memo, func, args,
             for key, value in dictiter:
                 y[key] = value
     return y
+
 
 del types, weakref, PyStringMap

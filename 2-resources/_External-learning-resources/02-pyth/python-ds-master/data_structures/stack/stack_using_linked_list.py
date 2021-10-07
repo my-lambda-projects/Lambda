@@ -1,14 +1,16 @@
 """ Use LinkedList class to implement a Stack. """
 
+
 class Element(object):
     def __init__(self, value):
         self.value = value
         self.next = None
-        
+
+
 class LinkedList(object):
     def __init__(self, head=None):
         self.head = head
-        
+
     def append(self, new_element):
         current = self.head
         if self.head:
@@ -37,8 +39,9 @@ class LinkedList(object):
         else:
             return None
 
+
 class Stack(object):
-    def __init__(self,top=None):
+    def __init__(self, top=None):
         self.ll = LinkedList(top)
 
     def push(self, new_element):
@@ -48,7 +51,8 @@ class Stack(object):
     def pop(self):
         "Pop (remove) the first element off the top of the stack and return it"
         return self.ll.delete_first()
-    
+
+
 # Test cases
 # Set up some Elements
 e1 = Element(1)

@@ -9,13 +9,7 @@ Traverses a container and accesses the container's elements.
 class NumberWords:
     """Counts by word numbers, up to a maximum of five"""
 
-    _WORD_MAP = (
-        "one",
-        "two",
-        "three",
-        "four",
-        "five",
-    )
+    _WORD_MAP = ("one", "two", "three", "four", "five")
 
     def __init__(self, start, stop):
         self.start = start

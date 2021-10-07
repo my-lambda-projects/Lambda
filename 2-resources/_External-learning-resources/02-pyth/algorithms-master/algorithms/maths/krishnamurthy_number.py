@@ -27,7 +27,7 @@ def find_factorial(n):
 def krishnamurthy_number(n):
     if n == 0:
         return False
-    sum_of_digits = 0   # will hold sum of FACTORIAL of digits
+    sum_of_digits = 0  # will hold sum of FACTORIAL of digits
     temp = n
 
     while temp != 0:
@@ -40,4 +40,4 @@ def krishnamurthy_number(n):
         temp //= 10
 
     # returns True if number is krishnamurthy
-    return (sum_of_digits == n)
+    return sum_of_digits == n

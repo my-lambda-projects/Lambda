@@ -23,77 +23,118 @@ import datetime
 import random
 import MySQLdb
 
-host="172.18.0.1"
-user="root"
-password="password"
-dbname="shopdb"
+host = "172.18.0.1"
+user = "root"
+password = "password"
+dbname = "shopdb"
 
 db = MySQLdb.connect(host, user, password, dbname)
 
 number_of_users = 1000
 number_of_transactions_per_user = 10
-names = ['ruan', 'stefan', 'james', 'peter', 'silver', 'frank', 'michelle', 'samantha', 'jennifer', 'john', 'frank', 'thomas', 'phill', 'andy', 'bill', 'tom', 'bryan', 'angie', 'nicole', 'jenny', 'penny', 'amber']
-surnames = ['smith', 'jacobs', 'james', 'phillips', 'anderson', 'adams', 'marx', 'johnson', 'woods', 'williamson']
-countries = ['south africa', 'italy', 'sweden', 'england', 'somoa', 'new york']
-job = ['doctor', 'scientist', 'teacher', 'police officer', 'waiter', 'banker', 'it']
-os = ['linux', 'windows', 'mac']
-banks = ['absa', 'fnb', 'nedbank']
+names = [
+    "ruan",
+    "stefan",
+    "james",
+    "peter",
+    "silver",
+    "frank",
+    "michelle",
+    "samantha",
+    "jennifer",
+    "john",
+    "frank",
+    "thomas",
+    "phill",
+    "andy",
+    "bill",
+    "tom",
+    "bryan",
+    "angie",
+    "nicole",
+    "jenny",
+    "penny",
+    "amber",
+]
+surnames = [
+    "smith",
+    "jacobs",
+    "james",
+    "phillips",
+    "anderson",
+    "adams",
+    "marx",
+    "johnson",
+    "woods",
+    "williamson",
+]
+countries = ["south africa", "italy", "sweden", "england", "somoa", "new york"]
+job = ["doctor", "scientist", "teacher", "police officer", "waiter", "banker", "it"]
+os = ["linux", "windows", "mac"]
+banks = ["absa", "fnb", "nedbank"]
 purchase_method = ["credit_card", "debit_card"]
 
 shop_dict = {
-    'Edgars': 'Clothing',
-    'CNA': 'Stationary',
-    'Sportmans Warehouse': 'Sports Equipment',
-    'Pick n Pay': 'Groceries',
-    'Rage Shoes': 'Shoes',
-    'BT Games': 'Games',
-    'Dions Wired': 'Electronics',
-    'Makro': (
-        'Shoes',
-        'Clothing',
-        'Electronics',
-        'Groceries',
-        'Stationary',
-        'Sports Equipment',
-        'Games'
-    )
+    "Edgars": "Clothing",
+    "CNA": "Stationary",
+    "Sportmans Warehouse": "Sports Equipment",
+    "Pick n Pay": "Groceries",
+    "Rage Shoes": "Shoes",
+    "BT Games": "Games",
+    "Dions Wired": "Electronics",
+    "Makro": (
+        "Shoes",
+        "Clothing",
+        "Electronics",
+        "Groceries",
+        "Stationary",
+        "Sports Equipment",
+        "Games",
+    ),
 }
 
 city_dict = {
-    'Kroonstad': 'Free State',
-    'Cape Town': 'Western Cape',
-    'Pretoria': 'Gauteng',
-    'PE': 'Eastern Cape',
-    'Johannesburg': 'Gauteng',
-    'Potchefstroom': 'North West',
-    'Bloemfontein': 'Free State',
-    'Stellenbosch': 'Western Cape',
-    'Krugersdorp': 'Gauteng',
-    'Somerset West': 'Western Cape',
-    'Kimberley': 'Northern Cape',
-    'Upington': 'Northern Cape',
-    'Klerksdorp': 'North West',
-    'Potchefstroom': 'North West',
-    'Parys': 'Free State',
-    'Gauteng': 'Boksburg'
+    "Kroonstad": "Free State",
+    "Cape Town": "Western Cape",
+    "Pretoria": "Gauteng",
+    "PE": "Eastern Cape",
+    "Johannesburg": "Gauteng",
+    "Potchefstroom": "North West",
+    "Bloemfontein": "Free State",
+    "Stellenbosch": "Western Cape",
+    "Krugersdorp": "Gauteng",
+    "Somerset West": "Western Cape",
+    "Kimberley": "Northern Cape",
+    "Upington": "Northern Cape",
+    "Klerksdorp": "North West",
+    "Potchefstroom": "North West",
+    "Parys": "Free State",
+    "Gauteng": "Boksburg",
 }
 
 cur = db.cursor()
 cur.execute("DROP TABLE IF EXISTS customers")
 cur.execute("DROP TABLE IF EXISTS transactions")
-cur.execute("CREATE TABLE customers(userid VARCHAR(50), name VARCHAR(50), surname VARCHAR(50), country VARCHAR(50), job VARCHAR(20), age INT(2), matriculated BOOLEAN, credit_card_num VARCHAR(50), status VARCHAR(10))")
-cur.execute("CREATE TABLE transactions(credit_card_num VARCHAR(50), transaction_id VARCHAR(50), shop_name VARCHAR(50), product_name VARCHAR(50), spent_total VARCHAR(20), purchase_option VARCHAR(50))")
+cur.execute(
+    "CREATE TABLE customers(userid VARCHAR(50), name VARCHAR(50), surname VARCHAR(50), country VARCHAR(50), job VARCHAR(20), age INT(2), matriculated BOOLEAN, credit_card_num VARCHAR(50), status VARCHAR(10))"
+)
+cur.execute(
+    "CREATE TABLE transactions(credit_card_num VARCHAR(50), transaction_id VARCHAR(50), shop_name VARCHAR(50), product_name VARCHAR(50), spent_total VARCHAR(20), purchase_option VARCHAR(50))"
+)
 
 bunch_users = []
 bunch_transactions = []
 
+
 def gen_id():
-    return str(random.randint(0,9999)).zfill(4)
+    return str(random.randint(0, 9999)).zfill(4)
+
 
 def gen_user(username):
-    ccnum = '{0}-{1}-{2}-{3}'.format(gen_id(), gen_id(), gen_id(), gen_id())
-    userid = username + '_' + ccnum.split('-')[0] + ccnum.split('-')[2]
+    ccnum = "{0}-{1}-{2}-{3}".format(gen_id(), gen_id(), gen_id(), gen_id())
+    userid = username + "_" + ccnum.split("-")[0] + ccnum.split("-")[2]
     return {"uid": userid, "ccnum": ccnum}
+
 
 names_cc = []
 
@@ -102,22 +143,34 @@ for name in range(number_of_users):
 
 for user in names_cc:
     userid = user["uid"]
-    name = user["uid"].split('_')[0]
+    name = user["uid"].split("_")[0]
     surname = random.choice(surnames)
     country = random.choice(countries)
     job = random.choice(job)
-    age = random.randint(24,49)
+    age = random.randint(24, 49)
     matriculated = random.choice([True, False])
     credit_card_num = user["ccnum"]
     status = random.choice(["active", "inactive", "disabled"])
 
-    bunch_users.append((userid, name, surname, country, job, age, matriculated, credit_card_num, status))
+    bunch_users.append(
+        (
+            userid,
+            name,
+            surname,
+            country,
+            job,
+            age,
+            matriculated,
+            credit_card_num,
+            status,
+        )
+    )
 
 # https://mysqlclient.readthedocs.io/user_guide.html
 print("writing customers to database")
 cur.executemany(
     """INSERT INTO customers(userid, name, surname, country, job, age, matriculated, credit_card_num, status) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""",
-    bunch_users
+    bunch_users,
 )
 
 db.commit()
@@ -127,21 +180,32 @@ for each_transaction in range(number_of_transactions_per_user):
     bunch_transactions = []
     for user in names_cc:
         credit_card_num = user["ccnum"]
-        transaction_id = random.randint(111111,99999999)
+        transaction_id = random.randint(111111, 99999999)
         stores_choice = random.choice(list(shop_dict.keys()))
-        if stores_choice == 'Makro':
-            category_name = shop_dict[stores_choice][random.randint(0,6)]
+        if stores_choice == "Makro":
+            category_name = shop_dict[stores_choice][random.randint(0, 6)]
         else:
             category_name = shop_dict[stores_choice]
 
-        transaction_price = str(random.randint(29, 800)) + '.' + str(random.randint(0, 99)).zfill(2)
+        transaction_price = (
+            str(random.randint(29, 800)) + "." + str(random.randint(0, 99)).zfill(2)
+        )
         payment_method = random.choice(purchase_method)
 
-        bunch_transactions.append((credit_card_num, transaction_id, stores_choice, category_name, transaction_price, payment_method))
+        bunch_transactions.append(
+            (
+                credit_card_num,
+                transaction_id,
+                stores_choice,
+                category_name,
+                transaction_price,
+                payment_method,
+            )
+        )
 
     cur.executemany(
         """INSERT INTO transactions(credit_card_num, transaction_id, shop_name, product_name, spent_total, purchase_option) VALUES(%s, %s, %s, %s, %s, %s)""",
-        bunch_transactions
+        bunch_transactions,
     )
 
     db.commit()

@@ -2,16 +2,12 @@ from collections import defaultdict
 
 
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def dfs(self):
         visited = [False] * self.vertices
@@ -22,7 +18,7 @@ class Graph:
             if visited[v] == False:
                 visited[v] = True
                 recursion_stack[v] = True
-            
+
                 stack.append(v)
 
                 while stack:
@@ -37,7 +33,7 @@ class Graph:
                             recursion_stack[i] = True
                         elif recursion_stack[i] == True:
                             return "Contains Cycle"
-                            
+
             recursion_stack[v] = False
 
         return "No cycle"

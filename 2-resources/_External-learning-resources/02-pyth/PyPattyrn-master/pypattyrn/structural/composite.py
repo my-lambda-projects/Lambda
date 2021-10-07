@@ -5,6 +5,7 @@ class Composite(object):
     - External Usage Documentation: U{https://github.com/tylerlaberge/PyPattyrn#composite-pattern}
     - External Composite Pattern documentation: U{https://en.wikipedia.org/wiki/Composite_pattern}
     """
+
     def __init__(self, interface):
         """
         Initialize a new Composite instance.
@@ -33,8 +34,11 @@ class Composite(object):
             if valid:
                 self.components.add(component)
             else:
-                raise AttributeError('Component {0} does not follow this composites interface {1}'.format(
-                    component.__class__, self.interface))
+                raise AttributeError(
+                    "Component {0} does not follow this composites interface {1}".format(
+                        component.__class__, self.interface
+                    )
+                )
 
     def remove_component(self, component):
         """

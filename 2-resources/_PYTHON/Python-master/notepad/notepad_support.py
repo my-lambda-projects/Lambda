@@ -73,7 +73,7 @@ def add_button(p1):
     # for manipulating the data base
     global cursor
     global connection
-    if (len(w.inputTitle.get()) > 0 and len(w.inputNotice.get(1.0, END)) > 0):
+    if len(w.inputTitle.get()) > 0 and len(w.inputNotice.get(1.0, END)) > 0:
         w.errorOutput.configure(text="")
         title = w.inputTitle.get()
         note = w.inputNotice.get(1.0, END)
@@ -92,7 +92,7 @@ def back_button(p1):
 
     w.errorOutput.configure(text="")
     index -= 1
-    if (index >= 0 and index < len(results)):
+    if index >= 0 and index < len(results):
         w.outputNotice.delete(1.0, END)
         w.outputNotice.insert(1.0, results[index][2])
 
@@ -125,7 +125,7 @@ def search_button(p1):
         results = cursor.fetchall()
         w.errorOutput.configure(text=str(len(results)) + " results")
         index = 0
-        if (index >= 0 and index < len(results)):
+        if index >= 0 and index < len(results):
             w.outputNotice.delete(1.0, END)
             w.outputNotice.insert(1.0, results[index][2])
     except:
@@ -136,8 +136,8 @@ def next_button(p1):
     global results
     global index
     index += 1
-    if (len(w.inputSearchTitle.get()) > 0):
-        if (index >= 0 and index < len(results)):
+    if len(w.inputSearchTitle.get()) > 0:
+        if index >= 0 and index < len(results):
             w.outputNotice.delete(1.0, END)
             w.outputNotice.insert(1.0, results[index][2])
 
@@ -159,7 +159,7 @@ def destroy_window():
     top_level = None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import notepad
 
     notepad.vp_start_gui()

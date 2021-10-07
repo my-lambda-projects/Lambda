@@ -1,15 +1,17 @@
 from timeit import default_timer as timer
 import random
 
-from arrays import (array,
-                    array_append,
-                    array_insert,
-                    array_pop,
-                    array_print,
-                    array_read,
-                    array_remove)
+from arrays import (
+    array,
+    array_append,
+    array_insert,
+    array_pop,
+    array_print,
+    array_read,
+    array_remove,
+)
 
-from doubly_linked_list import (DoublyLinkedList, ListNode)
+from doubly_linked_list import DoublyLinkedList, ListNode
 
 
 def add_n_elements(n):
@@ -72,8 +74,12 @@ def add_n_elements_delete_half_random(n):
         array_remove(big_arr, random.randrange(n / divisor))
 
     time = timer() - start
-    print("Size N Array: Appended " + str(n) + " elements and removed half in "
-          + str(time))
+    print(
+        "Size N Array: Appended "
+        + str(n)
+        + " elements and removed half in "
+        + str(time)
+    )
 
     # Array size 1 (To start)
     start = timer()
@@ -84,8 +90,12 @@ def add_n_elements_delete_half_random(n):
         array_remove(small_arr, random.randrange(int(n / divisor)))
 
     time = timer() - start
-    print("Size 1 Array: Appended " + str(n) + " elements and removed half in "
-          + str(time))
+    print(
+        "Size 1 Array: Appended "
+        + str(n)
+        + " elements and removed half in "
+        + str(time)
+    )
 
     # Linked List - Head
     start = timer()
@@ -96,8 +106,7 @@ def add_n_elements_delete_half_random(n):
         dll.find_and_delete(random.randrange(int(n / divisor)))
 
     time = timer() - start
-    print("Linked Head: Added " + str(n) + " elements and removed half in "
-          + str(time))
+    print("Linked Head: Added " + str(n) + " elements and removed half in " + str(time))
 
     # Linked List - Tail
     start = timer()
@@ -108,8 +117,7 @@ def add_n_elements_delete_half_random(n):
         dll.find_and_delete(random.randrange(int(n / divisor)))
 
     time = timer() - start
-    print("Linked Tail: Added " + str(n) + " elements and removed half in "
-          + str(time))
+    print("Linked Tail: Added " + str(n) + " elements and removed half in " + str(time))
 
 
 # add_n_elements(1000000)

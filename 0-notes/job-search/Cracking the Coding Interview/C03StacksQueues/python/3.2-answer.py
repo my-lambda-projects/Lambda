@@ -1,8 +1,9 @@
 # 3.2 Stack Min
 
-# How would you design a stack which, in addition to push and pop, has a function min which 
-    # returns the minimum element?  Push, pop, and min should all operate in O(1) time.
-  
+# How would you design a stack which, in addition to push and pop, has a function min which
+# returns the minimum element?  Push, pop, and min should all operate in O(1) time.
+
+
 class StackMin:
     def __init__(self):
         self.stack = []
@@ -12,7 +13,7 @@ class StackMin:
         length = len(self.stack)
         deleted = self.stack[length]
         del self.stack[length]
-        return deleted 
+        return deleted
 
     def push(self, item):
         # first

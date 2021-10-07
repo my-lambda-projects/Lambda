@@ -16,7 +16,7 @@ def get_user_input(start, end):
 
         try:
 
-            # reads and converts the input from the console. 
+            # reads and converts the input from the console.
             user_input = int(input("Enter Your choice: "))
 
             # checks whether input is in the given bounds.

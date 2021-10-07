@@ -6,6 +6,7 @@
 
 import sys
 
+
 def check(arr):
     min = sys.maxsize
     for i in arr:
@@ -17,6 +18,6 @@ def check(arr):
     return True
 
 
-arr = [20,10,15,5,100,200, 201]
+arr = [20, 10, 15, 5, 100, 200, 201]
 
 print(check(arr))

@@ -41,8 +41,8 @@ class ReusableTestCase(TestCase):
         dog.reset()
         final_state = deepcopy(dog.__dict__)
 
-        original_state.pop('memento')
-        final_state.pop('memento')
+        original_state.pop("memento")
+        final_state.pop("memento")
 
         self.assertEquals("woof", original_sound)
         self.assertEquals("bark", changed_sound)
@@ -69,7 +69,7 @@ class PoolTestCase(TestCase):
 
         class DogPool(Pool):
             def __init__(self):
-                super(DogPool, self).__init__(Dog, 'woof')
+                super(DogPool, self).__init__(Dog, "woof")
 
         self.dog_pool_class = DogPool
 
@@ -97,7 +97,7 @@ class PoolTestCase(TestCase):
 
         dog_one = dog_pool.acquire()
         dog_two = dog_pool.acquire()
-        dog_two.sound = 'meow'
+        dog_two.sound = "meow"
 
         dog_pool.release(dog_one)
         dog_three = dog_pool.acquire()

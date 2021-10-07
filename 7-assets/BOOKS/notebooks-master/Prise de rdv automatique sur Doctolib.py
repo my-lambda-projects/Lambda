@@ -6,13 +6,13 @@
 
 # # Prise de rendez-vous automatique sur Doctolib - COVID 19
 # *Ceci est une expérimentation, et n'est pas encore terminé*
-# 
+#
 # ## But initial
-# 
-# 1. utiliser [Selenium](https://www.selenium.dev/) et [selenium Python](https://selenium-python.readthedocs.io/installation.html) pour automatiser l'utilisation du site <https://partners.doctolib.fr/hopital-public/perigueux/vaccination-covid?speciality_id=5494&enable_cookies_consent=1>,                                     
-# 
+#
+# 1. utiliser [Selenium](https://www.selenium.dev/) et [selenium Python](https://selenium-python.readthedocs.io/installation.html) pour automatiser l'utilisation du site <https://partners.doctolib.fr/hopital-public/perigueux/vaccination-covid?speciality_id=5494&enable_cookies_consent=1>,
+#
 # 2. vérifier si le site a changé, et m'envoyer un SMS si oui.
-# 
+#
 # - Auteur : [Lilian Besson](https://perso.crans.org/besson/) ([@Naereen](https://GitHub.com/Naereen) sur GitHub)
 # - Licence : [MIT Licensed](https://lbesson.mit-license.org/)
 # - Date : Mardi 09 février 2021
@@ -67,7 +67,7 @@ from selenium import webdriver
 
 
 # Vérifions le contenu de la page, et voir si elle affiche ce message suivant :
-# 
+#
 # > En raison d'une forte demande, ce centre n'a plus de disponibilités : 3362 vaccinations vont avoir lieu dans les 28 prochains jours. Réessayez prochainement ou cherchez un autre centre.
 
 # In[7]:
@@ -89,8 +89,12 @@ message = "ce centre n'a plus de disponibilités"
 if message in browser.page_source:
     print(f"{URL} indique :\n{message}")
 else:
-    print(f"{URL} n'indique pas :\n{message}\nPeut être qu'il y a des disponibilités désormais !")
-    get_ipython().system('FreeSMS.py f"{URL} semble indiquer qu\'il y a des disponibilités désormais."')
+    print(
+        f"{URL} n'indique pas :\n{message}\nPeut être qu'il y a des disponibilités désormais !"
+    )
+    get_ipython().system(
+        'FreeSMS.py f"{URL} semble indiquer qu\'il y a des disponibilités désormais."'
+    )
 
 
 # Quand on a fini, on ferme le navigateur :
@@ -102,15 +106,15 @@ browser.close()
 
 
 # ## Automatisation toutes les 55 minutes
-# 
+#
 # Je ne ferai pas ça dans Python mais avec un simple script bash et un `watch`
 
 # In[71]:
 
 
-get_ipython().system('watch -help')
+get_ipython().system("watch -help")
 
 
 # ## Conclusion
-# 
+#
 # C'était drôle. C'était une expérimentation. Mais ne vous servez pas de ça !

@@ -1,23 +1,22 @@
-
 # coding: utf-8
 
 # # Simulons le jeu de *151* avec Python !
-# 
+#
 # ## But :
 # - Simuler numériquement le jeu de 151, qui est une variante à 3 dés du jeu appelé [5000](https://fr.wikipedia.org/wiki/5000),
 # - Afin de trouver une stratégie *optimale*.
-# 
+#
 # ## Comment ?
 # - On va simuler des millions de parties (cf. [méthodes de Monte-Carlo](https://fr.wikipedia.org/wiki/Méthodes_de_Monte-Carlo)),
 # - Afin de comparer différentes stratégies (aléatoires, s'arrêter au premier coup, s'arrêter après 3 coups, etc),
 # - On les compare en fonction de leur gain *moyen*,
 # - La meilleur stratégie sera celle qui apporte un gain moyen le plus élevé.
-# 
+#
 # ## Résultats ?
 # → Lien vers les résultats obtenus.
 
 # ----
-# 
+#
 # ## Plans
 # 1. fonctions pour simuler un tirage (3 dés),
 # 2. puis simuler une une partie (affrontant deux stratégies, face à un total), plein de parties (total aléatoire),
@@ -25,7 +24,7 @@
 # 4. les comparer, faire des graphiques, et tirer des conclusions statistiquement valides (avec moyennes *et* écart-types).
 
 # ----
-# 
+#
 # ## 1. Simuler un tirage et une partie
 
 # ### 1.1. Simuler un tirage
@@ -37,11 +36,19 @@
 
 import numpy as np
 import numpy.random as rn
+
 rn.seed(0)  # Pour obtenir les mêmes résultats
 import matplotlib.pyplot as plt
 
 import seaborn as sns
-sns.set(context="notebook", style="darkgrid", palette="hls", font="sans-serif", font_scale=1.4)
+
+sns.set(
+    context="notebook",
+    style="darkgrid",
+    palette="hls",
+    font="sans-serif",
+    font_scale=1.4,
+)
 
 
 # Première fonction : pour tirer trois dés, à 6 faces, indépendants.
@@ -73,7 +80,7 @@ tirage(10)
 
 # ### 1.2. Points d'un tirage
 # Le jeu de *151* associe les points suivants, multiples de 50, aux tirages de 3 dés :
-# 
+#
 # - 200 pour un brelan de 2, 300 pour un brelan de 3, .., 600 pour un brelan de 6, 700 pour un brelan de 1,
 # - 100 pour chaque 1, si ce n'est pas un brelan,
 # - 50 pour chaque 5, si ce n'est pas un brelan.
@@ -83,13 +90,14 @@ tirage(10)
 
 COMPTE_SUITE = False  # Savoir si on implémente aussi la variante avec les suites
 
+
 def _points(valeurs, compte_suite=COMPTE_SUITE):
     if valeurs[0] == valeurs[1] == valeurs[2]:  # Un brelan !
         if valeurs[0] == 1:
             return 700
         else:
             return 100 * valeurs[0]
-    else:            # Pas de brelan
+    else:  # Pas de brelan
         # Code pour compter les suites :
         bonus_suite = compte_suite and set(np.diff(np.sort(valeurs))) == {1}
         return 100 * (np.sum(valeurs == 1) + bonus_suite) + 50 * np.sum(valeurs == 5)
@@ -102,7 +110,9 @@ def points(valeurs, compte_suite=COMPTE_SUITE):
     - si valeurs est de taille (nb, 3), renvoie un tableau de points.
     """
     if len(np.shape(valeurs)) > 1:
-        return np.array([_points(valeurs[i,:], compte_suite) for i in range(np.shape(valeurs)[0])])
+        return np.array(
+            [_points(valeurs[i, :], compte_suite) for i in range(np.shape(valeurs)[0])]
+        )
     else:
         return _points(valeurs, compte_suite)
 
@@ -157,7 +167,7 @@ for valeurs in [np.array([2, 3, 6]), np.array([5, 3, 6]), np.array([5, 5, 6])]:
 
 
 # → C'est bon, *tout* marche !
-# 
+#
 # *Note* : certaines variants du 151 accordent une valeur supplémentaire aux *suites* (non ordonnées) : [1, 2, 3] vaut 200, [2, 3, 4] vaut 100, et [3, 4, 5] et [4, 5, 6] vaut 150.
 # Ce n'est pas difficile à intégrer dans notre fonction `points`.
 
@@ -166,7 +176,12 @@ for valeurs in [np.array([2, 3, 6]), np.array([5, 3, 6]), np.array([5, 5, 6])]:
 # In[11]:
 
 
-for valeurs in [np.array([1, 2, 3]), np.array([2, 3, 4]), np.array([3, 4, 5]), np.array([4, 5, 6])]:
+for valeurs in [
+    np.array([1, 2, 3]),
+    np.array([2, 3, 4]),
+    np.array([3, 4, 5]),
+    np.array([4, 5, 6]),
+]:
     print("- La valeur {} donne {:>5} points.".format(valeurs, points(valeurs)))
 
 
@@ -183,7 +198,7 @@ print(points(valeurs))
 
 
 # ----
-# 
+#
 # #### 1.2.3. Moyenne d'un tirage, et quelques figures
 
 # On peut faire quelques tests statistiques dès maintenant :
@@ -196,13 +211,23 @@ print(points(valeurs))
 def moyenneTirage(nb=1000):
     return np.mean(points(tirage(nb), False))
 
+
 def moyenneTirage_avecSuite(nb=1000):
     return np.mean(points(tirage(nb), True))
 
+
 for p in range(2, 7):
     nb = 10 ** p
-    print("- Pour {:>7} tirages, les tirages valent en moyenne {:>4} points.".format(nb, moyenneTirage(nb)))
-    print("- Pour {:>7} tirages, les tirages valent en moyenne {:>4} points si on compte aussi les suites.".format(nb, moyenneTirage_avecSuite(nb)))
+    print(
+        "- Pour {:>7} tirages, les tirages valent en moyenne {:>4} points.".format(
+            nb, moyenneTirage(nb)
+        )
+    )
+    print(
+        "- Pour {:>7} tirages, les tirages valent en moyenne {:>4} points si on compte aussi les suites.".format(
+            nb, moyenneTirage_avecSuite(nb)
+        )
+    )
 
 
 # Ça semble converger vers 85 : en moyenne, un tirage vaut entre 50 et 100 points, plutôt du côté des 100.
@@ -217,10 +242,15 @@ def moyenneStdTirage(nb=1000):
     pts = points(tirage(nb))
     return np.mean(pts), np.std(pts)
 
+
 for p in range(2, 7):
     nb = 10 ** p
     m, s = moyenneStdTirage(nb)
-    print("- Pour {:>7} tirages, les tirages valent en moyenne {:6.2f} +- {:>6.2f} points.".format(nb, m, s))
+    print(
+        "- Pour {:>7} tirages, les tirages valent en moyenne {:6.2f} +- {:>6.2f} points.".format(
+            nb, m, s
+        )
+    )
 
 
 # - Quelques courbes :
@@ -232,7 +262,7 @@ def plotPoints(nb=2000):
     pts = np.sort(points(tirage(nb)))
     m = np.mean(pts)
     plt.figure()
-    plt.plot(pts, 'ro')
+    plt.plot(pts, "ro")
     plt.title("Valeurs de {} tirages. Moyenne = {:.2f}".format(nb, m))
     plt.show()
 
@@ -246,13 +276,13 @@ plotPoints()
 # In[17]:
 
 
-plotPoints(10**5)
+plotPoints(10 ** 5)
 
 
 # In[18]:
 
 
-plotPoints(10**6)
+plotPoints(10 ** 6)
 
 
 # - On peut calculer la probabilité d'avoir un tirage valant 0 points :
@@ -271,13 +301,21 @@ def probaPoints(nb=1000, pt=0, compte_suite=COMPTE_SUITE):
 for p in range(2, 7):
     nb = 10 ** p
     prob = probaPoints(nb, compte_suite=False)
-    print("- Pour {:>7} tirages, il y a une probabilité {:7.2%} d'avoir 0 point.".format(nb, prob))
+    print(
+        "- Pour {:>7} tirages, il y a une probabilité {:7.2%} d'avoir 0 point.".format(
+            nb, prob
+        )
+    )
     prob = probaPoints(nb, compte_suite=True)
-    print("- Pour {:>7} tirages, il y a une probabilité {:7.2%} d'avoir 0 point si on compte les suites.".format(nb, prob))
+    print(
+        "- Pour {:>7} tirages, il y a une probabilité {:7.2%} d'avoir 0 point si on compte les suites.".format(
+            nb, prob
+        )
+    )
 
 
 # Donc un tirage apporte 85 points en moyenne, mais il y a environ 28% de chance qu'un tirage rate.
-# 
+#
 # Si on compte les suites, un tirage apporte 97 points en moyenne, mais il y a environ 25% de chance qu'un tirage rate.
 
 # - On peut faire le même genre de calcul pour les différentes valeurs de points possibles :
@@ -295,18 +333,26 @@ valeursPossibles = [0, 50, 100, 150, 200, 250, 300, 400, 500, 600, 700]
 for p in range(4, 7):
     nb = 10 ** p
     tirages = tirage(nb)
-    pts   = points(tirages, False)
+    pts = points(tirages, False)
     pts_s = points(tirages, True)
     print("\n- Pour {:>7} tirages :".format(nb))
     for pt in valeursPossibles:
-        prob = np.sum(pts   == pt) / float(nb)
-        print("  - Il y a une probabilité {:7.2%} d'avoir {:3} point{}.".format(prob, pt, 's' if pt > 0 else ''))
+        prob = np.sum(pts == pt) / float(nb)
+        print(
+            "  - Il y a une probabilité {:7.2%} d'avoir {:3} point{}.".format(
+                prob, pt, "s" if pt > 0 else ""
+            )
+        )
         prob = np.sum(pts_s == pt) / float(nb)
-        print("  - Il y a une probabilité {:7.2%} d'avoir {:3} point{} si on compte les suites.".format(prob, pt, 's' if pt > 0 else ''))
+        print(
+            "  - Il y a une probabilité {:7.2%} d'avoir {:3} point{} si on compte les suites.".format(
+                prob, pt, "s" if pt > 0 else ""
+            )
+        )
 
 
 # On devrait faire des histogrammes, mais j'ai la flemme...
-# 
+#
 # Ces quelques expériences montrent qu'on a :
 # - une chance d'environ 2.5% d'avoir plus de 300 points (par un brelan),
 # - une chance d'environ 9%   d'avoir entre 200 et 300 points,
@@ -314,13 +360,13 @@ for p in range(4, 7):
 # - une chance d'environ 27%  d'avoir 100 points,
 # - une chance d'environ 22%  d'avoir 50  points,
 # - une chance d'environ 28%  d'avoir 0   point.
-# 
+#
 # Autant de chance d'avoir 100 points que 0 ? Et oui !
-# 
+#
 # La variante comptant les suites augmente la chance d'avoir 200 points (de 7.5% à 10%), d'avoir 150 points (de 11% à 16%), et diminue la chance d'avoir 0 point, mais ne change pas vraiment le reste du jeu.
 
 # ----
-# 
+#
 # ### 1.3. Simuler des parties
 # #### 1.3.1. Simuler une partie
 # On va d'abord écrire une fonction qui prend deux joeurs, un total, et simule la partie, puis donne l'indice (0 ou 1) du joueur qui gagne.
@@ -336,61 +382,113 @@ DEBUG = False  # Par défaut, on n'affiche rien
 
 def unJeu(joueur, compte, total, debug=DEBUG):
     accu = 0
-    if debug: print("  - Le joueur {.__name__} commence à jouer, son compte est {} et le total est {} ...".format(joueur, compte, total))
+    if debug:
+        print(
+            "  - Le joueur {.__name__} commence à jouer, son compte est {} et le total est {} ...".format(
+                joueur, compte, total
+            )
+        )
     t = tirage()
     nbLance = 1
     if points(t) == 0:
-        if debug: print("    - Hoho, ce tirage {} vallait 0 points, le joueur doit arrêter.".format(t))
+        if debug:
+            print(
+                "    - Hoho, ce tirage {} vallait 0 points, le joueur doit arrêter.".format(
+                    t
+                )
+            )
         return 0, nbLance
-    if debug: print("    - Le joueur a obtenu {} ...".format(t))
+    if debug:
+        print("    - Le joueur a obtenu {} ...".format(t))
     while compte + accu <= total and joueur(compte, accu, t, total):
         accu += points(t)
         t = tirage()
         nbLance += 1
-        if debug: print("    - Le joueur a décidé de rejouer, accumulant {} points, et a ré-obtenu {} ...".format(accu, t))
+        if debug:
+            print(
+                "    - Le joueur a décidé de rejouer, accumulant {} points, et a ré-obtenu {} ...".format(
+                    accu, t
+                )
+            )
         if points(t) == 0:
-            if debug: print("    - Hoho, ce tirage {} vallait 0 points, le joueur doit arrêter.".format(t))
+            if debug:
+                print(
+                    "    - Hoho, ce tirage {} vallait 0 points, le joueur doit arrêter.".format(
+                        t
+                    )
+                )
             break
     accu += points(t)
     if compte + accu > total:
-        if debug: print("  - Le joueur a dépassé le total : impossible de marquer ! compte = {} + accu = {} > total = {} !".format(compte, accu, total))
+        if debug:
+            print(
+                "  - Le joueur a dépassé le total : impossible de marquer ! compte = {} + accu = {} > total = {} !".format(
+                    compte, accu, total
+                )
+            )
         return 0, nbLance
     else:
         if accu > 0:
-            if debug: print("  - Le joueur peut marquer les {} points accumulés en {} lancés !".format(accu, nbLance))
+            if debug:
+                print(
+                    "  - Le joueur peut marquer les {} points accumulés en {} lancés !".format(
+                        accu, nbLance
+                    )
+                )
         return accu, nbLance
 
 
 def unePartie(joueurs, total=1000, debug=DEBUG, i0=0):
     assert len(joueurs) == 2, "Erreur, seulement 2 joueurs sont acceptés !"
-    comptes  = [0, 0]
-    nbCoups  = [0, 0]
+    comptes = [0, 0]
+    nbCoups = [0, 0]
     nbLances = [0, 0]
-    scores   = [[0], [0]]
-    if debug: print("- Le joueur #{} va commencer ...".format(i0))
+    scores = [[0], [0]]
+    if debug:
+        print("- Le joueur #{} va commencer ...".format(i0))
     i = i0
     while max(comptes) != total:  # Tant qu'aucun joueur n'a gagné
         nbCoups[i] += 1
-        if debug: print("- C'est au joueur #{} ({.__name__}) de jouer, son compte est {} et le total est {} ...".format(i, joueurs[i], comptes[i], total))
+        if debug:
+            print(
+                "- C'est au joueur #{} ({.__name__}) de jouer, son compte est {} et le total est {} ...".format(
+                    i, joueurs[i], comptes[i], total
+                )
+            )
         accu, nbLance = unJeu(joueurs[i], comptes[i], total, debug)
         nbLances[i] += nbLance
         if accu > 0:
             comptes[i] += accu
             scores[i].append(comptes[i])  # Historique
         if comptes[i] == total:
-            if debug: print("- Le joueur #{} ({.__name__}) a gagné en {} coups et {} lancés de dés !".format(i, joueurs[i], nbCoups[i], nbLances[i]))
-            if debug: print("- Le joueur #{} ({.__name__}) a perdu, avec un score de {}, après {} coups et {} lancés de dés !".format(i^1, joueurs[i^1], comptes[i^1], nbCoups[i^1], nbLances[i^1]))
+            if debug:
+                print(
+                    "- Le joueur #{} ({.__name__}) a gagné en {} coups et {} lancés de dés !".format(
+                        i, joueurs[i], nbCoups[i], nbLances[i]
+                    )
+                )
+            if debug:
+                print(
+                    "- Le joueur #{} ({.__name__}) a perdu, avec un score de {}, après {} coups et {} lancés de dés !".format(
+                        i ^ 1,
+                        joueurs[i ^ 1],
+                        comptes[i ^ 1],
+                        nbCoups[i ^ 1],
+                        nbLances[i ^ 1],
+                    )
+                )
             return i, scores
         i ^= 1  # 0 → 1, 1 → 0 (ou exclusif)
+
 
 # Note : on pourrait implémenter une partie à plus de 2 joueurs
 
 
 # ----
 # #### 1.3.2. Des stratégies
-# 
+#
 # On doit définir des stratégies, sous la forme de fonctions `joueur(compte, accu, t, total)`, qui renvoie `True` si elle doit continuer à jouer, ou `False` si elle doit marquer.
-# 
+#
 # D'abord, deux stratégies un peu stupides :
 
 # In[15]:
@@ -400,12 +498,13 @@ def unCoup(compte, accu, t, total):
     """ Stratégie qui marque toujours au premier coup, peu importe le 1er tirage obtenu."""
     return False  # Marque toujours !
 
+
 def jusquauBout(compte, accu, t, total):
     """ Stratégie qui ne marque que si elle peut gagner exactement ."""
     if compte + accu + points(t) >= total:
         return False  # Marque si elle peut gagner
     else:
-        return True   # Continue à jouer
+        return True  # Continue à jouer
 
 
 # Une autre stratégie, qui marche seulement si elle peut marquer plus de X points (100, 150 etc).
@@ -426,16 +525,18 @@ def auMoinsX(X):
             # (sinon la stratégie d'accumuler plus de X points ne marche plus)
             return False
         else:
-            return True   # Continue de jouer, essaie d'obtenir X points
+            return True  # Continue de jouer, essaie d'obtenir X points
+
     joueur.__name__ = "auMoins{}".format(X)  # Triche sur le nom
     return joueur
 
-auMoins50  = auMoinsX(50)    # == unCoup, en fait
+
+auMoins50 = auMoinsX(50)  # == unCoup, en fait
 auMoins100 = auMoinsX(100)
 auMoins150 = auMoinsX(150)
-auMoins200 = auMoinsX(200)   # Commence à devenir très audacieux
+auMoins200 = auMoinsX(200)  # Commence à devenir très audacieux
 auMoins250 = auMoinsX(250)
-auMoins300 = auMoinsX(300)   # Compètement fou, très peu de chance de marquer ça ou plus!
+auMoins300 = auMoinsX(300)  # Compètement fou, très peu de chance de marquer ça ou plus!
 auMoins350 = auMoinsX(350)
 auMoins400 = auMoinsX(400)
 auMoins450 = auMoinsX(450)
@@ -459,8 +560,11 @@ auMoins1000 = auMoinsX(1000)
 
 def bernoulli(p=0.5):
     def joueur(compte, accu, t, total):
-        """ Marque les points accumulés avec probabilité p = {} (Bernoulli).""".format(p)
+        """ Marque les points accumulés avec probabilité p = {} (Bernoulli).""".format(
+            p
+        )
         return rn.random() > p
+
     joueur.__name__ = "bernoulli_{:.3g}".format(p)
     return joueur
 
@@ -504,7 +608,7 @@ unePartie(joueurs, total)
 
 
 # ----
-# 
+#
 # #### 1.3.4. Générer plusieurs parties
 # On peut maintenant lancer plusieurs centaines de simulations de parties, sans afficher le déroulement de chaque parties.
 # La fonction `unePartie` renvoie un tuple, `(i, comptes)`, où :
@@ -545,11 +649,17 @@ def freqGain(indiceMoyen, i):
 
 def afficheResultatsDesParties(nb, joueurs, total, indices, historiques):
     indiceMoyen = np.mean(indices)
-    pointsFinaux = [np.mean(list(historiques[k][i][-1] for k in range(nb))) for i in [0, 1]]
+    pointsFinaux = [
+        np.mean(list(historiques[k][i][-1] for k in range(nb))) for i in [0, 1]
+    ]
 
     print("Dans {} parties simulées, contre le total {} :".format(nb, total))
     for i in [0, 1]:
-        print(" - le joueur {} ({.__name__:<11}) a gagné {:>5.2%} du temps, et a eu un score final moyen de {:>5g} points ...".format(i, joueurs[i], freqGain(indiceMoyen, i), pointsFinaux[i]))
+        print(
+            " - le joueur {} ({.__name__:<11}) a gagné {:>5.2%} du temps, et a eu un score final moyen de {:>5g} points ...".format(
+                i, joueurs[i], freqGain(indiceMoyen, i), pointsFinaux[i]
+            )
+        )
 
 
 # In[35]:
@@ -595,10 +705,14 @@ def plotResultatsDesParties(nb, joueurs, totaux):
         indices, _ = desParties(nb, joueurs, total)
         indicesMoyens.append(np.mean(indices))
     plt.figure()
-    plt.plot(totaux, indicesMoyens, 'ro')
+    plt.plot(totaux, indicesMoyens, "ro")
     plt.xlabel("Objectif (points totaux à atteindre)")
     plt.ylabel("Taux de victoire de 1 face à 0")
-    plt.title("Taux de victoire du joueur 1 ({.__name__}) face au joueur 0 ({.__name__}),\n pour {} parties simulees pour chaque total.".format(joueurs[1], joueurs[0], nb))
+    plt.title(
+        "Taux de victoire du joueur 1 ({.__name__}) face au joueur 0 ({.__name__}),\n pour {} parties simulees pour chaque total.".format(
+            joueurs[1], joueurs[0], nb
+        )
+    )
     plt.show()
 
 
@@ -686,28 +800,41 @@ plotResultatsDesParties(nb, joueurs, totaux)
 # ----
 # ## Évaluation en *self-play*
 # Plutôt que de faire jouer une stratégie face à une autre, et d'utiliser le *taux de victoire* comme une mesure de performance (ce que j'ai fait plus haut), on peut chercher à mesure un autre taux de victoire.
-# 
+#
 # On peut laisser une stratégie jouer tout seule, et mesurer plutôt le *nombre de coup requis pour gagner*.
 
 # In[19]:
 
 
 def unePartieSeul(joueur, total=1000, debug=DEBUG):
-    compte   = 0
-    nbCoups  = 0
+    compte = 0
+    nbCoups = 0
     nbLances = 0
-    score   = [0]
-    if debug: print("Simulation pour le joueur ({.__name__}), le total à atteindre est {} :".format(joueur, total))
+    score = [0]
+    if debug:
+        print(
+            "Simulation pour le joueur ({.__name__}), le total à atteindre est {} :".format(
+                joueur, total
+            )
+        )
     while compte < total:  # Tant que joueur n'a pas gagné
         nbCoups += 1
-        if debug: print(" - Coup #{}, son compte est {} / {} ...".format(nbCoups, compte, total))
+        if debug:
+            print(
+                " - Coup #{}, son compte est {} / {} ...".format(nbCoups, compte, total)
+            )
         accu, nbLance = unJeu(joueur, compte, total, debug)
         nbLances += nbLance
         if accu > 0:
             compte += accu
             score.append(compte)  # Historique
         if compte == total:
-            if debug: print("- Le joueur ({.__name__}) a gagné en {} coups et {} lancés de dés !".format(joueur, nbCoups, nbLances))
+            if debug:
+                print(
+                    "- Le joueur ({.__name__}) a gagné en {} coups et {} lancés de dés !".format(
+                        joueur, nbCoups, nbLances
+                    )
+                )
             return score
 
 
@@ -717,7 +844,11 @@ def unePartieSeul(joueur, total=1000, debug=DEBUG):
 
 
 h = unePartieSeul(unCoup, 1000)
-print("Partie gagnée en {} coups par le joueur ({.__name__}), avec le score {} ...".format(len(h), unCoup, h))
+print(
+    "Partie gagnée en {} coups par le joueur ({.__name__}), avec le score {} ...".format(
+        len(h), unCoup, h
+    )
+)
 
 
 # ----
@@ -745,7 +876,7 @@ desPartiesSeul(4, unCoup)
 # In[116]:
 
 
-[len(l)-1 for l in desPartiesSeul(4, unCoup)]
+[len(l) - 1 for l in desPartiesSeul(4, unCoup)]
 
 
 # Avec un joli affichage et un calcul du nombre moyen de coups :
@@ -755,7 +886,11 @@ desPartiesSeul(4, unCoup)
 
 def afficheResultatsDesPartiesSeul(nb, joueur, total, historique):
     nbCoupMoyens = np.mean([len(h) - 1 for h in historique])
-    print("Dans {} parties simulées, contre le total {}, le joueur ({.__name__}) a gagné en moyenne en {} coups ...".format(nb, total, joueur, nbCoupMoyens))
+    print(
+        "Dans {} parties simulées, contre le total {}, le joueur ({.__name__}) a gagné en moyenne en {} coups ...".format(
+            nb, total, joueur, nbCoupMoyens
+        )
+    )
 
 
 # In[119]:
@@ -778,10 +913,14 @@ def plotResultatsDesPartiesSeul(nb, joueur, totaux):
         historique = desPartiesSeul(nb, joueur, total)
         nbCoupMoyens.append(np.mean([len(h) - 1 for h in historique]))
     plt.figure()
-    plt.plot(totaux, nbCoupMoyens, 'ro')
+    plt.plot(totaux, nbCoupMoyens, "ro")
     plt.xlabel("Objectif (points totaux à atteindre)")
     plt.ylabel("Nombre moyen de coups joués avant de gagner")
-    plt.title("Nombre moyen de coups requis par {.__name__}\n pour {} parties simulées pour chaque total.".format(joueur, nb))
+    plt.title(
+        "Nombre moyen de coups requis par {.__name__}\n pour {} parties simulées pour chaque total.".format(
+            joueur, nb
+        )
+    )
     plt.show()
 
 
@@ -865,9 +1004,9 @@ plotResultatsDesPartiesSeul(nb, bernoulli(0.8), totaux)
 
 # ----
 # Ces comparaisons de différentes stratégies de Bernoulli permettent de conclure, comme on le présentait, que  la meilleure stratégie (parmi les quelques testées) est la stratégie `jusquauBout` !
-# 
+#
 # Toutes les courbes ci dessus montrent un comportement (presque) linéaire du nombre moyen de coups requis pour gagner en fonction du total.
-# 
+#
 # Ainsi, pour comparer différentes stratégies, on peut juste comparer leur nombre de coups moyen pour un certain total, disons $T = 2000$.
 
 # In[138]:
@@ -896,9 +1035,29 @@ comparerStrategies(joueurs, nb=nb, total=totalMax)
 
 
 joueurs = [unCoup, jusquauBout]
-joueurs += [auMoins50, auMoins100, auMoins150, auMoins200, auMoins250, auMoins300, auMoins350, auMoins400, auMoins450, auMoins500, auMoins550, auMoins600, auMoins650, auMoins700, auMoins800, auMoins850, auMoins900, auMoins950, auMoins1000]
+joueurs += [
+    auMoins50,
+    auMoins100,
+    auMoins150,
+    auMoins200,
+    auMoins250,
+    auMoins300,
+    auMoins350,
+    auMoins400,
+    auMoins450,
+    auMoins500,
+    auMoins550,
+    auMoins600,
+    auMoins650,
+    auMoins700,
+    auMoins800,
+    auMoins850,
+    auMoins900,
+    auMoins950,
+    auMoins1000,
+]
 for p in range(0, 20 + 1):
-    joueurs.append(bernoulli(p/20.))
+    joueurs.append(bernoulli(p / 20.0))
 
 # print([j.__name__ for j in joueurs])
 
@@ -911,7 +1070,11 @@ totalMax = 2000
 resultats = comparerStrategies(joueurs, nb=nb, total=totalMax)
 print("Pour le total {} et {} simulations ...".format(totalMax, nb))
 for (i, (n, j)) in enumerate(resultats):
-    print("- La stratégie classée #{:2} / {} est {:<14}, avec un nombre moyen de coups = {:.3g} ...".format(i, len(joueurs), j, n))
+    print(
+        "- La stratégie classée #{:2} / {} est {:<14}, avec un nombre moyen de coups = {:.3g} ...".format(
+            i, len(joueurs), j, n
+        )
+    )
 
 
 # In[149]:
@@ -922,7 +1085,11 @@ totalMax = 3000
 resultats = comparerStrategies(joueurs, nb=nb, total=totalMax)
 print("Pour le total {} et {} simulations ...".format(totalMax, nb))
 for (i, (n, j)) in enumerate(resultats):
-    print("- La stratégie classée #{:2} / {} est {:<14}, avec un nombre moyen de coups = {:.3g} ...".format(i, len(joueurs), j, n))
+    print(
+        "- La stratégie classée #{:2} / {} est {:<14}, avec un nombre moyen de coups = {:.3g} ...".format(
+            i, len(joueurs), j, n
+        )
+    )
 
 
 # In[150]:
@@ -933,7 +1100,11 @@ totalMax = 5000
 resultats = comparerStrategies(joueurs, nb=nb, total=totalMax)
 print("Pour le total {} et {} simulations ...".format(totalMax, nb))
 for (i, (n, j)) in enumerate(resultats):
-    print("- La stratégie classée #{:2} / {} est {:<14}, avec un nombre moyen de coups = {:.3g} ...".format(i, len(joueurs), j, n))
+    print(
+        "- La stratégie classée #{:2} / {} est {:<14}, avec un nombre moyen de coups = {:.3g} ...".format(
+            i, len(joueurs), j, n
+        )
+    )
 
 
 # $\implies$ la stratégie la plus efficace est en effet `jusquauBout` !

@@ -1,9 +1,9 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
+
 
 # Depth First Search
 def inorder(root):
@@ -34,5 +34,3 @@ root.left.left = Node(1)
 root.right.right = Node(5)
 
 inorder(root)
-
-

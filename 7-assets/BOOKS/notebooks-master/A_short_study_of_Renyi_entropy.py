@@ -1,16 +1,15 @@
-
 # coding: utf-8
 
 # # Table of Contents
 #  <p><div class="lev1 toc-item"><a href="#A-short-study-of-Rényi-entropy" data-toc-modified-id="A-short-study-of-Rényi-entropy-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>A short study of Rényi entropy</a></div><div class="lev2 toc-item"><a href="#Requirements" data-toc-modified-id="Requirements-11"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Requirements</a></div><div class="lev2 toc-item"><a href="#Utility-functions" data-toc-modified-id="Utility-functions-12"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Utility functions</a></div><div class="lev2 toc-item"><a href="#Definition,-common-and-special-cases" data-toc-modified-id="Definition,-common-and-special-cases-13"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Definition, common and special cases</a></div><div class="lev2 toc-item"><a href="#Plotting-some-values" data-toc-modified-id="Plotting-some-values-14"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Plotting some values</a></div><div class="lev2 toc-item"><a href="#Conclusion" data-toc-modified-id="Conclusion-15"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Conclusion</a></div>
 
 # # A short study of Rényi entropy
-# 
+#
 # I want to study here the Rényi entropy, using [Python](https://www.python.org/).
 # I will define a function implementing $H_{\alpha}(X)$, from the given formula, for discrete random variables, and check the influence of the parameter $\alpha$,
 # $$ H_{\alpha}(X) := \frac{1}{1-\alpha} \log_2(\sum_i^n p_i^{\alpha}),$$
 # where $X$ has $n$ possible values, and the $i$-th outcome has probability $p_i\in[0,1]$.
-# 
+#
 # - *Reference*: [this blog post by John D. Cook](https://www.johndcook.com/blog/2018/11/21/renyi-entropy/), [this Wikipédia page](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy) and [this page on MathWorld](http://mathworld.wolfram.com/RenyiEntropy.html),
 # - *Author*: [Lilian Besson](https://perso.crans.org/besson/)
 # - *License*: [MIT License](https://lbesson.mit-license.org/)
@@ -21,14 +20,16 @@
 # In[4]:
 
 
-get_ipython().system('pip install watermark matplotlib numpy')
+get_ipython().system("pip install watermark matplotlib numpy")
 
 
 # In[5]:
 
 
-get_ipython().run_line_magic('load_ext', 'watermark')
-get_ipython().run_line_magic('watermark', '-v -m -a "Lilian Besson" -g -p matplotlib,numpy')
+get_ipython().run_line_magic("load_ext", "watermark")
+get_ipython().run_line_magic(
+    "watermark", '-v -m -a "Lilian Besson" -g -p matplotlib,numpy'
+)
 
 
 # In[7]:
@@ -50,8 +51,8 @@ X1 = [0.25, 0.5, 0.25]
 X2 = [0.1, 0.25, 0.3, 0.45]
 X3 = [0, 0.5, 0.5]
 
-X4 = np.full(100, 1/100)
-X5 = np.full(1000, 1/1000)
+X4 = np.full(100, 1 / 100)
+X5 = np.full(1000, 1 / 1000)
 
 X6 = np.arange(100, dtype=float)
 X6 /= np.sum(X6)
@@ -115,16 +116,20 @@ x_log2_x(X6)[:10]
 
 
 def renyi_entropy(alpha, X):
-    assert alpha >= 0, "Error: renyi_entropy only accepts values of alpha >= 0, but alpha = {}.".format(alpha)  # DEBUG
+    assert (
+        alpha >= 0
+    ), "Error: renyi_entropy only accepts values of alpha >= 0, but alpha = {}.".format(
+        alpha
+    )  # DEBUG
     if np.isinf(alpha):
         # XXX Min entropy!
-        return - np.log2(np.max(X))
+        return -np.log2(np.max(X))
     elif np.isclose(alpha, 0):
         # XXX Max entropy!
         return np.log2(len(X))
     elif np.isclose(alpha, 1):
         # XXX Shannon entropy!
-        return - np.sum(x_log2_x(X))
+        return -np.sum(x_log2_x(X))
     else:
         return (1.0 / (1.0 - alpha)) * np.log2(np.sum(X ** alpha))
 
@@ -136,6 +141,7 @@ def renyi_entropy(alpha, X):
 def renyi_entropy_2(alpha):
     def re(X):
         return renyi_entropy(alpha, X)
+
     return re
 
 

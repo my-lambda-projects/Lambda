@@ -42,4 +42,3 @@ def power_recur(a: int, n: int, r: int = None):
     if r:
         ans %= r
     return ans
-

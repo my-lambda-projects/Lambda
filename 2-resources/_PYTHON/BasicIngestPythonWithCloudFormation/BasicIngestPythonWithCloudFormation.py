@@ -19,7 +19,7 @@ from threading import Timer
 import greengrasssdk
 
 # Creating a greengrass core sdk client
-client = greengrasssdk.client('iot-data')
+client = greengrasssdk.client("iot-data")
 
 # Retrieving platform information to send from Greengrass Core
 my_platform = platform.platform()
@@ -27,7 +27,7 @@ my_platform = platform.platform()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 streamHandler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 streamHandler.setFormatter(formatter)
 logger.addHandler(streamHandler)
 
@@ -38,24 +38,29 @@ logger.addHandler(streamHandler)
 # execution timeout of three seconds.  This is expected as this function never returns
 # a result.
 
-GROUP_ID = os.environ['GROUP_ID']
-THING_NAME = os.environ['AWS_IOT_THING_NAME']
-THING_ARN = os.environ['AWS_IOT_THING_ARN']
+GROUP_ID = os.environ["GROUP_ID"]
+THING_NAME = os.environ["AWS_IOT_THING_NAME"]
+THING_ARN = os.environ["AWS_IOT_THING_ARN"]
 
 payload = {}
-payload['group_id'] = GROUP_ID
-payload['thing_name'] = THING_NAME
-payload['thing_arn'] = THING_ARN
+payload["group_id"] = GROUP_ID
+payload["thing_name"] = THING_NAME
+payload["thing_arn"] = THING_ARN
 
 
 def greengrass_hello_world_run():
     if not my_platform:
-        payload['message'] = 'Hello world! Sent from Greengrass Core from Python'
+        payload["message"] = "Hello world! Sent from Greengrass Core from Python"
     else:
-        payload['message'] = 'Hello world! Sent from Greengrass Core from Python running on platform {}'.format(
-            my_platform)
-    client.publish(topic='$aws/rules/' + THING_NAME + '_BasicIngestRepublishRule',
-                   payload=json.dumps(payload))
+        payload[
+            "message"
+        ] = "Hello world! Sent from Greengrass Core from Python running on platform {}".format(
+            my_platform
+        )
+    client.publish(
+        topic="$aws/rules/" + THING_NAME + "_BasicIngestRepublishRule",
+        payload=json.dumps(payload),
+    )
 
     # Asynchronously schedule this function to be run again in 5 seconds
     Timer(5, greengrass_hello_world_run).start()

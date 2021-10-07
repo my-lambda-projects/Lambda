@@ -10,14 +10,10 @@ class Stuff(object):
 
         self.state = None
         self.message = None
-        states = ['A', 'B', 'C', 'D', 'E', 'F'] if states is None else states
+        states = ["A", "B", "C", "D", "E", "F"] if states is None else states
 
         args = [self]
-        kwargs = {
-            'states': states,
-            'initial': 'A',
-            'name': 'Test Machine',
-        }
+        kwargs = {"states": states, "initial": "A", "name": "Test Machine"}
         kwargs.update(extra_kwargs)
         if machine_cls is not None:
             self.machine = machine_cls(*args, **kwargs)
@@ -43,7 +39,7 @@ class Stuff(object):
 
     @staticmethod
     def extract_boolean(event_data):
-        return event_data.kwargs['boolean']
+        return event_data.kwargs["boolean"]
 
     def goodbye(self):
         self.message = "So long, suckers!"
@@ -58,8 +54,8 @@ class Stuff(object):
         self.message = "Nice to meet you"
 
     def hello_F(self):
-        if not hasattr(self, 'message'):
-            self.message = ''
+        if not hasattr(self, "message"):
+            self.message = ""
         self.message += "Hello F!"
 
     def increase_level(self):
@@ -74,7 +70,7 @@ class Stuff(object):
         self.message = message
 
     def extract_message(self, event_data):
-        self.message = event_data.kwargs['message']
+        self.message = event_data.kwargs["message"]
 
     def on_enter_E(self, msg=None):
         self.message = "I am E!" if msg is None else msg
@@ -91,8 +87,7 @@ class Stuff(object):
 
 
 class InheritedStuff(Machine):
-
-    def __init__(self, states, initial='A'):
+    def __init__(self, states, initial="A"):
 
         self.state = None
 

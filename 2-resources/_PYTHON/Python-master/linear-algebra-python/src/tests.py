@@ -146,8 +146,10 @@ class Test(unittest.TestCase):
         self.assertEqual("|0,0,-4|\n|0,0,0|\n|0,0,-2|\n", (A - B).__str__())
 
     def test_squareZeroMatrix(self):
-        self.assertEqual('|0,0,0,0,0|\n|0,0,0,0,0|\n|0,0,0,0,0|\n|0,0,0,0,0|'
-                         + '\n|0,0,0,0,0|\n', squareZeroMatrix(5).__str__())
+        self.assertEqual(
+            "|0,0,0,0,0|\n|0,0,0,0,0|\n|0,0,0,0,0|\n|0,0,0,0,0|" + "\n|0,0,0,0,0|\n",
+            squareZeroMatrix(5).__str__(),
+        )
 
     def test_norm_vector(self):
         x = Vector([1, 2, 3])

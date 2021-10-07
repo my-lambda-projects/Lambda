@@ -1,10 +1,11 @@
-'''
+"""
 High Level Description:
 This algorithm segments the list into sorted and unsorted parts. 
 It converts the unsorted segment of the list to a Heap data structure, so that we can efficiently determine the largest element.
 Time Complexity:
 The overall time complexity is O(nlog(n)).
-'''
+"""
+
 
 def heapify(nums, heap_size, root_index):
     # Assume the index of the largest element is the root index

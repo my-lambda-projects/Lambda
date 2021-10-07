@@ -1,4 +1,4 @@
-'''
+"""
 Find shortest path from top left column to the right lowest column using DFS.
 only step on the columns whose value is 1
 if there is no path, it returns -1
@@ -18,7 +18,7 @@ If maze is
  [0,1,1],
  [0,1,1]],
 the answer is: -1
-'''
+"""
 
 
 def find_path(maze):

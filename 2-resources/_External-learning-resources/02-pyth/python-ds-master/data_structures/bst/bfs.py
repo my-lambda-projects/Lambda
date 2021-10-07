@@ -1,7 +1,7 @@
-import collections 
+import collections
 
-class Node():
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -11,7 +11,7 @@ class Node():
 def bfs(root):
     if not root:
         return
-    
+
     queue = collections.deque([root])
 
     while queue:

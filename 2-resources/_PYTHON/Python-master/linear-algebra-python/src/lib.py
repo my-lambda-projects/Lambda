@@ -142,7 +142,7 @@ class Vector(object):
         if isinstance(other, float) or isinstance(other, int):
             for c in self.__components:
                 ans.append(c * other)
-        elif (isinstance(other, Vector) and (self.size() == other.size())):
+        elif isinstance(other, Vector) and (self.size() == other.size()):
             size = self.size()
             summe = 0
             for i in range(size):
@@ -166,7 +166,7 @@ class Vector(object):
             'value'
         """
         # precondition
-        assert (pos >= 0 and pos < len(self.__components))
+        assert pos >= 0 and pos < len(self.__components)
         self.__components[pos] = value
 
     def norm(self):
@@ -185,7 +185,7 @@ class Vector(object):
         """
         ans = True
         SIZE = self.size()
-        if (SIZE == other.size()):
+        if SIZE == other.size():
             for i in range(SIZE):
                 if self.__components[i] != other.component(i):
                     ans = False
@@ -200,7 +200,7 @@ def zeroVector(dimension):
         returns a zero-vector of size 'dimension'
     """
     # precondition
-    assert (isinstance(dimension, int))
+    assert isinstance(dimension, int)
     ans = []
     for i in range(dimension):
         ans.append(0)
@@ -213,7 +213,7 @@ def unitBasisVector(dimension, pos):
         at index 'pos' (indexing at 0)
     """
     # precondition
-    assert (isinstance(dimension, int) and (isinstance(pos, int)))
+    assert isinstance(dimension, int) and (isinstance(pos, int))
     ans = []
     for i in range(dimension):
         if i != pos:
@@ -230,9 +230,12 @@ def axpy(scalar, x, y):
         computes the axpy operation
     """
     # precondition
-    assert (isinstance(x, Vector) and (isinstance(y, Vector)) \
-            and (isinstance(scalar, int) or isinstance(scalar, float)))
-    return (x * scalar + y)
+    assert (
+        isinstance(x, Vector)
+        and (isinstance(y, Vector))
+        and (isinstance(scalar, int) or isinstance(scalar, float))
+    )
+    return x * scalar + y
 
 
 def randomVector(N, a, b):
@@ -326,8 +329,8 @@ class Matrix(object):
             implements the matrix-vector multiplication.
             implements the matrix-scalar multiplication
         """
-        if isinstance(other, Vector):  # vector-matrix 
-            if (other.size() == self.__width):
+        if isinstance(other, Vector):  # vector-matrix
+            if other.size() == self.__width:
                 ans = zeroVector(self.__height)
                 for i in range(self.__height):
                     summe = 0
@@ -337,8 +340,10 @@ class Matrix(object):
                     summe = 0
                 return ans
             else:
-                raise Exception("vector must have the same size as the "
-                                + "number of columns of the matrix!")
+                raise Exception(
+                    "vector must have the same size as the "
+                    + "number of columns of the matrix!"
+                )
         elif isinstance(other, int) or isinstance(other, float):  # matrix-scalar
             matrix = []
             for i in range(self.__height):
@@ -352,7 +357,7 @@ class Matrix(object):
         """
             implements the matrix-addition.
         """
-        if (self.__width == other.width() and self.__height == other.height()):
+        if self.__width == other.width() and self.__height == other.height():
             matrix = []
             for i in range(self.__height):
                 row = []
@@ -367,7 +372,7 @@ class Matrix(object):
         """
             implements the matrix-subtraction.
         """
-        if (self.__width == other.width() and self.__height == other.height()):
+        if self.__width == other.width() and self.__height == other.height():
             matrix = []
             for i in range(self.__height):
                 row = []

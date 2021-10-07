@@ -8,17 +8,15 @@ it is a different tree, so increment the count
 
 from collections import defaultdict
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.vertices = vertices
         self.graph = defaultdict(list)
 
-    
     def add_edge(self, u, v):
         self.graph[v].append(u)
         self.graph[u].append(v)
-
 
     def count_trees(self):
         visited = [False] * self.vertices
@@ -30,7 +28,7 @@ class Graph:
                 stack = []
                 stack.append(s)
                 count += 1
-                
+
                 while stack:
                     print(stack)
                     s = stack.pop()
@@ -39,7 +37,7 @@ class Graph:
                         if not visited[i]:
                             visited[i] = True
                             stack.append(i)
-                
+
         return count
 
 
@@ -48,4 +46,4 @@ g.add_edge(0, 1)
 g.add_edge(0, 2)
 g.add_edge(3, 4)
 
-print('Count of trees - ', g.count_trees())
+print("Count of trees - ", g.count_trees())

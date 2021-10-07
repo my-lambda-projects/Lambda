@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.right = None
@@ -7,7 +6,6 @@ class Node():
 
 
 def print_leaves(root):
-
     def dfs(node):
         if not node.left and not node.right:
             yield node.val

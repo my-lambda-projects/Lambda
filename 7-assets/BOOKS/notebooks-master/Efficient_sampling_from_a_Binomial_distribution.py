@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # # Table of Contents
@@ -6,9 +5,9 @@
 
 # # Bernoulli and binomial distribution
 # - References: [Bernoulli distribution on Wikipedia](https://en.wikipedia.org/wiki/Bernoulli_distribution) and [Binomial distribution on Wikipedia](https://en.wikipedia.org/wiki/Binomial_distribution#Generating_binomial_random_variates).
-# 
+#
 # The Bernoulli distribution of mean $p\in[0,1]$ is defined as the distribution on $\{0,1\}$ such that $\mathbb{P}(X=1) = p$ and $\mathbb{P}(X=0) = 1-p$.
-# 
+#
 # If $X$ follows a Binomial distribution of mean $p\in[0,1]$ and $n$ samples, $X$ is defined as the sum of $n$ independent and identically distributed (iid) samples from a Bernoulli distribution of mean $p$, that is $X\in\{0,\dots,n\}$ ($X\in\mathbb{N}$) and $\forall k\in\{0,\dots,n\}, \mathbb{P}(X=k) = {n \choose k} p^k (1-p)^{n-k}$.
 
 # ## Requirements
@@ -24,14 +23,16 @@ import matplotlib.pyplot as plt
 # In[2]:
 
 
-get_ipython().run_line_magic('load_ext', 'cython')
+get_ipython().run_line_magic("load_ext", "cython")
 
 
 # In[3]:
 
 
-get_ipython().run_line_magic('load_ext', 'watermark')
-get_ipython().run_line_magic('watermark', '-a "Lilian Besson (Naereen)" -i -v -p numpy,matplotlib,cython')
+get_ipython().run_line_magic("load_ext", "watermark")
+get_ipython().run_line_magic(
+    "watermark", '-a "Lilian Besson (Naereen)" -i -v -p numpy,matplotlib,cython'
+)
 
 
 # ## A naive generator
@@ -42,6 +43,7 @@ get_ipython().run_line_magic('watermark', '-a "Lilian Besson (Naereen)" -i -v -p
 
 import random
 
+
 def uniform_01() -> float:
     return random.random()
 
@@ -49,7 +51,7 @@ def uniform_01() -> float:
 # In[7]:
 
 
-[ uniform_01() for _ in range(5) ]
+[uniform_01() for _ in range(5)]
 
 
 # It's very quick now:
@@ -64,19 +66,19 @@ def bernoulli(p: float) -> int:
 # In[13]:
 
 
-[ bernoulli(0) for _ in range(5) ]
+[bernoulli(0) for _ in range(5)]
 
 
 # In[14]:
 
 
-[ bernoulli(0.12345) for _ in range(5) ]
+[bernoulli(0.12345) for _ in range(5)]
 
 
 # In[15]:
 
 
-[ bernoulli(1) for _ in range(5) ]
+[bernoulli(1) for _ in range(5)]
 
 
 # So we can naively generate samples from a Binomial distribution by summing iid samples generated using this `bernoulli` function.
@@ -96,19 +98,19 @@ def naive_binomial(n: int, p: float) -> int:
 # In[17]:
 
 
-[ naive_binomial(10, 0.1) for _ in range(5) ]
+[naive_binomial(10, 0.1) for _ in range(5)]
 
 
 # In[18]:
 
 
-[ naive_binomial(10, 0.5) for _ in range(5) ]
+[naive_binomial(10, 0.5) for _ in range(5)]
 
 
 # In[19]:
 
 
-[ naive_binomial(10, 0.9) for _ in range(5) ]
+[naive_binomial(10, 0.9) for _ in range(5)]
 
 
 # We can quickly illustrate the generated distribution, to check it has the correct "shape":
@@ -119,7 +121,7 @@ def naive_binomial(n: int, p: float) -> int:
 m = 1000
 n = 10
 p = 0.12345
-X = [ naive_binomial(n, p) for _ in range(m) ]
+X = [naive_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -132,7 +134,7 @@ plt.show()
 m = 1000
 n = 10
 p = 0.5
-X = [ naive_binomial(n, p) for _ in range(m) ]
+X = [naive_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -145,7 +147,7 @@ plt.show()
 m = 1000
 n = 10
 p = 0.98765
-X = [ naive_binomial(n, p) for _ in range(m) ]
+X = [naive_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -166,19 +168,19 @@ def numpy_binomial(n: int, p: float) -> int:
 # In[29]:
 
 
-[ numpy_binomial(10, 0.1) for _ in range(5) ]
+[numpy_binomial(10, 0.1) for _ in range(5)]
 
 
 # In[30]:
 
 
-[ numpy_binomial(10, 0.5) for _ in range(5) ]
+[numpy_binomial(10, 0.5) for _ in range(5)]
 
 
 # In[31]:
 
 
-[ numpy_binomial(10, 0.9) for _ in range(5) ]
+[numpy_binomial(10, 0.9) for _ in range(5)]
 
 
 # Let's plot this out also.
@@ -189,7 +191,7 @@ def numpy_binomial(n: int, p: float) -> int:
 m = 1000
 n = 10
 p = 0.12345
-X = [ numpy_binomial(n, p) for _ in range(m) ]
+X = [numpy_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -202,7 +204,7 @@ plt.show()
 m = 1000
 n = 10
 p = 0.5
-X = [ naive_binomial(n, p) for _ in range(m) ]
+X = [naive_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -215,7 +217,7 @@ plt.show()
 m = 1000
 n = 10
 p = 0.98765
-X = [ naive_binomial(n, p) for _ in range(m) ]
+X = [naive_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -223,7 +225,7 @@ plt.show()
 
 
 # ## An efficient generator using the inverse transform method
-# 
+#
 # 1. We start by computing the binomial coefficients and then the probability $\mathbb{P}(X=k)$ for $k\in\{0,\dots,n\}$, if $X\sim Bin(n, p)$, and,
 # 2. Then use this to write a generator of Binomial-distributed random values.
 # 3. This function is then simplified to inline all computations.
@@ -240,7 +242,7 @@ def binomial_coefficient(n: int, k: int) -> int:
         return 0
     if k == 0 or k == n:
         return 1
-    k = min(k, n - k) # take advantage of symmetry
+    k = min(k, n - k)  # take advantage of symmetry
     c = 1
     for i in range(k):
         c = (c * (n - i)) / (i + 1)
@@ -253,14 +255,14 @@ def binomial_coefficient(n: int, k: int) -> int:
 def proba_binomial(n: int, p: float, k: int) -> float:
     """Compute {n \choose k} p^k (1-p)^(n-k)"""
     q = 1.0 - p
-    return binomial_coefficient(n, k) * p**k * q**(n-k)
+    return binomial_coefficient(n, k) * p ** k * q ** (n - k)
 
 
 # ### First function using the inversion method
 
 # This first function is a generic implementation of the discrete inverse transform method.
 # For more details, see [the Wikipedia page](https://en.wikipedia.org/wiki/Inverse_transform_sampling).
-# 
+#
 # > Inverse transformation sampling takes uniform samples of a number $u$ between $0$ and $1$, interpreted as a probability, and then returns the largest number $x$ from the domain of the distribution $\mathbb{P}(X)$ such that $\mathbb{P}(-\infty <X<x)\leq u$.
 
 # In[47]:
@@ -269,8 +271,11 @@ def proba_binomial(n: int, p: float, k: int) -> float:
 # a generic function
 from typing import Callable
 
-def inversion_method(compute_proba: Callable[[int], int], xmax: int, xmin: int =0) -> int:
-    probas = [ compute_proba(x) for x in range(xmin, xmax + 1) ]
+
+def inversion_method(
+    compute_proba: Callable[[int], int], xmax: int, xmin: int = 0
+) -> int:
+    probas = [compute_proba(x) for x in range(xmin, xmax + 1)]
     result = xmin
     current_proba = 0
     one_uniform_sample = uniform_01()
@@ -286,6 +291,7 @@ def inversion_method(compute_proba: Callable[[int], int], xmax: int, xmin: int =
 def first_inversion_binomial(n: int, p: float) -> int:
     def compute_proba(x):
         return proba_binomial(n, p, x)
+
     xmax = n
     xmin = 0
     return inversion_method(compute_proba, xmax, xmin=xmin)
@@ -296,28 +302,28 @@ def first_inversion_binomial(n: int, p: float) -> int:
 # In[51]:
 
 
-[ first_inversion_binomial(10, 0.1) for _ in range(5) ]
+[first_inversion_binomial(10, 0.1) for _ in range(5)]
 
 
 # In[52]:
 
 
-[ first_inversion_binomial(10, 0.5) for _ in range(5) ]
+[first_inversion_binomial(10, 0.5) for _ in range(5)]
 
 
 # In[53]:
 
 
-[ first_inversion_binomial(10, 0.9) for _ in range(5) ]
+[first_inversion_binomial(10, 0.9) for _ in range(5)]
 
 
 # It seems to work as wanted!
 
 # ### Simplified code of the inversion method
-# 
+#
 # The previous function as a few weaknesses: it stores the $n+1$ values of $\mathbb{P}(X=k)$ before hand, it computes all of them even if the `for` loop of the inversion method stops in average before the end (in average, it takes $np$ steps, which can be much smaller than $n$ for small $p$).
 # Furthermore, the computations of both the binomial coefficients and the values $p^k (1-p)^{n-k}$ is using powers and not iterative multiplications, leading to more rounding errors.
-# 
+#
 # We can solve all these issues by inlining all the computations.
 
 # In[104]:
@@ -332,7 +338,7 @@ def inversion_binomial(n: int, p: float) -> int:
         return n - inversion_binomial(n, 1.0 - p)
     result = 0
     q = 1.0 - p
-    current_proba = q**n
+    current_proba = q ** n
     cum_proba = current_proba
     one_uniform_sample = uniform_01()
     while cum_proba <= one_uniform_sample:
@@ -347,25 +353,25 @@ def inversion_binomial(n: int, p: float) -> int:
 # In[64]:
 
 
-[ inversion_binomial(10, 0.1) for _ in range(5) ]
+[inversion_binomial(10, 0.1) for _ in range(5)]
 
 
 # In[82]:
 
 
-[ inversion_binomial(10, 0.5) for _ in range(5) ]
+[inversion_binomial(10, 0.5) for _ in range(5)]
 
 
 # In[67]:
 
 
-[ inversion_binomial(10, 0.9) for _ in range(5) ]
+[inversion_binomial(10, 0.9) for _ in range(5)]
 
 
 # It seems to work as wanted!
-# 
+#
 # And now the storage is indeed $O(1)$, and the computation time is $O(x)$ if the return value is $x$, so the mean computation time is $O(np)$.
-# 
+#
 # Note that if $p=1/2$, then $O(np) = O(n/2) = O(n)$, and thus this improved method using the inversion method is (asymptotically) as costly as the naive method (the first method which consists of summing $n$ iid samples from a Bernoulli of mean $p$).
 
 # Let's plot this out also.
@@ -376,7 +382,7 @@ def inversion_binomial(n: int, p: float) -> int:
 m = 1000
 n = 10
 p = 0.12345
-X = [ inversion_binomial(n, p) for _ in range(m) ]
+X = [inversion_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -389,7 +395,7 @@ plt.show()
 m = 1000
 n = 10
 p = 0.5
-X = [ inversion_binomial(n, p) for _ in range(m) ]
+X = [inversion_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -402,7 +408,7 @@ plt.show()
 m = 1000
 n = 10
 p = 0.98765
-X = [ inversion_binomial(n, p) for _ in range(m) ]
+X = [inversion_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -414,13 +420,17 @@ plt.show()
 # In[89]:
 
 
-get_ipython().run_line_magic('load_ext', 'cython')
+get_ipython().run_line_magic("load_ext", "cython")
 
 
 # In[112]:
 
 
-get_ipython().run_cell_magic('cython', '--annotate', '\nimport random\n\ndef cython_inversion_binomial(int n, double p) -> int:\n    if p <= 1e-9:\n        return 0\n    if p >= 1 - 1e-9:\n        return n\n    if p > 0.5:  # speed up by computing for q and then substracting\n        return n - cython_inversion_binomial(n, 1.0 - p)\n    cdef int result = 0\n    cdef double q = 1.0 - p\n    cdef double current_proba = q**n\n    cdef double cum_proba = current_proba\n    cdef double one_uniform_sample = random.random()\n    while cum_proba < one_uniform_sample:\n        current_proba *= (p * (n - result)) / (q * (result + 1))\n        cum_proba += current_proba\n        result += 1\n    return result')
+get_ipython().run_cell_magic(
+    "cython",
+    "--annotate",
+    "\nimport random\n\ndef cython_inversion_binomial(int n, double p) -> int:\n    if p <= 1e-9:\n        return 0\n    if p >= 1 - 1e-9:\n        return n\n    if p > 0.5:  # speed up by computing for q and then substracting\n        return n - cython_inversion_binomial(n, 1.0 - p)\n    cdef int result = 0\n    cdef double q = 1.0 - p\n    cdef double current_proba = q**n\n    cdef double cum_proba = current_proba\n    cdef double one_uniform_sample = random.random()\n    while cum_proba < one_uniform_sample:\n        current_proba *= (p * (n - result)) / (q * (result + 1))\n        cum_proba += current_proba\n        result += 1\n    return result",
+)
 
 
 # Let's try out.
@@ -428,19 +438,19 @@ get_ipython().run_cell_magic('cython', '--annotate', '\nimport random\n\ndef cyt
 # In[113]:
 
 
-[ cython_inversion_binomial(10, 0.1) for _ in range(5) ]
+[cython_inversion_binomial(10, 0.1) for _ in range(5)]
 
 
 # In[114]:
 
 
-[ cython_inversion_binomial(10, 0.5) for _ in range(5) ]
+[cython_inversion_binomial(10, 0.5) for _ in range(5)]
 
 
 # In[115]:
 
 
-[ cython_inversion_binomial(10, 0.9) for _ in range(5) ]
+[cython_inversion_binomial(10, 0.9) for _ in range(5)]
 
 
 # It seems to work as wanted!
@@ -453,7 +463,7 @@ get_ipython().run_cell_magic('cython', '--annotate', '\nimport random\n\ndef cyt
 m = 1000
 n = 10
 p = 0.12345
-X = [ cython_inversion_binomial(n, p) for _ in range(m) ]
+X = [cython_inversion_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -466,7 +476,7 @@ plt.show()
 m = 1000
 n = 10
 p = 0.5
-X = [ cython_inversion_binomial(n, p) for _ in range(m) ]
+X = [cython_inversion_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -479,7 +489,7 @@ plt.show()
 inversion_binomialm = 1000
 n = 10
 p = 0.98765
-X = [ cython_inversion_binomial(n, p) for _ in range(m) ]
+X = [cython_inversion_binomial(n, p) for _ in range(m)]
 plt.figure()
 plt.hist(X)
 plt.title(f"{m} samples from a Binomial distribution with n = {n} and p = {p}.")
@@ -509,48 +519,48 @@ numpy_binomial
 # In[106]:
 
 
-get_ipython().run_line_magic('timeit', 'naive_binomial(n, 0.123456)')
-get_ipython().run_line_magic('timeit', 'first_inversion_binomial(n, 0.123456)')
-get_ipython().run_line_magic('timeit', 'inversion_binomial(n, 0.123456)')
-get_ipython().run_line_magic('timeit', 'cython_inversion_binomial(n, 0.123456)')
-get_ipython().run_line_magic('timeit', 'numpy_binomial(n, 0.123456)')
+get_ipython().run_line_magic("timeit", "naive_binomial(n, 0.123456)")
+get_ipython().run_line_magic("timeit", "first_inversion_binomial(n, 0.123456)")
+get_ipython().run_line_magic("timeit", "inversion_binomial(n, 0.123456)")
+get_ipython().run_line_magic("timeit", "cython_inversion_binomial(n, 0.123456)")
+get_ipython().run_line_magic("timeit", "numpy_binomial(n, 0.123456)")
 
 
 # Apparently, our `cython` method is faster than the function from `numpy`!
-# 
+#
 # We also check that our first naive implementation of the inversion method was suboptimal, as announced, because of its pre computation of all the values of $\mathbb{P}(X=k)$.
 # However, we check that the naive method, using the sum of $n$ binomial samples, is as comparably efficient to the pure-Python inversion-based method (for this small $n=100$).
 
 # In[121]:
 
 
-get_ipython().run_line_magic('timeit', 'naive_binomial(n, 0.5)')
-get_ipython().run_line_magic('timeit', 'first_inversion_binomial(n, 0.5)')
-get_ipython().run_line_magic('timeit', 'inversion_binomial(n, 0.5)')
-get_ipython().run_line_magic('timeit', 'cython_inversion_binomial(n, 0.5)')
-get_ipython().run_line_magic('timeit', 'numpy_binomial(n, 0.5)')
+get_ipython().run_line_magic("timeit", "naive_binomial(n, 0.5)")
+get_ipython().run_line_magic("timeit", "first_inversion_binomial(n, 0.5)")
+get_ipython().run_line_magic("timeit", "inversion_binomial(n, 0.5)")
+get_ipython().run_line_magic("timeit", "cython_inversion_binomial(n, 0.5)")
+get_ipython().run_line_magic("timeit", "numpy_binomial(n, 0.5)")
 
 
 # In[108]:
 
 
-get_ipython().run_line_magic('timeit', 'naive_binomial(n, 0.987654)')
-get_ipython().run_line_magic('timeit', 'first_inversion_binomial(n, 0.987654)')
-get_ipython().run_line_magic('timeit', 'inversion_binomial(n, 0.987654)')
-get_ipython().run_line_magic('timeit', 'cython_inversion_binomial(n, 0.987654)')
-get_ipython().run_line_magic('timeit', 'numpy_binomial(n, 0.987654)')
+get_ipython().run_line_magic("timeit", "naive_binomial(n, 0.987654)")
+get_ipython().run_line_magic("timeit", "first_inversion_binomial(n, 0.987654)")
+get_ipython().run_line_magic("timeit", "inversion_binomial(n, 0.987654)")
+get_ipython().run_line_magic("timeit", "cython_inversion_binomial(n, 0.987654)")
+get_ipython().run_line_magic("timeit", "numpy_binomial(n, 0.987654)")
 
 
 # It's quite awesome to see that our inversion-based method is more efficient that the numpy function, both in the pure-Python and the Cython versions!
 # But it's weird, as the numpy function is... based on the inversion method, and itself written in C!
-# 
+#
 # > See the source code, [numpy/distributions.c line 426](https://github.com/numpy/numpy/blob/7c41164f5340dc998ea1c04d2061f7d246894955/numpy/random/mtrand/distributions.c#L426) (on the 28th February 2019, commit 7c41164).
-# 
+#
 # But the trick is that the implementation in numpy uses the inversion method (running in $\Omega(np)$) if $pn < 30$, and a method denoted "BTPE" otherwise.
 # I need to work on this method! The BTPE algorithm is much more complicated, and it is described in the following paper:
-# 
+#
 # > Kachitvichyanukul, V.; Schmeiser, B. W. (1988). "Binomial random variate generation". Communications of the ACM. 31 (2): 216–222. [doi:10.1145/42372.42381](https://doi.org/10.1145%2F42372.42381).
-# 
+#
 # > See the source code, [numpy/distributions.c line 263](https://github.com/numpy/numpy/blob/7c41164f5340dc998ea1c04d2061f7d246894955/numpy/random/mtrand/distributions.c#L263) (on the 28th February 2019, commit 7c41164).
 
 # ## Checking that sampling from $Bin(n,p)$ requires a time $\Omega(n)$.
@@ -559,37 +569,37 @@ get_ipython().run_line_magic('timeit', 'numpy_binomial(n, 0.987654)')
 
 
 n = 100
-get_ipython().run_line_magic('timeit', 'naive_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'inversion_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'cython_inversion_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'numpy_binomial(n, random.random())')
+get_ipython().run_line_magic("timeit", "naive_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "inversion_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "cython_inversion_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "numpy_binomial(n, random.random())")
 
 
 # In[124]:
 
 
 n = 1000
-get_ipython().run_line_magic('timeit', 'naive_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'inversion_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'cython_inversion_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'numpy_binomial(n, random.random())')
+get_ipython().run_line_magic("timeit", "naive_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "inversion_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "cython_inversion_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "numpy_binomial(n, random.random())")
 
 
 # In[ ]:
 
 
 n = 10000
-get_ipython().run_line_magic('timeit', 'naive_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'inversion_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'cython_inversion_binomial(n, random.random())')
-get_ipython().run_line_magic('timeit', 'numpy_binomial(n, random.random())')
+get_ipython().run_line_magic("timeit", "naive_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "inversion_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "cython_inversion_binomial(n, random.random())")
+get_ipython().run_line_magic("timeit", "numpy_binomial(n, random.random())")
 
 
 # As we can see, our inversion method (no matter the implementation) runs in $O(n)$ (for $p$ in average $1/2$ in the trials above).
 # But numpy's implementation is using the BTPE method, which runs in $O(1)$.
 
 # ## Conclusion
-# 
+#
 # - So I was write, for the inversion method the computation time is in average $O(np)$ so it is $\Omega(n)$ and cannot be $O(1)$.
 # - But there has been many algorithms proposed in the literature which achieves a $O(1)$ running time, and the state-of-the-art algorithm is the BTPE method by V. Kachitvichyanukul & B. W. Schmeiser (from 1988). It is implemented in numpy, for the cases when $np > 30$ (that is, as soon as $n>60$ for $p=1/2$).
 # - So the authors of [[Perturbed-History Exploration in Stochastic Multi-Armed Bandits, by Branislav Kveton, Csaba Szepesvari, Mohammad Ghavamzadeh, Craig Boutilier, 26 Feb 2019, arXiv:1902.10089]](https://arxiv.org/abs/1902.10089) were correct, it can indeed cost $O(1)$ time to generate the sum of $t$ samples from $Bern(1/2)$ (that is, a sample from $Bin(t, 1/2)$).

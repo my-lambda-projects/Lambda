@@ -5,8 +5,8 @@
 # traverse right
 # pop from stack
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.right = None
@@ -15,12 +15,12 @@ class Node:
 
 def print_route(root, stack):
     if root == None:
-        return 
+        return
 
     stack.append(root.val)
     if root.left == None and root.right == None:
         for i in stack:
-            print(i, end=' ')
+            print(i, end=" ")
         print()
 
     print_route(root.left, stack)

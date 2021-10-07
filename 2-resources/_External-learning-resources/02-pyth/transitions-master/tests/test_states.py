@@ -13,15 +13,13 @@ except ImportError:
 
 
 class TestTransitions(TestCase):
-
     def test_tags(self):
-
         @add_state_features(Tags)
         class CustomMachine(Machine):
             pass
 
         states = [{"name": "A", "tags": ["initial", "success", "error_state"]}]
-        m = CustomMachine(states=states, initial='A')
+        m = CustomMachine(states=states, initial="A")
         s = m.get_state(m.state)
         self.assertTrue(s.is_initial)
         self.assertTrue(s.is_success)
@@ -29,18 +27,28 @@ class TestTransitions(TestCase):
         self.assertFalse(s.is_not_available)
 
     def test_error(self):
-
         @add_state_features(Error)
         class CustomMachine(Machine):
             pass
 
-        states = ['A', 'B', 'F',
-                  {'name': 'S1', 'tags': ['accepted']},
-                  {'name': 'S2', 'accepted': True}]
+        states = [
+            "A",
+            "B",
+            "F",
+            {"name": "S1", "tags": ["accepted"]},
+            {"name": "S2", "accepted": True},
+        ]
 
-        transitions = [['to_B', ['S1', 'S2'], 'B'], ['go', 'A', 'B'], ['fail', 'B', 'F'],
-                       ['success1', 'B', 'S2'], ['success2', 'B', 'S2']]
-        m = CustomMachine(states=states, transitions=transitions, auto_transitions=False, initial='A')
+        transitions = [
+            ["to_B", ["S1", "S2"], "B"],
+            ["go", "A", "B"],
+            ["fail", "B", "F"],
+            ["success1", "B", "S2"],
+            ["success2", "B", "S2"],
+        ]
+        m = CustomMachine(
+            states=states, transitions=transitions, auto_transitions=False, initial="A"
+        )
         m.go()
         m.success1()
         self.assertTrue(m.get_state(m.state).is_accepted)
@@ -58,12 +66,11 @@ class TestTransitions(TestCase):
 
         mock_callback = MagicMock()
 
-        states = ['A', {"name": "B", "on_enter": mock_callback}, 'C']
-        transitions = [
-            ["to_B", "A", "B"],
-            ["to_C", "B", "C"],
-        ]
-        m = CustomMachine(states=states, transitions=transitions, auto_transitions=False, initial='A')
+        states = ["A", {"name": "B", "on_enter": mock_callback}, "C"]
+        transitions = [["to_B", "A", "B"], ["to_C", "B", "C"]]
+        m = CustomMachine(
+            states=states, transitions=transitions, auto_transitions=False, initial="A"
+        )
         m.to_B()
         self.assertEqual(m.state, "B")
         self.assertTrue(mock_callback.called)
@@ -73,13 +80,14 @@ class TestTransitions(TestCase):
 
         @add_state_features(Timeout)
         class CustomMachine(Machine):
-
             def timeout(self):
                 mock()
 
-        states = ['A',
-                  {'name': 'B', 'timeout': 0.3, 'on_timeout': 'timeout'},
-                  {'name': 'C', 'timeout': 0.3, 'on_timeout': mock}]
+        states = [
+            "A",
+            {"name": "B", "timeout": 0.3, "on_timeout": "timeout"},
+            {"name": "C", "timeout": 0.3, "on_timeout": mock},
+        ]
 
         m = CustomMachine(states=states)
         m.to_B()
@@ -94,7 +102,7 @@ class TestTransitions(TestCase):
         self.assertEqual(mock.call_count, 2)
 
         with self.assertRaises(AttributeError):
-            m.add_state({'name': 'D', 'timeout': 0.3})
+            m.add_state({"name": "D", "timeout": 0.3})
 
     def test_timeout_callbacks(self):
         timeout = MagicMock()
@@ -106,7 +114,6 @@ class TestTransitions(TestCase):
             pass
 
         class Model(object):
-
             def on_timeout_B(self):
                 counter()
 
@@ -119,21 +126,21 @@ class TestTransitions(TestCase):
             def another_notification(self):
                 notification()
 
-        states = ['A', {'name': 'B', 'timeout': 0.05, 'on_timeout': 'timeout'}]
+        states = ["A", {"name": "B", "timeout": 0.05, "on_timeout": "timeout"}]
         model = Model()
-        machine = CustomMachine(model=model, states=states, initial='A')
+        machine = CustomMachine(model=model, states=states, initial="A")
         model.to_B()
         sleep(0.1)
         self.assertTrue(timeout.called)
         self.assertTrue(counter.called)
-        machine.get_state('B').add_callback('timeout', 'notification')
-        machine.on_timeout_B('another_notification')
+        machine.get_state("B").add_callback("timeout", "notification")
+        machine.on_timeout_B("another_notification")
         model.to_B()
         sleep(0.1)
         self.assertEqual(timeout.call_count, 2)
         self.assertEqual(counter.call_count, 2)
         self.assertTrue(notification.called)
-        machine.get_state('B').on_timeout = []
+        machine.get_state("B").on_timeout = []
         model.to_B()
         sleep(0.1)
         self.assertEqual(timeout.call_count, 2)
@@ -146,17 +153,18 @@ class TestTransitions(TestCase):
         class CustomMachine(Machine):
             pass
 
-        states = ['A', {'name': 'B', 'timeout': 0.05, 'on_timeout': ['to_A', timeout_mock]}]
-        machine = CustomMachine(states=states, initial='A')
+        states = [
+            "A",
+            {"name": "B", "timeout": 0.05, "on_timeout": ["to_A", timeout_mock]},
+        ]
+        machine = CustomMachine(states=states, initial="A")
         machine.to_B()
         sleep(0.1)
         self.assertTrue(machine.is_A())
         self.assertTrue(timeout_mock.called)
 
     def test_volatile(self):
-
         class TemporalState(object):
-
             def __init__(self):
                 self.value = 5
 
@@ -167,8 +175,8 @@ class TestTransitions(TestCase):
         class CustomMachine(Machine):
             pass
 
-        states = ['A', {'name': 'B', 'volatile': TemporalState}]
-        m = CustomMachine(states=states, initial='A')
+        states = ["A", {"name": "B", "volatile": TemporalState}]
+        m = CustomMachine(states=states, initial="A")
 
         m.to_B()
         self.assertEqual(m.scope.value, 5)
@@ -179,21 +187,22 @@ class TestTransitions(TestCase):
 
         # re-entering state should reset default volatile object
         m.to_A()
-        self.assertFalse(hasattr(m.scope, 'value'))
+        self.assertFalse(hasattr(m.scope, "value"))
 
-        m.scope.foo = 'bar'
+        m.scope.foo = "bar"
         m.to_B()
         # custom attribute of A should be gone
-        self.assertFalse(hasattr(m.scope, 'foo'))
+        self.assertFalse(hasattr(m.scope, "foo"))
         # value should be reset
         self.assertEqual(m.scope.value, 5)
 
 
 class TestStatesDiagramsLockedNested(TestDiagramsLockedNested):
-
     def setUp(self):
 
-        machine_cls = MachineFactory.get_predefined(locked=True, nested=True, graph=True)
+        machine_cls = MachineFactory.get_predefined(
+            locked=True, nested=True, graph=True
+        )
 
         @add_state_features(Error, Timeout, Volatile)
         class CustomMachine(machine_cls):

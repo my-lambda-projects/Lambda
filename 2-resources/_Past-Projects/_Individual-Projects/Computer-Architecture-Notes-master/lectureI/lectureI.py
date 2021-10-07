@@ -1,28 +1,28 @@
 import sys
 
 # Let's setup two operation instructions for our simple machine: PRINT_BEEJ and HALT
-PRINT_BEEJ     = 1
-HALT           = 2
-PRINT_NUM      = 3
-SAVE           = 4
+PRINT_BEEJ = 1
+HALT = 2
+PRINT_NUM = 3
+SAVE = 4
 PRINT_REGISTER = 5
-ADD            = 6
+ADD = 6
 
 # This sets our program's memory for what it will do, print 4 times and halt
 memory = [
     PRINT_BEEJ,
-    SAVE, # SAVE 62 to register 2
+    SAVE,  # SAVE 62 to register 2
     65,
     2,
-    SAVE, # Save 20 to register 3
+    SAVE,  # Save 20 to register 3
     20,
     3,
-    ADD, # add register 3 to register 2, R2 += R3
+    ADD,  # add register 3 to register 2, R2 += R3
     2,
     3,
-    PRINT_REGISTER, # prints value at register 2
+    PRINT_REGISTER,  # prints value at register 2
     2,
-    HALT # We should always halt to prevent memory leaks
+    HALT,  # We should always halt to prevent memory leaks
 ]
 
 # Creates an array of 8 0's
@@ -60,7 +60,7 @@ while running:
         register[reg] = num
         # Increment by 3
         pc += 3
-    
+
     elif command == ADD:
         # Sets first adding register index to the next value in memory
         reg_a = memory[pc + 1]
@@ -71,7 +71,7 @@ while running:
         register[reg_a] += register[reg_b]
         # Increments by 3
         pc += 3
-    
+
     elif command == PRINT_REGISTER:
         # Sets the register index to print to the next value in memory
         reg_index = memory[pc + 1]

@@ -2,22 +2,28 @@ import random
 import time
 import math
 
-class Queue():
+
+class Queue:
     def __init__(self):
         self.queue = []
+
     def enqueue(self, value):
         self.queue.append(value)
+
     def dequeue(self):
         if self.size() > 0:
             return self.queue.pop(0)
         else:
             return None
+
     def size(self):
         return len(self.queue)
+
 
 class User:
     def __init__(self, name):
         self.name = name
+
 
 class SocialGraph:
     def __init__(self):
@@ -34,7 +40,9 @@ class SocialGraph:
         """
         if userID == friendID:
             print("WARNING: You cannot be friends with yourself")
-        elif friendID in self.friendships[userID] or userID in self.friendships[friendID]:
+        elif (
+            friendID in self.friendships[userID] or userID in self.friendships[friendID]
+        ):
             print("WARNING: Friendship already exists")
         else:
             self.friendships[userID].add(friendID)
@@ -68,17 +76,17 @@ class SocialGraph:
         # Create friendships
         possibleFriendships = []
         for userID in self.users:
-            for friendID in range(userID + 1, self.lastID +1):
+            for friendID in range(userID + 1, self.lastID + 1):
                 possibleFriendships.append((userID, friendID))
-        
+
         random.shuffle(possibleFriendships)
-        
+
         debug_addFriendshipCounter = 0
         for i in range(0, math.floor((numUsers * avgFriendships) // 2)):
             friendship = possibleFriendships[i]
             self.addFriendship(friendship[0], friendship[1])
             debug_addFriendshipCounter += 1
-        
+
         print(f"Time addFriendship was called: {debug_addFriendshipCounter}.")
 
     def getAllSocialPaths(self, userID):
@@ -91,7 +99,7 @@ class SocialGraph:
         visited = {}  # Note that this is a dictionary, not a set
 
         q = Queue()
-        q.enqueue( [userID] )
+        q.enqueue([userID])
 
         while q.size() > 0:
             path = q.dequeue()
@@ -109,10 +117,11 @@ class SocialGraph:
         debug_friendship = 0
         for key in visited:
             debug_friendship += len(visited[key])
-        
+
         return f"Average degree of separation: {debug_friendship - 1} // {len(visited)} = {(debug_friendship - 1) // len(visited)}. Number in extended network: {len(visited)}"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     sg = SocialGraph()
     # sg.populateGraph(10, 2)
     sg.populateGraph(1000, 5)

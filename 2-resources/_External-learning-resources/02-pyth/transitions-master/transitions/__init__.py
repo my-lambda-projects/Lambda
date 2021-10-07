@@ -7,7 +7,7 @@ A lightweight, object-oriented state machine implementation in Python. Compatibl
 
 from __future__ import absolute_import
 from .version import __version__
-from .core import (State, Transition, Event, EventData, Machine, MachineError)
+from .core import State, Transition, Event, EventData, Machine, MachineError
 
 __copyright__ = "Copyright (c) 2021 Tal Yarkoni, Alexander Neumann"
 __license__ = "MIT"

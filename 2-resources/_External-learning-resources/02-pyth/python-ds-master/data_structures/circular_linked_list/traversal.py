@@ -1,8 +1,8 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
+
 
 def push(head, val):
     if not head:
@@ -27,6 +27,7 @@ def print_list(head):
         curr = curr.next
         if curr == head:
             break
+
 
 first = Node(1)
 second = Node(2)

@@ -11,18 +11,14 @@ class TibetanSpaniel:
         self.favorite_toy = favorite_toy
 
 
-
 print(TibetanSpaniel.family)
-
 
 
 brian = TibetanSpaniel("Brian", "Talking Minion", 4)
 print(brian.family)
 
 
-
 TibetanSpaniel.obedience = 4
-
 
 
 brian.obedience = 8
@@ -44,7 +40,6 @@ class TibetanSpaniel:
         self._favorite_toy = favorite_toy
 
 
-
 class TibetanSpaniel:
     family = "Companion, herding"
     area_of_origin = "Tibet"
@@ -52,11 +47,11 @@ class TibetanSpaniel:
     obedience = 3
     problem_solving = 8
 
+
 def __init__(self, name, favorite_toy, watchdog_ability):
     self.__name = name
     self.__watchdog_ability = watchdog_ability
     self.__favorite_toy = favorite_toy
-
 
 
 class TibetanSpaniel:
@@ -76,10 +71,8 @@ class TibetanSpaniel:
         return self.__name
 
 
-
 merlin = TibetanSpaniel("Merlin", "Talking Smurf", 6)
 merlin.name = "brian"
-
 
 
 class TibetanSpaniel:
@@ -105,7 +98,6 @@ class TibetanSpaniel:
     @favorite_toy.setter
     def favorite_toy(self, favorite_toy):
         self.__favorite_toy = favorite_toy
-
 
 
 class TibetanSpaniel:
@@ -144,7 +136,6 @@ class TibetanSpaniel:
             self.__watchdog_ability = 10
         else:
             self.__watchdog_ability = watchdog_ability
-
 
 
 hugo = TibetanSpaniel("Hugo", "Tennis ball", 7)
@@ -156,7 +147,6 @@ hugo.watchdog_ability = 8
 print(hugo.watchdog_ability)
 
 
-
 class TibetanSpaniel:
     family = "Companion, herding"
     area_of_origin = "Tibet"
@@ -193,18 +183,23 @@ class TibetanSpaniel:
             self.__watchdog_ability = 10
         else:
             self.__watchdog_ability = watchdog_ability
-    
+
     @property
     def protection_score(self):
-        return math.floor((self.__watchdog_ability + type(self).learning_rate + type(self).problem_solving) / 3)
-
+        return math.floor(
+            (
+                self.__watchdog_ability
+                + type(self).learning_rate
+                + type(self).problem_solving
+            )
+            / 3
+        )
 
 
 cole = TibetanSpaniel("Cole", "Soccer ball", 4)
 print(cole.protection_score)
 
 
-
 class TibetanSpaniel:
     family = "Companion, herding"
     area_of_origin = "Tibet"
@@ -244,8 +239,14 @@ class TibetanSpaniel:
 
     @property
     def protection_score(self):
-        return math.floor((self.__watchdog_ability + type(self).learning_rate + type(self).problem_solving) / 3)
-
+        return math.floor(
+            (
+                self.__watchdog_ability
+                + type(self).learning_rate
+                + type(self).problem_solving
+            )
+            / 3
+        )
 
 
 class MutableVector3D:
@@ -282,7 +283,6 @@ class MutableVector3D:
     @z.setter
     def z(self, z):
         self.__z = z
-
 
 
 class MutableVector3D:
@@ -325,11 +325,9 @@ class MutableVector3D:
         return cls(0, 0, 0)
 
 
-
 mutableVector3D = MutableVector3D.origin_vector()
 mutableVector3D.sum(5, 10, 15)
 print(mutableVector3D.x, mutableVector3D.y, mutableVector3D.z)
-
 
 
 class ImmutableVector3D:
@@ -360,7 +358,6 @@ class ImmutableVector3D:
     @classmethod
     def origin_vector(cls):
         return cls.equal_elements_vector(0)
-
 
 
 vector0 = ImmutableVector3D.origin_vector()

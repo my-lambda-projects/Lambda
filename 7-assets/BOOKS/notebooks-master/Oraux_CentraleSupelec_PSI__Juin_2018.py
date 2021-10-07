@@ -1,11 +1,10 @@
-
 # coding: utf-8
 
 # # Table of Contents
 #  <p><div class="lev1 toc-item"><a href="#Oraux-CentraleSupélec-PSI---Juin-2018" data-toc-modified-id="Oraux-CentraleSupélec-PSI---Juin-2018-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Oraux CentraleSupélec PSI - Juin 2018</a></div><div class="lev2 toc-item"><a href="#Remarques-préliminaires" data-toc-modified-id="Remarques-préliminaires-11"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Remarques préliminaires</a></div><div class="lev2 toc-item"><a href="#Planche-160" data-toc-modified-id="Planche-160-12"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Planche 160</a></div><div class="lev2 toc-item"><a href="#Planche-162" data-toc-modified-id="Planche-162-13"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Planche 162</a></div><div class="lev2 toc-item"><a href="#Planche-166" data-toc-modified-id="Planche-166-14"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Planche 166</a></div><div class="lev2 toc-item"><a href="#Planche-168" data-toc-modified-id="Planche-168-15"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Planche 168</a></div><div class="lev2 toc-item"><a href="#Planche-170" data-toc-modified-id="Planche-170-16"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Planche 170</a></div><div class="lev2 toc-item"><a href="#Planche-172" data-toc-modified-id="Planche-172-17"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Planche 172</a></div><div class="lev2 toc-item"><a href="#Planche-177" data-toc-modified-id="Planche-177-18"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>Planche 177</a></div><div class="lev1 toc-item"><a href="#À-voir-aussi" data-toc-modified-id="À-voir-aussi-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>À voir aussi</a></div><div class="lev2 toc-item"><a href="#Les-oraux---(exercices-de-maths-avec-Python)" data-toc-modified-id="Les-oraux---(exercices-de-maths-avec-Python)-21"><span class="toc-item-num">2.1&nbsp;&nbsp;</span><a href="http://perso.crans.org/besson/infoMP/oraux/solutions/" target="_blank">Les oraux</a>   <em>(exercices de maths avec Python)</em></a></div><div class="lev2 toc-item"><a href="#Fiches-de-révisions-pour-les-oraux" data-toc-modified-id="Fiches-de-révisions-pour-les-oraux-22"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Fiches de révisions <em>pour les oraux</em></a></div><div class="lev2 toc-item"><a href="#Quelques-exemples-de-sujets-d'oraux-corrigés" data-toc-modified-id="Quelques-exemples-de-sujets-d'oraux-corrigés-23"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Quelques exemples de sujets <em>d'oraux</em> corrigés</a></div><div class="lev2 toc-item"><a href="#D'autres-notebooks-?" data-toc-modified-id="D'autres-notebooks-?-24"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>D'autres notebooks ?</a></div>
 
 # # Oraux CentraleSupélec PSI - Juin 2018
-# 
+#
 # - Ce [notebook Jupyter](https://www.jupyter.org) est une proposition de correction, en [Python 3](https://www.python.org/), d'exercices d'annales de l'épreuve "maths-info" du [concours CentraleSupélec](http://www.concours-centrale-supelec.fr/), filière PSI.
 # - Les exercices viennent de l'[Officiel de la Taupe](http://odlt.fr/), [2017](http://www.odlt.fr/Oraux_2018.pdf) (planches 162 à 177, page 23).
 # - Ce document a été écrit par [Lilian Besson](http://perso.crans.org/besson/), et est disponible en ligne [sur mon site](https://perso.crans.org/besson/publis/notebooks/Oraux_CentraleSupelec_PSI__Juin_2018.html).
@@ -34,7 +33,8 @@ import numpy.random as rd
 
 def I(n):
     def f(t):
-        return 1 / ((1+t)**n * np.sqrt(1-t))
+        return 1 / ((1 + t) ** n * np.sqrt(1 - t))
+
     i, err = integrate.quad(f, 0, 1)
     return i
 
@@ -44,7 +44,8 @@ def I(n):
 
 def J(n):
     def f(t):
-        return 1 / ((1+t)**n * np.sqrt(1-t))
+        return 1 / ((1 + t) ** n * np.sqrt(1 - t))
+
     i, err = integrate.quad(f, 0, 0.5)
     return i
 
@@ -56,7 +57,7 @@ valeurs_n = np.arange(1, 50)
 valeurs_In = np.array([I(n) for n in valeurs_n])
 
 plt.figure()
-plt.plot(valeurs_n, valeurs_In, 'ro')
+plt.plot(valeurs_n, valeurs_In, "ro")
 plt.title("Valeurs de $I_n$")
 plt.show()
 
@@ -68,7 +69,7 @@ plt.show()
 
 
 plt.figure()
-plt.plot(np.log(valeurs_n), np.log(valeurs_In), 'go')
+plt.plot(np.log(valeurs_n), np.log(valeurs_In), "go")
 plt.title(r"Valeurs de $\ln(I_n)$ en fonction de $\ln(n)$")
 plt.show()
 
@@ -82,8 +83,8 @@ valeurs_Jn = np.array([J(n) for n in valeurs_n])
 alpha = 1
 
 plt.figure()
-plt.plot(valeurs_n, valeurs_n**alpha * valeurs_In, 'r+', label=r'$n^{\alpha} I_n$')
-plt.plot(valeurs_n, valeurs_n**alpha * valeurs_Jn, 'b+', label=r'$n^{\alpha} J_n$')
+plt.plot(valeurs_n, valeurs_n ** alpha * valeurs_In, "r+", label=r"$n^{\alpha} I_n$")
+plt.plot(valeurs_n, valeurs_n ** alpha * valeurs_Jn, "b+", label=r"$n^{\alpha} J_n$")
 plt.legend()
 plt.title(r"Valeurs de $n^{\alpha} I_n$ et $n^{\alpha} J_n$")
 plt.show()
@@ -97,7 +98,12 @@ plt.show()
 
 
 plt.figure()
-plt.plot(valeurs_n, valeurs_n**alpha * (valeurs_In - valeurs_Jn), 'g+', label=r'$n^{\alpha} (I_n - J_n)$')
+plt.plot(
+    valeurs_n,
+    valeurs_n ** alpha * (valeurs_In - valeurs_Jn),
+    "g+",
+    label=r"$n^{\alpha} (I_n - J_n)$",
+)
 plt.legend()
 plt.title(r"Valeurs de $n^{\alpha} (I_n - J_n)$")
 plt.show()
@@ -109,8 +115,8 @@ plt.show()
 
 
 X = np.linspace(0, 100, 10000)
-plt.plot(X, np.log(1 + X), 'r-', label=r'$\log(1+x)$')
-plt.plot(X, X / (1 + X), 'b-', label=r'$\frac{x}{1+x}$')
+plt.plot(X, np.log(1 + X), "r-", label=r"$\log(1+x)$")
+plt.plot(X, X / (1 + X), "b-", label=r"$\frac{x}{1+x}$")
 plt.legend()
 plt.title("Comparaison entre deux fonctions")
 plt.show()
@@ -126,6 +132,7 @@ plt.show()
 
 def f(x):
     return x * (1 - x) * (1 + np.cos(5 * np.pi * x))
+
 
 Xs = np.linspace(0, 1, 2000)
 Ys = f(Xs)
@@ -159,10 +166,12 @@ plt.show()
 def In(x, n):
     def fn(x):
         return f(x) ** n
+
     return integrate.quad(fn, 0, 1)[0]
 
+
 def Sn(x):
-    return np.sum([In(Xs, n) * x**n for n in range(0, n+1)], axis=0)
+    return np.sum([In(Xs, n) * x ** n for n in range(0, n + 1)], axis=0)
 
 
 # On vérifie avant de se lancer dans l'affichage :
@@ -177,7 +186,7 @@ for n in range(10):
 # In[13]:
 
 
-a = 1/M + 0.1
+a = 1 / M + 0.1
 X2s = np.linspace(-a, a, 2000)
 
 plt.figure()
@@ -215,7 +224,7 @@ def affiche_termes_un(N):
         valeurs_un[n] = un(n)
 
     plt.figure()
-    plt.plot(valeurs_un, 'o-')
+    plt.plot(valeurs_un, "o-")
     plt.title("Suite $u_n$")
     plt.grid()
     plt.show()
@@ -253,7 +262,7 @@ univers = list(range(case_max))
 
 
 def prochaine_case(case):
-    return (case + rd.randint(1, 6+1)) % case_max
+    return (case + rd.randint(1, 6 + 1)) % case_max
 
 
 # In[48]:
@@ -267,7 +276,7 @@ def Yn(duree, depart=0):
 
 
 # Avant de s'en servir pour simuler plein de trajectoirs, on peut vérifier :
-# 
+#
 # - en un coup, on avance pas plus de 6 cases :
 
 # In[32]:
@@ -332,10 +341,10 @@ voir_histogramme([1, 2, 3, 50, 100, 200])
 
 # On a tout simplement l'expression suivante :
 # $$\forall n \geq 0, \mathbb{P}(Y_{n+1} = k) = \frac{1}{6} \sum_{\delta = 1}^{6} \mathbb{P}(Y_n = k - \delta \mod 12).$$
-# Avec $k - 1 \mod 12 = 11$ si $k = 0$ par exemple. 
+# Avec $k - 1 \mod 12 = 11$ si $k = 0$ par exemple.
 
 # On a donc la matrice suivante pour exprimer $U_n = (\mathbb{P}(Y_n = k))_{0\leq k \leq 11}$ en fonction de $U_{n-1}$ :
-# 
+#
 # $$ P = \frac{1}{6} \begin{bmatrix}
 # 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
 # 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
@@ -405,7 +414,7 @@ np.round(vecteur_propres[0])
 # ## Planche 168
 
 # - Soit $f(x) = \frac{1}{2 - \exp(x)}$, et $a(n) = \frac{f^{(n)}(0)}{n!}$.
-# 
+#
 
 # In[33]:
 
@@ -425,11 +434,12 @@ def f(x):
 
 from math import factorial
 
+
 def a_0an(nMax):
-    valeurs_a = np.zeros(nMax+1)
+    valeurs_a = np.zeros(nMax + 1)
     valeurs_a[0] = 1.0
-    for n in range(1, nMax+1):
-        valeurs_a[n] = sum(valeurs_a[n-k] / factorial(k) for k in range(1, n+1))
+    for n in range(1, nMax + 1):
+        valeurs_a[n] = sum(valeurs_a[n - k] / factorial(k) for k in range(1, n + 1))
     return valeurs_a
 
 
@@ -448,9 +458,9 @@ for n in valeurs_n:
 
 
 plt.figure()
-plt.plot(valeurs_n, valeurs_a, 'ro', label=r'$a(n)$')
-plt.plot(valeurs_n, 1 / np.log(2)**valeurs_n, 'g+', label=r'$1/\log(2)^n$')
-plt.plot(valeurs_n, 1 / (2 * np.log(2)**valeurs_n), 'bd', label=r'$1/(2\log(2)^n)$')
+plt.plot(valeurs_n, valeurs_a, "ro", label=r"$a(n)$")
+plt.plot(valeurs_n, 1 / np.log(2) ** valeurs_n, "g+", label=r"$1/\log(2)^n$")
+plt.plot(valeurs_n, 1 / (2 * np.log(2) ** valeurs_n), "bd", label=r"$1/(2\log(2)^n)$")
 plt.title("$a(n)$ et deux autres suites")
 plt.legend()
 plt.show()
@@ -464,7 +474,7 @@ plt.show()
 
 def Sn(x, n):
     valeurs_a = a_0an(n)
-    return sum(valeurs_a[k] * x**k for k in range(0, n + 1))
+    return sum(valeurs_a[k] * x ** k for k in range(0, n + 1))
 
 
 # On peut vérifie que notre fonction marche :
@@ -494,8 +504,8 @@ for n in range(0, 6 + 1):
     valeurs_Sn = []
     for x in valeurs_x:
         valeurs_Sn.append(Sn(x, n))
-    plt.plot(valeurs_x, valeurs_Sn, ':', label='$S_' + str(n) + '(x)$')
-plt.plot(valeurs_x, valeurs_f, '-', label='$f(x)$')
+    plt.plot(valeurs_x, valeurs_Sn, ":", label="$S_" + str(n) + "(x)$")
+plt.plot(valeurs_x, valeurs_f, "-", label="$f(x)$")
 plt.title("$f(x)$ et $S_n(x)$ pour $n = 0$ à $n = 6$")
 plt.legend()
 plt.show()
@@ -507,7 +517,7 @@ plt.show()
 
 
 def u(n):
-    return np.arctan(n+1) - np.arctan(n)
+    return np.arctan(n + 1) - np.arctan(n)
 
 
 # In[42]:
@@ -526,7 +536,7 @@ plt.title("Premières valeurs de $u_n$")
 # In[44]:
 
 
-pi/2
+pi / 2
 
 
 # In[43]:
@@ -538,7 +548,7 @@ sum(valeurs_u)
 # In[45]:
 
 
-somme_serie = pi/2
+somme_serie = pi / 2
 somme_partielle = sum(valeurs_u)
 erreur_relative = abs(somme_partielle - somme_serie) / somme_serie
 erreur_relative
@@ -577,7 +587,7 @@ from math import ceil, sqrt, pi
 
 
 def Se(e, delta=1e-5, borne_sur_n_0=10000):
-    borne_sur_n_1 = int(ceil(1 + sqrt(delta)/2.0))
+    borne_sur_n_1 = int(ceil(1 + sqrt(delta) / 2.0))
     borne_sur_n = max(borne_sur_n_0, borne_sur_n_1)
     somme_partielle = 0
     for n in range(0, borne_sur_n + 1):
@@ -606,7 +616,7 @@ print("Pour delta =", delta, "on a Se010101(delta) ~=", round(Se010101, 5))
 
 
 def inverse_Se(x, n):
-    assert 0 < x < pi/2.0, "Erreur : x doit être entre 0 et pi/2 strictement."
+    assert 0 < x < pi / 2.0, "Erreur : x doit être entre 0 et pi/2 strictement."
     print("Je vous laisse chercher.")
     raise NotImplementedError
 
@@ -620,6 +630,7 @@ def inverse_Se(x, n):
 
 
 from random import random
+
 
 def pile(proba):
     """ True si pile, False si face (false, face, facile à retenir)."""
@@ -650,7 +661,7 @@ import numpy as np
 # In[56]:
 
 
-lances = [ En(2, 0.5) for _ in range(100) ]
+lances = [En(2, 0.5) for _ in range(100)]
 np.bincount(lances)
 
 
@@ -658,7 +669,7 @@ np.bincount(lances)
 
 
 def pn(n, p, nbSimulations=100000):
-    return np.mean([ En(n, p) for _ in range(nbSimulations) ])
+    return np.mean([En(n, p) for _ in range(nbSimulations)])
 
 
 # - Par exemple, pour seulement $2$ lancés, on a $1 - p_n = p^2$ car $\overline{E_n}$ est l'événement d'obtenir $2$ piles qui est de probabilité $p^2$.
@@ -722,9 +733,9 @@ pn(100, 0.2)
 
 # ----
 # ## Planche 177
-# 
+#
 # - Le domaine de définition de $f(x) = \sum_{n \geq 1} \frac{x^n}{n^2}$ est $[-1, 1]$ car $\sum \frac{x^n}{n^k}$ converge si $\sum x^n$ converge (par $k$ dérivations successives), qui converge ssi $|x| < 1$. Et en $-1$ et $1$, on utilise $\sum \frac{1}{n^2} = \frac{\pi^2}{6}$.
-# 
+#
 # - Pour calculer $f(x)$ à $10^{-5}$ près, il faut calculer sa somme partielle $S_n(x) := \sum_{i=1}^n \frac{x^i}{i^2}$ en bornant son reste $S_n(x) := \sum_{i \geq n+1} \frac{x^i}{i^2}$ par (au moins) $10^{-5}$. Une inégalité montre rapidement que $R_n(x) \leq |x|^{n+1}\sum_{i\geq n+1} \frac{1}{i^2} $, et donc $R_n(x) \leq \delta$ dès que $|x|^{n+1} \leq \frac{\pi^2}{6} \delta$, puisque $\sum_{i\geq n+1} \frac{1}{i^2} \leq \sum_{i=0}^{+\infty} \frac{1}{i^2} = \frac{\pi^2}{6}$. En inversant pour trouver $n$, cela donne que le reste est contrôlé par $\delta$ dès que $n \leq \log_{|x|}\left( \frac{6}{\pi^2} \delta \right) - 1$ (si $x\neq 0$, et par $n \geq 0$ sinon).
 
 # In[72]:
@@ -738,12 +749,14 @@ from math import floor, log, pi
 
 delta = 1e-5
 
+
 def f(x):
-    if x == 0: return 0
-    borne_sur_n = int(floor(log((6/pi**2 * delta), abs(x)) - 1))
+    if x == 0:
+        return 0
+    borne_sur_n = int(floor(log((6 / pi ** 2 * delta), abs(x)) - 1))
     somme_partielle = 0
     for n in range(1, borne_sur_n + 1):
-        somme_partielle += x**n / n**2
+        somme_partielle += x ** n / n ** 2
     return somme_partielle
 
 
@@ -755,7 +768,7 @@ for x in [-0.75, -0.5, 0.25, 0, 0.25, 0.5, 0.75]:
 
 
 # - L'intégrale $g(t) = \int_0^x \frac{\ln(1 - t)}{t} \mathrm{d}t$ est bien défine sur $D = [-1, 1]$ puisque son intégrande existe, est continue et bien intégrable sur tout interval de la forme $]a, 0[$ ou $]0, b[$ pour $-1 < a < 0$ ou $0 < b < 1$. Le seul point qui peut déranger l'intégrabilité est en $0$, mais $\ln(1-t) \sim t$ quand $t\to0$ donc l'intégrande est $\sim 1$ en $0^-$ et $0^+$ et donc est bien intégrable. De plus, comme "intégrale de la borne supérieure" d'une fonction continue, $g$ est dérivable sur l'intérieur de son domaine, *i.e.*, sur $]-1, 1[$.
-# 
+#
 # - Pour la calculer numériquement, on utilise **évidemment** le module `scipy.integrate` et sa fonction `integrale, erreur = quad(f, a, b)`, qui donne une approximation de la valeur d'une intégrale en dimension 1 et une *borne* sur son erreur :
 
 # In[77]:
@@ -770,6 +783,7 @@ from scipy import integrate
 def g(x):
     def h(t):
         return log(1 - t) / t
+
     integrale, erreur = integrate.quad(h, 0, x)
     return integrale
 
@@ -801,47 +815,47 @@ plt.show()
 
 
 # - On conjecture que $g(x) = - f(x)$.
-# 
+#
 # La suite des questions est à faire au brouillon et sans Python :
-# 
+#
 # - On trouve que $f'(x) = \sum_{n\geq 1} \frac{n x^{n-1}}{n^2} = \frac{1}{x} \sum_{n\geq 1} \frac{x^n}{n}$ si $x\neq0$. Or on sait que $\log(1 + x) = \sum_{n\geq 1} \frac{x^n}{n}$ et donc cela montre bien que $g(x) = \int_0^x - f'(t) \mathrm{d}t = f(0) - f(x) = f(x)$ comme observé.
-# 
+#
 # - On trouve que $g(1) = - f(1) = - \frac{\pi^2}{6}$.
-# 
+#
 # - Par ailleurs, un changement de variable $u=1-x$ donne $g(1-x) = \int_x^1 \frac{\ln(u)}{1-u} \mathrm{d} u$, et une intégration par partie avec $a(u) = \ln(u)$ et $b'(u) = \frac{1}{1-u}$ donne $g(1-x) = [\ln(u)\ln(1-u)]_x^1 + \int_x^1 \frac{\ln(1-u)}{u} \mathrm{d}u$ et donc on reconnaît que $$g(1-x) = \ln(x)\ln(1-x) + g(1) - g(x).$$
-# 
+#
 # - Je vous laisse la fin comme exercice !
 
 # ----
 # # À voir aussi
-# 
+#
 # ## [Les oraux](http://perso.crans.org/besson/infoMP/oraux/solutions/)   *(exercices de maths avec Python)*
-# 
+#
 # Se préparer aux oraux de ["maths avec Python" (maths 2)](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/#oMat2) du concours Centrale Supélec peut être utile.
-# 
+#
 # Après les écrits et la fin de l'année, pour ceux qui seront admissibles à Centrale-Supélec, ils vous restera <b>les oraux</b> (le concours Centrale-Supélec a un <a title="Quelques exemples d'exercices sur le site du concours Centrale-Supélec" href="http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/#oMat2">oral d'informatique</a>, et un peu d'algorithmique et de Python peuvent en théorie être demandés à chaque oral de maths et de SI).
-# 
+#
 # Je vous invite à lire [cette page avec attention](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/#oMat2), et à jeter un œil aux documents mis à disposition :
-# 
+#
 # ## Fiches de révisions *pour les oraux*
-# 
+#
 # 1. [Calcul matriciel](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/Python-matrices.pdf), avec [numpy](https://docs.scipy.org/doc/numpy/) et [numpy.linalg](http://docs.scipy.org/doc/numpy/reference/routines.linalg.html),
 # 2. [Réalisation de tracés](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/Python-plot.pdf), avec [matplotlib](http://matplotlib.org/users/beginner.html),
 # 3. [Analyse numérique](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/Python-AN.pdf), avec [numpy](https://docs.scipy.org/doc/numpy/) et [scipy](http://docs.scipy.org/doc/scipy/reference/tutorial/index.html). Voir par exemple [scipy.integrate](http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html) avec les fonctions [scipy.integrate.quad](http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html) (intégrale numérique) et [scipy.integrate.odeint](http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html) (résolution numérique d'une équation différentielle),
 # 4. [Polynômes](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/Python-polynomes.pdf) : avec [numpy.polynomials](https://docs.scipy.org/doc/numpy/reference/routines.polynomials.package.html), [ce tutoriel peut aider](https://docs.scipy.org/doc/numpy/reference/routines.polynomials.classes.html),
 # 5. [Probabilités](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/Python-random.pdf), avec [numpy](https://docs.scipy.org/doc/numpy/) et [random](https://docs.python.org/3/library/random.html).
-# 
+#
 # Pour réviser : voir [ce tutoriel Matplotlib (en anglais)](http://www.labri.fr/perso/nrougier/teaching/matplotlib/), [ce tutoriel Numpy (en anglais)](http://www.labri.fr/perso/nrougier/teaching/numpy/numpy.html).
 # Ainsi que tous les [TP](http://perso.crans.org/besson/infoMP/TPs/solutions/), [TD](http://perso.crans.org/besson/infoMP/TDs/solutions/) et [DS](http://perso.crans.org/besson/infoMP/DSs/solutions/) en Python que j'ai donné et corrigé au Lycée Lakanal (Sceaux, 92) en 2015-2016 !
-# 
+#
 # ## Quelques exemples de sujets *d'oraux* corrigés
 # > Ces 5 sujets sont corrigés, et nous les avons tous traité en classe durant les deux TP de révisions pour les oraux (10 et 11 juin).
-# 
+#
 # - PC : [sujet #1](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/PC-Mat2-2015-27.pdf) ([correction PC #1](http://perso.crans.org/besson/infoMP/oraux/solutions/PC_Mat2_2015_27.html)), [sujet #2](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/PC-Mat2-2015-28.pdf) ([correction PC #2](http://perso.crans.org/besson/infoMP/oraux/solutions/PC_Mat2_2015_28.html)).
 # - PSI : [sujet #1](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/PSI-Mat2-2015-24.pdf) ([correction PSI #1](http://perso.crans.org/besson/infoMP/oraux/solutions/PSI_Mat2_2015_24.html)), [sujet #2](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/PSI-Mat2-2015-25.pdf) ([correction PSI #2](http://perso.crans.org/besson/infoMP/oraux/solutions/PSI_Mat2_2015_25.html)), [sujet #3](http://www.concours-centrale-supelec.fr/CentraleSupelec/MultiY/C2015/PSI-Mat2-2015-26.pdf) ([correction PSI #3](http://perso.crans.org/besson/infoMP/oraux/solutions/PSI_Mat2_2015_26.html)).
 # - MP : pas de sujet mis à disposition, mais le programme est le même que pour les PC et PSI (pour cette épreuve).
 
 # ----
 # ## D'autres notebooks ?
-# 
+#
 # > Ce document est distribué [sous licence libre (MIT)](https://lbesson.mit-license.org/), comme [les autres notebooks](https://GitHub.com/Naereen/notebooks/) que j'ai écrit depuis 2015.

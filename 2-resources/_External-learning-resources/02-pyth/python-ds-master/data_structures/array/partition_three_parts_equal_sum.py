@@ -3,7 +3,7 @@ def partition(arr):
     if not s % 3 == 0:
         return False
     s = s / 3
-    targets = [2*s, s]
+    targets = [2 * s, s]
     acc = 0
 
     for a in arr:
@@ -12,5 +12,5 @@ def partition(arr):
             targets.pop()
         if not targets:
             return True
-    
+
     return False

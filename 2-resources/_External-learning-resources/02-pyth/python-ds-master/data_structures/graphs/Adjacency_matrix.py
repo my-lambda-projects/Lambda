@@ -1,5 +1,4 @@
 class Graph:
-
     def __init__(self, vertices, directed: bool):
         self.V = vertices
         self.e = 0
@@ -29,7 +28,3 @@ class Graph:
     def print_graph(self):
         for i in self.graph:
             print(i)
-
-
-
-

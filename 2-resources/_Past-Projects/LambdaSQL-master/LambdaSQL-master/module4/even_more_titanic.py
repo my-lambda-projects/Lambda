@@ -4,10 +4,7 @@ from module4.creds import cred
 
 def psyco_q(query):
     pg_conn = psycopg2.connect(
-        dbname=cred.dbname,
-        user=cred.user,
-        password=cred.password,
-        host=cred.host,
+        dbname=cred.dbname, user=cred.user, password=cred.password, host=cred.host
     )
     pg_curs = pg_conn.cursor()
     pg_curs.execute(query)
@@ -45,30 +42,42 @@ query15 = "SELECT Name,count(*) FROM Titanic GROUP BY Name HAVING count(Name) > 
 # are a married couple.
 
 
-print(f'Question 1 - Survived: {psyco_q(query1)[0][0]}, Died: {psyco_q(query2)[0][0]}')
-print(f'Question 2 - Passengers per class: {psyco_q(query3)}')
-print(f'Question 3 - Survived(Per Class):{psyco_q(query4)} Died(Per Class):{psyco_q(query5)}')
-print(f'Question 4 - Average Age Survivors:{psyco_q(query6)} Died:{psyco_q(query7)}')
-print(f'Question 5 - Average Age Per Class:{psyco_q(query8)}')
-print(f'Question 6 - Average Fare Per Class:{psyco_q(query9)}\n\t Average Fare per Survival:{psyco_q(query10)}')
-print(f'Question 7 - Average SS Per Class:{psyco_q(query11)}\n\t Average SS per Survival:{psyco_q(query12)}')
-print(f'Question 8 - Average PC Per Class:{psyco_q(query13)}\n\t Average PC per Survival:{psyco_q(query14)}')
-print(f'Question 9 - Same Name:{psyco_q(query15)}')
+print(f"Question 1 - Survived: {psyco_q(query1)[0][0]}, Died: {psyco_q(query2)[0][0]}")
+print(f"Question 2 - Passengers per class: {psyco_q(query3)}")
+print(
+    f"Question 3 - Survived(Per Class):{psyco_q(query4)} Died(Per Class):{psyco_q(query5)}"
+)
+print(f"Question 4 - Average Age Survivors:{psyco_q(query6)} Died:{psyco_q(query7)}")
+print(f"Question 5 - Average Age Per Class:{psyco_q(query8)}")
+print(
+    f"Question 6 - Average Fare Per Class:{psyco_q(query9)}\n\t Average Fare per Survival:{psyco_q(query10)}"
+)
+print(
+    f"Question 7 - Average SS Per Class:{psyco_q(query11)}\n\t Average SS per Survival:{psyco_q(query12)}"
+)
+print(
+    f"Question 8 - Average PC Per Class:{psyco_q(query13)}\n\t Average PC per Survival:{psyco_q(query14)}"
+)
+print(f"Question 9 - Same Name:{psyco_q(query15)}")
 
-married_females = psyco_q("""
+married_females = psyco_q(
+    """
 SELECT Name, count(*)
 FROM Titanic
 WHERE Name LIKE 'Mrs.%'
 GROUP BY Name
-""")
-married_names = {name[0].split(' ')[-1] for name in married_females}
-all_names = psyco_q(f"""
+"""
+)
+married_names = {name[0].split(" ")[-1] for name in married_females}
+all_names = psyco_q(
+    f"""
 SELECT Name
 FROM Titanic
-""")
-last_names = [name[0].split(' ')[-1] for name in all_names]
+"""
+)
+last_names = [name[0].split(" ")[-1] for name in all_names]
 married_couples = []
 for name in married_names:
     if last_names.count(name) >= 2:
         married_couples.append(name)
-print(f'Estimated Number of Married Couples: {len(married_couples)}')
+print(f"Estimated Number of Married Couples: {len(married_couples)}")

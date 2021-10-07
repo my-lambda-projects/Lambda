@@ -170,7 +170,8 @@ def printCopyright():
 
 
 # Lambdas are one liners! (Should be at least, you can use parenthesis to disobey)
-def avg(num1, num2): return print(num1 + num2)
+def avg(num1, num2):
+    return print(num1 + num2)
 
 
 avg(1, 2)
@@ -284,7 +285,8 @@ for i in range1:
     print(i)
 # Built-in functions:
 # Filter
-def isOdd(num): return num % 2 == 1
+def isOdd(num):
+    return num % 2 == 1
 
 
 filtered = filter(isOdd, [1, 2, 3, 4])
@@ -292,8 +294,7 @@ print(list(filtered))
 for num in filtered:
     print(f"first way: {num}")
 print("--" * 20)
-[print(f"list comprehension: {i}")
- for i in [1, 2, 3, 4, 5, 6, 7, 8] if i % 2 == 1]
+[print(f"list comprehension: {i}") for i in [1, 2, 3, 4, 5, 6, 7, 8] if i % 2 == 1]
 # Map
 
 
@@ -310,8 +311,7 @@ print(list(sorted_items))  # Notice uppercase comes before lowercase
 sorted_items = sorted(["john", "tom", "sonny", "Mike"], key=str.lower)
 print(sorted_items)
 # You can also reverse the sort
-sorted_items = sorted(["john", "tom", "sonny", "Mike"],
-                      key=str.lower, reverse=True)
+sorted_items = sorted(["john", "tom", "sonny", "Mike"], key=str.lower, reverse=True)
 print(sorted_items)
 # Enumerate creates a tuple with an index for what you're enumerating
 quarters = ["First", "Second", "Third", "Fourth"]
@@ -330,7 +330,8 @@ coords = zip(x_coords, y_coords, z_coords)
 print(list(coords))
 # Len reports the length of strings along with list and any other object data type
 # doing this to save myself some typing
-def print_len(item): return print(len(item))
+def print_len(item):
+    return print(len(item))
 
 
 print_len("Mike")
@@ -418,15 +419,18 @@ class AngryBird:
         # Instance Variables
         self._x = x
         self._y = y
+
     # Instance Method
 
     def move_up_by(self, delta):
         self._y += delta
+
     # Getter
 
     @property
     def x(self):
         return self._x
+
     # Setter
 
     @x.setter
@@ -442,6 +446,7 @@ class AngryBird:
     @y.setter
     def y(self, value):
         self._y = value
+
     # Dunder Repr... called by 'print'
 
     def __repr__(self):

@@ -1,4 +1,4 @@
-class Stack():
+class Stack:
     """
     Stack follows Last-In-First-Out methodology
     """
@@ -15,11 +15,3 @@ class Stack():
     def pop(self):
         if self.size() > 0:
             self.entries.pop(self.size() - 1)
-
-    
-
-
-
-
-    
-    

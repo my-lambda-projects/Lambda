@@ -1,12 +1,11 @@
-
 # coding: utf-8
 
 # # Des dates qui font des nombres premiers ?
-# 
+#
 # Ce petit [notebook Jupyter](https://www.jupyter.org/), écrit en [Python](https://www.python.org/), a pour but de résoudre la question suivante :
-# 
+#
 # > *"En 2017, combien de jours ont leur date qui est un nombre premier ?"*
-# 
+#
 # Par exemple, en 2017, le 23 février donne `23022017` est premier, mais le 24 février donne `24022017` qui ne l'est pas.
 # On veut trouver toutes les dates en 2017 qui sont des nombres premiers.
 
@@ -51,7 +50,10 @@ from sympy import isprime
 
 
 from numpy.random import randint
-get_ipython().run_line_magic('timeit', 'sum([isprime(i) for i in randint(1e8, 1e9-1, 10**4)])')
+
+get_ipython().run_line_magic(
+    "timeit", "sum([isprime(i) for i in randint(1e8, 1e9-1, 10**4)])"
+)
 
 
 # $\implies$ $65 ~\text{ms}$ pour 10000 nombres à tester, ça me semble assez rapide pour ce qu'on veut en faire !
@@ -83,6 +85,7 @@ print("On va travailler avec l'année", YEAR, "!")
 def date_vers_nombre(date):
     return int("{:%d%m%Y}".format(date))
 
+
 def date_vers_nombre_2(date):
     return int("{:%m%d%Y}".format(date))
 
@@ -105,6 +108,7 @@ print(date_vers_nombre_2(date))  # Le 0 initial est ignoré
 
 from datetime import timedelta
 
+
 def tous_les_jours(year=YEAR):
     date = datetime(year, 1, 1)
     un_jour = timedelta(days=1)
@@ -121,7 +125,11 @@ def tous_les_jours(year=YEAR):
 
 
 for date in tous_les_jours():
-    print("Le jour {:%d/%m/%Y} donne l'entier {:>8} au format jour-mois-année et {:>8} au format mois-jour-année.".format(date, date_vers_nombre(date), date_vers_nombre_2(date)))
+    print(
+        "Le jour {:%d/%m/%Y} donne l'entier {:>8} au format jour-mois-année et {:>8} au format mois-jour-année.".format(
+            date, date_vers_nombre(date), date_vers_nombre_2(date)
+        )
+    )
 
 
 # Maintenant, il suffit de boucler, de tester si l'entier est premier, et de n'afficher que ceux qui le sont :
@@ -157,7 +165,11 @@ def prochaine_date_premiere(date=datetime.today(), conversion=date_vers_nombre):
 
 date = datetime.today()
 prochain = prochaine_date_premiere(date)
-print("Pour le jour d'aujourd'hui ({:%x}), le prochain jour ayant une date première dans l'année {} est : {:%x} !".format(date, date.year, prochain))
+print(
+    "Pour le jour d'aujourd'hui ({:%x}), le prochain jour ayant une date première dans l'année {} est : {:%x} !".format(
+        date, date.year, prochain
+    )
+)
 
 
 # #### Pour les dates écrites "jour mois année" :
@@ -166,7 +178,11 @@ print("Pour le jour d'aujourd'hui ({:%x}), le prochain jour ayant une date premi
 
 
 for date in date_premieres(date_vers_nombre):
-    print("Le jour {:%d/%m/%Y} donne l'entier {:>8} qui est premier !".format(date, date_vers_nombre(date)))
+    print(
+        "Le jour {:%d/%m/%Y} donne l'entier {:>8} qui est premier !".format(
+            date, date_vers_nombre(date)
+        )
+    )
 
 
 # #### Pour les dates écrites "mois jour année" :
@@ -175,7 +191,11 @@ for date in date_premieres(date_vers_nombre):
 
 
 for date in date_premieres(date_vers_nombre_2):
-    print("Le jour {:%d/%m/%Y} donne l'entier {:>8} qui est premier !".format(date, date_vers_nombre_2(date)))
+    print(
+        "Le jour {:%d/%m/%Y} donne l'entier {:>8} qui est premier !".format(
+            date, date_vers_nombre_2(date)
+        )
+    )
 
 
 # #### Comparaison
@@ -195,7 +215,7 @@ len(list(date_premieres(date_vers_nombre_2)))
 
 # ----
 # ## 3. Résolvons le problème pour toutes les années entre 0 AC et 2500 AC
-# 
+#
 # On aimerait afficher une courbe montrant l'évolution du nombre de dates premières au cours des années, selon les deux formats.
 
 # In[18]:
@@ -205,7 +225,10 @@ def nombres_dates_premieres(year=YEAR):
     if year % 2 == 0:
         return [0, 0]
     else:
-        return [len(list(date_premieres(date_vers_nombre, year=year))), len(list(date_premieres(date_vers_nombre_2, year=year)))]
+        return [
+            len(list(date_premieres(date_vers_nombre, year=year))),
+            len(list(date_premieres(date_vers_nombre_2, year=year))),
+        ]
 
 
 # In[19]:
@@ -230,6 +253,7 @@ len(list(date_premieres(date_vers_nombre, year=2016)))
 
 import numpy as np
 
+
 def intervale_nombres_dates_premieres(year1=1, year2=3000):
     nombres = np.zeros((year2 - year1 + 1, 2))
     for i, year in enumerate(range(year1, year2 + 1)):
@@ -242,13 +266,21 @@ def intervale_nombres_dates_premieres(year1=1, year2=3000):
 # In[22]:
 
 
-get_ipython().run_cell_magic('time', '', 'nombres = intervale_nombres_dates_premieres(year1=2010, year2=2020)\nprint(nombres)')
+get_ipython().run_cell_magic(
+    "time",
+    "",
+    "nombres = intervale_nombres_dates_premieres(year1=2010, year2=2020)\nprint(nombres)",
+)
 
 
 # In[23]:
 
 
-get_ipython().run_cell_magic('time', '', 'nombres = intervale_nombres_dates_premieres(year1=1, year2=3000)\nprint(nombres)')
+get_ipython().run_cell_magic(
+    "time",
+    "",
+    "nombres = intervale_nombres_dates_premieres(year1=1, year2=3000)\nprint(nombres)",
+)
 
 
 # In[24]:
@@ -262,11 +294,27 @@ np.shape(nombres)
 # In[25]:
 
 
-print("- Au format jour-mois-année, il y a en moyenne {:.3g} jours premiers par an.".format(np.mean(nombres[:, 0])))
-print("- Et en moyenne {:.3g} jours premiers par an, en enlevant les années paires.".format(np.mean(nombres[:, 0][nombres[:, 0] > 0])))
+print(
+    "- Au format jour-mois-année, il y a en moyenne {:.3g} jours premiers par an.".format(
+        np.mean(nombres[:, 0])
+    )
+)
+print(
+    "- Et en moyenne {:.3g} jours premiers par an, en enlevant les années paires.".format(
+        np.mean(nombres[:, 0][nombres[:, 0] > 0])
+    )
+)
 
-print("- Au format mois-jour-année, il y a en moyenne {:.3g} jours premiers par an.".format(np.mean(nombres[:, 1])))
-print("- Et en moyenne {:.3g} jours premiers par an, en enlevant les années paires.".format(np.mean(nombres[:, 1][nombres[:, 1] > 0])))
+print(
+    "- Au format mois-jour-année, il y a en moyenne {:.3g} jours premiers par an.".format(
+        np.mean(nombres[:, 1])
+    )
+)
+print(
+    "- Et en moyenne {:.3g} jours premiers par an, en enlevant les années paires.".format(
+        np.mean(nombres[:, 1][nombres[:, 1] > 0])
+    )
+)
 
 
 # On va afficher tout ça :
@@ -274,10 +322,17 @@ print("- Et en moyenne {:.3g} jours premiers par an, en enlevant les années pai
 # In[28]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+get_ipython().run_line_magic("matplotlib", "inline")
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set(context="notebook", style="darkgrid", palette="hls", font="sans-serif", font_scale=1.4)
+
+sns.set(
+    context="notebook",
+    style="darkgrid",
+    palette="hls",
+    font="sans-serif",
+    font_scale=1.4,
+)
 
 
 # In[37]:
@@ -285,10 +340,10 @@ sns.set(context="notebook", style="darkgrid", palette="hls", font="sans-serif", 
 
 def affiche_nombres_dates_premieres(nombres):
     plt.figure()
-    plt.plot(nombres[:, 0], 'b.', label="Format jour-mois-année")
-    plt.plot(nombres[:, 1], 'g*', label="Format mois-jour-année")
+    plt.plot(nombres[:, 0], "b.", label="Format jour-mois-année")
+    plt.plot(nombres[:, 1], "g*", label="Format mois-jour-année")
     plt.title("Nombres de dates premières par an")
-    plt.legend(loc='best', numpoints=1, fancybox=True, shadow=True, framealpha=0.8)
+    plt.legend(loc="best", numpoints=1, fancybox=True, shadow=True, framealpha=0.8)
     plt.xlabel("Année")
     plt.ylabel("Nombre de dates premières")
 
@@ -308,9 +363,14 @@ def hist_nombres_dates_premieres(nombres, ind=0):
     nbs = nombres[:, ind]
     nbs = nbs[nbs > 0]
     plt.figure()
-    plt.hist(nbs, bins=100, label="Format %s-année" % ('jour-mois' if ind==0 else 'mois-jour'), color='bg'[ind])
+    plt.hist(
+        nbs,
+        bins=100,
+        label="Format %s-année" % ("jour-mois" if ind == 0 else "mois-jour"),
+        color="bg"[ind],
+    )
     plt.title("Répartition du nombres de dates premières par an")
-    plt.legend(loc='best', numpoints=1, fancybox=True, shadow=True, framealpha=0.8)
+    plt.legend(loc="best", numpoints=1, fancybox=True, shadow=True, framealpha=0.8)
     plt.xlabel("Nombres de dates premières")
     plt.ylabel("Nombres")
 
@@ -323,9 +383,9 @@ hist_nombres_dates_premieres(nombres, 1)
 
 
 # ## 4. Quels jours donnent le plus de nombres premiers ?
-# 
+#
 # On peut se poser une autre question : quelle date donne le plus de nombres premiers ?
-# 
+#
 # On a vu que le 23 février donne `23022017` qui est premier, et `24022017` ne l'est pas.
 # Mais en sur 3000 années successives, est-ce que le 23 février donne plus souvent un nombre premier que le 24 février ?
 
@@ -342,13 +402,15 @@ def meme_jour_toutes_les_annees(days=0, year1=1, year2=3000):
 # In[52]:
 
 
-list(meme_jour_toutes_les_annees(days=31+22, year1=2017, year2=2019))
+list(meme_jour_toutes_les_annees(days=31 + 22, year1=2017, year2=2019))
 
 
 # In[53]:
 
 
-def nombre_annees_qui_donnent_date_premiere(days=0, year1=1, year2=3000, conversion=date_vers_nombre):
+def nombre_annees_qui_donnent_date_premiere(
+    days=0, year1=1, year2=3000, conversion=date_vers_nombre
+):
     for date in meme_jour_toutes_les_annees(days=days, year1=year1, year2=year2):
         if isprime(conversion(date)):
             yield date
@@ -367,7 +429,7 @@ list(nombre_annees_qui_donnent_date_premiere(days=11, year1=1993, year2=2017))
 # In[61]:
 
 
-list(nombre_annees_qui_donnent_date_premiere(days=31+22, year1=1993, year2=2017))
+list(nombre_annees_qui_donnent_date_premiere(days=31 + 22, year1=1993, year2=2017))
 
 
 # On peut récupérer ces données pour tous les jours de l'année :
@@ -378,26 +440,42 @@ list(nombre_annees_qui_donnent_date_premiere(days=31+22, year1=1993, year2=2017)
 def histogramme_par_jours(year1=1, year2=3000, conversion=date_vers_nombre):
     jours = np.zeros(366)
     for days in range(366):
-        jours[days] += len(list(nombre_annees_qui_donnent_date_premiere(days=days, year1=year1, year2=year2, conversion=conversion)))
+        jours[days] += len(
+            list(
+                nombre_annees_qui_donnent_date_premiere(
+                    days=days, year1=year1, year2=year2, conversion=conversion
+                )
+            )
+        )
     return jours
 
 
 # In[68]:
 
 
-get_ipython().run_cell_magic('time', '', 'jours = histogramme_par_jours(year1=1993, year2=2017)\njours')
+get_ipython().run_cell_magic(
+    "time", "", "jours = histogramme_par_jours(year1=1993, year2=2017)\njours"
+)
 
 
 # In[73]:
 
 
-get_ipython().run_cell_magic('time', '', 'jours_format1 = histogramme_par_jours(year1=1, year2=3000, conversion=date_vers_nombre)\njours_format1 /= 3000')
+get_ipython().run_cell_magic(
+    "time",
+    "",
+    "jours_format1 = histogramme_par_jours(year1=1, year2=3000, conversion=date_vers_nombre)\njours_format1 /= 3000",
+)
 
 
 # In[74]:
 
 
-get_ipython().run_cell_magic('time', '', 'jours_format2 = histogramme_par_jours(year1=1, year2=3000, conversion=date_vers_nombre_2)\njours_format2 /= 3000')
+get_ipython().run_cell_magic(
+    "time",
+    "",
+    "jours_format2 = histogramme_par_jours(year1=1, year2=3000, conversion=date_vers_nombre_2)\njours_format2 /= 3000",
+)
 
 
 # ### 4.1. Visualisations, jour par jour
@@ -409,9 +487,15 @@ get_ipython().run_cell_magic('time', '', 'jours_format2 = histogramme_par_jours(
 
 def hist_nombres_dates_premieres(jours, ind=0):
     plt.figure()
-    plt.plot(jours, label="Format %s-année" % ('jour-mois' if ind==0 else 'mois-jour'), color='bg'[ind])
-    plt.title("Répartition du nombres de dates premières selon la date\nEntre l'an 1 et l'an 3000")
-    plt.legend(loc='best', numpoints=1, fancybox=True, shadow=True, framealpha=0.8)
+    plt.plot(
+        jours,
+        label="Format %s-année" % ("jour-mois" if ind == 0 else "mois-jour"),
+        color="bg"[ind],
+    )
+    plt.title(
+        "Répartition du nombres de dates premières selon la date\nEntre l'an 1 et l'an 3000"
+    )
+    plt.legend(loc="best", numpoints=1, fancybox=True, shadow=True, framealpha=0.8)
     plt.xlabel("Jour dans l'année")
     plt.ylabel("Fréquence")
 
@@ -455,14 +539,14 @@ txt_date_de_jour(_)
 
 # ----
 # ## 5. Conclusions
-# - Pour les années impaires, il y a en moyenne une soixantaine de jours qui ont une date première !s, 
+# - Pour les années impaires, il y a en moyenne une soixantaine de jours qui ont une date première !s,
 # - Le nombre est quasiment identique selon les deux formats, `jour-mois` ou `mois-jour`.
-# 
+#
 # Ce n'était pas très dur à calculer, mais intéressant.
-# 
+#
 # - Et en moyenne, un certain jour a entre 6% et 8% de donner une date première, entre l'an 1 et l'an 3000.
 # - Avec les deux formats, le 1er janvier est le jour qui donne le plus de dates premières, et puis le 31 décembre, puis le 31 août pour le format `jour-mois` et le 8 janvier pour le format `mois-jour`.
 
 # > C'est tout pour aujourd'hui les amis, [allez voir d'autres notebooks si vous êtes curieux !](https://github.com/Naereen/notebooks/).
-# 
+#
 # > [See this repository for other Python notebook doing numerical simulations](https://github.com/Naereen/notebooks/tree/master/simus/).

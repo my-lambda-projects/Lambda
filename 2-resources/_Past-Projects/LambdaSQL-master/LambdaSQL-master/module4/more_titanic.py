@@ -7,10 +7,7 @@ from module4.creds import cred
 
 
 cloud = psycopg2.connect(
-    dbname=cred.dbname,
-    user=cred.user,
-    password=cred.password,
-    host=cred.host,
+    dbname=cred.dbname, user=cred.user, password=cred.password, host=cred.host
 )
 curs = cloud.cursor()
 
@@ -36,25 +33,33 @@ curs.execute("SELECT COUNT(*) FROM Titanic;")
 passengers = curs.fetchone()[0]
 print("\nTotal number of passengers:", passengers)
 
-curs.execute("""
+curs.execute(
+    """
 SELECT COUNT(*) FROM Titanic
 WHERE Survived = 0;
-""")
+"""
+)
 deaths = curs.fetchone()[0]
 print("Total number of deaths:", deaths)
 print("Total number of survivors:", passengers - deaths)
 
 for p_class in range(1, 4):
-    curs.execute(f"""
+    curs.execute(
+        f"""
     SELECT COUNT(*) FROM Titanic
     WHERE Pclass = %s;
-    """, (p_class,))
+    """,
+        (p_class,),
+    )
     n_class = curs.fetchone()
-    curs.execute("""
+    curs.execute(
+        """
     SELECT COUNT(*) FROM Titanic
     WHERE Pclass = %s
     AND Survived = 0;
-    """, (p_class,))
+    """,
+        (p_class,),
+    )
     n_class_dead = curs.fetchone()
     t, d = *n_class, *n_class_dead
     s = t - d

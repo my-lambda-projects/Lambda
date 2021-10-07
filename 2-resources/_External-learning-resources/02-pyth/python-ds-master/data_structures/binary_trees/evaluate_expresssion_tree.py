@@ -1,8 +1,8 @@
 # In expression tree, the integer values will be at the leaf nodes
 # The operands will be all the other internal nodes
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.right = None
@@ -24,13 +24,13 @@ def evaluate(root):
     right_sum = evaluate(root.right)
 
     # Check which operator to apply
-    if root.data == '+':
+    if root.data == "+":
         return left_sum + right_sum
 
-    elif root.data == '-':
+    elif root.data == "-":
         return left_sum - right_sum
 
-    elif root.data == '*':
+    elif root.data == "*":
         return left_sum * right_sum
 
     else:

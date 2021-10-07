@@ -1,7 +1,7 @@
-'''
+"""
 Gnome sort is not best sorting algorithms but sure it takes its pride.
 It has time O(n^2)
-'''
+"""
 
 
 def gnome_sort(arr):

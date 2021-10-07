@@ -6,12 +6,13 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        self.next = None 
+        self.next = None
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
-    
+
     def isPalindrome(self):
         current_head = self.head
         check_if_palindrome = ""
@@ -19,7 +20,7 @@ class LinkedList:
         while current_head:
             check_if_palindrome = check_if_palindrome + str(current_head)
             current_head = self.head.next
-            
+
         length = len(check_if_palindrome)
 
         for x in range(0, length):
@@ -30,6 +31,5 @@ class LinkedList:
                     return False
         if len(check_if_palindrome) == 1 or len(check_if_palindrome) == 0:
             return True
-        
-        return False 
 
+        return False

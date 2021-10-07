@@ -64,10 +64,7 @@ class Scheduling:
                 self.index2 = self.jobs.index(self.tmp[j])
                 j += 1
                 if deadline[self.index1] > deadline[self.index2]:
-                    (self.tmp[i], self.tmp[j]) = (
-                        self.tmp[j],
-                        self.tmp[i],
-                    )
+                    (self.tmp[i], self.tmp[j]) = (self.tmp[j], self.tmp[i])
             i += 1
 
         while k < len(self.tmp):

@@ -28,16 +28,16 @@ def invert_matrix(m):
     # Error conditions
     if not array_is_matrix(m):
         print("Invalid matrix: array is not a matrix")
-        return [[-1]];
+        return [[-1]]
     elif len(m) != len(m[0]):
         print("Invalid matrix: matrix is not square")
-        return [[-2]];
+        return [[-2]]
     elif len(m) < 2:
         print("Invalid matrix: matrix is too small")
-        return [[-3]];
+        return [[-3]]
     elif get_determinant(m) == 0:
         print("Invalid matrix: matrix is square, but singular (determinant = 0)")
-        return [[-4]];
+        return [[-4]]
 
     # Calculation
     elif len(m) == 2:
@@ -99,7 +99,7 @@ def get_minor(m, row, col):
     for i in range(len(m)):
         if i != row:
             new_row = m[i][:col]
-            new_row.extend(m[i][col + 1:])
+            new_row.extend(m[i][col + 1 :])
             minors.append(new_row)
     return minors
 

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>windows-setup</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="windows-setup">Windows Setup</h1>
+    <p>
+      Welcome Windows users! Your operating system comes from a different
+      lineage than most operating systems, Windows has it’s roots in MS-DOS and
+      Windows NT, while macOS and Linux both are “Unix” style operating systems.
+      We will be using the Unix command line in this course so everyone in class
+      is using the same command line tools and programs. Windows does not
+      include a unix style system by default so we are doing to use a add-on
+      piece of Microsoft Technology called “Windows Subsystem for Linux”.
+    </p>
+    <h2 id="wsl">WSL</h2>
+    <p>
+      Windows Subsystem for Linux is a Linux Virtual Computer that you run on
+      your PC. It gives you all the same tools and command line utilities that
+      your mac and Linux using classmates use.
+    </p>
+    <p>To install WSL you must have a specific version of Windows 10.</p>
+    <blockquote>
+      <p>
+        For x64 systems: Version 1903 or higher, with Build 18362 or higher.
+      </p>
+    </blockquote>
+    <p>
+      If you do not have this version or cannot update to this version, please
+      contact an instructor.
+    </p>
+    <h2 id="installing-wsl-2">Installing WSL 2</h2>
+    <p>
+      Future versions of Windows will include an automatic installer for WSL,
+      but for now you will have to use the manual install instructions:
+    </p>
+    <p>
+      <a
+        href="https://docs.microsoft.com/en-us/windows/wsl/install-win10#manual-installation-steps"
+        >Windows Subsystem for Linux Installation Guide for Windows 10</a
+      >
+    </p>
+    <p>Follow this guide to install WSL 2 and Ubuntu Linux.</p>
+    <h2 id="tips-for-using-wsl">Tips for using WSL</h2>
+    <p>
+      You will launch the Ubuntu terminal when the instructions in our
+      curriculum tell you to open a Terminal.
+    </p>
+    <p>
+      You should always store your code files in your Ubuntu home directory and
+      not in your Windows users home directory on your C: drive. Many of the
+      tools we use will perform better and be more stable if the files exist on
+      the Ubuntu filesystem.
+    </p>
+    <p>
+      If you do need to access the files in your Ubuntu home directory from
+      Windows Explorer you can type <code>Windows + R</code> to bring up the run
+      command dialog and type
+      <code>\\wsl$\home\&lt;your-user&gt;</code> replacing
+      <code>your-user</code> with your Ubuntu user name (you can find this out
+      by typing <code>whoami</code> at your Ubuntu terminal prompt.)
+    </p>
+    <p>
+      If you want to access your Windows hard drive from Ubuntu you can use the
+      path <code>/mnt/c</code> inside of the Ubuntu virtual machine.
+    </p>
+    <p>
+      If you ever need to restart the Ubuntu virtual machine, you need to open a
+      Powershell window and run the following command:
+    </p>
+    <pre class="shell"><code>wsl --shutdown</code></pre>
+    <p>
+      Next time you open the Ubuntu terminal it will start the virtual machine
+      back up.
+    </p>
+    <h2 id="install-everything-else">Install everything else</h2>
+    <p>
+      Now that you have WSL installed you can install all the rest of these
+      tools in this order:
+    </p>
+    <ul>
+      <li><a href="google-chrome-setup.md">Google Chrome</a></li>
+      <li><a href="visual-studio-code-setup.md">Visual Studio Code</a></li>
+      <li><a href="nodejs-setup.md">Node.JS</a></li>
+      <li><a href="python-setup.md">Python</a></li>
+      <li><a href="docker-setup.md">Docker</a></li>
+    </ul>
+    <h2 id="video">Video</h2>
+    <p>Watch this video walkthrough of the Windows 10 Setup</p>
+    <p><a href="https://vimeo.com/489725118/c969434727">Windows 10 Setup</a></p>
+  </body>
+</html>

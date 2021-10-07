@@ -21,16 +21,17 @@ class Tags(State):
             tags (list): A list of tag strings. `State.is_<tag>` may be used
                 to check if <tag> is in the list.
     """
+
     def __init__(self, *args, **kwargs):
         """
         Args:
             **kwargs: If kwargs contains `tags`, assign them to the attribute.
         """
-        self.tags = kwargs.pop('tags', [])
+        self.tags = kwargs.pop("tags", [])
         super(Tags, self).__init__(*args, **kwargs)
 
     def __getattr__(self, item):
-        if item.startswith('is_'):
+        if item.startswith("is_"):
             return item[3:] in self.tags
         return super(Tags, self).__getattribute__(item)
 
@@ -46,11 +47,11 @@ class Error(Tags):
             **kwargs: If kwargs contains the keywork `accepted` add the 'accepted' tag to a tag list
                 which will be forwarded to the Tags constructor.
         """
-        tags = kwargs.get('tags', [])
-        accepted = kwargs.pop('accepted', False)
+        tags = kwargs.get("tags", [])
+        accepted = kwargs.pop("accepted", False)
         if accepted:
-            tags.append('accepted')
-            kwargs['tags'] = tags
+            tags.append("accepted")
+            kwargs["tags"] = tags
         super(Error, self).__init__(*args, **kwargs)
 
     def enter(self, event_data):
@@ -69,7 +70,7 @@ class Timeout(State):
         on_timeout (list): Functions to call when a timeout is triggered.
     """
 
-    dynamic_methods = ['on_timeout']
+    dynamic_methods = ["on_timeout"]
 
     def __init__(self, *args, **kwargs):
         """
@@ -78,15 +79,17 @@ class Timeout(State):
                 is set, 'on_timeout' needs to be passed with kwargs as well or an AttributeError will
                 be thrown. If timeout is not passed or equal 0.
         """
-        self.timeout = kwargs.pop('timeout', 0)
+        self.timeout = kwargs.pop("timeout", 0)
         self._on_timeout = None
         if self.timeout > 0:
             try:
-                self.on_timeout = kwargs.pop('on_timeout')
+                self.on_timeout = kwargs.pop("on_timeout")
             except KeyError:
-                raise AttributeError("Timeout state requires 'on_timeout' when timeout is set.")
+                raise AttributeError(
+                    "Timeout state requires 'on_timeout' when timeout is set."
+                )
         else:
-            self._on_timeout = kwargs.pop('on_timeout', [])
+            self._on_timeout = kwargs.pop("on_timeout", [])
         self.runner = {}
         super(Timeout, self).__init__(*args, **kwargs)
 
@@ -109,10 +112,16 @@ class Timeout(State):
         return super(Timeout, self).exit(event_data)
 
     def _process_timeout(self, event_data):
-        _LOGGER.debug("%sTimeout state %s. Processing callbacks...", event_data.machine.name, self.name)
+        _LOGGER.debug(
+            "%sTimeout state %s. Processing callbacks...",
+            event_data.machine.name,
+            self.name,
+        )
         for callback in self.on_timeout:
             event_data.machine.callback(callback, event_data)
-        _LOGGER.info("%sTimeout state %s processed.", event_data.machine.name, self.name)
+        _LOGGER.info(
+            "%sTimeout state %s processed.", event_data.machine.name, self.name
+        )
 
     @property
     def on_timeout(self):
@@ -141,8 +150,8 @@ class Volatile(State):
                 be assigned to the 'attribute' scope. If `volatile` is not passed, an empty object will
                 be assigned to the model's hook.
         """
-        self.volatile_cls = kwargs.pop('volatile', VolatileObject)
-        self.volatile_hook = kwargs.pop('hook', 'scope')
+        self.volatile_cls = kwargs.pop("volatile", VolatileObject)
+        self.volatile_hook = kwargs.pop("hook", "scope")
         super(Volatile, self).__init__(*args, **kwargs)
         self.initialized = True
 
@@ -163,19 +172,29 @@ class Volatile(State):
 
 def add_state_features(*args):
     """ State feature decorator. Should be used in conjunction with a custom Machine class. """
-    def _class_decorator(cls):
 
-        class CustomState(type('CustomState', args, {}), cls.state_cls):
+    def _class_decorator(cls):
+        class CustomState(type("CustomState", args, {}), cls.state_cls):
             """ The decorated State. It is based on the State class used by the decorated Machine. """
+
             pass
 
-        method_list = sum([c.dynamic_methods for c in inspect.getmro(CustomState) if hasattr(c, 'dynamic_methods')], [])
+        method_list = sum(
+            [
+                c.dynamic_methods
+                for c in inspect.getmro(CustomState)
+                if hasattr(c, "dynamic_methods")
+            ],
+            [],
+        )
         CustomState.dynamic_methods = list(set(method_list))
         cls.state_cls = CustomState
         return cls
+
     return _class_decorator
 
 
 class VolatileObject(object):
     """ Empty Python object which can be used to assign attributes to."""
+
     pass

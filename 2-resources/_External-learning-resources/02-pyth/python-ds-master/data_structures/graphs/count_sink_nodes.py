@@ -10,16 +10,14 @@ Simply subtract the vertices and len(graph)
 
 from collections import defaultdict
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def count_sink_nodes(self):
         return self.vertices - len(self.graph)

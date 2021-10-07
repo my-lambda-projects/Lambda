@@ -4,5 +4,5 @@
 # valid = properly opened and closed
 
 # EXAMPLE
-# INPUT:   3    
+# INPUT:   3
 # OUTPUT:  ((())), (())(), (())(), ()(()), ()()()

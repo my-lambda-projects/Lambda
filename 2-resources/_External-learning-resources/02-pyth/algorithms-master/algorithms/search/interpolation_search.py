@@ -38,17 +38,18 @@ def interpolation_search(array: List[int], search_key: int) -> int:
 
     while (low <= high) and (array[low] <= search_key <= array[high]):
         # calculate the search position
-        pos = low + int(((search_key - array[low]) *
-                         (high - low) / (array[high] - array[low])))
+        pos = low + int(
+            ((search_key - array[low]) * (high - low) / (array[high] - array[low]))
+        )
 
-        # search_key is found 
+        # search_key is found
         if array[pos] == search_key:
             return pos
 
         # if search_key is larger, search_key is in upper part
         if array[pos] < search_key:
             low = pos + 1
-            
+
         # if search_key is smaller, search_key is in lower part
         else:
             high = pos - 1
@@ -58,4 +59,5 @@ def interpolation_search(array: List[int], search_key: int) -> int:
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

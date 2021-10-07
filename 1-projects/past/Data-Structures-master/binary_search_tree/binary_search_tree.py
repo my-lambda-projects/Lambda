@@ -9,6 +9,8 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -60,6 +62,7 @@ class BSTNode:
     def post_order_dft(self):
         pass
 
+
 """
 This code is necessary for testing the `print` methods
 """
@@ -82,4 +85,4 @@ bst.pre_order_dft()
 print("in order")
 bst.in_order_dft()
 print("post order")
-bst.post_order_dft()  
+bst.post_order_dft()

@@ -6,10 +6,12 @@ class VisitorTestCase(TestCase):
     """
     Unit testing class for the Visitor class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
         """
+
         class Node(object):
             pass
 
@@ -23,12 +25,11 @@ class VisitorTestCase(TestCase):
             pass
 
         class NodeVisitor(Visitor):
-
             def generic_visit(self, node, *args, **kwargs):
-                return 'generic_visit ' + node.__class__.__name__
+                return "generic_visit " + node.__class__.__name__
 
             def visit_b(self, node, *args, **kwargs):
-                return 'visit_b ' + node.__class__.__name__
+                return "visit_b " + node.__class__.__name__
 
         self.a = A()
         self.b = B()
@@ -41,7 +42,7 @@ class VisitorTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        self.assertEquals('generic_visit A', self.node_visitor.visit(self.a))
+        self.assertEquals("generic_visit A", self.node_visitor.visit(self.a))
 
     def test_non_generic_visit(self):
         """
@@ -49,7 +50,7 @@ class VisitorTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        self.assertEquals('visit_b B', self.node_visitor.visit(self.b))
+        self.assertEquals("visit_b B", self.node_visitor.visit(self.b))
 
     def test_inheritance_visit(self):
         """
@@ -57,13 +58,14 @@ class VisitorTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        self.assertEquals('visit_b C', self.node_visitor.visit(self.c))
+        self.assertEquals("visit_b C", self.node_visitor.visit(self.c))
 
 
 class VisiteeTestCase(TestCase):
     """
     Unit testing class for the Visitee class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
@@ -83,10 +85,10 @@ class VisiteeTestCase(TestCase):
 
         class NodeVisitor(Visitor):
             def generic_visit(self, node, *args, **kwargs):
-                return 'generic_visit ' + node.__class__.__name__
+                return "generic_visit " + node.__class__.__name__
 
             def visit_b(self, node, *args, **kwargs):
-                return 'visit_b ' + node.__class__.__name__
+                return "visit_b " + node.__class__.__name__
 
         self.a = A()
         self.b = B()
@@ -99,6 +101,6 @@ class VisiteeTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        self.assertEquals('generic_visit A', self.a.accept(self.visitor))
-        self.assertEquals('visit_b B', self.b.accept(self.visitor))
-        self.assertEquals('visit_b C', self.c.accept(self.visitor))
+        self.assertEquals("generic_visit A", self.a.accept(self.visitor))
+        self.assertEquals("visit_b B", self.b.accept(self.visitor))
+        self.assertEquals("visit_b C", self.c.accept(self.visitor))

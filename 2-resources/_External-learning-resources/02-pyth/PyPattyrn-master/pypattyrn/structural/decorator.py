@@ -9,6 +9,7 @@ class Decorator(object, metaclass=ABCMeta):
     - External Usage Documentation: U{https://github.com/tylerlaberge/PyPattyrn#decorator-pattern}
     - External Decorator Pattern documentation: U{https://en.wikipedia.org/wiki/Decorator_pattern}
     """
+
     def __get__(self, instance, owner):
         """
         Override __get__ in order to get the instance of a bound of method call.
@@ -30,6 +31,7 @@ class DecoratorSimple(Decorator, metaclass=ABCMeta):
     - External Usage Documentation: U{https://github.com/tylerlaberge/PyPattyrn#decorator-pattern}
     - External Decorator Pattern documentation: U{https://en.wikipedia.org/wiki/Decorator_pattern}
     """
+
     def __init__(self, func):
         """
         Initialize a new DecoratorSimple instance.
@@ -46,6 +48,7 @@ class DecoratorComplex(Decorator, metaclass=ABCMeta):
     - External Usage Documentation: U{https://github.com/tylerlaberge/PyPattyrn#decorator-pattern}
     - External Decorator Pattern documentation: U{https://en.wikipedia.org/wiki/Decorator_pattern}
     """
+
     @abstractmethod
     def __init__(self, *args, **kwargs):
         """
@@ -76,10 +79,12 @@ class CallWrapper(DecoratorSimple):
     - External Usage Documentation: U{https://github.com/tylerlaberge/PyPattyrn#decorator-pattern}
     - External Decorator Pattern documentation: U{https://en.wikipedia.org/wiki/Decorator_pattern}
     """
+
     def __call__(self, instance, func):
         """
         Wrap a concrete DecoratorComplex __call__ method.
         """
+
         def wrapped(*args, **kwargs):
             return self.func(instance, func, *args, **kwargs)
 

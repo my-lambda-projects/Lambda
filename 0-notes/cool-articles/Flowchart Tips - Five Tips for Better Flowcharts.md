@@ -110,10 +110,8 @@ The key to a good business process map, as this example shows, is that it has a 
 
 ![Revised purchase order process](https://wcs.smartdraw.com/flowchart/img/revised-purchase-order-approval.png?bn=15100111787)
 
-Applying Good Design Standards in Your Flowchart
-------------------------------------------------
+## Applying Good Design Standards in Your Flowchart
 
 Always remember that the priority is to make your flowchart diagram easy for the user to understand. Applying these basic design tips will help you meet that goal. A good flowchart software program will have automatic drawing features that let you create this type of diagram effortlessly.
-
 
 [Source](https://www.smartdraw.com/flowchart/flowchart-tips.htm)

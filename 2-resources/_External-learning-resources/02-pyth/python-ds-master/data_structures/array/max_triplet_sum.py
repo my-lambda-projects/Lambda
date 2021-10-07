@@ -1,12 +1,13 @@
 import sys
 
+
 def max_sum(arr):
     first = second = third = -sys.maxsize
 
     for i in arr:
         if i > first:
             third = second
-            second = first 
+            second = first
             first = i
         elif i > second:
             third = second
@@ -17,7 +18,6 @@ def max_sum(arr):
     return first + second + third
 
 
-arr = [1,3,6,3,6,8,3,3,7,9,4,-1,-1]
+arr = [1, 3, 6, 3, 6, 8, 3, 3, 7, 9, 4, -1, -1]
 
 print(max_sum(arr))
-

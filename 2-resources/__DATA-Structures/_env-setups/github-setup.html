@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>github-setup</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="getting-started-with-git">Getting Started with git</h1>
+    <h3 id="what-is-git">What is git?</h3>
+    <blockquote>
+      <p>
+        Git is a free and open source distributed version control system
+        designed to handle everything from small to very large projects with
+        speed and efficiency.
+      </p>
+    </blockquote>
+    <p>
+      git is a software program much like <em>MS Word</em> or
+      <em>Google Chrome</em> but it is part of a class of programs known as
+      <strong>cli tools</strong>. This program does not have a UI like most
+      programs we are familiar with but instead is accessible primarily through
+      our <strong>command line</strong>/<strong>terminal</strong>.
+    </p>
+    <p>
+      Being accessible primarily only through the
+      <strong>command line</strong>/<strong>terminal</strong> sounds like a huge
+      restriction but it allows us as developers to use it for what it’s good at
+      and for it to then quickly go away. So what does git do? Well it is a
+      <em>Version Control System</em> or <strong>VCS</strong>. It keeps track of
+      a set of files over time.
+    </p>
+    <p>
+      Each time changes are wanting to get recorded, they are wrapped in what we
+      call a ‘commit’ and that commit is saved to the repo as a snapshot of the
+      files at that time. The tracking and reconciling abilities that git has to
+      handle conflicts makes git an effective tool for many developers to work
+      on the same codebase at the same time as well as to record the history of
+      a project in the case an issue is introduced.
+    </p>
+    <h3 id="what-is-github">What is GitHub?</h3>
+    <p>
+      Github is a company that provides hosting for git repos. It works together
+      with the git cli tools to manage the codebase by making or deleting
+      branches, creating pull requests, and sharing the git project with other
+      developers.
+    </p>
+    <hr />
+    <h2 id="installing-git">Installing git</h2>
+    <h3 id="windows">Windows</h3>
+    <p>
+      If you have WSL already setup and are using an Ubuntu distribution, you
+      already have git within linux! If you are using a different distribution
+      you may need to manually install git.
+    </p>
+    <p>
+      While we don’t need git installed in Windows, we do want to have the
+      git-credential-manager-core installed. It comes bundled with git so we can
+      easily install it in Windows by using the installer found
+      <a href="https://git-scm.com/download/win">here</a>.
+    </p>
+    <p>
+      Once you’ve downloaded one of the “Git for Windows Setup” distributions
+      (either 32-bit or more likely 64-bit) you can launch the installer and
+      accept all the defaults.
+    </p>
+    <p>
+      Now that git-credential-manager-core is installed, we can restart our
+      terminal and continue on working through this guide.
+    </p>
+    <h3 id="mac">Mac</h3>
+    <p>
+      Mac comes with some tools by default. git is one that we want to make sure
+      is up to date so we can run the following in our terminal.
+    </p>
+    <pre class="shell"><code>xcode-select --install</code></pre>
+    <h2 id="configuring-git">Configuring git</h2>
+    <p>
+      Once you have installed git we want to configure the information that gets
+      logged in each commit that we make. We want to update our default (global)
+      credentials that git uses. You could overwrite these temporarily per local
+      repo but for our purposes, that won’t be necessary, though it is helpful
+      to know that is an option for us.
+    </p>
+    <p>In your terminal (on Mac or WSL), run</p>
+    <pre
+      class="shell"
+    ><code>git config --global user.name &quot;Your Name&quot; 
+git config --global user.email &quot;Your Email&quot;</code></pre>
+    <h2 id="configuring-github">Configuring github</h2>
+    <p>
+      Like previously mentioned, Github provides us a mechanism to share code
+      with other developers. Because of the nature of code, there needs to be a
+      way to authenticate to make sure that someone is authorized to fetch or
+      contribute new code.
+    </p>
+    <p>
+      Thankfully for us, git handles this authentication flow automatically but
+      for Github, we can’t use our Github accounts password. Instead, we can use
+      a Personal Access Token as a password to authenticate to Github and save
+      it in a password manager of sorts so we don’t have to use the PAT every
+      command that requires auth.
+    </p>
+    <h3 id="secrets-manager">Secrets Manager</h3>
+    <p>
+      Before we get a PAT from Github and use it for auth - we should setup our
+      Secrets Manager.
+    </p>
+    <h4 id="windows-1">Windows</h4>
+    <p>
+      WSL doesn’t have a password manager by default in most distributions so we
+      would need to install one if we don’t want our token saved in plain text
+      or only temporarily in memory. Thankfully, we can actually tell git to use
+      Windows Credential Manager. Just run the following command in WSL:
+    </p>
+    <pre
+      class="shell"
+    ><code>git config --global credential.helper &quot;/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe&quot;</code></pre>
+    <p>
+      We now have WSL trying to use the git-credential-manager-core to
+      facilitate our credentials management.
+    </p>
+    <h4 id="mac-1">Mac</h4>
+    <p>
+      MacOS has a built in password/secret manager called keychain. We can tell
+      git to use keychain with the following line in our terminal:
+    </p>
+    <pre
+      class="shell"
+    ><code>git config --global credential.helper osxkeychain</code></pre>
+    <h3 id="personal-access-token">Personal Access Token</h3>
+    <p>
+      Once our secret manager is setup, we want to
+      <strong>restart our terminal/WSL Shell</strong>. Once restarted, we want
+      to do two things. Generate a token from Github, and use that as our
+      authentication for a privileged command.
+    </p>
+    <ol type="1">
+      <li>
+        <p>
+          To get a new token, navigate to
+          <a href="https://github.com/settings/tokens"
+            >Personal access tokens</a
+          >
+          in Github settings. You can navigate there yourself by going to
+          <code
+            >settings &gt; Developer settings &gt; Personal Access Tokens</code
+          >
+        </p>
+      </li>
+      <li>
+        <p>Once here, click <strong>Generate new token</strong>.</p>
+      </li>
+      <li>
+        <p>
+          Give your token a descriptive name. I name it for what device I will
+          use the token from. This way, all of my computers have their own
+          unique token and if I ever need to, I can revoke a token. We also want
+          to use this menu to set when our token expires and give it the allowed
+          permissions. For out purposes we want to at least have all the repo
+          permissions.
+        </p>
+      </li>
+    </ol>
+    <blockquote>
+      <p>
+        Once we have our token ready to generate, we want to try running a
+        privileged command in git so we get a password prompt. Once we click
+        <strong>Generate token</strong> at the bottom of the
+        <em>new token form</em> we will only be able to see the token once.
+      </p>
+    </blockquote>
+    <ol start="4" type="1">
+      <li>
+        Now that we have our token, we can use it when git prompts us for a
+        password. If you are on Windows, you won’t receive a password prompt but
+        instead you will receive a pop-up that asks for you Personal Access
+        Token. Because we previously configured our password/secret manager, our
+        input will be saved for us. This way, we don’t need to keep track of our
+        PAT.
+      </li>
+    </ol>
+  </body>
+</html>

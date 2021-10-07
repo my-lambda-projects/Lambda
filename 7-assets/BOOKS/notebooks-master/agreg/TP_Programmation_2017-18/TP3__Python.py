@@ -12,6 +12,7 @@
 
 
 import sys
+
 print(sys.version)
 
 
@@ -24,13 +25,14 @@ print(sys.version)
 
 # Comme au TP1 et TP2, plutôt que d'utiliser des classes, je préfère utiliser des dictionnaires avec une seule clé et une seule valeur pour représenter des structures arborescentes.
 # La valeur est ici `None` s'il n'y a rien à stocker (pour une feuille `Leaf` par exemple), ou un tuple `k, v, l, r` pour un `Node`.
-# 
+#
 # Cela simule la syntaxe de OCaml pour la création de valeurs, et le *pattern matching* (filtrage) est simulé par des `if/elif/else` testant la clé.
 
 # In[222]:
 
 
 Leaf = {"Leaf": None}
+
 
 def Node(k: int, v: str, l: dict, r: dict) -> dict:
     """ Crée un arbre binaire avec un noeud de clé k, de valeur v, de fils gauche l et de fils droit r."""
@@ -43,7 +45,7 @@ def Node(k: int, v: str, l: dict, r: dict) -> dict:
 # In[223]:
 
 
-class NodeClass():
+class NodeClass:
     def __init__(self, k: int, v: str, l, r):
         self.k = k
         self.v = v
@@ -53,7 +55,7 @@ class NodeClass():
 
 # ##### Note sur le typage en Python
 # En Python, avec le module [`typing`](https://docs.python.org/3/library/typing.html), on peut définir des alias de types (non récursifs), comme en OCaml.
-# 
+#
 # On peut ensuite ajouter *indications* de typage, à des définitions de variables ou de fonctions.
 
 # In[17]:
@@ -75,7 +77,9 @@ print(exemple_arbre_binaire1)
 exemple_arbre_binaire2: Abr = Node(2, "b", exemple_arbre_binaire1, Leaf)
 print(exemple_arbre_binaire2)
 
-exemple_arbre_binaire3: Abr = Node(3, "c", exemple_arbre_binaire1, exemple_arbre_binaire2)
+exemple_arbre_binaire3: Abr = Node(
+    3, "c", exemple_arbre_binaire1, exemple_arbre_binaire2
+)
 print(exemple_arbre_binaire3)
 
 
@@ -105,7 +109,7 @@ pprint(exemple_arbre_binaire3)
 # type 'a abr =
 #     | Leaf
 #     | Node of 'a anode
-# 
+#
 # and 'b anode = {
 #     key   : int;
 #     value : 'b;
@@ -129,7 +133,7 @@ def nb_keys(a: Abr) -> int:
     elif "Node" in a:
         _, _, l, r = a["Node"]
         return 1 + nb_keys(l) + nb_keys(r)
-    else:  # ce cas n'arrive jamais
+    else:  #  ce cas n'arrive jamais
         return -1
 
 
@@ -190,7 +194,7 @@ def list_keys(a: Abr) -> List[str]:
     elif "Node" in a:
         v, k, l, r = a["Node"]
         return [k] + list_keys(l) + list_keys(r)
-    else:  # ce cas n'arrive jamais
+    else:  #  ce cas n'arrive jamais
         return []
 
 
@@ -229,7 +233,7 @@ def trouve(a: Abr, x: int) -> Union[int, None]:
         return None
     elif "Node" in a:
         k, v, l, r = a["Node"]
-        if k == x:   # on a trouvé la valeur v associée à la clé k = x
+        if k == x:  # on a trouvé la valeur v associée à la clé k = x
             return v
         elif x < k:
             # on cherche dans le sous arbre de gauche si la valeur cherchée
@@ -239,7 +243,10 @@ def trouve(a: Abr, x: int) -> Union[int, None]:
             # sinon on cherche dans le sous arbre de droite
             return trouve(r, x)
         # ce dernier cas ne doit pas arriver
-        else: raise ValueError("Incapable de trouver {} dans l'arbre binaire {}".format(x, a))
+        else:
+            raise ValueError(
+                "Incapable de trouver {} dans l'arbre binaire {}".format(x, a)
+            )
 
 
 # In[265]:
@@ -273,19 +280,24 @@ print("on trouve la valeur associée =", trouve(exemple_arbre_binaire3, 42))
 # In[268]:
 
 
-def trouve_avec_erreur(a: Abr, x: int) -> int:  # notez que le type de retour est juste un entier désormais
+def trouve_avec_erreur(
+    a: Abr, x: int
+) -> int:  # notez que le type de retour est juste un entier désormais
     if "Leaf" in a:
         raise ValueError("Incapable de trouver {} dans l'arbre binaire {}".format(x, a))
     elif "Node" in a:
         k, _, l, r = a["Node"]
-        if k == x:   # on a trouvé la valeur v associée à la clé k = x
+        if k == x:  # on a trouvé la valeur v associée à la clé k = x
             return v
         elif x < k:  # on cherche dans le sous arbre de gauche
             return trouve_avec_erreur(l, x)
         elif x > k:  # on cherche dans le sous arbre de droite
             return trouve_avec_erreur(r, x)
         # ce dernier cas ne doit pas arriver
-        else: raise ValueError("Incapable de trouver {} dans l'arbre binaire {}".format(x, a))
+        else:
+            raise ValueError(
+                "Incapable de trouver {} dans l'arbre binaire {}".format(x, a)
+            )
 
 
 # In[269]:
@@ -304,19 +316,21 @@ print("on trouve la valeur associée =", trouve_avec_erreur(exemple_arbre_binair
 
 
 def insertion(a: Abr, k: int, v: str) -> Abr:
-    if "Leaf" in a:  # a arbre vide, on crée un noeud ayant deux fils vides
+    if "Leaf" in a:  #  a arbre vide, on crée un noeud ayant deux fils vides
         return Node(k, v, Leaf, Leaf)
     elif "Node" in a:
         ka, va, l, r = a["Node"]
-        if k == ka:   # on ne change pas les fils
-            return Node(k, v, l, r) # change va -> v
+        if k == ka:  # on ne change pas les fils
+            return Node(k, v, l, r)  # change va -> v
         elif k < ka:  # on change le fils gauche
             return Node(ka, va, insertion(l, k, v), r)
         elif k > ka:  # on change le fils droit
             return Node(ka, va, l, insertion(r, k, v))
         # ce dernier cas ne doit pas arriver
         else:
-            raise ValueError("Incapable d'insérer {}:{} dans l'arbre binaire {}".format(k, v, a))
+            raise ValueError(
+                "Incapable d'insérer {}:{} dans l'arbre binaire {}".format(k, v, a)
+            )
 
 
 # Quelques tests :
@@ -325,21 +339,30 @@ def insertion(a: Abr, k: int, v: str) -> Abr:
 
 
 pprint(insertion(insertion(Leaf, 2, "deux"), 1, "un"))
-print("Valeur trouvée pour la clé 1 =", trouve(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 1))
+print(
+    "Valeur trouvée pour la clé 1 =",
+    trouve(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 1),
+)
 
 
 # In[272]:
 
 
 pprint(insertion(insertion(Leaf, 2, "deux"), 1, "un"))
-print("Valeur trouvée pour la clé 2 =", trouve(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 2))
+print(
+    "Valeur trouvée pour la clé 2 =",
+    trouve(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 2),
+)
 
 
 # In[273]:
 
 
 pprint(insertion(insertion(Leaf, 2, "deux"), 1, "un"))
-print("Valeur trouvée pour la clé 3 =", trouve(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 3))
+print(
+    "Valeur trouvée pour la clé 3 =",
+    trouve(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 3),
+)
 
 
 # ## Exercice 4 : `suppression`
@@ -355,12 +378,14 @@ def minimum(a: Abr) -> Tuple[int, str]:
         raise ValueError("Arbre vide")
     elif "Node" in a:
         k, v, l, r = a["Node"]
-        if "Leaf" in l: # sous-arbre gauche vide : le minimum est le noeud actuel
+        if "Leaf" in l:  # sous-arbre gauche vide : le minimum est le noeud actuel
             return (k, v)
         else:  # sinon, le minimum de l'arbre actuel est à chercher dans le sous-arbre gauche
             return minimum(l)
     else:
-        raise ValueError("Incapable de trouver le minimum dans l'arbre binaire {}".format(a))
+        raise ValueError(
+            "Incapable de trouver le minimum dans l'arbre binaire {}".format(a)
+        )
 
 
 # On pourrait être plus élégant que ces tests `"Leaf" in a` et `"Node" in a`, et utiliser deux fonctions `is_leaf(a)` et `is_node(a)`. Cela permettrait de cacher un peu plus les détails d'implémentations.
@@ -371,6 +396,7 @@ def minimum(a: Abr) -> Tuple[int, str]:
 def is_leaf(a: Abr) -> bool:
     return "Leaf" in a  # ou Leaf == a
 
+
 def is_node(a: Abr) -> bool:
     return "Node" in a
 
@@ -378,13 +404,13 @@ def is_node(a: Abr) -> bool:
 # In[276]:
 
 
-minimum(insertion (insertion(Leaf, 1, "un"), 2, "deux"))
+minimum(insertion(insertion(Leaf, 1, "un"), 2, "deux"))
 
 
 # In[277]:
 
 
-minimum(insertion (insertion(Leaf, 2, "deux"), 1, "un"))
+minimum(insertion(insertion(Leaf, 2, "deux"), 1, "un"))
 
 
 # La suppression se fait dans le cas où la clé `x` est trouvée :
@@ -411,8 +437,10 @@ def suppression(a: Abr, x: int) -> Abr:
             return Node(k, v, suppression(l, k), r)
         elif x > k:  # à chercher à droite
             return Node(k, v, l, suppression(r, k))
-        else: # n'arrive jamais
-            raise ValueError("Incapable de supprimer {} dans l'arbre binaire {}".format(x, a))
+        else:  # n'arrive jamais
+            raise ValueError(
+                "Incapable de supprimer {} dans l'arbre binaire {}".format(x, a)
+            )
 
 
 # Deux exemples :
@@ -420,14 +448,14 @@ def suppression(a: Abr, x: int) -> Abr:
 # In[279]:
 
 
-print(trouve (suppression (insertion (insertion(Leaf, 2, "deux"), 1, "un"), 1), 1))
-print(trouve (suppression (insertion (insertion(Leaf, 2, "deux"), 1, "un"), 1), 2))
+print(trouve(suppression(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 1), 1))
+print(trouve(suppression(insertion(insertion(Leaf, 2, "deux"), 1, "un"), 1), 2))
 
 
 # ## Exercice 5 : `fusion`
 
 # `decoupe a k` sépare l'arbre `a` en deux arbres `(a1, a2)` tels que l'union des clés-valeurs de `a1` et `a2` est égale à l'ensemble des clés-valeurs de `a` (privé de l'association liée à `k` si elle était présente dans `a`).
-# 
+#
 # - Les clés de `a1` sont `<` à `k`.
 # - Les clés de `a2` sont `>` à `k`.
 
@@ -455,9 +483,11 @@ def decoupe(a: Abr, x: int) -> Tuple[Abr, Abr]:
         elif x > k:  # à chercher à droite
             right1, right2 = decoupe(r, x)
             return (Node(k, v, l, right1), right2)
-        else: # n'arrive jamais
-            raise ValueError("Incapable de découper dans l'arbre binaire {}".format(x, a))
-    else: # n'arrive jamais
+        else:  # n'arrive jamais
+            raise ValueError(
+                "Incapable de découper dans l'arbre binaire {}".format(x, a)
+            )
+    else:  # n'arrive jamais
         raise ValueError("Incapable de découper dans l'arbre binaire {}".format(x, a))
 
 
@@ -476,51 +506,53 @@ def fusion(a1: Abr, a2: Abr) -> Abr:
         k, v, l, r = a1["Node"]
         left2, right2 = decoupe(a2, k)
         return Node(k, v, fusion(l, left2), fusion(r, right2))
-    else: # n'arrive jamais
-        raise ValueError("Incapable de fusionner les arbres binaires {} et {}".format(a1, a2))
+    else:  # n'arrive jamais
+        raise ValueError(
+            "Incapable de fusionner les arbres binaires {} et {}".format(a1, a2)
+        )
 
 
 # In[283]:
 
 
-a1 = insertion (insertion(Leaf, 2, "deux"), 1, "un")
-a2 = insertion (insertion(Leaf, 2, "two"), 3, "three")
+a1 = insertion(insertion(Leaf, 2, "deux"), 1, "un")
+a2 = insertion(insertion(Leaf, 2, "two"), 3, "three")
 
-print(trouve (fusion(a1, a2), 1))  # "un" depuis a1
-print(trouve (fusion(a1, a2), 2))  # "deux" depuis a1 et pas "two" from a2
-print(trouve (fusion(a1, a2), 3))  # "three" from a2
-print(trouve (fusion(a1, a2), 4))  # None : pas trouvé !
+print(trouve(fusion(a1, a2), 1))  # "un" depuis a1
+print(trouve(fusion(a1, a2), 2))  # "deux" depuis a1 et pas "two" from a2
+print(trouve(fusion(a1, a2), 3))  # "three" from a2
+print(trouve(fusion(a1, a2), 4))  # None : pas trouvé !
 
 
 # ## Exercice 6
 # ### Avantages et les inconvénients des ABR
-# 
+#
 # > Discussions durant la séance...
-# 
+#
 # ### Autres structures de données (clef, valeur)
-# 
+#
 # - Les **tables de hashage**
 # - autres idées ? envoyez moi un mail : lilian.besson at ens-rennes.fr ou [ouvrez un ticket sur GitHub](https://github.com/Naereen/notebooks/issues/new)
 
 # ----
 # # Tas binaire min (ou max)
-# 
+#
 # Un tas binaire est un arbre binaire dans lequel tous les étages sont remplis sauf éventuellement le dernier qui doit être bien tassé à gauche.
-# 
+#
 # Un tas binaire *min* signifie en plus que l'arbre est tournoi min c'est-à-dire que pour tout sous-arbre, la valeur de la racine est plus petite que les valeurs de tous les autres noeuds.
-# 
+#
 # Un tas binaire *max* vérifie la même propriété mais la valeur de la racine est plus grande que les valeurs de tous les autres noeuds, pour tout sous-arbre.
 # On les appelle également files de priorité (min, max).
-# 
+#
 # La structure de tas min intervient dans de nombreux algorithmes comme ceux de Dijkstra et de Prim mais également dans les systèmes d'exploitation (ordonnancement des tâches et des processus).
-# 
+#
 # Contrairement aux arbres binaires de recherche qui stockent des couples (clef, valeur), ici on stockera des couples (rang, valeur).
 
 # ## Solution concise : tas binaire avec des arbres
-# 
+#
 # Pour commencer, je préfère donner une première implémentation qui ne sera pas la plus efficace en mémoire, mais la plus simple à comprendre.
 # Les tas binaires peuvent être représentés avec des arbres binaires, exactement comme dans l'exercice précédent.
-# 
+#
 # > Référence: Chris Okasaki, "*Purely Functional Data Structures*".
 
 # On utilise la même représentation que précédemment : un tas binaire est soit vide (`E`) soit un noeud ayant exactement deux fils (qui sont des tas binaires, éventuellement vides).
@@ -741,7 +773,7 @@ def extract_min(a: TasBinaire) -> Tuple[int, TasBinaire]:
 
 
 # Et maintenant pour le tri par tas :
-# 
+#
 # 1. On crée un tas vide,
 # 2. Dans lequel on insère les valeurs du tableau à trier, une par une,
 # 3. Puis on déconstruit le tas en extrayant le minimum, un par un, et en les stockant dans un tableau,
@@ -765,11 +797,11 @@ def triParTas(a: List[int]) -> List[int]:
 
 
 # Complexité :
-# 
+#
 # 1. L'étape 1. est en $\mathcal{O}(1)$,
 # 2. L'étape 2. est en $\mathcal{O}(\log n)$ pour chacune des $n$ valeurs,
 # 3. L'étape 3. est aussi en $\mathcal{O}(\log n)$ pour chacune des $n$ valeurs,
-# 
+#
 # $\implies$ L'algorithme de tri par tas est en $\mathcal{O}(n \log n)$ en temps et en $\mathcal{O}(n)$ en mémoire externe.
 
 # Un premier exemple :
@@ -805,61 +837,69 @@ import numpy as np
 
 
 def randomTableau(n: int) -> List[int]:
-    return list(np.random.randint(-n*10, n*10, n))
+    return list(np.random.randint(-n * 10, n * 10, n))
 
 
 # In[212]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*100))')
+get_ipython().run_line_magic(
+    "time", "isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*100))"
+)
 
 
 # In[213]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas(randomTableau(10*100)))')
+get_ipython().run_line_magic("time", "isSorted(triParTas(randomTableau(10*100)))")
 
 
 # In[214]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*1000))')
+get_ipython().run_line_magic(
+    "time", "isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*1000))"
+)
 
 
 # In[215]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas(randomTableau(10*1000)))')
+get_ipython().run_line_magic("time", "isSorted(triParTas(randomTableau(10*1000)))")
 
 
 # In[216]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*10000))')
+get_ipython().run_line_magic(
+    "time", "isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*10000))"
+)
 
 
 # In[217]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas(randomTableau(10*10000)))')
+get_ipython().run_line_magic("time", "isSorted(triParTas(randomTableau(10*10000)))")
 
 
 # In[218]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(sorted(randomTableau(10*10000)))')
+get_ipython().run_line_magic("time", "isSorted(sorted(randomTableau(10*10000)))")
 
 
 # In[219]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*100000))')
+get_ipython().run_line_magic(
+    "time", "isSorted(triParTas([10, 3, 4, 1, 2, 7, 8, 5, 9, 6]*100000))"
+)
 
 
 # In[220]:
 
 
-get_ipython().run_line_magic('time', 'isSorted(triParTas(randomTableau(10*100000)))')
+get_ipython().run_line_magic("time", "isSorted(triParTas(randomTableau(10*100000)))")
 
 
 # On observe que la fonction implémentée a une complexité sur-linéaire, et sous-quadratique. En affichant plus de valeurs, on pourrait reconnaître un profil pseudo-linéaire (ie, $\Theta(n \log(n))$).
@@ -869,16 +909,14 @@ get_ipython().run_line_magic('time', 'isSorted(triParTas(randomTableau(10*100000
 
 import numpy as np
 import timeit
+
 valeurs_n = np.logspace(2, 6, num=30, dtype=int)
 temps = []
 for n in valeurs_n:
     code = "triParTas(randomTableau({}))".format(n)
     essais = 100 if n < 1e4 else 10
     print("- Chronométrons le code", code)
-    temps_n = timeit.timeit(
-        code,
-        number=essais, globals=globals()
-    )
+    temps_n = timeit.timeit(code, number=essais, globals=globals())
     print("qui a pris un temps moyen de", temps_n, "secondes pour", essais, "essais.")
     temps.append(temps_n)
 
@@ -902,9 +940,9 @@ plt.show()
 
 
 # Cette première courbe semble linéaire, ou quasi-linéaire.
-# 
+#
 # Pour vérifier que le temps de calcul a vraiment un profil ressemblant à une courbe $cst * n * \log(n)$, une méthode rapide et simple est la suivante :
-# 
+#
 # - on affiche $f(n) / n$ (ici en <span style="color: red;">rouge o-</span>), en espérant que son profil ressemble bien à un $cst * log(n)$,
 # - on calcul cst comme la dernière valeur de $f(n) / (n * log(n)$,
 # - et on affiche $\log(n)$ (ici en <span style="color: blue;">bleu +:</span>).
@@ -913,7 +951,12 @@ plt.show()
 
 
 plt.figure(figsize=(10, 7))
-plt.plot(valeurs_n[15:], np.array(temps[15:]) / valeurs_n[15:], "ro-", label="Temps de calcul / n")
+plt.plot(
+    valeurs_n[15:],
+    np.array(temps[15:]) / valeurs_n[15:],
+    "ro-",
+    label="Temps de calcul / n",
+)
 cst = temps[-1] / valeurs_n[-1]
 cst = cst / np.log(valeurs_n[-1])
 plt.plot(valeurs_n[15:], np.log(valeurs_n[15:]) * cst, "b+:", label="cst * log(n)")
@@ -935,14 +978,14 @@ plt.show()
 
 # Ici je donne une autre implémentation, généralement celle présentée dans les ouvrages de références en algorithmique.
 # Plutôt que d'utiliser une structure arborescente explicite (avec des pointeurs vers des fils gauche et droit et un type récursif), on peut utiliser utiliser un tableau de taille $n$ pour représenter en place les $n$ éléments du tas min.
-# 
+#
 # Le fils gauche de la racine i (eg si on indice à partir de i=1) sera à l'indice $2*i$ (eg T[2]) et le fils droit de la racine i (eg i=1) sera à l'indice $2*i+1$ (eg T[3]).
-# 
+#
 # La référence pour cette implémentation vient du Cormen, des éléments sont aussi dans Beauquier & Bernstel, et sur Internet [sur la page Wikipédia](https://fr.wikipedia.org/wiki/Tas_binaire) des tas binaires.
-# 
+#
 # - Hypothèse : on ne stocke que des entiers positifs, et le tableau, `a` contiendra `-1` pour un élément non utilisé.
 # - On doit retenir le nombre `n` d'éléments dans l'arbre, qui peut être modifié.
-# 
+#
 # On peut donc utiliser une petite classe avec deux champs `n` et `a` :
 
 # In[343]:
@@ -950,7 +993,8 @@ plt.show()
 
 Arbre = List[int]
 
-class ArbreTournoi():
+
+class ArbreTournoi:
     def __init__(self, n: int, a: Arbre):
         self.n = n
         self.a = a
@@ -962,8 +1006,8 @@ class ArbreTournoi():
 # In[344]:
 
 
-arbre_test  = ArbreTournoi(7, [1,2,3,4,5,6,7])
-arbre_test2 = ArbreTournoi(6, [2,1,3,4,5,6,-1, -1])
+arbre_test = ArbreTournoi(7, [1, 2, 3, 4, 5, 6, 7])
+arbre_test2 = ArbreTournoi(6, [2, 1, 3, 4, 5, 6, -1, -1])
 
 
 # In[345]:
@@ -988,11 +1032,11 @@ def nb_element(an: ArbreTournoi) -> int:
 # In[347]:
 
 
-print(capacite (arbre_test))
-print(nb_element (arbre_test))
+print(capacite(arbre_test))
+print(nb_element(arbre_test))
 
 print(capacite(arbre_test2))
-print(nb_element (arbre_test2))
+print(nb_element(arbre_test2))
 
 
 # In[348]:
@@ -1057,16 +1101,20 @@ noeud(arbre_test, 0)
 
 
 def a_gauche(an: ArbreTournoi, i: int) -> bool:
-    return an.n > 2*i + 1
+    return an.n > 2 * i + 1
 
 
 # In[357]:
 
 
 def gauche(an: ArbreTournoi, i: int) -> Tuple[int, int]:
-    if 2*i + 1 >= an.n:
-        raise ValueError("Pas de fils gauche i = {}, 2*i+1 = {} and an.n = {}".format(i, (2*i+1), an.n))
-    return (2*i + 1, an.a[2*i + 1])
+    if 2 * i + 1 >= an.n:
+        raise ValueError(
+            "Pas de fils gauche i = {}, 2*i+1 = {} and an.n = {}".format(
+                i, (2 * i + 1), an.n
+            )
+        )
+    return (2 * i + 1, an.a[2 * i + 1])
 
 
 # In[358]:
@@ -1079,16 +1127,20 @@ gauche(arbre_test, 0)
 
 
 def a_droite(an: ArbreTournoi, i: int) -> bool:
-    return an.n > 2*i + 2
+    return an.n > 2 * i + 2
 
 
 # In[360]:
 
 
 def droite(an: ArbreTournoi, i: int) -> Tuple[int, int]:
-    if 2*i + 2 >= an.n:
-        raise ValueError("Pas de fils droit i = {}, 2i+2={} and an.n = {}".format(i, (2*i+2), an.n))
-    return (2*i + 2, an.a[2*i + 2])
+    if 2 * i + 2 >= an.n:
+        raise ValueError(
+            "Pas de fils droit i = {}, 2i+2={} and an.n = {}".format(
+                i, (2 * i + 2), an.n
+            )
+        )
+    return (2 * i + 2, an.a[2 * i + 2])
 
 
 # Une et deux descentes à droite, par exemple :
@@ -1152,6 +1204,7 @@ def est_tournoi(an: ArbreTournoi) -> bool:
             d, vd = droite(an, i)
             res = depuis(d)
         return res
+
     return depuis(0)
 
 
@@ -1194,11 +1247,11 @@ print(parent(arbre_test, 2))
 print(noeud(arbre_test, 4))
 print(parent(arbre_test, 4))
 print(gauche(arbre_test, 1))
-print(droite(arbre_test, 1)) # 4
+print(droite(arbre_test, 1))  # 4
 
 print(noeud(arbre_test, 5))
 print(parent(arbre_test, 5))
-print(gauche(arbre_test, 2)) # 5
+print(gauche(arbre_test, 2))  # 5
 print(droite(arbre_test, 2))
 
 
@@ -1230,7 +1283,7 @@ def echange(a: List[Any], i: int, j: int) -> None:
 
 def double_capacite(an: ArbreTournoi) -> ArbreTournoi:
     c = capacite(an)
-    a2 = [-1] * (2*c)  # [-1 for _ in range(2*c)]
+    a2 = [-1] * (2 * c)  # [-1 for _ in range(2*c)]
     for i in range(an.n):
         a2[i] = an.a[i]
     return ArbreTournoi(an.n, a2)
@@ -1260,9 +1313,9 @@ def insertion(an: ArbreTournoi, x: int) -> ArbreTournoi:
         an2 = double_capacite(an)
         return insertion(an2, x)
     else:
-        an2 = ArbreTournoi(n + 1, an.a[:]) # tableau[:] fait une copie
+        an2 = ArbreTournoi(n + 1, an.a[:])  # tableau[:] fait une copie
         an2.a[n] = x  # ajoute la valeur x à la fin
-        percolation_haute(an2, n) # percolation haute depuis la fin du tas
+        percolation_haute(an2, n)  # percolation haute depuis la fin du tas
         return an2
 
 
@@ -1374,8 +1427,10 @@ def extraire_min(an: ArbreTournoi) -> Tuple[int, ArbreTournoi]:
     an2 = ArbreTournoi(an.n, an.a[:])  # copie !
     if a_gauche(an2, 0):
         m = an2.a[0]  # racine
-        an2.n = an2.n - 1  # on enlève un élément
-        echange(an2.a, 0, an2.n)  # on place la racine à la fin, à un endroit désormais inutilisé
+        an2.n = an2.n - 1  #  on enlève un élément
+        echange(
+            an2.a, 0, an2.n
+        )  #  on place la racine à la fin, à un endroit désormais inutilisé
         an2.a[an2.n] = -1  # on place -1 la valeur par défaut, donc on efface
         percolation_basse(an2, 0)  # on redescend la nouvelle racine tant que possible
         return m, an2
@@ -1411,11 +1466,11 @@ print("m = {}, et a: n = {}, a = {}".format(m, a.n, a.a))
 
 # Remarquez comment le redimensionement du tableau n'arrive qu'à la fin.
 
-# 
+#
 # ## Exercice 14 : tri par tas
 
 # La meilleure façon de vérifier notre implémentation est d'implémenter le tri par tas :
-# 
+#
 # - on construit un tas depuis la liste de valeur,
 # - on extrait le minimum successivement.
 
@@ -1428,8 +1483,8 @@ def triParTas2(a: List[int]) -> List[int]:
     an = creation(a)  # tas contenant les valeurs de a, bien placées
     for i in range(n):
         m, an2 = extraire_min(an)
-        avide[i] = m  # minimum du tas an, placé en ième position
-        an = an2      # nouveau tas avec une valeur en moins
+        avide[i] = m  #  minimum du tas an, placé en ième position
+        an = an2  # nouveau tas avec une valeur en moins
     return avide
 
 
@@ -1481,7 +1536,11 @@ def makeset(uf: UnionFind, i: int) -> None:
     if uf[i] is None:
         uf[i] = i
     else:
-        raise ValueError("makeset avec uf = {} et i = {} : impossible d'ajouter i car déja présent".format(uf, i))
+        raise ValueError(
+            "makeset avec uf = {} et i = {} : impossible d'ajouter i car déja présent".format(
+                uf, i
+            )
+        )
 
 
 # L'union est assez rapide aussi :
@@ -1492,7 +1551,9 @@ def makeset(uf: UnionFind, i: int) -> None:
 def union(uf: UnionFind, i: int, j: int) -> None:
     n = len(uf)
     if uf[i] is None or uf[j] is None:
-        raise ValueErrorrror("Élement i = {} ou j = {} absent de l'UnionFind uf = {}".format(i, j, uf))
+        raise ValueErrorrror(
+            "Élement i = {} ou j = {} absent de l'UnionFind uf = {}".format(i, j, uf)
+        )
     for k in range(n):
         # tous les éléments dont le représentant est j vont avoir comme représentant i
         if uf[k] == j:
@@ -1519,7 +1580,7 @@ def find(uf: UnionFind, i: int) -> int:
 uf_test = create_uf(6)
 print("UnionFind uf vide = {}".format(uf_test))
 
-for i in range(0, 5+1):
+for i in range(0, 5 + 1):
     makeset(uf_test, i)
 print("UnionFind uf rempli par i=0..5 = {}".format(uf_test))
 
@@ -1575,7 +1636,9 @@ def makeset(uf: UnionFindForest, i: int) -> None:
     if uf[i] == aucun:
         uf[i] = racine  # i devient son propre représentant
     else:
-        raise ValueError("Élément i = {} déjà présent dans l'UnionFindForest uf = {}".format(i, uf))
+        raise ValueError(
+            "Élément i = {} déjà présent dans l'UnionFindForest uf = {}".format(i, uf)
+        )
 
 
 # La recherche est un peu plus compliquée et on propose une première optimisation, qui va servir à "aplatir" la forêt.
@@ -1586,7 +1649,9 @@ def makeset(uf: UnionFindForest, i: int) -> None:
 def find(uf: UnionFindForest, i: int) -> int:
     uf_i = uf[i]
     if uf[i] == aucun:
-        raise ValueError("Élément i = {} absent de l'UnionFindForest uf = {}".format(i, uf))
+        raise ValueError(
+            "Élément i = {} absent de l'UnionFindForest uf = {}".format(i, uf)
+        )
     elif uf[i] == racine:  # i est son propre représentant
         return i
     else:
@@ -1603,7 +1668,11 @@ def find(uf: UnionFindForest, i: int) -> int:
 
 def union(uf: UnionFindForest, i: int, j: int) -> None:
     if uf[i] == aucun or uf[j] == aucun:
-        raise ValueError("Élément i = {} ou j = {} absent de l'UnionFindForest uf = {}".format(i, j, uf))
+        raise ValueError(
+            "Élément i = {} ou j = {} absent de l'UnionFindForest uf = {}".format(
+                i, j, uf
+            )
+        )
     else:
         r_i = find(uf, i)
         uf[r_i] = j
@@ -1622,7 +1691,7 @@ def union(uf: UnionFindForest, i: int, j: int) -> None:
 uf_test = create_uf(6)
 print("UnionFindForest uf vide = {}".format(uf_test))
 
-for i in range(0, 5+1):
+for i in range(0, 5 + 1):
     makeset(uf_test, i)
 print("UnionFindForest uf rempli par i=0..5 = {}".format(uf_test))
 
@@ -1646,7 +1715,7 @@ print("find(uf_test, 3) = find(uf_test, 5) ? ", find(uf_test, 3) == find(uf_test
 # ## Exercice 17 : Bonus & discussions
 
 # En classe.
-# 
+#
 # Je recommande aussi la lecture de [ce document (en anglais)](http://jeffe.cs.illinois.edu/teaching/algorithms/notes/17-unionfind.pdf), si tout ça vous intéresse et si vous envisagez d'en faire un développement. Ce document contient notamment une analyse bien propre de la complexité amortie de l'opération Find pour l'algorithme optimisé, qui donne une complexité en $\mathcal{O}(\alpha(n))$ (pour $n$ valeurs dans la structure Union-Find, et si $\alpha$ est la fonction inverse d'Ackermann, cf. Theorem 4 page 9).
 
 # ## Bonus : algorithme de Kruskal
@@ -1657,6 +1726,7 @@ print("find(uf_test, 3) = find(uf_test, 5) ? ", find(uf_test, 3) == find(uf_test
 
 
 from typing import Optional
+
 Sommet = int
 Poids = int
 AreteMatrix = Optional[Poids]
@@ -1671,8 +1741,9 @@ GrapheList = List[List[Destination]]  # liste d'adjacence
 
 def taille_GrapheMatrix(g: GrapheMatrix) -> int:
     n = len(g)
-    assert all([ len(g[i]) == n for i in range(n) ])
+    assert all([len(g[i]) == n for i in range(n)])
     return n
+
 
 def taille_GrapheList(g: GrapheList) -> int:
     n = len(g)
@@ -1680,7 +1751,7 @@ def taille_GrapheList(g: GrapheList) -> int:
 
 
 # Il est facile d'obtenir la liste d'arête, représentées comme un triplet `(i, j, p)` si l'arête $i \arrow j$ de poids $p$ est présente dans le graphe.
-# 
+#
 # Par exemple avec les graphes représentés par listes d'adjancences :
 
 # In[445]:
@@ -1694,24 +1765,14 @@ Arete = Tuple[Sommet, Sommet, Poids]
 
 def liste_aretes_GrapheList(g: GrapheList) -> List[Arete]:
     n = taille_GrapheList(g)
-    resultat = [
-        (i, j, p)
-        for i in range(n)
-        for (j, p) in g[i]
-    ]
+    resultat = [(i, j, p) for i in range(n) for (j, p) in g[i]]
     return resultat
 
 
 # In[447]:
 
 
-graphe_test: GrapheList = [
-    [(1, 11), (2, 2), (3, 1)],
-    [(2, 7)],
-    [],
-    [(4, 5)],
-    [(1, 1)]
-]
+graphe_test: GrapheList = [[(1, 11), (2, 2), (3, 1)], [(2, 7)], [], [(4, 5)], [(1, 1)]]
 
 liste_aretes_GrapheList(graphe_test)
 
@@ -1723,16 +1784,14 @@ liste_aretes_GrapheList(graphe_test)
 
 aretes = liste_aretes_GrapheList(graphe_test)
 
-sorted(aretes,
-        key = lambda a: a[2]
-    )
+sorted(aretes, key=lambda a: a[2])
 
 
 # ### Algorithme de Kruskal
-# 
+#
 # Je ne redonne pas d'explications ici, allez voir [Wikipédia](https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal) ou un livre d'algorithmique de référence ([Cormen] ou [Beauquier, Berstel, Chrétienne] par exemple).
 # Voir aussi [cette visualisation](https://www.cs.usfca.edu/~galles/visualization/Kruskal.html), et [cette autre implémentation en Python](https://perso.crans.org/besson/teach/info1_algo1_2019/notebooks/CoursMagistral_6.html#Algorithme-de-Kruskal) (donnée pour le cours d'ALGO1 en L3SIF en 2019).
-# 
+#
 # > "L'algorithme de Kruskal est un algorithme de recherche d'arbre recouvrant de poids minimum ou arbre couvrant minimum dans un graphe connexe non-orienté et pondéré. Il a été conçu en 1956 par Joseph Kruskal."
 
 # In[487]:
@@ -1740,9 +1799,7 @@ sorted(aretes,
 
 def kruskal(g: GrapheList) -> List[Arete]:
     aretes = liste_aretes_GrapheList(g)
-    aretes = sorted(aretes,
-        key = lambda a: a[2]
-    )
+    aretes = sorted(aretes, key=lambda a: a[2])
     n = taille_GrapheList(g)
     uf = create_uf(n)
     for i in range(n):
@@ -1750,7 +1807,7 @@ def kruskal(g: GrapheList) -> List[Arete]:
     # uf contient chaque sommet dans des singletons
     resultat = []  # liste des arêtes de l'arbre couvrant
     for (i, j, p) in aretes:
-        if (find(uf, i) != find(uf, j)):
+        if find(uf, i) != find(uf, j):
             resultat.append((i, j, p))
             union(uf, i, j)
     return resultat
@@ -1772,5 +1829,5 @@ kruskal(graphe_test)
 
 # ----
 # # Conclusion
-# 
+#
 # Fin. À la séance prochaine.

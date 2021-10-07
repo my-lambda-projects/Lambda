@@ -1,15 +1,13 @@
 from collections import defaultdict
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.V = vertices
         self.graph = defaultdict(list)
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def count_paths_util(self, u, d, visited, path_count):
         visited[u] = True
@@ -25,7 +23,6 @@ class Graph:
 
         visited[u] = False
 
-
     def count_paths(self, s, d):
         visited = [False] * self.V
         path_count = [0]
@@ -33,12 +30,12 @@ class Graph:
         return path_count[0]
 
 
-g = Graph(4)  
-g.add_edge(0, 1)  
-g.add_edge(0, 2)  
-g.add_edge(0, 3)  
-g.add_edge(2, 0)  
-g.add_edge(2, 1)  
+g = Graph(4)
+g.add_edge(0, 1)
+g.add_edge(0, 2)
+g.add_edge(0, 3)
+g.add_edge(2, 0)
+g.add_edge(2, 1)
 g.add_edge(1, 3)
 
 s = 2

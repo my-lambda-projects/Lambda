@@ -11,10 +11,13 @@ class Room:
         self.w_to = None
         self.x = x
         self.y = y
+
     def __str__(self):
         return f"\n-------------------\n\n{self.name}\n\n   {self.description}\n\n{self.getExitsString()}\n"
+
     def printRoomDescription(self, player):
         print(str(self))
+
     def getExits(self):
         exits = []
         if self.n_to is not None:
@@ -26,8 +29,10 @@ class Room:
         if self.e_to is not None:
             exits.append("e")
         return exits
+
     def getExitsString(self):
         return f"Exits: [{', '.join(self.getExits())}]"
+
     def connectRooms(self, direction, connectingRoom):
         if direction == "n":
             self.n_to = connectingRoom
@@ -44,6 +49,7 @@ class Room:
         else:
             print("INVALID ROOM CONNECTION")
             return None
+
     def getRoomInDirection(self, direction):
         if direction == "n":
             return self.n_to
@@ -55,5 +61,6 @@ class Room:
             return self.w_to
         else:
             return None
+
     def getCoords(self):
         return [self.x, self.y]

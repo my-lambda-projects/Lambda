@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -11,9 +10,8 @@ def print_ancestor_recursive(root, key):
         return False
     if root.val == key:
         return True
-    if print_ancestor_recursive(root.left, key) or print_ancestor_recursive(root.right, key):
+    if print_ancestor_recursive(root.left, key) or print_ancestor_recursive(
+        root.right, key
+    ):
         return root.data
     return False
-
-
-

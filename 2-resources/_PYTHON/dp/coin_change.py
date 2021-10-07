@@ -15,14 +15,14 @@ Time complexity: O(n * m) where n is the value and m is the number of coins
 Space complexity: O(n)
 """
 
+
 def count(coins, n):
     # initialize dp array and set base case as 1
     dp = [1] + [0] * n
- 
+
     # fill dp in a bottom up manner
     for coin in coins:
-        for i in range(coin, n+1):
-            dp[i] += dp[i-coin]
+        for i in range(coin, n + 1):
+            dp[i] += dp[i - coin]
 
     return dp[n]
-

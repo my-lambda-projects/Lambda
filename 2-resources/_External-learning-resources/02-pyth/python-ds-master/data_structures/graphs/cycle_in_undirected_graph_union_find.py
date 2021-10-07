@@ -8,20 +8,15 @@ from collections import defaultdict
 
 
 class Graph:
-
-
     def __init__(self, vertices):
         self.vertices = vertices
         self.graph = defaultdict(list)
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
 
-
     def union(self, parent, x, y):
         parent[x] = y
-
 
     def find_parent(self, parent, i):
         if parent[i] == -1:
@@ -29,7 +24,6 @@ class Graph:
         else:
             return self.find_parent(parent, parent[i])
 
-    
     def check_cyclic(self):
         parent = [-1] * self.vertices
 
@@ -40,7 +34,7 @@ class Graph:
 
                 if x == y:
                     return "Cyclic"
-                
+
                 self.union(parent, x, y)
 
         return "Not cyclic"

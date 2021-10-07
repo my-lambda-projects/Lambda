@@ -11,19 +11,16 @@ If the answer comes negative, then its impossible to add any edge because of odd
 
 from collections import defaultdict
 
+
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-    
     def add_edge(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
 
-    
     def bfs(self, s):
         count_color0 = 0
         count_color1 = 0
@@ -46,9 +43,9 @@ class Graph:
                     else:
                         count_color1 += 1
                     queue.append(i)
-        
-        ans = (count_color0 * count_color1) - (self.vertices - 1) 
-        return ans if ans > 0 else 0 
+
+        ans = (count_color0 * count_color1) - (self.vertices - 1)
+        return ans if ans > 0 else 0
 
 
 g = Graph(5)

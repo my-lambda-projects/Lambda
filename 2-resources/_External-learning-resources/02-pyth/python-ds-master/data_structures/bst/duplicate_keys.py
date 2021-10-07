@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -26,7 +25,7 @@ def inorder(root):
 def insert(root, val):
     if not root:
         return Node(val)
-    
+
     if val == root.val:
         root.count += 1
         return root

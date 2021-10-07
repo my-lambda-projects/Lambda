@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>interactive</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="navigation">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li>
+        <a
+          href="floatingpoint.html"
+          title="15. Floating Point Arithmetic: Issues and Limitations"
+          >next</a
+        >
+        |
+      </li>
+      <li><a href="whatnow.html" title="13. What Now?">previous</a> |</li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+    <p><span id="tut-interacting"></span></p>
+    <h1 id="interactive-input-editing-and-history-substitution">
+      <span class="section-number">14. </span>Interactive Input Editing and
+      History Substitution<a
+        href="#interactive-input-editing-and-history-substitution"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h1>
+    <p>
+      Some versions of the Python interpreter support editing of the current
+      input line and history substitution, similar to facilities found in the
+      Korn shell and the GNU Bash shell. This is implemented using the
+      <a
+        href="https://tiswww.case.edu/php/chet/readline/rltop.html"
+        class="reference external"
+        >GNU Readline</a
+      >
+      library, which supports various styles of editing. This library has its
+      own documentation which we won’t duplicate here.
+    </p>
+    <p><span id="tut-keybindings"></span></p>
+    <h2 id="tab-completion-and-history-editing">
+      <span class="section-number">14.1. </span>Tab Completion and History
+      Editing<a
+        href="#tab-completion-and-history-editing"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Completion of variable and module names is
+      <a
+        href="https://docs.python.org/3/library/site.html#rlcompleter-config"
+        class="reference internal"
+        ><span class="std std-ref">automatically enabled</span></a
+      >
+      at interpreter startup so that the Tab key invokes the completion
+      function; it looks at Python statement names, the current local variables,
+      and the available module names. For dotted expressions such as
+      <code>string.a</code>, it will evaluate the expression up to the final
+      <code>'.'</code> and then suggest completions from the attributes of the
+      resulting object. Note that this may execute application-defined code if
+      an object with a
+      <a
+        href="https://docs.python.org/3/reference/datamodel.html#object.__getattr__"
+        class="reference internal"
+        title="object.__getattr__"
+        ><code class="sourceCode python"
+          ><span class="bu">getattr</span>()</code
+        ></a
+      >
+      method is part of the expression. The default configuration also saves
+      your history into a file named <code>.python_history</code> in your user
+      directory. The history will be available again during the next interactive
+      interpreter session.
+    </p>
+    <p><span id="tut-commentary"></span></p>
+    <h2 id="alternatives-to-the-interactive-interpreter">
+      <span class="section-number">14.2. </span>Alternatives to the Interactive
+      Interpreter<a
+        href="#alternatives-to-the-interactive-interpreter"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      This facility is an enormous step forward compared to earlier versions of
+      the interpreter; however, some wishes are left: It would be nice if the
+      proper indentation were suggested on continuation lines (the parser knows
+      if an indent token is required next). The completion mechanism might use
+      the interpreter’s symbol table. A command to check (or even suggest)
+      matching parentheses, quotes, etc., would also be useful.
+    </p>
+    <p>
+      One alternative enhanced interactive interpreter that has been around for
+      quite some time is
+      <a href="https://ipython.org/" class="reference external">IPython</a>,
+      which features tab completion, object exploration and advanced history
+      management. It can also be thoroughly customized and embedded into other
+      applications. Another similar enhanced interactive environment is
+      <a href="https://www.bpython-interpreter.org/" class="reference external"
+        >bpython</a
+      >.
+    </p>
+    <h3 id="table-of-contents">
+      <a href="https://docs.python.org/3/contents.html">Table of Contents</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="#" class="reference internal"
+          >14. Interactive Input Editing and History Substitution</a
+        >
+        <ul>
+          <li>
+            <a
+              href="#tab-completion-and-history-editing"
+              class="reference internal"
+              >14.1. Tab Completion and History Editing</a
+            >
+          </li>
+          <li>
+            <a
+              href="#alternatives-to-the-interactive-interpreter"
+              class="reference internal"
+              >14.2. Alternatives to the Interactive Interpreter</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="previous-topic">Previous topic</h4>
+    <p>
+      <a href="whatnow.html" title="previous chapter"
+        ><span class="section-number">13. </span>What Now?</a
+      >
+    </p>
+    <h4 id="next-topic">Next topic</h4>
+    <p>
+      <a href="floatingpoint.html" title="next chapter"
+        ><span class="section-number">15. </span>Floating Point Arithmetic:
+        Issues and Limitations</a
+      >
+    </p>
+    <h3 id="this-page">This Page</h3>
+    <ul>
+      <li><a href="https://docs.python.org/3/bugs.html">Report a Bug</a></li>
+      <li>
+        <a
+          href="https://github.com/python/cpython/blob/3.9/Doc/tutorial/interactive.rst"
+          >Show Source</a
+        >
+      </li>
+    </ul>
+    <h3 id="navigation-1">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li>
+        <a
+          href="floatingpoint.html"
+          title="15. Floating Point Arithmetic: Issues and Limitations"
+          >next</a
+        >
+        |
+      </li>
+      <li><a href="whatnow.html" title="13. What Now?">previous</a> |</li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+  </body>
+</html>

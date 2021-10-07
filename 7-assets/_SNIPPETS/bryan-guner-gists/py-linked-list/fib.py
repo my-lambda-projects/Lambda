@@ -9,7 +9,7 @@ def fib_iter(n):
     p0 = 0
     p1 = 1
 
-    for i in range(n-1):
+    for i in range(n - 1):
         next_val = p0 + p1
 
         p0 = p1
@@ -17,5 +17,6 @@ def fib_iter(n):
 
     return next_val
 
+
 for i in range(10):
-    print(f'{i}: {fib_iter(i)}')
+    print(f"{i}: {fib_iter(i)}")

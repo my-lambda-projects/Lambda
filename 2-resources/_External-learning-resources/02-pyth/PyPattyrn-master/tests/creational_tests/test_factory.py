@@ -15,11 +15,11 @@ class FactoryTestCase(TestCase):
 
         class Cat(object):
             def speak(self):
-                return 'Meow'
+                return "Meow"
 
         class Dog(object):
             def speak(self):
-                return 'Woof'
+                return "Woof"
 
         class CatFactory(Factory):
             def create(self, **kwargs):
@@ -46,8 +46,8 @@ class FactoryTestCase(TestCase):
         self.assertEquals(self.cat_class, cat.__class__)
         self.assertEquals(self.dog_class, dog.__class__)
 
-        self.assertEquals('Meow', cat.speak())
-        self.assertEquals('Woof', dog.speak())
+        self.assertEquals("Meow", cat.speak())
+        self.assertEquals("Woof", dog.speak())
 
 
 class AbstractFactoryTestCase(TestCase):
@@ -62,11 +62,11 @@ class AbstractFactoryTestCase(TestCase):
 
         class Cat(object):
             def speak(self):
-                return 'Meow'
+                return "Meow"
 
         class Dog(object):
             def speak(self):
-                return 'Woof'
+                return "Woof"
 
         class CatFactory(Factory):
             def create(self, **kwargs):
@@ -79,8 +79,8 @@ class AbstractFactoryTestCase(TestCase):
         class AnimalFactory(AbstractFactory):
             def __init__(self):
                 super().__init__()
-                self._register('cat', CatFactory())
-                self._register('dog', DogFactory())
+                self._register("cat", CatFactory())
+                self._register("dog", DogFactory())
 
             def create(self, animal_type):
                 return self._factories[animal_type].create()
@@ -95,11 +95,11 @@ class AbstractFactoryTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        cat = self.animal_factory.create('cat')
-        dog = self.animal_factory.create('dog')
+        cat = self.animal_factory.create("cat")
+        dog = self.animal_factory.create("dog")
 
         self.assertEquals(self.cat_class, cat.__class__)
         self.assertEquals(self.dog_class, dog.__class__)
 
-        self.assertEquals('Meow', cat.speak())
-        self.assertEquals('Woof', dog.speak())
+        self.assertEquals("Meow", cat.speak())
+        self.assertEquals("Woof", dog.speak())

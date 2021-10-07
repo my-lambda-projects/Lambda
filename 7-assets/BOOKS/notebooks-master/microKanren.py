@@ -11,7 +11,7 @@ microKanren language in Python 3.
 - Python 3 version was adapted by Lilian Besson (@Naereen) https://GitHub.com/Naereen
 """
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(__doc__)
 
 import copy
@@ -77,7 +77,7 @@ class State(object):
         return self.walk(list(self._values.keys())[index])
 
     def __repr__(self):
-        return '[State ' + str(self._values) + ']'
+        return "[State " + str(self._values) + "]"
 
 
 def eq(a, b):
@@ -122,11 +122,13 @@ def both(a, b):
 
 NULL = object()
 
+
 def from_list(list):
     if list:
         return (list[0], from_list(list[1:]))
     else:
         return NULL
+
 
 def to_list(tuple):
     if tuple == NULL:
@@ -135,63 +137,55 @@ def to_list(tuple):
         return [tuple[0]] + to_list(tuple[1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     world = State()
 
     def with_vars(vars):
         [x, y] = vars
         return either(eq(x, 5), eq(x, 6))
 
-    goal = bind(['x', 'y'], with_vars)
+    goal = bind(["x", "y"], with_vars)
     print(goal(world))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     def with_vars(vars):
         [x, y] = vars
-        return both(eq(x, 'wigwam'), eq(y, 'wotsit'))
+        return both(eq(x, "wigwam"), eq(y, "wotsit"))
 
-    goal = bind(['x', 'y'], with_vars)
+    goal = bind(["x", "y"], with_vars)
     print(goal(world))
 
 
-if __name__ == '__main__':
-    print(from_list([1,2,3,4]))
-    print(to_list(from_list([1,2,3,4])))
+if __name__ == "__main__":
+    print(from_list([1, 2, 3, 4]))
+    print(to_list(from_list([1, 2, 3, 4])))
 
 
 def append(x, y, z):
     def x_not_null(vars):
         [first, x_rest, z_rest] = vars
         return both(
-            both(
-                eq(x, (first, x_rest)),
-                eq(z, (first, z_rest))
-            ),
-            append(y, x_rest, z_rest)
+            both(eq(x, (first, x_rest)), eq(z, (first, z_rest))),
+            append(y, x_rest, z_rest),
         )
 
     return either(
-        both(
-            eq(x, NULL),
-            eq(y, z)
-        ),
-        bind(['first', 'x_rest', 'z_rest'], x_not_null)
+        both(eq(x, NULL), eq(y, z)), bind(["first", "x_rest", "z_rest"], x_not_null)
     )
 
 
+if __name__ == "__main__":
 
-if __name__ == '__main__':
     def with_vars(vars):
         [x, y, z] = vars
-        return append(x, y, from_list([1,2,3,'a','b','c']))
+        return append(x, y, from_list([1, 2, 3, "a", "b", "c"]))
 
-    goal = bind(['x', 'y', 'z'], with_vars)
+    goal = bind(["x", "y", "z"], with_vars)
     states = goal(world)
 
     for state in states:
-        print('')
-        print(('x', to_list(state.result(0))))
-        print(('y', to_list(state.result(1))))
-
+        print("")
+        print(("x", to_list(state.result(0))))
+        print(("y", to_list(state.result(1))))

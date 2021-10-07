@@ -8,6 +8,7 @@ class ChainLink(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#chain-of-responsibility-pattern}
     - External Chain of Responsibility Pattern documentation: U{https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern}
     """
+
     def __init__(self):
         """
         Initialize a new ChainLink instance.
@@ -48,6 +49,7 @@ class Chain(object, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#chain-of-responsibility-pattern}
     - External Chain of Responsibility Pattern documentation: U{https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern}
     """
+
     def __init__(self, chainlink):
         """
         Initialize a new Chain instance.

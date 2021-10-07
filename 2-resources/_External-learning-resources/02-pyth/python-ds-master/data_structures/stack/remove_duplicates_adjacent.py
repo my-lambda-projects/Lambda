@@ -5,4 +5,3 @@ def remove(s):
             stack.pop()
         else:
             stack.append(element)
-    

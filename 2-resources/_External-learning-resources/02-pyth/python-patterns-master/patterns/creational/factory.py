@@ -47,10 +47,7 @@ class EnglishLocalizer:
 def get_localizer(language: str = "English") -> object:
 
     """Factory"""
-    localizers = {
-        "English": EnglishLocalizer,
-        "Greek": GreekLocalizer,
-    }
+    localizers = {"English": EnglishLocalizer, "Greek": GreekLocalizer}
 
     return localizers[language]()
 

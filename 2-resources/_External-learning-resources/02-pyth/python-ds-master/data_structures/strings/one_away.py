@@ -19,10 +19,11 @@ more than one letter is different, which means O(n) time complexity
 on the while loop. No extra space is required.
 """
 
+
 def is_one_away(str1, str2):
     edit_counter = 0
-    i = 0 # str1 index
-    j = 0 # str2 index
+    i = 0  # str1 index
+    j = 0  # str2 index
 
     # Size difference must be less than 1
     if abs(len(str1) - len(str2)) > 1:
@@ -49,12 +50,13 @@ def is_one_away(str1, str2):
         j += 1
 
     # If one string finished before the other, we will certainly
-    # have one more edit to consider (adding the last letter), so 
+    # have one more edit to consider (adding the last letter), so
     # we must check if the edit counter is still empty
     if (i < len(str1) or j < len(str2)) and edit_counter > 0:
         return False
 
     return True
+
 
 # Driver code
 str1 = input("Enter first string: ")

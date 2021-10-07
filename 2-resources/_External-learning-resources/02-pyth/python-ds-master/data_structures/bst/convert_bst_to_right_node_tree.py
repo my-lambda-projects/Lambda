@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -12,6 +11,7 @@ def increasing_bst(root):
             yield from inorder(node.left)
             yield node.val
             yield from inorder(node.right)
+
     ans = curr = Node(None)
     for v in inorder(root):
         curr.right = Node(v)

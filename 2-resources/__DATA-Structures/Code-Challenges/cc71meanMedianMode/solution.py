@@ -4,17 +4,20 @@
 from functools import reduce
 from collections import Counter
 
+
 def findMean(numbers):
-  sum = reduce(lambda x, y: x + y, numbers)
-  mean = sum / len(numbers)
-  return mean
+    sum = reduce(lambda x, y: x + y, numbers)
+    mean = sum / len(numbers)
+    return mean
+
 
 def findMedian(numbers):
-  numbers.sort()
-  mid = len(numbers) // 2
-  if len(numbers) % 2 is 0:
-    return findMean([numbers[mid], numbers[mid-1]])
-  return numbers[mid]
+    numbers.sort()
+    mid = len(numbers) // 2
+    if len(numbers) % 2 is 0:
+        return findMean([numbers[mid], numbers[mid - 1]])
+    return numbers[mid]
+
 
 # Non-Pythonic solution
 # def findMode(numbers):
@@ -30,14 +33,15 @@ def findMedian(numbers):
 
 # Pythonic solution
 def findMode(numbers):
-  counter = Counter(numbers)
-  return counter.most_common(1)[0][0]
+    counter = Counter(numbers)
+    return counter.most_common(1)[0][0]
+
 
 def meanMedianMode(numbers):
-  mmm_dict = {
-    'mean': findMean(numbers),
-    'median': findMedian(numbers),
-    'mode': findMode(numbers)
-  }
+    mmm_dict = {
+        "mean": findMean(numbers),
+        "median": findMedian(numbers),
+        "mode": findMode(numbers),
+    }
 
-  return mmm_dict
+    return mmm_dict

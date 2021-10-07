@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # A tiny regex challenge solved without another regex
-# 
+#
 # This notebook presents a small challenge a friend of mine asked me (in Python).
 # I'll write Python code valid for versions $\geq$ 3.6, and to show of I use the [`typing`](https://docs.python.org/3/library/typing.html) module to have type hints.
 
@@ -10,6 +10,7 @@
 
 
 import sys
+
 print(sys.version)
 
 
@@ -37,6 +38,7 @@ def bad_events(pattern: str, string: str) -> List[Interval]:
     # m.span(1) = (m.start(1), m.end(1))
     return [m.span(1) for m in re.finditer(f"(?=({pattern}))", string)]
 
+
 pat = "aca"
 strng = "acacavcacabacacbbacacazdbacaca"
 
@@ -49,9 +51,9 @@ bad_events(pat, strng)
 
 
 # ## The solution I came up with
-# 
+#
 # Let's write a simple function that will read this list of intervals, and compress the ones that are not disjoint.
-# 
+#
 # For instance, when reading `[(0, 3), (2, 5)]`, the second interval is not disjoint from the first one, so both can be compressed to `(0, 5)`, which is disjoint from the next one `(7, 10)`.
 
 # - Let's test (in constant time wrt $n$ number of intervals) if two consecutive intervals are disjoint or not:
@@ -64,13 +66,13 @@ def are_not_disjoint(interval1: Interval, interval2: Interval) -> bool:
     assert x1 <= y1, f"Error: interval = {intervals1} is not a valid interval."
     x2, y2 = interval2
     assert x2 <= y2, f"Error: interval = {intervals2} is not a valid interval."
-    if x1 <= x2 <= y1 <= y2:   # interval1 finishes in interval2
+    if x1 <= x2 <= y1 <= y2:  # interval1 finishes in interval2
         return True
-    elif x2 <= x1 <= y2 <= y1: # interval2 finishes in interval1
+    elif x2 <= x1 <= y2 <= y1:  # interval2 finishes in interval1
         return True
-    elif x1 <= x2 <= y2 <= y1: # interval2 is included in interval1
+    elif x1 <= x2 <= y2 <= y1:  # interval2 is included in interval1
         return True
-    elif x2 <= x1 <= y1 <= y2: # interval1 is included in interval2
+    elif x2 <= x1 <= y1 <= y2:  # interval1 is included in interval2
         return True
     return False
 
@@ -110,7 +112,7 @@ def compress_intervals(intervals: List[Interval]) -> List[Interval]:
     intervals_after_compression: List[Interval] = []
     n = len(intervals)
     assert n > 0
-    current_interval = intervals[0]   # eg (0, 3)
+    current_interval = intervals[0]  # eg (0, 3)
     i = 1
     # as long as we can read another interval in the list
     while i < n:  # ==> O(n) as the inside of the loop is O(1)
@@ -165,7 +167,9 @@ def bad_events_compressed(pat: str, strng: str) -> List[Interval]:
 
 
 def test(pat: str, strng: str) -> None:
-    print(f"For pattern {pat} and string {strng}, the bad events uncompressed are:\n{bad_events(pat, strng)}\nand the bad events compressed are:\n{bad_events_compressed(pat, strng)}")
+    print(
+        f"For pattern {pat} and string {strng}, the bad events uncompressed are:\n{bad_events(pat, strng)}\nand the bad events compressed are:\n{bad_events_compressed(pat, strng)}"
+    )
 
 
 # In[33]:
@@ -179,7 +183,10 @@ test(pat, strng)
 # In[34]:
 
 
-test("acab", "acabacabacabacacavcacabacacbbacacazdbacacaacacavcacabacacbbacacazdbacacaacabacab")
+test(
+    "acab",
+    "acabacabacabacacavcacabacacbbacacazdbacacaacacavcacabacacbbacacazdbacacaacabacab",
+)
 
 
 # In[35]:
@@ -190,6 +197,6 @@ test("merci", "mercimerciderienmercimerki")
 
 # ## Conclusion
 # It was fun!
-# 
+#
 # > See [GitHub.com/Naereen/notebooks](https://github.com/Naereen/notebooks/) for other notebooks!
 # > This one and all the others I wrote are open-source [under the MIT License](https://lbesson.mit-license.org/).

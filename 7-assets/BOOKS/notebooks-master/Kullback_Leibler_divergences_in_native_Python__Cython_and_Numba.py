@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # # Table of Contents
@@ -6,9 +5,9 @@
 
 # ----
 # # Introduction
-# 
+#
 # In this small notebook, I implement various [Kullback-Leibler divergence functions](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence), in [Python](https://www.python.org/), using different approaches: naive Python, and using Numba and Cython.
-# 
+#
 # I also implement KL-UCB indexes, in the three approaches, and finally I present some basic benchmarks to compare the time and memory efficiency of the different approaches, for each function.
 
 # Requirements:
@@ -16,8 +15,10 @@
 # In[1]:
 
 
-get_ipython().run_line_magic('load_ext', 'watermark')
-get_ipython().run_line_magic('watermark', '-v -m -a "Lilian Besson (Naereen)" -p numpy,numba -g')
+get_ipython().run_line_magic("load_ext", "watermark")
+get_ipython().run_line_magic(
+    "watermark", '-v -m -a "Lilian Besson (Naereen)" -p numpy,numba -g'
+)
 
 
 # In[2]:
@@ -28,7 +29,7 @@ import numpy as np
 
 # ----
 # # KL divergences and KL-UCB indexes, in naive Python
-# 
+#
 # I will copy and paste parts of [this file](https://github.com/SMPyBandits/SMPyBandits/blob/master/SMPyBandits/Policies/kullback.py) from my [SMPyBandits](https://github.com/SMPyBandits/SMPyBandits/) library.
 
 # In[3]:
@@ -139,7 +140,7 @@ def klExp(x, y):
         \end{cases}
     """
     if x <= 0 or y <= 0:
-        return float('+inf')
+        return float("+inf")
     else:
         x = max(x, eps)
         y = max(y, eps)
@@ -180,7 +181,7 @@ def klGamma(x, y, a=1):
     .. warning:: The two distributions must have the same parameter a.
     """
     if x <= 0 or y <= 0:
-        return float('+inf')
+        return float("+inf")
     else:
         x = max(x, eps)
         y = max(y, eps)
@@ -249,10 +250,12 @@ def klGauss(x, y, sig2x=0.25, sig2y=None):
 
     - By default, sig2y is assumed to be sig2x (same variance).
     """
-    if sig2y is None or - eps < (sig2y - sig2x) < eps:
-        return (x - y) ** 2 / (2. * sig2x)
+    if sig2y is None or -eps < (sig2y - sig2x) < eps:
+        return (x - y) ** 2 / (2.0 * sig2x)
     else:
-        return (x - y) ** 2 / (2. * sig2y) + 0.5 * ((sig2x/sig2y)**2 - 1 - np.log(sig2x/sig2y))
+        return (x - y) ** 2 / (2.0 * sig2y) + 0.5 * (
+            (sig2x / sig2y) ** 2 - 1 - np.log(sig2x / sig2y)
+        )
 
 
 # In[17]:
@@ -290,7 +293,9 @@ klGauss(1, 0, sig2x=0.5, sig2y=0.25)
 # In[18]:
 
 
-def klucb(x, d, kl, upperbound, lowerbound=float('-inf'), precision=1e-6, max_iterations=50):
+def klucb(
+    x, d, kl, upperbound, lowerbound=float("-inf"), precision=1e-6, max_iterations=50
+):
     """ The generic KL-UCB index computation.
 
     - x: value of the cum reward,
@@ -307,12 +312,12 @@ def klucb(x, d, kl, upperbound, lowerbound=float('-inf'), precision=1e-6, max_it
     _count_iteration = 0
     while _count_iteration < max_iterations and u - value > precision:
         _count_iteration += 1
-        m = (value + u) / 2.
+        m = (value + u) / 2.0
         if kl(x, m) > d:
             u = m
         else:
             value = m
-    return (value + u) / 2.
+    return (value + u) / 2.0
 
 
 # For example, for `klucbBern`, the two steps are to first compute an upperbound (as precise as possible) and the compute the kl-UCB index:
@@ -335,7 +340,7 @@ klucb(x, d, klBern, upperbound, lowerbound=0, precision=1e-6, max_iterations=100
 # In[20]:
 
 
-def klucbGauss(x, d, sig2x=0.25, precision=0.):
+def klucbGauss(x, d, sig2x=0.25, precision=0.0):
     """ KL-UCB index computation for Gaussian distributions.
 
     - Note that it does not require any search.
@@ -366,7 +371,9 @@ klucbGauss(0.9, 0.9)
 
 def klucbBern(x, d, precision=1e-6):
     """ KL-UCB index computation for Bernoulli distributions, using :func:`klucb`."""
-    upperbound = min(1., klucbGauss(x, d, sig2x=0.25))  # variance 1/4 for [0,1] bounded distributions
+    upperbound = min(
+        1.0, klucbGauss(x, d, sig2x=0.25)
+    )  # variance 1/4 for [0,1] bounded distributions
     # upperbound = min(1., klucbPoisson(x, d))  # also safe, and better ?
     return klucb(x, d, klBern, upperbound, precision)
 
@@ -392,7 +399,9 @@ klucbBern(0.9, 0.9)
 
 def klucbPoisson(x, d, precision=1e-6):
     """ KL-UCB index computation for Poisson distributions, using :func:`klucb`."""
-    upperbound = x + d + np.sqrt(d * d + 2 * x * d)  # looks safe, to check: left (Gaussian) tail of Poisson dev
+    upperbound = (
+        x + d + np.sqrt(d * d + 2 * x * d)
+    )  # looks safe, to check: left (Gaussian) tail of Poisson dev
     return klucb(x, d, klPoisson, upperbound, precision)
 
 
@@ -418,7 +427,7 @@ klucbPoisson(0.9, 0.9)
 def klucbExp(x, d, precision=1e-6):
     """ KL-UCB index computation for exponential distributions, using :func:`klucb`."""
     if d < 0.77:  # XXX where does this value come from?
-        upperbound = x / (1 + 2. / 3 * d - np.sqrt(4. / 9 * d * d + 2 * d))
+        upperbound = x / (1 + 2.0 / 3 * d - np.sqrt(4.0 / 9 * d * d + 2 * d))
         # safe, klexp(x,y) >= e^2/(2*(1-2e/3)) if x=y(1-e)
     else:
         upperbound = x * np.exp(d + 1)
@@ -448,7 +457,7 @@ klucbExp(0.9, 0.9)
 
 # ----
 # # With Numba
-# 
+#
 # It will be *exactly* the same code as above, except that the [`numba.jit`](http://numba.pydata.org/numba-doc/latest/user/jit.html) decorator will be used for each functions, to let [numba](http://numba.pydata.org/) *try* to speed up the code!
 
 # In[28]:
@@ -546,10 +555,12 @@ def klNegBin_numba(x, y, r=1):
 
 @jit(nopython=True)
 def klGauss_numba(x, y, sig2x=0.25, sig2y=0.25):
-    if - eps < (sig2y - sig2x) and (sig2y - sig2x) < eps:
-        return (x - y) ** 2 / (2. * sig2x)
+    if -eps < (sig2y - sig2x) and (sig2y - sig2x) < eps:
+        return (x - y) ** 2 / (2.0 * sig2x)
     else:
-        return (x - y) ** 2 / (2. * sig2y) + 0.5 * ((sig2x/sig2y)**2 - 1 - np.log(sig2x/sig2y))
+        return (x - y) ** 2 / (2.0 * sig2y) + 0.5 * (
+            (sig2x / sig2y) ** 2 - 1 - np.log(sig2x / sig2y)
+        )
 
 
 # ## Generic KL-UCB indexes, with a bisection search
@@ -558,19 +569,20 @@ def klGauss_numba(x, y, sig2x=0.25, sig2y=0.25):
 
 
 @jit
-def klucb_numba(x, d, kl, upperbound,
-                lowerbound=float('-inf'), precision=1e-6, max_iterations=50):
+def klucb_numba(
+    x, d, kl, upperbound, lowerbound=float("-inf"), precision=1e-6, max_iterations=50
+):
     value = max(x, lowerbound)
     u = upperbound
     _count_iteration = 0
     while _count_iteration < max_iterations and u - value > precision:
         _count_iteration += 1
-        m = (value + u) / 2.
+        m = (value + u) / 2.0
         if kl(x, m) > d:
             u = m
         else:
             value = m
-    return (value + u) / 2.
+    return (value + u) / 2.0
 
 
 # For example, for `klucbBern`, the two steps are to first compute an upperbound (as precise as possible) and the compute the kl-UCB index:
@@ -580,10 +592,18 @@ def klucb_numba(x, d, kl, upperbound,
 
 x, d = 0.9, 0.2
 upperbound = 1
-klucb_numba(x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-3, max_iterations=10)
-klucb_numba(x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-6, max_iterations=10)
-klucb_numba(x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-3, max_iterations=50)
-klucb_numba(x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-6, max_iterations=100)
+klucb_numba(
+    x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-3, max_iterations=10
+)
+klucb_numba(
+    x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-6, max_iterations=10
+)
+klucb_numba(
+    x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-3, max_iterations=50
+)
+klucb_numba(
+    x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-6, max_iterations=100
+)
 
 
 # ## Distribution-specific KL-UCB indexes
@@ -594,12 +614,12 @@ klucb_numba(x, d, klBern_numba, upperbound, lowerbound=0, precision=1e-6, max_it
 
 
 @jit(nopython=True)
-def klucbGauss_numba(x, d, sig2x=0.25, precision=0.):
+def klucbGauss_numba(x, d, sig2x=0.25, precision=0.0):
     return x + np.sqrt(2 * sig2x * d)
 
 
 # ### Bernoulli
-# 
+#
 # Here, the `nopython=True` fails as numba has a hard time typing linked function calls.
 
 # In[39]:
@@ -607,7 +627,9 @@ def klucbGauss_numba(x, d, sig2x=0.25, precision=0.):
 
 @jit
 def klucbBern_numba(x, d, precision=1e-6):
-    upperbound = min(1., klucbGauss_numba(x, d, sig2x=0.25))  # variance 1/4 for [0,1] bounded distributions
+    upperbound = min(
+        1.0, klucbGauss_numba(x, d, sig2x=0.25)
+    )  # variance 1/4 for [0,1] bounded distributions
     # upperbound = min(1., klucbPoisson(x, d))  # also safe, and better ?
     return klucb_numba(x, d, klBern_numba, upperbound, precision)
 
@@ -619,7 +641,9 @@ def klucbBern_numba(x, d, precision=1e-6):
 
 @jit
 def klucbPoisson_numba(x, d, precision=1e-6):
-    upperbound = x + d + np.sqrt(d * d + 2 * x * d)  # looks safe, to check: left (Gaussian) tail of Poisson dev
+    upperbound = (
+        x + d + np.sqrt(d * d + 2 * x * d)
+    )  # looks safe, to check: left (Gaussian) tail of Poisson dev
     return klucb_numba(x, d, klPoisson_numba, upperbound, precision)
 
 
@@ -631,7 +655,7 @@ def klucbPoisson_numba(x, d, precision=1e-6):
 @jit
 def klucbExp_numba(x, d, precision=1e-6):
     if d < 0.77:  # XXX where does this value come from?
-        upperbound = x / (1 + 2. / 3 * d - np.sqrt(4. / 9 * d * d + 2 * d))
+        upperbound = x / (1 + 2.0 / 3 * d - np.sqrt(4.0 / 9 * d * d + 2 * d))
         # safe, klexp(x,y) >= e^2/(2*(1-2e/3)) if x=y(1-e)
     else:
         upperbound = x * np.exp(d + 1)
@@ -644,13 +668,13 @@ def klucbExp_numba(x, d, precision=1e-6):
 
 # ----
 # # With Cython
-# 
+#
 # It will be *almost* exactly the same code, by using the [`cython`]() magic to have cells written in [Cython](http://cython.org/).
 
 # In[42]:
 
 
-get_ipython().run_line_magic('load_ext', 'cython')
+get_ipython().run_line_magic("load_ext", "cython")
 
 
 # A cell can now be written in Cython.
@@ -669,21 +693,25 @@ def some_loop(n: int) -> int:
 # In[44]:
 
 
-get_ipython().run_cell_magic('cython', '', 'def some_loop_cython(int n) -> int:\n    cdef int s = 0\n    cdef int i = 0\n    for i in range(0, n, 2):\n        s += i\n    return s')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "def some_loop_cython(int n) -> int:\n    cdef int s = 0\n    cdef int i = 0\n    for i in range(0, n, 2):\n        s += i\n    return s",
+)
 
 
 # In[45]:
 
 
-get_ipython().run_line_magic('timeit', 'np.random.randint(1000)')
-get_ipython().run_line_magic('timeit', 'some_loop(np.random.randint(1000))')
-get_ipython().run_line_magic('timeit', 'some_loop_cython(np.random.randint(1000))')
+get_ipython().run_line_magic("timeit", "np.random.randint(1000)")
+get_ipython().run_line_magic("timeit", "some_loop(np.random.randint(1000))")
+get_ipython().run_line_magic("timeit", "some_loop_cython(np.random.randint(1000))")
 
 
 # Here we observe a large speed-up. But how large? $6$ times or $50$ times?
-# 
+#
 # It's really important to include the time taken by the Pseudo-Random Number Generator:
-# 
+#
 # - Wrong computation of the speed-up gives about $6$ times faster:
 
 # In[46]:
@@ -707,7 +735,11 @@ get_ipython().run_line_magic('timeit', 'some_loop_cython(np.random.randint(1000)
 # In[48]:
 
 
-get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klBern_cython(float x, float y) -> float:\n    x = min(max(x, eps), 1 - eps)\n    y = min(max(y, eps), 1 - eps)\n    return x * log(x / y) + (1 - x) * log((1 - x) / (1 - y))')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klBern_cython(float x, float y) -> float:\n    x = min(max(x, eps), 1 - eps)\n    y = min(max(y, eps), 1 - eps)\n    return x * log(x / y) + (1 - x) * log((1 - x) / (1 - y))",
+)
 
 
 # ### Binomial distributions
@@ -715,7 +747,11 @@ get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e
 # In[49]:
 
 
-get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klBin_cython(float x, float y, int n) -> float:\n    x = min(max(x, eps), 1 - eps)\n    y = min(max(y, eps), 1 - eps)\n    return n * (x * log(x / y) + (1 - x) * log((1 - x) / (1 - y)))')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klBin_cython(float x, float y, int n) -> float:\n    x = min(max(x, eps), 1 - eps)\n    y = min(max(y, eps), 1 - eps)\n    return n * (x * log(x / y) + (1 - x) * log((1 - x) / (1 - y)))",
+)
 
 
 # ### Poisson distributions
@@ -723,7 +759,11 @@ get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e
 # In[50]:
 
 
-get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klPoisson_cython(float x, float y) -> float:\n    x = max(x, eps)\n    y = max(y, eps)\n    return y - x + x * log(x / y)')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klPoisson_cython(float x, float y) -> float:\n    x = max(x, eps)\n    y = max(y, eps)\n    return y - x + x * log(x / y)",
+)
 
 
 # ### Exponential distributions
@@ -731,7 +771,11 @@ get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e
 # In[51]:
 
 
-get_ipython().run_cell_magic('cython', '', "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klExp_cython(float x, float y) -> float:\n    if x <= 0 or y <= 0:\n        return float('+inf')\n    else:\n        x = max(x, eps)\n        y = max(y, eps)\n        return x / y - 1 - log(x / y)")
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klExp_cython(float x, float y) -> float:\n    if x <= 0 or y <= 0:\n        return float('+inf')\n    else:\n        x = max(x, eps)\n        y = max(y, eps)\n        return x / y - 1 - log(x / y)",
+)
 
 
 # ### Gamma distributions
@@ -739,7 +783,11 @@ get_ipython().run_cell_magic('cython', '', "from libc.math cimport log\neps = 1e
 # In[52]:
 
 
-get_ipython().run_cell_magic('cython', '', "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klGamma_cython(float x, float y, float a=1) -> float:\n    if x <= 0 or y <= 0:\n        return float('+inf')\n    else:\n        x = max(x, eps)\n        y = max(y, eps)\n        return a * (x / y - 1 - log(x / y))")
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klGamma_cython(float x, float y, float a=1) -> float:\n    if x <= 0 or y <= 0:\n        return float('+inf')\n    else:\n        x = max(x, eps)\n        y = max(y, eps)\n        return a * (x / y - 1 - log(x / y))",
+)
 
 
 # ### Negative binomial distributions
@@ -747,7 +795,11 @@ get_ipython().run_cell_magic('cython', '', "from libc.math cimport log\neps = 1e
 # In[53]:
 
 
-get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klNegBin_cython(float x, float y, float r=1) -> float:\n    x = max(x, eps)\n    y = max(y, eps)\n    return r * log((r + x) / (r + y)) - x * log(y * (r + x) / (x * (r + y)))')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klNegBin_cython(float x, float y, float r=1) -> float:\n    x = max(x, eps)\n    y = max(y, eps)\n    return r * log((r + x) / (r + y)) - x * log(y * (r + x) / (x * (r + y)))",
+)
 
 
 # ### Gaussian distributions
@@ -755,7 +807,11 @@ get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e
 # In[54]:
 
 
-get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klGauss_cython(float x, float y, float sig2x=0.25, float sig2y=0.25) -> float:\n    if - eps < (sig2y - sig2x) < eps:\n        return (x - y) ** 2 / (2. * sig2x)\n    else:\n        return (x - y) ** 2 / (2. * sig2y) + 0.5 * ((sig2x/sig2y)**2 - 1 - log(sig2x/sig2y))')
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport log\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\ndef klGauss_cython(float x, float y, float sig2x=0.25, float sig2y=0.25) -> float:\n    if - eps < (sig2y - sig2x) < eps:\n        return (x - y) ** 2 / (2. * sig2x)\n    else:\n        return (x - y) ** 2 / (2. * sig2y) + 0.5 * ((sig2x/sig2y)**2 - 1 - log(sig2x/sig2y))",
+)
 
 
 # ## Generic KL-UCB indexes, with a bisection search
@@ -766,7 +822,11 @@ get_ipython().run_cell_magic('cython', '', 'from libc.math cimport log\neps = 1e
 # In[55]:
 
 
-get_ipython().run_cell_magic('cython', '', "from libc.math cimport sqrt, log, exp\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\n\ndef klucbGauss_cython(float x, float d, float sig2x=0.25, float precision=0.) -> float:\n    return x + sqrt(2 * sig2x * d)\n\ncdef float klucbGauss_cython_x(float x, float d, float sig2x=0.25, float precision=0.):\n    return x + sqrt(2 * sig2x * d)\n\n\ndef klucb_cython(float x, float d, kl, float upperbound,\n                 float lowerbound=float('-inf'),\n                 float precision=1e-6, int max_iterations=50) -> float:\n    cdef float value = max(x, lowerbound)\n    cdef float u = upperbound\n    cdef int _count_iteration = 0\n    cdef float m = 0\n    while _count_iteration < max_iterations and u - value > precision:\n        _count_iteration += 1\n        m = (value + u) / 2.\n        if kl(x, m) > d:\n            u = m\n        else:\n            value = m\n    return (value + u) / 2.\n\n\ncdef float klBern_cython_x(float x, float y):\n    x = min(max(x, eps), 1 - eps)\n    y = min(max(y, eps), 1 - eps)\n    return x * log(x / y) + (1 - x) * log((1 - x) / (1 - y))\n\ndef klucbBern_cython(float x, float d, float precision=1e-6) -> float:\n    cdef float upperbound = min(1., klucbGauss_cython_x(x, d, sig2x=0.25))  # variance 1/4 for [0,1] bounded distributions\n    # upperbound = min(1., klucbPoisson(x, d))  # also safe, and better ?\n    return klucb_cython(x, d, klBern_cython_x, upperbound, precision)\n\n\ncdef float klPoisson_cython_x(float x, float y):\n    x = max(x, eps)\n    y = max(y, eps)\n    return y - x + x * log(x / y)\n\ndef klucbPoisson_cython(float x, float d, float precision=1e-6) -> float:\n    cdef float upperbound = x + d + sqrt(d * d + 2 * x * d)  # looks safe, to check: left (Gaussian) tail of Poisson dev\n    return klucb_cython(x, d, klPoisson_cython_x, upperbound, precision)\n\n\ncdef float klGamma_cython_x(float x, float y):\n    if x <= 0 or y <= 0:\n        return float('+inf')\n    else:\n        x = max(x, eps)\n        y = max(y, eps)\n        return x / y - 1 - log(x / y)\n\ndef klucbExp_cython(float x, float d, float precision=1e-6) -> float:\n    cdef float upperbound = 1\n    cdef float lowerbound = 0\n    if d < 0.77:  # XXX where does this value come from?\n        upperbound = x / (1 + 2. / 3 * d - sqrt(4. / 9 * d * d + 2 * d))\n        # safe, klexp(x,y) >= e^2/(2*(1-2e/3)) if x=y(1-e)\n    else:\n        upperbound = x * exp(d + 1)\n    if d > 1.61:  # XXX where does this value come from?\n        lowerbound = x * exp(d)\n    else:\n        lowerbound = x / (1 + d - sqrt(d * d + 2 * d))\n    return klucb_cython(x, d, klGamma_cython_x, upperbound, lowerbound, precision)")
+get_ipython().run_cell_magic(
+    "cython",
+    "",
+    "from libc.math cimport sqrt, log, exp\neps = 1e-15  #: Threshold value: everything in [0, 1] is truncated to [eps, 1 - eps]\n\n\ndef klucbGauss_cython(float x, float d, float sig2x=0.25, float precision=0.) -> float:\n    return x + sqrt(2 * sig2x * d)\n\ncdef float klucbGauss_cython_x(float x, float d, float sig2x=0.25, float precision=0.):\n    return x + sqrt(2 * sig2x * d)\n\n\ndef klucb_cython(float x, float d, kl, float upperbound,\n                 float lowerbound=float('-inf'),\n                 float precision=1e-6, int max_iterations=50) -> float:\n    cdef float value = max(x, lowerbound)\n    cdef float u = upperbound\n    cdef int _count_iteration = 0\n    cdef float m = 0\n    while _count_iteration < max_iterations and u - value > precision:\n        _count_iteration += 1\n        m = (value + u) / 2.\n        if kl(x, m) > d:\n            u = m\n        else:\n            value = m\n    return (value + u) / 2.\n\n\ncdef float klBern_cython_x(float x, float y):\n    x = min(max(x, eps), 1 - eps)\n    y = min(max(y, eps), 1 - eps)\n    return x * log(x / y) + (1 - x) * log((1 - x) / (1 - y))\n\ndef klucbBern_cython(float x, float d, float precision=1e-6) -> float:\n    cdef float upperbound = min(1., klucbGauss_cython_x(x, d, sig2x=0.25))  # variance 1/4 for [0,1] bounded distributions\n    # upperbound = min(1., klucbPoisson(x, d))  # also safe, and better ?\n    return klucb_cython(x, d, klBern_cython_x, upperbound, precision)\n\n\ncdef float klPoisson_cython_x(float x, float y):\n    x = max(x, eps)\n    y = max(y, eps)\n    return y - x + x * log(x / y)\n\ndef klucbPoisson_cython(float x, float d, float precision=1e-6) -> float:\n    cdef float upperbound = x + d + sqrt(d * d + 2 * x * d)  # looks safe, to check: left (Gaussian) tail of Poisson dev\n    return klucb_cython(x, d, klPoisson_cython_x, upperbound, precision)\n\n\ncdef float klGamma_cython_x(float x, float y):\n    if x <= 0 or y <= 0:\n        return float('+inf')\n    else:\n        x = max(x, eps)\n        y = max(y, eps)\n        return x / y - 1 - log(x / y)\n\ndef klucbExp_cython(float x, float d, float precision=1e-6) -> float:\n    cdef float upperbound = 1\n    cdef float lowerbound = 0\n    if d < 0.77:  # XXX where does this value come from?\n        upperbound = x / (1 + 2. / 3 * d - sqrt(4. / 9 * d * d + 2 * d))\n        # safe, klexp(x,y) >= e^2/(2*(1-2e/3)) if x=y(1-e)\n    else:\n        upperbound = x * exp(d + 1)\n    if d > 1.61:  # XXX where does this value come from?\n        lowerbound = x * exp(d)\n    else:\n        lowerbound = x / (1 + d - sqrt(d * d + 2 * d))\n    return klucb_cython(x, d, klGamma_cython_x, upperbound, lowerbound, precision)",
+)
 
 
 # For example, for `klucbBern_cython`, the two steps are to first compute an upperbound (as precise as possible) and the compute the kl-UCB index:
@@ -776,31 +836,43 @@ get_ipython().run_cell_magic('cython', '', "from libc.math cimport sqrt, log, ex
 
 x, d = 0.9, 0.2
 upperbound = 1
-klucb_cython(x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-3, max_iterations=10)
-klucb_cython(x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-6, max_iterations=10)
-klucb_cython(x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-3, max_iterations=50)
-klucb_cython(x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-6, max_iterations=100)
+klucb_cython(
+    x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-3, max_iterations=10
+)
+klucb_cython(
+    x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-6, max_iterations=10
+)
+klucb_cython(
+    x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-3, max_iterations=50
+)
+klucb_cython(
+    x, d, klBern_cython, upperbound, lowerbound=0, precision=1e-6, max_iterations=100
+)
 
 
 # ----
 # # With the C API for Python
-# 
+#
 # It is more tedious, and won't be included here, but Python can easily [be extended](https://docs.python.org/3/c-api/) using C.
 # It is the best way to obtain close-to-optimal performance for some parts of your code, and I will let you read [the introduction to the official documentation](https://docs.python.org/3/c-api/intro.html) if you are curious.
-# 
+#
 # For my [SMPyBandits](https://github.com/SMPyBandits/SMPyBandits/), I reused [some code from the py/maBandits](http://mloss.org/software/view/415/) project, and the authors implemented some of the previously defined KL-divergences and KL-UCB indexes in [pure Python](https://github.com/SMPyBandits/SMPyBandits/tree/master/SMPyBandits/Policies/kullback.py) as well as in [C optimized](https://github.com/SMPyBandits/SMPyBandits/tree/master/SMPyBandits/Policies/C/).
 # I copied the compiled library in the current directory, and it can be imported:
 
 # In[57]:
 
 
-get_ipython().run_cell_magic('bash', '', 'ls -larth *kullback*\n[ -f kullback.py ] && mv -vf kullback.py kullback.py.old')
+get_ipython().run_cell_magic(
+    "bash",
+    "",
+    "ls -larth *kullback*\n[ -f kullback.py ] && mv -vf kullback.py kullback.py.old",
+)
 
 
 # In[58]:
 
 
-get_ipython().system('ls -larth kullback*.so')
+get_ipython().system("ls -larth kullback*.so")
 
 
 # In[59]:
@@ -818,7 +890,7 @@ help(kullback.klBern)
 # In[72]:
 
 
-[ s for s in dir(kullback) if not s.startswith('_') ]
+[s for s in dir(kullback) if not s.startswith("_")]
 
 
 # In[73]:
@@ -841,9 +913,9 @@ klucbPoisson_c = kullback.klucbPoisson
 
 # ----
 # # Tests and benchmarks
-# 
+#
 # For each of the functions defined in three approaches above, I will do some numerical tests to compare their speed − and memory −  efficiency. Simple.
-# 
+#
 # The benchmark will be to test the computation time on random entries.
 # It includes a constant time: creating random values! So I also compare the time to simply generate the values.
 
@@ -857,16 +929,16 @@ rn = lambda: np.random.randint(1000)
 # In[85]:
 
 
-get_ipython().run_line_magic('timeit', '(r(), r())')
-get_ipython().run_line_magic('timeit', '(r(), r(), rn())')
+get_ipython().run_line_magic("timeit", "(r(), r())")
+get_ipython().run_line_magic("timeit", "(r(), r(), rn())")
 
 
 # - The time to generate random numbers like this is small, but not zero!
 # - Generating a uniform integer, in particular, takes some time (more than 1 µs is not something that can be ignored!).
-# 
+#
 # $\implies$ we will remove this $700$ ns or $2.5$ µs overhead when computing speed-up ratio between naive Python and numb or Cython versions.
 
-# But we also need to test that the three versions of each function gives the same results (up-to approximation errors less than 
+# But we also need to test that the three versions of each function gives the same results (up-to approximation errors less than
 # $10^{-6}$ (at least)).
 
 # In[63]:
@@ -882,8 +954,12 @@ def test_fs(fs, inputs, tolerance=1e-5, nb_tests=100):
             if abs(output) > 1:
                 rel_diff = (output - other_output) / output
             else:
-                rel_diff = (output - other_output)
-            assert abs(rel_diff) <= tolerance, "Error: function {} gave {} and function {} gave {} on inputs {}, and the two outputs are too different.".format(ref_f, output, other_f, other_output, args)
+                rel_diff = output - other_output
+            assert (
+                abs(rel_diff) <= tolerance
+            ), "Error: function {} gave {} and function {} gave {} on inputs {}, and the two outputs are too different.".format(
+                ref_f, output, other_f, other_output, args
+            )
 
 
 # <span style="color:red;">WARNING</span> in the following, I use a very manual approach: I copied the time of each '%timeit' example, to compare speed-up ratios.
@@ -902,25 +978,25 @@ test_fs([klBern, klBern_numba, klBern_cython, klBern_c], lambda: (r(), r()))
 # In[65]:
 
 
-get_ipython().run_line_magic('timeit', 'klBern(r(), r())')
+get_ipython().run_line_magic("timeit", "klBern(r(), r())")
 
 
 # In[66]:
 
 
-get_ipython().run_line_magic('timeit', 'klBern_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klBern_numba(r(), r())")
 
 
 # In[67]:
 
 
-get_ipython().run_line_magic('timeit', 'klBern_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klBern_cython(r(), r())")
 
 
 # In[74]:
 
 
-get_ipython().run_line_magic('timeit', 'klBern_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klBern_c(r(), r())")
 
 
 # This is a speed-up ratio of about $12$ times faster for Numba and Cython, and $25$ times faster for the C version.
@@ -929,8 +1005,8 @@ get_ipython().run_line_magic('timeit', 'klBern_c(r(), r())')
 
 
 (6280 - 576) / (1000 - 576)  # for Python vs numba
-(6280 - 576) / (882 - 576)   # for Python vs Cython
-(6280 - 576) / (811 - 576)   # for Python vs C
+(6280 - 576) / (882 - 576)  # for Python vs Cython
+(6280 - 576) / (811 - 576)  # for Python vs C
 
 
 # ### Binomial
@@ -946,31 +1022,35 @@ test_fs([klBin, klBin_numba, klBin_cython, klBin_c], lambda: (r(), r(), rn()))
 # In[77]:
 
 
-test_fs([klBin, klBin_numba, klBin_cython, klBin_c], lambda: (r(), r(), rn()), tolerance=1e-3)
+test_fs(
+    [klBin, klBin_numba, klBin_cython, klBin_c],
+    lambda: (r(), r(), rn()),
+    tolerance=1e-3,
+)
 
 
 # In[78]:
 
 
-get_ipython().run_line_magic('timeit', 'klBin(r(), r(), rn())')
+get_ipython().run_line_magic("timeit", "klBin(r(), r(), rn())")
 
 
 # In[79]:
 
 
-get_ipython().run_line_magic('timeit', 'klBin_numba(r(), r(), rn())')
+get_ipython().run_line_magic("timeit", "klBin_numba(r(), r(), rn())")
 
 
 # In[80]:
 
 
-get_ipython().run_line_magic('timeit', 'klBin_cython(r(), r(), rn())')
+get_ipython().run_line_magic("timeit", "klBin_cython(r(), r(), rn())")
 
 
 # In[81]:
 
 
-get_ipython().run_line_magic('timeit', 'klBin_c(r(), r(), rn())')
+get_ipython().run_line_magic("timeit", "klBin_c(r(), r(), rn())")
 
 
 # This is a speed-up ratio of about $5$ times faster for both Numba and Cython. Not so great, but still something!
@@ -994,25 +1074,25 @@ test_fs([klPoisson, klPoisson_numba, klPoisson_cython, klPoisson_c], lambda: (r(
 # In[91]:
 
 
-get_ipython().run_line_magic('timeit', 'klPoisson(r(), r())')
+get_ipython().run_line_magic("timeit", "klPoisson(r(), r())")
 
 
 # In[92]:
 
 
-get_ipython().run_line_magic('timeit', 'klPoisson_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klPoisson_numba(r(), r())")
 
 
 # In[93]:
 
 
-get_ipython().run_line_magic('timeit', 'klPoisson_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klPoisson_cython(r(), r())")
 
 
 # In[94]:
 
 
-get_ipython().run_line_magic('timeit', 'klPoisson_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klPoisson_c(r(), r())")
 
 
 # This is a speed-up ratio of about $7.5$ times faster for Numba, and about $7$ times for Cython and C.
@@ -1036,25 +1116,25 @@ test_fs([klExp, klExp_numba, klExp_cython, klExp_c], lambda: (r(), r()))
 # In[97]:
 
 
-get_ipython().run_line_magic('timeit', 'klExp(r(), r())')
+get_ipython().run_line_magic("timeit", "klExp(r(), r())")
 
 
 # In[98]:
 
 
-get_ipython().run_line_magic('timeit', 'klExp_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klExp_numba(r(), r())")
 
 
 # In[99]:
 
 
-get_ipython().run_line_magic('timeit', 'klExp_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klExp_cython(r(), r())")
 
 
 # In[100]:
 
 
-get_ipython().run_line_magic('timeit', 'klExp_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klExp_c(r(), r())")
 
 
 # This is a speed-up ratio of about $3$ times faster for Numba and $6$ times faster for Cython.
@@ -1064,8 +1144,8 @@ get_ipython().run_line_magic('timeit', 'klExp_c(r(), r())')
 
 
 (2210 - 576) / (1070 - 576)  # for Python vs numba
-(2210 - 576) / (842 - 576)   # for Python vs Cython
-(2210 - 576) / (869 - 576)   # for Python vs C
+(2210 - 576) / (842 - 576)  # for Python vs Cython
+(2210 - 576) / (869 - 576)  # for Python vs C
 
 
 # ### Gamma
@@ -1085,25 +1165,25 @@ test_fs([klGamma, klGamma_numba, klGamma_cython, klGamma_c], lambda: (r(), r()))
 # In[107]:
 
 
-get_ipython().run_line_magic('timeit', 'klGamma(r(), r())')
+get_ipython().run_line_magic("timeit", "klGamma(r(), r())")
 
 
 # In[108]:
 
 
-get_ipython().run_line_magic('timeit', 'klGamma_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klGamma_numba(r(), r())")
 
 
 # In[109]:
 
 
-get_ipython().run_line_magic('timeit', 'klGamma_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klGamma_cython(r(), r())")
 
 
 # In[110]:
 
 
-get_ipython().run_line_magic('timeit', 'klGamma_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klGamma_c(r(), r())")
 
 
 # This is a speed-up ratio of about $6$ times faster for Numba, and $6$ or $5$ times faster for Cython and C.
@@ -1113,8 +1193,8 @@ get_ipython().run_line_magic('timeit', 'klGamma_c(r(), r())')
 
 
 (2700 - 576) / (1070 - 576)  # for Python vs numba
-(2700 - 576) / (889 - 576)   # for Python vs Cython
-(2700 - 576) / (997 - 576)   # for Python vs C
+(2700 - 576) / (889 - 576)  # for Python vs Cython
+(2700 - 576) / (997 - 576)  # for Python vs C
 
 
 # ### Negative binomial
@@ -1128,19 +1208,19 @@ test_fs([klNegBin, klNegBin_numba, klNegBin_cython], lambda: (r(), r()))
 # In[113]:
 
 
-get_ipython().run_line_magic('timeit', 'klNegBin(r(), r())')
+get_ipython().run_line_magic("timeit", "klNegBin(r(), r())")
 
 
 # In[114]:
 
 
-get_ipython().run_line_magic('timeit', 'klNegBin_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klNegBin_numba(r(), r())")
 
 
 # In[115]:
 
 
-get_ipython().run_line_magic('timeit', 'klNegBin_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klNegBin_cython(r(), r())")
 
 
 # This is a speed-up ratio of about $5$ times faster for Numba and $10$ times faster for Cython.
@@ -1149,7 +1229,7 @@ get_ipython().run_line_magic('timeit', 'klNegBin_cython(r(), r())')
 
 
 (3890 - 576) / (1160 - 576)  # for Python vs numba
-(3890 - 576) / (901 - 576)   # for Python vs Cython
+(3890 - 576) / (901 - 576)  # for Python vs Cython
 
 
 # ### Gaussian
@@ -1169,25 +1249,25 @@ test_fs([klGauss, klGauss_numba, klGauss_cython, klGauss_c], lambda: (r(), r()))
 # In[122]:
 
 
-get_ipython().run_line_magic('timeit', 'klGauss(r(), r())')
+get_ipython().run_line_magic("timeit", "klGauss(r(), r())")
 
 
 # In[123]:
 
 
-get_ipython().run_line_magic('timeit', 'klGauss_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klGauss_numba(r(), r())")
 
 
 # In[124]:
 
 
-get_ipython().run_line_magic('timeit', 'klGauss_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klGauss_cython(r(), r())")
 
 
 # In[125]:
 
 
-get_ipython().run_line_magic('timeit', 'klGauss_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klGauss_c(r(), r())")
 
 
 # This is a speed-up ratio of about $45$ times faster for Cython, but Numba completely here!
@@ -1198,8 +1278,8 @@ get_ipython().run_line_magic('timeit', 'klGauss_c(r(), r())')
 
 
 (852 - 576) / (1070 - 576)  # for Python vs numba
-(852 - 576) / (745 - 576)   # for Python vs Cython
-(852 - 576) / (911 - 576)   # for Python vs C
+(852 - 576) / (745 - 576)  # for Python vs Cython
+(852 - 576) / (911 - 576)  # for Python vs C
 
 
 # ## KL-UCB indexes
@@ -1215,31 +1295,33 @@ klucbGauss_c = lambda x, y: kullback.klucbGauss(x, y, 0.25)
 # In[129]:
 
 
-test_fs([klucbGauss, klucbGauss_numba, klucbGauss_cython, klucbGauss_c], lambda: (r(), r()))
+test_fs(
+    [klucbGauss, klucbGauss_numba, klucbGauss_cython, klucbGauss_c], lambda: (r(), r())
+)
 
 
 # In[130]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbGauss(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbGauss(r(), r())")
 
 
 # In[131]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbGauss_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbGauss_numba(r(), r())")
 
 
 # In[132]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbGauss_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbGauss_cython(r(), r())")
 
 
 # In[133]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbGauss_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbGauss_c(r(), r())")
 
 
 # This is a speed-up ratio of about $14$ times faster for Cython and $4$ times for C, and one more failure case for Numba.
@@ -1249,8 +1331,8 @@ get_ipython().run_line_magic('timeit', 'klucbGauss_c(r(), r())')
 
 
 (1960 - 576) / (31300 - 576)  # for Python vs numba
-(1960 - 576) / (676 - 576)    # for Python vs Cython
-(1960 - 576) / (939 - 576)    # for Python vs C
+(1960 - 576) / (676 - 576)  # for Python vs Cython
+(1960 - 576) / (939 - 576)  # for Python vs C
 
 
 # ### Bernoulli
@@ -1270,25 +1352,25 @@ test_fs([klucbBern, klucbBern_numba, klucbBern_cython, klucbBern_c], lambda: (r(
 # In[141]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbBern(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbBern(r(), r())")
 
 
 # In[142]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbBern_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbBern_numba(r(), r())")
 
 
 # In[143]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbBern_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbBern_cython(r(), r())")
 
 
 # In[144]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbBern_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbBern_c(r(), r())")
 
 
 # This is a speed-up ratio of about $15$ times faster for Cython, and one more failure case for Numba.
@@ -1298,7 +1380,7 @@ get_ipython().run_line_magic('timeit', 'klucbBern_c(r(), r())')
 
 
 (91900 - 576) / (170000 - 576)  # for Python vs numba
-(91900 - 576) / (6930 - 576)    # for Python vs Cython
+(91900 - 576) / (6930 - 576)  # for Python vs Cython
 (91900 - 576) / abs(314 - 576)  # for Python vs C
 
 
@@ -1313,31 +1395,34 @@ klucbPoisson_c = lambda x, y: kullback.klucbPoisson(x, y, 1e-6)
 # In[149]:
 
 
-test_fs([klucbPoisson, klucbPoisson_numba, klucbPoisson_cython, klucbPoisson_c], lambda: (r(), r()))
+test_fs(
+    [klucbPoisson, klucbPoisson_numba, klucbPoisson_cython, klucbPoisson_c],
+    lambda: (r(), r()),
+)
 
 
 # In[150]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbPoisson(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbPoisson(r(), r())")
 
 
 # In[151]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbPoisson_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbPoisson_numba(r(), r())")
 
 
 # In[152]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbPoisson_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbPoisson_cython(r(), r())")
 
 
 # In[153]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbPoisson_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbPoisson_c(r(), r())")
 
 
 # This is a speed-up ratio of about $15$ times faster for Cython, and one more failure case for Numba.
@@ -1347,8 +1432,8 @@ get_ipython().run_line_magic('timeit', 'klucbPoisson_c(r(), r())')
 
 
 (72600 - 576) / (167000 - 576)  # for Python vs numba
-(72600 - 576) / (5330 - 576)    # for Python vs Cython
-(72600 - 576) / (2180 - 576)    # for Python vs Cython
+(72600 - 576) / (5330 - 576)  # for Python vs Cython
+(72600 - 576) / (2180 - 576)  # for Python vs Cython
 
 
 # ### Exponential
@@ -1368,25 +1453,25 @@ test_fs([klucbExp, klucbExp_numba, klucbExp_cython, klucbExp_c], lambda: (r(), r
 # In[157]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbExp(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbExp(r(), r())")
 
 
 # In[158]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbExp_numba(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbExp_numba(r(), r())")
 
 
 # In[159]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbExp_cython(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbExp_cython(r(), r())")
 
 
 # In[160]:
 
 
-get_ipython().run_line_magic('timeit', 'klucbExp_c(r(), r())')
+get_ipython().run_line_magic("timeit", "klucbExp_c(r(), r())")
 
 
 # This is a speed-up ratio of about $17$ times faster for Cython, and one more failure case for Numba.
@@ -1396,8 +1481,8 @@ get_ipython().run_line_magic('timeit', 'klucbExp_c(r(), r())')
 
 
 (78700 - 576) / (156000 - 576)  # for Python vs numba
-(78700 - 576) / (4410 - 576)    # for Python vs Cython
-(78700 - 576) / (2040 - 576)    # for Python vs Cython
+(78700 - 576) / (4410 - 576)  # for Python vs Cython
+(78700 - 576) / (2040 - 576)  # for Python vs Cython
 
 
 # ## Clean up
@@ -1405,35 +1490,37 @@ get_ipython().run_line_magic('timeit', 'klucbExp_c(r(), r())')
 # In[162]:
 
 
-get_ipython().run_cell_magic('bash', '', '[ -f kullback.py.old ] && mv -vf kullback.py.old kullback.py')
+get_ipython().run_cell_magic(
+    "bash", "", "[ -f kullback.py.old ] && mv -vf kullback.py.old kullback.py"
+)
 
 
 # ----
 # # Conclusion
-# 
+#
 # - As expected, the Numba, Cython and C versions are *way* faster than the naive Python versions, on very simple functions,
 # - The simpler the function, the closer the speed-up is between Numba and Cython or C,
 # - Cython and C always give the best improvement,
 # - On less simple functions, Numba can fail to produce `nopython` code, and on some examples the `nopython` code can be *slower* than naive Python (like, crazily slower). No idea why, and the point was precisely not to try too much optimizing this use of Numba.
 # - Cython gives speed-up factors typically between $100$ and $12$ times faster than naive Python.
 # - C alsways gives the best speed-up, with a speed-up between $150$ and $50$ times faster than naive Python, and usually $10$ times faster than Cython!
-# 
+#
 # ## Take away messages
 # The take away messages are the following:
-# 
+#
 # 1. if your code makes a heavy use of a few small and not-too-complicated functions, it is probably worth using `numba.jit` to speed them up,
 # 2. but be careful, and do some basic benchmark on each "possibly optimized" function, to check that using Numba actually speeds it up instead of slowing it down!
 # 3. if Numba is not enough to speed up your code, try to write a Cython version of the bottleneck functions.
 # 4. if your bottleneck is *still* too slow, try to write a C extension, but it requires a good knowledge of both the internals of the C language, as well as a (basic) knowledge of the [C-API of CPython](https://docs.python.org/3/c-api/).
-# 
+#
 # ## Using Cython *for real* ?
 # My advice for using Cython are the following:
-# 
+#
 # 1. First try in a notebook, using this [`%%cython` magic is very easy!](https://cython.readthedocs.io/en/latest/src/quickstart/build.html#using-the-jupyter-notebook)
 # 2. Then if you are happy about your implementation, save it to a `.pyx` file, and use [`pyximport`](https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#pyximport) from your Python code to automatically compile and import it. It works perfectly fine, believe me!
-# 
+#
 # ## Using C *for real* ?
 # It's not too hard, but it's certainly not as easy as Cython.
 # My approach from now will to not even consider writing C code, as Cython offers a very good speedup when carefully used. And it's much easier to just write `import pyximport` before importing your Cython-accelerated module, in comparison to writing a `setupy.py` and requiring a compilation step for a C-optimized module!
-# 
+#
 # > That's it for today, folks! See [this page](https://github.com/Naereen/notebooks) for other notebooks I wrote recently.

@@ -41,9 +41,11 @@ curs = conn.cursor()
 # print(curs.execute("""
 # SELECT COUNT(*) FROM charactercreator_character;
 # """).fetchall())
-characters = curs.execute("""
+characters = curs.execute(
+    """
 SELECT * FROM charactercreator_character
-""").fetchall()
+"""
+).fetchall()
 
 """ Transform """
 # info = curs.execute("""
@@ -60,7 +62,8 @@ cloud = psycopg2.connect(
     port="5432",
 )
 cloud_curs = cloud.cursor()
-cloud_curs.execute("""
+cloud_curs.execute(
+    """
 CREATE TABLE charactercreator_character (
     character_id    SERIAL PRIMARY KEY,
     name            varchar(30),
@@ -72,12 +75,15 @@ CREATE TABLE charactercreator_character (
     dexterity       INT,
     wisdom          INT
 );
-""")
+"""
+)
 cloud.commit()
 for character in characters:
-    cloud_curs.execute(f"""
+    cloud_curs.execute(
+        f"""
     INSERT INTO charactercreator_character
     (name, level, exp, hp, strength, intelligence, dexterity, wisdom)
     VALUES {character[1:]};
-    """)
+    """
+    )
 cloud.commit()

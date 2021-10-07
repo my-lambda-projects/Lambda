@@ -9,24 +9,17 @@ from module3.creds import M_PWD
 
 conn = sql.connect("rpg_db.sqlite3")
 curs = conn.cursor()
-characters = curs.execute(
-    "SELECT * FROM charactercreator_character"
-).fetchall()
+characters = curs.execute("SELECT * FROM charactercreator_character").fetchall()
 
-keys = (
-    'name', 'level', 'exp', 'hp', 'strength',
-    'intelligence', 'dexterity', 'wisdom',
-)
+keys = ("name", "level", "exp", "hp", "strength", "intelligence", "dexterity", "wisdom")
 
 db = MongoClient(
     f"mongodb+srv://brokenshell:{M_PWD}@cluster0-xz3sf.mongodb.net/test?retryWrites=true&w=majority"
 ).rpg_db.characters
 
-db.insert_many(
-    {k: v for k, v in zip(keys, char[1:])} for char in characters
-)
+db.insert_many({k: v for k, v in zip(keys, char[1:])} for char in characters)
 
-print(*db.find(), sep='\n')
+print(*db.find(), sep="\n")
 """
 Stretch Goal: See monsterDB.py
 """

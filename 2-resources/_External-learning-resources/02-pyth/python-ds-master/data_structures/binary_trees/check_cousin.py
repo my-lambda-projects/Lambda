@@ -1,7 +1,7 @@
 # Check if two nodes are cousin or not
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -15,7 +15,7 @@ def level(root, node, lev):
         return lev
 
     l = level(root.left, node, lev + 1)
-    
+
     if not l == 0:
         return l
 
@@ -26,7 +26,12 @@ def is_sibling(root, a, b):
     if root is None:
         return 0
 
-    return ( (root.left == a and root.right == b) or (root.left == b and root.right == a) or is_sibling(root.left, a, b) or is_sibling(root.right, a, b) )
+    return (
+        (root.left == a and root.right == b)
+        or (root.left == b and root.right == a)
+        or is_sibling(root.left, a, b)
+        or is_sibling(root.right, a, b)
+    )
 
 
 def is_cousin(root, a, b):

@@ -15,10 +15,15 @@ from .nesting import HierarchicalMachine, NestedTransition, NestedEvent
 from .locking import LockedMachine
 from .diagrams import GraphMachine, TransitionGraphSupport
 from .markup import MarkupMachine
+
 try:
     from transitions.extensions.asyncio import AsyncMachine, AsyncTransition
-    from transitions.extensions.asyncio import HierarchicalAsyncMachine, NestedAsyncTransition
+    from transitions.extensions.asyncio import (
+        HierarchicalAsyncMachine,
+        NestedAsyncTransition,
+    )
 except (ImportError, SyntaxError):
+
     class AsyncMachine:  # Mocks for Python version 3.6 and earlier
         pass
 
@@ -59,6 +64,7 @@ class NestedGraphTransition(TransitionGraphSupport, NestedTransition):
         A transition type to be used with (subclasses of) `HierarchicalGraphMachine` and
         `LockedHierarchicalGraphMachine`.
     """
+
     pass
 
 
@@ -92,7 +98,9 @@ class LockedGraphMachine(GraphMachine, LockedMachine):
 
     @staticmethod
     def format_references(func):
-        if isinstance(func, partial) and func.func.__name__.startswith('_locked_method'):
+        if isinstance(func, partial) and func.func.__name__.startswith(
+            "_locked_method"
+        ):
             func = func.args[0]
         return GraphMachine.format_references(func)
 
@@ -107,7 +115,9 @@ class LockedHierarchicalGraphMachine(GraphMachine, LockedHierarchicalMachine):
 
     @staticmethod
     def format_references(func):
-        if isinstance(func, partial) and func.func.__name__.startswith('_locked_method'):
+        if isinstance(func, partial) and func.func.__name__.startswith(
+            "_locked_method"
+        ):
             func = func.args[0]
         return GraphMachine.format_references(func)
 
@@ -135,5 +145,5 @@ _CLASS_MAP = {
     (False, False, False, True): AsyncMachine,
     (True, False, False, True): AsyncGraphMachine,
     (False, True, False, True): HierarchicalAsyncMachine,
-    (True, True, False, True): HierarchicalAsyncGraphMachine
+    (True, True, False, True): HierarchicalAsyncGraphMachine,
 }

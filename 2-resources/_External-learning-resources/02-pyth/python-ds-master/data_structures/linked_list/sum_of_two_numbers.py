@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
@@ -16,7 +15,7 @@ def push(head, data):
 def print_list(head):
     curr = head
     while curr:
-        print(curr.val, end=' ')
+        print(curr.val, end=" ")
         curr = curr.next
 
 
@@ -51,8 +50,6 @@ def sum_numbers(head1, head2):
         temp.next = Node(carry)
 
     return res
-
-
 
 
 head1 = Node(1)

@@ -1,22 +1,21 @@
-
 # coding: utf-8
 
 # # Generating permutations, several approaches with Python
-# 
+#
 # This small notebook implements, in [Python 3](https://docs.python.org/3/), several algorithms aiming at a simple task:
 # given a certain list, generate *all* the [permutations](https://en.wikipedia.org/wiki/Permutation) of the list.
-# 
+#
 # For instance, for `[1, 2]`, it should give `[1, 2]` and `[2, 1]`.
-# 
+#
 # ## References
 # - [This blog post, doing a similar job but in OCaml](http://typeocaml.com/2015/05/05/permutation/),
 # - [The documentation for itertools.permutations](https://docs.python.org/3/library/itertools.html#itertools.permutations).
-# 
+#
 # ## About
 # - *Date:* 06/02/2017.
 # - *Author:* [Lilian Besson](https://GitHub.com/Naereen), (C) 2017.
 # - *Licence:* [MIT Licence](http://lbesson.mit-license.org).
-# 
+#
 # ----
 
 # > This notebook should be compatible with both Python versions, [2](https://docs.python.org/2/) and [3](https://docs.python.org/3/).
@@ -29,7 +28,7 @@ from __future__ import print_function, division  # Python 2 compatibility if nee
 
 # ----
 # # 1. Reference implementation: from `itertools`
-# 
+#
 # The [`itertools`](https://docs.python.org/3/library/itertools.html) module, from the Python standard library, contains a function [`itertools.permutation`](https://docs.python.org/3/library/itertools.html#itertools.permutations):
 
 # In[3]:
@@ -40,7 +39,7 @@ from itertools import permutations as itertools_permutations
 
 
 # This will obviously be the quickest implementation, and there is no hope of beating it with pure Python (in terms of computational speed), as it is written in C and not in Python.
-# 
+#
 # Let's check that it works as wanted:
 
 # In[4]:
@@ -62,9 +61,9 @@ list(itertools_permutations([1, 2, 3]))
 
 
 # So, what's the advantage of returning an *iterator* and not a list of lists? **Memory and time efficiency** !
-# 
+#
 # The $n!$ permutations (if the list is of size $n$) take both a lot of time to compute and a lot of memory to store, so it's very clever if we can generate one after another, on demand, instead of having to compute all of them and storing them.
-# 
+#
 # The first two algorithms presented below are not iterators, but the last one will be.
 
 # > Permutations of the list are given as tuples, but there is no difference.
@@ -74,30 +73,38 @@ list(itertools_permutations([1, 2, 3]))
 # In[13]:
 
 
-get_ipython().run_line_magic('time', 'len(list(itertools_permutations(list(range(4)))))')
-get_ipython().run_line_magic('time', 'len(list(itertools_permutations(list(range(8)))))')
-get_ipython().run_line_magic('time', 'len(list(itertools_permutations(list(range(9)))))')
+get_ipython().run_line_magic(
+    "time", "len(list(itertools_permutations(list(range(4)))))"
+)
+get_ipython().run_line_magic(
+    "time", "len(list(itertools_permutations(list(range(8)))))"
+)
+get_ipython().run_line_magic(
+    "time", "len(list(itertools_permutations(list(range(9)))))"
+)
 
 
 # In[15]:
 
 
-get_ipython().run_line_magic('timeit', 'len(list(itertools_permutations(list(range(10)))))')
+get_ipython().run_line_magic(
+    "timeit", "len(list(itertools_permutations(list(range(10)))))"
+)
 
 
 # There is $n!$ permutations to generate, so obviously any algorithm is running in $\Omega(n!)$ time to generate all of them, and that is approximately the behavior observed above.
-# 
+#
 # > This claim should need better measurements to be really empirically supported!
 
 # ----
 # # 2. First algorithm : The insert-into-all-positions solution
-# 
+#
 # The basic idea is to separate the first element $x$ of the list, and the rest $xs$.
-# 
+#
 # - For instance, for $l = [1, 2, 3]$, $x = 1$ and $xs = [2, 3]$.
 # - Then the permutations of $l$ are obtained by inserting $x$ in every possible positions of every permutations of $xs$.
 # - Here, the permutations of $xs$ are $[2, 3]$ and $[3, 2]$. Inserting $x = 1$ in the first one give $[1, 2, 3]$ (first position), $[2, 1, 3]$ and $[2, 3, 1]$. Similarly, we obtain the last permutations: $[1, 3, 2]$, $[3, 1, 2]$ and $[3, 2, 1]$.
-# 
+#
 # So we first need a function that insert an element $x$ in every possible index of a list $l$.
 
 # In[16]:
@@ -117,6 +124,7 @@ def ins_all_positions(x, l):
 
 
 from functools import reduce
+
 # reduce(lambda acc, p: acc + f(p), l, []) is the same as the concatenation of list f(p) for p in l
 
 
@@ -134,7 +142,9 @@ def first_permutations(iterable):
     else:
         x, xs = iterable[0], iterable[1:]
         # reduce is needed instead of a simple sum(...) as sum() only works for numerical values
-        return reduce(lambda acc, p: acc + ins_all_positions(x, p), first_permutations(xs), [])
+        return reduce(
+            lambda acc, p: acc + ins_all_positions(x, p), first_permutations(xs), []
+        )
 
 
 # We can try it out, but only on small list as it is *not efficient*.
@@ -150,26 +160,26 @@ first_permutations([1, 2, 3])
 # In[35]:
 
 
-get_ipython().run_line_magic('time', 'len(list(first_permutations(list(range(4)))))')
-get_ipython().run_line_magic('time', 'len(list(first_permutations(list(range(5)))))')
-get_ipython().run_line_magic('time', 'len(list(first_permutations(list(range(6)))))')
-get_ipython().run_line_magic('time', 'len(list(first_permutations(list(range(7)))))')
-get_ipython().run_line_magic('time', 'len(list(first_permutations(list(range(8)))))')
+get_ipython().run_line_magic("time", "len(list(first_permutations(list(range(4)))))")
+get_ipython().run_line_magic("time", "len(list(first_permutations(list(range(5)))))")
+get_ipython().run_line_magic("time", "len(list(first_permutations(list(range(6)))))")
+get_ipython().run_line_magic("time", "len(list(first_permutations(list(range(7)))))")
+get_ipython().run_line_magic("time", "len(list(first_permutations(list(range(8)))))")
 
 
 # $\implies$ This implementation take about $8 s$ for a list with $n = 8$ elements: **it's crazily slow!**
 
 # ----
 # # 3. Second algorithm : The fixed-head solution
-# 
+#
 # The second algorithm will not be more efficient, but it is different in his design.
-# 
+#
 # Instead of inserting an element at every possible index, this second algorithm rather generate the permutations by considering that every element of the list will be the head of some of the permutation.
-# 
+#
 # With a fixed head, ie an element $x$, removed from the list $xs = l \setminus x$, permutations of $l$ are obtained by simply adding $x$ as the head of every permutation of $xs$.
-# 
+#
 # As for the first algorithm, this one is also recursive.
-# 
+#
 # One limitation of its simple implementation below is that it requires all elements in the list to be different, as it will compute the list $xs = l \setminus x$ with this very simple function `rm(x, l)` :
 
 # In[30]:
@@ -181,7 +191,7 @@ def rm(x, l):
 
 
 # > Note that with comparisons on indexes instead of comparisons on values, we could treat the general case not much harder.
-# 
+#
 # Then, we need, as before, a function to add $x$ as the head of all lists $p$ in a certain list of lists $l$.
 
 # In[31]:
@@ -207,7 +217,11 @@ def second_permutations(iterable):
     elif len(iterable) == 1:
         return [[iterable[0]]]
     else:
-        return reduce(lambda acc, x: acc + head_of_all(x, second_permutations(rm(x, iterable))), iterable, [])
+        return reduce(
+            lambda acc, x: acc + head_of_all(x, second_permutations(rm(x, iterable))),
+            iterable,
+            [],
+        )
 
 
 # Let's try it out:
@@ -223,12 +237,12 @@ second_permutations([1, 2, 3])
 # In[38]:
 
 
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(4)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(5)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(6)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(7)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(8)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(9)))))')
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(4)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(5)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(6)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(7)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(8)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(9)))))")
 
 
 # $\implies$ this second algorithm is more efficient, as it requires only $0.6 s$ to generate the $8! = 40320$ different permutations of the list $[0, 1, 2, 3, 4, 5, 6, 7]$.
@@ -237,14 +251,15 @@ get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(9)
 
 
 from math import factorial
+
 factorial(8)
 
 
 # ----
 # # 3. Third algorithm : the Johnson-Trotter algorithm
-# 
+#
 # This algorithm is more complicated to explain, I will let you refer to [its Wikipedia page](https://en.wikipedia.org/wiki/Johnson-Trotter), or for more details, [this blog post](http://typeocaml.com/2015/05/05/permutation/).
-# 
+#
 # We use simple values to denote directions, `left` or `right`:
 
 # In[41]:
@@ -300,7 +315,7 @@ def is_movable(a, i):
 
 
 # Then the function `move(a, i)` simply swaps `a[i]` to the left or right, if it is possible.
-# 
+#
 # It raises a `ValueError` exception if it cannot swap, to be general, but of course the algorithm will never be in such a undesirable state.
 
 # In[46]:
@@ -328,6 +343,7 @@ def move(a, i):
 
 def scan_largest_movable(a):
     """Find the largest movable element."""
+
     def aux(acc, i):
         if i >= len(a):
             return acc
@@ -341,6 +357,7 @@ def scan_largest_movable(a):
                 else:
                     j = acc if x < a[acc][0] else i
                     return aux(j, i + 1)
+
     return aux(None, 0)
 
 
@@ -392,7 +409,7 @@ def third_permutations(iterable):
 
 
 # Yeay, we finally have an **iterator** on permutations of a list, instead of generating all of them.
-# 
+#
 # Let's try it out:
 
 # In[53]:
@@ -412,37 +429,39 @@ list(third_permutations([1, 2, 3]))
 # In[55]:
 
 
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(4)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(5)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(6)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(7)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(8)))))')
-get_ipython().run_line_magic('time', 'len(list(second_permutations(list(range(9)))))')
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(4)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(5)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(6)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(7)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(8)))))")
+get_ipython().run_line_magic("time", "len(list(second_permutations(list(range(9)))))")
 
 
 # $\implies$ the Johnson-Trotter algorithm is, as expected, quicker than the previous naive implementations, but it's still pretty slow compared to the reference implementation [`itertools.permutation`](https://docs.python.org/3/library/itertools.html#itertools.permutations).
 
 # ----
 # # 4. Comparing our Johnson-Trotter implementation and `itertools.permutation`
-# 
+#
 # To compare them fairly, we need to run them several times:
 
 # In[63]:
 
 
-get_ipython().run_line_magic('timeit', 'len(list(itertools_permutations([1, 2, 3])))')
-get_ipython().run_line_magic('timeit', 'len(list(third_permutations([1, 2, 3])))')
+get_ipython().run_line_magic("timeit", "len(list(itertools_permutations([1, 2, 3])))")
+get_ipython().run_line_magic("timeit", "len(list(third_permutations([1, 2, 3])))")
 
 
 # In[64]:
 
 
-get_ipython().run_line_magic('timeit', 'len(list(itertools_permutations([1, 2, 3, 4, 5])))')
-get_ipython().run_line_magic('timeit', 'len(list(third_permutations([1, 2, 3, 4, 5])))')
+get_ipython().run_line_magic(
+    "timeit", "len(list(itertools_permutations([1, 2, 3, 4, 5])))"
+)
+get_ipython().run_line_magic("timeit", "len(list(third_permutations([1, 2, 3, 4, 5])))")
 
 
 # However, [IPython](http://ipython.org/)'s `%timeit` function warns us that `itertools.permutation` *could* use caching, and that could bias the result.
-# 
+#
 # One easy way to remove any caching is to test on different input lists, and that can be done, for instance, with random lists.
 
 # In[61]:
@@ -450,8 +469,10 @@ get_ipython().run_line_magic('timeit', 'len(list(third_permutations([1, 2, 3, 4,
 
 from numpy.random import choice
 
+
 def random_list_of_size_n(n=5, N=1000):
     return list(choice(list(range(1, N + 1)), size=n, replace=False))
+
 
 random_list_of_size_n(5)
 
@@ -459,20 +480,28 @@ random_list_of_size_n(5)
 # In[65]:
 
 
-get_ipython().run_line_magic('timeit', 'len(list(itertools_permutations(random_list_of_size_n(5))))')
-get_ipython().run_line_magic('timeit', 'len(list(third_permutations(random_list_of_size_n(5))))')
+get_ipython().run_line_magic(
+    "timeit", "len(list(itertools_permutations(random_list_of_size_n(5))))"
+)
+get_ipython().run_line_magic(
+    "timeit", "len(list(third_permutations(random_list_of_size_n(5))))"
+)
 
 
 # In[66]:
 
 
-get_ipython().run_line_magic('timeit', 'len(list(itertools_permutations(random_list_of_size_n(6))))')
-get_ipython().run_line_magic('timeit', 'len(list(third_permutations(random_list_of_size_n(6))))')
+get_ipython().run_line_magic(
+    "timeit", "len(list(itertools_permutations(random_list_of_size_n(6))))"
+)
+get_ipython().run_line_magic(
+    "timeit", "len(list(third_permutations(random_list_of_size_n(6))))"
+)
 
 
 # ----
 # # 5. Testing our $3$ implementations
-# 
+#
 # Additionnally to comparing the speed efficiency, we would also like to simply check that all the functions we wrote are working as expected!
 
 # In[72]:
@@ -480,7 +509,11 @@ get_ipython().run_line_magic('timeit', 'len(list(third_permutations(random_list_
 
 def test(list_of_f, iterable):
     """ Test that all functions in list_of_f give the same list of permutation on this iterable."""
-    print("Testing for the list of functions {} ...".format([f.__name__ for f in list_of_f]))  # DEBUG
+    print(
+        "Testing for the list of functions {} ...".format(
+            [f.__name__ for f in list_of_f]
+        )
+    )  # DEBUG
     result = True
     print("Testing for the iterable {} ...".format(iterable))  # DEBUG
     i = iterable
@@ -491,10 +524,18 @@ def test(list_of_f, iterable):
         for j in range(i + 1, len(allperms)):
             pj = allperms[j]
             if pi != pj:
-                print(" - Function #{} ({.__name__}) gave a different list of permutations as function #{} ({.__name__}) ...".format(i, list_of_f[i], j, list_of_f[j]))  # DEBUG
+                print(
+                    " - Function #{} ({.__name__}) gave a different list of permutations as function #{} ({.__name__}) ...".format(
+                        i, list_of_f[i], j, list_of_f[j]
+                    )
+                )  # DEBUG
                 result = False
             else:
-                print(" - Function #{} ({.__name__}) gave the same list of permutations as function #{} ({.__name__}) ...".format(i, list_of_f[i], j, list_of_f[j]))  # DEBUG
+                print(
+                    " - Function #{} ({.__name__}) gave the same list of permutations as function #{} ({.__name__}) ...".format(
+                        i, list_of_f[i], j, list_of_f[j]
+                    )
+                )  # DEBUG
     return result
 
 
@@ -503,7 +544,12 @@ def test(list_of_f, iterable):
 # In[73]:
 
 
-list_of_f = [itertools_permutations, first_permutations, second_permutations, third_permutations]
+list_of_f = [
+    itertools_permutations,
+    first_permutations,
+    second_permutations,
+    third_permutations,
+]
 
 
 # In[74]:
@@ -529,8 +575,8 @@ test(list_of_f, iterable)
 
 # ----
 # > That's it for today, folks!
-# 
+#
 # - If you want to read more about permutations and algorithms *to generate them all*, [this page is very helpful](https://en.wikipedia.org/wiki/Permutation#Algorithms_to_generate_permutations),
 # - But if you want to find *one ring to rule them all*, [Bilbo is the guy to ask to](http://www.lmgtfy.com/?q=one%20ring%20to%20rule%20them%20all).
-# 
+#
 # More notebooks can be found on [my GitHub page](https://GitHub.com/Naereen/notebooks).

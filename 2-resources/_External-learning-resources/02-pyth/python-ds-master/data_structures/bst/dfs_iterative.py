@@ -1,9 +1,9 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
+
 
 def inorder(root):
     if not root:
@@ -67,6 +67,6 @@ root.left.right = Node(3)
 root.right.right = Node(8)
 root.right.left = Node(6)
 
-#inorder(root)
-#preorder(root)
+# inorder(root)
+# preorder(root)
 postorder(root)

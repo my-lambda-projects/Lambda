@@ -21,4 +21,4 @@ def random_matrix(n):
 
 
 m = random_matrix(9)
-print('\n'.join(map(str, m)))
+print("\n".join(map(str, m)))

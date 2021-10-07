@@ -12,8 +12,11 @@ class Monomial:
     record the details of all variables
     that a typical monomial is composed of.
     """
-    def __init__(self, variables: Dict[int, int], coeff: Union[int, float, Fraction, None]=None) -> None:
-        '''
+
+    def __init__(
+        self, variables: Dict[int, int], coeff: Union[int, float, Fraction, None] = None
+    ) -> None:
+        """
         Create a monomial in the given variables:
         Examples:
 
@@ -30,7 +33,7 @@ class Monomial:
 
             Monomial({2:3, 3:-1}, 1.5) = (3/2)(a_2)^3(a_3)^(-1)
 
-        '''
+        """
         self.variables = dict()
 
         if coeff is None:
@@ -53,16 +56,15 @@ class Monomial:
 
     @staticmethod
     def _rationalize_if_possible(num):
-        '''
+        """
         A helper for converting numbers
         to Fraction only when possible.
-        '''
+        """
         if isinstance(num, Rational):
             res = Fraction(num, 1)
             return Fraction(res.numerator, res.denominator)
         else:
             return num
-
 
     # def equal_upto_scalar(self, other: Monomial) -> bool:
     def equal_upto_scalar(self, other) -> bool:
@@ -72,7 +74,7 @@ class Monomial:
         multiple.
         """
         if not isinstance(other, Monomial):
-            raise ValueError('Can only compare monomials.')
+            raise ValueError("Can only compare monomials.")
         return other.variables == self.variables
 
     # def __add__(self, other: Union[int, float, Fraction, Monomial]):
@@ -82,21 +84,29 @@ class Monomial:
         monomials or the addition of
         a monomial with an int, float, or a Fraction.
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
             return self.__add__(Monomial({}, Monomial._rationalize_if_possible(other)))
 
         if not isinstance(other, Monomial):
-            raise ValueError('Can only add monomials, ints, floats, or Fractions.')
+            raise ValueError("Can only add monomials, ints, floats, or Fractions.")
 
         if self.variables == other.variables:
             mono = {i: self.variables[i] for i in self.variables}
-            return Monomial(mono, Monomial._rationalize_if_possible(self.coeff + other.coeff)).clean()
-        
+            return Monomial(
+                mono, Monomial._rationalize_if_possible(self.coeff + other.coeff)
+            ).clean()
+
         # If they don't share same variables then by the definition,
         # if they are added, the result becomes a polynomial and not a monomial.
         # Thus, raise ValueError in that case.
 
-        raise ValueError(f'Cannot add {str(other)} to {self.__str__()} because they don\'t have same variables.')
+        raise ValueError(
+            f"Cannot add {str(other)} to {self.__str__()} because they don't have same variables."
+        )
 
     # def __eq__(self, other: Monomial) -> bool:
     def __eq__(self, other) -> bool:
@@ -118,12 +128,18 @@ class Monomial:
             Monomial({3:2}) * 2.5 = (5/2)(a_3)^2
 
         """
-        if isinstance(other, float) or isinstance(other, int) or isinstance(other, Fraction):
+        if (
+            isinstance(other, float)
+            or isinstance(other, int)
+            or isinstance(other, Fraction)
+        ):
             mono = {i: self.variables[i] for i in self.variables}
-            return Monomial(mono, Monomial._rationalize_if_possible(self.coeff * other)).clean()
+            return Monomial(
+                mono, Monomial._rationalize_if_possible(self.coeff * other)
+            ).clean()
 
         if not isinstance(other, Monomial):
-            raise ValueError('Can only multiply monomials, ints, floats, or Fractions.')
+            raise ValueError("Can only multiply monomials, ints, floats, or Fractions.")
         else:
             mono = {i: self.variables[i] for i in self.variables}
             for i in other.variables:
@@ -137,7 +153,9 @@ class Monomial:
                 if mono[k] != 0:
                     temp[k] = mono[k]
 
-            return Monomial(temp, Monomial._rationalize_if_possible(self.coeff * other.coeff)).clean()
+            return Monomial(
+                temp, Monomial._rationalize_if_possible(self.coeff * other.coeff)
+            ).clean()
 
     # def inverse(self) -> Monomial:
     def inverse(self):
@@ -155,7 +173,7 @@ class Monomial:
             mono[i] *= -1
         if self.coeff == 0:
             raise ValueError("Coefficient must not be 0.")
-        return Monomial(mono, Monomial._rationalize_if_possible(1/self.coeff)).clean()
+        return Monomial(mono, Monomial._rationalize_if_possible(1 / self.coeff)).clean()
 
     # def __truediv__(self, other: Union[int, float, Fraction, Monomial]) -> Monomial:
     def __truediv__(self, other: Union[int, float, Fraction]):
@@ -164,11 +182,17 @@ class Monomial:
         or a monomial and some other datatype
         like int/float/Fraction.
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
             mono = {i: self.variables[i] for i in self.variables}
             if other == 0:
-                raise ValueError('Cannot divide by 0.')
-            return Monomial(mono, Monomial._rationalize_if_possible(self.coeff / other)).clean()
+                raise ValueError("Cannot divide by 0.")
+            return Monomial(
+                mono, Monomial._rationalize_if_possible(self.coeff / other)
+            ).clean()
 
         o = other.inverse()
         return self.__mul__(o)
@@ -187,14 +211,18 @@ class Monomial:
         Clone the monomial.
         """
         temp_variables = {i: self.variables[i] for i in self.variables}
-        return Monomial(temp_variables, Monomial._rationalize_if_possible(self.coeff)).clean()
+        return Monomial(
+            temp_variables, Monomial._rationalize_if_possible(self.coeff)
+        ).clean()
 
     # def clean(self) -> Monomial:
     def clean(self):
         """
         Clean the monomial by dropping any variables that have power 0.
         """
-        temp_variables = {i: self.variables[i] for i in self.variables if self.variables[i] != 0}
+        temp_variables = {
+            i: self.variables[i] for i in self.variables if self.variables[i] != 0
+        }
         return Monomial(temp_variables, Monomial._rationalize_if_possible(self.coeff))
 
     # def __sub__(self, other: Union[int, float, Fraction, Monomial]) -> Monomial:
@@ -204,14 +232,20 @@ class Monomial:
         of a monomial and a datatype
         such as int, float, Fraction, or Monomial.
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
-            mono = {i: self.variables[i] for i in self.variables if self.variables[i] != 0}
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
+            mono = {
+                i: self.variables[i] for i in self.variables if self.variables[i] != 0
+            }
             if len(mono) != 0:
-                raise ValueError('Can only subtract like monomials.')
+                raise ValueError("Can only subtract like monomials.")
             other_term = Monomial(mono, Monomial._rationalize_if_possible(other))
             return self.__sub__(other_term)
         if not isinstance(other, Monomial):
-            raise ValueError('Can only subtract monomials')
+            raise ValueError("Can only subtract monomials")
         return self.__add__(other.__mul__(Fraction(-1, 1)))
 
     def __hash__(self) -> int:
@@ -242,22 +276,36 @@ class Monomial:
         """
         return set(sorted(self.variables.keys()))
 
-    def substitute(self, substitutions: Union[int, float, Fraction, Dict[int, Union[int, float, Fraction]]]) -> Fraction:
+    def substitute(
+        self,
+        substitutions: Union[
+            int, float, Fraction, Dict[int, Union[int, float, Fraction]]
+        ],
+    ) -> Fraction:
         """
         Substitute the variables in the
         monomial for values defined by
         the substitutions dictionary.
         """
-        if isinstance(substitutions, int) or isinstance(substitutions, float) or isinstance(substitutions, Fraction):
-            substitutions = {v: Monomial._rationalize_if_possible(substitutions) for v in self.all_variables()}
+        if (
+            isinstance(substitutions, int)
+            or isinstance(substitutions, float)
+            or isinstance(substitutions, Fraction)
+        ):
+            substitutions = {
+                v: Monomial._rationalize_if_possible(substitutions)
+                for v in self.all_variables()
+            }
         else:
             if not self.all_variables().issubset(set(substitutions.keys())):
-                raise ValueError('Some variables didn\'t receive their values.')
+                raise ValueError("Some variables didn't receive their values.")
         if self.coeff == 0:
             return Fraction(0, 1)
         ans = Monomial._rationalize_if_possible(self.coeff)
         for k in self.variables:
-            ans *= Monomial._rationalize_if_possible(substitutions[k]**self.variables[k])
+            ans *= Monomial._rationalize_if_possible(
+                substitutions[k] ** self.variables[k]
+            )
         return Monomial._rationalize_if_possible(ans)
 
     def __str__(self) -> str:
@@ -269,19 +317,19 @@ class Monomial:
             return str(self.coeff)
 
         result = str(self.coeff)
-        result += '('
+        result += "("
         for i in self.variables:
-            temp = 'a_{}'.format(str(i))
+            temp = "a_{}".format(str(i))
             if self.variables[i] > 1:
-                temp = '(' + temp + ')**{}'.format(self.variables[i])
+                temp = "(" + temp + ")**{}".format(self.variables[i])
             elif self.variables[i] < 0:
-                temp = '(' + temp + ')**(-{})'.format(-self.variables[i])
+                temp = "(" + temp + ")**(-{})".format(-self.variables[i])
             elif self.variables[i] == 0:
                 continue
             else:
-                temp = '(' + temp + ')'
+                temp = "(" + temp + ")"
             result += temp
-        return result + ')'
+        return result + ")"
 
 
 class Polynomial:
@@ -292,8 +340,11 @@ class Polynomial:
     that are potentially comprised of multiple
     variables.
     """
-    def __init__(self, monomials: Iterable[Union[int, float, Fraction, Monomial]]) -> None:
-        '''
+
+    def __init__(
+        self, monomials: Iterable[Union[int, float, Fraction, Monomial]]
+    ) -> None:
+        """
         Create a polynomial in the given variables:
         Examples:
 
@@ -306,7 +357,7 @@ class Polynomial:
 
             Polynomial([]) = 0
 
-        '''
+        """
         self.monomials = set()
         for m in monomials:
             if any(map(lambda x: isinstance(m, x), [int, float, Fraction])):
@@ -314,21 +365,22 @@ class Polynomial:
             elif isinstance(m, Monomial):
                 self.monomials |= {m}
             else:
-                raise ValueError('Iterable should have monomials, int, float, or Fraction.')
+                raise ValueError(
+                    "Iterable should have monomials, int, float, or Fraction."
+                )
         self.monomials -= {Monomial({}, 0)}
 
     @staticmethod
     def _rationalize_if_possible(num):
-        '''
+        """
         A helper for converting numbers
         to Fraction only when possible.
-        '''
+        """
         if isinstance(num, Rational):
             res = Fraction(num, 1)
             return Fraction(res.numerator, res.denominator)
         else:
             return num
-
 
     # def __add__(self, other: Union[int, float, Fraction, Monomial, Polynomial]) -> Polynomial:
     def __add__(self, other: Union[int, float, Fraction, Monomial]):
@@ -336,8 +388,14 @@ class Polynomial:
         Add a given poylnomial to a copy of self.
 
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
-            return self.__add__(Monomial({}, Polynomial._rationalize_if_possible(other)))
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
+            return self.__add__(
+                Monomial({}, Polynomial._rationalize_if_possible(other))
+            )
         elif isinstance(other, Monomial):
             monos = {m.clone() for m in self.monomials}
 
@@ -346,20 +404,27 @@ class Polynomial:
                     scalar = _own_monos.coeff
                     monos -= {_own_monos}
                     temp_variables = {i: other.variables[i] for i in other.variables}
-                    monos |= {Monomial(temp_variables, Polynomial._rationalize_if_possible(scalar + other.coeff))}
+                    monos |= {
+                        Monomial(
+                            temp_variables,
+                            Polynomial._rationalize_if_possible(scalar + other.coeff),
+                        )
+                    }
                     return Polynomial([z for z in monos])
 
             monos |= {other.clone()}
             return Polynomial([z for z in monos])
         elif isinstance(other, Polynomial):
             temp = list(z for z in {m.clone() for m in self.all_monomials()})
-        
+
             p = Polynomial(temp)
             for o in other.all_monomials():
                 p = p.__add__(o.clone())
             return p
         else:
-            raise ValueError('Can only add int, float, Fraction, Monomials, or Polynomials to Polynomials.')
+            raise ValueError(
+                "Can only add int, float, Fraction, Monomials, or Polynomials to Polynomials."
+            )
 
     # def __sub__(self, other: Union[int, float, Fraction, Monomial, Polynomial]) -> Polynomial:
     def __sub__(self, other: Union[int, float, Fraction, Monomial]):
@@ -368,8 +433,14 @@ class Polynomial:
         from a copy of self.
 
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
-            return self.__sub__(Monomial({}, Polynomial._rationalize_if_possible(other)))
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
+            return self.__sub__(
+                Monomial({}, Polynomial._rationalize_if_possible(other))
+            )
         elif isinstance(other, Monomial):
             monos = {m.clone() for m in self.all_monomials()}
             for _own_monos in monos:
@@ -377,7 +448,12 @@ class Polynomial:
                     scalar = _own_monos.coeff
                     monos -= {_own_monos}
                     temp_variables = {i: other.variables[i] for i in other.variables}
-                    monos |= {Monomial(temp_variables, Polynomial._rationalize_if_possible(scalar - other.coeff))}
+                    monos |= {
+                        Monomial(
+                            temp_variables,
+                            Polynomial._rationalize_if_possible(scalar - other.coeff),
+                        )
+                    }
                     return Polynomial([z for z in monos])
 
             to_insert = other.clone()
@@ -391,9 +467,11 @@ class Polynomial:
             for o in other.all_monomials():
                 p = p.__sub__(o.clone())
             return p
-        
+
         else:
-            raise ValueError('Can only subtract int, float, Fraction, Monomials, or Polynomials from Polynomials.')
+            raise ValueError(
+                "Can only subtract int, float, Fraction, Monomials, or Polynomials from Polynomials."
+            )
             return
 
     # def __mul__(self, other: Union[int, float, Fraction, Monomial, Polynomial]) -> Polynomial:
@@ -402,11 +480,15 @@ class Polynomial:
         Multiply a given polynomial
         to a copy of self.
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
             result = Polynomial([])
             monos = {m.clone() for m in self.all_monomials()}
             for m in monos:
-                result = result.__add__(m.clone()*other)
+                result = result.__add__(m.clone() * other)
             return result
         elif isinstance(other, Monomial):
             result = Polynomial([])
@@ -426,7 +508,9 @@ class Polynomial:
 
             return result
         else:
-            raise ValueError('Can only multiple int, float, Fraction, Monomials, or Polynomials with Polynomials.')
+            raise ValueError(
+                "Can only multiple int, float, Fraction, Monomials, or Polynomials with Polynomials."
+            )
 
     # def __floordiv__(self, other: Union[int, float, Fraction, Monomial, Polynomial]) -> Polynomial:
     def __floordiv__(self, other: Union[int, float, Fraction, Monomial]):
@@ -444,15 +528,25 @@ class Polynomial:
 
         TODO: Implement polynomial / polynomial.
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
-            return self.__truediv__( Monomial({}, other) )
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
+            return self.__truediv__(Monomial({}, other))
         elif isinstance(other, Monomial):
-            poly_temp = reduce(lambda acc, val: acc + val, map(lambda x: x / other, [z for z in self.all_monomials()]), Polynomial([Monomial({}, 0)]))
+            poly_temp = reduce(
+                lambda acc, val: acc + val,
+                map(lambda x: x / other, [z for z in self.all_monomials()]),
+                Polynomial([Monomial({}, 0)]),
+            )
             return poly_temp
         elif isinstance(other, Polynomial):
             if Monomial({}, 0) in other.all_monomials():
                 if len(other.all_monomials()) == 2:
-                    temp_set = {x for x in other.all_monomials() if x != Monomial({}, 0)}
+                    temp_set = {
+                        x for x in other.all_monomials() if x != Monomial({}, 0)
+                    }
                     only = temp_set.pop()
                     return self.__truediv__(only)
             elif len(other.all_monomials()) == 1:
@@ -460,7 +554,9 @@ class Polynomial:
                 only = temp_set.pop()
                 return self.__truediv__(only)
 
-        raise ValueError('Can only divide a polynomial by an int, float, Fraction, or a Monomial.')
+        raise ValueError(
+            "Can only divide a polynomial by an int, float, Fraction, or a Monomial."
+        )
 
         return
 
@@ -489,13 +585,16 @@ class Polynomial:
         """
         return {m for m in self.monomials if m != Monomial({}, 0)}
 
-
     def __eq__(self, other) -> bool:
         """
         Return True if the other polynomial is the same as
         this.
         """
-        if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
+        if (
+            isinstance(other, int)
+            or isinstance(other, float)
+            or isinstance(other, Fraction)
+        ):
             other_poly = Polynomial([Monomial({}, other)])
             return self.__eq__(other_poly)
         elif isinstance(other, Monomial):
@@ -503,22 +602,35 @@ class Polynomial:
         elif isinstance(other, Polynomial):
             return self.all_monomials() == other.all_monomials()
         else:
-            raise ValueError('Can only compare a polynomial with an int, float, Fraction, Monomial, or another Polynomial.')
+            raise ValueError(
+                "Can only compare a polynomial with an int, float, Fraction, Monomial, or another Polynomial."
+            )
 
-
-    def subs(self, substitutions: Union[int, float, Fraction, Dict[int, Union[int, float, Fraction]]]) -> Union[int, float, Fraction]:
+    def subs(
+        self,
+        substitutions: Union[
+            int, float, Fraction, Dict[int, Union[int, float, Fraction]]
+        ],
+    ) -> Union[int, float, Fraction]:
         """
         Get the value after substituting
         certain values for the variables
         defined in substitutions.
         """
-        if isinstance(substitutions, int) or isinstance(substitutions, float) or isinstance(substitutions, Fraction):
-            substitutions = {i: Polynomial._rationalize_if_possible(substitutions) for i in set(self.variables())}
+        if (
+            isinstance(substitutions, int)
+            or isinstance(substitutions, float)
+            or isinstance(substitutions, Fraction)
+        ):
+            substitutions = {
+                i: Polynomial._rationalize_if_possible(substitutions)
+                for i in set(self.variables())
+            }
             return self.subs(substitutions)
         elif not isinstance(substitutions, dict):
-            raise ValueError('The substitutions should be a dictionary.')
+            raise ValueError("The substitutions should be a dictionary.")
         if not self.variables().issubset(set(substitutions.keys())):
-            raise ValueError('Some variables didn\'t receive their values.')
+            raise ValueError("Some variables didn't receive their values.")
 
         ans = 0
         for m in self.all_monomials():
@@ -530,5 +642,6 @@ class Polynomial:
         Get a string representation of
         the polynomial.
         """
-        return ' + '.join(str(m) for m in self.all_monomials() if m.coeff != Fraction(0, 1))
-
+        return " + ".join(
+            str(m) for m in self.all_monomials() if m.coeff != Fraction(0, 1)
+        )

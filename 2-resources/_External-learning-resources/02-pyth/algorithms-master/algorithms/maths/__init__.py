@@ -22,4 +22,3 @@ from .num_digits import *
 from .power import *
 from .magic_number import *
 from .krishnamurthy_number import *
-

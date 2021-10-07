@@ -8,24 +8,24 @@ from botocore.exceptions import ClientError
 from threading import Timer
 
 # Create a CloudWatch client
-cloudwatch_client = boto3.client('cloudwatch')
+cloudwatch_client = boto3.client("cloudwatch")
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 streamHandler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 streamHandler.setFormatter(formatter)
 logger.addHandler(streamHandler)
 
-GROUP_ID = os.environ['GROUP_ID']
-THING_NAME = os.environ['AWS_IOT_THING_NAME']
-THING_ARN = os.environ['AWS_IOT_THING_ARN']
-NAMESPACE = os.environ['NAMESPACE']
+GROUP_ID = os.environ["GROUP_ID"]
+THING_NAME = os.environ["AWS_IOT_THING_NAME"]
+THING_ARN = os.environ["AWS_IOT_THING_ARN"]
+NAMESPACE = os.environ["NAMESPACE"]
 
 payload = {}
-payload['group_id'] = GROUP_ID
-payload['thing_name'] = THING_NAME
-payload['thing_arn'] = THING_ARN
+payload["group_id"] = GROUP_ID
+payload["thing_name"] = THING_NAME
+payload["thing_arn"] = THING_ARN
 
 
 # This is a dummy handler and will not be invoked
@@ -42,26 +42,22 @@ def function_handler(event, context):
             if not isinstance(element, dict):
                 continue
 
-            if not 'name' in element.keys():
+            if not "name" in element.keys():
                 continue
 
-            if not 'unit' in element.keys():
+            if not "unit" in element.keys():
                 continue
 
-            if not 'value' in element.keys():
+            if not "value" in element.keys():
                 continue
 
-            name = element['name']
-            unit = element['unit']
-            value = element['value']
+            name = element["name"]
+            unit = element["unit"]
+            value = element["value"]
 
-            cloudwatch_client.put_metric_data(Namespace=NAMESPACE,
-                                              MetricData=[
-                                                  {
-                                                      'MetricName': name,
-                                                      'Value': value,
-                                                      'Unit': unit
-                                                  }
-                                              ])
+            cloudwatch_client.put_metric_data(
+                Namespace=NAMESPACE,
+                MetricData=[{"MetricName": name, "Value": value, "Unit": unit}],
+            )
 
     return

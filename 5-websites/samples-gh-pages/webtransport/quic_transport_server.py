@@ -85,12 +85,17 @@ from typing import Dict, Optional
 from aioquic.asyncio import QuicConnectionProtocol, serve
 from aioquic.quic.configuration import QuicConfiguration
 from aioquic.quic.connection import QuicConnection, END_STATES
-from aioquic.quic.events import StreamDataReceived, StreamReset, DatagramFrameReceived, QuicEvent
+from aioquic.quic.events import (
+    StreamDataReceived,
+    StreamReset,
+    DatagramFrameReceived,
+    QuicEvent,
+)
 from aioquic.tls import SessionTicket
 
-BIND_ADDRESS = '::1'
+BIND_ADDRESS = "::1"
 BIND_PORT = 4433
-ALLOWED_ORIGINS = {'localhost', 'googlechrome.github.io'}
+ALLOWED_ORIGINS = {"localhost", "googlechrome.github.io"}
 
 
 # QUIC uses two lowest bits of the stream ID to indicate whether the stream is:
@@ -112,14 +117,13 @@ def is_client_bidi_stream(stream_id):
 #   - For every incoming datagram, it sends a datagram with the length of
 #     datagram that was just received.
 class CounterHandler:
-
     def __init__(self, connection) -> None:
         self.connection = connection
         self.counters = defaultdict(int)
 
     def quic_event_received(self, event: QuicEvent) -> None:
         if isinstance(event, DatagramFrameReceived):
-            payload = str(len(event.data)).encode('ascii')
+            payload = str(len(event.data)).encode("ascii")
             self.connection.send_datagram_frame(payload)
 
         if isinstance(event, StreamDataReceived):
@@ -129,8 +133,9 @@ class CounterHandler:
                     response_id = event.stream_id
                 else:
                     response_id = self.connection.get_next_available_stream_id(
-                        is_unidirectional=True)
-                payload = str(self.counters[event.stream_id]).encode('ascii')
+                        is_unidirectional=True
+                    )
+                payload = str(self.counters[event.stream_id]).encode("ascii")
                 self.connection.send_stream_data(response_id, payload, True)
                 del self.counters[event.stream_id]
 
@@ -150,12 +155,11 @@ class CounterHandler:
 # client indication (a special stream with protocol headers), and buffering all
 # unrelated events until the client indication can be fully processed.
 class QuicTransportProtocol(QuicConnectionProtocol):
-
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.pending_events = []
         self.handler = None
-        self.client_indication_data = b''
+        self.client_indication_data = b""
 
     def quic_event_received(self, event: QuicEvent) -> None:
         try:
@@ -199,19 +203,19 @@ class QuicTransportProtocol(QuicConnectionProtocol):
             if len(prefix) == 0:
                 return  # End-of-stream reached.
             if len(prefix) != 4:
-                raise Exception('Truncated key-length tag')
-            key, length = struct.unpack('!HH', prefix)
+                raise Exception("Truncated key-length tag")
+            key, length = struct.unpack("!HH", prefix)
             value = bs.read(length)
             if len(value) != length:
-                raise Exception('Truncated value')
+                raise Exception("Truncated value")
             yield (key, value)
 
     def process_client_indication(self) -> None:
         KEY_ORIGIN = 0
         KEY_PATH = 1
         indication = dict(
-            self.parse_client_indication(io.BytesIO(
-                self.client_indication_data)))
+            self.parse_client_indication(io.BytesIO(self.client_indication_data))
+        )
 
         origin = urllib.parse.urlparse(indication[KEY_ORIGIN].decode())
         path = urllib.parse.urlparse(indication[KEY_PATH]).decode()
@@ -220,32 +224,31 @@ class QuicTransportProtocol(QuicConnectionProtocol):
         # is similar to the CORS (Cross-Origin Resource Sharing) mechanism in
         # HTTP.  See <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>.
         if origin.hostname not in ALLOWED_ORIGINS:
-            raise Exception('Wrong origin specified')
+            raise Exception("Wrong origin specified")
 
         # Dispatch the incoming connection based on the path specified in the
         # URL.
-        if path.path == '/counter':
+        if path.path == "/counter":
             self.handler = CounterHandler(self._quic)
         else:
-            raise Exception('Unknown path')
+            raise Exception("Unknown path")
 
     def is_closing_or_closed(self) -> bool:
         return self._quic._close_pending or self._quic._state in END_STATES
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('certificate')
-    parser.add_argument('key')
+    parser.add_argument("certificate")
+    parser.add_argument("key")
     args = parser.parse_args()
 
     configuration = QuicConfiguration(
         # Identifies the protocol used.  The origin trial uses the protocol
         # described in draft-vvv-webtransport-quic-01, hence the ALPN value.
         # See https://tools.ietf.org/html/draft-vvv-webtransport-quic-01#section-3.1
-        alpn_protocols=['wq-vvv-01'],
+        alpn_protocols=["wq-vvv-01"],
         is_client=False,
-
         # Note that this is just an upper limit; the real maximum datagram size
         # available depends on the MTU of the path.  See
         # <https://en.wikipedia.org/wiki/Maximum_transmission_unit>.
@@ -260,5 +263,6 @@ if __name__ == '__main__':
             BIND_PORT,
             configuration=configuration,
             create_protocol=QuicTransportProtocol,
-        ))
+        )
+    )
     loop.run_forever()

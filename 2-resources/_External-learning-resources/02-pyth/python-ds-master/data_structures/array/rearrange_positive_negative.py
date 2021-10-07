@@ -1,6 +1,7 @@
 # Rearragne positive and negative numbers in an array such that they appear
 # alternately. If there are more numbers of any one kind, put them at the end
 
+
 def rearrange(arr):
     i = -1
 
@@ -18,6 +19,7 @@ def rearrange(arr):
         neg += 2
 
     print(arr)
+
 
 arr = [-1, 2, -3, 4, 5, 6, -7, 8, 9]
 rearrange(arr)

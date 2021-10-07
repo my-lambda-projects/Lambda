@@ -1,16 +1,16 @@
 # Do not use any of the built in array functions for this exercise
 
+
 class array:
     def __init__(self, capacity):
         # We need to set the capacity
-        self.capacity = capacity # Maximum size the array can become
+        self.capacity = capacity  # Maximum size the array can become
 
         # We also need the actual current size
-        self.count = 0 # Current size being used
+        self.count = 0  # Current size being used
 
         # We need to create the empty cells within the block of memory
         self.elements = [None] * capacity
-
 
 
 # Double the size of the given array
@@ -40,7 +40,7 @@ def array_read(array, index):
     if index >= array.count:
         print("Error: out of bounds")
         return None
-    
+
     # Otherwise, return the index value
     return array.elements[index]
 
@@ -60,12 +60,11 @@ def array_insert(array, element, index):
     # Move the elements to create a space at 'index'
     # Everything to the right of index needs to move a space to the right
     for i in range(array.count, index, -1):
-        array.elements[i] = array.elements[i-1]
+        array.elements[i] = array.elements[i - 1]
 
     # Add the new element to the array and update the count
     array.elements[index] = element
     array.count += 1
-
 
 
 # Add an element to the end of the given array
@@ -82,19 +81,18 @@ def array_append(array, element):
 def array_remove(array, element):
     removed = False
     for i in range(array.count):
-        if removed: 
+        if removed:
             # if removed is True, we should...?
-            array.elements[i-1] = array.elements[i]
+            array.elements[i - 1] = array.elements[i]
         elif array.elements[i] == element:
             removed = True
-    
+
     if removed:
         array.count -= 1
         array.elements[array.count] = None
-    
-    else: 
-        print(f"Error: {str(element)} not found.")
 
+    else:
+        print(f"Error: {str(element)} not found.")
 
 
 # Remove the element in a given position and return it
@@ -117,7 +115,6 @@ def array_pop(array, index):
     array.elements[array.count] = None
 
     return return_value
-
 
 
 # Utility to print an array

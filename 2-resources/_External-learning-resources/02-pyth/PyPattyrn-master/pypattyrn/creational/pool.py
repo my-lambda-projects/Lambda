@@ -10,6 +10,7 @@ class Reusable(Originator, metaclass=ABCMeta):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#object-pool-pattern}
     - External Object Pool Pattern documentation: U{https://en.wikipedia.org/wiki/Object_pool_pattern}
     """
+
     def __init__(self):
         """
         Initialize a new Reusable instance.
@@ -32,6 +33,7 @@ class Pool(object):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPatterns/wiki/Creational-Pattern-Usage}
     - External Object Pool Pattern documentation: U{https://en.wikipedia.org/wiki/Object_pool_pattern}
     """
+
     def __init__(self, reusable_class, *args, **kwargs):
         """
         Initialize a new object pool instance.

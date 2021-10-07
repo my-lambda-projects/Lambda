@@ -1,20 +1,28 @@
 from algorithms.dp import (
-    max_profit_naive, max_profit_optimized,
-    climb_stairs, climb_stairs_optimized,
+    max_profit_naive,
+    max_profit_optimized,
+    climb_stairs,
+    climb_stairs_optimized,
     count,
-    combination_sum_topdown, combination_sum_bottom_up,
+    combination_sum_topdown,
+    combination_sum_bottom_up,
     edit_distance,
     egg_drop,
-    fib_recursive, fib_list, fib_iter,
+    fib_recursive,
+    fib_list,
+    fib_iter,
     hosoya_testing,
     house_robber,
-    Job, schedule,
-    Item, get_maximum_value,
+    Job,
+    schedule,
+    Item,
+    get_maximum_value,
     longest_increasing_subsequence,
     longest_increasing_subsequence_optimized,
     longest_increasing_subsequence_optimized2,
-    int_divide,find_k_factor,
-    planting_trees
+    int_divide,
+    find_k_factor,
+    planting_trees,
 )
 
 
@@ -57,8 +65,8 @@ class TestCombinationSum(unittest.TestCase):
 
 class TestEditDistance(unittest.TestCase):
     def test_edit_distance(self):
-        self.assertEqual(edit_distance('food', 'money'), 4)
-        self.assertEqual(edit_distance('horse', 'ros'), 3)
+        self.assertEqual(edit_distance("food", "money"), 4)
+        self.assertEqual(edit_distance("horse", "ros"), 3)
 
 
 class TestEggDrop(unittest.TestCase):
@@ -92,24 +100,70 @@ class TestHosoyaTriangle(unittest.TestCase):
 
     def test_hosoya(self):
         self.assertEqual([1], hosoya_testing(1))
-        self.assertEqual([1,
-                         1, 1,
-                         2, 1, 2,
-                         3, 2, 2, 3,
-                         5, 3, 4, 3, 5,
-                         8, 5, 6, 6, 5, 8],
-                         hosoya_testing(6))
-        self.assertEqual([1,
-                          1, 1,
-                          2, 1, 2,
-                          3, 2, 2, 3,
-                          5, 3, 4, 3, 5,
-                          8, 5, 6, 6, 5, 8,
-                          13, 8, 10, 9, 10, 8, 13,
-                          21, 13, 16, 15, 15, 16, 13, 21,
-                          34, 21, 26, 24, 25, 24, 26, 21, 34,
-                          55, 34, 42, 39, 40, 40, 39, 42, 34, 55],
-                          hosoya_testing(10))
+        self.assertEqual(
+            [1, 1, 1, 2, 1, 2, 3, 2, 2, 3, 5, 3, 4, 3, 5, 8, 5, 6, 6, 5, 8],
+            hosoya_testing(6),
+        )
+        self.assertEqual(
+            [
+                1,
+                1,
+                1,
+                2,
+                1,
+                2,
+                3,
+                2,
+                2,
+                3,
+                5,
+                3,
+                4,
+                3,
+                5,
+                8,
+                5,
+                6,
+                6,
+                5,
+                8,
+                13,
+                8,
+                10,
+                9,
+                10,
+                8,
+                13,
+                21,
+                13,
+                16,
+                15,
+                15,
+                16,
+                13,
+                21,
+                34,
+                21,
+                26,
+                24,
+                25,
+                24,
+                26,
+                21,
+                34,
+                55,
+                34,
+                42,
+                39,
+                40,
+                40,
+                39,
+                42,
+                34,
+                55,
+            ],
+            hosoya_testing(10),
+        )
 
 
 class TestHouseRobber(unittest.TestCase):
@@ -156,32 +210,34 @@ class TestIntDivide(unittest.TestCase):
         self.assertEqual(42, int_divide(10))
         self.assertEqual(204226, int_divide(50))
 
+
 class Test_dp_K_Factor(unittest.TestCase):
     def test_kfactor(self):
-        #Test 1
-        n1=4
-        k1=1
-        self.assertEqual(find_k_factor(n1,k1),1)
+        # Test 1
+        n1 = 4
+        k1 = 1
+        self.assertEqual(find_k_factor(n1, k1), 1)
 
-        #Test 2
-        n2=7
-        k2=1
-        self.assertEqual(find_k_factor(n2,k2),70302)
+        # Test 2
+        n2 = 7
+        k2 = 1
+        self.assertEqual(find_k_factor(n2, k2), 70302)
 
-        #Test 3
-        n3=10
-        k3=2
-        self.assertEqual(find_k_factor(n3,k3),74357)
+        # Test 3
+        n3 = 10
+        k3 = 2
+        self.assertEqual(find_k_factor(n3, k3), 74357)
 
-        #Test 4
-        n4=8
-        k4=2
-        self.assertEqual(find_k_factor(n4,k4),53)
+        # Test 4
+        n4 = 8
+        k4 = 2
+        self.assertEqual(find_k_factor(n4, k4), 53)
 
-        #Test 5
-        n5=9
-        k5=1
-        self.assertEqual(find_k_factor(n5,k5),71284044)
+        # Test 5
+        n5 = 9
+        k5 = 1
+        self.assertEqual(find_k_factor(n5, k5), 71284044)
+
 
 class TestPlantingTrees(unittest.TestCase):
     def test_simple(self):
@@ -208,5 +264,6 @@ class TestPlantingTrees(unittest.TestCase):
         # assert
         self.assertEqual(res, 9.28538328578604)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

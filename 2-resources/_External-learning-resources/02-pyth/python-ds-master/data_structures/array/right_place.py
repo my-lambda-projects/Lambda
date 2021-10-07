@@ -5,6 +5,7 @@ def place(arr):
         else:
             i += 1
 
-arr = [-1,-1, 6,1,9,3,2,-1,4,-1]
+
+arr = [-1, -1, 6, 1, 9, 3, 2, -1, 4, -1]
 place(arr)
 print(arr)

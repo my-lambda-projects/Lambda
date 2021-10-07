@@ -15,19 +15,16 @@ not have these edges and hence it can be divided into two clique
 
 from collections import defaultdict
 
+
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.cgraph = defaultdict(list)
         self.vertices = vertices
 
-    
     def add_edge(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
-
 
     def is_bipartite(self):
         colors = [-1] * self.vertices
@@ -52,7 +49,6 @@ class Graph:
 
         return True
 
-    
     def make_complement(self):
         for src, dest in self.graph.items():
             for v in range(self.vertices):
@@ -60,7 +56,6 @@ class Graph:
                     self.cgraph[src].append(v)
                     self.cgraph[v].append(src)
 
-    
     def two_cliques(self):
         self.make_complement()
         return self.is_bipartite()

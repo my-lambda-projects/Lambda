@@ -1,8 +1,8 @@
 # Diameter of a binary tree is the longest path between two leaf nodes of a binary tree
 # Diameter of a binary tree is maximum value of (left_height + right_height + 1) for each node
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None

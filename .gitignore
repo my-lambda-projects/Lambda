@@ -1,8 +1,9 @@
-node_modules
+07-important/
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/settings.json
 !.vscode/tasks.json
+node_modules/
 $RECYCLE.BIN/
 *$py.class
 **/*/desktop.ini
@@ -157,6 +158,4 @@ web_modules/
 wheels/
 yarn-debug.log*
 yarn-error.log*
-node_modules
-node_modules
-node_modules
+.venv/

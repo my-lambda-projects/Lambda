@@ -1,17 +1,16 @@
-
 # coding: utf-8
 
 # # Des dates qui font des nombres premiers (suite) ?
-# 
+#
 # Ce petit [notebook Jupyter](https://www.jupyter.org/), écrit en [Python](https://www.python.org/), a pour but de résoudre la question suivante :
-# 
+#
 # > *"Pour un jour fixé, en utilisant le jour le mois et les deux chiffres de l'année comme briques de base, et les opérations arithmétiques $+,\times,-,\mod,\%$, quel est le plus grand nombre premier que l'on peut obtenir ?"*
-# 
+#
 # Par exemple, en 2017, le 31 mai donne `31`, `5`, et `17`.
-# 
+#
 # - $31 \times 5 \times 17$ n'est évidemment pas premier,
 # - $17 \times (31 \mod 5) = 17$ est premier.
-# 
+#
 # > Pour d'autres questions sur les dates et les nombres premiers, [ce premier notebook est aussi intéressant !](https://nbviewer.jupyter.org/github/Naereen/notebooks/blob/master/simus/Des_dates_qui_font_des_nombres_premiers.ipynb).
 
 # ----
@@ -44,7 +43,10 @@ from sympy import isprime
 
 
 from numpy.random import randint
-get_ipython().run_line_magic('timeit', 'sum([isprime(i) for i in randint(1e8, 1e9-1, 10**4)])')
+
+get_ipython().run_line_magic(
+    "timeit", "sum([isprime(i) for i in randint(1e8, 1e9-1, 10**4)])"
+)
 
 
 # $\implies$ $65 ~\text{ms}$ pour 10000 nombres à tester, ça me semble assez rapide pour ce qu'on veut en faire !
@@ -131,13 +133,7 @@ tous_les_resultats([1, 2, 3], [add, mul])
 # In[71]:
 
 
-noms_operations = {
-    mod: '%',
-    mul: '*',
-    add: '+',
-    sub: '-',
-    floordiv: '/',
-}
+noms_operations = {mod: "%", mul: "*", add: "+", sub: "-", floordiv: "/"}
 
 
 # In[72]:
@@ -151,10 +147,14 @@ def tous_les_resultats_2(nombres, ops=operations):
         for f1 in ops:
             for f2 in ops:
                 n1 = f1(f2(x, y), z)
-                s1 = "{}({}({}, {}), {})".format(noms_operations[f1], noms_operations[f2], x, y, z)
+                s1 = "{}({}({}, {}), {})".format(
+                    noms_operations[f1], noms_operations[f2], x, y, z
+                )
                 tous[s1] = n1
                 n2 = f1(x, f2(y, z))
-                s2 = "{}({}, {}({}, {}))".format(noms_operations[f1], x, noms_operations[f2], y, z)
+                s2 = "{}({}, {}({}, {}))".format(
+                    noms_operations[f1], x, noms_operations[f2], y, z
+                )
                 tous[s2] = n2
     return tous
 
@@ -180,10 +180,14 @@ def tous_les_resultats_3(nombres, ops=operations):
         for f1 in ops:
             for f2 in ops:
                 n1 = f1(f2(x, y), z)
-                s1 = "{}({}({}, {}), {})".format(noms_operations[f1], noms_operations[f2], x, y, z)
+                s1 = "{}({}({}, {}), {})".format(
+                    noms_operations[f1], noms_operations[f2], x, y, z
+                )
                 tous[n1] = s1
                 n2 = f1(x, f2(y, z))
-                s2 = "{}({}, {}({}, {}))".format(noms_operations[f1], x, noms_operations[f2], y, z)
+                s2 = "{}({}, {}({}, {}))".format(
+                    noms_operations[f1], x, noms_operations[f2], y, z
+                )
                 tous[n2] = s2
     return tous
 
@@ -202,7 +206,7 @@ tous_les_resultats_3([1, 2, 3], [add, mul])
 
 def plus_grand_premier(nombres, ops=operations):
     tous = tous_les_resultats_3(nombres, ops=ops)
-    premiers = [ p for p in tous.keys() if isprime(p) ]
+    premiers = [p for p in tous.keys() if isprime(p)]
     plus_grand_premier = max(premiers)
     expression = tous[plus_grand_premier]
     return plus_grand_premier, expression
@@ -234,13 +238,17 @@ def tous_les_resultats_4(nombres, ops=operations):
             for f2 in ops:
                 try:
                     n1 = f1(f2(x, y), z)
-                    s1 = "{}({}({}, {}), {})".format(noms_operations[f1], noms_operations[f2], x, y, z)
+                    s1 = "{}({}({}, {}), {})".format(
+                        noms_operations[f1], noms_operations[f2], x, y, z
+                    )
                     tous[n1] = s1
                 except:
                     pass
                 try:
                     n2 = f1(x, f2(y, z))
-                    s2 = "{}({}, {}({}, {}))".format(noms_operations[f1], x, noms_operations[f2], y, z)
+                    s2 = "{}({}, {}({}, {}))".format(
+                        noms_operations[f1], x, noms_operations[f2], y, z
+                    )
                     tous[n2] = s2
                 except:
                     pass
@@ -252,7 +260,7 @@ def tous_les_resultats_4(nombres, ops=operations):
 
 def plus_grand_premier_2(nombres, ops=operations):
     tous = tous_les_resultats_4(nombres, ops=ops)
-    premiers = [ p for p in tous.keys() if isprime(p) ]
+    premiers = [p for p in tous.keys() if isprime(p)]
     plus_grand_premier = max(premiers)
     expression = tous[plus_grand_premier]
     return plus_grand_premier, expression
@@ -296,6 +304,7 @@ plus_grand_premier_2([x, y, z])
 
 from datetime import timedelta
 
+
 def tous_les_jours(year=YEAR):
     date = datetime(year, 1, 1)
     un_jour = timedelta(days=1)
@@ -314,7 +323,11 @@ for date in tous_les_jours():
     x, y, z = date_vers_nombre(date)
     p, expr = plus_grand_premier_2([x, y, z])
     tous.append(([x, y, z], p, expr))
-    print("Pour la date {:%d-%m-%Y}, le plus grand nombre premier obtenu est {}, avec l'expression {}.".format(date, p, expr))
+    print(
+        "Pour la date {:%d-%m-%Y}, le plus grand nombre premier obtenu est {}, avec l'expression {}.".format(
+            date, p, expr
+        )
+    )
 
 
 # In[94]:
@@ -331,5 +344,5 @@ max(tous, key=lambda t: t[1])
 # - Mais marrant.
 
 # > C'est tout pour aujourd'hui les amis, [allez voir d'autres notebooks si vous êtes curieux !](https://github.com/Naereen/notebooks/).
-# 
+#
 # > [See this repository for other Python notebook doing numerical simulations](https://github.com/Naereen/notebooks/tree/master/simus/).

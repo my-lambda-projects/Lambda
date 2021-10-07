@@ -1,4 +1,4 @@
-'''
+"""
   a[start:end]      # items start through end-1
   a[start:]         # items start through the rest of the array
   a[:end]           # items from the beginning through end-1
@@ -11,7 +11,7 @@
   a[1::-1]          # the first two items, reversed
   a[:-3:-1]         # the last two items, reversed
   a[-3::-1]         # everything except the last two items, reversed
-'''
+"""
 a = [2, 4, 1, 7, 9, 6]
 
 # Output the second element: 4:

@@ -1,4 +1,4 @@
-def recursive_binomial_coefficient(n,k):
+def recursive_binomial_coefficient(n, k):
     """Calculates the binomial coefficient, C(n,k), with n>=k using recursion
     Time complexity is O(k), so can calculate fairly quickly for large values of k.
 
@@ -13,16 +13,15 @@ def recursive_binomial_coefficient(n,k):
 
     """
 
-    if k>n:
-        raise ValueError('Invalid Inputs, ensure that n >= k')
-        #function is only defined for n>=k
+    if k > n:
+        raise ValueError("Invalid Inputs, ensure that n >= k")
+        # function is only defined for n>=k
     if k == 0 or n == k:
-        #C(n,0) = C(n,n) = 1, so this is our base case.
+        # C(n,0) = C(n,n) = 1, so this is our base case.
         return 1
-    if k > n/2:
-        #C(n,k) = C(n,n-k), so if n/2 is sufficiently small, we can reduce the problem size.
-        return recursive_binomial_coefficient(n,n-k)
+    if k > n / 2:
+        # C(n,k) = C(n,n-k), so if n/2 is sufficiently small, we can reduce the problem size.
+        return recursive_binomial_coefficient(n, n - k)
     else:
-        #else, we know C(n,k) = (n/k)C(n-1,k-1), so we can use this to reduce our problem size.
-        return int((n/k)*recursive_binomial_coefficient(n-1,k-1))
-
+        # else, we know C(n,k) = (n/k)C(n-1,k-1), so we can use this to reduce our problem size.
+        return int((n / k) * recursive_binomial_coefficient(n - 1, k - 1))

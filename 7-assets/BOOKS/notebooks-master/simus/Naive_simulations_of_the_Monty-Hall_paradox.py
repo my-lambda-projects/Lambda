@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # # Numerical simulations of the Monty-Hall "paradox"
@@ -6,16 +5,16 @@
 
 # ----
 # ## Definition of the problem
-# 
+#
 
 # There is $M \geq 3$ doors, and behind only one of them there is a treasure.
 # The goal of the player is to find the treasure, following this game:
-# 
+#
 # 1. The player first chose a door, but does not open it yet,
 # 2. All remaining doors but one are opened, and none of them contain the treasure. The player sees $M - 2$ bad doors,
 # 3. So there is just 2 doors, the one first chosen, and the last one. She knows the treasure is behind one of them,
 # 4. And she has to decide if she wants to **stay on her initial choice**, or **switches to the last door**.
-# 
+#
 # Finally, the chosen door is opened, and the player wins this round if she found the treasure.
 
 # ---
@@ -23,7 +22,7 @@
 
 # ## Starting our numerical simulations
 # We start by importing some modules, then define a function, `randomAllocation()`, to generate a random allocation of treasures behind the `M` doors.
-# 
+#
 # > *Note:* all the code below is generic for any $M \geq 3$, but `M = 3` is used to keep small and clear visualizations.
 
 # In[1]:
@@ -38,7 +37,7 @@ import random
 M = 3
 allocation = [False] * (M - 1) + [True]  # Only 1 treasure!
 assert set(allocation) == {True, False}  # Check: only True and False
-assert sum(allocation) == 1              # Check: only 1 treasure!
+assert sum(allocation) == 1  # Check: only 1 treasure!
 
 
 # Just to check:
@@ -78,7 +77,7 @@ def last(r, i):
     # Select a random index corresponding of the door we keep
     if r[i]:  # She found the treasure, returning a random last door
         return random.choice([j for (j, v) in enumerate(r) if j != i])
-    else:     # She didn't find the treasure, returning the treasure door
+    else:  # She didn't find the treasure, returning the treasure door
         # Indeed, the game only removes door that don't contain the treasure
         return random.choice([j for (j, v) in enumerate(r) if j != i and v])
 
@@ -132,6 +131,7 @@ def simulate(stayOrNot):
 
 N = 10000
 
+
 def simulateManyGames(stayOrNot):
     global N
     results = [simulate(stayOrNot) for _ in range(N)]
@@ -174,26 +174,28 @@ def change():
 
 
 rate = simulateManyGames(change)
-print("- For", N, "simulations, the strategy 'change' has won", rate, " of the trials...")
+print(
+    "- For", N, "simulations, the strategy 'change' has won", rate, " of the trials..."
+)
 print("  ==> proportion = {:.2%}.".format(rate / float(N)))
 
 
 # $\implies$ We find a chance of winning of about $\frac{M - 1}{M} = \frac{2}{3}$ for this strategy, which is less logical.
-# 
+#
 # Due to the uniform location of the treasure behind the $M = 3$ doors, and the uniform first choice with `firstChoice()`, we have a $\frac{1}{M}$ chance of finding the treasure from the first time.
-# 
+#
 # 1. If we found it, the last door does not contain the treasure, hence **we loose** as we switch to it,
 # 2. However, if we did not find it, the last door has to contain the treasure, hence **we win** as we switch to it deterministically (i.e. always).
-# 
+#
 # The first case has probability $\frac{1}{M}$, probability of loosing, and the second case has probability $\frac{M - 1}{M}$, probability of loosing.
-# 
+#
 # $\implies$ Conclusion : this strategy `change()` has a chance of winning of $\frac{2}{3}$, far better than the chance of $\frac{1}{3}$ for `stay()`.
-# 
+#
 # > We proved numerically the results given and explained [here on the Wikipedia page](https://en.wikipedia.org/wiki/Monty_Hall_problem#Direct_calculation). Great!
 
 # ### Bernoulli choice
 # We can try a randomized strategy, a simple one can be to follow the decision of a (biased) coin:
-# 
+#
 # 1. Toss a coin (with fixed head probability equals to $p \in [0, 1]$)
 # 2. If head, switch to the last door.
 
@@ -208,7 +210,13 @@ def bernoulli(p=0.5):
 
 
 rate = simulateManyGames(bernoulli)
-print("- For", N, "simulations, the strategy 'bernoulli' has won", rate, " of the trials...")
+print(
+    "- For",
+    N,
+    "simulations, the strategy 'bernoulli' has won",
+    rate,
+    " of the trials...",
+)
 print("  ==> proportion = {:.2%}.".format(rate / float(N)))
 
 
@@ -229,14 +237,16 @@ import matplotlib.pyplot as plt
 
 values_p = np.linspace(0, 1, 500)
 
+
 def stratBernoulli(p):
     def stayOrNot():
         return bernoulli(p=p)
+
     return stayOrNot
 
 
 # Let finally do all the simulations, and store the empirical probability of winning the game when following a Bernoulli strategy.
-# 
+#
 # > This line takes about $4$ minutes on my laptop, it's not that quick.
 
 # In[19]:
@@ -249,7 +259,7 @@ chance_of_winning = [simulateManyGames(stratBernoulli(p)) / float(N) for p in va
 
 
 plt.figure()
-plt.plot(values_p, chance_of_winning, 'r')
+plt.plot(values_p, chance_of_winning, "r")
 plt.title("Monty-Hall paradox with {} doors ({} random simulation)".format(M, N))
 plt.xlabel("Probability $p$ of staying on our first choice (Bernoulli strategy)")
 plt.ylabel("Probability of winning")
@@ -268,20 +278,20 @@ def completeSimu():
     global M
     global N
     allocation = [False] * (M - 1) + [True]  # Only 1 treasure!
-    
+
     def randomAllocation():
         r = allocation[:]
         random.shuffle(r)
         return r
-    
+
     def last(r, i):
         # Select a random index corresponding of the door we keep
         if r[i]:  # She found the treasure, returning a random last door
             return random.choice([j for (j, v) in enumerate(r) if j != i])
-        else:     # She didn't find the treasure, returning the treasure door
+        else:  # She didn't find the treasure, returning the treasure door
             # Indeed, the game only removes door that don't contain the treasure
             return random.choice([j for (j, v) in enumerate(r) if j != i and v])
-    
+
     def simulate(stayOrNot):
         # Random spot for the treasure
         r = randomAllocation()
@@ -301,9 +311,11 @@ def completeSimu():
         return sum(results)
 
     values_p = np.linspace(0, 1, 300)
-    chance_of_winning = [simulateManyGames(stratBernoulli(p)) / float(N) for p in values_p]
+    chance_of_winning = [
+        simulateManyGames(stratBernoulli(p)) / float(N) for p in values_p
+    ]
     plt.figure()
-    plt.plot(values_p, chance_of_winning, 'r')
+    plt.plot(values_p, chance_of_winning, "r")
     plt.title("Monty-Hall paradox with {} doors ({} random simulation)".format(M, N))
     plt.xlabel("Probability $p$ of staying on our first choice (Bernoulli strategy)")
     plt.ylabel("Probability of winning")
@@ -334,5 +346,5 @@ completeSimu()
 # ----
 # ## Conclusion
 # As we saw it, it is clear from the numerical experiments presented above that the strategy of **always changing our first choice** (`change()`), is statistically better than the strategy of **keeping our first choice** (`keep()`).
-# 
+#
 # > [See this repository for other Python notebook doing numerical simulations](https://github.com/Naereen/notebooks/tree/master/simus/).

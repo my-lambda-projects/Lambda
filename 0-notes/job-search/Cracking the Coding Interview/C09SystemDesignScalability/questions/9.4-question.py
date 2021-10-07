@@ -1,4 +1,4 @@
-# Duplicate URLs: 
+# Duplicate URLs:
 
 # You have 10 billion URLs.
 # How do you detect the duplicate documents?

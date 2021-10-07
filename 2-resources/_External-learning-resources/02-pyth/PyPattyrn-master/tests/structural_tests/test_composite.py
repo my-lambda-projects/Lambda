@@ -7,18 +7,18 @@ class CompositeTestCase(TestCase):
     """
     Unit testing class for the Composite class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
         """
-        class Component(object, metaclass=ABCMeta):
 
+        class Component(object, metaclass=ABCMeta):
             @abstractmethod
             def do_something(self):
                 pass
 
         class Leaf(Component):
-
             def __init__(self):
                 self.did_something = False
 
@@ -56,7 +56,9 @@ class CompositeTestCase(TestCase):
             raise AssertionError()
         else:
             self.assertSetEqual({self.leaf_one, composite_two}, composite.components)
-            self.assertSetEqual({self.leaf_two, composite_three}, composite_two.components)
+            self.assertSetEqual(
+                {self.leaf_two, composite_three}, composite_two.components
+            )
             self.assertSetEqual({self.leaf_three}, composite_three.components)
 
     def test_remove_component(self):
@@ -102,7 +104,7 @@ class CompositeTestCase(TestCase):
         composite_two.add_component(composite_three)
         composite.add_component(composite_two)
 
-        composite._delegate('do_something')
+        composite._delegate("do_something")
 
         self.assertTrue(self.leaf_one.did_something)
         self.assertTrue(self.leaf_two.did_something)
@@ -166,6 +168,7 @@ class CompositeTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
+
         class BadComponent(object):
             def foo(self):
                 raise NotImplementedError()

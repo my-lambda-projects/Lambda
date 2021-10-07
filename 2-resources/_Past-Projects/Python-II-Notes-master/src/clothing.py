@@ -7,7 +7,8 @@ class Clothing(Product):
         super().__init__(name, price)
         self.color = color
         self.size = size
-    
-    def __repr__(self):
-        return super().__repr__() + " comes in " + str(self.color) + ', ' + str(self.size)
 
+    def __repr__(self):
+        return (
+            super().__repr__() + " comes in " + str(self.color) + ", " + str(self.size)
+        )

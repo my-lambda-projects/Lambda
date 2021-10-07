@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
@@ -19,5 +18,3 @@ def pair_swap(head):
         prev = curr.next
         curr = curr.next.next
     return root
-
-

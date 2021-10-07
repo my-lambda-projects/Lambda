@@ -1,4 +1,3 @@
-
 def prefix_function(s: str) -> [int]:
     """
     The prefix function for string s is defined as an array pi of length n,

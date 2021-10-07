@@ -7,6 +7,7 @@ class Singleton(type):
     - External Usage documentation: U{https://github.com/tylerlaberge/PyPattyrn#singleton-pattern}
     - External Singleton Pattern documentation: U{https://en.wikipedia.org/wiki/Singleton_pattern}
     """
+
     __instance = None
 
     def __call__(cls, *args, **kwargs):

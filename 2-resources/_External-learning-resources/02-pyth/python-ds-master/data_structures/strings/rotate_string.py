@@ -22,5 +22,5 @@ def is_rotate_string(A, B):
 
 
 # Test
-print(is_rotate_string('abcde', 'cdeab'))
-print(is_rotate_string('abcde', 'abced'))
+print(is_rotate_string("abcde", "cdeab"))
+print(is_rotate_string("abcde", "abced"))

@@ -18,6 +18,6 @@ def quicksort(array):
         greater = [i for i in array[1:] if i > pivot]
         return quicksort(less) + [pivot] + quicksort(greater)
 
-array = [100, 5, 72, 41, 80, 1, 99, 36, 27, 78]
-print(quicksort(array)) # [1, 5, 27, 36, 41, 72, 78, 80, 99, 100]
 
+array = [100, 5, 72, 41, 80, 1, 99, 36, 27, 78]
+print(quicksort(array))  # [1, 5, 27, 36, 41, 72, 78, 80, 99, 100]

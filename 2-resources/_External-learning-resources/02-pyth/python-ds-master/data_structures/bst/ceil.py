@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -15,5 +14,3 @@ def ceil(root, key):
         return ceil(root.right, key)
     val = ceil(root.left, key)
     return val if val >= key else root.key
-
-

@@ -2,17 +2,14 @@ from collections import defaultdict
 
 
 class Graph:
-
     def __init__(self, vertices):
         self.vertices = vertices
         self.graph = defaultdict(list)
-
 
     def add_edge(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
 
-    
     def find_min_edges(self, u, v):
         visited = [False] * self.vertices
         distance = [0] * self.vertices

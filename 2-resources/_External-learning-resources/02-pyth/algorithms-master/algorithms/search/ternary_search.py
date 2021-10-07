@@ -11,27 +11,29 @@ Note: Array needs to be sorted to perform ternary search on it.
 T(N) = O(log3(N))
 log3 = log base 3
 """
+
+
 def ternary_search(l, r, key, arr):
-	while r >= l:
-		
-		mid1 = l + (r-l) // 3
-		mid2 = r - (r-l) // 3
+    while r >= l:
 
-		if key == arr[mid1]:
-			return mid1
-		if key == mid2:
-			return mid2
+        mid1 = l + (r - l) // 3
+        mid2 = r - (r - l) // 3
 
-		if key < arr[mid1]:
+        if key == arr[mid1]:
+            return mid1
+        if key == mid2:
+            return mid2
+
+        if key < arr[mid1]:
             # key lies between l and mid1
-			r = mid1 - 1
-		elif key > arr[mid2]:
+            r = mid1 - 1
+        elif key > arr[mid2]:
             # key lies between mid2 and r
-			l = mid2 + 1
-		else:
+            l = mid2 + 1
+        else:
             # key lies between mid1 and mid2
-			l = mid1 + 1
-			r = mid2 - 1
+            l = mid1 + 1
+            r = mid2 - 1
 
-    # key not found 
-	return -1
+            # key not found
+    return -1

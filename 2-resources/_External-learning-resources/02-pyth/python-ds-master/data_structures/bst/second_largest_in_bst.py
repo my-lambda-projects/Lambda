@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -23,7 +22,7 @@ def second_largest(root):
     while curr:
         if curr.left and not curr.right:
             return find_largest(curr.left)
-        
+
         if curr.right and not curr.right.left and not curr.right.right:
             return curr.val
 
@@ -40,7 +39,7 @@ def insert(root, key):
     return root
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     root = Node(6)
     insert(root, 5)
     insert(root, 3)
@@ -51,5 +50,3 @@ if __name__ == '__main__':
     insert(root, 1)
 
     print(second_largest(root))
-
-

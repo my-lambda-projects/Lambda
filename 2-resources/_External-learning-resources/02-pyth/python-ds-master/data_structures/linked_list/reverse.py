@@ -1,8 +1,8 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
+
 
 def reverse(head):
     if not head:
@@ -15,6 +15,7 @@ def reverse(head):
         prev = curr
         curr = next
     return prev
+
 
 head = Node(1)
 head.next = Node(2)
@@ -30,6 +31,3 @@ curr = new_head
 while curr:
     print(curr.val)
     curr = curr.next
-
-
-

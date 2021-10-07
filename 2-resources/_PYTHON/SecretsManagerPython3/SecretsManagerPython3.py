@@ -6,15 +6,15 @@ from threading import Timer
 import greengrasssdk
 
 # Create a Greengrass IoT data client
-client = greengrasssdk.client('iot-data')
+client = greengrasssdk.client("iot-data")
 
 # Create a Greengrass secrets manager client
-secrets_client = greengrasssdk.client('secretsmanager')
+secrets_client = greengrasssdk.client("secretsmanager")
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 streamHandler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 streamHandler.setFormatter(formatter)
 logger.addHandler(streamHandler)
 
@@ -22,15 +22,15 @@ logger.addHandler(streamHandler)
 # as a long-lived lambda function.  The code will enter the infinite while loop
 # below.
 
-GROUP_ID = os.environ['GROUP_ID']
-THING_NAME = os.environ['AWS_IOT_THING_NAME']
-THING_ARN = os.environ['AWS_IOT_THING_ARN']
+GROUP_ID = os.environ["GROUP_ID"]
+THING_NAME = os.environ["AWS_IOT_THING_NAME"]
+THING_ARN = os.environ["AWS_IOT_THING_ARN"]
 
 payload = {}
-payload['group_id'] = GROUP_ID
-payload['thing_name'] = THING_NAME
-payload['thing_arn'] = THING_ARN
-payload['message'] = 'Secrets manager function running'
+payload["group_id"] = GROUP_ID
+payload["thing_name"] = THING_NAME
+payload["thing_arn"] = THING_ARN
+payload["message"] = "Secrets manager function running"
 
 secret_names = []
 
@@ -50,14 +50,16 @@ def greengrass_secrets_manager_run():
         try:
             # Attempt to get the secret value
             response = secrets_client.get_secret_value(SecretId=secret_name)
-            secret_value = response.get('SecretString')
-            secrets[secret_name]['value'] = secret_value
+            secret_value = response.get("SecretString")
+            secrets[secret_name]["value"] = secret_value
         except greengrasssdk.SecretsManager.SecretsManagerError:
-            secrets[secret_name]['error'] = 'Failed to retrieve secret'
+            secrets[secret_name]["error"] = "Failed to retrieve secret"
 
-    payload['secrets'] = secrets
+    payload["secrets"] = secrets
 
-    client.publish(topic=THING_NAME + '/python3/secrets/manager', payload=json.dumps(payload))
+    client.publish(
+        topic=THING_NAME + "/python3/secrets/manager", payload=json.dumps(payload)
+    )
 
     # Asynchronously schedule this function to be run again in 5 seconds
     Timer(5, greengrass_secrets_manager_run).start()

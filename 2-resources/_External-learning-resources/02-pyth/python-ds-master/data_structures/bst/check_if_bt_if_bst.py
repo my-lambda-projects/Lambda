@@ -3,8 +3,8 @@ import sys
 MAX = sys.maxsize
 MIN = -sys.maxsize
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -18,7 +18,10 @@ def check_BST(root, min, max):
     if root.val < min or root.val > max:
         return False
 
-    return (check_BST(root.left, min, root.val - 1) and check_BST(root.right, root.val + 1, max))
+    return check_BST(root.left, min, root.val - 1) and check_BST(
+        root.right, root.val + 1, max
+    )
+
 
 root = Node(5)
 root.left = Node(4)

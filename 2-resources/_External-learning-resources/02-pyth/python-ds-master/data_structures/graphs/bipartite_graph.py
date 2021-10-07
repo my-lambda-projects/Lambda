@@ -17,17 +17,15 @@ Also, a graph with no edge is a bipartite graph - https://math.stackexchange.com
 
 from collections import defaultdict
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.V = vertices
         self.graph = defaultdict(list)
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
-
 
     def bfs(self, s):
         visited = [False] * self.V
@@ -37,13 +35,12 @@ class Graph:
 
         while queue:
             s = queue.pop(0)
-            print(s, end=' ')
+            print(s, end=" ")
 
             for i in self.graph[s]:
                 if not visited[i]:
                     visited[i] = True
                     queue.append(i)
-
 
     def is_bipartite(self, s):
         # 0 -> color 0 (blue)
@@ -59,10 +56,10 @@ class Graph:
         while queue:
             s = queue.pop(0)
 
-            if s in self.graph[s]: # Check for self loop
+            if s in self.graph[s]:  # Check for self loop
                 return False
-            
-            # An edge u to v exists and destination is not 
+
+            # An edge u to v exists and destination is not
             # colored
             for i in self.graph[s]:
                 if colors[i] == -1:

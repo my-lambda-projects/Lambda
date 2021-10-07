@@ -19,7 +19,6 @@
 
 
 class XORCipher(object):
-
     def __init__(self, key=0):
         """
             simple constructor that receives a key or uses
@@ -38,12 +37,12 @@ class XORCipher(object):
         """
 
         # precondition
-        assert (isinstance(key, int) and isinstance(content, str))
+        assert isinstance(key, int) and isinstance(content, str)
 
         key = key or self.__key or 1
 
         # make sure key can be any size
-        while (key > 255):
+        while key > 255:
             key -= 255
 
         # This will be returned
@@ -63,12 +62,12 @@ class XORCipher(object):
         """
 
         # precondition
-        assert (isinstance(key, int) and isinstance(content, list))
+        assert isinstance(key, int) and isinstance(content, list)
 
         key = key or self.__key or 1
 
         # make sure key can be any size
-        while (key > 255):
+        while key > 255:
             key -= 255
 
         # This will be returned
@@ -88,12 +87,12 @@ class XORCipher(object):
         """
 
         # precondition
-        assert (isinstance(key, int) and isinstance(content, str))
+        assert isinstance(key, int) and isinstance(content, str)
 
         key = key or self.__key or 1
 
         # make sure key can be any size
-        while (key > 255):
+        while key > 255:
             key -= 255
 
         # This will be returned
@@ -113,12 +112,12 @@ class XORCipher(object):
         """
 
         # precondition
-        assert (isinstance(key, int) and isinstance(content, str))
+        assert isinstance(key, int) and isinstance(content, str)
 
         key = key or self.__key or 1
 
         # make sure key can be any size
-        while (key > 255):
+        while key > 255:
             key -= 255
 
         # This will be returned
@@ -139,7 +138,7 @@ class XORCipher(object):
         """
 
         # precondition
-        assert (isinstance(file, str) and isinstance(key, int))
+        assert isinstance(file, str) and isinstance(key, int)
 
         try:
             with open(file, "r") as fin:
@@ -163,7 +162,7 @@ class XORCipher(object):
         """
 
         # precondition
-        assert (isinstance(file, str) and isinstance(key, int))
+        assert isinstance(file, str) and isinstance(key, int)
 
         try:
             with open(file, "r") as fin:
@@ -176,6 +175,7 @@ class XORCipher(object):
             return False
 
         return True
+
 
 # Tests
 # crypt = XORCipher()

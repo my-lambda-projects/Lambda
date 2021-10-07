@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>docker-setup</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="docker-setup">Docker Setup</h1>
+    <p>
+      We don’t do Docker under much later in the course, but it is required to
+      be installed.
+    </p>
+    <h2 id="macos-and-windows">macOS and Windows</h2>
+    <p>
+      Just visit <a href="https://docker.com">docker.com</a> and download and
+      install the latest version of Docker Desktop. Docker for Windows requires
+      WSL 2 to be already configured and working.
+    </p>
+    <h2 id="ubuntu-linux">Ubuntu Linux</h2>
+    <p>
+      Installing Docker on Ubuntu Linux is a little more involved, there isn’t a
+      download on the main docker page. Docker does however have an easy to use
+      convience script that will install docker for you using curl.
+    </p>
+    <p>
+      You can read
+      <a
+        href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script"
+        >Install using the convenience-script</a
+      >
+      for more info about this.
+    </p>
+    <p>But it involved running these commands:</p>
+    <pre class="shell"><code>curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh</code></pre>
+    <p>
+      Then in order for you to be able to run the docker commands without using
+      <code>sudo</code> you should run this command replacing
+      <code>your-user</code> with your linux user name (type
+      <code>whoami</code> to find out what this is)
+    </p>
+    <pre class="shell"><code>sudo usermod -aG docker your-user</code></pre>
+  </body>
+</html>

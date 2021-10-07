@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -21,4 +20,3 @@ def no_siblings(root):
     elif root.left is not None:
         print(root.left.val)
         no_siblings(root.left)
-

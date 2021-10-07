@@ -26,12 +26,12 @@ def valid_proof(last_proof, proof):
     Validates the Proof:  Does hash(last_proof, proof) contain 6
     leading zeroes?
     """
-    guess = f'{last_proof}{proof}'.encode()
+    guess = f"{last_proof}{proof}".encode()
     guess_hash = hashlib.sha256(guess).hexdigest()
     return guess_hash[:5] == "00000"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # What node are we interacting with?
     if len(sys.argv) > 1:
         node = sys.argv[1]
@@ -42,12 +42,12 @@ if __name__ == '__main__':
     # Run forever until interrupted
     while True:
         # Get the last proof from the server
-        last_proof = requests.get(f'{node}/last_proof').json()['proof']
+        last_proof = requests.get(f"{node}/last_proof").json()["proof"]
 
         new_proof = proof_of_work(last_proof)
 
         proof_guess = {"proof": new_proof}
-        proof_data = requests.post(f'{node}/mine', json=proof_guess)
+        proof_data = requests.post(f"{node}/mine", json=proof_guess)
 
         if proof_data.json()["message"] == "New Block Forged":
             coins_mined += 1

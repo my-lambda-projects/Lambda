@@ -1,8 +1,8 @@
 # Find the largest subtree sum in a binary tree
 # Do a postorder traversal
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None

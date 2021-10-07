@@ -15,17 +15,14 @@ Hence a cycle will be formed.
 
 from collections import defaultdict
 
+
 class Graph:
-
-
     def __init__(self, vertices):
         self.graph = defaultdict(list)
         self.vertices = vertices
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
-
 
     def topological_sort_util(self, v, visited, stack):
         visited[v] = True
@@ -35,7 +32,6 @@ class Graph:
                 self.topological_sort_util(i, visited, stack)
 
         stack.insert(0, v)
-
 
     def topological_sort(self):
         visited = [False] * self.vertices
@@ -47,7 +43,6 @@ class Graph:
 
         return stack
 
-    
     def max_edges(self):
         topo = self.topological_sort()
         visited = [False] * self.vertices
@@ -60,14 +55,14 @@ class Graph:
                 visited[j] = True
 
             # Print the unmarked nodes from topo
-            for j in range(i+1, len(topo)):
+            for j in range(i + 1, len(topo)):
                 if visited[topo[j]] == False:
                     print(f"{vertex} -> {topo[j]}")
                     count += 1
-                
+
                 visited[topo[j]] = False
 
-        print('Maximum edges that can be added - ', count)
+        print("Maximum edges that can be added - ", count)
 
 
 g = Graph(6)

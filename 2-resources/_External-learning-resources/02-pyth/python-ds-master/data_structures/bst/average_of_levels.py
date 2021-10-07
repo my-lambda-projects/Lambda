@@ -1,7 +1,7 @@
 import collections
 
-class Node():
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -30,4 +30,3 @@ def bfs(root):
         result.append(mean(queue))
         queue = next_queue
     return result
-

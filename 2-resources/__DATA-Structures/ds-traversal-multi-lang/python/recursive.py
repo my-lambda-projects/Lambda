@@ -5,10 +5,7 @@ sections = [
     {
         "title": "Getting started",
         "reset_lesson_position": False,
-        "lessons": [
-            {"name": "Welcome"},
-            {"name": "Installation"},
-        ],
+        "lessons": [{"name": "Welcome"}, {"name": "Installation"}],
     },
     {
         "title": "Basic operator",
@@ -21,10 +18,7 @@ sections = [
     {
         "title": "Advanced topics",
         "reset_lesson_position": True,
-        "lessons": [
-            {"name": "Mutability"},
-            {"name": "Immutability"},
-        ],
+        "lessons": [{"name": "Mutability"}, {"name": "Immutability"}],
     },
 ]
 

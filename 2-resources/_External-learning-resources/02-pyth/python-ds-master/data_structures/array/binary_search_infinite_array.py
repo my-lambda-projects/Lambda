@@ -1,6 +1,6 @@
 def binary_search(arr, start, end, val):
     while start <= end:
-        mid = (start + end)//2
+        mid = (start + end) // 2
         if val == arr[mid]:
             return mid
         elif val > arr[mid]:
@@ -17,7 +17,7 @@ def search(arr, val):
             return "Found"
         else:
             return "Not found"
-    
+
     temp = arr[0]
     low = 0
     high = 1
@@ -35,6 +35,6 @@ def search(arr, val):
         return "Found at index {}".format(ans)
 
 
-arr = [1,3,5,6,7,8,9,11,13,15,19]
+arr = [1, 3, 5, 6, 7, 8, 9, 11, 13, 15, 19]
 
 print(search(arr, 7))

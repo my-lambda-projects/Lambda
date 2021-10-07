@@ -1,12 +1,14 @@
 from os.path import basename
+
 try:
     import asyncio
     import contextvars
+
     with_async = True
 except ImportError:
     with_async = False
 
-async_files = ['test_async.py', 'asyncio.py']
+async_files = ["test_async.py", "asyncio.py"]
 
 
 def pytest_ignore_collect(path):

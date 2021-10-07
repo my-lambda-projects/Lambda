@@ -5,6 +5,7 @@ class Adapter(object):
     - External Usage Documentation: U{https://github.com/tylerlaberge/PyPattyrn#adapter-pattern}
     - External Adapter Pattern Documentation: U{https://en.wikipedia.org/wiki/Adapter_pattern}
     """
+
     def __init__(self, adaptee, **adapted_methods):
         """
         Initialize a new adapter instance.
@@ -15,8 +16,13 @@ class Adapter(object):
         @type adapted_methods: dict
         """
         self.__adaptee = adaptee
-        self.__dict__.update({k: v for k, v in adapted_methods.items() if callable(v) and
-                              getattr(self.__adaptee, v.__name__, None)})
+        self.__dict__.update(
+            {
+                k: v
+                for k, v in adapted_methods.items()
+                if callable(v) and getattr(self.__adaptee, v.__name__, None)
+            }
+        )
 
     def __getattr__(self, attr):
         """

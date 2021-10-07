@@ -5,7 +5,8 @@ from algorithms.sort import (
     comb_sort,
     counting_sort,
     cycle_sort,
-    max_heap_sort, min_heap_sort,
+    max_heap_sort,
+    min_heap_sort,
     insertion_sort,
     merge_sort,
     pancake_sort,
@@ -17,7 +18,8 @@ from algorithms.sort import (
     radix_sort,
     gnome_sort,
     cocktail_shaker_sort,
-    top_sort, top_sort_recursive
+    top_sort,
+    top_sort_recursive,
 )
 
 import unittest
@@ -68,10 +70,10 @@ class TestSuite(unittest.TestCase):
 
     def test_pancake_sort(self):
         self.assertTrue(is_sorted(pancake_sort([1, 3, 2, 5, 65, 23, 57, 1232])))
-        
+
     def test_pigeonhole_sort(self):
         self.assertTrue(is_sorted(pigeonhole_sort([1, 5, 65, 23, 57, 1232])))
-        
+
     def test_quick_sort(self):
         self.assertTrue(is_sorted(quick_sort([1, 3, 2, 5, 65, 23, 57, 1232])))
 
@@ -97,21 +99,21 @@ class TestSuite(unittest.TestCase):
 class TestTopSort(unittest.TestCase):
     def setUp(self):
         self.depGraph = {
-                            "a" : [ "b" ],
-                            "b" : [ "c" ],
-                            "c" :  [ 'e'],
-                            'e' : [ 'g' ],
-                            "d" : [ ],
-                            "f" : ["e" , "d"],
-                            "g" : [ ]
-                        }
+            "a": ["b"],
+            "b": ["c"],
+            "c": ["e"],
+            "e": ["g"],
+            "d": [],
+            "f": ["e", "d"],
+            "g": [],
+        }
 
     def test_topsort(self):
         res = top_sort_recursive(self.depGraph)
-        #print(res)
-        self.assertTrue(res.index('g') < res.index('e'))
+        # print(res)
+        self.assertTrue(res.index("g") < res.index("e"))
         res = top_sort(self.depGraph)
-        self.assertTrue(res.index('g') < res.index('e'))
+        self.assertTrue(res.index("g") < res.index("e"))
 
 
 if __name__ == "__main__":

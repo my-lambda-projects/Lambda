@@ -5,6 +5,7 @@ class FlyweightMeta(type):
     - External Usage Documentation: U{https://github.com/tylerlaberge/PyPattyrn#flyweight-pattern}
     - External Flyweight Pattern documentation: U{https://en.wikipedia.org/wiki/Flyweight_pattern}
     """
+
     def __new__(mcs, name, bases, attrs):
         """
         Override class construction to add 'pool' attribute to classes dict.
@@ -14,7 +15,7 @@ class FlyweightMeta(type):
         @param attrs: Attributes of the class.
         @return: A new Class.
         """
-        attrs['pool'] = dict()
+        attrs["pool"] = dict()
         return super(FlyweightMeta, mcs).__new__(mcs, name, bases, attrs)
 
     @staticmethod
@@ -27,7 +28,7 @@ class FlyweightMeta(type):
 
         serialized_args.extend(serialized_kwargs)
 
-        return ''.join(serialized_args)
+        return "".join(serialized_args)
 
     def __call__(cls, *args, **kwargs):
         """
@@ -38,7 +39,7 @@ class FlyweightMeta(type):
         @return: A new instance of the class.
         """
         key = FlyweightMeta._serialize(cls, *args, **kwargs)
-        pool = getattr(cls, 'pool', {})
+        pool = getattr(cls, "pool", {})
 
         instance = pool.get(key)
         if not instance:

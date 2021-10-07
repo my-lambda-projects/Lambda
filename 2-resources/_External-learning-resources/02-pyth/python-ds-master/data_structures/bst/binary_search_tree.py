@@ -1,16 +1,13 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
 
 
-class BST():
-
+class BST:
     def __init__(self):
         self.root = Node(None)
-
 
     def insert(self, new_data):
         if self.root is None:
@@ -22,7 +19,6 @@ class BST():
             else:
                 self.insert(self.root.left, new_data)
 
-
     def inorder(self):
         if self.root:
             self.inorder(self.root.left)
@@ -30,7 +26,7 @@ class BST():
             self.inorder(self.root.right)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     tree = BST()
     tree.insert(5)
     tree.insert(4)

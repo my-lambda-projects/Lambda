@@ -1,7 +1,8 @@
 from algorithms.maths.gcd import gcd
 from typing import List
 
-def solve_chinese_remainder(num : List[int], rem : List[int]):
+
+def solve_chinese_remainder(num: List[int], rem: List[int]):
     """
     Computes the smallest x that satisfies the chinese remainder theorem
     for a system of equations.
@@ -36,7 +37,8 @@ def solve_chinese_remainder(num : List[int], rem : List[int]):
         else:
             x += 1
 
-def _check_coprime(l : List[int]):
+
+def _check_coprime(l: List[int]):
     for i in range(len(l)):
         for j in range(len(l)):
             if i == j:

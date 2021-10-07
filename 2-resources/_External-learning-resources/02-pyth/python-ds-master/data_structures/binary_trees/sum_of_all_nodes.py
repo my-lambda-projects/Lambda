@@ -1,7 +1,7 @@
 # Find the sum of all nodes of a binary tree
 
-class Node:
 
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None

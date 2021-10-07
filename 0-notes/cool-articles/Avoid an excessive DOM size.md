@@ -4,21 +4,19 @@
 
 A large DOM tree can slow down your page performance in multiple ways:
 
-*   **Network efficiency and load performance**
-    
-    A large DOM tree often includes many nodes that aren't visible when the user first loads the page, which unnecessarily increases data costs for your users and slows down load time.
-    
-*   **Runtime performance**
-    
-    As users and scripts interact with your page, the browser must constantly [recompute the position and styling of nodes](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations?utm_source=lighthouse&utm_medium=cli). A large DOM tree in combination with complicated style rules can severely slow down rendering.
-    
-*   **Memory performance**
-    
-    If your JavaScript uses general query selectors such as `document.querySelectorAll('li')`, you may be unknowingly storing references to a very large number of nodes, which can overwhelm the memory capabilities of your users' devices.
-    
+- **Network efficiency and load performance**
 
-How the Lighthouse DOM size audit fails
----------------------------------------
+  A large DOM tree often includes many nodes that aren't visible when the user first loads the page, which unnecessarily increases data costs for your users and slows down load time.
+
+- **Runtime performance**
+
+  As users and scripts interact with your page, the browser must constantly [recompute the position and styling of nodes](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations?utm_source=lighthouse&utm_medium=cli). A large DOM tree in combination with complicated style rules can severely slow down rendering.
+
+- **Memory performance**
+
+  If your JavaScript uses general query selectors such as `document.querySelectorAll('li')`, you may be unknowingly storing references to a very large number of nodes, which can overwhelm the memory capabilities of your users' devices.
+
+## How the Lighthouse DOM size audit fails
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) reports the total DOM elements for a page, the page's maximum DOM depth, and its maximum child elements:
 
@@ -26,12 +24,11 @@ How the Lighthouse DOM size audit fails
 
 Lighthouse flags pages with DOM trees that:
 
-*   Have more than 1,500 nodes total.
-*   Have a depth greater than 32 nodes.
-*   Have a parent node with more than 60 child nodes.
+- Have more than 1,500 nodes total.
+- Have a depth greater than 32 nodes.
+- Have a parent node with more than 60 child nodes.
 
-How to optimize the DOM size
-----------------------------
+## How to optimize the DOM size
 
 In general, look for ways to create DOM nodes only when needed, and destroy nodes when they're no longer needed.
 
@@ -41,8 +38,7 @@ If you create DOM nodes at runtime, [Subtree Modification DOM Change Breakpoints
 
 If you can't avoid a large DOM tree, another approach for improving rendering performance is simplifying your CSS selectors. See Google's [Reduce the Scope and Complexity of Style Calculations](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations) for more information.
 
-Stack-specific guidance
------------------------
+## Stack-specific guidance
 
 ### Angular
 
@@ -50,19 +46,17 @@ If you're rendering large lists, use [virtual scrolling](chrome-extension://cjed
 
 ### React
 
-*   Use a "windowing" library like [`react-window`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/virtualize-long-lists-react-window/) to minimize the number of DOM nodes created if you are rendering many repeated elements on the page.
-*   Minimize unnecessary re-renders using [`shouldComponentUpdate`](https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action), [`PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent), or [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo).
-*   [Skip effects](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) only until certain dependencies have changed if you are using the `Effect` hook to improve runtime performance.
+- Use a "windowing" library like [`react-window`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/virtualize-long-lists-react-window/) to minimize the number of DOM nodes created if you are rendering many repeated elements on the page.
+- Minimize unnecessary re-renders using [`shouldComponentUpdate`](https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action), [`PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent), or [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo).
+- [Skip effects](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) only until certain dependencies have changed if you are using the `Effect` hook to improve runtime performance.
 
-Resources
----------
+## Resources
 
-*   [Source code for **Avoid an excessive DOM size** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/dobetterweb/dom-size.js)
-*   [Reduce the Scope and Complexity of Style Calculations](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations)
+- [Source code for **Avoid an excessive DOM size** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/dobetterweb/dom-size.js)
+- [Reduce the Scope and Complexity of Style Calculations](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations)
 
 Last updated: Oct 4, 2019 [Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/lighthouse-performance/dom-size/index.md)
 
 Thank you for the feedback!
-
 
 [Source](https://web.dev/dom-size/)

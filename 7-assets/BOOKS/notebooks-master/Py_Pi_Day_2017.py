@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # # Table of Contents
@@ -6,23 +5,23 @@
 
 # # Python Pi Day 2017
 # > This is heavily inspired by what I did two years ago, see this page [cs101/hackhaton/14_03/2015](http://perso.crans.org/besson/cs101/hackathon/14_03_2015) on my website.
-# 
+#
 # Today is [Pi Day 2017](http://www.piday.org/), the day celebrating the number $\pi$.
 # For more details on this number, see [this Wikipedia page](https://en.wikipedia.org/wiki/Pi).
-# 
+#
 # ----
-# 
+#
 # Let us use this occasion to showcase a few different approaches to compute the digits of the number $\pi$.
 # I will use the [Python](https://www.python.org/) programming language, and you are reading a [Jupyter notebook](https://www.jupyter.org/).
-# 
+#
 # [![made-with-jupyter](https://img.shields.io/badge/Made%20with-Jupyter-1f425f.svg)](http://jupyter.org/)[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 # # Computing a lot of digits of $\pi$?
-# 
+#
 # - **What to do ?** I will present and implement some methods that can be used to compute the first digits of the irrational number $\pi$.
 # - **How ?** One method is based on random numbers, but all the other are simple (or not so simple) iterative algorithm: the more steps you compute, the more digits you will have!
 # - **How to compare / assess the result ?** It is simple: the more digits you got, the better. We will also test the different methods implemented, and for the most efficient, see how fast it is to go up-to $140000$ digits.
-# 
+#
 # The simple goal is to write a *small* function that computes digits of pi, as fast as possible, and find the 10 digits from position 140317 to 140327!
 # (that's the challenge I posted on Facebook)
 
@@ -48,9 +47,15 @@ print(" pi ~= 355/113 = {} (six first digits).".format(355.0 / 113.0))
 
 def mathpi():
     from math import pi
+
     return pi
 
-print("First method: using math.pi gives pi ~= {:.17f} (17 digits are displayed here).".format(mathpi()))
+
+print(
+    "First method: using math.pi gives pi ~= {:.17f} (17 digits are displayed here).".format(
+        mathpi()
+    )
+)
 
 
 # If we know the digits, we can directly print them:
@@ -59,22 +64,26 @@ print("First method: using math.pi gives pi ~= {:.17f} (17 digits are displayed 
 
 
 from decimal import Decimal
-bigpi = Decimal('3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679')
+
+bigpi = Decimal(
+    "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
+)
 print("The first 100 digits of pi are {}.".format(bigpi))
 
 
 # ### A simple [Monte-Carlo method](https://en.wikipedia.org/wiki/Pi#Monte_Carlo_methods)
 # A simple Monte Carlo method for computing $\pi$ is to draw a circle inscribed in a square, and randomly place dots in the square.
 # The ratio of dots inside the circle to the total number of dots will approximately equal $\pi / 4$, which is also the ratio of the area of the circle by the area of the square:
-# 
+#
 # ![Example of a random simulation of this Monte-Carlo method](https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif "Example of a random simulation of this Monte-Carlo method")
-# 
+#
 # In Python, such simulation can basically be implemented like this:
 
 # In[6]:
 
 
 from random import uniform
+
 
 def montecarlo_pi(nbPoints=10000):
     """Returns a probabilist estimate of pi, as a float number."""
@@ -84,40 +93,44 @@ def montecarlo_pi(nbPoints=10000):
         x = uniform(0, 1)
         y = uniform(0, 1)
         # (x, y) is now a random point in the square [0, 1] × [0, 1]
-        if (x**2 + y**2) < 1:
+        if (x ** 2 + y ** 2) < 1:
             # This point (x, y) is inside the circle C(0, 1)
             nbInside += 1
 
     return 4 * float(nbInside) / floor(nbPoints)
- 
 
 
 # In[9]:
 
 
-print("The simple Monte-Carlo method with {} random points gave pi = {}".format(10000, montecarlo_pi(10000)))
+print(
+    "The simple Monte-Carlo method with {} random points gave pi = {}".format(
+        10000, montecarlo_pi(10000)
+    )
+)
 
 
 # It is an interesting method, but it is just too limited for approximating digits of $\pi$.
-# 
-# 
+#
+#
 # The previous two methods are quite limited, and not efficient enough if you want more than 13 digits (resp. 4 digits for the Monte-Carlo method).
 
 # ## $100$ first digits of $\pi$
 # $\pi \simeq 3.1415926535 ~ 8979323846 ~ 2643383279 ~ 5028841971 \\\\ 6939937510 ~ 5820974944 ~ 5923078164 ~ 9862803482 ~ 53421170679$ when computed to the first $100$ digits.
-# 
+#
 # Can you compute up to $1000$ digits? Up to $10000$ digits? Up to $100000$ digits? **Up to 1 million digits?**
 
 # ## Using [`mpmath`](http://mpmath.org/)
 # This is a simple and lazy method, using the [`mpmath`](http://mpmath.org/) module.
 # MPmath is a Python library for arbitrary-precision floating-point arithmetic (Multi-Precision), and it has a builtin highly-optimized algorithm to compute digits of $\pi$.
-# 
+#
 # It works really fine up-to 1000000 digits (56 ms), from 1 million digits to be printed, printing them starts to get too time consuming (the IDE or the system might freeze).
 
 # In[10]:
 
 
 import mpmath
+
 # from sympy import mpmath  # on older sympy versions
 mp = mpmath.mp
 
@@ -129,7 +142,11 @@ mp = mpmath.mp
 
 mp.dps = 1000  # number of digits
 my_pi = mp.pi  # Gives pi to a thousand places
-print("A lazy method using the mpmath module:\npi is approximatly {} (with {} digits).".format(my_pi, mp.dps))
+print(
+    "A lazy method using the mpmath module:\npi is approximatly {} (with {} digits).".format(
+        my_pi, mp.dps
+    )
+)
 
 
 # Let save it for further comparison of simpler methods.
@@ -148,7 +165,7 @@ mpmath_pi = Decimal(str(mp.pi))
 
 
 mp.dps = 140330
-print(str(mp.pi)[2:][140317:140317+10])
+print(str(mp.pi)[2:][140317 : 140317 + 10])
 
 
 # And it will most probably be the quickest method presented here:
@@ -156,7 +173,9 @@ print(str(mp.pi)[2:][140317:140317+10])
 # In[14]:
 
 
-get_ipython().run_line_magic('timeit', 'mp.dps=140330;print(str(mp.pi)[2:][140317:140317+10])')
+get_ipython().run_line_magic(
+    "timeit", "mp.dps=140330;print(str(mp.pi)[2:][140317:140317+10])"
+)
 
 
 # Asking for $10$ times more digits take about $100$ more of time (that's a bad news).
@@ -164,37 +183,39 @@ get_ipython().run_line_magic('timeit', 'mp.dps=140330;print(str(mp.pi)[2:][14031
 # In[43]:
 
 
-get_ipython().run_line_magic('timeit', 'mp.dps=1403230;print(str(mp.pi)[2:][1403217:1403217+10])')
+get_ipython().run_line_magic(
+    "timeit", "mp.dps=1403230;print(str(mp.pi)[2:][1403217:1403217+10])"
+)
 
 
 # ## The Gauss–Legendre iterative algorithm
 # > More details can be found on [this page](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm).
-# 
+#
 # The first method given here is explained in detail.
 # This algorithm is called the [Gauss-Legendre method](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm), and for example it was used to compute the first $206 158 430 000$ decimal digits of $\pi$ on September 18th to 20th, $1999$.
-# 
+#
 # It is a very simply **iterative algorithm** (ie. step by step, you update the variables, as long as you want):
-# 
+#
 # 1. First, start with 4 variables $a_0, b_0, t_0, p_0$, and their initial values are $a_0 = 1, b_0 = 1/\sqrt{2}, t_0 = 1/4, p_0 = 1$.
-# 
+#
 # 2. Then, update the variables (or create 4 new ones $a_{n+1}, b_{n+1}, t_{n+1}, p_{n+1}$) by repeating the following instructions (in this order) until the difference of $a_{n}$ and  $b_{n}$, is within the desired accuracy:
 #    - $a_{n+1} = \frac{a_n + b_n}{2}$,
 #    - $b_{n+1} = \sqrt{a_n \times b_n}$,
 #    - $t_{n+1} = t_n - p_n (a_n - a_{n+1})^2$,
 #    - $p_{n+1} = 2 p_n$.
-# 
+#
 # 3. Finally, the desired approximation of $\pi$ is: $$\pi \simeq \frac{(a_{n+1} + b_{n+1})^2}{4 t_{n+1}}.$$
 
 # ### Using float numbers
 # The first three iterations give (approximations given up to and including the first incorrect digit):
-# 
+#
 #     3.140 …
 #     3.14159264 …
 #     3.1415926535897932382 …
-# 
+#
 # The algorithm has **second-order convergent nature**, which essentially means that the number of correct digits doubles with each step of the algorithm.
 # Try to see how far it can go in less than 120 seconds (print the approximation of $\pi$ after every step, and stop/kill the program after 2 minutes).
-# 
+#
 # > This method is based on [computing the limits of the arithmetic–geometric mean](https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean) of some well-chosen number ([see on Wikipédia for more mathematical details](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm#Mathematical_background)).
 
 # In[17]:
@@ -202,20 +223,21 @@ get_ipython().run_line_magic('timeit', 'mp.dps=1403230;print(str(mp.pi)[2:][1403
 
 import math
 
+
 def gauss_legendre_1(max_step):
     """Float number implementation of the Gauss-Legendre algorithm, for max_step steps."""
-    a = 1.
-    b = 1./math.sqrt(2)
-    t = 1./4.0
-    p = 1.
+    a = 1.0
+    b = 1.0 / math.sqrt(2)
+    t = 1.0 / 4.0
+    p = 1.0
     for i in range(max_step):
         at = (a + b) / 2.0
-        bt = math.sqrt(a*b)
-        tt = t - p*(a-at)**2
+        bt = math.sqrt(a * b)
+        tt = t - p * (a - at) ** 2
         pt = 2.0 * p
         a, b, t, p = at, bt, tt, pt
 
-    my_pi = ((a+b)**2)/(4.0*t)
+    my_pi = ((a + b) ** 2) / (4.0 * t)
     return my_pi
 
 
@@ -224,10 +246,14 @@ def gauss_legendre_1(max_step):
 
 my_pi = gauss_legendre_1(4)
 my_pi
-print("pi is approximately: {:.15f} (as a float number, precision is limited).".format(my_pi))
-accuracy = 100*abs(math.pi - my_pi)/math.pi
+print(
+    "pi is approximately: {:.15f} (as a float number, precision is limited).".format(
+        my_pi
+    )
+)
+accuracy = 100 * abs(math.pi - my_pi) / math.pi
 print("Accuracy % with math.pi: {:.4g}".format(accuracy))
-accuracy = 100*abs(float(mpmath_pi) - my_pi)/float(mpmath_pi)
+accuracy = 100 * abs(float(mpmath_pi) - my_pi) / float(mpmath_pi)
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -236,10 +262,14 @@ print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 my_pi = gauss_legendre_1(40)
 my_pi
-print("pi is approximately: {:.15f} (as a float number, precision is limited).".format(my_pi))
-accuracy = 100*abs(math.pi - my_pi)/math.pi
+print(
+    "pi is approximately: {:.15f} (as a float number, precision is limited).".format(
+        my_pi
+    )
+)
+accuracy = 100 * abs(math.pi - my_pi) / math.pi
 print("Accuracy % with math.pi: {:.4g}".format(accuracy))
-accuracy = 100*abs(float(mpmath_pi) - my_pi)/float(mpmath_pi)
+accuracy = 100 * abs(float(mpmath_pi) - my_pi) / float(mpmath_pi)
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -261,7 +291,7 @@ from decimal import Decimal, getcontext
 def gauss_legendre_2(max_step):
     """Decimal number implementation of the Gauss-Legendre algorithm, for max_step steps."""
     # trick to improve precision
-    getcontext().prec = 3 + 2**(max_step + 2)
+    getcontext().prec = 3 + 2 ** (max_step + 2)
 
     cst_2 = Decimal(2.0)
     cst_4 = Decimal(4.0)
@@ -271,14 +301,14 @@ def gauss_legendre_2(max_step):
     p = Decimal(1.0)
 
     for i in range(max_step):
-        new_a = (a+b)/cst_2
-        new_b = (a*b).sqrt()
-        new_t = Decimal(t - p*(a - new_a)**2)
-        new_p = cst_2*p
+        new_a = (a + b) / cst_2
+        new_b = (a * b).sqrt()
+        new_t = Decimal(t - p * (a - new_a) ** 2)
+        new_p = cst_2 * p
 
         a, b, t, p = new_a, new_b, new_t, new_p
 
-    my_pi = Decimal(((a+b)**2)/(cst_4*t))
+    my_pi = Decimal(((a + b) ** 2) / (cst_4 * t))
     return my_pi
 
 
@@ -286,33 +316,33 @@ def gauss_legendre_2(max_step):
 
 
 my_pi = gauss_legendre_2(5)
-print("pi is approximately: {}.".format(my_pi.to_eng_string()[:2**(5+1)]))
+print("pi is approximately: {}.".format(my_pi.to_eng_string()[: 2 ** (5 + 1)]))
 
-accuracy = 100*abs(Decimal(math.pi) - my_pi)/Decimal(math.pi)
+accuracy = 100 * abs(Decimal(math.pi) - my_pi) / Decimal(math.pi)
 print("Accuracy % with math.pi: {:.4g}".format(accuracy))
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
 # The second implementation of the Gauss-Legendre algorithm is now working better (when we adapt the precision). And it converges quickly ! (8 steps give a precision upto the 697th digits).
-# 
+#
 # How much did we lost in term of performance by using decimal numbers? About a factor $1000$, but that's normal as the second solution stores a lot of digits. They don't even compute the same response.
 
 # In[92]:
 
 
-get_ipython().run_line_magic('timeit', 'gauss_legendre_1(8)')
-get_ipython().run_line_magic('timeit', 'gauss_legendre_2(8)')
+get_ipython().run_line_magic("timeit", "gauss_legendre_1(8)")
+get_ipython().run_line_magic("timeit", "gauss_legendre_2(8)")
 
 
 # ## Methods based on a convergent series
 # For the following formulae, you can try to write a program that computes the partial sum of the series, up to a certain number of term ($N \geq 1$).
 # Basically, the bigger the $N$, the more digits you get (but the longer the program will run).
-# 
+#
 # Some methods might be really efficient, only needing a few number of steps (a small $N$) for computing many digits.
 # Try to implement and compare at least two of these methods.
 # You can use the function `sum` (or `math.fsum`) to compute the sum, or a simple `while`/`for` loop.
-# 
+#
 # All these partial sums are written up to an integer $N \geq 1$.
 
 # ### [A Leibniz formula](https://en.wikipedia.org/wiki/Leibniz_formula_for_pi) (*easy*):
@@ -326,7 +356,7 @@ def leibniz(max_step):
     """ Computing an approximation of pi with Leibniz series."""
     my_pi = Decimal(0)
     for k in range(max_step):
-        my_pi += Decimal((-1)**k) / Decimal(2*k+1)
+        my_pi += Decimal((-1) ** k) / Decimal(2 * k + 1)
     return Decimal(4) * my_pi
 
 
@@ -337,7 +367,7 @@ getcontext().prec = 20  # trick to improve precision
 my_pi = leibniz(1000)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -348,7 +378,7 @@ getcontext().prec = 20  # trick to improve precision
 my_pi = leibniz(10000)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -365,7 +395,12 @@ def bbp(max_step):
     """ Computing an approximation of pi with Bailey-Borwein-Plouffe series."""
     my_pi = Decimal(0)
     for k in range(max_step):
-        my_pi += (Decimal(1)/(16**k))*((Decimal(4)/(8*k+1))-(Decimal(2)/(8*k+4))-(Decimal(1)/(8*k+5))-(Decimal(1)/(8*k+6)))
+        my_pi += (Decimal(1) / (16 ** k)) * (
+            (Decimal(4) / (8 * k + 1))
+            - (Decimal(2) / (8 * k + 4))
+            - (Decimal(1) / (8 * k + 5))
+            - (Decimal(1) / (8 * k + 6))
+        )
     return my_pi
 
 
@@ -376,7 +411,7 @@ getcontext().prec = 20  # trick to improve precision
 my_pi = bbp(10)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -390,7 +425,7 @@ getcontext().prec = 200  # trick to improve precision
 my_pi = bbp(200)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -401,7 +436,7 @@ getcontext().prec = 500  # trick to improve precision
 my_pi = bbp(500)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -412,10 +447,10 @@ print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
 getcontext().prec = 10 + 1000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'bbp(1000)')
+get_ipython().run_line_magic("timeit", "bbp(1000)")
 
 getcontext().prec = 10 + 2000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'bbp(2000)')
+get_ipython().run_line_magic("timeit", "bbp(2000)")
 
 
 # ### [Bellard's formula](https://en.wikipedia.org/wiki/Bellard%27s_formula) (*hard*):
@@ -429,8 +464,16 @@ def bellard(max_step):
     """ Computing an approximation of pi with Bellard series."""
     my_pi = Decimal(0)
     for k in range(max_step):
-        my_pi += (Decimal(-1)**k/(1024**k))*( Decimal(256)/(10*k+1) + Decimal(1)/(10*k+9) - Decimal(64)/(10*k+3) - Decimal(32)/(4*k+1) - Decimal(4)/(10*k+5) - Decimal(4)/(10*k+7) -Decimal(1)/(4*k+3))
-    return my_pi * Decimal(1.0/(2**6))
+        my_pi += (Decimal(-1) ** k / (1024 ** k)) * (
+            Decimal(256) / (10 * k + 1)
+            + Decimal(1) / (10 * k + 9)
+            - Decimal(64) / (10 * k + 3)
+            - Decimal(32) / (4 * k + 1)
+            - Decimal(4) / (10 * k + 5)
+            - Decimal(4) / (10 * k + 7)
+            - Decimal(1) / (4 * k + 3)
+        )
+    return my_pi * Decimal(1.0 / (2 ** 6))
 
 
 # In[106]:
@@ -440,7 +483,7 @@ getcontext().prec = 40  # trick to improve precision
 my_pi = bellard(10)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -454,7 +497,7 @@ getcontext().prec = 800  # trick to improve precision
 my_pi = bellard(200)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -465,10 +508,10 @@ print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
 getcontext().prec = 10 + 1000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'bellard(1000)')
+get_ipython().run_line_magic("timeit", "bellard(1000)")
 
 getcontext().prec = 10 + 2000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'bellard(2000)')
+get_ipython().run_line_magic("timeit", "bellard(2000)")
 
 
 # It is also slower than BBP formula.
@@ -476,17 +519,18 @@ get_ipython().run_line_magic('timeit', 'bellard(2000)')
 # ### One [Ramanujan's formula](https://en.wikipedia.org/wiki/Approximations_of_%CF%80#Efficient_methods) (*hard*):
 # It is efficient but harder to compute easily with high precision, due to the factorial.
 # But hopefully, the function `math.factorial` works with Python *integers*, of arbitrary size, so this won't be an issue.
-# 
+#
 # $$\frac{1}{\pi} \simeq \frac{2\sqrt{2}}{9801} \sum_{n=0}^N \frac{(4n)!(1103+26390n)}{(n!)^4 396^{4n}}. $$
-# 
+#
 # *Remark:* This method and the next one compute approximation of $\frac{1}{\pi}$, not $\pi$.
-# 
+#
 # This method has a quadratic precision (the number of correct digits is of the order $\mathcal{O}(N^2)$.
 
 # In[123]:
 
 
 from math import factorial
+
 
 def ramanujan(max_step):
     """ Computing an approximation of pi with a Ramanujan's formula."""
@@ -495,9 +539,11 @@ def ramanujan(max_step):
     d_26390 = Decimal(26390)
     d_396 = Decimal(396)
     for k in range(max_step):
-        my_pi += ((Decimal(factorial(4 * k))) * (d_1103 + d_26390 * Decimal(k))) / ( (Decimal(factorial(k)))**4 * (d_396**(4*k)))
+        my_pi += ((Decimal(factorial(4 * k))) * (d_1103 + d_26390 * Decimal(k))) / (
+            (Decimal(factorial(k))) ** 4 * (d_396 ** (4 * k))
+        )
     my_pi = my_pi * 2 * Decimal(2).sqrt() / Decimal(9801)
-    my_pi = my_pi**(-1)
+    my_pi = my_pi ** (-1)
     return my_pi
 
 
@@ -508,7 +554,7 @@ getcontext().prec = 40  # trick to improve precision
 my_pi = ramanujan(4)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -519,7 +565,7 @@ getcontext().prec = 400  # trick to improve precision
 my_pi = ramanujan(40)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -530,7 +576,7 @@ getcontext().prec = 2000  # trick to improve precision
 my_pi = ramanujan(200)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -540,10 +586,10 @@ print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
 getcontext().prec = 10 + 2000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'ramanujan(200)')
+get_ipython().run_line_magic("timeit", "ramanujan(200)")
 
 getcontext().prec = 10 + 5000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'ramanujan(400)')
+get_ipython().run_line_magic("timeit", "ramanujan(400)")
 
 
 # Let's try to answer my initial question, using this naive implementation.
@@ -551,7 +597,11 @@ get_ipython().run_line_magic('timeit', 'ramanujan(400)')
 # In[128]:
 
 
-get_ipython().run_cell_magic('time', '', 'getcontext().prec = 140350  # trick to improve precision\ni = 140317\nmy_pi = ramanujan(10000)\nprint(str(my_pi)[2:][i:i+10])\n\nmp.dps=140330\nprint(str(mp.pi)[2:][i:i+10])')
+get_ipython().run_cell_magic(
+    "time",
+    "",
+    "getcontext().prec = 140350  # trick to improve precision\ni = 140317\nmy_pi = ramanujan(10000)\nprint(str(my_pi)[2:][i:i+10])\n\nmp.dps=140330\nprint(str(mp.pi)[2:][i:i+10])",
+)
 
 
 # ... It was too slow!
@@ -559,9 +609,9 @@ get_ipython().run_cell_magic('time', '', 'getcontext().prec = 140350  # trick to
 # ### [Chudnovsky brothers' formula](https://en.wikipedia.org/wiki/Chudnovsky_algorithm) (*hard*):
 # $$\frac{1}{\pi} \simeq 12 \sum_{n=0}^N \frac {(-1)^{n}(6n)!(545140134n+13591409)}{(3n)!(n!)^{3}640320^{{3n+3/2}}}. $$
 # In 2015, the best method is still the Chudnovsky brothers's formula.
-# 
+#
 # > Be careful when you use these formulae, *check carefully* the constants you wrote (545140134 will work well, 545140135 might not work as well!).
-# 
+#
 # > This formula is used as the logo of the [French agrégation of Mathematics](https://en.wikipedia.org/wiki/Agr%C3%A9gation) [website `agreg.org`](http://agreg.org/) :
 # > ![http://agreg.org/LogoAgreg.gif](http://agreg.org/LogoAgreg.gif)
 
@@ -570,13 +620,19 @@ get_ipython().run_cell_magic('time', '', 'getcontext().prec = 140350  # trick to
 
 from math import factorial
 
+
 def chudnovsky(max_step):
     """ Computing an approximation of pi with Bellard series."""
     my_pi = Decimal(0)
     for k in range(max_step):
-        my_pi += (Decimal(-1)**k)*(Decimal(factorial(6*k))/((factorial(k)**3)*(factorial(3*k)))* (13591409+545140134*k)/(640320**(3*k)))
-    my_pi = my_pi * Decimal(10005).sqrt()/4270934400
-    my_pi = my_pi**(-1)
+        my_pi += (Decimal(-1) ** k) * (
+            Decimal(factorial(6 * k))
+            / ((factorial(k) ** 3) * (factorial(3 * k)))
+            * (13591409 + 545140134 * k)
+            / (640320 ** (3 * k))
+        )
+    my_pi = my_pi * Decimal(10005).sqrt() / 4270934400
+    my_pi = my_pi ** (-1)
     return my_pi
 
 
@@ -589,7 +645,7 @@ getcontext().prec = 3000  # trick to improve precision
 my_pi = chudnovsky(200)
 my_pi
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -602,7 +658,7 @@ print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 getcontext().prec = 6000  # trick to improve precision
 my_pi = chudnovsky(400)
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -610,10 +666,10 @@ print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
 getcontext().prec = 3000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'chudnovsky(200)')
+get_ipython().run_line_magic("timeit", "chudnovsky(200)")
 
 getcontext().prec = 6000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'chudnovsky(400)')
+get_ipython().run_line_magic("timeit", "chudnovsky(400)")
 
 
 # About $2$ seconds to find correctly the first $5671$ digits? That's slow! But hey, it's Python (dynamic typing etc).
@@ -625,19 +681,19 @@ get_ipython().run_line_magic('timeit', 'chudnovsky(400)')
 # Some methods are based on the $\mathrm{arccot}$ or $\arctan$ functions, and use the appropriate Taylor series to approximate these functions.
 # The best example is [Machin's formula](http://en.literateprograms.org/Pi_with_Machin%27s_formula_%28Python%29):
 # $$\pi = 16 \;\mathrm{arccot}(5) - 4 \;\mathrm{arccot}(239).$$
-# 
+#
 # And we use the Taylor series to approximate $\mathrm{arccot}(x)$:
 # $$\mathrm{arccot}(x) = \frac{1}{x} - \frac{1}{3x^3} + \frac{1}{5x^5} - \frac{1}{7x^7} + \dots = \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n+1) x^{2n+1}} .$$
-# 
+#
 # This method is also explained here with some details.
 # In order to obtain $n$ digits, we will use *fixed-point* arithmetic to compute $\pi \times 10^n$ as a Python `long` integer.
 
 # #### [High-precision arccot computation](http://en.literateprograms.org/Pi_with_Machin%27s_formula_%28Python%29#High-precision_arccot_computation)
 # To calculate $\mathrm{arccot}$ of an argument $x$, we start by dividing the number $1$ (represented by $10^n$, which we provide as the argument `unity`) by $x$ to obtain the first term.
-# 
+#
 # We then repeatedly divide by $x^2$ and a counter value that runs over $3$, $5$, $7$ etc, to obtain each next term.
 # The summation is stopped at the first zero `term`, which in this *fixed-point* representation corresponds to a real value less than $10^{-n}$:
-# 
+#
 # ```python
 # def arccot(x, unity):
 #     xpower = unity / x
@@ -668,7 +724,7 @@ def arccot(x, unity):
     n = 3
     sign = -1
     while True:
-        xpower = xpower / (x*x)
+        xpower = xpower / (x * x)
         term = xpower / n
         if not term:
             break
@@ -681,14 +737,14 @@ def arccot(x, unity):
 # #### Applying Machin's formula
 # Finally, the main function uses Machin's formula to compute $\pi$ using the necessary level of precision, by using this high precision $\mathrm{arccot}$ function:
 # $$\pi = 16 \;\mathrm{arccot}(5) - 4 \;\mathrm{arccot}(239).$$
-# 
+#
 # ```python
 # def machin(digits):
 #     unity = 10**(digits + 10)
 #     pi = 4 * (4*arccot(5, unity) - arccot(239, unity))
 #     return pi / unity
 # ```
-# 
+#
 # To avoid rounding errors in the result, we use 10 guard digits internally during the calculation.
 # We may now reproduce the historical result obtained by [Machin in 1706](https://en.wikipedia.org/wiki/John_Machin).
 
@@ -697,8 +753,8 @@ def arccot(x, unity):
 
 def machin(digits):
     """Compute pi with Machin's formula, with precision at least digits."""
-    unity = 10**(digits + 10)
-    my_pi = Decimal(4) * (Decimal(4)*arccot(5, unity) - arccot(239, unity))
+    unity = 10 ** (digits + 10)
+    my_pi = Decimal(4) * (Decimal(4) * arccot(5, unity) - arccot(239, unity))
     return my_pi / Decimal(unity)
 
 
@@ -708,7 +764,7 @@ def machin(digits):
 getcontext().prec = 10000  # trick to improve precision
 my_pi = machin(100)
 
-accuracy = 100*abs(mpmath_pi - my_pi)/mpmath_pi
+accuracy = 100 * abs(mpmath_pi - my_pi) / mpmath_pi
 print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
@@ -719,15 +775,15 @@ print("Accuracy % with mpmath_pi: {:.4g}".format(accuracy))
 
 
 getcontext().prec = 5000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'machin(50)')
+get_ipython().run_line_magic("timeit", "machin(50)")
 
 getcontext().prec = 10000  # trick to improve precision
-get_ipython().run_line_magic('timeit', 'machin(100)')
+get_ipython().run_line_magic("timeit", "machin(100)")
 
 
 # The program can be used to compute tens of thousands of digits in just a few seconds on a modern computer.
 # Typical implementation will be in highly efficient compiled language; like C or maybe Julia.
-# 
+#
 # Many [Machin-like formulas](https://en.wikipedia.org/wiki/Machin-like_formula) also exist, like:
 # $$\pi = 4\arctan\left(\frac{1}{2}\right) + 4 \arctan\left(\frac{1}{3}\right).$$
 
@@ -737,19 +793,27 @@ get_ipython().run_line_magic('timeit', 'machin(100)')
 # In[179]:
 
 
-get_ipython().run_cell_magic('time', '', 'i = 14031\ngetcontext().prec = i + 20  # trick to improve precision\nmp.dps = i + 20\nprint(str(mp.pi)[2:][i:i+10])\n\nmy_pi = machin(11)\nprint(str(my_pi)[2:][i:i+10])')
+get_ipython().run_cell_magic(
+    "time",
+    "",
+    "i = 14031\ngetcontext().prec = i + 20  # trick to improve precision\nmp.dps = i + 20\nprint(str(mp.pi)[2:][i:i+10])\n\nmy_pi = machin(11)\nprint(str(my_pi)[2:][i:i+10])",
+)
 
 
 # In[180]:
 
 
-get_ipython().run_cell_magic('time', '', 'i = 140317\ngetcontext().prec = i + 20  # trick to improve precision\nmp.dps = i + 20\nprint(str(mp.pi)[2:][i:i+10])\n\nmy_pi = machin(50)\nprint(str(my_pi)[2:][i:i+10])')
+get_ipython().run_cell_magic(
+    "time",
+    "",
+    "i = 140317\ngetcontext().prec = i + 20  # trick to improve precision\nmp.dps = i + 20\nprint(str(mp.pi)[2:][i:i+10])\n\nmy_pi = machin(50)\nprint(str(my_pi)[2:][i:i+10])",
+)
 
 
 # It was too slow too! But at least it worked!
-# 
+#
 # My manual implementation of Machin's formula took about $10$ minutes, on an old laptop with $1$ core running Python 3.5, to find the $10$ digits of $\pi$ at index $140317$.
-# 
+#
 # #### Conclusion
 # $\implies$ To the question "What are the $10$ digits of $\pi$ at index $140317..140326$", the answer is $9341076406$.
 
@@ -757,9 +821,9 @@ get_ipython().run_cell_magic('time', '', 'i = 140317\ngetcontext().prec = i + 20
 
 # ### (*hard*) [Unbounded Spigot Algorithm](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/spigot.pdf)
 # This algorithm is quite efficient, but not easy to explain. Go check on-line if you want.
-# 
+#
 # See this page (http://codepad.org/3yDnw0n9) for a 1-line C program that uses a simpler Spigot algorithm for computing the first 15000 digits
-# 
+#
 # A nice method, with a generator yielding the next digit each time, comes from http://stackoverflow.com/a/9005163.
 # It uses only integer, so no need to do any `Decimal` trick here.
 
@@ -772,17 +836,31 @@ def next_pi_digit(max_step):
         if 4 * q + r - t < m * t:
             yield m
             # More details on Python generators can be found here http://stackoverflow.com/a/231855
-            q, r, t, k, m, x = 10*q, 10*(r-m*t), t, k, (10*(3*q+r))//t - 10*m, x
+            q, r, t, k, m, x = (
+                10 * q,
+                10 * (r - m * t),
+                t,
+                k,
+                (10 * (3 * q + r)) // t - 10 * m,
+                x,
+            )
         else:
-            q, r, t, k, m, x = q*k, (2*q+r)*x, t*x, k+1, (q*(7*k+2)+r*x)//(t*x), x+2
+            q, r, t, k, m, x = (
+                q * k,
+                (2 * q + r) * x,
+                t * x,
+                k + 1,
+                (q * (7 * k + 2) + r * x) // (t * x),
+                x + 2,
+            )
 
 
 # In[161]:
 
 
 def generator_pi(max_step):
-    big_str = ''.join(str(d) for d in next_pi_digit(max_step))
-    return Decimal(big_str[0] + '.' + big_str[1:])
+    big_str = "".join(str(d) for d in next_pi_digit(max_step))
+    return Decimal(big_str[0] + "." + big_str[1:])
 
 
 # It does not use `Decimal` numbers.
@@ -805,12 +883,12 @@ generator_pi(1000)
 # It has several versions, one with a cubic convergence (each new step multiplies by $3$ the number of digits), one with a nonic convergence (of order $9$) etc.
 # They are not so easy to explain either.
 # Please check on-line, here [en.WikiPedia.org/wiki/Borwein's_algorithm](https://en.wikipedia.org/wiki/Borwein%27s_algorithm).
-# 
+#
 # The cubic method is similar to the Gauss-Legendre algorithm:
-# 
+#
 # 1. Start with $a_0 = 1/3$, and $s_0 = \frac{\sqrt{3}-1}{2}$,
 # 2. And then iterate, as much as you want, by defining $r_{k+1} = \frac{3}{1+2(1-s_k^3)^{1/3}}$, and updating $s_{k+1} = \frac{r_{k+1}-1}{2}$ and $a_{k+1} = r_{k+1}^2 a_k - 3^k (r_{k+1}^2 - 1)$.
-# 
+#
 # Then the numbers $a_k$ will converge to $\frac{1}{\pi}$.
 
 # ----
@@ -829,5 +907,5 @@ generator_pi(1000)
 # ----
 # ### Pie !
 # ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_pie.jpg/600px-Apple_pie.jpg)
-# 
+#
 # ----

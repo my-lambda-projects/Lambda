@@ -7,24 +7,20 @@ from collections import defaultdict
 
 
 class Graph:
-
     def __init__(self, vertices):
         self.V = vertices
         self.graph = defaultdict(list)
 
-
     def add_edge(self, u, v):
         self.graph[u].append(v)
 
-
     def dfs_util(self, v, visited):
         visited[v] = True
-        print(v, end=' ')
+        print(v, end=" ")
 
         for i in self.graph[v]:
             if visited[i] == False:
                 self.dfs_util(i, visited)
-
 
     def fill_order(self, v, visited, stack):
         visited[v] = True
@@ -32,7 +28,6 @@ class Graph:
             if visited[i] == False:
                 self.fill_order(i, visited, stack)
         stack.append(v)
-
 
     def get_transpose(self):
         g = Graph(self.V)
@@ -42,7 +37,6 @@ class Graph:
                 g.add_edge(j, i)
 
         return g
-
 
     def kosaraju(self):
         stack = []
@@ -61,5 +55,3 @@ class Graph:
             if visited[i] == False:
                 gr.dfs_util(i, visited)
                 print()
-
-

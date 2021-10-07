@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # # Table des matières
@@ -17,7 +16,7 @@
 # 		* [1.4.6 Configuration aléatoire](#1.4.6-Configuration-aléatoire)
 # 	* [1.5 Conclusion](#1.5-Conclusion)
 # 	* [1.6 Attention :](#1.6-Attention-:)
-# 
+#
 
 # # 1. Agrégation externe de mathématiques, texte d’exercice diffusé en 2012
 
@@ -26,11 +25,11 @@
 # > - Ce [notebook Jupyter](http://jupyter.org/) est une correction [non officielle](https://github.com/Naereen/notebooks/tree/master/agreg) d'un texte de modélisation pour l'option informatique de l'agrégation externe de mathématiques.
 # > - Il s'agit du texte [public2012-D3](http://agreg.org/Textes/public2012-D3.pdf).
 # > - Cette tentative de correction partielle a été rédigée par [Lilian Besson](http://perso.crans.org/besson/) ([sur GitHub ?](https://github.com/Naereen/), [sur Bitbucket ?](https://bitbucket.org/lbesson)), et [est open-source](https://github.com/Naereen/notebooks/blob/master/agreg/public2012_D3.ipynb).
-# 
+#
 # > #### Feedbacks?
 # > - Vous avez trouvé un bug ? → [Signalez-le moi svp !](https://github.com/Naereen/notebooks/issues/new), merci d'avance.
 # > - Vous avez une question ? → [Posez la svp !](https://github.com/Naereen/ama.fr) [![Demandez moi n'importe quoi !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](https://GitHub.com/Naereen/ama.fr)
-# 
+#
 # ----
 
 # ## 1.2 *Proposition* d'implémentation, en [Python 3](https://docs.python.org/3/)
@@ -38,7 +37,7 @@
 # ### 1.2.1 Pour [l'option informatique (D)](http://www.dit.ens-rennes.fr/agregation-option-d/programme-de-l-option-informatique-de-l-agregation-de-mathematiques-48358.kjsp) de l'[agrégation de mathématiques](http://agreg.org/) (en France).
 
 # **Attention** : ce document ne prétend pas être LA correction du texte, mais **un exemple de solution**.
-# 
+#
 # ----
 
 # ## 1.3 Dépendances et importation de modules
@@ -71,7 +70,7 @@ a = [1, 3, 5]
 def print_nim(configuration):
     """ Affiche une configuration, donnée sous forme d'une liste d'entiers. """
     for i, nb in enumerate(configuration):
-        print(i, ':', '! ' * nb)
+        print(i, ":", "! " * nb)
 
 
 # On peut définir et afficher deux exemples de configuration d'un jeu de Nim, venant de la figure 1.
@@ -93,9 +92,9 @@ print_nim(b)
 
 # Elle est donnée par le corollaire 1. en page 6/7 du texte.
 # On a besoin du **xor** (*"ou exclusif"*, cf [cette page](https://fr.wikipedia.org/wiki/Fonction_OU_exclusif)), **bit à bit** (tel que $\oplus$ est défini dans le texte).
-# 
+#
 # Cet opérateur est obtenu en Python avec l'opérateur ``^`` :
-# 
+#
 # $$ \gamma(\mathrm{Nim}(x_1, \dots, x_k)) := \bigoplus_{i=1}^{k} x_i = x_1 \oplus \dots \oplus x_k. $$
 
 # Petit rappel sur cette fonction **xor** :
@@ -106,7 +105,11 @@ print_nim(b)
 from itertools import product
 
 for b1, b2 in product([False, True], repeat=2):
-    print("{!s:>5} XOR {!s:>5} = {!s:>5} ^ {!s:>5} = {!s:>5}".format(b1, b2, b1, b2, b1 ^ b2))
+    print(
+        "{!s:>5} XOR {!s:>5} = {!s:>5} ^ {!s:>5} = {!s:>5}".format(
+            b1, b2, b1, b2, b1 ^ b2
+        )
+    )
 # Ce morceau de code est un peu fancy mais concis et joli, cf. https://pyformat.info/#string_pad_align
 
 
@@ -122,13 +125,13 @@ for b1, b2 in product([False, True], repeat=2):
 # In[12]:
 
 
-3  ^ 5  # 3  xor 5  =  0b011  xor 0b101  = 0b111  = 6
+3 ^ 5  # 3  xor 5  =  0b011  xor 0b101  = 0b111  = 6
 
 
 # In[13]:
 
 
-5  ^ 9  # 5  xor 9  =  0b0101 xor 0b1001 = 0b1100 = 12
+5 ^ 9  # 5  xor 9  =  0b0101 xor 0b1001 = 0b1100 = 12
 
 
 # In[14]:
@@ -145,7 +148,7 @@ for b1, b2 in product([False, True], repeat=2):
 
 # ----
 # D'apres le corollaire 1., il suffit d'appliquer un **xor** à chaque valeur du tableau pour calculer $\gamma$.
-# 
+#
 # On peut faire ça simplement avec une boucle :
 
 # In[24]:
@@ -155,7 +158,7 @@ def gamma(configuration):
     """ Fonction gamma de Sprague-Grundy pour le jeu de Nim. """
     resultat = 0
     for nb in configuration:
-        resultat = (resultat ^ nb)
+        resultat = resultat ^ nb
     return resultat
 
 
@@ -172,7 +175,8 @@ print("Gamma(b) =", gamma(b))
 
 
 from functools import reduce  # Comme Array.fold_left ou List.fold_left en OCaml
-from operator  import xor     # Version préfixe de l'opérateur ^ infixe
+from operator import xor  # Version préfixe de l'opérateur ^ infixe
+
 
 def gamma(configuration):
     """ Fonction gamma de Sprague-Grundy pour le jeu de Nim. """
@@ -189,7 +193,7 @@ print("Gamma(b) =", gamma(b))
 # ### 1.4.3 Déterminer un coup à jouer selon une stratégie gagnante (s'il y en a une)
 
 # On suit l'algorithme proposé par le texte, qui utilise la fonction $\gamma$ sur la configuration pour savoir s'il y a une stratégie ou non (d'après la proposition 5.), et ensuite si elle existe on doit trouver un coup qui ammene $\gamma$ à 0.
-# 
+#
 # On a d'abord besoin d'une exception pour signaler s'il n'y a pas de stratégie gagnante, et du calcul du nombre minimal d'allumette à enlever.
 
 # In[33]:
@@ -197,6 +201,7 @@ print("Gamma(b) =", gamma(b))
 
 class PasDeStratGagnante(Exception):
     """ Exception renvoyée s'il n'y a pas de stratégie gagnante. """
+
     pass
 
 
@@ -227,11 +232,20 @@ def optimal(configuration, joueur=0):
             nouvelle_configuration = configuration[:]  # On l'annule
     # On devrait avoir trouver un coup qui amène gamma(nouvelle_configuration) = 0
     # On applique ce coup
-    print("Le joueur courant", joueur, "a choisi de retirer", nb, "allumettes à la rangée numéro", colonne)
+    print(
+        "Le joueur courant",
+        joueur,
+        "a choisi de retirer",
+        nb,
+        "allumettes à la rangée numéro",
+        colonne,
+    )
     nouvelle_configuration = configuration[:]
     nouvelle_configuration[colonne] -= nb
     if gamma(nouvelle_configuration) != 0:
-        print("  Attention, apparemment on a été contraint de choisir un coup qui n'est pas gagnant (n'amène pas à gamma(c') = 0).")
+        print(
+            "  Attention, apparemment on a été contraint de choisir un coup qui n'est pas gagnant (n'amène pas à gamma(c') = 0)."
+        )
     return nouvelle_configuration
 
 
@@ -254,7 +268,7 @@ print_nim(optimal(b, joueur=0))  # Pas de stratégie gagnante ici !
 # ### 1.4.4 Stratégie stupide
 
 # Dans le but de comparer cette fonction qui implémente une stratégie optimale, on implémente aussi une stratégie complétement aléatoire ("Dummy player").
-# 
+#
 # La stratégie aléatoire fonctionne en trois étapes :
 # 1. trouve les rangées qui ont encore des allumettes (en calculant leurs indices, via une construction de tableau par compréhension, dans le tableau `lignes_non_vides`),
 # 2. choisi une rangée aléatoirement `i` (uniformément) avec `random.choice()`,
@@ -268,10 +282,23 @@ def stupide(configuration, joueur=0):
     # On choisit le coup à jouer : ligne random, nb d'allumette(s) random...
     lignes_non_vides = [i for i, c in enumerate(configuration) if c > 0]
     position_random = random.choice(lignes_non_vides)
-    print("Le joueur", joueur, "aléatoire uniforme a choisi de regarder la ligne", position_random)
+    print(
+        "Le joueur",
+        joueur,
+        "aléatoire uniforme a choisi de regarder la ligne",
+        position_random,
+    )
     total = configuration[position_random]
     a_enlever = random.randint(1, 1 + total)
-    print("Le joueur", joueur, "aléatoire uniforme a choisi de retirer", a_enlever, "allumettes parmi les", total, "disponibles")
+    print(
+        "Le joueur",
+        joueur,
+        "aléatoire uniforme a choisi de retirer",
+        a_enlever,
+        "allumettes parmi les",
+        total,
+        "disponibles",
+    )
     # On applique ce coup
     nouvelle_configuration = configuration[:]
     nouvelle_configuration[position_random] -= a_enlever
@@ -319,6 +346,7 @@ print_nim(a2)
 
 class Perdu(Exception):
     """ Représente le joueur numero i qui a perdu."""
+
     def __init__(self, numero):
         self.numero = numero
 
@@ -366,7 +394,9 @@ def nim(configuration):
     try:
         simule(configuration)
     except PasDeStratGagnante:
-        print("==> Blocage car le joueur 0 n'a pas pu trouver de coup gagnant, il déclare forfait (le pleutre !).")
+        print(
+            "==> Blocage car le joueur 0 n'a pas pu trouver de coup gagnant, il déclare forfait (le pleutre !)."
+        )
     except Perdu as e:
         print("==> Le joueur", e.numero, "a perdu.")
 
@@ -386,9 +416,9 @@ nim(b)
 # ### 1.4.6 Configuration aléatoire
 
 # On peut écrire une fonction qui génére une configuration aléatoire, et ensuite lancer notre simulation ``nim()`` dessus, pour voir ce que ça donne sur une configuration plus grande.
-# 
+#
 # La fonction `config_aleatoire(k, p)` va générer une configuration aléatoire :
-# 
+#
 # - avec un nombre de lignes uniforme dans `{1, ..., k}`,
 # - et un nombre d'allumettes uniforme dans `{1, ..., p}` pour chaque ligne.
 
@@ -414,21 +444,21 @@ nim(c)
 # ## 1.5 Conclusion
 
 # C'est tout ce que j'avais eu le temps d'implémenter durant les 4h de préparation (c'est un des textes que j'avais préparé en juin 2014, dans les "vraies" conditions en oraux blanc, à l'ENS Cachan, et le code initial était en OCaml mais je n'ai rien changé à part la conversion en Python3).
-# 
+#
 # Quelques remarques :
-# 
+#
 # - durant l'épreuve de modélisation, vous êtes libres de faire ce que vous voulez, la seule partie requise est dans le paragraphe **Exercice de programmation** (ici, il s'agissait d'implémenter une fonction similaire à ``optimal()`` (cf. plus haut).
 # - les quelques développements supplémentaires traites ci-dessus (stratégie stupide, configuration aléatoire, simulation de jeu), ne sont qu'une suggestion de ce qui pouvait être fait sur ce texte,
 # - d'autres suggestions sont possibles, si vous avez des idées, [envoyez-moi vos notebooks !](https://github.com/Naereen/notebooks/pulls).
-# 
+#
 # > *Edit :* j'avais une erreur dans mon calcul de `next`, corrigée le 11/01/17.
 
 # ## 1.6 Attention :
 
 # Les 40 minutes de passage au tableau ne doivent PAS être uniquement consacrée à la présentation de vos expériences sur l'ordinateur !
-# 
+#
 # Il faut aussi :
-# 
+#
 # - faire une introduction générale (citer des mots clés),
 # - présenter le plan de votre présentation,
 # - introduire les notations, les objectifs et les résultats donnés par le texte,
@@ -436,6 +466,6 @@ nim(c)
 # - etc.
 
 # ----
-# 
+#
 # > *C'est tout pour aujourd'hui les amis !*
 # > [Allez voir d'autres notebooks](https://github.com/Naereen/notebooks/tree/master/agreg) si vous voulez.

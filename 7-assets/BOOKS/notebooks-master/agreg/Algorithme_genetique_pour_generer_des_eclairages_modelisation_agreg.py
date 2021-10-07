@@ -16,18 +16,30 @@
 # - L'implémentation sera faite en Python 3.
 
 # ## Graphes, éclairages et structures de données
-# 
+#
 # On donne tout de suite un exemple de graphe, en prenant le 3ème exemple de la Figure 1 du texte.
-# 
+#
 # ![Graphes de la Figure 1 du texte](images/ville_eclairee_1.png)
-# 
+#
 # On va définir ce graphe, comme une liste d'arêtes, et plusieurs éclairages.
 
 # In[13]:
 
 
-graphe1 = [(1,3), (3,2), (2,4), (2,6), (2,7), (4,5), (5,6), (6,7), (6,9), (7,8), (8,9)]
-graphe1 = [ (u-1, v-1) for (u,v) in graphe1 ]
+graphe1 = [
+    (1, 3),
+    (3, 2),
+    (2, 4),
+    (2, 6),
+    (2, 7),
+    (4, 5),
+    (5, 6),
+    (6, 7),
+    (6, 9),
+    (7, 8),
+    (8, 9),
+]
+graphe1 = [(u - 1, v - 1) for (u, v) in graphe1]
 
 
 # In[14]:
@@ -36,7 +48,8 @@ graphe1 = [ (u-1, v-1) for (u,v) in graphe1 ]
 def nbsommets(graphe):
     n = 0
     for (u, v) in graphe:
-        if u > n or v > n: n = max(u, v)
+        if u > n or v > n:
+            n = max(u, v)
     return n + 1
 
 
@@ -51,7 +64,7 @@ nbsommets(graphe1)
 # In[16]:
 
 
-eclairage1_sat = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # trivialement valide car on éclaire tout 
+eclairage1_sat = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # trivialement valide car on éclaire tout
 eclairage2_sat = [1, 2, 3, 5, 6, 8]  # valide mais on éclaire pas tout
 
 
@@ -63,20 +76,20 @@ eclairage2_nonsat = [1, 2, 3, 5, 6]
 
 
 # ## Fonctions nécessaires pour l'algorithme génétique
-# 
+#
 # On va devoir implémenter des fonctions réalisants les tâches suivantes :
-# 
+#
 # - vérifier qu'un ensemble de sommets éclairés est un éclairage valide,
 # - vérifier qu'un éclairage donné sous forme de tableau de `gauche`, `droite`, `lesdeux` est un éclairage valide,
 # - compter le nombre de places éclairés pour un éclairage donné sous la forme précédente (c'est la fonction de coût, ou "fitness" de l'algorithme génétique).
-# 
+#
 # Ensuite pour l'initialisation de l'algorithm génétique il nous faudra :
-# 
+#
 # - générer un éclairage aléatoirement,
 # - faire ça 100 fois pour avoir une population initiale.
-# 
+#
 # Et puis pour chaque étape de l'algorithme génétique, on transformera les 100 individus
-# 
+#
 # - trier une population d'éclairages suivant un critère (= le nombre de lampadaires utilisés),
 # - faire muter aléatoirement 4 éclairages parmi les 48 meilleurs,
 # - se faire reproduire les 48 moins bons individus restants par "crossing over", ou mutation croisée.
@@ -90,7 +103,7 @@ def est_eclairage(graphe, places_eclairees):
     """ Cette fonction est en O(M + L) = O(M) où M est le nombre d'arêtes, et L le nombre de places éclairées (<= N <= M par connexité).
     """
     n = nbsommets(graphe)
-    sont_eclairees = [ False for _ in range(n) ]
+    sont_eclairees = [False for _ in range(n)]
     for p in places_eclairees:
         sont_eclairees[p] = True
     for (u, v) in graphe:
@@ -132,13 +145,20 @@ def places_moins_une(places_eclairees, place_a_enlever):
     """ En O(L) si L est le nombre de places éclairées."""
     return [place for place in places_eclairees if place != place_a_enlever]
 
+
 def est_minimal(graphe, places_eclairees):
     """ Cette fonction est en O(M L) où M est le nombre d'arêtes, et L le nombre de places éclairées.
     """
-    return est_eclairage(graphe, places_eclairees) and not(all([
-        est_eclairage(graphe, places_moins_une(places_eclairees, place_a_enlever))
-        for place_a_enlever in places_eclairees
-    ]))
+    return est_eclairage(graphe, places_eclairees) and not (
+        all(
+            [
+                est_eclairage(
+                    graphe, places_moins_une(places_eclairees, place_a_enlever)
+                )
+                for place_a_enlever in places_eclairees
+            ]
+        )
+    )
 
 
 # In[36]:
@@ -166,7 +186,7 @@ est_minimal(graphe1, eclairage2_nonsat)
 
 
 # ### Conversion entre liste de valeurs ternaires et éclairage
-# 
+#
 # Si le graphe $G=(V,E)$ est donné par un tableau de ses rues $E = \{(u,v)\}$, on représente une liste de places éclairées $V'$ par un tableau de valeurs ternaires `gauche`, `droite` ou `lesdeux`.
 
 # In[83]:
@@ -182,10 +202,10 @@ def eclairage_vers_ternaires(graphe, places_eclairees):
     """ O(M)"""
     n = nbsommets(graphe)
     ternaires = []
-    sont_eclairees = [ False for _ in range(n) ]
+    sont_eclairees = [False for _ in range(n)]
     for p in places_eclairees:
         sont_eclairees[p] = True
-    for (u,v) in graphe:
+    for (u, v) in graphe:
         if sont_eclairees[u] and sont_eclairees[v]:
             ternaires.append(lesdeux)
         elif sont_eclairees[u]:
@@ -201,8 +221,8 @@ def eclairage_vers_ternaires(graphe, places_eclairees):
 def ternaires_vers_eclairage(graphe, ternaires):
     """ O(M)"""
     n = nbsommets(graphe)
-    places_eclairees = [ False for _ in range(n) ]
-    for (u,v), ternaire in zip(graphe, ternaires):
+    places_eclairees = [False for _ in range(n)]
+    for (u, v), ternaire in zip(graphe, ternaires):
         if ternaire == gauche or ternaire == lesdeux:
             places_eclairees[u] = True
         if ternaire == droite or ternaire == lesdeux:
@@ -210,7 +230,8 @@ def ternaires_vers_eclairage(graphe, ternaires):
     # O(N)
     eclairage = []
     for i, p in enumerate(places_eclairees):
-        if p: eclairage.append(i)
+        if p:
+            eclairage.append(i)
     return eclairage
 
 
@@ -254,7 +275,9 @@ ternaires2_sat
 
 print(eclairage2_sat)
 print(eclairage_vers_ternaires(graphe1, eclairage2_sat))
-print(ternaires_vers_eclairage(graphe1, eclairage_vers_ternaires(graphe1, eclairage2_sat)))
+print(
+    ternaires_vers_eclairage(graphe1, eclairage_vers_ternaires(graphe1, eclairage2_sat))
+)
 print(est_valide_ternaires(graphe1, eclairage_vers_ternaires(graphe1, eclairage2_sat)))
 
 
@@ -277,9 +300,11 @@ def nb_places_eclairees(graphe, ternaires):
 
 import random
 
+
 def un_ternaire_aleatoire():
     """ O(1)"""
     return random.choice([gauche, droite, lesdeux])
+
 
 def un_ternaire_aleatoire_different(valeur):
     """ O(1)"""
@@ -290,9 +315,10 @@ def un_ternaire_aleatoire_different(valeur):
     else:
         return random.choice([gauche, droite])
 
+
 def un_individu(graphe):
     """ O(M)"""
-    return [un_ternaire_aleatoire() for (u,v) in graphe]
+    return [un_ternaire_aleatoire() for (u, v) in graphe]
 
 
 # On peut facilement générer dix individus différents, qui sont tous des éclairages valides, et afficher leur coût :
@@ -313,7 +339,7 @@ for _ in range(10):
 
 
 def population_initiale(graphe, taille_population):
-    return [ un_individu(graphe) for _ in range(taille_population) ]
+    return [un_individu(graphe) for _ in range(taille_population)]
 
 
 # Par exemple, une population initiale de taille 5 est :
@@ -323,7 +349,9 @@ def population_initiale(graphe, taille_population):
 
 pop = population_initiale(graphe1, 5)
 for individu in pop:
-    print("L'éclairage", individu, "a un coût =", nb_places_eclairees(graphe1, individu))
+    print(
+        "L'éclairage", individu, "a un coût =", nb_places_eclairees(graphe1, individu)
+    )
 
 
 # In[130]:
@@ -332,17 +360,18 @@ for individu in pop:
 sorted(pop, key=lambda individu: nb_places_eclairees(graphe1, individu))
 
 
-# On peut donc facilement trier des 
+# On peut donc facilement trier des
 
 # ### Squelette générique pour l'algorithme génétique
-# 
+#
 # On va écrire une fonction générique. Pour visualiser l'évolution de la population, plutôt que d'afficher une liste de 100 coûts, je préfère afficher un décompte du nombre d'individus ayant un certain coût, en Python cela se fait très facilement avec `collections.Counter` :
 
 # In[192]:
 
 
 import collections
-collections.Counter([1,1,1,1,1,2,2,2,3])
+
+collections.Counter([1, 1, 1, 1, 1, 2, 2, 2, 3])
 
 
 # In[193]:
@@ -369,7 +398,7 @@ def algorithme_genetique(
         - C_mutation est le coût de calcul de la fonction de mutation muter_un,
     """
     nb_meilleurs = int(tau_meilleurs * taille_pop)
-    nb_enfants = 2 * (int(tau_cross * taille_pop)//2)  # nb paire !
+    nb_enfants = 2 * (int(tau_cross * taille_pop) // 2)  # nb paire !
     nb_mutes = taille_pop - nb_meilleurs - nb_enfants
     # première population
     pop = pop_init(taille_pop)
@@ -377,21 +406,26 @@ def algorithme_genetique(
     for generation in range(nb_generations):
         couts = [fct_cout(sol) for sol in pop]
         # bonus: affichage de la liste des couts
-        print("La génération numéro", generation, "a les coûts suivants :", collections.Counter(couts))
+        print(
+            "La génération numéro",
+            generation,
+            "a les coûts suivants :",
+            collections.Counter(couts),
+        )
         pop_triees = sorted(pop, key=fct_cout)
         # 1) on prend les 48% meilleurs, laissés tels quels
         meilleurs = pop_triees[:nb_meilleurs]
         # 2) on prend les 48% moins bons, on les croise
         moins_bons = pop_triees[-nb_enfants:]
-        enfants = [ ]
+        enfants = []
         for i in range(len(moins_bons) // 2):
-            parent_1 = moins_bons[2*i]
-            parent_2 = moins_bons[2*i + 1]
+            parent_1 = moins_bons[2 * i]
+            parent_2 = moins_bons[2 * i + 1]
             enfant_1, enfant_2 = croiser_deux(parent_1, parent_2)
             enfants.append(enfant_1)
             enfants.append(enfant_2)
         # 3) on prend les 4% meilleurs, et on les mute un peu
-        mutes = [ ]
+        mutes = []
         for i in range(nb_mutes):
             sain = meilleurs[i]
             un_xmen = muter_un(sain)
@@ -413,9 +447,10 @@ def algorithme_genetique(
 
 def une_mutation(graphe, ternaires):
     position = random.randint(0, len(ternaires) - 1)
-    mute = [ t for t in ternaires ]
+    mute = [t for t in ternaires]
     mute[position] = un_ternaire_aleatoire_different(mute[position])
     return mute
+
 
 def mutation(graphe, ternaires):
     M = len(graphe)
@@ -489,11 +524,8 @@ print(enfant_2)
 # In[194]:
 
 
-def eclairage_genetique(graphe,
-    taille_pop=100,
-    tau_meilleurs=0.48,
-    tau_cross=0.48,
-    nb_generations=50,
+def eclairage_genetique(
+    graphe, taille_pop=100, tau_meilleurs=0.48, tau_cross=0.48, nb_generations=50
 ):
     """ Complexité en O(nb_generations * [
         taille_pop * log(taille_pop) * O(M)
@@ -508,12 +540,16 @@ def eclairage_genetique(graphe,
     # on définit les quatre fonctions, pour ce graphe
     def pop_init(taille_pop):
         return population_initiale(graphe, taille_pop)
+
     def fct_cout(individu):
         return nb_places_eclairees(graphe, individu)
+
     def muter_un(individu):
         return mutation(graphe, individu)
+
     def croiser_deux(parent_1, parent_2):
         return croiser_deux_ternaires(graphe, parent_1, parent_2)
+
     # on appelle la fonction générique
     return algorithme_genetique(
         pop_init,
@@ -538,5 +574,5 @@ eclairage_genetique(graphe1)
 # On a trouvé un éclairage valide avec seulement 5 places éclairées, en partant d'une population qui avait des coûts entre 7 et 9.
 
 # ## Conclusion
-# 
+#
 # Si vous êtes curieux, je vous laisse travailler davantage sur ça.

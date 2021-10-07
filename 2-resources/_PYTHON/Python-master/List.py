@@ -1,9 +1,9 @@
 List = []
 # List is Muteable
 # means value can be change
-List.insert(0 , 5)
-List.insert(1,10)
-List.insert(0,6)
+List.insert(0, 5)
+List.insert(1, 10)
+List.insert(0, 6)
 print(List)
 List.remove(6)
 List.append(9)

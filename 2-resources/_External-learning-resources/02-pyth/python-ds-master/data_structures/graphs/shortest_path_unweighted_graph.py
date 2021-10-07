@@ -11,18 +11,16 @@ parents of destination node until the source node.
 
 from collections import defaultdict
 
-class Graph:
 
+class Graph:
     def __init__(self, vertices):
         self.vertices = vertices
         self.graph = defaultdict(list)
-
 
     def add_edge(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
 
-    
     def bfs(self, s):
         parent = [-1] * self.vertices
         visited = [False] * self.vertices
@@ -38,15 +36,14 @@ class Graph:
                     queue.append(i)
                     parent[i] = s
                     visited[i] = True
-        
+
         return parent
 
-    
     def shortest_path(self, source, dest):
         parent = self.bfs(source)
 
         while True:
-            print(dest, end=' ')
+            print(dest, end=" ")
             dest = parent[dest]
 
             if dest == source:

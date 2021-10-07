@@ -10,19 +10,29 @@ If there is no edge from i to j, capacity[i][j] should be zero.
 
 import queue
 
-def dfs(capacity, flow, visit, vertices, idx, sink, current_flow = 1 << 63):
+
+def dfs(capacity, flow, visit, vertices, idx, sink, current_flow=1 << 63):
     # DFS function for ford_fulkerson algorithm.
-    if idx == sink: 
+    if idx == sink:
         return current_flow
     visit[idx] = True
     for nxt in range(vertices):
         if not visit[nxt] and flow[idx][nxt] < capacity[idx][nxt]:
-            tmp = dfs(capacity, flow, visit, vertices, nxt, sink, min(current_flow, capacity[idx][nxt]-flow[idx][nxt]))
+            tmp = dfs(
+                capacity,
+                flow,
+                visit,
+                vertices,
+                nxt,
+                sink,
+                min(current_flow, capacity[idx][nxt] - flow[idx][nxt]),
+            )
             if tmp:
                 flow[idx][nxt] += tmp
                 flow[nxt][idx] -= tmp
                 return tmp
     return 0
+
 
 def ford_fulkerson(capacity, source, sink):
     # Computes maximum flow from source to sink using DFS.
@@ -30,15 +40,16 @@ def ford_fulkerson(capacity, source, sink):
     # E is the number of edges and f is the maximum flow in the graph.
     vertices = len(capacity)
     ret = 0
-    flow = [[0]*vertices for i in range(vertices)]
+    flow = [[0] * vertices for i in range(vertices)]
     while True:
         visit = [False for i in range(vertices)]
         tmp = dfs(capacity, flow, visit, vertices, source, sink)
-        if tmp: 
+        if tmp:
             ret += tmp
-        else: 
+        else:
             break
     return ret
+
 
 def edmonds_karp(capacity, source, sink):
     # Computes maximum flow from source to sink using BFS.
@@ -46,7 +57,7 @@ def edmonds_karp(capacity, source, sink):
     # V is the number of vertices and E is the number of edges.
     vertices = len(capacity)
     ret = 0
-    flow = [[0]*vertices for i in range(vertices)]
+    flow = [[0] * vertices for i in range(vertices)]
     while True:
         tmp = 0
         q = queue.Queue()
@@ -65,8 +76,8 @@ def edmonds_karp(capacity, source, sink):
                 if not visit[nxt] and flow[idx][nxt] < capacity[idx][nxt]:
                     visit[nxt] = True
                     par[nxt] = idx
-                    q.put((nxt, min(current_flow, capacity[idx][nxt]-flow[idx][nxt])))
-        if par[sink] == -1: 
+                    q.put((nxt, min(current_flow, capacity[idx][nxt] - flow[idx][nxt])))
+        if par[sink] == -1:
             break
         ret += tmp
         parent = par[sink]
@@ -78,6 +89,7 @@ def edmonds_karp(capacity, source, sink):
             idx = parent
             parent = par[parent]
     return ret
+
 
 def dinic_bfs(capacity, flow, level, source, sink):
     # BFS function for Dinic algorithm.
@@ -95,7 +107,8 @@ def dinic_bfs(capacity, flow, level, source, sink):
                 q.put(nxt)
     return level[sink] != -1
 
-def dinic_dfs(capacity, flow, level, idx, sink, work, current_flow = 1 << 63):
+
+def dinic_dfs(capacity, flow, level, idx, sink, work, current_flow=1 << 63):
     # DFS function for Dinic algorithm.
     # Finds new flow using edges that is not full.
     if idx == sink:
@@ -104,7 +117,15 @@ def dinic_dfs(capacity, flow, level, idx, sink, work, current_flow = 1 << 63):
     while work[idx] < vertices:
         nxt = work[idx]
         if level[nxt] == level[idx] + 1 and flow[idx][nxt] < capacity[idx][nxt]:
-            tmp = dinic_dfs(capacity, flow, level, nxt, sink, work, min(current_flow, capacity[idx][nxt] - flow[idx][nxt])) 
+            tmp = dinic_dfs(
+                capacity,
+                flow,
+                level,
+                nxt,
+                sink,
+                work,
+                min(current_flow, capacity[idx][nxt] - flow[idx][nxt]),
+            )
             if tmp > 0:
                 flow[idx][nxt] += tmp
                 flow[nxt][idx] -= tmp
@@ -112,12 +133,13 @@ def dinic_dfs(capacity, flow, level, idx, sink, work, current_flow = 1 << 63):
         work[idx] += 1
     return 0
 
+
 def dinic(capacity, source, sink):
     # Computes maximum flow from source to sink using Dinic algorithm.
     # Time complexity : O(V^2*E)
     # V is the number of vertices and E is the number of edges.
     vertices = len(capacity)
-    flow = [[0]*vertices for i in range(vertices)]
+    flow = [[0] * vertices for i in range(vertices)]
     ret = 0
     while True:
         level = [-1 for i in range(vertices)]
@@ -131,4 +153,3 @@ def dinic(capacity, source, sink):
             else:
                 break
     return ret
-

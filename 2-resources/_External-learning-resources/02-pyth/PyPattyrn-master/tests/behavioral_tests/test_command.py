@@ -28,8 +28,12 @@ class ReceiverTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        self.assertEquals("Temperature raised by 5 degrees", self.thermostat.action('raise_temp', 5))
-        self.assertEquals("Temperature lowered by 5 degrees", self.thermostat.action('lower_temp', 5))
+        self.assertEquals(
+            "Temperature raised by 5 degrees", self.thermostat.action("raise_temp", 5)
+        )
+        self.assertEquals(
+            "Temperature lowered by 5 degrees", self.thermostat.action("lower_temp", 5)
+        )
 
     def test_invalid_action(self):
         """
@@ -38,7 +42,7 @@ class ReceiverTestCase(TestCase):
         @raise AssertionError: If the test fails.
         """
         with self.assertRaises(AttributeError):
-            self.thermostat.action('foo')
+            self.thermostat.action("foo")
 
 
 class CommandTestCase(TestCase):
@@ -64,10 +68,10 @@ class CommandTestCase(TestCase):
                 self.amount = amount
 
             def execute(self):
-                return self._receiver.action('raise_temp', self.amount)
+                return self._receiver.action("raise_temp", self.amount)
 
             def unexecute(self):
-                return self._receiver.action('lower_temp', self.amount)
+                return self._receiver.action("lower_temp", self.amount)
 
         class LowerTempCommand(Command):
             def __init__(self, receiver, amount=5):
@@ -75,10 +79,10 @@ class CommandTestCase(TestCase):
                 self.amount = amount
 
             def execute(self):
-                return self._receiver.action('lower_temp', self.amount)
+                return self._receiver.action("lower_temp", self.amount)
 
             def unexecute(self):
-                return self._receiver.action('raise_temp', self.amount)
+                return self._receiver.action("raise_temp", self.amount)
 
         self.thermostat = Thermostat()
         self.raise_temp_command_class = RaiseTempCommand
@@ -93,8 +97,12 @@ class CommandTestCase(TestCase):
         raise_temp_command = self.raise_temp_command_class(self.thermostat, 10)
         lower_temp_command = self.lower_temp_command_class(self.thermostat, 5)
 
-        self.assertEquals("Temperature raised by 10 degrees", raise_temp_command.execute())
-        self.assertEquals("Temperature lowered by 5 degrees", lower_temp_command.execute())
+        self.assertEquals(
+            "Temperature raised by 10 degrees", raise_temp_command.execute()
+        )
+        self.assertEquals(
+            "Temperature lowered by 5 degrees", lower_temp_command.execute()
+        )
 
 
 class InvokerTestCase(TestCase):
@@ -120,10 +128,10 @@ class InvokerTestCase(TestCase):
                 self.amount = amount
 
             def execute(self):
-                return self._receiver.action('raise_temp', self.amount)
+                return self._receiver.action("raise_temp", self.amount)
 
             def unexecute(self):
-                return self._receiver.action('lower_temp', self.amount)
+                return self._receiver.action("lower_temp", self.amount)
 
         class LowerTempCommand(Command):
             def __init__(self, receiver, amount=5):
@@ -131,10 +139,10 @@ class InvokerTestCase(TestCase):
                 self.amount = amount
 
             def execute(self):
-                return self._receiver.action('lower_temp', self.amount)
+                return self._receiver.action("lower_temp", self.amount)
 
             def unexecute(self):
-                return self._receiver.action('raise_temp', self.amount)
+                return self._receiver.action("raise_temp", self.amount)
 
         class Worker(Invoker):
             def __init__(self):
@@ -151,8 +159,14 @@ class InvokerTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        self.assertEquals("Temperature lowered by 5 degrees", self.worker.execute(self.lower_temp_command))
-        self.assertEquals("Temperature raised by 5 degrees", self.worker.execute(self.raise_temp_command))
+        self.assertEquals(
+            "Temperature lowered by 5 degrees",
+            self.worker.execute(self.lower_temp_command),
+        )
+        self.assertEquals(
+            "Temperature raised by 5 degrees",
+            self.worker.execute(self.raise_temp_command),
+        )
 
     def test_invalid_execute(self):
         """
@@ -170,10 +184,10 @@ class InvokerTestCase(TestCase):
 
         class TurnOnLightCommand(Command):
             def execute(self):
-                return self._receiver.action('turn_on')
+                return self._receiver.action("turn_on")
 
             def unexecute(self):
-                return self._receiver.action('turn_off')
+                return self._receiver.action("turn_off")
 
         with self.assertRaises(AttributeError):
             self.worker.execute(TurnOnLightCommand(Light))

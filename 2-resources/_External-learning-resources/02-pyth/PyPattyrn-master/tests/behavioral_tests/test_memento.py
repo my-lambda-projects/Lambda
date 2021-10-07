@@ -7,11 +7,12 @@ class MementoTestCase(TestCase):
     """
     Unit testing class for the Memento Class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
         """
-        self.state = {'foo': 'bar'}
+        self.state = {"foo": "bar"}
 
     def test_init(self):
         """
@@ -28,12 +29,13 @@ class OriginatorTestCase(TestCase):
     """
     Unit testing class for the Originator class.
     """
+
     def setUp(self):
         """
         Initialize testing data.
         """
-        class Cat(Originator):
 
+        class Cat(Originator):
             def __init__(self, name):
                 self.name = name
 
@@ -45,7 +47,7 @@ class OriginatorTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        cat = self.cat_class('Tom')
+        cat = self.cat_class("Tom")
         cat_memento = cat.commit()
 
         self.assertDictEqual(cat.__dict__, cat_memento.state)
@@ -56,10 +58,10 @@ class OriginatorTestCase(TestCase):
 
         @raise AssertionError: If the test fails.
         """
-        cat = self.cat_class('Tom')
+        cat = self.cat_class("Tom")
         cat_memento = cat.commit()
 
-        cat.name = 'jerry'
+        cat.name = "jerry"
         cat.rollback(cat_memento)
 
-        self.assertEqual('Tom', cat.name)
+        self.assertEqual("Tom", cat.name)

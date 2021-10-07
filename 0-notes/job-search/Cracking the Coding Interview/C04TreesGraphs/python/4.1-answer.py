@@ -6,7 +6,8 @@
 
 # https://github.com/w-hat/ctci-solutions/blob/master/ch-04-trees-and-graphs/01-route-between-nodes.py
 
-class Queue():
+
+class Queue:
     # FIFO
     def __init__(self):
         self.array = []
@@ -21,7 +22,8 @@ class Queue():
         del self.array[0]
         return item
 
-class Node():
+
+class Node:
     def __init__(self, data, adjacency_list=None):
         self.data = data
         self.adjacency_list = adjacency_list or []
@@ -53,4 +55,3 @@ def find_route(node1, node2):
     for visited in all_visited_nodes:
         visited.shortest_path = None
     return found_path
-

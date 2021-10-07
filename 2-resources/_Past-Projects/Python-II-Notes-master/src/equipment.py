@@ -7,4 +7,3 @@ class Equipment(Product):
         super().__init__(name, price)
         self.style = style
         self.weight = weight
-

@@ -2,13 +2,13 @@
 # coding: utf-8
 
 # # Tri tricolore - un petit exerice d'algorithmique
-# 
+#
 # On aligne $n$ boules, réparties en un nombre quelconque de boules de couleur bleue, blanche ou rouge.
 # Ces boules sont disposees dans un ordre quelconque. La ligne de boules est representée par un tableau `B` de taille $n$, dont chaque  ́element `B[i]` appartient à l’ensemble `{bleu, blanc, rouge}`
-# 
+#
 # **Question :** ́Ecrire un algorithme qui trie le tableau de telle facon que toutes les boules bleues apparaissent au debut, suivies des boules blanches puis des boules rouges.
 # La contrainte est que le tri du tableau doit être realise en seul parcours (on ne peut tester qu’une seule fois la couleur de chaque boule) et en place (sans utiliser de deuxieme tableau).
-# 
+#
 # **Indication :** Les elements d’un tableau peuvent être réécrits.
 
 # ## Solution en Python : exemples et affichage
@@ -30,13 +30,15 @@ boules1 = [BLEU, BLANC, ROUGE, ROUGE, BLANC, BLEU, BLANC, ROUGE, BLANC, BLEU, RO
 # In[36]:
 
 
-boules2 = [BLEU, BLANC, ROUGE, ROUGE, BLANC, BLEU, BLANC, ROUGE, BLANC, BLEU, ROUGE][::-1]
+boules2 = [BLEU, BLANC, ROUGE, ROUGE, BLANC, BLEU, BLANC, ROUGE, BLANC, BLEU, ROUGE][
+    ::-1
+]
 
 
 # In[37]:
 
 
-boules3 = boules2 *2 + boules1 * 2
+boules3 = boules2 * 2 + boules1 * 2
 
 
 # Et des cas spéciaux, sans forcément avoir des boules de chaque couleurs :
@@ -44,9 +46,50 @@ boules3 = boules2 *2 + boules1 * 2
 # In[79]:
 
 
-boules4 = [BLEU, BLANC, BLEU, BLANC, BLEU, BLANC, BLEU, BLANC, BLEU, BLANC, BLEU, BLANC]  # pas de rouges
-boules5 = [BLANC, ROUGE, BLANC, ROUGE, BLANC, ROUGE, BLANC, ROUGE, BLANC, ROUGE, BLANC, ROUGE]  # pas de bleues
-boules6 = [ROUGE, BLEU, ROUGE, BLEU, ROUGE, BLEU, ROUGE, BLEU, ROUGE, BLEU, ROUGE, BLEU, ROUGE, BLEU]  # pas de blanches
+boules4 = [
+    BLEU,
+    BLANC,
+    BLEU,
+    BLANC,
+    BLEU,
+    BLANC,
+    BLEU,
+    BLANC,
+    BLEU,
+    BLANC,
+    BLEU,
+    BLANC,
+]  # pas de rouges
+boules5 = [
+    BLANC,
+    ROUGE,
+    BLANC,
+    ROUGE,
+    BLANC,
+    ROUGE,
+    BLANC,
+    ROUGE,
+    BLANC,
+    ROUGE,
+    BLANC,
+    ROUGE,
+]  # pas de bleues
+boules6 = [
+    ROUGE,
+    BLEU,
+    ROUGE,
+    BLEU,
+    ROUGE,
+    BLEU,
+    ROUGE,
+    BLEU,
+    ROUGE,
+    BLEU,
+    ROUGE,
+    BLEU,
+    ROUGE,
+    BLEU,
+]  # pas de blanches
 
 
 # In[88]:
@@ -86,12 +129,13 @@ def boules_vers_grid(boules: Boules) -> BlockGrid:
     grid = BlockGrid(n, 1, fill=(c_blanc))
     for i, boule in enumerate(boules):
         if boule == BLEU:
-            grid[0,i].set_colors(*c_bleu)
+            grid[0, i].set_colors(*c_bleu)
         elif boule == BLANC:
-            grid[0,i].set_colors(*c_blanc)
+            grid[0, i].set_colors(*c_blanc)
         elif boule == ROUGE:
-            grid[0,i].set_colors(*c_rouge)
+            grid[0, i].set_colors(*c_rouge)
     return grid
+
 
 def print_boules(boules: Boules) -> None:
     boules_vers_grid(boules).show()
@@ -161,7 +205,9 @@ import itertools
 
 
 for boule1, boule2 in itertools.product([BLEU, BLANC, ROUGE], repeat=2):
-    print(f"Comparaison {boule1:>5} et {boule2:>5} = {comparaison_couleur(boule1, boule2)}")
+    print(
+        f"Comparaison {boule1:>5} et {boule2:>5} = {comparaison_couleur(boule1, boule2)}"
+    )
 
 
 # In[52]:
@@ -172,8 +218,8 @@ def tri_a_bulle(boules: Boules) -> Boules:
     n = len(b)
     for i in range(n - 1, -1, -1):
         for j in range(0, i):
-            if comparaison_couleur(b[j+1], b[j]) < 0:
-                echange(b, j+1, j)
+            if comparaison_couleur(b[j + 1], b[j]) < 0:
+                echange(b, j + 1, j)
                 print_boules(b)
     return b
 
@@ -197,7 +243,7 @@ tri_a_bulle(boules3)
 
 
 # ### Tri comptage (sans échange de valeurs)
-# 
+#
 # Ici, on connaît le domaine des valeurs, qui est de taille 3 (trois couleurs).
 # Le tri comptage va faire une seule passe sur le tableau d'entrée, et compter combien de boules de chaque couleurs sont présentes, puis réécrire le tableau de sortie en écrivant le bon nombre de boules bleues, puis blanches, puis rouges.
 
@@ -212,7 +258,9 @@ def tri_comptage(boules: Boules) -> Boules:
     # exactement un seul parcours du tableau
     b = [None] * n
     nb_bleu, nb_blanc, nb_rouge = comptages[BLEU], comptages[BLANC], comptages[ROUGE]
-    print(f"En une seule passe du tableau, on a compté {nb_bleu} boule(s) bleue(s), {nb_blanc} boule(s) blanche(s), {nb_rouge} boule(s) rouge(s).")
+    print(
+        f"En une seule passe du tableau, on a compté {nb_bleu} boule(s) bleue(s), {nb_blanc} boule(s) blanche(s), {nb_rouge} boule(s) rouge(s)."
+    )
     boule_actuelle = BLEU
     if nb_bleu == 0:
         boule_actuelle = BLANC
@@ -221,7 +269,7 @@ def tri_comptage(boules: Boules) -> Boules:
     # et exactement un seul parcours du tableau de destination
     for i in range(0, n):
         b[i] = boule_actuelle
-        print_boules(b[:i + 1])
+        print_boules(b[: i + 1])
         if i + 1 >= nb_bleu + nb_blanc:
             boule_actuelle = ROUGE
         elif i + 1 >= nb_bleu:
@@ -300,5 +348,5 @@ tri_comptage(boules9)
 
 
 # ## Explications
-# 
+#
 # Voilà.

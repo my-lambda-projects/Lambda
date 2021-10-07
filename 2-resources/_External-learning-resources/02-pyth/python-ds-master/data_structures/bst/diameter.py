@@ -1,5 +1,4 @@
-class Node():
-
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -23,12 +22,12 @@ def height(root, ans):
 def diameter(root):
     if not root:
         return 0
-    ans =[-99999999999]
+    ans = [-99999999999]
     h = height(root, ans)
     return ans[0]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     root = Node(5)
     root.left = Node(3)
@@ -36,5 +35,5 @@ if __name__ == '__main__':
     root.left.left = Node(2)
     root.left.right = Node(4)
     root.right.right = Node(8)
-    root.right.left  = Node(6)
+    root.right.left = Node(6)
     print(diameter(root))

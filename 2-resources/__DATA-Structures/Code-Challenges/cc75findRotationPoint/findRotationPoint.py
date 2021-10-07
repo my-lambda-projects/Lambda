@@ -1,5 +1,5 @@
 # cc75 findRotationPoint
-'''
+"""
 Let's say we're given an alphabetically-sorted list of words that has been
 rotated at a single point. It might look something like this:
 
@@ -23,4 +23,4 @@ the rotation point. You can assume that no words will be duplicated.
 print(find_rotation_point(words))  # returns 5
 
 Can you do this with O(lg n) runtime complexity?
-'''
+"""

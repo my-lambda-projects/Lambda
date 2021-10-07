@@ -1,5 +1,5 @@
 # cc75 makeChange https://repl.it/student/submissions/1910097
-'''
+"""
 Write a function that, given an amount of money and a list of coin denominations,
 returns an integer representing the number of ways that change can be made from
 those denominations for the given amount.
@@ -32,7 +32,8 @@ function make_change(amount, denominations):
 
 If you figure out a working solution, think about whether you're duplicating a
 lot of work that isn't necessary. How could that be cut down?
-'''
+"""
+
 
 def make_change(amount, denominations):
     # # Recursive solution - redundancies
@@ -46,15 +47,16 @@ def make_change(amount, denominations):
 
     # # Iterative solution
     combinations = [1] + [0] * amount
-    print('start: ', combinations)
+    print("start: ", combinations)
     for denom in denominations:
-        print('active denomination: ', denom)
+        print("active denomination: ", denom)
         for i in range(denom, amount + 1):
-            print(combinations[i], '+=', combinations[i - denom])
+            print(combinations[i], "+=", combinations[i - denom])
             combinations[i] += combinations[i - denom]
-            print('iterate: ', combinations)
+            print("iterate: ", combinations)
     return combinations[amount]
 
+
 # TEST SUITE
-print(make_change(4, [1,2,3]))
-print(make_change(5, [1,2,3]))
+print(make_change(4, [1, 2, 3]))
+print(make_change(5, [1, 2, 3]))
