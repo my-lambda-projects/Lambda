@@ -4,37 +4,37 @@ import TextField from "@material-ui/core/TextField";
 
 import Button from "../theme/Button";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   textField: {
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
   dense: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
   },
   menu: {
-    width: 200
-  }
+    width: 200,
+  },
 }));
 
 export default function SignupForm() {
   const classes = useStyles();
   const [firstName, setFirstName] = useState("");
 
-  const handleChanges = e => {
+  const handleChanges = (e) => {
     setFirstName(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     alert(firstName);
   };
 
-  const clearForm = e => {
+  const clearForm = (e) => {
     e.preventDefault();
     setFirstName("");
   };

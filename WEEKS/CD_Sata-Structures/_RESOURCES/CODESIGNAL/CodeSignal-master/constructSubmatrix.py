@@ -18,11 +18,9 @@ def constructSubmatrix(matrix, rowsToDelete, columnsToDelete):
 
 
 def main():
-    matriz = [[1, 0, 0, 2],
-              [0, 5, 0, 1],
-              [0, 0, 3, 5]]
+    matriz = [[1, 0, 0, 2], [0, 5, 0, 1], [0, 0, 3, 5]]
     print(constructSubmatrix(matriz, [1], [0, 2]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

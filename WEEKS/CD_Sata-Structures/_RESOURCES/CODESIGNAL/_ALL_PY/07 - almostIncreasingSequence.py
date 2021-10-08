@@ -2,8 +2,9 @@ def almostIncreasingSequence(sequence):
     i = 0
     while i < len(sequence) - 1:
         if not sequence[i] < sequence[i + 1]:
-            if increasingSequence(sequence[:i] + sequence[i+1:]) or \
-                    increasingSequence(sequence[:i+1] + sequence[i+2:]):
+            if increasingSequence(
+                sequence[:i] + sequence[i + 1 :]
+            ) or increasingSequence(sequence[: i + 1] + sequence[i + 2 :]):
                 return True
             else:
                 return False

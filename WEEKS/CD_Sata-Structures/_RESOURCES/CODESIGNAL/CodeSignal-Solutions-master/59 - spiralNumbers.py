@@ -1,8 +1,8 @@
 def spiralNumbers(n):
-    LEFT = 'left'
-    RIGHT = 'right'
-    UP = 'up'
-    DOWN = 'down'
+    LEFT = "left"
+    RIGHT = "right"
+    UP = "up"
+    DOWN = "down"
     direction = RIGHT
     spiral = [[0 for i in range(n)] for j in range(n)]
     row = 0

@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * { padding: 0; margin: 0; }
+    body {
+        font-family: sans-serif;
+        text-rendering: optimizespeed;
+        background-color: #ffffff;
+    }
+    a {
+        color: #006ed3;
+        text-decoration: none;
+    }
+    a:hover,
+    h1 a:hover {
+        color: #319cff;
+    }
+    header,
+    #summary {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    th:first-child,
+    td:first-child {
+        width: 5%;
+    }
+    th:last-child,
+    td:last-child {
+        width: 5%;
+    }
+    header {
+        padding-top: 25px;
+        padding-bottom: 15px;
+        background-color: #f2f2f2;
+    }
+    h1 {
+        font-size: 20px;
+        font-weight: normal;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        color: #999;
+    }
+    h1 a {
+        color: #000;
+        margin: 0 4px;
+    }
+    h1 a:hover {
+        text-decoration: underline;
+    }
+    h1 a:first-child {
+        margin: 0;
+    }
+    main {
+        display: block;
+    }
+    .meta {
+        font-size: 12px;
+        font-family: Verdana, sans-serif;
+        border-bottom: 1px solid #9C9C9C;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .meta-item {
+        margin-right: 1em;
+    }
+    #filter {
+        padding: 4px;
+        border: 1px solid #CCC;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    tr {
+        border-bottom: 1px dashed #dadada;
+    }
+    tbody tr:hover {
+        background-color: #ffffec;
+    }
+    th,
+    td {
+        text-align: left;
+        padding: 10px 0;
+    }
+    th {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    th a {
+        color: black;
+    }
+    th svg {
+        vertical-align: middle;
+    }
+    td {
+        white-space: nowrap;
+        font-size: 14px;
+    }
+    td:nth-child(2) {
+        width: 80%;
+    }
+    td:nth-child(3) {
+        padding: 0 20px 0 20px;
+    }
+    th:nth-child(4),
+    td:nth-child(4) {
+        text-align: right;
+    }
+    td:nth-child(2) svg {
+        position: absolute;
+    }
+    td .name {
+        margin-left: 1.75em;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    td .goup {
+        margin-left: 1.75em;
+        padding: 0;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    .icon {
+        margin-right: 5px;
+    }
+    tr.clickable { 
+        cursor: pointer; 
+    } 
+    tr.clickable a { 
+        display: block; 
+    } 
+    @media (max-width: 600px) {
+        * {
+            font-size: 1.06rem;
+        }
+        .hideable {
+            display: none;
+        }
+        td:nth-child(2) {
+            width: auto;
+        }
+        th:nth-child(3),
+        td:nth-child(3) {
+            padding-right: 5%;
+            text-align: right;
+        }
+        h1 {
+            color: #000;
+        }
+        h1 a {
+            margin: 0;
+        }
+        #filter {
+            max-width: 100px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="0" width="0" style="position: absolute;">
+    <defs>
+        <!-- Go-up -->
+        <g id="go-up">
+            <path d="M10,9V5L3,12L10,19V14.9C15,14.9 18.5,16.5 21,20C20,15 17,10 10,9Z" fill="#696969"/>
+        </g>
+        <!-- Folder -->
+        <g id="folder" fill-rule="nonzero" fill="none">
+            <path d="M285.22 37.55h-142.6L110.9 0H31.7C14.25 0 0 16.9 0 37.55v75.1h316.92V75.1c0-20.65-14.26-37.55-31.7-37.55z" fill="#FFA000"/>
+            <path d="M285.22 36H31.7C14.25 36 0 50.28 0 67.74v158.7c0 17.47 14.26 31.75 31.7 31.75H285.2c17.44 0 31.7-14.3 31.7-31.75V67.75c0-17.47-14.26-31.75-31.7-31.75z" fill="#FFCA28"/>
+        </g>
+        <g id="folder-shortcut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="folder-shortcut-group" fill-rule="nonzero">
+                <g id="folder-shortcut-shape">
+                    <path d="M285.224876,37.5486902 L142.612438,37.5486902 L110.920785,0 L31.6916529,0 C14.2612438,0 0,16.8969106 0,37.5486902 L0,112.646071 L316.916529,112.646071 L316.916529,75.0973805 C316.916529,54.4456008 302.655285,37.5486902 285.224876,37.5486902 Z" id="Shape" fill="#FFA000"></path>
+                    <path d="M285.224876,36 L31.6916529,36 C14.2612438,36 0,50.2838568 0,67.7419039 L0,226.451424 C0,243.909471 14.2612438,258.193328 31.6916529,258.193328 L285.224876,258.193328 C302.655285,258.193328 316.916529,243.909471 316.916529,226.451424 L316.916529,67.7419039 C316.916529,50.2838568 302.655285,36 285.224876,36 Z" id="Shape" fill="#FFCA28"></path>
+                </g>
+                <path d="M126.154134,250.559184 C126.850974,251.883673 127.300549,253.006122 127.772602,254.106122 C128.469442,255.206122 128.919016,256.104082 129.638335,257.002041 C130.559962,258.326531 131.728855,259 133.100057,259 C134.493737,259 135.415364,258.55102 136.112204,257.67551 C136.809044,257.002041 137.258619,255.902041 137.258619,254.577551 C137.258619,253.904082 137.258619,252.804082 137.033832,251.457143 C136.786566,249.908163 136.561779,249.032653 136.561779,248.583673 C136.089726,242.814286 135.864939,237.920408 135.864939,233.273469 C135.864939,225.057143 136.786566,217.514286 138.180246,210.846939 C139.798713,204.202041 141.889234,198.634694 144.429328,193.763265 C147.216689,188.869388 150.678411,184.873469 154.836973,181.326531 C158.995535,177.779592 163.626149,174.883673 168.481552,172.661224 C173.336954,170.438776 179.113983,168.665306 185.587852,167.340816 C192.061722,166.218367 198.760378,165.342857 205.481514,164.669388 C212.18017,164.220408 219.598146,163.995918 228.162535,163.995918 L246.055591,163.995918 L246.055591,195.514286 C246.055591,197.736735 246.752431,199.510204 248.370899,201.059184 C250.214153,202.608163 252.079886,203.506122 254.372715,203.506122 C256.463236,203.506122 258.531277,202.608163 260.172223,201.059184 L326.102289,137.797959 C327.720757,136.24898 328.642384,134.47551 328.642384,132.253061 C328.642384,130.030612 327.720757,128.257143 326.102289,126.708163 L260.172223,63.4469388 C258.553756,61.8979592 256.463236,61 254.395194,61 C252.079886,61 250.236632,61.8979592 248.393377,63.4469388 C246.77491,64.9959184 246.07807,66.7693878 246.07807,68.9918367 L246.07807,100.510204 L228.162535,100.510204 C166.863084,100.510204 129.166282,117.167347 115.274437,150.459184 C110.666301,161.54898 108.350993,175.310204 108.350993,191.742857 C108.350993,205.279592 113.903236,223.912245 124.760454,247.438776 C125.00772,248.112245 125.457294,249.010204 126.154134,250.559184 Z" id="Shape" fill="#FFFFFF" transform="translate(218.496689, 160.000000) scale(-1, 1) translate(-218.496689, -160.000000) "></path>
+            </g>
+        </g>
+        <!-- File -->
+        <g id="file" stroke="#000" stroke-width="25" fill="#FFF" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 24.12v274.76c0 6.16 5.87 11.12 13.17 11.12H239c7.3 0 13.17-4.96 13.17-11.12V136.15S132.6 13 128.37 13H26.17C18.87 13 13 17.96 13 24.12z"/>
+            <path d="M129.37 13L129 113.9c0 10.58 7.26 19.1 16.27 19.1H249L129.37 13z"/>
+        </g>
+        <g id="file-shortcut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="file-shortcut-group" transform="translate(13.000000, 13.000000)">
+                <g id="file-shortcut-shape" stroke="#000000" stroke-width="25" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M0,11.1214886 L0,285.878477 C0,292.039924 5.87498876,296.999983 13.1728373,296.999983 L225.997983,296.999983 C233.295974,296.999983 239.17082,292.039942 239.17082,285.878477 L239.17082,123.145388 C239.17082,123.145388 119.58541,2.84217094e-14 115.369423,2.84217094e-14 L13.1728576,2.84217094e-14 C5.87500907,-1.71479982e-05 0,4.96022995 0,11.1214886 Z" id="rect1171"></path>
+                    <path d="M116.37005,0 L116,100.904964 C116,111.483663 123.258008,120 132.273377,120 L236,120 L116.37005,0 L116.37005,0 Z" id="rect1794"></path>
+                </g>
+                <path d="M47.803141,294.093878 C48.4999811,295.177551 48.9495553,296.095918 49.4216083,296.995918 C50.1184484,297.895918 50.5680227,298.630612 51.2873415,299.365306 C52.2089688,300.44898 53.3778619,301 54.7490634,301 C56.1427436,301 57.0643709,300.632653 57.761211,299.916327 C58.4580511,299.365306 58.9076254,298.465306 58.9076254,297.381633 C58.9076254,296.830612 58.9076254,295.930612 58.6828382,294.828571 C58.4355724,293.561224 58.2107852,292.844898 58.2107852,292.477551 C57.7387323,287.757143 57.5139451,283.753061 57.5139451,279.95102 C57.5139451,273.228571 58.4355724,267.057143 59.8292526,261.602041 C61.44772,256.165306 63.5382403,251.610204 66.0783349,247.62449 C68.8656954,243.620408 72.3274172,240.35102 76.4859792,237.44898 C80.6445412,234.546939 85.2751561,232.177551 90.1305582,230.359184 C94.9859603,228.540816 100.76299,227.089796 107.236859,226.006122 C113.710728,225.087755 120.409385,224.371429 127.13052,223.820408 C133.829177,223.453061 141.247152,223.269388 149.811542,223.269388 L167.704598,223.269388 L167.704598,249.057143 C167.704598,250.87551 168.401438,252.326531 170.019905,253.593878 C171.86316,254.861224 173.728893,255.595918 176.021722,255.595918 C178.112242,255.595918 180.180284,254.861224 181.82123,253.593878 L247.751296,201.834694 C249.369763,200.567347 250.291391,199.116327 250.291391,197.297959 C250.291391,195.479592 249.369763,194.028571 247.751296,192.761224 L181.82123,141.002041 C180.202763,139.734694 178.112242,139 176.044201,139 C173.728893,139 171.885639,139.734694 170.042384,141.002041 C168.423917,142.269388 167.727077,143.720408 167.727077,145.538776 L167.727077,171.326531 L149.811542,171.326531 C88.5120908,171.326531 50.8152886,184.955102 36.9234437,212.193878 C32.3153075,221.267347 30,232.526531 30,245.971429 C30,257.046939 35.5522422,272.291837 46.4094607,291.540816 C46.6567266,292.091837 47.1063009,292.826531 47.803141,294.093878 Z" id="Shape-Copy" fill="#000000" fill-rule="nonzero" transform="translate(140.145695, 220.000000) scale(-1, 1) translate(-140.145695, -220.000000) "></path>
+            </g>
+        </g>
+    </defs>
+    </svg>
+<header>
+    <h1>html</h1>
+                 </header>
+                 <main>
+                 <div class="listing">
+                     <table aria-describedby="summary">
+                         <thead>
+                         <tr>
+                             <th></th>
+                             <th>Name</th>
+                             <th>Size</th>
+                             <th class="hideable">
+                                 Modified
+                             </th>
+                             <th class="hideable"></th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                         <tr class="clickable">
+                             <td></td>
+                             <td><a href=".."><svg width="1.5em" height="1em" version="1.1" viewBox="0 0 24 24"><use xlink:href="#go-up"></use></svg>
+                 <span class="goup">..</span></a></td>
+                             <td>&mdash;</td>
+                             <td class="hideable">&mdash;</td>
+                             <td class="hideable"></td>
+                         </tr>
+                 
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="add_days.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">add_days.html</span>
+                </a>
+            </td>
+            <td data-order="6594">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="all_equal.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">all_equal.html</span>
+                </a>
+            </td>
+            <td data-order="6041">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="all_unique.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">all_unique.html</span>
+                </a>
+            </td>
+            <td data-order="6340">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="arithmetic_progression.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">arithmetic_progression.html</span>
+                </a>
+            </td>
+            <td data-order="5889">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="average.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">average.html</span>
+                </a>
+            </td>
+            <td data-order="5954">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="average_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">average_by.html</span>
+                </a>
+            </td>
+            <td data-order="6462">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="bifurcate.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">bifurcate.html</span>
+                </a>
+            </td>
+            <td data-order="6708">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="bifurcate_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">bifurcate_by.html</span>
+                </a>
+            </td>
+            <td data-order="6570">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="binomial_coefficient.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">binomial_coefficient.html</span>
+                </a>
+            </td>
+            <td data-order="5870">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="byte_size.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">byte_size.html</span>
+                </a>
+            </td>
+            <td data-order="5769">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="camel.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">camel.html</span>
+                </a>
+            </td>
+            <td data-order="7093">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="capitalize.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">capitalize.html</span>
+                </a>
+            </td>
+            <td data-order="6361">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="capitalize_every_word.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">capitalize_every_word.html</span>
+                </a>
+            </td>
+            <td data-order="5661">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="cast_list.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">cast_list.html</span>
+                </a>
+            </td>
+            <td data-order="6248">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="celsius_to_fahrenheit.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">celsius_to_fahrenheit.html</span>
+                </a>
+            </td>
+            <td data-order="5664">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="check_prop.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">check_prop.html</span>
+                </a>
+            </td>
+            <td data-order="6170">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="chunk.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">chunk.html</span>
+                </a>
+            </td>
+            <td data-order="6483">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="chunk_into_n.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">chunk_into_n.html</span>
+                </a>
+            </td>
+            <td data-order="6921">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="clamp_number.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">clamp_number.html</span>
+                </a>
+            </td>
+            <td data-order="6065">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="collect_dictionary.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">collect_dictionary.html</span>
+                </a>
+            </td>
+            <td data-order="7004">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="combine_values.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">combine_values.html</span>
+                </a>
+            </td>
+            <td data-order="7273">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="compact.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">compact.html</span>
+                </a>
+            </td>
+            <td data-order="5971">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="compose.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">compose.html</span>
+                </a>
+            </td>
+            <td data-order="6543">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="compose_right.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">compose_right.html</span>
+                </a>
+            </td>
+            <td data-order="6528">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="count_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">count_by.html</span>
+                </a>
+            </td>
+            <td data-order="6983">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="count_occurrences.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">count_occurrences.html</span>
+                </a>
+            </td>
+            <td data-order="5785">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="cumsum.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">cumsum.html</span>
+                </a>
+            </td>
+            <td data-order="5924">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="curry.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">curry.html</span>
+                </a>
+            </td>
+            <td data-order="6107">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="daterange.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">daterange.html</span>
+                </a>
+            </td>
+            <td data-order="6790">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="days_ago.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">days_ago.html</span>
+                </a>
+            </td>
+            <td data-order="5887">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="days_diff.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">days_diff.html</span>
+                </a>
+            </td>
+            <td data-order="5965">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="days_from_now.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">days_from_now.html</span>
+                </a>
+            </td>
+            <td data-order="5898">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="decapitalize.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">decapitalize.html</span>
+                </a>
+            </td>
+            <td data-order="6373">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="deep_flatten.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">deep_flatten.html</span>
+                </a>
+            </td>
+            <td data-order="6360">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="degrees_to_rads.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">degrees_to_rads.html</span>
+                </a>
+            </td>
+            <td data-order="5853">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="delay.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">delay.html</span>
+                </a>
+            </td>
+            <td data-order="6073">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dict_to_list.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dict_to_list.html</span>
+                </a>
+            </td>
+            <td data-order="6152">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="difference.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">difference.html</span>
+                </a>
+            </td>
+            <td data-order="6122">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="difference_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">difference_by.html</span>
+                </a>
+            </td>
+            <td data-order="6891">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="digitize.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">digitize.html</span>
+                </a>
+            </td>
+            <td data-order="5716">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="drop.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">drop.html</span>
+                </a>
+            </td>
+            <td data-order="6167">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="drop_right.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">drop_right.html</span>
+                </a>
+            </td>
+            <td data-order="6230">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="every.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">every.html</span>
+                </a>
+            </td>
+            <td data-order="6133">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="every_nth.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">every_nth.html</span>
+                </a>
+            </td>
+            <td data-order="5817">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="factorial.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">factorial.html</span>
+                </a>
+            </td>
+            <td data-order="6569">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="fahrenheit_to_celsius.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">fahrenheit_to_celsius.html</span>
+                </a>
+            </td>
+            <td data-order="5712">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="fibonacci.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">fibonacci.html</span>
+                </a>
+            </td>
+            <td data-order="6828">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="filter_non_unique.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">filter_non_unique.html</span>
+                </a>
+            </td>
+            <td data-order="6231">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="filter_unique.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">filter_unique.html</span>
+                </a>
+            </td>
+            <td data-order="6214">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find.html</span>
+                </a>
+            </td>
+            <td data-order="6030">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_index.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_index.html</span>
+                </a>
+            </td>
+            <td data-order="6131">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_index_of_all.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_index_of_all.html</span>
+                </a>
+            </td>
+            <td data-order="6110">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_key.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_key.html</span>
+                </a>
+            </td>
+            <td data-order="6362">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_keys.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_keys.html</span>
+                </a>
+            </td>
+            <td data-order="6387">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_last.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_last.html</span>
+                </a>
+            </td>
+            <td data-order="6102">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_last_index.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_last_index.html</span>
+                </a>
+            </td>
+            <td data-order="6314">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_parity_outliers.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_parity_outliers.html</span>
+                </a>
+            </td>
+            <td data-order="6686">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="flatten.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">flatten.html</span>
+                </a>
+            </td>
+            <td data-order="5847">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="for_each.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">for_each.html</span>
+                </a>
+            </td>
+            <td data-order="5751">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="for_each_right.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">for_each_right.html</span>
+                </a>
+            </td>
+            <td data-order="5959">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="frequencies.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">frequencies.html</span>
+                </a>
+            </td>
+            <td data-order="6648">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="from_iso_date.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">from_iso_date.html</span>
+                </a>
+            </td>
+            <td data-order="5864">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gcd.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gcd.html</span>
+                </a>
+            </td>
+            <td data-order="5992">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="geometric_progression.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">geometric_progression.html</span>
+                </a>
+            </td>
+            <td data-order="7226">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="get.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">get.html</span>
+                </a>
+            </td>
+            <td data-order="7367">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="group_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">group_by.html</span>
+                </a>
+            </td>
+            <td data-order="6841">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hamming_distance.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hamming_distance.html</span>
+                </a>
+            </td>
+            <td data-order="5986">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="has_duplicates.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">has_duplicates.html</span>
+                </a>
+            </td>
+            <td data-order="6249">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="have_same_contents.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">have_same_contents.html</span>
+                </a>
+            </td>
+            <td data-order="6478">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="head.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">head.html</span>
+                </a>
+            </td>
+            <td data-order="5577">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hex_to_rgb.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hex_to_rgb.html</span>
+                </a>
+            </td>
+            <td data-order="6136">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="in_range.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">in_range.html</span>
+                </a>
+            </td>
+            <td data-order="6537">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="includes_all.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">includes_all.html</span>
+                </a>
+            </td>
+            <td data-order="6570">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="includes_any.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">includes_any.html</span>
+                </a>
+            </td>
+            <td data-order="6530">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="index_of_all.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">index_of_all.html</span>
+                </a>
+            </td>
+            <td data-order="6249">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="initial.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">initial.html</span>
+                </a>
+            </td>
+            <td data-order="5658">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="initialize_2d_list.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">initialize_2d_list.html</span>
+                </a>
+            </td>
+            <td data-order="6133">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="initialize_list_with_range.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">initialize_list_with_range.html</span>
+                </a>
+            </td>
+            <td data-order="6665">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="initialize_list_with_values.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">initialize_list_with_values.html</span>
+                </a>
+            </td>
+            <td data-order="5954">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="intersection.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">intersection.html</span>
+                </a>
+            </td>
+            <td data-order="6088">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="intersection_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">intersection_by.html</span>
+                </a>
+            </td>
+            <td data-order="6407">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="invert_dictionary.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">invert_dictionary.html</span>
+                </a>
+            </td>
+            <td data-order="6264">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_anagram.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_anagram.html</span>
+                </a>
+            </td>
+            <td data-order="6575">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_contained_in.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_contained_in.html</span>
+                </a>
+            </td>
+            <td data-order="6320">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_divisible.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_divisible.html</span>
+                </a>
+            </td>
+            <td data-order="5734">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_even.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_even.html</span>
+                </a>
+            </td>
+            <td data-order="5769">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_odd.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_odd.html</span>
+                </a>
+            </td>
+            <td data-order="5765">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_prime.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_prime.html</span>
+                </a>
+            </td>
+            <td data-order="6808">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_weekday.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_weekday.html</span>
+                </a>
+            </td>
+            <td data-order="6489">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="is_weekend.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">is_weekend.html</span>
+                </a>
+            </td>
+            <td data-order="6463">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="kebab.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">kebab.html</span>
+                </a>
+            </td>
+            <td data-order="7175">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="key_in_dict.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">key_in_dict.html</span>
+                </a>
+            </td>
+            <td data-order="6029">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="key_of_max.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">key_of_max.html</span>
+                </a>
+            </td>
+            <td data-order="5876">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="key_of_min.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">key_of_min.html</span>
+                </a>
+            </td>
+            <td data-order="5876">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="keys_only.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">keys_only.html</span>
+                </a>
+            </td>
+            <td data-order="6173">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="km_to_miles.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">km_to_miles.html</span>
+                </a>
+            </td>
+            <td data-order="5567">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="last.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">last.html</span>
+                </a>
+            </td>
+            <td data-order="5610">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="lcm.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">lcm.html</span>
+                </a>
+            </td>
+            <td data-order="6289">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="longest_item.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">longest_item.html</span>
+                </a>
+            </td>
+            <td data-order="6651">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="map_dictionary.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">map_dictionary.html</span>
+                </a>
+            </td>
+            <td data-order="6159">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="map_values.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">map_values.html</span>
+                </a>
+            </td>
+            <td data-order="6550">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="max_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">max_by.html</span>
+                </a>
+            </td>
+            <td data-order="6091">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="max_element_index.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">max_element_index.html</span>
+                </a>
+            </td>
+            <td data-order="5838">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="max_n.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">max_n.html</span>
+                </a>
+            </td>
+            <td data-order="6253">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="median.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">median.html</span>
+                </a>
+            </td>
+            <td data-order="7236">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="merge.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">merge.html</span>
+                </a>
+            </td>
+            <td data-order="8290">8 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="merge_dictionaries.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">merge_dictionaries.html</span>
+                </a>
+            </td>
+            <td data-order="6695">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="miles_to_km.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">miles_to_km.html</span>
+                </a>
+            </td>
+            <td data-order="5575">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="min_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">min_by.html</span>
+                </a>
+            </td>
+            <td data-order="6091">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="min_element_index.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">min_element_index.html</span>
+                </a>
+            </td>
+            <td data-order="5846">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="min_n.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">min_n.html</span>
+                </a>
+            </td>
+            <td data-order="6253">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="months_diff.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">months_diff.html</span>
+                </a>
+            </td>
+            <td data-order="6343">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="most_frequent.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">most_frequent.html</span>
+                </a>
+            </td>
+            <td data-order="5973">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="n_times_string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">n_times_string.html</span>
+                </a>
+            </td>
+            <td data-order="5706">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="none.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">none.html</span>
+                </a>
+            </td>
+            <td data-order="6189">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="num_to_range.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">num_to_range.html</span>
+                </a>
+            </td>
+            <td data-order="6094">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="offset.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">offset.html</span>
+                </a>
+            </td>
+            <td data-order="6029">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pad.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pad.html</span>
+                </a>
+            </td>
+            <td data-order="6574">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pad_number.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pad_number.html</span>
+                </a>
+            </td>
+            <td data-order="5683">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="palindrome.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">palindrome.html</span>
+                </a>
+            </td>
+            <td data-order="6141">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pluck.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pluck.html</span>
+                </a>
+            </td>
+            <td data-order="6702">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="powerset.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">powerset.html</span>
+                </a>
+            </td>
+            <td data-order="6401">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="rads_to_degrees.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">rads_to_degrees.html</span>
+                </a>
+            </td>
+            <td data-order="6038">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="reverse.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">reverse.html</span>
+                </a>
+            </td>
+            <td data-order="5731">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="reverse_number.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">reverse_number.html</span>
+                </a>
+            </td>
+            <td data-order="6551">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="rgb_to_hex.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">rgb_to_hex.html</span>
+                </a>
+            </td>
+            <td data-order="6003">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="roll.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">roll.html</span>
+                </a>
+            </td>
+            <td data-order="6071">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sample.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sample.html</span>
+                </a>
+            </td>
+            <td data-order="5789">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="shuffle.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">shuffle.html</span>
+                </a>
+            </td>
+            <td data-order="6972">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="similarity.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">similarity.html</span>
+                </a>
+            </td>
+            <td data-order="5838">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="slugify.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">slugify.html</span>
+                </a>
+            </td>
+            <td data-order="6470">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="snake.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">snake.html</span>
+                </a>
+            </td>
+            <td data-order="7058">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="some.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">some.html</span>
+                </a>
+            </td>
+            <td data-order="6170">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sort_by_indexes.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sort_by_indexes.html</span>
+                </a>
+            </td>
+            <td data-order="7276">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sort_dict_by_key.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sort_dict_by_key.html</span>
+                </a>
+            </td>
+            <td data-order="6801">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sort_dict_by_value.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sort_dict_by_value.html</span>
+                </a>
+            </td>
+            <td data-order="7044">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="split_lines.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">split_lines.html</span>
+                </a>
+            </td>
+            <td data-order="6235">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="spread.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">spread.html</span>
+                </a>
+            </td>
+            <td data-order="6229">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sum_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sum_by.html</span>
+                </a>
+            </td>
+            <td data-order="6089">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sum_of_powers.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sum_of_powers.html</span>
+                </a>
+            </td>
+            <td data-order="6716">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="symmetric_difference.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">symmetric_difference.html</span>
+                </a>
+            </td>
+            <td data-order="6447">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="symmetric_difference_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">symmetric_difference_by.html</span>
+                </a>
+            </td>
+            <td data-order="6802">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="tail.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">tail.html</span>
+                </a>
+            </td>
+            <td data-order="5954">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="take.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">take.html</span>
+                </a>
+            </td>
+            <td data-order="5931">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="take_right.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">take_right.html</span>
+                </a>
+            </td>
+            <td data-order="5933">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="to_binary.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">to_binary.html</span>
+                </a>
+            </td>
+            <td data-order="5597">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="to_dictionary.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">to_dictionary.html</span>
+                </a>
+            </td>
+            <td data-order="5987">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="to_hex.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">to_hex.html</span>
+                </a>
+            </td>
+            <td data-order="5708">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="to_iso_date.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">to_iso_date.html</span>
+                </a>
+            </td>
+            <td data-order="6046">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="to_roman_numeral.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">to_roman_numeral.html</span>
+                </a>
+            </td>
+            <td data-order="8427">8 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="transpose.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">transpose.html</span>
+                </a>
+            </td>
+            <td data-order="6137">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="unfold.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">unfold.html</span>
+                </a>
+            </td>
+            <td data-order="7175">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="union.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">union.html</span>
+                </a>
+            </td>
+            <td data-order="5821">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="union_by.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">union_by.html</span>
+                </a>
+            </td>
+            <td data-order="6658">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="unique_elements.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">unique_elements.html</span>
+                </a>
+            </td>
+            <td data-order="5807">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="values_only.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">values_only.html</span>
+                </a>
+            </td>
+            <td data-order="6157">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="weighted_average.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">weighted_average.html</span>
+                </a>
+            </td>
+            <td data-order="6119">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="when.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">when.html</span>
+                </a>
+            </td>
+            <td data-order="6258">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="words.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">words.html</span>
+                </a>
+            </td>
+            <td data-order="6488">6 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:04:00">Fri Oct  8 00:04:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

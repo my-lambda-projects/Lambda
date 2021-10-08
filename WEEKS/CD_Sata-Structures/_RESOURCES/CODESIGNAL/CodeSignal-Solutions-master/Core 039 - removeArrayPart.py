@@ -1,2 +1,2 @@
 def removeArrayPart(inputArray, l, r):
-    return inputArray[:l] + inputArray[r + 1:]
+    return inputArray[:l] + inputArray[r + 1 :]

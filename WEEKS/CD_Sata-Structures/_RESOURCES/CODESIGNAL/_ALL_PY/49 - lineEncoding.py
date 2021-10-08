@@ -14,4 +14,4 @@ def lineEncoding(s):
         output.append(str(count) + s[len(s) - 1])
     else:
         output.append(s[len(s) - 1])
-    return ''.join(output)
+    return "".join(output)

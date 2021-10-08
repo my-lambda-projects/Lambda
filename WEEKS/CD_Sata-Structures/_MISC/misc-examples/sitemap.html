@@ -1,0 +1,3395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * { padding: 0; margin: 0; }
+    body {
+        font-family: sans-serif;
+        text-rendering: optimizespeed;
+        background-color: #ffffff;
+    }
+    a {
+        color: #006ed3;
+        text-decoration: none;
+    }
+    a:hover,
+    h1 a:hover {
+        color: #319cff;
+    }
+    header,
+    #summary {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    th:first-child,
+    td:first-child {
+        width: 5%;
+    }
+    th:last-child,
+    td:last-child {
+        width: 5%;
+    }
+    header {
+        padding-top: 25px;
+        padding-bottom: 15px;
+        background-color: #f2f2f2;
+    }
+    h1 {
+        font-size: 20px;
+        font-weight: normal;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        color: #999;
+    }
+    h1 a {
+        color: #000;
+        margin: 0 4px;
+    }
+    h1 a:hover {
+        text-decoration: underline;
+    }
+    h1 a:first-child {
+        margin: 0;
+    }
+    main {
+        display: block;
+    }
+    .meta {
+        font-size: 12px;
+        font-family: Verdana, sans-serif;
+        border-bottom: 1px solid #9C9C9C;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .meta-item {
+        margin-right: 1em;
+    }
+    #filter {
+        padding: 4px;
+        border: 1px solid #CCC;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    tr {
+        border-bottom: 1px dashed #dadada;
+    }
+    tbody tr:hover {
+        background-color: #ffffec;
+    }
+    th,
+    td {
+        text-align: left;
+        padding: 10px 0;
+    }
+    th {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    th a {
+        color: black;
+    }
+    th svg {
+        vertical-align: middle;
+    }
+    td {
+        white-space: nowrap;
+        font-size: 14px;
+    }
+    td:nth-child(2) {
+        width: 80%;
+    }
+    td:nth-child(3) {
+        padding: 0 20px 0 20px;
+    }
+    th:nth-child(4),
+    td:nth-child(4) {
+        text-align: right;
+    }
+    td:nth-child(2) svg {
+        position: absolute;
+    }
+    td .name {
+        margin-left: 1.75em;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    td .goup {
+        margin-left: 1.75em;
+        padding: 0;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    .icon {
+        margin-right: 5px;
+    }
+    tr.clickable { 
+        cursor: pointer; 
+    } 
+    tr.clickable a { 
+        display: block; 
+    } 
+    @media (max-width: 600px) {
+        * {
+            font-size: 1.06rem;
+        }
+        .hideable {
+            display: none;
+        }
+        td:nth-child(2) {
+            width: auto;
+        }
+        th:nth-child(3),
+        td:nth-child(3) {
+            padding-right: 5%;
+            text-align: right;
+        }
+        h1 {
+            color: #000;
+        }
+        h1 a {
+            margin: 0;
+        }
+        #filter {
+            max-width: 100px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="0" width="0" style="position: absolute;">
+    <defs>
+        <!-- Go-up -->
+        <g id="go-up">
+            <path d="M10,9V5L3,12L10,19V14.9C15,14.9 18.5,16.5 21,20C20,15 17,10 10,9Z" fill="#696969"/>
+        </g>
+        <!-- Folder -->
+        <g id="folder" fill-rule="nonzero" fill="none">
+            <path d="M285.22 37.55h-142.6L110.9 0H31.7C14.25 0 0 16.9 0 37.55v75.1h316.92V75.1c0-20.65-14.26-37.55-31.7-37.55z" fill="#FFA000"/>
+            <path d="M285.22 36H31.7C14.25 36 0 50.28 0 67.74v158.7c0 17.47 14.26 31.75 31.7 31.75H285.2c17.44 0 31.7-14.3 31.7-31.75V67.75c0-17.47-14.26-31.75-31.7-31.75z" fill="#FFCA28"/>
+        </g>
+        <g id="folder-shortcut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="folder-shortcut-group" fill-rule="nonzero">
+                <g id="folder-shortcut-shape">
+                    <path d="M285.224876,37.5486902 L142.612438,37.5486902 L110.920785,0 L31.6916529,0 C14.2612438,0 0,16.8969106 0,37.5486902 L0,112.646071 L316.916529,112.646071 L316.916529,75.0973805 C316.916529,54.4456008 302.655285,37.5486902 285.224876,37.5486902 Z" id="Shape" fill="#FFA000"></path>
+                    <path d="M285.224876,36 L31.6916529,36 C14.2612438,36 0,50.2838568 0,67.7419039 L0,226.451424 C0,243.909471 14.2612438,258.193328 31.6916529,258.193328 L285.224876,258.193328 C302.655285,258.193328 316.916529,243.909471 316.916529,226.451424 L316.916529,67.7419039 C316.916529,50.2838568 302.655285,36 285.224876,36 Z" id="Shape" fill="#FFCA28"></path>
+                </g>
+                <path d="M126.154134,250.559184 C126.850974,251.883673 127.300549,253.006122 127.772602,254.106122 C128.469442,255.206122 128.919016,256.104082 129.638335,257.002041 C130.559962,258.326531 131.728855,259 133.100057,259 C134.493737,259 135.415364,258.55102 136.112204,257.67551 C136.809044,257.002041 137.258619,255.902041 137.258619,254.577551 C137.258619,253.904082 137.258619,252.804082 137.033832,251.457143 C136.786566,249.908163 136.561779,249.032653 136.561779,248.583673 C136.089726,242.814286 135.864939,237.920408 135.864939,233.273469 C135.864939,225.057143 136.786566,217.514286 138.180246,210.846939 C139.798713,204.202041 141.889234,198.634694 144.429328,193.763265 C147.216689,188.869388 150.678411,184.873469 154.836973,181.326531 C158.995535,177.779592 163.626149,174.883673 168.481552,172.661224 C173.336954,170.438776 179.113983,168.665306 185.587852,167.340816 C192.061722,166.218367 198.760378,165.342857 205.481514,164.669388 C212.18017,164.220408 219.598146,163.995918 228.162535,163.995918 L246.055591,163.995918 L246.055591,195.514286 C246.055591,197.736735 246.752431,199.510204 248.370899,201.059184 C250.214153,202.608163 252.079886,203.506122 254.372715,203.506122 C256.463236,203.506122 258.531277,202.608163 260.172223,201.059184 L326.102289,137.797959 C327.720757,136.24898 328.642384,134.47551 328.642384,132.253061 C328.642384,130.030612 327.720757,128.257143 326.102289,126.708163 L260.172223,63.4469388 C258.553756,61.8979592 256.463236,61 254.395194,61 C252.079886,61 250.236632,61.8979592 248.393377,63.4469388 C246.77491,64.9959184 246.07807,66.7693878 246.07807,68.9918367 L246.07807,100.510204 L228.162535,100.510204 C166.863084,100.510204 129.166282,117.167347 115.274437,150.459184 C110.666301,161.54898 108.350993,175.310204 108.350993,191.742857 C108.350993,205.279592 113.903236,223.912245 124.760454,247.438776 C125.00772,248.112245 125.457294,249.010204 126.154134,250.559184 Z" id="Shape" fill="#FFFFFF" transform="translate(218.496689, 160.000000) scale(-1, 1) translate(-218.496689, -160.000000) "></path>
+            </g>
+        </g>
+        <!-- File -->
+        <g id="file" stroke="#000" stroke-width="25" fill="#FFF" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 24.12v274.76c0 6.16 5.87 11.12 13.17 11.12H239c7.3 0 13.17-4.96 13.17-11.12V136.15S132.6 13 128.37 13H26.17C18.87 13 13 17.96 13 24.12z"/>
+            <path d="M129.37 13L129 113.9c0 10.58 7.26 19.1 16.27 19.1H249L129.37 13z"/>
+        </g>
+        <g id="file-shortcut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="file-shortcut-group" transform="translate(13.000000, 13.000000)">
+                <g id="file-shortcut-shape" stroke="#000000" stroke-width="25" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M0,11.1214886 L0,285.878477 C0,292.039924 5.87498876,296.999983 13.1728373,296.999983 L225.997983,296.999983 C233.295974,296.999983 239.17082,292.039942 239.17082,285.878477 L239.17082,123.145388 C239.17082,123.145388 119.58541,2.84217094e-14 115.369423,2.84217094e-14 L13.1728576,2.84217094e-14 C5.87500907,-1.71479982e-05 0,4.96022995 0,11.1214886 Z" id="rect1171"></path>
+                    <path d="M116.37005,0 L116,100.904964 C116,111.483663 123.258008,120 132.273377,120 L236,120 L116.37005,0 L116.37005,0 Z" id="rect1794"></path>
+                </g>
+                <path d="M47.803141,294.093878 C48.4999811,295.177551 48.9495553,296.095918 49.4216083,296.995918 C50.1184484,297.895918 50.5680227,298.630612 51.2873415,299.365306 C52.2089688,300.44898 53.3778619,301 54.7490634,301 C56.1427436,301 57.0643709,300.632653 57.761211,299.916327 C58.4580511,299.365306 58.9076254,298.465306 58.9076254,297.381633 C58.9076254,296.830612 58.9076254,295.930612 58.6828382,294.828571 C58.4355724,293.561224 58.2107852,292.844898 58.2107852,292.477551 C57.7387323,287.757143 57.5139451,283.753061 57.5139451,279.95102 C57.5139451,273.228571 58.4355724,267.057143 59.8292526,261.602041 C61.44772,256.165306 63.5382403,251.610204 66.0783349,247.62449 C68.8656954,243.620408 72.3274172,240.35102 76.4859792,237.44898 C80.6445412,234.546939 85.2751561,232.177551 90.1305582,230.359184 C94.9859603,228.540816 100.76299,227.089796 107.236859,226.006122 C113.710728,225.087755 120.409385,224.371429 127.13052,223.820408 C133.829177,223.453061 141.247152,223.269388 149.811542,223.269388 L167.704598,223.269388 L167.704598,249.057143 C167.704598,250.87551 168.401438,252.326531 170.019905,253.593878 C171.86316,254.861224 173.728893,255.595918 176.021722,255.595918 C178.112242,255.595918 180.180284,254.861224 181.82123,253.593878 L247.751296,201.834694 C249.369763,200.567347 250.291391,199.116327 250.291391,197.297959 C250.291391,195.479592 249.369763,194.028571 247.751296,192.761224 L181.82123,141.002041 C180.202763,139.734694 178.112242,139 176.044201,139 C173.728893,139 171.885639,139.734694 170.042384,141.002041 C168.423917,142.269388 167.727077,143.720408 167.727077,145.538776 L167.727077,171.326531 L149.811542,171.326531 C88.5120908,171.326531 50.8152886,184.955102 36.9234437,212.193878 C32.3153075,221.267347 30,232.526531 30,245.971429 C30,257.046939 35.5522422,272.291837 46.4094607,291.540816 C46.6567266,292.091837 47.1063009,292.826531 47.803141,294.093878 Z" id="Shape-Copy" fill="#000000" fill-rule="nonzero" transform="translate(140.145695, 220.000000) scale(-1, 1) translate(-140.145695, -220.000000) "></path>
+            </g>
+        </g>
+    </defs>
+    </svg>
+<header>
+    <h1>misc-examples</h1>
+                 </header>
+                 <main>
+                 <div class="listing">
+                     <table aria-describedby="summary">
+                         <thead>
+                         <tr>
+                             <th></th>
+                             <th>Name</th>
+                             <th>Size</th>
+                             <th class="hideable">
+                                 Modified
+                             </th>
+                             <th class="hideable"></th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                         <tr class="clickable">
+                             <td></td>
+                             <td><a href=".."><svg width="1.5em" height="1em" version="1.1" viewBox="0 0 24 24"><use xlink:href="#go-up"></use></svg>
+                 <span class="goup">..</span></a></td>
+                             <td>&mdash;</td>
+                             <td class="hideable">&mdash;</td>
+                             <td class="hideable"></td>
+                         </tr>
+                 
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="advanced/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">advanced</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-10-08T00:08:56">Fri Oct  8 00:08:56 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="classes/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">classes</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-10-08T00:08:56">Fri Oct  8 00:08:56 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="data_structures/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">data_structures</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-10-08T00:08:56">Fri Oct  8 00:08:56 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="python3-book-examples/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">python3-book-examples</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-10-08T00:08:56">Fri Oct  8 00:08:56 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="syntax/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">syntax</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-10-08T00:08:57">Fri Oct  8 00:08:57 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00-masking.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00-masking.py</span>
+                </a>
+            </td>
+            <td data-order="256">256 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="0001_initial.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">0001_initial.py</span>
+                </a>
+            </td>
+            <td data-order="726">726 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="0002_auto_20181207_1610.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">0002_auto_20181207_1610.py</span>
+                </a>
+            </td>
+            <td data-order="656">656 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="0003_personalnote.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">0003_personalnote.py</span>
+                </a>
+            </td>
+            <td data-order="1171">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_classes.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_classes.py</span>
+                </a>
+            </td>
+            <td data-order="754">754 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_composition.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_composition.py</span>
+                </a>
+            </td>
+            <td data-order="2136">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_day1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_day1.py</span>
+                </a>
+            </td>
+            <td data-order="1449">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_demo.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_demo.py</span>
+                </a>
+            </td>
+            <td data-order="113">113 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_hello.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_hello.py</span>
+                </a>
+            </td>
+            <td data-order="65">65 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_intro.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_intro.py</span>
+                </a>
+            </td>
+            <td data-order="2486">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_intro2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_intro2.py</span>
+                </a>
+            </td>
+            <td data-order="1232">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_intro_printing.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_intro_printing.py</span>
+                </a>
+            </td>
+            <td data-order="774">774 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_intro_ref_val.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_intro_ref_val.py</span>
+                </a>
+            </td>
+            <td data-order="760">760 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="00_masking.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">00_masking.py</span>
+                </a>
+            </td>
+            <td data-order="309">309 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01-fileio1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01-fileio1.py</span>
+                </a>
+            </td>
+            <td data-order="129">129 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_centered_average.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_centered_average.py</span>
+                </a>
+            </td>
+            <td data-order="2542">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_centered_avg.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_centered_avg.py</span>
+                </a>
+            </td>
+            <td data-order="2474">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_csGraphAdjacencyListRepresentation.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_csGraphAdjacencyListRepresentation.py</span>
+                </a>
+            </td>
+            <td data-order="1358">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_csGraphRepresentationInPythonInterpreter.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_csGraphRepresentationInPythonInterpreter.py</span>
+                </a>
+            </td>
+            <td data-order="134">134 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_csGraphsAndTreesRelationship.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_csGraphsAndTreesRelationship.py</span>
+                </a>
+            </td>
+            <td data-order="235">235 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_csNodesPerfectBinaryTree.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_csNodesPerfectBinaryTree.py</span>
+                </a>
+            </td>
+            <td data-order="342">342 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_csShortestPathFromStart.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_csShortestPathFromStart.py</span>
+                </a>
+            </td>
+            <td data-order="229">229 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_csTreeTraversalCategories.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_csTreeTraversalCategories.py</span>
+                </a>
+            </td>
+            <td data-order="245">245 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_demo.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_demo.py</span>
+                </a>
+            </td>
+            <td data-order="790">790 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_fileio1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_fileio1.py</span>
+                </a>
+            </td>
+            <td data-order="141">141 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_intro_collections.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_intro_collections.py</span>
+                </a>
+            </td>
+            <td data-order="1930">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_my_shop.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_my_shop.py</span>
+                </a>
+            </td>
+            <td data-order="863">863 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="01_searching.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">01_searching.py</span>
+                </a>
+            </td>
+            <td data-order="1088">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02-fileio02.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02-fileio02.py</span>
+                </a>
+            </td>
+            <td data-order="305">305 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_book.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_book.py</span>
+                </a>
+            </td>
+            <td data-order="2777">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_csDirectedVersusUndirectedGraphs.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_csDirectedVersusUndirectedGraphs.py</span>
+                </a>
+            </td>
+            <td data-order="695">695 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_csKeepingTrackInABFS.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_csKeepingTrackInABFS.py</span>
+                </a>
+            </td>
+            <td data-order="285">285 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_csPrimaryWeaknessBinarySearchTree.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_csPrimaryWeaknessBinarySearchTree.py</span>
+                </a>
+            </td>
+            <td data-order="308">308 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_csTypesOfDepthFirstTraversals.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_csTypesOfDepthFirstTraversals.py</span>
+                </a>
+            </td>
+            <td data-order="183">183 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_datatypes.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_datatypes.py</span>
+                </a>
+            </td>
+            <td data-order="533">533 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_demo.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_demo.py</span>
+                </a>
+            </td>
+            <td data-order="4482">4 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_fileio2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_fileio2.py</span>
+                </a>
+            </td>
+            <td data-order="273">273 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_guessing_game.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_guessing_game.py</span>
+                </a>
+            </td>
+            <td data-order="488">488 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="02_repl_guessing_game.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">02_repl_guessing_game.py</span>
+                </a>
+            </td>
+            <td data-order="534">534 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03-%20fileio02.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03- fileio02.py</span>
+                </a>
+            </td>
+            <td data-order="317">317 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03-fileio03.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03-fileio03.py</span>
+                </a>
+            </td>
+            <td data-order="947">947 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03-filiio3.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03-filiio3.py</span>
+                </a>
+            </td>
+            <td data-order="566">566 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03_csBinarySearchTreeInOrderSuccessor.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03_csBinarySearchTreeInOrderSuccessor.py</span>
+                </a>
+            </td>
+            <td data-order="303">303 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03_csInorderDepthFirstTraversalSteps.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03_csInorderDepthFirstTraversalSteps.py</span>
+                </a>
+            </td>
+            <td data-order="614">614 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03_csVisitEveryNodeInTheGraph.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03_csVisitEveryNodeInTheGraph.py</span>
+                </a>
+            </td>
+            <td data-order="196">196 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03_fileio3.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03_fileio3.py</span>
+                </a>
+            </td>
+            <td data-order="532">532 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03_modules.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03_modules.py</span>
+                </a>
+            </td>
+            <td data-order="823">823 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="03_other.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">03_other.py</span>
+                </a>
+            </td>
+            <td data-order="5406">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="04-fileio03.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">04-fileio03.py</span>
+                </a>
+            </td>
+            <td data-order="751">751 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="04-fileio04.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">04-fileio04.py</span>
+                </a>
+            </td>
+            <td data-order="54">54 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="04_balancedBinaryTree.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">04_balancedBinaryTree.py</span>
+                </a>
+            </td>
+            <td data-order="807">807 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="04_better_solutions_pirates.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">04_better_solutions_pirates.py</span>
+                </a>
+            </td>
+            <td data-order="7290">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="04_csFriendCircles.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">04_csFriendCircles.py</span>
+                </a>
+            </td>
+            <td data-order="2929">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="04_csPreorderDepthFirstTraversalSteps.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">04_csPreorderDepthFirstTraversalSteps.py</span>
+                </a>
+            </td>
+            <td data-order="592">592 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="04_printing.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">04_printing.py</span>
+                </a>
+            </td>
+            <td data-order="605">605 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="05_csFindAllPathsFromAToB.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">05_csFindAllPathsFromAToB.py</span>
+                </a>
+            </td>
+            <td data-order="2296">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="05_csPostorderDepthFirstTraversalSteps.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">05_csPostorderDepthFirstTraversalSteps.py</span>
+                </a>
+            </td>
+            <td data-order="594">594 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="05_lists.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">05_lists.py</span>
+                </a>
+            </td>
+            <td data-order="589">589 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="05_minimumDepthBinaryTree.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">05_minimumDepthBinaryTree.py</span>
+                </a>
+            </td>
+            <td data-order="893">893 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="06_csDataStructureIterativeDepthFirstTraversal.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">06_csDataStructureIterativeDepthFirstTraversal.py</span>
+                </a>
+            </td>
+            <td data-order="177">177 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="06_tuples.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">06_tuples.py</span>
+                </a>
+            </td>
+            <td data-order="1252">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="07_binaryTreeInOrderTraversal.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">07_binaryTreeInOrderTraversal.py</span>
+                </a>
+            </td>
+            <td data-order="1046">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="07_slices.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">07_slices.py</span>
+                </a>
+            </td>
+            <td data-order="839">839 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="08_comprehensions.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">08_comprehensions.py</span>
+                </a>
+            </td>
+            <td data-order="1106">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="08_traverseTree.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">08_traverseTree.py</span>
+                </a>
+            </td>
+            <td data-order="1852">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="09_dictionaries.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">09_dictionaries.py</span>
+                </a>
+            </td>
+            <td data-order="1225">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="09_treePaths.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">09_treePaths.py</span>
+                </a>
+            </td>
+            <td data-order="2586">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="0_time_complexity.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">0_time_complexity.py</span>
+                </a>
+            </td>
+            <td data-order="5109">4 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="1-lookup.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">1-lookup.py</span>
+                </a>
+            </td>
+            <td data-order="399">399 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="10_functions.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">10_functions.py</span>
+                </a>
+            </td>
+            <td data-order="331">331 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="10_recursion.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">10_recursion.py</span>
+                </a>
+            </td>
+            <td data-order="393">393 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="11_args.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">11_args.py</span>
+                </a>
+            </td>
+            <td data-order="1839">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="11_quicksort.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">11_quicksort.py</span>
+                </a>
+            </td>
+            <td data-order="1725">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="12_scopes.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">12_scopes.py</span>
+                </a>
+            </td>
+            <td data-order="756">756 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="13_file_io.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">13_file_io.py</span>
+                </a>
+            </td>
+            <td data-order="716">716 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="14_cal.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">14_cal.py</span>
+                </a>
+            </td>
+            <td data-order="1387">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="15_classes.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">15_classes.py</span>
+                </a>
+            </td>
+            <td data-order="1569">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="1_linear_search.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">1_linear_search.py</span>
+                </a>
+            </td>
+            <td data-order="2608">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="2-sorter.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">2-sorter.py</span>
+                </a>
+            </td>
+            <td data-order="950">950 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="3-index.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">3-index.py</span>
+                </a>
+            </td>
+            <td data-order="669">669 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="3_insertion_sort.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">3_insertion_sort.py</span>
+                </a>
+            </td>
+            <td data-order="788">788 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="4-caesar.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">4-caesar.py</span>
+                </a>
+            </td>
+            <td data-order="1699">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="4_pirates.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">4_pirates.py</span>
+                </a>
+            </td>
+            <td data-order="7475">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="5-webcache.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">5-webcache.py</span>
+                </a>
+            </td>
+            <td data-order="3872">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="5_countdown.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">5_countdown.py</span>
+                </a>
+            </td>
+            <td data-order="573">573 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="6_nth_fib.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">6_nth_fib.py</span>
+                </a>
+            </td>
+            <td data-order="1427">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="8_quick_sort.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">8_quick_sort.py</span>
+                </a>
+            </td>
+            <td data-order="2624">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="Department.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">Department.py</span>
+                </a>
+            </td>
+            <td data-order="463">463 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="Electronic.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">Electronic.py</span>
+                </a>
+            </td>
+            <td data-order="281">281 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="LLQ.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">LLQ.py</span>
+                </a>
+            </td>
+            <td data-order="1253">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="LLSTACK.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">LLSTACK.py</span>
+                </a>
+            </td>
+            <td data-order="928">928 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="Tool.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">Tool.py</span>
+                </a>
+            </td>
+            <td data-order="252">252 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="__init__.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">__init__.py</span>
+                </a>
+            </td>
+            <td data-order="0">0 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="add_two_numbers.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">add_two_numbers.py</span>
+                </a>
+            </td>
+            <td data-order="293">293 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="adj_list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">adj_list.py</span>
+                </a>
+            </td>
+            <td data-order="283">283 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="adjacency_list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">adjacency_list.py</span>
+                </a>
+            </td>
+            <td data-order="812">812 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="admin.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">admin.py</span>
+                </a>
+            </td>
+            <td data-order="63">63 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="adv.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">adv.py</span>
+                </a>
+            </td>
+            <td data-order="1399">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="algorithm.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">algorithm.py</span>
+                </a>
+            </td>
+            <td data-order="562">562 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="an.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">an.py</span>
+                </a>
+            </td>
+            <td data-order="214">214 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="anagrams.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">anagrams.py</span>
+                </a>
+            </td>
+            <td data-order="2051">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ancestor.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ancestor.py</span>
+                </a>
+            </td>
+            <td data-order="58">58 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ans.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ans.py</span>
+                </a>
+            </td>
+            <td data-order="2445">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="api.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">api.py</span>
+                </a>
+            </td>
+            <td data-order="553">553 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="apps.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">apps.py</span>
+                </a>
+            </td>
+            <td data-order="85">85 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="demo1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">demo1.py</span>
+                </a>
+            </td>
+            <td data-order="1360">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="demo2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">demo2.py</span>
+                </a>
+            </td>
+            <td data-order="1610">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="demo_2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">demo_2.py</span>
+                </a>
+            </td>
+            <td data-order="757">757 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="design_classes.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">design_classes.py</span>
+                </a>
+            </td>
+            <td data-order="2080">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dfs.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dfs.py</span>
+                </a>
+            </td>
+            <td data-order="2339">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dft.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dft.py</span>
+                </a>
+            </td>
+            <td data-order="2579">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dictionaries.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dictionaries.py</span>
+                </a>
+            </td>
+            <td data-order="1418">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dicts.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dicts.py</span>
+                </a>
+            </td>
+            <td data-order="640">640 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dll_queue.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dll_queue.py</span>
+                </a>
+            </td>
+            <td data-order="404">404 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dll_stack.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dll_stack.py</span>
+                </a>
+            </td>
+            <td data-order="258">258 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="doubly_linked_list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">doubly_linked_list.py</span>
+                </a>
+            </td>
+            <td data-order="4513">4 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="draw.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">draw.py</span>
+                </a>
+            </td>
+            <td data-order="382">382 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="dynamic_array.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">dynamic_array.py</span>
+                </a>
+            </td>
+            <td data-order="1797">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="eating_cookies.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">eating_cookies.py</span>
+                </a>
+            </td>
+            <td data-order="1772">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="enemy.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">enemy.py</span>
+                </a>
+            </td>
+            <td data-order="636">636 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="equipment.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">equipment.py</span>
+                </a>
+            </td>
+            <td data-order="202">202 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ex1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ex1.py</span>
+                </a>
+            </td>
+            <td data-order="473">473 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ex1_tests.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ex1_tests.py</span>
+                </a>
+            </td>
+            <td data-order="947">947 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ex2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ex2.py</span>
+                </a>
+            </td>
+            <td data-order="493">493 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ex2_tests.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ex2_tests.py</span>
+                </a>
+            </td>
+            <td data-order="1481">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="factorial.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">factorial.py</span>
+                </a>
+            </td>
+            <td data-order="679">679 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="fileio.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">fileio.py</span>
+                </a>
+            </td>
+            <td data-order="502">502 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find_duplicate.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find_duplicate.py</span>
+                </a>
+            </td>
+            <td data-order="35">35 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="flattening.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">flattening.py</span>
+                </a>
+            </td>
+            <td data-order="589">589 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="func.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">func.py</span>
+                </a>
+            </td>
+            <td data-order="391">391 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="functions.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">functions.py</span>
+                </a>
+            </td>
+            <td data-order="296">296 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="game.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">game.py</span>
+                </a>
+            </td>
+            <td data-order="362">362 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="graph.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">graph.py</span>
+                </a>
+            </td>
+            <td data-order="1512">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="graph_demo.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">graph_demo.py</span>
+                </a>
+            </td>
+            <td data-order="197">197 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="graph_list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">graph_list.py</span>
+                </a>
+            </td>
+            <td data-order="670">670 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="graph_matrix.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">graph_matrix.py</span>
+                </a>
+            </td>
+            <td data-order="759">759 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="graphs.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">graphs.py</span>
+                </a>
+            </td>
+            <td data-order="4055">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="guessing.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">guessing.py</span>
+                </a>
+            </td>
+            <td data-order="102">102 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hash_table.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hash_table.py</span>
+                </a>
+            </td>
+            <td data-order="3540">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hash_test.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hash_test.py</span>
+                </a>
+            </td>
+            <td data-order="631">631 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hashing.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hashing.py</span>
+                </a>
+            </td>
+            <td data-order="795">795 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hashing2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hashing2.py</span>
+                </a>
+            </td>
+            <td data-order="2520">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hashtables.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hashtables.py</span>
+                </a>
+            </td>
+            <td data-order="2548">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="heap.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">heap.py</span>
+                </a>
+            </td>
+            <td data-order="2766">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hello.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hello.py</span>
+                </a>
+            </td>
+            <td data-order="43">43 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hello_flask.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hello_flask.py</span>
+                </a>
+            </td>
+            <td data-order="591">591 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hello_three.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hello_three.py</span>
+                </a>
+            </td>
+            <td data-order="374">374 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hello_world.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hello_world.py</span>
+                </a>
+            </td>
+            <td data-order="342">342 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="index.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">index.py</span>
+                </a>
+            </td>
+            <td data-order="410">410 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="inheritance.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">inheritance.py</span>
+                </a>
+            </td>
+            <td data-order="1264">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="isl.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">isl.py</span>
+                </a>
+            </td>
+            <td data-order="1373">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="island.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">island.py</span>
+                </a>
+            </td>
+            <td data-order="3137">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="island_count.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">island_count.py</span>
+                </a>
+            </td>
+            <td data-order="3499">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="islands.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">islands.py</span>
+                </a>
+            </td>
+            <td data-order="4590">4 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="item.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">item.py</span>
+                </a>
+            </td>
+            <td data-order="193">193 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="items.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">items.py</span>
+                </a>
+            </td>
+            <td data-order="995">995 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="iterative_sorting.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">iterative_sorting.py</span>
+                </a>
+            </td>
+            <td data-order="2443">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="knapsack.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">knapsack.py</span>
+                </a>
+            </td>
+            <td data-order="3814">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="letter_count.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">letter_count.py</span>
+                </a>
+            </td>
+            <td data-order="227">227 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="lightsource.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">lightsource.py</span>
+                </a>
+            </td>
+            <td data-order="298">298 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="linear.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">linear.py</span>
+                </a>
+            </td>
+            <td data-order="207">207 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="linear_search.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">linear_search.py</span>
+                </a>
+            </td>
+            <td data-order="854">854 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="linked_list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">linked_list.py</span>
+                </a>
+            </td>
+            <td data-order="3330">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">list.py</span>
+                </a>
+            </td>
+            <td data-order="2112">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="lists.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">lists.py</span>
+                </a>
+            </td>
+            <td data-order="418">418 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="lookup.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">lookup.py</span>
+                </a>
+            </td>
+            <td data-order="425">425 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="lru_cache.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">lru_cache.py</span>
+                </a>
+            </td>
+            <td data-order="1246">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ls8.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ls8.py</span>
+                </a>
+            </td>
+            <td data-order="101">101 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="making_change.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">making_change.py</span>
+                </a>
+            </td>
+            <td data-order="1617">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="manage.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">manage.py</span>
+                </a>
+            </td>
+            <td data-order="537">537 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="mapping.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">mapping.py</span>
+                </a>
+            </td>
+            <td data-order="1041">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="merge_lists.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">merge_lists.py</span>
+                </a>
+            </td>
+            <td data-order="249">249 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="middle.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">middle.py</span>
+                </a>
+            </td>
+            <td data-order="1522">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="middle2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">middle2.py</span>
+                </a>
+            </td>
+            <td data-order="1566">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="miner.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">miner.py</span>
+                </a>
+            </td>
+            <td data-order="2008">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="models.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">models.py</span>
+                </a>
+            </td>
+            <td data-order="57">57 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="modules.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">modules.py</span>
+                </a>
+            </td>
+            <td data-order="593">593 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="mult.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">mult.py</span>
+                </a>
+            </td>
+            <td data-order="146">146 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="my_queue.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">my_queue.py</span>
+                </a>
+            </td>
+            <td data-order="765">765 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="myhash1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">myhash1.py</span>
+                </a>
+            </td>
+            <td data-order="1028">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="myhash2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">myhash2.py</span>
+                </a>
+            </td>
+            <td data-order="1547">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="naieve1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">naieve1.py</span>
+                </a>
+            </td>
+            <td data-order="905">905 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="obj.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">obj.py</span>
+                </a>
+            </td>
+            <td data-order="1835">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="oop1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">oop1.py</span>
+                </a>
+            </td>
+            <td data-order="1440">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="oop2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">oop2.py</span>
+                </a>
+            </td>
+            <td data-order="1065">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pal1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pal1.py</span>
+                </a>
+            </td>
+            <td data-order="1209">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="passby.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">passby.py</span>
+                </a>
+            </td>
+            <td data-order="433">433 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="player.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">player.py</span>
+                </a>
+            </td>
+            <td data-order="155">155 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="potion.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">potion.py</span>
+                </a>
+            </td>
+            <td data-order="647">647 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="power.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">power.py</span>
+                </a>
+            </td>
+            <td data-order="1017">1017 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="printf.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">printf.py</span>
+                </a>
+            </td>
+            <td data-order="447">447 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="printing.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">printing.py</span>
+                </a>
+            </td>
+            <td data-order="606">606 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="problem1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">problem1.py</span>
+                </a>
+            </td>
+            <td data-order="1381">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="problem2.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">problem2.py</span>
+                </a>
+            </td>
+            <td data-order="686">686 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="problem3.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">problem3.py</span>
+                </a>
+            </td>
+            <td data-order="668">668 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="product.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">product.py</span>
+                </a>
+            </td>
+            <td data-order="174">174 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pushpop.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pushpop.py</span>
+                </a>
+            </td>
+            <td data-order="344">344 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_climbing_stairs.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_climbing_stairs.py</span>
+                </a>
+            </td>
+            <td data-order="926">926 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_depth_first_search.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_depth_first_search.py</span>
+                </a>
+            </td>
+            <td data-order="699">699 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_dll.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_dll.py</span>
+                </a>
+            </td>
+            <td data-order="5149">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_dll_queue.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_dll_queue.py</span>
+                </a>
+            </td>
+            <td data-order="1345">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_dll_stack.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_dll_stack.py</span>
+                </a>
+            </td>
+            <td data-order="1278">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_doubly_linked_list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_doubly_linked_list.py</span>
+                </a>
+            </td>
+            <td data-order="2424">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_find_duplicate.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_find_duplicate.py</span>
+                </a>
+            </td>
+            <td data-order="720">720 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_graph.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_graph.py</span>
+                </a>
+            </td>
+            <td data-order="2864">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_hash_table.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_hash_table.py</span>
+                </a>
+            </td>
+            <td data-order="7302">7 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_heap.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_heap.py</span>
+                </a>
+            </td>
+            <td data-order="668">668 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_iterative.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_iterative.py</span>
+                </a>
+            </td>
+            <td data-order="1550">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_knapsack.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_knapsack.py</span>
+                </a>
+            </td>
+            <td data-order="5926">5 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_linked_list.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_linked_list.py</span>
+                </a>
+            </td>
+            <td data-order="1670">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_lru_cache.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_lru_cache.py</span>
+                </a>
+            </td>
+            <td data-order="1078">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_making_change.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_making_change.py</span>
+                </a>
+            </td>
+            <td data-order="1365">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_oop1.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_oop1.py</span>
+                </a>
+            </td>
+            <td data-order="2304">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_queue.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_queue.py</span>
+                </a>
+            </td>
+            <td data-order="1341">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_recipe_batches.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_recipe_batches.py</span>
+                </a>
+            </td>
+            <td data-order="889">889 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_rps.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_rps.py</span>
+                </a>
+            </td>
+            <td data-order="23040">22 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_search_array.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_search_array.py</span>
+                </a>
+            </td>
+            <td data-order="493">493 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_sliding_window_max.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_sliding_window_max.py</span>
+                </a>
+            </td>
+            <td data-order="3935">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_sliding_window_max_large_input.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_sliding_window_max_large_input.py</span>
+                </a>
+            </td>
+            <td data-order="724">724 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_stack.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_stack.py</span>
+                </a>
+            </td>
+            <td data-order="1278">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="test_stock_prices.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">test_stock_prices.py</span>
+                </a>
+            </td>
+            <td data-order="569">569 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="tests.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">tests.py</span>
+                </a>
+            </td>
+            <td data-order="60">60 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="text_buffer.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">text_buffer.py</span>
+                </a>
+            </td>
+            <td data-order="1932">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="things.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">things.py</span>
+                </a>
+            </td>
+            <td data-order="194">194 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="traversals.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">traversals.py</span>
+                </a>
+            </td>
+            <td data-order="847">847 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="treasure.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">treasure.py</span>
+                </a>
+            </td>
+            <td data-order="320">320 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="tuples.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">tuples.py</span>
+                </a>
+            </td>
+            <td data-order="164">164 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="two_sum.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">two_sum.py</span>
+                </a>
+            </td>
+            <td data-order="166">166 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="urls.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">urls.py</span>
+                </a>
+            </td>
+            <td data-order="398">398 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="user_friendship.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">user_friendship.py</span>
+                </a>
+            </td>
+            <td data-order="3536">3 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="util.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">util.py</span>
+                </a>
+            </td>
+            <td data-order="602">602 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="vectors.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">vectors.py</span>
+                </a>
+            </td>
+            <td data-order="1716">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="views.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">views.py</span>
+                </a>
+            </td>
+            <td data-order="63">63 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="weapon.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">weapon.py</span>
+                </a>
+            </td>
+            <td data-order="270">270 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="webcache.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">webcache.py</span>
+                </a>
+            </td>
+            <td data-order="2239">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="word_ladder.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">word_ladder.py</span>
+                </a>
+            </td>
+            <td data-order="1697">1 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="world.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">world.py</span>
+                </a>
+            </td>
+            <td data-order="2232">2 KB</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="wsgi.py">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">wsgi.py</span>
+                </a>
+            </td>
+            <td data-order="387">387 bytes</td>
+            <td class="hideable"><time datetime="2021-10-08T00:03:59">Fri Oct  8 00:03:59 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

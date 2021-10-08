@@ -1,6 +1,6 @@
 def digitRootSort(a):
     a.sort()
-    
+
     a = map(str, a)
     separados = []
     for numeros in a:
@@ -17,7 +17,7 @@ def digitRootSort(a):
     resultado = []
     print(a)
     print(totales)
-    while(len(totales) != 0):
+    while len(totales) != 0:
         menor = totales[0]
         indice = 0
         for i in range(len(totales)):
@@ -29,7 +29,6 @@ def digitRootSort(a):
         a.pop(indice)
         totales.pop(indice)
     print(resultado)
-        
 
 
 def main():
@@ -37,5 +36,5 @@ def main():
     digitRootSort(lista)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

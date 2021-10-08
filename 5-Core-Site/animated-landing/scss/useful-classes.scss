@@ -177,7 +177,7 @@
 }
 
 //move, bitch
-[class*='shift-'] {
+[class*="shift-"] {
   position: relative;
 }
 
@@ -345,7 +345,7 @@
 }
 
 .transparent {
-  background: transparent !important
+  background: transparent !important;
 }
 
 // Crop
@@ -395,7 +395,8 @@
 }
 
 //Padding and Margin Generation
-$properties: padding padding-top padding-right padding-bottom padding-left margin margin-top margin-right margin-bottom margin-left;
+$properties: padding padding-top padding-right padding-bottom padding-left
+  margin margin-top margin-right margin-bottom margin-left;
 
 @each $property in $properties {
   $i: index($properties, $property);
@@ -477,7 +478,6 @@ $properties: padding padding-top padding-right padding-bottom padding-left margi
   pointer-events: none !important;
 }
 
-
 //
 .space {
   padding: 0 20px;
@@ -523,7 +523,6 @@ $properties: padding padding-top padding-right padding-bottom padding-left margi
   background-attachment: fixed !important;
   background-size: cover !important;
 }
-
 
 .disableClick {
   pointer-events: none;

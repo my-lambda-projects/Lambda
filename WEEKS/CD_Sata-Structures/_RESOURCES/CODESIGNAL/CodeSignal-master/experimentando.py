@@ -2,6 +2,7 @@ import numpy as np
 
 import re
 
+
 def main():
 
     for i in range(100, 0, -1):
@@ -13,5 +14,5 @@ def main():
     pow()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

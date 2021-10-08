@@ -10,9 +10,9 @@ def sudoku(grid):
     for row in range(0, 9, 3):
         for column in range(0, 9, 3):
             box = []
-            box.extend(grid[row][column:column + 3])
-            box.extend(grid[row + 1][column:column + 3])
-            box.extend(grid[row + 2][column:column + 3])
+            box.extend(grid[row][column : column + 3])
+            box.extend(grid[row + 1][column : column + 3])
+            box.extend(grid[row + 2][column : column + 3])
             if sorted(box) != match:
                 return False
     return True

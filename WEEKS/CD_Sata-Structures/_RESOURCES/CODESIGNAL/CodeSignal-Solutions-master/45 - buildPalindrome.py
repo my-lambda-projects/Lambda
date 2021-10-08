@@ -6,4 +6,4 @@ def buildPalindrome(st):
     while subStr != subStr[::-1]:  # while substring is not a palindrome
         index += 1
         subStr = st[index:]
-    return st + st[index - 1::-1]
+    return st + st[index - 1 :: -1]
