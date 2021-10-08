@@ -66,7 +66,8 @@ export default function NoteEditor({noteId, initialTitle, initialBody}) {
       <form
         className="note-editor-form"
         autoComplete="off"
-        onSubmit={(e) => e.preventDefault()}>
+        onSubmit={(e) => e.preventDefault()}
+      >
         <label className="offscreen" htmlFor="note-title-input">
           Enter a title for your note
         </label>
@@ -95,7 +96,8 @@ export default function NoteEditor({noteId, initialTitle, initialBody}) {
             className="note-editor-done"
             disabled={isSaving || isNavigating}
             onClick={() => handleSave()}
-            role="menuitem">
+            role="menuitem"
+          >
             <img
               src="checkmark.svg"
               width="14px"
@@ -110,7 +112,8 @@ export default function NoteEditor({noteId, initialTitle, initialBody}) {
               className="note-editor-delete"
               disabled={isDeleting || isNavigating}
               onClick={() => handleDelete()}
-              role="menuitem">
+              role="menuitem"
+            >
               <img
                 src="cross.svg"
                 width="10px"

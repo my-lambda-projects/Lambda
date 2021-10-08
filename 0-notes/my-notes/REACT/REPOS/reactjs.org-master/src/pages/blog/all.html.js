@@ -38,7 +38,8 @@ const AllBlogPosts = ({data, location}: Props) => (
               display: 'flex',
               flexWrap: 'wrap',
               marginLeft: -40,
-            }}>
+            }}
+          >
             {data.allMarkdownRemark.edges.map(({node}) => (
               <li
                 css={{
@@ -56,14 +57,16 @@ const AllBlogPosts = ({data, location}: Props) => (
                     width: '33.33%',
                   },
                 }}
-                key={node.fields.slug}>
+                key={node.fields.slug}
+              >
                 <h2
                   css={{
                     fontSize: 24,
                     color: colors.dark,
                     lineHeight: 1.3,
                     fontWeight: 700,
-                  }}>
+                  }}
+                >
                   <Link
                     css={{
                       borderBottom: '1px solid #ececec',
@@ -72,7 +75,8 @@ const AllBlogPosts = ({data, location}: Props) => (
                       },
                     }}
                     key={node.fields.slug}
-                    to={node.fields.slug}>
+                    to={node.fields.slug}
+                  >
                     {node.frontmatter.title}
                   </Link>
                 </h2>
@@ -82,7 +86,8 @@ const AllBlogPosts = ({data, location}: Props) => (
                     css={{
                       color: colors.subtle,
                       marginTop: -5,
-                    }}>
+                    }}
+                  >
                     by{' '}
                     {toCommaSeparatedList(node.frontmatter.author, (author) => (
                       <span key={author.frontmatter.name}>

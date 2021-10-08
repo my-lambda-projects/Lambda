@@ -67,7 +67,8 @@ const createLinkDocs = ({
   return (
     <Link
       css={[linkCss, isActive && activeLinkCss]}
-      to={slugify(item.id, section.directory)}>
+      to={slugify(item.id, section.directory)}
+    >
       {isActive && <span css={activeLinkBefore} />}
       {item.title}
     </Link>
@@ -88,7 +89,8 @@ const createLinkTutorial = ({
     <Link
       css={[linkCss, isActive && activeLinkCss]}
       onClick={onLinkClick}
-      to={item.href}>
+      to={item.href}
+    >
       {isActive && <span css={activeLinkBefore} />}
       {item.title}
     </Link>

@@ -57,7 +57,8 @@ class DocSearch extends Component<{}, State> {
             minWidth: 100,
             width: 'calc(100% / 5)',
           },
-        }}>
+        }}
+      >
         <input
           css={{
             width: '100%',

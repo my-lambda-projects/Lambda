@@ -80,7 +80,8 @@ const MarkdownPage = ({
             scrollMarginTop: 'var(--banner-height-small)',
           },
         },
-      }}>
+      }}
+    >
       <TitleAndMetaTags
         ogDescription={ogDescription}
         ogType="article"
@@ -103,7 +104,8 @@ const MarkdownPage = ({
                         <a
                           css={sharedStyles.link}
                           href={author.frontmatter.url}
-                          key={author.frontmatter.name}>
+                          key={author.frontmatter.name}
+                        >
                           {author.frontmatter.name}
                         </a>
                       ))}
@@ -127,12 +129,14 @@ const MarkdownPage = ({
                         marginRight: '36px',
                         display: 'inline-block',
                         color: colors.subtle,
-                      }}>
+                      }}
+                    >
                       <FeedbackForm />
                     </span>
                     <a
                       css={sharedStyles.articleLayout.editLink}
-                      href={`https://github.com/reactjs/reactjs.org/tree/master/${markdownRemark.fields.path}`}>
+                      href={`https://github.com/reactjs/reactjs.org/tree/master/${markdownRemark.fields.path}`}
+                    >
                       Edit this page
                     </a>
                   </div>

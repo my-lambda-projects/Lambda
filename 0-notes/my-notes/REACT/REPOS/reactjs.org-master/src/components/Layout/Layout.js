@@ -39,7 +39,8 @@ class Template extends Component<Props> {
           display: 'flex',
           flexDirection: 'column',
           minHeight: 'calc(100vh - 40px)',
-        }}>
+        }}
+      >
         <Header location={location} />
         <Flex
           direction="column"
@@ -55,7 +56,8 @@ class Template extends Component<Props> {
             [media.lessThan('medium')]: {
               marginTop: 40,
             },
-          }}>
+          }}
+        >
           {children}
         </Flex>
         <Footer layoutHasSidebar={layoutHasSidebar} />

@@ -25,7 +25,8 @@ const SectionLinks = ({links}: Props) =>
           key={item.title}
           href={item.to}
           target="_blank"
-          rel="noopener">
+          rel="noopener"
+        >
           {item.title}
         </ExternalFooterLink>
       );

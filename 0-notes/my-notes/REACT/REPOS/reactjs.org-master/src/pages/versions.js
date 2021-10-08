@@ -36,7 +36,8 @@ const Versions = ({location}: Props) => (
               <a
                 href="https://github.com/facebook/react/releases"
                 target="_blank"
-                rel="noopener">
+                rel="noopener"
+              >
                 on GitHub
               </a>
               .<br />

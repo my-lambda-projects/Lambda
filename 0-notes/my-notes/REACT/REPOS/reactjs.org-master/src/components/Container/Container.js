@@ -29,7 +29,8 @@ const Container = ({children}: {children: Node}) => (
       [media.size('xxlarge')]: {
         maxWidth: 1260,
       },
-    }}>
+    }}
+  >
     {children}
   </div>
 );

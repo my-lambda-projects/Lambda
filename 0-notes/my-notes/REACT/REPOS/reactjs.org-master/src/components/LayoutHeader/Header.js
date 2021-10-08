@@ -24,7 +24,8 @@ const ContainerWrapper = ({children}) => (
   <div
     css={{
       backgroundColor: 'hsl(222, 14%, 10%)',
-    }}>
+    }}
+  >
     {children}
   </div>
 );
@@ -42,7 +43,8 @@ const Header = ({location}: {location: Location}) => (
       '@media print': {
         display: 'none',
       },
-    }}>
+    }}
+  >
     <ContainerWrapper>
       <Container>
         <div style={{position: 'relative'}}>
@@ -63,7 +65,8 @@ const Header = ({location}: {location: Location}) => (
           [media.lessThan('small')]: {
             height: 40,
           },
-        }}>
+        }}
+      >
         <Link
           css={{
             display: 'flex',
@@ -84,7 +87,8 @@ const Header = ({location}: {location: Location}) => (
               flex: '0 0 auto',
             },
           }}
-          to="/">
+          to="/"
+        >
           <img src={logoSvg} alt="" height="20" />
           <span
             css={{
@@ -108,7 +112,8 @@ const Header = ({location}: {location: Location}) => (
                 padding: 0,
                 border: 0,
               },
-            }}>
+            }}
+          >
             React
           </span>
         </Link>
@@ -142,7 +147,8 @@ const Header = ({location}: {location: Location}) => (
               maskImage:
                 'linear-gradient(to right, transparent, black 20px, black 90%, transparent)',
             },
-          }}>
+          }}
+        >
           {navHeader.items.map((link) => (
             <HeaderLink
               key={link.title}
@@ -168,7 +174,8 @@ const Header = ({location}: {location: Location}) => (
             //[media.greaterThan('large')]: {
             //width: 'calc(100% / 4)',
             //},
-          }}>
+          }}
+        >
           <Link
             css={{
               padding: '5px 10px',
@@ -189,7 +196,8 @@ const Header = ({location}: {location: Location}) => (
                 display: 'none',
               },
             }}
-            to="/versions">
+            to="/versions"
+          >
             v{version}
           </Link>
           <Link
@@ -210,7 +218,8 @@ const Header = ({location}: {location: Location}) => (
                 borderRadius: 15,
               },
             }}
-            to="/languages">
+            to="/languages"
+          >
             <LanguagesIcon />{' '}
             <span
               css={{
@@ -219,7 +228,8 @@ const Header = ({location}: {location: Location}) => (
                 [media.lessThan('medium')]: {
                   display: 'none',
                 },
-              }}>
+              }}
+            >
               Languages
             </span>
           </Link>
@@ -246,7 +256,8 @@ const Header = ({location}: {location: Location}) => (
             }}
             href="https://github.com/facebook/react/"
             target="_blank"
-            rel="noopener">
+            rel="noopener"
+          >
             GitHub
             <ExternalLinkSvg
               cssProps={{
@@ -267,7 +278,8 @@ const LanguagesIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
-    viewBox="0 0 24 24">
+    viewBox="0 0 24 24"
+  >
     <path d="M0 0h24v24H0z" fill="none" />
     <path
       css={{fill: 'currentColor'}}

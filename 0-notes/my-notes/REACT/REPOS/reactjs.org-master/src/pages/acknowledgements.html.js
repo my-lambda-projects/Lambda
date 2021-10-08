@@ -32,13 +32,15 @@ const Acknowlegements = ({data, location}) => (
               css={{
                 display: 'flex',
                 flexWrap: 'wrap',
-              }}>
+              }}
+            >
               {names.map((name, index) => (
                 <li
                   css={{
                     flex: '1 0 200px',
                   }}
-                  key={index}>
+                  key={index}
+                >
                   {name}
                 </li>
               ))}

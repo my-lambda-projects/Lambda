@@ -34,7 +34,8 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
       '@media print': {
         display: 'none',
       },
-    }}>
+    }}
+  >
     <Container>
       <div
         css={{
@@ -52,7 +53,8 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
           [media.between('largerSidebar', 'sidebarFixed', true)]: {
             paddingRight: layoutHasSidebar ? 380 : null,
           },
-        }}>
+        }}
+      >
         <div
           css={{
             flexWrap: 'wrap',
@@ -65,7 +67,8 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               width: 'calc(100% / 3 * 2)',
               paddingLeft: 40,
             },
-          }}>
+          }}
+        >
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
             <MetaTitle onDark={true}>{navFooter.docs.title}</MetaTitle>
             {sectionListDocs.map((section) => {
@@ -73,7 +76,8 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               return (
                 <FooterLink
                   to={`/docs/${defaultItem.id}.html`}
-                  key={section.title}>
+                  key={section.title}
+                >
                   {section.title}
                 </FooterLink>
               );
@@ -86,13 +90,15 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
             <MetaTitle onDark={true}>{navFooter.community.title}</MetaTitle>
             <ExternalFooterLink
-              href={`https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md`}>
+              href={`https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md`}
+            >
               Code of Conduct
             </ExternalFooterLink>
             {sectionListCommunity.map((section) => (
               <FooterLink
                 to={`/community/${section.items[0].id}.html`}
-                key={section.title}>
+                key={section.title}
+              >
                 {section.title}
               </FooterLink>
             ))}
@@ -126,11 +132,13 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               width: '100%',
               paddingTop: 40,
             },
-          }}>
+          }}
+        >
           <a
             href="https://opensource.facebook.com/projects/"
             target="_blank"
-            rel="noopener">
+            rel="noopener"
+          >
             <img
               alt="Facebook Open Source"
               css={{
@@ -144,7 +152,8 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             css={{
               color: colors.subtleOnDark,
               paddingTop: 15,
-            }}>
+            }}
+          >
             {`Copyright © ${new Date().getFullYear()} Facebook Inc.`}
           </p>
         </section>

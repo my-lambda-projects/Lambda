@@ -11,7 +11,8 @@ function NoteEditorSkeleton() {
     <div
       className="note-editor skeleton-container"
       role="progressbar"
-      aria-busy="true">
+      aria-busy="true"
+    >
       <div className="note-editor-form">
         <div className="skeleton v-stack" style={{height: '3rem'}} />
         <div className="skeleton v-stack" style={{height: '100%'}} />
@@ -48,7 +49,8 @@ function NotePreviewSkeleton() {
     <div
       className="note skeleton-container"
       role="progressbar"
-      aria-busy="true">
+      aria-busy="true"
+    >
       <div className="note-header">
         <div
           className="note-title skeleton"

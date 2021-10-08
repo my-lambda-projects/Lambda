@@ -29,12 +29,14 @@ const FooterNav = ({children, title, layoutHasSidebar = false}: Props) => (
         paddingTop: 0,
         width: '25%',
       },
-    }}>
+    }}
+  >
     <div
       css={{
         display: 'inline-flex',
         flexDirection: 'column',
-      }}>
+      }}
+    >
       {children}
     </div>
   </div>

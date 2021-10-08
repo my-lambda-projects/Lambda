@@ -30,14 +30,16 @@ export default function Banner() {
           height: 'var(--banner-height-small)',
           fontSize: 14,
         },
-      }}>
+      }}
+    >
       <div
         css={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           height: '100%',
-        }}>
+        }}
+      >
         <a
           css={{
             display: 'flex',
@@ -46,7 +48,8 @@ export default function Banner() {
               display: 'none',
             },
           }}
-          {...linkProps}>
+          {...linkProps}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             css={{
@@ -54,7 +57,8 @@ export default function Banner() {
               height: 35,
             }}
             preserveAspectRatio="xMidYMid meet"
-            viewBox="0 0 134 58">
+            viewBox="0 0 134 58"
+          >
             <g>
               <path
                 fill={colors.white}
@@ -115,11 +119,13 @@ export default function Banner() {
               flexDirection: 'column',
               lineHeight: 1.5,
             },
-          }}>
+          }}
+        >
           <span
             css={{
               marginRight: '0.5rem',
-            }}>
+            }}
+          >
             We want to hear from you!
           </span>
 
@@ -133,7 +139,8 @@ export default function Banner() {
             }}
             {...linkProps}
             target="_blank"
-            rel="noopener">
+            rel="noopener"
+          >
             <span css={{color: colors.brand}}>
               Take our 2020 Community Survey!
             </span>
@@ -168,7 +175,8 @@ export default function Banner() {
             onClick={() => {
               // See html.js
               window.__dismissBanner();
-            }}>
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               css={{
@@ -176,10 +184,12 @@ export default function Banner() {
                 height: 10,
               }}
               viewBox="0 0 5.8 5.8"
-              alt="close">
+              alt="close"
+            >
               <path
                 d="M5.8 5.16L3.54 2.9 5.8.65 5.16 0 2.9 2.26.65 0 0 .65 2.26 2.9 0 5.16l.65.64L2.9 3.54 5.16 5.8l.64-.64z"
-                fill="currentColor"></path>
+                fill="currentColor"
+              ></path>
             </svg>
           </button>
         </div>

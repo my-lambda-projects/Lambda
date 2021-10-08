@@ -18,7 +18,8 @@ const MetaTitle = ({children, title, cssProps = {}, onDark = false}) => (
       textAlign: 'start',
       letterSpacing: '0.08em',
       ...cssProps,
-    }}>
+    }}
+  >
     {children}
   </div>
 );

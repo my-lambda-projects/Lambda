@@ -35,7 +35,8 @@ class Section extends React.Component {
             border: 0,
             marginTop: 10,
           }}
-          onClick={onSectionTitleClick}>
+          onClick={onSectionTitleClick}
+        >
           <MetaTitle
             cssProps={{
               [media.greaterThan('small')]: {
@@ -46,7 +47,8 @@ class Section extends React.Component {
                   color: colors.text,
                 },
               },
-            }}>
+            }}
+          >
             {section.title}
             <ChevronSvg
               cssProps={{
@@ -70,13 +72,15 @@ class Section extends React.Component {
             [media.greaterThan('small')]: {
               display: isActive ? 'block' : 'none',
             },
-          }}>
+          }}
+        >
           {section.items.map((item, index) => (
             <li
               key={item.id}
               css={{
                 marginTop: 5,
-              }}>
+              }}
+            >
               {createLink({
                 isActive: isScrollSync
                   ? activeItemId === item.id

@@ -31,7 +31,8 @@ const MarkdownHeader = ({title}: {title: string}) => {
           [media.greaterThan('large')]: {
             marginTop: 'calc(80px + var(--banner-height-normal))',
           },
-        }}>
+        }}
+      >
         {title}
       </h1>
     </Flex>

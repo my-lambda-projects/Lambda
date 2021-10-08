@@ -61,12 +61,14 @@ class Home extends Component {
             [media.lessThan('small')]: {
               marginTop: 'var(--banner-height-small)',
             },
-          }}>
+          }}
+        >
           <header
             css={{
               backgroundColor: colors.dark,
               color: colors.white,
-            }}>
+            }}
+          >
             <div
               css={{
                 paddingTop: 45,
@@ -98,12 +100,14 @@ class Home extends Component {
                     opacity: 0.05,
                   },
                 },
-              }}>
+              }}
+            >
               <div
                 css={{
                   // Content should be above absolutely-positioned hero image
                   position: 'relative',
-                }}>
+                }}
+              >
                 <Container>
                   <h1
                     css={{
@@ -118,7 +122,8 @@ class Home extends Component {
                       [media.greaterThan('xlarge')]: {
                         fontSize: 60,
                       },
-                    }}>
+                    }}
+                  >
                     React
                   </h1>
                   <p
@@ -140,7 +145,8 @@ class Home extends Component {
                         paddingTop: 20,
                         fontSize: 30,
                       },
-                    }}>
+                    }}
+                  >
                     A JavaScript library for building user interfaces
                   </p>
                   <Flex
@@ -154,11 +160,13 @@ class Home extends Component {
                       [media.greaterThan('xlarge')]: {
                         paddingTop: 65,
                       },
-                    }}>
+                    }}
+                  >
                     <CtaItem>
                       <ButtonLink
                         to="/docs/getting-started.html"
-                        type="primary">
+                        type="primary"
+                      >
                         Get Started
                       </ButtonLink>
                     </CtaItem>
@@ -190,7 +198,8 @@ class Home extends Component {
                         'linear-gradient(to right, transparent, white 10px, white 90%, transparent)',
                     },
                   },
-                ]}>
+                ]}
+              >
                 <div
                   css={{
                     display: 'flex',
@@ -200,7 +209,8 @@ class Home extends Component {
                       display: 'block',
                       whiteSpace: 'nowrap',
                     },
-                  }}>
+                  }}
+                >
                   {marketing.edges.map(({node: column}, index) => (
                     <div
                       key={index}
@@ -231,7 +241,8 @@ class Home extends Component {
                             marginTop: 0,
                           },
                         },
-                      }}>
+                      }}
+                    >
                       <h3
                         css={[
                           headingStyles,
@@ -248,7 +259,8 @@ class Home extends Component {
                               },
                             },
                           },
-                        ]}>
+                        ]}
+                      >
                         {column.frontmatter.title}
                       </h3>
                       <div dangerouslySetInnerHTML={{__html: column.html}} />
@@ -274,7 +286,8 @@ class Home extends Component {
                         id={snippet.id}
                         code={snippet.code}
                         containerNodeID={node.frontmatter.domid}
-                        loaded={babelLoaded}>
+                        loaded={babelLoaded}
+                      >
                         <h3 css={headingStyles}>{node.frontmatter.title}</h3>
                         <div dangerouslySetInnerHTML={{__html: node.html}} />
                       </CodeExample>
@@ -291,7 +304,8 @@ class Home extends Component {
               color: colors.white,
               paddingTop: 45,
               paddingBottom: 25,
-            }}>
+            }}
+          >
             <Container>
               <Flex
                 valign="center"
@@ -299,7 +313,8 @@ class Home extends Component {
                 css={{
                   flexWrap: 'wrap',
                   justifyContent: 'center',
-                }}>
+                }}
+              >
                 <CtaItem>
                   <ButtonLink to="/docs/getting-started.html" type="primary">
                     Get Started
@@ -356,7 +371,8 @@ const CtaItem = ({children, primary = false}) => (
           marginBottom: 10,
         },
       },
-    }}>
+    }}
+  >
     {children}
   </div>
 );
