@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>none-keyword</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="none-keyword">None Keyword</h1>
+    <p>
+      The <strong><code>None</code> keyword</strong> is used to define a
+      <code>null</code> variable or an object. In Python,
+      <code>None</code> keyword is an object, and it is a data type of the class
+      <code>NoneType</code>.
+    </p>
+    <p>
+      We can assign <code>None</code> to any variable, but you can not create
+      other <code>NoneType</code> objects.<img
+        src="https://www.educative.io/api/edpresso/shot/6479146551083008/image/4520241998594048"
+        alt="svg viewer"
+      />
+    </p>
+    <blockquote>
+      <p>
+        <strong>Note</strong>: All variables that are assigned
+        <code>None</code> point to the <em>same</em> object. New instances of
+        <code>None</code> are not created.
+      </p>
+    </blockquote>
+    <h2 id="syntax">Syntax</h2>
+    <p>The syntax of <code>None</code> statement is:</p>
+    <pre class="text"><code>None</code></pre>
+    <blockquote>
+      <p>
+        <strong>Note:</strong> <code>None</code> statement supports both
+        <code>is</code> and <code>==</code> operators.
+      </p>
+    </blockquote>
+    <h2 id="interesting-facts">Interesting Facts</h2>
+    <ul>
+      <li><code>None</code> is not the same as <code>False</code>.</li>
+      <li><code>None</code> is not <em>0</em>.</li>
+      <li><code>None</code> is not an empty <code>string</code>.</li>
+      <li>
+        Comparing <code>None</code> to anything will always return
+        <code>False</code> except <code>None</code> itself.
+      </li>
+    </ul>
+    <h2 id="examples">Examples</h2>
+    <ol type="1">
+      <li>
+        Checking if a variable is <code>None</code> using
+        <code>is</code> operator:
+      </li>
+    </ol>
+    <p>
+      1234567# Declaring a None variablevar = Noneif var is None: # Checking if
+      the variable is None print(“None”)else: print(“Not None”)Run
+    </p>
+    <ol type="1">
+      <li>
+        Checking if a variable is <code>None</code> using
+        <code>==</code> operator:
+      </li>
+    </ol>
+    <p>
+      1234567# Declaring a None variablevar = Noneif var == None: # Checking if
+      the variable is None print(“None”)else: print(“Not None”)Run
+    </p>
+    <ol type="1">
+      <li>Check the type of <code>None</code> object:</li>
+    </ol>
+    <p>
+      1234# Declaring a variable and initializing with None typetypeOfNone =
+      type(None) print(typeOfNone)Run
+    </p>
+    <ol type="1">
+      <li>Comparing <code>None</code> with <code>None</code> type:</li>
+    </ol>
+    <p>
+      12# Comparing None with none and printing the resultprint (None ==
+      None)Run
+    </p>
+    <ol type="1">
+      <li>Comparing <code>None</code> with <code>False</code> type:</li>
+    </ol>
+    <p>
+      12# Comparing none with False and printing the resultprint(None ==
+      False)Run
+    </p>
+    <ol type="1">
+      <li>Comparing <code>None</code> with empty <code>string</code>:</li>
+    </ol>
+    <p>
+      1234# Declaring an empty stringstr = ""# Comparing None with empty string
+      and printing the resultprint (str == None)Run
+    </p>
+  </body>
+</html>

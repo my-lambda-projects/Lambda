@@ -1,0 +1,642 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Accessibility &amp; Accommodations</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="43715479-9bfe-4b0f-8e35-1b8829e23d05" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">⭐</span></div><h1 class="page-title">Accessibility &amp; Accommodations</h1></header><div class="page-body"><p id="1b4b1d37-0613-4686-920a-433b0a9d2642" class="">Lambda School welcomes and embraces diversity and is committed to providing otherwise qualified Learners equal access to programs and activities by having nondiscriminatory standards in all academic areas and reasonable accommodations.</p><h2 id="8d888748-6cfb-44da-b554-cb5967db7598" class="">Accommodations</h2><p id="b0d0d68f-1b3f-455c-8d1b-06e46ba99a8a" class="">Reasonable accommodations are evaluated and given on an individualized basis. A reasonable accommodation is an adjustment or minor change that removes barriers. Reasonable accommodations do not involve lowering academic standards, or alterations to a program. </p><ul id="794bda6e-75d0-49f9-890c-27d057190012" class="toggle"><li><details open=""><summary>Reasonable accommodations, including support services, are individually tailored depending on a Learner&#x27;s disability and its severity. The following is a list of possible accommodations. Not every Learner qualifies (or needs) every accommodation. Additionally, other accommodations not listed here may be possible.</summary><ul id="9d66f47c-9d5f-4699-b75b-b8b804019b0d" class="bulleted-list"><li style="list-style-type:disc">Extended time on daily projects</li></ul><ul id="b69c8e1f-c900-4912-ad63-d0d05cc72cdf" class="bulleted-list"><li style="list-style-type:disc">Extended time on sprint challenges</li></ul><ul id="0046d76c-9c11-4778-9feb-72e47350d94f" class="bulleted-list"><li style="list-style-type:disc">Coaching in self advocacy strategies</li></ul><ul id="72fea29e-b749-4506-bed6-abe0e68d89cd" class="bulleted-list"><li style="list-style-type:disc">Intervention with instructors or staff on student&#x27;s behalf as needed</li></ul></details></li></ul><p id="828eb029-aac6-4932-80fc-ff8306dd4b67" class="">All Learners have access to help channels via slack, after hours assistance, and support hours. Additionally, Learners have access to past and current recorded lectures and course materials. Closed captioning may be turned on for recordings by clicking the &quot;cc&quot; button at the bottom right of the video. Videos may be slowed down by clicking the &quot;settings&quot; or gear icon at the bottom right of the video and selecting &quot;playback speed&quot;. </p><p id="8325a03f-891d-4552-a835-ea309513390a" class="">Lambda School reserves the right to deny a request for accommodations if documentation does not demonstrate that the request is warranted, if the Learner fails to provide appropriate documentation, or if the request is found to be unreasonable given the circumstances of the individual in relation to the situation/setting. Additionally, Lambda School may deny or refuse accommodation requests that impose a fundamental alteration of a program or activity.</p><h2 id="3a8510b0-9b79-4a93-9105-9584d02496b1" class="">Requesting Accommodations</h2><ul id="fd4c3e15-c399-40c8-a533-0ada4dc26821" class="bulleted-list"><li style="list-style-type:disc">Prior to requesting accommodations from Lambda School, Learners must first obtain documentation from a qualified, licensed professional that includes a diagnosis, how the diagnosis was established, the functional impairments, and a rationale for the requested accommodations. See below for more information.</li></ul><ul id="1928485d-e9eb-4214-b661-f6a330b3de3a" class="bulleted-list"><li style="list-style-type:disc">Once documentation has been obtained, request a meeting to discuss accommodations with a Leaner Success staff member via <code>/frontdesk</code>. Please note that a Learner does not need to disclose the type of disability or  type of accommodations they are requesting in their <code>/frontdesk</code> message, only that they would like to speak with someone about requesting accommodations.</li></ul><ul id="11441464-ef15-4a13-820d-bd76eb63392d" class="bulleted-list"><li style="list-style-type:disc">Accommodation eligibility is determined on Learner&#x27;s individual&#x27;s condition, history, request, and the essential elements of Lambda School&#x27;s programs, services, and activities.</li></ul><h2 id="44f08a2c-8890-47a3-8a7b-73fb01d2373b" class="">Learner Role in Accommodations</h2><ul id="205e1e93-badb-4f8f-bc3a-c01d38af5ccd" class="toggle"><li><details open=""><summary>Prior to, or once accommodations have been approved by a member of the Learner Success team, the Leaner has the responsibility to:</summary><ul id="e85bcdb6-6c9a-4230-98b4-f0bd49abcdc1" class="bulleted-list"><li style="list-style-type:disc">Meet the technical, career, and teamwork standards set forth by Lambda School.</li></ul><ul id="d714ace0-f23d-4ece-826a-a3e8bf256efa" class="bulleted-list"><li style="list-style-type:disc">Request accommodations in a timely manner via the process above. Accommodations cannot be requested or applied retroactively.</li></ul><ul id="1748a75b-52c5-49ac-9b28-faefc65d771e" class="bulleted-list"><li style="list-style-type:disc">Provide documentation that establishes a disability based on the documentation standards below.</li></ul><ul id="bc67b10c-8877-4240-afaf-3311be558ff1" class="bulleted-list"><li style="list-style-type:disc">Communicate with instructors as applicable to inform them of the approved accommodation(s).</li></ul><ul id="911f4299-5ceb-4ee4-878a-3f9d95f25ef8" class="bulleted-list"><li style="list-style-type:disc">Notify Learner Success via <code>/frontdesk</code> if there is any problem with established accommodations.</li></ul></details></li></ul><h2 id="8ab5671e-9b9c-4a31-9b27-b96f4bb1cf5a" class="">Documentation</h2><p id="0d266cb7-af6f-4b8e-89fb-f91db39d681d" class="">Documentation is needed to establish the nature of a Learner&#x27;s disability, as well as the academic impact in order to support the requested accommodations. Every request is evaluated on an individualized basis and includes an interactive process between a Learner Success Advisor and the Leaner, therefore, the type of documentation required depends on the nature of the request and is taken into consideration along with other factors, including the Learner&#x27;s self-report.</p><ul id="e0ec9093-a00c-42b3-9e25-78b1f220c7ee" class="toggle"><li><details open=""><summary>Documentation must:</summary><ul id="d5356ca4-d861-44e1-ab89-c8f1e25a6a45" class="bulleted-list"><li style="list-style-type:disc">Be prepared by an appropriate professional, and include:<ul id="3257bede-6b76-4d07-b51f-a5d9a44a7563" class="bulleted-list"><li style="list-style-type:circle">Provider&#x27;s contact information</li></ul><ul id="7680478f-9655-42a2-8b2b-ea52f607ee1a" class="bulleted-list"><li style="list-style-type:circle">Provider&#x27;s area of specialty</li></ul><ul id="a2aceaff-9a6e-471c-897a-0e5524975957" class="bulleted-list"><li style="list-style-type:circle">Provider&#x27;s license number</li></ul><ul id="6dc874ad-6c99-40cb-b4ba-4cf14da40d36" class="bulleted-list"><li style="list-style-type:circle">Signature/electronic signature</li></ul></li></ul><ul id="98f07c65-5ab5-4762-a20e-11200e5a46af" class="bulleted-list"><li style="list-style-type:disc">Be current</li></ul><ul id="2436be53-aa88-4ccc-9d1b-937b9677013f" class="bulleted-list"><li style="list-style-type:disc">Name the disability and how the disability could impact the Learner in the academic environment</li></ul><ul id="3ec7f4b2-dc2f-4657-9c27-ce94530dca7d" class="bulleted-list"><li style="list-style-type:disc">Include standardized test data if testing was performed</li></ul><ul id="dce241fd-e383-45ca-95d6-5c2201549404" class="bulleted-list"><li style="list-style-type:disc">Indicate the severity and expected longevity</li></ul><ul id="680de652-840d-4b39-ab8d-1232801c308d" class="bulleted-list"><li style="list-style-type:disc">Suggestions for accommodations or appropriate support services</li></ul></details></li></ul><ul id="746b786c-0424-409b-9ef2-ef961a08357e" class="toggle"><li><details open=""><summary>Documentation can be submitted in the following formats:</summary><ul id="8c2e6d71-2c94-49c2-bdaf-7a9479820abe" class="bulleted-list"><li style="list-style-type:disc">Psychoeducational evaluation or neurophysiological assessment;</li></ul><ul id="7b8af2cf-37fc-4a71-bd24-87d197d1026e" class="bulleted-list"><li style="list-style-type:disc">A letter, on official letterhead, written by a qualified healthcare provider; or</li></ul><ul id="5886b9f9-bd7a-4a67-9e12-f3844e749811" class="bulleted-list"><li style="list-style-type:disc">A visit summary, discharge papers, or other medical summary.</li></ul></details></li></ul><ul id="6f1b96f8-c778-4db3-9309-1983e396ba70" class="toggle"><li><details open=""><summary>Supplemental documentation:</summary><p id="0f8c30d0-7c05-47eb-9bc5-5d53b9bed3c1" class="">In addition to the above documentation formats, a Learner may also submit (these are supplemental and cannot be submitted in lieu of the above formats):</p><ul id="2a12dc57-e9ff-4a3c-b33a-43e8464cf1c5" class="bulleted-list"><li style="list-style-type:disc">Accommodations in K-12, primary or secondary school, and/or college/university, including:<ul id="8fdf1119-2356-4afc-b4c6-45deb949bbf4" class="bulleted-list"><li style="list-style-type:circle">504 Plans</li></ul><ul id="b1866e78-f7f0-4383-94e1-f0aa6db505b9" class="bulleted-list"><li style="list-style-type:circle">Individualized Education Plans (IEP)</li></ul><ul id="2687cf7e-1e76-4924-a075-b1a7f4bc5901" class="bulleted-list"><li style="list-style-type:circle">Standardized testing accommodations</li></ul><ul id="f27c218d-4562-476a-afe8-37e43a034cec" class="bulleted-list"><li style="list-style-type:circle">Previous college/university accommodation letters</li></ul></li></ul><p id="40affc15-b50f-4bf2-b57e-7fea0dc7b8eb" class="">Please note that accommodations that were approved through another school or institution may not be approved at Lambda School due to the nature of the educational format of our programs and activities.</p></details></li></ul><p id="cc0bdabb-d28b-4b97-a32c-b54aee3cd716" class="">If documentation does not meet the standards above, Learners are still encouraged to reach out to Learner Success staff via <code>/frontdesk</code> to request information about accommodations. When working with a Learner Success staff member, Learners are encouraged to submit any relevant information they have related to diagnosis. Learners can work with Learner Success staff to determine what additional documentation may be necessary. </p><p id="cbea0506-64d8-40c4-b13f-4bf537038d82" class="">If Learners do not have any documentation, it is encouraged that they reach out to Learner Success staff to learn more about the process for requesting accommodations and obtaining documentation.</p><p id="2ffdfe5d-6d03-48ca-868d-6385d60448ff" class="">
+</p><p id="6107dbf3-ee90-45ae-952d-91e0652af246" class="">
+</p><p id="a05d0b94-2cb3-429f-9b74-9d4594ebd036" class="">
+</p><p id="ec8d2c8c-bf8d-46d4-9b01-e69728746bee" class="">
+</p><ul id="e11e6a46-3d71-41a4-82b0-be39f7c6598a" class="toggle"><li><details open=""><summary>Revision History</summary><p id="cd69e21d-ca4d-4e53-9215-d2f2e6fa79ec" class="">October 24, 2019, shared with students October 25, 2019</p><p id="a3593f43-9ade-4e30-acad-d901c762b18c" class="">June 22, 2021</p><p id="470fc146-4972-43f6-a02e-416049d9c3a7" class="">
+</p></details></li></ul><p id="3cbb43d8-c85d-4a32-b843-5466b0fc73a0" class="">
+</p><p id="c9c3b007-34ed-4458-8e95-0ee5b51f81e8" class="">Copyright Lambda School 2019, All Rights Reserved</p><figure id="c7a210fa-5515-4225-bb25-cd51290041cb" class="link-to-page"><a href="Accessibility%20&amp;%20Accommodations%20437154799bfe4b0f8e351b8829e23d05/accessibility%20c7a210fa55154225bb25cd51290041cb.html">accessibility</a></figure></div></article></body></html>

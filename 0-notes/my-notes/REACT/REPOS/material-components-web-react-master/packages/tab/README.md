@@ -14,12 +14,14 @@ npm install @material/react-tab-indicator
 ### Styles
 
 with Sass:
+
 ```scss
 import '@material/react-tab/index.scss';
 import '@material/react-tab-indicator/index.scss';
 ```
 
 with CSS:
+
 ```css
 import '@material/react-tab/dist/tab.css';
 import '@material/react-tab-indicator/dist/tab-indicator.css';
@@ -75,19 +77,19 @@ class MyApp extends React.Component {
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-active | boolean | If true will activate the tab and indicator.
-focusOnActivate | boolean | If true will focus itself when activated. Defaults to `true`.
-className | string | Classes to appear on className attribute of root element.
-isFadingIndicator | boolean | Enables a fading indicator, instead of sliding (default).
-indicatorContent | element | Element that will appear within the `<TabIndicator />` element.
-minWidth | boolean | If true will display the `<Tab />` as narrow as possible.
-isMinWidthIndicator | boolean | If true will display the `<TabIndicator />` to the size of the longest content element.
-previousIndicatorClientRect | ClientRect | The indicator's clientRect that was previously activated.
-onInteraction | Function | The function is called if the tab receives any interaction
-stacked | boolean | If true will display the tab icon and label to flow vertically instead of horizontally.
-tag | String | Customizes the tab tag (defaults to `'button'`). The only available options are 'button' or 'a'.
+| Prop Name                   | Type       | Description                                                                                      |
+| --------------------------- | ---------- | ------------------------------------------------------------------------------------------------ |
+| active                      | boolean    | If true will activate the tab and indicator.                                                     |
+| focusOnActivate             | boolean    | If true will focus itself when activated. Defaults to `true`.                                    |
+| className                   | string     | Classes to appear on className attribute of root element.                                        |
+| isFadingIndicator           | boolean    | Enables a fading indicator, instead of sliding (default).                                        |
+| indicatorContent            | element    | Element that will appear within the `<TabIndicator />` element.                                  |
+| minWidth                    | boolean    | If true will display the `<Tab />` as narrow as possible.                                        |
+| isMinWidthIndicator         | boolean    | If true will display the `<TabIndicator />` to the size of the longest content element.          |
+| previousIndicatorClientRect | ClientRect | The indicator's clientRect that was previously activated.                                        |
+| onInteraction               | Function   | The function is called if the tab receives any interaction                                       |
+| stacked                     | boolean    | If true will display the tab icon and label to flow vertically instead of horizontally.          |
+| tag                         | String     | Customizes the tab tag (defaults to `'button'`). The only available options are 'button' or 'a'. |
 
 ## Sass Mixins
 

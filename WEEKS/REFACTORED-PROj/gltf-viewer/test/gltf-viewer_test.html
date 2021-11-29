@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"
+    />
+
+    <title>gltf-viewer test</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../bower_components/web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../gltf-viewer.html" />
+  </head>
+  <body>
+    <test-fixture id="BasicTestFixture">
+      <template>
+        <gltf-viewer></gltf-viewer>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="SimpleLoadFixture">
+      <template>
+        <gltf-viewer
+          width="400"
+          height="400"
+          src="../demo/duck2.gltf"
+        ></gltf-viewer>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite("gltf-viewer", function () {
+        test("instantiating the element with default properties works", function () {
+          var element = fixture("BasicTestFixture");
+          assert.equal(element.src, undefined);
+          assert.equal(element.interactive, false);
+          assert.equal(element.width, undefined);
+          assert.equal(element.height, undefined);
+        });
+
+        test("loading a model works", function (done) {
+          // Create a test fixture
+          var element = fixture("SimpleLoadFixture");
+          assert.equal(element.src, "../demo/duck2.gltf");
+          element.addEventListener("load", function () {
+            assert.equal(element._scene.children.length, 2);
+            var rect = element.getBoundingClientRect();
+            assert.equal(rect.width, 400);
+            assert.equal(rect.height, 400);
+            done();
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -30,7 +30,8 @@ export default function EditButton({noteId, children}) {
           }));
         });
       }}
-      role="menuitem">
+      role="menuitem"
+    >
       {children}
     </button>
   );

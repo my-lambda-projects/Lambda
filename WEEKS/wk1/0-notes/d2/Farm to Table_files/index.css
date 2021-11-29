@@ -14,14 +14,14 @@ html {
 body {
   font-size: 1.8rem;
   line-height: 1.5;
-  font-family: 'PT Sans', sans-serif;
-  background-color: #FFFAFA;
+  font-family: "PT Sans", sans-serif;
+  background-color: #fffafa;
   color: #444;
 }
 h1,
 h2,
 h3 {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   letter-spacing: 3px;
 }
 h1 {
@@ -81,7 +81,7 @@ nav .links a:hover {
 header {
   margin-top: 5.5%;
   height: 90vh;
-  background-image: url('../images/header.jpg');
+  background-image: url("../images/header.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -93,7 +93,7 @@ header {
   text-align: center;
 }
 .hero {
-  background-image: url('../images/dirt.jpg');
+  background-image: url("../images/dirt.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -157,22 +157,22 @@ header {
   display: block;
 }
 .gallery .container .farm {
-  background-image: url('../images/barn.jpg');
+  background-image: url("../images/barn.jpg");
   background-size: cover;
   background-position: center;
 }
 .gallery .container .cook {
-  background-image: url('../images/cook.jpg');
+  background-image: url("../images/cook.jpg");
   background-size: cover;
   background-position: center;
 }
 .gallery .container .produce {
-  background-image: url('../images/produce.jpg');
+  background-image: url("../images/produce.jpg");
   background-size: cover;
   background-position: center;
 }
 .gallery .container .animals {
-  background-image: url('../images/sheep.jpg');
+  background-image: url("../images/sheep.jpg");
   background-size: cover;
   background-position: center;
 }

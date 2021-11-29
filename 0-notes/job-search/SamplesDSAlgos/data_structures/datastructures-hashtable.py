@@ -1,49 +1,48 @@
-
 # HASH TABLE
-    # array with elements indexed by hashed key
-    # associative arrays and dictionaries
-    # objects
-    # caches (memcached)
-    # dynamic programming, memoization
-    # send key through hashing function (MD5, SHA1, etc.), which converts to addressable space (index)
-    # powerful for maps because now our key points to where our object is being stored
-    # powerful for sets because we can check where if anything exists at that memory address and, if 
-        # so, then it exists; if not, then key is not in set
-    # no look-up cost when deleting or adding
-    # not useful for something with an order
-    # need sufficiently large amount of memory to store all objects without collisions
-        # can balloon quickly
-    # need good hashing algorithm that spits out viable table address
-    # needs several qualities:
-        # idempotent (critical), good distribution of values, performant
+# array with elements indexed by hashed key
+# associative arrays and dictionaries
+# objects
+# caches (memcached)
+# dynamic programming, memoization
+# send key through hashing function (MD5, SHA1, etc.), which converts to addressable space (index)
+# powerful for maps because now our key points to where our object is being stored
+# powerful for sets because we can check where if anything exists at that memory address and, if
+# so, then it exists; if not, then key is not in set
+# no look-up cost when deleting or adding
+# not useful for something with an order
+# need sufficiently large amount of memory to store all objects without collisions
+# can balloon quickly
+# need good hashing algorithm that spits out viable table address
+# needs several qualities:
+# idempotent (critical), good distribution of values, performant
 
-    # key/value data storage & retrieval
-        # data stored as array
-        # key converted to integer via hash functino
-        # hashed key converted to array index via modulo function
+# key/value data storage & retrieval
+# data stored as array
+# key converted to integer via hash functino
+# hashed key converted to array index via modulo function
 
 # hash function:  one-way mapping from arbitrary data to fixed data size & type
-    # different hash functions with different attributes:
-        # deterministic
-        # uniform distribution
-        # non-invertible
-        # continuous versus non-continuous
+# different hash functions with different attributes:
+# deterministic
+# uniform distribution
+# non-invertible
+# continuous versus non-continuous
 # hash-table collision:  when two keys hash to same index
-    # collisions are unavoidable
-    # open addressing & linked-list chaining to avoid collisions
+# collisions are unavoidable
+# open addressing & linked-list chaining to avoid collisions
 # linked-list chaining:  elements in hash table are stored as linked lists
-    # when retrieving a value, traverse down linked list until you find matching key
+# when retrieving a value, traverse down linked list until you find matching key
 # hash-table resizing:  can occur when load factor passes certain threshhold
-    # create new hash table with double capacity
-    # copy elements from old to new one at a time
-    # resizing = O(n) & occurs at O(log (n)) frequency
+# create new hash table with double capacity
+# copy elements from old to new one at a time
+# resizing = O(n) & occurs at O(log (n)) frequency
 # load factor:  number of entries / hash-table capacity
 
 # time complexity:   Avg   |   Worst
-    # Access:       N/A    |   N/A
-    # Search:       O(1)   |   O(n)
-    # Insertion:    O(1)   |   O(n)
-    # Deletion:     O(1)   |   O(n)
+# Access:       N/A    |   N/A
+# Search:       O(1)   |   O(n)
+# Insertion:    O(1)   |   O(n)
+# Deletion:     O(1)   |   O(n)
 
 # space complexity:  O(n)
 
@@ -52,6 +51,7 @@ class HashTableEntry:
     """
     Linked List hash table key/value pair
     """
+
     def __init__(self, key, value):
         self.key = key
         self.value = value
@@ -60,6 +60,7 @@ class HashTableEntry:
 
 # Hash table can't have fewer than this many slots
 MIN_CAPACITY = 8
+
 
 class HashTable:
     """
@@ -72,7 +73,7 @@ class HashTable:
         self.storage = [None] * capacity
         self.head = None
 
-    # return number of slots in hash table 
+    # return number of slots in hash table
     def get_num_slots(self):
 
         self.length = len(self.storage)
@@ -94,7 +95,7 @@ class HashTable:
             self.resize(self, self.capacity * 2)
         elif load_factor < 0.2:
             # automatically rehash the table to half its previous size, down to a minimum of 8 slots.
-            self.resize(self, self.capacity/2)
+            self.resize(self, self.capacity / 2)
 
     # hash data FNV-1 Hash, 64-bit
     def fnv1(self, key):
@@ -117,10 +118,10 @@ class HashTable:
         kByte = key.encode()
 
         for byte in kByte:
-            hash = hash**byte
+            hash = hash ** byte
             hash = hash * FNV_prime
 
-        return hash 
+        return hash
 
     # hash data DJB2 hash, 32-bit
     def djb2(self, key):
@@ -136,7 +137,7 @@ class HashTable:
 
         return hash
 
-    # return hash table index for submitted key 
+    # return hash table index for submitted key
     def hash_index(self, key):
         # return self.fnv1(key) % self.capacity
         return self.djb2(key) % self.capacity
@@ -171,21 +172,21 @@ class HashTable:
         # get tree head
         current_node = self.head
 
-        # if tree head exists 
+        # if tree head exists
         if current_node:
-            
-            # while it exists change to none, else change to next 
+
+            # while it exists change to none, else change to next
             while current_node:
-                # if its key matches submitted key, change to none 
+                # if its key matches submitted key, change to none
                 if current_node.key == key:
                     current_node.key = None
-                # else change to next node 
+                # else change to next node
                 else:
                     current_node = current_node.next
 
-        # if tree head nonexistent, tell user 
+        # if tree head nonexistent, tell user
         else:
-            print('No keys found for that value.')
+            print("No keys found for that value.")
 
         return None
 
@@ -196,10 +197,10 @@ class HashTable:
         Returns None if the key is not found.
         """
 
-        # get tree head 
+        # get tree head
         current_node = self.head
 
-        # if it exists 
+        # if it exists
         if current_node:
 
             # while it exists return its value, else change to next
@@ -211,25 +212,25 @@ class HashTable:
 
         # if tree head nonexistent, tell user
         else:
-            print('No keys found for that value.')
+            print("No keys found for that value.")
 
         return None
 
-    # resize hash table 
+    # resize hash table
     def resize(self, new_capacity):
-        # set next storage capacity 
+        # set next storage capacity
         next_storage = [None] * new_capacity
 
-        # for each node in storage right now 
+        # for each node in storage right now
         for current_node in self.storage:
-            # if the current one exists 
+            # if the current one exists
             if current_node:
                 # get hashed index of current node[0]
                 key_hashed = self.hash_index(current_node[0])
                 # use hashed key as index in next storage & set as current node
                 next_storage[key_hashed] = current_node
 
-        # set current storage to next storage  
+        # set current storage to next storage
         self.storage = next_storage
 
 

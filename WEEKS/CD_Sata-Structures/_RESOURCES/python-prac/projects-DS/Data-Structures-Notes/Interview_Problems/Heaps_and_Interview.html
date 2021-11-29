@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Heaps_and_Interview</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="lecture-iv-heaps-and-interview-questions">
+      Lecture IV: Heaps and Interview Questions
+    </h1>
+    <ol type="1">
+      <li><a href="#Binary-Search-Tree">Binary Search Tree Solution</a></li>
+      <li><a href="#Review-Heaps">Review Heaps</a></li>
+      <li>
+        <a href="#Practice-Interview-Questions">Practice Interview Questions</a>
+      </li>
+    </ol>
+    <p>
+      <a href="https://youtu.be/qtB7wpLG84c">CS19 Lecture with Brian Doyle</a>
+    </p>
+    <p>
+      <a
+        href="https://marketplace.visualstudio.com/items?itemName=stuart.unique-window-colors"
+        >Add on that gives VSCode windows unique color themes</a
+      >
+    </p>
+    <h2 id="binary-search-tree">Binary Search Tree</h2>
+    <p>
+      Going through our BST project,
+      <a
+        href="https://github.com/LambdaSchool/Data-Structures/blob/master/binary_search_tree/binary_search_tree.py"
+        >we currently have the following code</a
+      >
+      and need to work on <code>contains</code>:
+    </p>
+    <pre><code>class BinarySearchTree:
+  def __init__(self, value):
+    self.value = value
+    self.left = None
+    self.right = None
+
+  def insert(self, value):
+    if value &lt; self.value:
+        if not self.left:
+            self.left = BinarySearchTree(value)
+        else:
+            # recursively continues until we find an empty spot
+            self.left.insert(value)
+    else:
+        if not self.right:
+            self.right = BinarySearchTree(value)
+        else:
+            self.right.insert(value)
+
+  def contains(self, target):
+    pass</code></pre>
+    <p>
+      We need to check where we are in the tree. If the target is the current
+      value, then we know that we’re already done. Otherwise, we need to
+      traverse the tree.
+    </p>
+    <p>
+      We need to decide if we want to go left or right, so how can we decide
+      that? We’ll compare our value to our target, choosing a path based on if
+      it’s less or greater than.
+    </p>
+    <p>
+      Depending on the direction chosen, if there are no futher nodes to search
+      for it, and it’s not a match, then we know it doesn’t exist in this tree.
+      If there are more nodes, we need to call the same function recursively,
+      but on the node on the right or left.
+    </p>
+    <pre><code>def contains(self, target):
+if self.value == target:
+    return True
+
+if target &lt; self.value:
+    # we know to go left
+    if not self.left:
+        # if there are no further left side nodes to search, it isn&#39;t here
+        return False
+    else:
+        # recursively search the rest
+        return self.contains(target)
+
+else:
+    # we know to go right
+    if not self.right:
+        return False
+    else:
+        return self.contains(target)</code></pre>
+    <p>Next, let’s work through <code>get_max</code>.</p>
+    <p>
+      We want to search the tree, holding onto a max value and updating it if a
+      greater one is found. Our base case is an empty tree. We also know that
+      the max value will be found down the right hand side, not the left, based
+      on the greater than conventional architecture.
+    </p>
+    <pre><code>def get_max(self):
+if not self:
+    return None
+if not self.right:
+    return self.value
+else:
+    return self.right.get_max()</code></pre>
+    <p>
+      We are checking if there is a node to the right. If there isn’t, then we
+      know that’s the max.
+    </p>
+    <p>
+      Otherwise, we keep searching down the right by calling get_max on the next
+      right node.
+    </p>
+    <p>
+      Our last function to write is the <code>for_each</code> method which
+      should visit each node in the tree and run a callback function on it.
+    </p>
+    <p>We can continue writing this with recursion.</p>
+    <pre><code>def for_each(self, cb):
+cb(self.value)
+
+if self.left:
+    self.left.for_each(cb)
+if self.right:
+    self.right.for_each(cb)</code></pre>
+    <p>Why are we not including a return?</p>
+    <p>
+      We’re trying to <em>run</em> a function on each value – that may or may
+      not already include a return statement – not receive back a value, because
+      if we used a return, then it will only go down the left side and exit out
+      of the function before ever calling down the right side of the tree.
+    </p>
+    <h2 id="review-heaps">Review Heaps</h2>
+    <p>
+      Let’s talk about Heaps conceptually. A heap is stored inside of an array
+      because we need to be able to access things at a specific spot – but it
+      looks like a tree because when we access items, we use specific functions
+      that traverses the array like a binary tree in parent-child relatonships.
+    </p>
+    <p>
+      This is unlike the usual array method of accessing things just in a
+      sequential method.
+    </p>
+    <p>
+      This is more efficient because it has an O(1) run time for some operations
+      and the space complexity is simply O(n). There is no extra space or
+      pointer storage. It’s solely storing the data.
+    </p>
+    <p>
+      Visually, it makes more sense to “view” this as a tree (because of the
+      parent-child relationships), but it <em>is</em> stored in an array.
+    </p>
+    <p>
+      <a href="https://www.cs.usfca.edu/~galles/visualization/Heap.html"
+        >Here</a
+      >
+      and <a href="http://btv.melezinek.cz/binary-heap.html">here</a> are heap
+      visualiation websites.
+    </p>
+    <p>
+      Inserting in a min heap means adding a node, then bubbling up through the
+      array to compare to each parent, and swapping them if they should be
+      reversed based on value.
+    </p>
+    <p>
+      In the array, the new node is being added to the end of the array, then
+      it’s finding the parent using
+      <a href="http://geeksquiz.com/binary-heap/">these equations</a>.
+    </p>
+    <p>
+      <em
+        >Brian goes into depth about this around 40 minutes into the CS19
+        lecture.</em
+      >
+    </p>
+    <p>
+      Q: Why it is advantageous to replace the lowest leaf when popping off the
+      root and then sift that child down. Why not swap the next largest child of
+      that root after removing the root?
+    </p>
+    <p>
+      A: Less comparisons to make by sifting the lowest down. If we just move
+      the 2nd largest up, then we have to check all of the children of each
+      child to make sure the heap property is maintained.
+    </p>
+    <p>Heap Insert:</p>
+    <ul>
+      <li>Add Item to end of tree</li>
+      <li>Bubble it up to the right spot</li>
+    </ul>
+    <p>Heap delete:</p>
+    <ul>
+      <li>Swap priority element with least priorty</li>
+      <li>Remove the last element (previously the root)</li>
+      <li>Sift down new top to the correct spot</li>
+    </ul>
+    <h2 id="practice-interview-questions">Practice Interview Questions</h2>
+    <p>
+      Given this sample interview question, how would you approach solving it?
+    </p>
+    <h4 id="find-the-smallest-missing-element-from-a-sorted-array">
+      Find the Smallest Missing Element from a Sorted Array
+    </h4>
+    <p>
+      Given a sorted array of distinct, non-negative integers, find the smallest
+      missing element in it.
+    </p>
+    <p>Examples</p>
+    <blockquote>
+      <p>
+        Input: A = [0, 1, 2, 6, 9, 11, 15] Output: The smallest missing element
+        is 3
+      </p>
+      <p>
+        Input: A = [1, 2, 3, 4, 6, 9, 11, 15] Output: The smallest missing
+        element is 0
+      </p>
+      <p>
+        Input: A = [0, 1, 2, 3, 4, 5, 6] Output: The smallest missing element is
+        7
+      </p>
+    </blockquote>
+    <p>
+      One option would be starting at 0 and iterating up to find the first
+      number that is missing itself +1. If we reach the end of the array and
+      none is missing, then we know it’s the final number in the array +1.
+    </p>
+    <p>
+      A way to possibly optimize would be to find sequences within the array and
+      search before and after each sequence to jump numbers more quickly (akin
+      to TimSort).
+    </p>
+    <pre><code>if arr[0] != 0:
+    return 0
+
+for i in range(0, len(arr)):
+    if arr[i]+1 != arr[i+1]:
+        return arr[i]+1</code></pre>
+    <p>
+      Another method would be to use a version of binary search to find the
+      earliest number where the index of the array does not match arr[i]. For
+      example, if arr[0] is not 0, we know 0 is the earliest missing integer.
+    </p>
+    <p>
+      This is optimized because it allows us to search through the array more
+      quickly. If all of the checks pass, then we know that the earliest missing
+      number is at the end of the array.
+    </p>
+    <p>In an array like this:</p>
+    <blockquote>
+      <p>[0, 1, 2, 3, 5, 6, 9]</p>
+    </blockquote>
+    <p>
+      We know that the earliest missing is at arr[4] because arr[4] == 5 not 4.
+    </p>
+    <p>Our next problem is…</p>
+    <h4
+      id="given-m-sorted-lists-of-variable-length-print-them-out-in-sorted-order-efficiently."
+    >
+      Given M sorted lists of variable length, print them out in sorted order
+      efficiently.
+    </h4>
+    <p>Examples</p>
+    <blockquote>
+      <p>Input: Four sorted lists of variable length</p>
+      <p>[10, 20, 30, 40], [15, 25, 35], [27, 29, 37, 48, 93], [32, 33]</p>
+      <p>Output: 10, 15, 20, 25, 27, 29, 30, 32, 33, 35, 37, 40, 48, 93</p>
+    </blockquote>
+    <p>
+      A way to handle this might be to use merge sort to iterate through the
+      given arguments, and merge the arrays together, then print a final merged
+      array.
+    </p>
+    <pre><code>def merge(arrA, arrB):
+    elements = len( arrA ) + len( arrB )
+    merged_arr = [0] * elements
+
+    for i in range(0, len(merged_arr)):
+        # If arrA is empty, use arrB to fill
+        if len(arrA) == 0:
+            merged_arr[i] = min(arrB)
+            arrB.remove(min(arrB))
+
+        # If arrB is empty, use arrA to fill
+        elif len(arrB) == 0:
+            merged_arr[i] = min(arrA)
+            arrA.remove(min(arrA))
+
+        elif min(arrA) &lt; min(arrB):
+            merged_arr[i] = min(arrA)
+            arrA.remove(min(arrA))
+
+        elif min(arrA) &gt;= min(arrB):
+            merged_arr[i] = min(arrB)
+            arrB.remove(min(arrB))
+
+    return merged_arr
+
+def merge_arrays(*args):
+    if not args:
+        return None
+
+    new_array = []
+    for arg in args:
+        new_array = merge(new_array, arg)
+
+    print(*new_array, sep = &quot;, &quot;)</code></pre>
+    <p>
+      Another interesting solution might be to iterate through the arrays while
+      there is more than one, finding the smallest number of any array, popping
+      it into a new_array, and removing any array that becomes empty.
+    </p>
+    <p>Like so:</p>
+    <figure>
+      <img src="Interview2.png" title="Solution" alt="Solution" />
+      <figcaption>Solution</figcaption>
+    </figure>
+    <p>
+      But a truly optimal solution to this problem is solved
+      <a
+        href="https://medium.com/outco/how-to-merge-k-sorted-arrays-c35d87aa298e"
+        >using min heaps</a
+      >.
+    </p>
+  </body>
+</html>

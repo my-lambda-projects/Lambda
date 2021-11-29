@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Top_50_Important_OOPS_Questions_&_Answers.md.md</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a
+        href="https://medium.com/@aayushijohari?source=post_page-----621fc922cdf4--------------------------------"
+        ><img
+          src="https://miro.medium.com/fit/c/96/96/0*qi14KVra23cQqJzE"
+          alt="Aayushi Johari"
+      /></a>
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1280/1*dD_Z3lPXQBH_3CLuipc_eA.png"
+      />
+    </p>
+    <p>OOPS Interview Questions — Edureka</p>
+    <p>
+      OOPs is one of the main concepts in the programming world, therefore,
+      every interview that you attend requires knowledge of OOPs. This article
+      compiles the most frequently asked OOPs Interview Questions for freshers.
+      So go ahead and get prepared.
+    </p>
+    <p>Let’s take a quick look at all the topics of discussion:</p>
+    <ul>
+      <li>Basic OOPs Interview Questions</li>
+      <li>OOPs Interview Questions Classes and Objects</li>
+      <li>Interview Questions on Features of OOPs</li>
+    </ul>
+    <ol type="1">
+      <li>Inheritance</li>
+      <li>Polymorphism</li>
+      <li>Encapsulation</li>
+      <li>Data abstraction</li>
+    </ol>
+    <ul>
+      <li>Methods and functions Interview Questions</li>
+      <li>Exception handling Interview Questions</li>
+      <li>Limitations of OOPs</li>
+    </ul>
+    <h2 id="what-is-the-difference-between-oop-and-sop">
+      1. What is the difference between OOP and SOP?
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*MsKDM9TiIfSy9JXFEZ5zgg.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*MsKDM9TiIfSy9JXFEZ5zgg.png"
+      />
+    </p>
+    <h2 id="what-is-oops">2. What is OOPs?</h2>
+    <p>
+      OOPs (Object-Oriented Programming) is a type of programming which is based
+      on objects rather than just functions and procedures. Individual objects
+      are grouped into classes. OOPs implements real-world entities like
+      inheritance, polymorphism, hiding, etc into programming. It also allows
+      binding data and code together.
+    </p>
+    <h2 id="why-use-oops">3. Why use OOPs?</h2>
+    <ul>
+      <li>
+        OOPs allows clarity in programming thereby allowing simplicity in
+        solving complex problems
+      </li>
+      <li>
+        Code can be reused through inheritance thereby reducing redundancy
+      </li>
+      <li>Data and code are bound together by encapsulation</li>
+      <li>
+        OOPs allows data hiding, therefore, private data is kept confidential
+      </li>
+      <li>
+        Problems can be divided into different parts making it simple to solve
+      </li>
+      <li>
+        The concept of polymorphism gives flexibility to the program by allowing
+        the entities to have multiple forms
+      </li>
+    </ul>
+    <h2 id="what-are-the-main-features-of-oops">
+      4. What are the main features of OOPs?
+    </h2>
+    <ul>
+      <li>Inheritance</li>
+      <li>Encapsulation</li>
+      <li>Polymorphism</li>
+      <li>Data Abstraction</li>
+    </ul>
+    <h2 id="what-is-an-object">5. What is an object?</h2>
+    <p>
+      An object is a real-world entity which is the basic unit of OOPs for
+      example chair, cat, dog, etc. Different objects have different states or
+      attributes, and behaviors.
+    </p>
+    <h2 id="what-is-a-class">6. What is a class?</h2>
+    <p>
+      A class is a prototype that consists of objects in different states and
+      with different behaviors. It has a number of methods that are common the
+      objects present within that class.
+    </p>
+    <h2 id="what-is-the-difference-between-a-class-and-a-structure">
+      7. What is the difference between a class and a structure?
+    </h2>
+    <p>
+      <strong>Class:</strong> User-defined blueprint from which objects are
+      created. It consists of methods or set of instructions that are to be
+      performed on the objects.
+    </p>
+    <p>
+      <strong>Structure:</strong> A structure is basically a user-defined
+      collection of variables which are of different data types.
+    </p>
+    <h2 id="can-you-call-the-base-class-method-without-creating-an-instance">
+      8. Can you call the base class method without creating an instance?
+    </h2>
+    <p>Yes, you can call the base class without instantiating it if:</p>
+    <ul>
+      <li>It is a static method</li>
+      <li>The base class is inherited by some other subclass</li>
+    </ul>
+    <h2 id="what-is-the-difference-between-a-class-and-an-object">
+      9. What is the difference between a class and an object?
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*Y8VrFhNskq2l5JCUJpQA3A.png"
+      />
+    </p>
+    <h2 id="what-is-inheritance">10. What is inheritance?</h2>
+    <p>
+      Inheritance is a feature of OOPs which allows classes inherit common
+      properties from other classes. For example, if there is a class such as
+      ‘vehicle’, other classes like ‘car’, ‘bike’, etc can inherit common
+      properties from the vehicle class. This property helps you get rid of
+      redundant code thereby reducing the overall size of the code.
+    </p>
+    <h2 id="what-are-the-different-types-of-inheritance">
+      11. What are the different types of inheritance?
+    </h2>
+    <ul>
+      <li>Single inheritance</li>
+      <li>Multiple inheritances</li>
+      <li>Multilevel inheritance</li>
+      <li>Hierarchical inheritance</li>
+      <li>Hybrid inheritance</li>
+    </ul>
+    <h2
+      id="what-is-the-difference-between-multiple-and-multilevel-inheritances"
+    >
+      12. What is the difference between multiple and multilevel inheritances?
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*1CO5ozuErEUbi2wejbeEKQ.png"
+      />
+    </p>
+    <h2 id="what-is-hybrid-inheritance">13. What is hybrid inheritance?</h2>
+    <p>
+      Hybrid inheritance is a combination of multiple and multi-level
+      inheritance.
+    </p>
+    <h2 id="what-is-hierarchical-inheritance">
+      14. What is hierarchical inheritance?
+    </h2>
+    <p>
+      Hierarchical inheritance refers to inheritance where one base class has
+      more than one subclasses. For example, the vehicle class can have ‘car’,
+      ‘bike’, etc as its subclasses.
+    </p>
+    <h2 id="what-are-the-limitations-of-inheritance">
+      15. What are the limitations of inheritance?
+    </h2>
+    <ul>
+      <li>
+        Increases the time and effort required to execute a program as it
+        requires jumping back and forth between different classes
+      </li>
+      <li>The parent class and the child class get tightly coupled</li>
+      <li>
+        Any modifications to the program would require changes both in the
+        parent as well as the child class
+      </li>
+      <li>Needs careful implementation else would lead to incorrect results</li>
+    </ul>
+    <h2 id="what-is-a-superclass">16. What is a superclass?</h2>
+    <p>
+      A superclass or base class is a class that acts as a parent to some other
+      class or classes. For example, the Vehicle class is a superclass of class
+      Car.
+    </p>
+    <h2 id="what-is-a-subclass">17. What is a subclass?</h2>
+    <p>
+      A class that inherits from another class is called the subclass. For
+      example, the class Car is a subclass or a derived of Vehicle class.
+    </p>
+    <h2 id="what-is-polymorphism">
+      <strong>18. What is polymorphism?</strong>
+    </h2>
+    <p>
+      Polymorphism refers to the ability to exist in multiple forms. Multiple
+      definitions can be given to a single interface. For example, if you have a
+      class named Vehicle, it can have a method named speed but you cannot
+      define it because different vehicles have different speed. This method
+      will be defined in the subclasses with different definitions for different
+      vehicles.
+    </p>
+    <h2 id="what-is-static-polymorphism">19. What is static polymorphism?</h2>
+    <p>
+      Static polymorphism (static binding) is a kind of polymorphism that occurs
+      at compile time. An example of compile-time polymorphism is method
+      overloading.
+    </p>
+    <h2 id="what-is-dynamic-polymorphism">20. What is dynamic polymorphism?</h2>
+    <p>
+      Runtime polymorphism or dynamic polymorphism (dynamic binding) is a type
+      of polymorphism which is resolved during runtime. An example of runtime
+      polymorphism is method overriding.
+    </p>
+    <h2 id="what-is-method-overloading">21. What is method overloading?</h2>
+    <p>
+      Method overloading is a feature of OOPs which makes it possible to give
+      the same name to more than one methods within a class if the arguments
+      passed differ.
+    </p>
+    <h2 id="what-is-method-overriding">22. What is method overriding?</h2>
+    <p>
+      Method overriding is a feature of OOPs by which the child class or the
+      subclass can redefine methods present in the base class or parent class.
+      Here, the method that is overridden has the same name as well as the
+      signature meaning the arguments passed and the return type.
+    </p>
+    <h2 id="what-is-operator-overloading">23. What is operator overloading?</h2>
+    <p>
+      Operator overloading refers to implementing operators using user-defined
+      types based on the arguments passed along with it.
+    </p>
+    <h2 id="differentiate-between-overloading-and-overriding.">
+      24. Differentiate between overloading and overriding.
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*hGnARvpBphnAKblZJoxO1w.png"
+      />
+    </p>
+    <h2 id="what-is-encapsulation">25. What is encapsulation?</h2>
+    <p>
+      Encapsulation refers to binding the data and the code that works on that
+      together in a single unit. For example, a class. Encapsulation also allows
+      data-hiding as the data specified in one class is hidden from other
+      classes.
+    </p>
+    <h2 id="what-are-access-specifiers">26. What are ‘access specifiers’?</h2>
+    <p>
+      Access specifiers or access modifiers are keywords that determine the
+      accessibility of methods, classes, etc in OOPs. These access specifiers
+      allow the implementation of encapsulation. The most common access
+      specifiers are public, private and protected. However, there are a few
+      more which are specific to the programming languages.
+    </p>
+    <h2
+      id="what-is-the-difference-between-public-private-and-protected-access-modifiers"
+    >
+      27. What is the difference between public, private and protected access
+      modifiers?
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*BOQlRpQQr6i5vPKEt_lZzQ.png"
+      />
+    </p>
+    <h2 id="what-is-data-abstraction">28. What is data abstraction?</h2>
+    <p>
+      Data abstraction is a very important feature of OOPs that allows
+      displaying only the important information and hiding the implementation
+      details. For example, while riding a bike, you know that if you raise the
+      accelerator, the speed will increase, but you don’t know how it actually
+      happens. This is data abstraction as the implementation details are hidden
+      from the rider.
+    </p>
+    <h2 id="how-to-achieve-data-abstraction">
+      29. How to achieve data abstraction?
+    </h2>
+    <p>Data abstraction can be achieved through:</p>
+    <ul>
+      <li>Abstract class</li>
+      <li>Abstract method</li>
+    </ul>
+    <h2 id="what-is-an-abstract-class">30. What is an abstract class?</h2>
+    <p>
+      An abstract class is a class that consists of abstract methods. These
+      methods are basically declared but not defined. If these methods are to be
+      used in some subclass, they need to be exclusively defined in the
+      subclass.
+    </p>
+    <h2 id="can-you-create-an-instance-of-an-abstract-class">
+      31. Can you create an instance of an abstract class?
+    </h2>
+    <p>
+      No. Instances of an abstract class cannot be created because it does not
+      have a complete implementation. However, instances of subclass inheriting
+      the abstract class can be created.
+    </p>
+    <h2 id="what-is-an-interface">32. What is an interface?</h2>
+    <p>
+      It is a concept of OOPs that allows you to declare methods without
+      defining them. Interfaces, unlike classes, are not blueprints because they
+      do not contain detailed instructions or actions to be performed. Any class
+      that implements an interface defines the methods of the interface.
+    </p>
+    <h2 id="differentiate-between-data-abstraction-and-encapsulation.">
+      33. Differentiate between data abstraction and encapsulation.
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*-tdEWWuqkwEs28EtMPxbpg.png"
+      />
+    </p>
+    <h2 id="what-are-virtual-functions">34. What are virtual functions?</h2>
+    <p>
+      Virtual functions are functions that are present in the parent class and
+      are overridden by the subclass. These functions are used to achieve
+      runtime polymorphism.
+    </p>
+    <h2 id="what-are-pure-virtual-functions">
+      35. What are pure virtual functions?
+    </h2>
+    <p>
+      Pure virtual functions or abstract functions are functions that are only
+      declared in the base class. This means that they do not contain any
+      definition in the base class and need to be redefined in the subclass.
+    </p>
+    <h2 id="what-is-a-constructor">36. What is a constructor?</h2>
+    <p>
+      A constructor is a special type of method that has the same name as the
+      class and is used to initialize objects of that class.
+    </p>
+    <h2 id="what-is-a-destructor">37. What is a destructor?</h2>
+    <p>
+      A destructor is a method that is automatically invoked when an object is
+      destroyed. The destructor also recovers the heap space that was allocated
+      to the destroyed object, closes the files and database connections of the
+      object, etc.
+    </p>
+    <h2 id="types-of-constructors">38. Types of constructors</h2>
+    <p>
+      Types of constructors differ from language to language. However, all the
+      possible constructors are:
+    </p>
+    <ul>
+      <li>Default constructor</li>
+      <li>Parameterized constructor</li>
+      <li>Copy constructor</li>
+      <li>Static constructor</li>
+      <li>Private constructor</li>
+    </ul>
+    <h2 id="what-is-a-copy-constructor">39. What is a copy constructor?</h2>
+    <p>
+      A copy constructor creates objects by copying variables from another
+      object of the same class. The main aim of a copy constructor is to create
+      a new object from an existing one.
+    </p>
+    <h2 id="what-is-the-use-of-finalize">40. What is the use of ‘finalize’?</h2>
+    <p>
+      Finalize as an object method used to free up unmanaged resources and
+      cleanup before Garbage Collection(GC). It performs memory management
+      tasks.
+    </p>
+    <h2 id="what-is-garbage-collectiongc">
+      41. What is Garbage Collection(GC)?
+    </h2>
+    <p>
+      GC is an implementation of automatic memory management. The Garbage
+      collector frees up space occupied by objects that are no longer in
+      existence.
+    </p>
+    <h2 id="differentiate-between-a-class-and-a-method.">
+      42. Differentiate between a class and a method.
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*s6HdzgsQBQWzqv3e3n4oiw.png"
+      />
+    </p>
+    <h2 id="differentiate-between-an-abstract-class-and-an-interface">
+      43. Differentiate between an abstract class and an interface?
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*JzIKbRwzab5YUncd0_B58w.png"
+      />
+    </p>
+    <h2 id="what-is-a-final-variable">44. What is a final variable?</h2>
+    <p>
+      A variable whose value does not change. It always refers to the same
+      object by the property of non-transversity.
+    </p>
+    <h2 id="what-is-an-exception">45. What is an exception?</h2>
+    <p>
+      An exception is a kind of notification that interrupts the normal
+      execution of a program. Exceptions provide a pattern to the error and
+      transfer the error to the exception handler to resolve it. The state of
+      the program is saved as soon as an exception is raised.
+    </p>
+    <h2 id="what-is-exception-handling">46. What is exception handling?</h2>
+    <p>
+      Exception handling in Object-Oriented Programming is a very important
+      concept that is used to manage errors. An exception handler allows errors
+      to be thrown and caught and implements a centralized mechanism to resolve
+      them.
+    </p>
+    <h2 id="what-is-the-difference-between-an-error-and-an-exception">
+      47. What is the difference between an error and an exception?
+    </h2>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*l8gPoIANw5ESjmxFpvISjQ.png"
+      />
+    </p>
+    <h2 id="what-is-a-try-catch-block">48. What is a try/ catch block?</h2>
+    <p>
+      A try/ catch block is used to handle exceptions. The try block defines a
+      set of statements that may lead to an error. The catch block basically
+      catches the exception.
+    </p>
+    <h2 id="what-is-a-finally-block">49. What is a finally block?</h2>
+    <p>
+      A finally block consists of code that is used to execute important code
+      such as closing a connection, etc. This block executes when the try block
+      exits. It also makes sure that finally, block executes even in case some
+      unexpected exception is encountered.
+    </p>
+    <h2 id="what-are-the-limitations-of-oops">
+      50. What are the limitations of OOPs?
+    </h2>
+    <ul>
+      <li>Usually not suitable for small problems</li>
+      <li>Requires intensive testing</li>
+      <li>Takes more time to solve the problem</li>
+      <li>Requires proper planning</li>
+      <li>
+        The programmer should think of solving a problem in terms of objects
+      </li>
+    </ul>
+    <p>
+      Hope you are clear with all that has been shared with you in this
+      tutorial. This brings us to the end of our article on OOPs Interview
+      Questions.
+      <strong
+        ><em
+          >Make sure you practice as much as possible and revert your
+          experience.</em
+        ></strong
+      >
+    </p>
+    <p>
+      If you wish to check out more articles on the market’s most trending
+      technologies like Artificial Intelligence, DevOps, Ethical Hacking, then
+      you can refer to
+      <a
+        href="https://www.edureka.co/blog/?utm_source=medium&amp;utm_medium=content-link&amp;utm_campaign=oops-interview-questions"
+        >Edureka’s official site.</a
+      >
+    </p>
+    <p>
+      Do look out for other articles in this series which will explain the
+      various other aspects of Python and Data Science.
+    </p>
+    <blockquote>
+      <p>
+        1.
+        <a
+          href="https://medium.com/edureka/machine-learning-classifier-c02fbd8400c9"
+          >Machine Learning Classifier in Python</a
+        >
+      </p>
+      <p>
+        2.
+        <a
+          href="https://medium.com/edureka/python-scikit-learn-cheat-sheet-9786382be9f5"
+          >Python Scikit-Learn Cheat Sheet</a
+        >
+      </p>
+      <p>
+        3.
+        <a
+          href="https://medium.com/edureka/python-libraries-for-data-science-and-machine-learning-1c502744f277"
+          >Machine Learning Tools</a
+        >
+      </p>
+      <p>
+        4.
+        <a
+          href="https://medium.com/edureka/python-libraries-for-data-science-and-machine-learning-1c502744f277"
+          >Python Libraries For Data Science And Machine Learning</a
+        >
+      </p>
+      <p>
+        5.
+        <a
+          href="https://medium.com/edureka/how-to-make-a-chatbot-in-python-b68fd390b219"
+          >Chatbot In Python</a
+        >
+      </p>
+      <p>
+        6.
+        <a href="https://medium.com/edureka/collections-in-python-d0bc0ed8d938"
+          >Python Collections</a
+        >
+      </p>
+      <p>
+        7.
+        <a href="https://medium.com/edureka/python-modules-abb0145a5963"
+          >Python Modules</a
+        >
+      </p>
+      <p>
+        8.
+        <a
+          href="https://medium.com/edureka/python-developer-skills-371583a69be1"
+          >Python developer Skills</a
+        >
+      </p>
+      <p>
+        9.
+        <a
+          href="https://medium.com/edureka/web-scraping-with-python-d9e6506007bf"
+          >Web Scraping With Python</a
+        >
+      </p>
+      <p>
+        10.
+        <a
+          href="https://medium.com/edureka/python-developer-resume-ded7799b4389"
+          >Resume For A Python Developer</a
+        >
+      </p>
+      <p>
+        11.
+        <a
+          href="https://medium.com/edureka/exploratory-data-analysis-in-python-3ee69362a46e"
+          >Exploratory Data Analysis In Python</a
+        >
+      </p>
+      <p>
+        12.
+        <a href="https://medium.com/edureka/python-turtle-module-361816449390"
+          >Snake Game With Python’s Turtle Module</a
+        >
+      </p>
+      <p>
+        13.
+        <a
+          href="https://medium.com/edureka/python-developer-salary-ba2eff6a502e"
+          >Python Developer Salary</a
+        >
+      </p>
+      <ol start="14" type="1">
+        <li>
+          <a
+            href="https://medium.com/edureka/principal-component-analysis-69d7a4babc96"
+            >Principal Component Analysis</a
+          >
+        </li>
+      </ol>
+      <p>
+        15.
+        <a href="https://medium.com/edureka/python-vs-cpp-c3ffbea01eec"
+          >Python vs C++</a
+        >
+      </p>
+      <p>
+        16.
+        <a href="https://medium.com/edureka/scrapy-tutorial-5584517658fb"
+          >Scrapy Tutorial</a
+        >
+      </p>
+      <p>
+        17.
+        <a href="https://medium.com/edureka/scipy-tutorial-38723361ba4b"
+          >Python SciPy</a
+        >
+      </p>
+      <p>
+        18.
+        <a
+          href="https://medium.com/edureka/least-square-regression-40b59cca8ea7"
+          >Least Squares Regression Method</a
+        >
+      </p>
+      <p>
+        19.
+        <a
+          href="https://medium.com/edureka/jupyter-notebook-cheat-sheet-88f60d1aca7"
+          >Jupyter Notebook Cheat Sheet</a
+        >
+      </p>
+      <p>
+        20.
+        <a href="https://medium.com/edureka/python-basics-f371d7fc0054"
+          >Python Basics</a
+        >
+      </p>
+      <p>
+        21.
+        <a
+          href="https://medium.com/edureka/python-pattern-programs-75e1e764a42f"
+          >Python Pattern Programs</a
+        >
+      </p>
+      <p>
+        22.
+        <a href="https://medium.com/edureka/generators-in-python-258f21e3d3ff"
+          >Generators in Python</a
+        >
+      </p>
+      <p>
+        23.
+        <a
+          href="https://medium.com/edureka/python-decorator-tutorial-bf7b21278564"
+          >Python Decorator</a
+        >
+      </p>
+      <ol start="24" type="1">
+        <li>
+          <a href="https://medium.com/edureka/spyder-ide-2a91caac4e46"
+            >Python Spyder IDE</a
+          >
+        </li>
+      </ol>
+      <p>
+        25.
+        <a href="https://medium.com/edureka/kivy-tutorial-9a0f02fe53f5"
+          >Mobile Applications Using Kivy In Python</a
+        >
+      </p>
+      <p>
+        26.
+        <a href="https://medium.com/edureka/best-books-for-python-11137561beb7"
+          >Top 10 Best Books To Learn &amp; Practice Python</a
+        >
+      </p>
+      <p>
+        27.
+        <a
+          href="https://medium.com/edureka/robot-framework-tutorial-f8a75ab23cfd"
+          >Robot Framework With Python</a
+        >
+      </p>
+      <p>
+        28.
+        <a href="https://medium.com/edureka/snake-game-with-pygame-497f1683eeaa"
+          >Snake Game in Python using PyGame</a
+        >
+      </p>
+      <p>
+        29.
+        <a
+          href="https://medium.com/edureka/django-interview-questions-a4df7bfeb7e8"
+          >Django Interview Questions and Answers</a
+        >
+      </p>
+      <p>
+        30.
+        <a href="https://medium.com/edureka/python-applications-18b780d64f3b"
+          >Top 10 Python Applications</a
+        >
+      </p>
+      <p>
+        31.
+        <a
+          href="https://medium.com/edureka/hash-tables-and-hashmaps-in-python-3bd7fc1b00b4"
+          >Hash Tables and Hashmaps in Python</a
+        >
+      </p>
+      <p>
+        32.
+        <a href="https://medium.com/edureka/whats-new-python-3-8-7d52cda747b"
+          >Python 3.8</a
+        >
+      </p>
+      <p>
+        33.
+        <a
+          href="https://medium.com/edureka/support-vector-machine-in-python-539dca55c26a"
+          >Support Vector Machine</a
+        >
+      </p>
+      <p>
+        34.
+        <a href="https://medium.com/edureka/python-tutorial-be1b3d015745"
+          >Python Tutorial</a
+        >
+      </p>
+    </blockquote>
+  </body>
+</html>

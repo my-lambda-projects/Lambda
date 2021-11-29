@@ -2,8 +2,7 @@
 
 > Make the best out of Medium as a writer with these hints.
 
-Using the editor
-----------------
+## Using the editor
 
 [![Medium](https://miro.medium.com/fit/c/56/56/1*sHhtYhaCe2Uc3IU0IgKwIQ.png)](https://medium.com/@Medium?source=post_page-----1d79498101c3--------------------------------)
 
@@ -33,8 +32,7 @@ Using the editor
 
 **Write or edit from mobile.** Download [Medium’s iOS app](https://medium.com/m/app) or [Android app](https://play.google.com/store/apps/details?id=com.medium.reader&hl=en) and write — or edit — on the go.
 
-Images
-------
+## Images
 
 **Image options.** In the Medium editor, click on any image to bring up the menu that allows you to change its size and position.
 
@@ -46,8 +44,7 @@ Images
 
 **Feature an image on your story.** In the “Publish” drop-down menu, you can select which of the hi-res images from your story is featured in previews. Or select an image and hit “Shift+F.”
 
-Publishing your story
----------------------
+## Publishing your story
 
 **Revision history.** Click on the \[…\] in the upper right corner of the editor, and then on _Revision history_ to see the version history of your story. You can then view or revert to an earlier version of your story.
 
@@ -55,8 +52,7 @@ Publishing your story
 
 **Customize title and subtitle of your story.** After finishing your story, click the \[…\] button and select _Title/subtitle._ Select _Custom title._ Choose _Custom title_, input your custom display title, and then click _Save_. You must have a title, but a subtitle is optional.
 
-Checking on/Influencing your story’s impact
--------------------------------------------
+## Checking on/Influencing your story’s impact
 
 **Feature a story on your profile.** Click on the down arrow next to any story on your profile page to [feature it](https://help.medium.com/hc/en-us/articles/115004747067-Your-profile-page) so that it occupies the top spot. If you don’t select one to feature, our system will choose a popular one for you.
 
@@ -68,8 +64,7 @@ Checking on/Influencing your story’s impact
 
 **Text shots.** Use [text shots](https://help.medium.com/hc/en-us/articles/214455808-Share-on-social-media) to share the best parts of your story on Twitter. Stories shared with text shots have been shown to have 3–5x more engagement than stories without them.
 
-Input/output
-------------
+## Input/output
 
 **Share your draft to get feedback.** To generate a link to your draft, click on the \[…\] button in the upper right corner of the editor, and then click _Share draft_. Using this link, others will be able to read your draft (and even leave private notes if they have a Medium account).
 
@@ -79,14 +74,12 @@ Input/output
 
 **Export your stories.** At any point, you can download an archive of all your stories from the [export page](https://medium.com/me/export) (accessible from your settings).
 
-Additional Resources
---------------------
+## Additional Resources
 
 **Getting started on Medium.** For a quick overview of writing and earning on Medium, [check out this FAQ](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/interested-in-writing-on-medium-start-here-8b8191cb6618).
 
 **Writing Success.** You’ll find resources to grow a successful writing practice in the [Writing Success](https://help.medium.com/hc/en-us/sections/360008002233-Writing-Success) section of the Help Center. Follow
 
 for ongoing writing advice. For more inspiration and tips on writing, check out the stories in the [Writing](https://medium.com/topic/writing) topic.
-
 
 [Source](https://blog.medium.com/tips-and-tricks-for-medium-writers-1d79498101c3)

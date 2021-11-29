@@ -43,7 +43,8 @@ class CodeExample extends Component<Props> {
           [media.lessThan('large')]: {
             display: 'block',
           },
-        }}>
+        }}
+      >
         {children && (
           <div
             css={{
@@ -67,7 +68,8 @@ class CodeExample extends Component<Props> {
                   marginTop: 25,
                 },
               },
-            }}>
+            }}
+          >
             {children}
           </div>
         )}

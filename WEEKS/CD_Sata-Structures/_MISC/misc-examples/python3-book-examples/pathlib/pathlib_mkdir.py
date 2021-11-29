@@ -1,0 +1,13 @@
+# Copyright (c) 2016 Doug Hellmann.  All rights reserved.
+# Written for https://pymotw.com
+#
+"""Creating a directory
+"""
+
+# end_pymotw_header
+import pathlib
+
+p = pathlib.Path("example_dir")
+
+print("Creating {}".format(p))
+p.mkdir()

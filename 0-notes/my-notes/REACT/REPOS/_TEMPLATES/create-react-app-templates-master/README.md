@@ -15,13 +15,13 @@ or
 create-react-app <app-name> --scripts-version @reedsa/react-scripts --internal-testing-template <template>
 ```
 
-* Replace `<app-name>` with the name of your project
-* Replace `<template>` with the relative path to the template (starting with `./` or `../`) or the name of the template published on NPM.
+- Replace `<app-name>` with the name of your project
+- Replace `<template>` with the relative path to the template (starting with `./` or `../`) or the name of the template published on NPM.
 
 > **Example using NPM package:**
 >
 > Create a "beautiful-sass-app" project with the "sass" template published on NPM using this command:
->
+
 ```
 create-react-app beautiful-sass-app --scripts-version @reedsa/react-scripts --internal-testing-template @reedsa/sass-template
 ```
@@ -29,7 +29,7 @@ create-react-app beautiful-sass-app --scripts-version @reedsa/react-scripts --in
 > **Example using local template:**
 >
 > Create a "sweet-redux-app" project alongside the create-react-app-templates project with the "accelerator" template using this command:
->
+
 ```
 create-react-app excellent-redux-app --scripts-version @reedsa/react-scripts --internal-testing-template ./create-react-app-templates/packages/accelerator
 ```
@@ -71,10 +71,11 @@ create-react-app sweet-react-sass-app --scripts-version @reedsa/react-scripts --
 We're always happy to consider more templates for this project. Please review the [contributing guide](.github/CONTRIBUTING.md) to submit a new template.
 
 Here are a few others that might be useful:
-* Express: Run your application on an [express](http://expressjs.com/) server.
-* Flow
-* Material Components Web
-* Storybook
-* CircleCI configuration for automated deployments
-* Deployment with Heroku
-* Deployment with AWS
+
+- Express: Run your application on an [express](http://expressjs.com/) server.
+- Flow
+- Material Components Web
+- Storybook
+- CircleCI configuration for automated deployments
+- Deployment with Heroku
+- Deployment with AWS

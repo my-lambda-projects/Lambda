@@ -24,13 +24,13 @@ from singly_linked_list import LinkedList
 
 # QUEUE
 # A queue is a data structure whose primary purpose is to store and
-    # return elements in First In First Out order. 
+# return elements in First In First Out order.
 
 # time complexity:   Avg   | Worst
-    # Access:       O(n)   |   O(n)
-    # Search:       O(n)   |   O(n)
-    # Insertion:    O(1)   |   O(1)
-    # Deletion:     O(1)   |   O(1)
+# Access:       O(n)   |   O(n)
+# Search:       O(n)   |   O(n)
+# Insertion:    O(1)   |   O(1)
+# Deletion:     O(1)   |   O(1)
 
 # space complexity:  O(n)
 
@@ -39,8 +39,8 @@ class Queue:
     def __init__(self):
         self.size = 0
         self.storage = LinkedList()
-    
-    # return queue size/length 
+
+    # return queue size/length
     def __len__(self):
         return self.size
 

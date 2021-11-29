@@ -105,7 +105,9 @@ export class BaseSelect<
   private getNormalizedXCoordinate = (
     evt: React.MouseEvent<T> | React.TouchEvent<T>
   ) => {
-    const targetClientRect = (evt.currentTarget as Element).getBoundingClientRect();
+    const targetClientRect = (
+      evt.currentTarget as Element
+    ).getBoundingClientRect();
     const xCoordinate = this.isTouchEvent(evt.nativeEvent)
       ? evt.nativeEvent.touches[0].clientX
       : evt.nativeEvent.clientX;

@@ -1,7 +1,6 @@
-
 import random
 
-'''
+"""
 Can we search in a sorted linked list in better than O(n) time?
     The worst case search time for a sorted linked list is O(n) as we 
         can only linearly traverse the list and cannot skip nodes 
@@ -83,18 +82,18 @@ Basic idea is if:
         the pointer to current node i at update[i], move one level down, 
         and continue our search.
 At the level 0, we will definitely find a position to insert given key.
-'''
+"""
 
 # SKIP LIST
-    # create multiple layers in a sorted list so we can skip some nodes
-    # has express lane, use express lane to find 'bucket' or 'chunk which 
-        # your result is found in
+# create multiple layers in a sorted list so we can skip some nodes
+# has express lane, use express lane to find 'bucket' or 'chunk which
+# your result is found in
 
 # time complexity:     Avg      |   Worst
-    # Access:       O(log(n))   |   O(n)
-    # Search:       O(log(n))   |   O(n)
-    # Insertion:    O(log(n))   |   O(n)
-    # Deletion:     O(log(n))   |   O(n)
+# Access:       O(log(n))   |   O(n)
+# Search:       O(log(n))   |   O(n)
+# Insertion:    O(log(n))   |   O(n)
+# Deletion:     O(log(n))   |   O(n)
 
 # space complexity:  O(n log(n))
 
@@ -104,7 +103,7 @@ class Node(object):
         self.key = key
 
         # list to hold references to node of different level
-        self.forward = [None]*(level+1)
+        self.forward = [None] * (level + 1)
 
 
 class SkipList(object):
@@ -113,7 +112,7 @@ class SkipList(object):
         self.max_level = max_level
 
         # P is the fraction of the nodes with level
-            # i references also having level i+1 references
+        # i references also having level i+1 references
         self.P = P
 
         # create header node and initialize key to -1
@@ -137,34 +136,34 @@ class SkipList(object):
     # insert given key in skip list
     def insert_element(self, key):
         # create update array and initialize it
-        update = [None]*(self.max_level+1)
+        update = [None] * (self.max_level + 1)
         current = self.header
 
         # start from highest level of skip list
         for i in range(self.level, -1, -1):
-            # move the current reference forward while key is 
-                # greater than key of node next to current
+            # move the current reference forward while key is
+            # greater than key of node next to current
             while current.forward[i] and current.forward[i].key < key:
                 current = current.forward[i]
-            # Otherwise inserted current in update, move 
-                # one level down, and continue search
+            # Otherwise inserted current in update, move
+            # one level down, and continue search
             update[i] = current
-        # reached level 0 and forward reference to right, which is 
-            # desired position to insert key. 
+        # reached level 0 and forward reference to right, which is
+        # desired position to insert key.
         current = current.forward[0]
 
-        # If current is NULL, that means we have reached to end of the level 
-            # or current's key is not equal to key to insert.
+        # If current is NULL, that means we have reached to end of the level
+        # or current's key is not equal to key to insert.
         # That means we have to insert node between update[0] and current node.
         if current == None or current.key != key:
             # Generate a random level for node
             r_level = self.random_level()
 
-            # If random level is greater than list's current level (node with highest 
-                # level inserted in list so far), initialize update value with reference 
-                # to header for further use 
+            # If random level is greater than list's current level (node with highest
+            # level inserted in list so far), initialize update value with reference
+            # to header for further use
             if r_level > self.level:
-                for i in range(self.level+1, r_level+1):
+                for i in range(self.level + 1, r_level + 1):
                     update[i] = self.header
                 self.level = r_level
 
@@ -172,7 +171,7 @@ class SkipList(object):
             node_random_level = self.create_node(r_level, key)
 
             # insert node by rearranging references
-            for i in range(r_level+1):
+            for i in range(r_level + 1):
                 node_random_level.forward[i] = update[i].forward[i]
                 update[i].forward[i] = node_random_level
 
@@ -182,13 +181,14 @@ class SkipList(object):
     def display_list(self):
         print("\n*****Skip List******")
         head = self.header
-        for lvl in range(self.level+1):
+        for lvl in range(self.level + 1):
             print("Level {}: ".format(lvl), end=" ")
             node = head.forward[lvl]
-            while(node != None):
+            while node != None:
                 print(node.key, end=" ")
                 node = node.forward[lvl]
             print("")
+
 
 def main():
     lst = SkipList(3, 0.5)

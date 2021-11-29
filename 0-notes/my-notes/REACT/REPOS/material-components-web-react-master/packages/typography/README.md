@@ -13,16 +13,19 @@ npm install @material/react-typography
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-typography/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-typography/dist/typography.css';
 ```
 
 ### Javascript Instantiation
+
 ```js
 import React from 'react';
 import {
@@ -70,131 +73,131 @@ class MyApp extends React.Component {
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h1'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h1'`)                          |
 
 ### Headline2
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h2'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h2'`)                          |
 
 ### Headline3
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h3'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h3'`)                          |
 
 ### Headline4
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h4'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h4'`)                          |
 
 ### Headline5
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h5'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h5'`)                          |
 
 ### Headline6
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h6'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h6'`)                          |
 
 ### Subtitle1
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h6'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h6'`)                          |
 
 ### Subtitle2
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'h6'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'h6'`)                          |
 
 ### Body1
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'p'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'p'`)                           |
 
 ### Body2
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'p'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'p'`)                           |
 
 ### Button
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'span'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'span'`)                        |
 
 ### Caption
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'span'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'span'`)                        |
 
 ### Overline
 
 #### Props
 
-Prop Name | Type | Description
---- | --- | ---
-children | Node | A React node to render within the component. The text to display
-className | String | Classes to be applied to the root element
-tag | String | The tag type to render (default `'span'`)
+| Prop Name | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| children  | Node   | A React node to render within the component. The text to display |
+| className | String | Classes to be applied to the root element                        |
+| tag       | String | The tag type to render (default `'span'`)                        |
 
 ## Sass Mixins
 

@@ -1,17 +1,85 @@
 // reset css
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -19,21 +87,34 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 body {
   font-family: Roboto, sans-serif;
 }
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: '';
   content: none;
 }
@@ -46,27 +127,27 @@ a {
 }
 
 // theme
-$mdc-theme-primary: #FF5FAB;
-$mdc-theme-secondary: #FF349C;
+$mdc-theme-primary: #ff5fab;
+$mdc-theme-secondary: #ff349c;
 $mdc-theme-on-primary: white;
 $mdc-theme-on-secondary: white;
-$mdc-theme-error: #F03E3E;
+$mdc-theme-error: #f03e3e;
 $mdc-theme-on-error: white;
 
 // import MDC React
 @import '~@material/react-button/index';
-@import "~@material/react-card/index";
-@import "~@material/react-checkbox/index";
-@import "~@material/react-chips/index";
-@import "~@material/react-drawer/index";
+@import '~@material/react-card/index';
+@import '~@material/react-checkbox/index';
+@import '~@material/react-chips/index';
+@import '~@material/react-drawer/index';
 @import '~@material/react-fab/index';
-@import "~@material/react-linear-progress/index";
-@import "~@material/react-list/index";
-@import "~@material/react-radio/index";
-@import "~@material/react-select/index";
-@import "~@material/react-snackbar/index";
-@import "~@material/react-menu/index";
-@import "~@material/react-menu-surface/index";
-@import "~@material/react-layout-grid/index";
+@import '~@material/react-linear-progress/index';
+@import '~@material/react-list/index';
+@import '~@material/react-radio/index';
+@import '~@material/react-select/index';
+@import '~@material/react-snackbar/index';
+@import '~@material/react-menu/index';
+@import '~@material/react-menu-surface/index';
+@import '~@material/react-layout-grid/index';
 @import '~@material/react-material-icon/index';
 @import '~@material/react-top-app-bar/index';

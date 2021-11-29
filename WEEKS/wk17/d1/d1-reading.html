@@ -1,0 +1,2080 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>D1 Notes</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type='checkbox'] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+      }
+      .code {
+        font-family: 'SFMono-Regular', Menlo, Consolas, 'PT Mono',
+          'Liberation Mono', Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK JP';
+      }
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK SC';
+      }
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK TC';
+      }
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK KR';
+      }
+      .pdf .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK JP';
+      }
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK SC';
+      }
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK TC';
+      }
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK KR';
+      }
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .highlight-default {
+      }
+      .highlight-gray {
+        color: rgb(155, 154, 151);
+      }
+      .highlight-brown {
+        color: rgb(100, 71, 58);
+      }
+      .highlight-orange {
+        color: rgb(217, 115, 13);
+      }
+      .highlight-yellow {
+        color: rgb(223, 171, 1);
+      }
+      .highlight-teal {
+        color: rgb(15, 123, 108);
+      }
+      .highlight-blue {
+        color: rgb(11, 110, 153);
+      }
+      .highlight-purple {
+        color: rgb(105, 64, 165);
+      }
+      .highlight-pink {
+        color: rgb(173, 26, 114);
+      }
+      .highlight-red {
+        color: rgb(224, 62, 62);
+      }
+      .highlight-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .highlight-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .highlight-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .highlight-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .highlight-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .highlight-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .highlight-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .highlight-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .highlight-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+      }
+      .block-color-brown {
+        color: rgb(100, 71, 58);
+        fill: rgb(100, 71, 58);
+      }
+      .block-color-orange {
+        color: rgb(217, 115, 13);
+        fill: rgb(217, 115, 13);
+      }
+      .block-color-yellow {
+        color: rgb(223, 171, 1);
+        fill: rgb(223, 171, 1);
+      }
+      .block-color-teal {
+        color: rgb(15, 123, 108);
+        fill: rgb(15, 123, 108);
+      }
+      .block-color-blue {
+        color: rgb(11, 110, 153);
+        fill: rgb(11, 110, 153);
+      }
+      .block-color-purple {
+        color: rgb(105, 64, 165);
+        fill: rgb(105, 64, 165);
+      }
+      .block-color-pink {
+        color: rgb(173, 26, 114);
+        fill: rgb(173, 26, 114);
+      }
+      .block-color-red {
+        color: rgb(224, 62, 62);
+        fill: rgb(224, 62, 62);
+      }
+      .block-color-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .block-color-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .block-color-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .block-color-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .block-color-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .block-color-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .block-color-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .block-color-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .block-color-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .select-value-color-default {
+        background-color: rgba(206, 205, 202, 0.5);
+      }
+      .select-value-color-gray {
+        background-color: rgba(155, 154, 151, 0.4);
+      }
+      .select-value-color-brown {
+        background-color: rgba(140, 46, 0, 0.2);
+      }
+      .select-value-color-orange {
+        background-color: rgba(245, 93, 0, 0.2);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(233, 168, 0, 0.2);
+      }
+      .select-value-color-green {
+        background-color: rgba(0, 135, 107, 0.2);
+      }
+      .select-value-color-blue {
+        background-color: rgba(0, 120, 223, 0.2);
+      }
+      .select-value-color-purple {
+        background-color: rgba(103, 36, 222, 0.2);
+      }
+      .select-value-color-pink {
+        background-color: rgba(221, 0, 129, 0.2);
+      }
+      .select-value-color-red {
+        background-color: rgba(255, 0, 26, 0.2);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+
+      .checkbox-off {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+    </style>
+  </head>
+  <body>
+    <article id="579e948c-94f2-43f5-96ed-9897f9b7e9e8" class="page serif">
+      <header>
+        <h1 class="page-title">D1 Notes</h1>
+        <table class="properties">
+          <tbody>
+            <tr class="property-row property-row-text">
+              <th>
+                <span class="icon property-icon"
+                  ><svg
+                    viewBox="0 0 14 14"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      display: block;
+                      fill: rgba(55, 53, 47, 0.4);
+                      flex-shrink: 0;
+                      -webkit-backface-visibility: hidden;
+                    "
+                    class="typesText"
+                  >
+                    <path
+                      d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                    ></path></svg></span
+                >Column
+              </th>
+              <td>d1</td>
+            </tr>
+            <tr class="property-row property-row-last_edited_time">
+              <th>
+                <span class="icon property-icon"
+                  ><svg
+                    viewBox="0 0 14 14"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      display: block;
+                      fill: rgba(55, 53, 47, 0.4);
+                      flex-shrink: 0;
+                      -webkit-backface-visibility: hidden;
+                    "
+                    class="typesCreatedAt"
+                  >
+                    <path
+                      d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"
+                    ></path></svg></span
+                >Date Created
+              </th>
+              <td><time>@August 2, 2021 4:29 PM</time></td>
+            </tr>
+            <tr class="property-row property-row-select">
+              <th>
+                <span class="icon property-icon"
+                  ><svg
+                    viewBox="0 0 14 14"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      display: block;
+                      fill: rgba(55, 53, 47, 0.4);
+                      flex-shrink: 0;
+                      -webkit-backface-visibility: hidden;
+                    "
+                    class="typesSelect"
+                  >
+                    <path
+                      d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"
+                    ></path></svg></span
+                >Tag
+              </th>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </header>
+      <div class="page-body">
+        <ul id="f5140f98-62ed-4388-9ba7-7535ec64959a" class="bulleted-list">
+          <li>
+            <a href="https://docs.python.org/3/library/functions.html#int"
+              >https://docs.python.org/3/library/functions.html#int (Links to an
+              external site.)</a
+            >
+          </li>
+        </ul>
+        <ul id="d0c40dfa-2af0-4493-a275-590b359b7f20" class="bulleted-list">
+          <li>
+            <a href="https://docs.python.org/3/library/functions.html#float"
+              >https://docs.python.org/3/library/functions.html#float (Links to
+              an external site.)</a
+            >
+          </li>
+        </ul>
+        <ul id="d662a1e3-de13-43fd-917d-a81cb96fe0c6" class="bulleted-list">
+          <li>
+            <a href="https://docs.python.org/3/library/stdtypes.html#str"
+              >https://docs.python.org/3/library/stdtypes.html#str</a
+            >
+          </li>
+        </ul>
+        <ul id="c753cb7b-4725-462f-8349-dadd73fbf457" class="bulleted-list">
+          <li>
+            <a
+              href="https://www.tutorialspoint.com/python/python_basic_operators.htm"
+              >https://www.tutorialspoint.com/python/python_basic_operators.htm</a
+            >
+          </li>
+        </ul>
+        <ul id="bc7946a4-1f39-4049-8272-7f085d89ea89" class="bulleted-list">
+          <li>
+            <a href="https://www.w3schools.com/python/python_for_loops.asp"
+              >https://www.w3schools.com/python/python_for_loops.asp (Links to
+              an external site.)</a
+            >
+          </li>
+        </ul>
+        <ul id="00f911c9-d27f-486b-b354-6cddc7f9617a" class="bulleted-list">
+          <li>
+            <a href="https://www.w3schools.com/python/python_while_loops.asp"
+              >https://www.w3schools.com/python/python_while_loops.asp</a
+            >
+          </li>
+        </ul>
+        <figure id="c38e278a-06b0-46c4-87c6-8f7c1d9a6140">
+          <div class="source">
+            <a href="https://www.youtube.com/watch?v=IyMyGWtXzxM"
+              >https://www.youtube.com/watch?v=IyMyGWtXzxM</a
+            >
+          </div>
+        </figure>
+        <p id="b9107bd6-38c4-4c29-99e5-86f81d42c6a9" class=""></p>
+        <figure id="35cf9b0c-8d5d-4908-ac78-e9977099e6f8" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <h1 id="78d35c44-3218-4900-8a43-a2472d39772d" class="">
+          Objective 04 - Use a print statement
+        </h1>
+        <h2 id="5a83f284-229c-4d82-862c-dc89c4c76eec" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="b91ee181-a184-4f72-a7c7-4448ec0ff9cd" class="">
+          Learning to use the <code>print</code> function in Python is the
+          perfect way to start writing Python code. When learning to write in
+          any new programming language, one of the first things you want to do
+          is get some <em>output</em> from your program.
+          The <code>print</code> function is how you output the value of an
+          object to the screen. You will learn how to use
+          the <code>print</code> function in Python.
+        </p>
+        <h2 id="e7094aa7-18a2-45c2-941d-1140221cba37" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <h3 id="fa2a95ff-bced-49b6-a0dc-a45358b0eea8" class="">
+          <strong>Using </strong><code><strong>print</strong></code
+          ><strong> with different objects</strong>
+        </h3>
+        <p id="c2913214-cde1-4f59-8f46-034ce8d9f89a" class="">
+          Let&#x27;s start by executing the print function to print different
+          types of objects in Python. There are numerous types of objects that
+          you can print using the <code>print</code> function.
+        </p>
+        <p id="00afd27e-ea41-4b6e-9ed4-f790d839258c" class="">
+          Using <code>print</code> with no arguments:
+        </p>
+        <pre
+          id="fed5ac85-afc2-4a5d-b845-2c694da6aa95"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; print()
+
+&gt;&gt;&gt;</code></pre>
+        <p id="62a9a243-153c-4982-8e91-a7318fb20c2c" class="">
+          Notice the empty line after calling the <code>print</code> function.
+          The default <code>end</code> value when calling print is the newline
+          character <code>\n</code>.
+        </p>
+        <p id="e3015a6d-762e-4c9a-9af5-c093be04bd54" class="">
+          Using <code>print</code> with a string literal:
+        </p>
+        <pre
+          id="09398de9-0ce2-446d-9179-5be9af909b15"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; print(&quot;Lambda School is awesome!&quot;)
+Lambda School is awesome!
+&gt;&gt;&gt;</code></pre>
+        <p id="f326e3b0-c370-4e26-a02f-96e21fa3b536" class="">
+          Notice how calling <code>print</code> with the string literal printed
+          the exact string we passed in onto the screen.
+        </p>
+        <p id="5da3e922-2bd3-42b5-a0e7-0a86c522a932" class="">
+          Using <code>print</code> with a variable:
+        </p>
+        <pre
+          id="e67977b4-03c0-4fc7-bcea-e806057442a4"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; slogan = &quot;i love lamp&quot;
+&gt;&gt;&gt; print(slogan)
+i love lamp
+&gt;&gt;&gt;</code></pre>
+        <p id="0ddc1278-459d-4624-957c-4053c0693760" class="">
+          Notice how calling <code>print</code> with
+          the <code>slogan</code> variable prints the value assigned to
+          the <code>slogan</code> variable.
+        </p>
+        <p id="98f51b04-4bff-44d0-b8b1-0bae8a08a800" class="">
+          Using <code>print</code> with an expression:
+        </p>
+        <pre
+          id="ace4334d-c65f-46d8-a215-69b0e6e1c833"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; superlative = &quot;wonderful&quot;
+&gt;&gt;&gt; school = &quot;Lambda School&quot;
+&gt;&gt;&gt; print(school + &quot; is &quot; + superlative)
+Lambda School is wonderful
+&gt;&gt;&gt;</code></pre>
+        <p id="35e376a9-0bf0-4bde-b2d3-5fbdda048c47" class="">
+          Notice how the argument for the <code>print</code> function can be an
+          expression. Once the expression is resolved to a string object,
+          the <code>print</code> function can output it to the screen.
+        </p>
+        <p id="d5d9cb91-e8d0-4f3a-9107-43dc8b5e3e42" class="">
+          Using <code>print</code> with other object types:
+        </p>
+        <pre
+          id="7ed41d39-f41b-45cf-8479-8a0b9a104655"
+          class="code code-wrap"
+        ><code>print(2020)
+2020
+&gt;&gt;&gt; print(123.456)
+123.456
+&gt;&gt;&gt; print(False)
+False
+&gt;&gt;&gt; print([&quot;Lambda&quot;, &quot;School&quot;, 2, 0, 2, 0])
+[&#x27;Lambda&#x27;, &#x27;School&#x27;, 2, 0, 2, 0]
+&gt;&gt;&gt; print((&quot;Lambda&quot;, &quot;School&quot;))
+(&#x27;Lambda&#x27;, &#x27;School&#x27;)
+&gt;&gt;&gt; print({&quot;school&quot;: &quot;Lambda School&quot;, &quot;year&quot;: 2020})
+{&#x27;school&#x27;: &#x27;Lambda School&#x27;, &#x27;year&#x27;: 2020}
+&gt;&gt;&gt;</code></pre>
+        <p id="948deece-2922-461e-b036-cff5fe060ebe" class="">
+          Any object passed as an argument into <code>print</code> will get
+          converted into a string type before outputted to the screen.
+        </p>
+        <p id="0ea3a07b-b526-4fda-8739-6b0c0b9c4283" class="">
+          You can see how the <code>print</code> function is easy to use and how
+          it can handle any object type that you pass into it.
+        </p>
+        <h3 id="eccdb86e-9d11-4621-bd49-17962b6e647d" class="">
+          <strong>Passing multiple arguments into </strong
+          ><code><strong>print</strong></code>
+        </h3>
+        <p id="2f5131ed-3a78-4da3-ab9e-e45060ee0b00" class="">
+          Now, let&#x27;s look at how we can pass multiple arguments into
+          the <code>print</code> function. Using <code>print</code> with
+          multiple arguments gives you a flexible and easy way to output items
+          to the screen.
+        </p>
+        <p id="5e9a0aaa-3b01-4777-a56f-0dd4f09e7df1" class="">
+          We can pass multiple objects, all of the same or different types,
+          into <code>print</code>.
+        </p>
+        <pre
+          id="4d86674b-33bf-4d27-aa0c-fd25744bcc49"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; print(&quot;Lambda School&quot;, 2020, True)
+Lambda School 2020 True
+&gt;&gt;&gt;</code></pre>
+        <p id="f12568f4-0c6f-4a5d-8093-0553d951320a" class="">
+          Notice how each object we passed in was converted to a string and then
+          output to the screen. Notice also that <code>print</code> used <code
+            >&quot; &quot;</code
+          > as the default separator value.
+        </p>
+        <p id="f0f99f58-4d07-4edd-aacc-842ac71cacf5" class="">
+          We can change the separator value by assigning a value to the keyword
+          argument <code>sep</code>.
+        </p>
+        <pre
+          id="b6da1fe4-1ed0-43fe-bc55-6dd23f185807"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; print(&quot;Lambda School&quot;, 2020, True, sep=&quot;!!!&quot;)
+Lambda School!!!2020!!!True
+&gt;&gt;&gt; print(&quot;Lambda School&quot;, 2020, True, sep=&quot;\t&quot;)
+Lambda School   2020    True
+&gt;&gt;&gt; print(&quot;Lambda School&quot;, 2020, True, sep=&quot;\n&quot;)
+Lambda School
+2020
+True
+&gt;&gt;&gt; print(&quot;Lambda School&quot;, 2020, True, sep=&quot;&quot;)
+Lambda School2020True
+&gt;&gt;&gt;</code></pre>
+        <h3 id="70741482-e49a-41e1-a64e-a70ebd747446" class="">
+          <strong>Specifying the </strong><code><strong>end</strong></code
+          ><strong> value with </strong><code><strong>print</strong></code>
+        </h3>
+        <p id="7394c21f-6fd3-41cd-a8d8-91608607825a" class="">
+          You can also specify the <code>end</code> value by assigning a value
+          to the <code>end</code> keyword argument when you call
+          the <code>print</code> function. Being able to print a value to the
+          screen but allow the user to stay on the same line is useful and
+          necessary in some cases.
+        </p>
+        <p id="76841697-d35e-446d-bb3e-cfd83dbefca0" class="">
+          Here is how you can change the default <code>end</code> value (which
+          is <code>\n</code>) when calling the <code>print</code> function.
+        </p>
+        <pre
+          id="4f5ff571-6950-4685-a5d2-4d2b1d670329"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; print(&quot;Are you a Lambda School student?&quot;, end=&quot; (Y or N)&quot;)
+Are you a Lambda School student? (Y or N)&gt;&gt;&gt;</code></pre>
+        <p id="0104d5bd-7a68-477d-a8bc-5891db546726" class="">
+          Customizing the <code>end</code> value when calling
+          the <code>print</code> function can be useful and necessary in some
+          circumstances.
+        </p>
+        <hr id="8481a0b2-ba0e-451e-a11a-3a23222c8b52" />
+        <p id="ea11fdb3-2d40-4f43-ba07-567514d643f1" class="">
+          You have now learned the basics of using
+          the <code>print</code> function in Python. You learned how to call
+          the <code>print</code> function to print objects of different types.
+          You now know how to use <code>print</code> with multiple positional
+          arguments. In certain necessary situations, you also know how to
+          change the default <code>end</code> value when calling
+          the <code>print</code> function.
+        </p>
+        <p id="063f48ef-2b65-4c49-b5be-44533e2c3b8e" class="">
+          Now, get some practice using the <code>print</code> function by
+          completing the challenge below.
+        </p>
+        <figure id="e7c0aee4-0df5-4d14-a79b-a29025b7d0ce">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-print#main.py"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-print#main.py</a
+            >
+          </div>
+        </figure>
+        <h2 id="0bcfce49-ee45-4e21-817d-2bace287fdbb" class="">
+          <strong>Challenge</strong>
+        </h2>
+        <h2 id="bc8c2a80-c773-4299-b91e-497eadd6dd56" class="">
+          <strong>Additional Resources</strong>
+        </h2>
+        <ul id="5e2bf978-aa81-4637-a89b-87c15b75bb6e" class="bulleted-list">
+          <li>
+            <a href="https://www.w3schools.com/python/ref_func_print.asp"
+              >https://www.w3schools.com/python/ref_func_print.asp</a
+            >
+          </li>
+        </ul>
+        <p id="69376d55-aaa6-402e-a27a-08bad0afe97a" class=""></p>
+        <p id="ad5264e5-c1f3-4717-b01d-daac729513ee" class=""></p>
+        <figure id="5b428c87-37de-4971-8809-1aa3fb89dc01" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="5eef52c9-d9b1-4f45-b488-1c52413299e5" class=""></p>
+        <p id="4eb6bcd9-5073-4aab-9c95-9345c30fe7c7" class=""></p>
+        <p id="dc80b455-6826-456b-abeb-471ef974ed27" class=""></p>
+        <p id="9df56c44-dd2e-459e-ad50-8ff2ede06a0c" class=""></p>
+        <h1 id="cdc68c69-5741-4dac-89e5-b771a5817df8" class="">
+          Objective 05 - Use white space to denote blocks
+        </h1>
+        <h2 id="cbf08bf4-01b6-4b4f-aa41-ce5267e8b9c2" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="f4fd3a54-782d-4e0d-8124-52aeabe19545" class="">
+          Python is unique because indentation instead of some other character
+          marks blocks of code. A block of code is a collection of statements
+          that are grouped. The syntax for denoting blocks varies from language
+          to language. For example, in C, blocks are delimited by curly braces
+          (<code>{</code> and <code>}</code>). Understanding how Python uses
+          whitespace and indentation to denote logical lines and code blocks is
+          essential.
+        </p>
+        <h2 id="3aed0fd1-1f29-4904-9db7-1b09d015ae58" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <h3 id="638e2344-59dd-4af8-8b9a-0b3e4a7c9571" class="">
+          <strong>Whitespace Characters</strong>
+        </h3>
+        <p id="4fa51c58-576c-42eb-9bec-83d5ad67b021" class="">
+          Whitespace is any character represented by something that appears
+          empty (usually <code>\t</code> or <code>&quot; &quot;</code>). The
+          characters that Python considers to be whitespace can be seen by
+          printing out the value of <code>string.whitespace</code> from
+          the <code>string</code> library.
+        </p>
+        <pre
+          id="3145cbb2-5e1c-457d-b3a3-5a066be89474"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; import string
+&gt;&gt;&gt; string.whitespace
+&#x27; \t\n\r\x0b\x0c&#x27;
+&gt;&gt;&gt;</code></pre>
+        <p id="4fccab20-a399-4401-b362-62bf3a25c8a3" class="">
+          Notice the characters are <code>&quot; &quot;</code
+          > (space), <code>\t</code> (tab), <code>\n</code> (newline), <code>\r</code> (return), <code>\x0b</code> (unicode
+          line tabulation), and <code>\x0c</code> (unicode form feed).
+        </p>
+        <p id="ceec0950-6fde-4939-9e1f-b015b37fe0a5" class="">
+          You&#x27;ve seen the different types of whitespace characters that can
+          appear, but you mainly need to concern yourself with <code
+            >&quot; &quot;</code
+          >, <code>\t</code>, and <code>\n</code>.
+        </p>
+        <h3 id="e74241db-1a4b-473f-89c8-379ca25535a0" class="">
+          <strong>Logical Lines of Code</strong>
+        </h3>
+        <p id="53b57adb-0e5b-404b-894a-40900d919351" class="">
+          Whitespace is used to denote the end of a logical line of code. In
+          Python, a logical line of code&#x27;s end (a statement or a
+          definition) is marked by a <code>\n</code>.
+        </p>
+        <pre
+          id="bc895be7-87ac-4e23-a6fc-24128d77e972"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; first = &quot;Lambda&quot;
+&gt;&gt;&gt; second = &quot;School&quot;
+&gt;&gt;&gt; first + second
+&#x27;LambdaSchool&#x27;
+&gt;&gt;&gt; first \
+... + \
+... second
+&#x27;LambdaSchool&#x27;
+&gt;&gt;&gt;</code></pre>
+        <p id="3bd0b5a9-95a3-42f2-839d-368b2dbabd53" class="">
+          Notice how the REPL evaluates the expression <code
+            >first + second</code
+          > when I return on line 3. Below that, I can write one logical line of
+          code over multiple lines by ending each line with
+          a <code>\</code> character. That <code>\</code> character lets the
+          Python interpreter that even though there is a newline, you don&#x27;t
+          want it to treat it as the end of a logical line.
+        </p>
+        <p id="d756552d-6e9b-44c4-b835-fcbfd10e2fbc" class="">
+          It&#x27;s important to understand that Python assumes meaning in
+          newline characters when trying to interpret your code.
+        </p>
+        <h3 id="8568ffe1-176a-4030-8c2d-195fbf8ffb26" class="">
+          <strong>Code Blocks</strong>
+        </h3>
+        <p id="5217a435-38fa-4909-9ecd-6636ceed7e50" class="">
+          Whitespace (indentation) can denote code blocks. Python gives meaning
+          to the amount of whitespace (indentation level) that comes before a
+          logical line of code.
+        </p>
+        <pre
+          id="3623a55a-885c-48b1-bd70-8693a0009aa8"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; if True:
+... if True:
+  File &quot;&lt;stdin&gt;&quot;, line 2
+    if True:
+    ^
+IndentationError: expected an indented block
+&gt;&gt;&gt;</code></pre>
+        <p id="b2cd17cd-720d-42c9-97d9-09c09f92edde" class="">
+          This code raises an <code>Indentation Error</code> because the Python
+          interpreter expects to find additional whitespace inside
+          the <code>if</code> block.
+        </p>
+        <pre
+          id="ad2211b2-3975-4923-8e1a-de02f1c43f01"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; if True:
+...     if True:
+...         print(&quot;it worked!&quot;)
+...
+it worked!
+&gt;&gt;&gt;</code></pre>
+        <p id="fd9dd2b0-4044-45a0-a88b-8c1d8b6cf5c2" class="">
+          The Python interpreter can successfully run this code because
+          consistent whitespace (level of indentation) is used.
+        </p>
+        <pre
+          id="14c3383e-8558-425d-9bfa-4ae8badbcc82"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; if True:
+...     if True:
+...         print(&quot;it worked!&quot;)
+  File &quot;&lt;stdin&gt;&quot;, line 3
+    print(&quot;it worked!&quot;)
+                      ^
+TabError: inconsistent use of tabs and spaces in indentation</code></pre>
+        <p id="edb36cf0-d473-45e5-a1de-506e1fe2ba92" class="">
+          Although you can&#x27;t tell in the code snippet above, for the
+          second <code>if</code> statement, I used a <code>\t</code> to indent.
+          But, for the indentation on <code>print(&quot;it worked!&quot;</code>,
+          I used eight <code>&quot; &quot;</code> (spaces). The mismatch of tab
+          usage and spaces raises an error when Python tries to interpret the
+          code.
+        </p>
+        <p id="b476e614-bd49-40d1-a567-2b1675eb8ac4" class="">
+          Consistent whitespace usage (indentation) is crucial to making sure
+          that Python can interpret your code correctly.
+        </p>
+        <p id="21bc635e-b970-4a91-a9e7-536b8a0fe7aa" class="">
+          In Python, whitespace has meaning; it denotes the end of logical lines
+          and also code blocks. Whitespace is any character represented by
+          something that appears empty, although the most common characters
+          are <code>&quot; &quot;</code>, <code>\t</code>, and <code>\n</code>.
+          The Python interpreter knows where the end of a logical line of code
+          is because of the <code>\n</code>. The amount of whitespace (level of
+          indentation) is used in Python to denote blocks of code. Understanding
+          how the Python interpreter looks at whitespace is vital to writing
+          valid Python code.
+        </p>
+        <p id="210cd474-5aab-41c7-bd60-73d39dfcdc4d" class=""></p>
+        <p id="26c46ec8-7e38-4d10-af33-11fdb48d6df3" class=""></p>
+        <figure id="1ed0da02-16fe-4792-98b0-7c13a904f3f2">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-white-space#main.py"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-white-space#main.py</a
+            >
+          </div>
+        </figure>
+        <p id="837f4ce8-c45d-4550-b1fa-3f5d397fa3ec" class=""></p>
+        <p id="fb30d9ef-a2f2-48a8-93ef-15507a5739c7" class=""></p>
+        <p id="402fc3b4-6441-42e2-9841-ba2d97ecfadb" class=""></p>
+        <figure id="e8aef207-81f6-4d82-ace5-64648f73563f" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="2c72e692-1e2d-4742-bbef-21bcf5b1af32" class=""></p>
+        <p id="d8e09a46-490d-4810-83a9-00ad64e9237e" class=""></p>
+        <p id="bbd6f0d6-2cec-4362-8e69-824c092453d3" class="">
+          Immersive Reader
+        </p>
+        <h1 id="0cc2f178-6639-46f4-aa59-fb3284fceb1e" class="">
+          Objective 06 - Use basic types (integers, floats, strings) and
+          interact with those types
+        </h1>
+        <h2 id="11e81f57-606d-494b-a01f-ed60223e8411" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="480bdc66-48a3-4e26-8238-43f0acc1f4e1" class="">
+          Python is not a &quot;statically typed&quot; language, and every
+          variable in Python is an object. You don&#x27;t have to declare a
+          variable&#x27;s type.
+        </p>
+        <h2 id="fabe66d5-64e8-44f1-88b4-14d24c8c63ec" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <h3 id="02fb4cf8-3087-44d6-9356-8abbe13427f8" class="">
+          <strong>Numbers</strong>
+        </h3>
+        <p id="920e0ad7-8f4d-4f9a-917f-40c028f854da" class="">
+          In Python, you can have integers and floating-point numbers.
+        </p>
+        <p id="0da32e97-cc75-4760-9fce-5985f45dbd87" class="">
+          You can define an integer like so:
+        </p>
+        <pre
+          id="7a628bf7-06fb-4ff1-9862-7d3378e9c83c"
+          class="code code-wrap"
+        ><code>my_int = 3</code></pre>
+        <p id="b67813df-95f9-48f1-91fc-32d2cc9de9e6" class="">
+          You can also cast a floating-point number to be an integer like so:
+        </p>
+        <pre
+          id="2f823619-26c1-402b-a7df-640ea8a47d6e"
+          class="code code-wrap"
+        ><code>my_int = int(3.0)</code></pre>
+        <p id="57bfe75a-99c3-4201-9cc1-2da306f6cf6b" class="">
+          To define a floating-point number, you can declare it literally or
+          typecast it with the float constructor function:
+        </p>
+        <pre
+          id="6352d3e4-e6cf-4133-9ae0-f23458c31197"
+          class="code code-wrap"
+        ><code>my_float = 3.0
+my_float = float(3)</code></pre>
+        <h3 id="282740f7-88d7-4ea1-8aa2-5bdb95c6ec31" class="">
+          <strong>Strings</strong>
+        </h3>
+        <p id="3a16e4c1-2456-437b-81db-1dd4d45de317" class="">
+          You can define strings with either single or double quotes:
+        </p>
+        <pre
+          id="1ec1b9b3-a7a6-47a5-b796-f7098646663e"
+          class="code code-wrap"
+        ><code>my_string = &#x27;Lambda School&#x27;
+my_string = &quot;Lambda School&quot;</code></pre>
+        <p id="cfc0bb2e-65df-4a39-8e9a-7fef051b4050" class="">
+          It&#x27;s common to use double quotes for strings so that you can
+          include apostrophes without accidentally terminating the string.
+        </p>
+        <pre
+          id="81404595-2f8b-429a-8f87-c8363009fd3b"
+          class="code code-wrap"
+        ><code>my_string = &quot;I don&#x27;t have to worry about apostrophes with my double-quotes.&quot;</code></pre>
+        <p id="aff08ea7-9077-433e-89e2-7f114ffddc30" class="">
+          Let&#x27;s practice declaring variables to store an int, a float, and
+          a string:
+        </p>
+        <pre
+          id="53351894-b861-4cae-bc6b-19901b073bdf"
+          class="code code-wrap"
+        ><code>my_int = 2
+my_float = 5.0
+my_str = &quot;Lambda School&quot;</code></pre>
+        <p id="03d7567c-2327-49ea-aca6-4c2550f4b119" class=""></p>
+        <figure id="74c41ec1-f668-480c-9ccc-51b8b5235917">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-types"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-types</a
+            >
+          </div>
+        </figure>
+        <p id="64552951-2498-41d9-9660-4301153a16c1" class=""></p>
+        <p id="c2fdeb6a-75f2-40f2-bb12-1645b31cd6bc" class=""></p>
+        <p id="d93733ba-d650-4edd-a182-6e888503cd47" class=""></p>
+        <p id="a717a12c-a0bf-4cc9-928e-59481783d8fc" class=""></p>
+        <figure id="77278b61-34d0-421a-8e7b-b5dcd2a9a449" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="371e73d5-e32d-4e40-ab08-4b8b7d1a386d" class=""></p>
+        <p id="cbbffdd5-fe6b-4282-85ad-aa3c3a09e1e4" class=""></p>
+        <h1 id="34912571-d38c-4a19-a712-9a99be95c1f5" class="">
+          Objective 07 - Use basic operators to perform mathematical
+          calculations and interact with strings and lists
+        </h1>
+        <h2 id="e8a6c61e-2bbd-4a8a-b89e-28bc320d92b2" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="f9ad03e2-1cf4-47ca-a392-693fcba67944" class="">
+          There are a few basic operators that you should be familiar with as
+          you start writing Python code.
+        </p>
+        <h3 id="5202c3d0-677b-4f52-9726-c5237da56f40" class="">
+          <strong>Arithmetic Operators</strong>
+        </h3>
+        <p id="5055a35f-ab6d-4125-a9d7-bead568dd377" class="">
+          You can use the addition (<code>+</code>), subtraction
+          (<code>-</code>), multiplication (<code>*</code>), and division
+          (<code>/</code>) operators with numbers in Python.
+        </p>
+        <pre
+          id="9d0b9a36-681c-4db0-8307-d63a25454f13"
+          class="code code-wrap"
+        ><code>my_number = 2 + 2 * 8 / 5.0
+print(my_number) # 5.2</code></pre>
+        <p id="bfdddada-ecf2-4886-8722-1a302bd98a81" class="">
+          There is also an operator called the modulo operator (<code>%</code>).
+          This operator returns the remainder of integer division.
+        </p>
+        <pre
+          id="82a6db4f-935e-4c20-bc33-799297bc904f"
+          class="code code-wrap"
+        ><code>my_remainder = 9 % 4
+print(my_remainder) # 1</code></pre>
+        <p id="b0b48eba-ae94-4440-895f-e5011decbe21" class="">
+          You can use two multiplication operators to make the exponentiation
+          operator (<code>**</code>).
+        </p>
+        <pre
+          id="e74bb0b5-333d-4e3c-86eb-482cd246ba41"
+          class="code code-wrap"
+        ><code>two_squared = 2 ** 2
+print(two_squared)    # 4
+two_cubed = 2 ** 3
+print(two_cubed)      # 8</code></pre>
+        <h3 id="0357659d-3d46-465e-9ca9-9d0b026446bc" class="">
+          <strong>Using operators with non-numbers</strong>
+        </h3>
+        <p id="c5756a12-4c23-40eb-98aa-1fd3f25f450f" class="">
+          You can use the addition operator to concatenate strings and lists:
+        </p>
+        <pre
+          id="5bd76dd5-7d24-4d63-986d-21cd49721d83"
+          class="code code-wrap"
+        ><code>string_one = &quot;Hello,&quot;
+string_two = &quot; World!&quot;
+combined = string_one + string_two
+print(combined) # Hello, World!
+
+lst_one = [1,2,3]
+lst_two = [4,5,6]
+big_lst = lst_one + lst_two
+print(big_lst) # [1, 2, 3, 4, 5, 6]</code></pre>
+        <p id="eb120ff6-d32d-4ab5-a808-07f41b2aed77" class="">
+          You can also use the multiplication operator to create a new list or
+          string that repeats the original sequence:
+        </p>
+        <pre
+          id="17b9c9ed-3002-4d8b-9680-50d18f939faa"
+          class="code code-wrap"
+        ><code>my_string = &quot;Bueller&quot;
+repeated = my_string * 3
+print(repeated) # BuellerBuellerBueller
+
+my_list = [1, 2, 3]
+repeated_list = my_list * 3
+print(repeated_list) # [1, 2, 3, 1, 2, 3, 1, 2, 3]</code></pre>
+        <h2 id="90c0a0fb-ddeb-4803-abcd-306311920f93" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="410385ba-a916-4af6-b790-5431942ed4f3" class="">
+          Now, let&#x27;s see if we can combine all of this information in a
+          quick demo.
+        </p>
+        <p id="64b290a7-869b-4fc1-a19f-41cf7e946f15" class="">
+          First, let&#x27;s create two
+          variables, <code>a</code> and <code>b</code>, where each variable
+          stores an instance of the <code>object</code> class.
+        </p>
+        <pre
+          id="5527a35f-9cec-41b1-b275-0260861d41a9"
+          class="code code-wrap"
+        ><code>a = object()
+b = object()</code></pre>
+        <p id="0c6f271b-ac46-4aac-a4ab-dd86631eb5a1" class="">
+          Next, let&#x27;s see if we can make two lists, one containing five
+          instances of <code>a</code>, and the second with five instances
+          of <code>b</code>.
+        </p>
+        <pre
+          id="5cd85832-a385-438a-988a-9e2d6e64bfee"
+          class="code code-wrap"
+        ><code>a_list = [a] * 5
+b_list = [b] * 5</code></pre>
+        <p id="4938758f-b245-4b8a-b50c-be89900fd309" class="">
+          Then, let&#x27;s
+          combine <code>a_list</code> and <code>b_list</code> into
+          a <code>combined</code> list.
+        </p>
+        <pre
+          id="3f15e161-5b26-4703-adff-c47b0eafd4e6"
+          class="code code-wrap"
+        ><code>combined = a_list + b_list</code></pre>
+        <p id="2c93adbe-346a-48fe-944d-ecbc34cb8a90" class="">
+          If our code works as expected, <code>combined</code> should have a
+          length of 10.
+        </p>
+        <pre
+          id="b8fbd653-69bf-4be8-9cf9-74f66b6e53c5"
+          class="code code-wrap"
+        ><code>print(len(combined)) # 10</code></pre>
+        <p id="c6f2dd39-caed-4e68-9e94-ea93d9c25140" class=""></p>
+        <p id="3990e846-8d88-4be7-852a-acbe937a6347" class=""></p>
+        <p id="8507eab4-e08a-45cc-a834-ceb1c095b4d1" class=""></p>
+        <p id="adbd9c87-68bb-4f5b-adac-fb76c4e31f5c" class=""></p>
+        <p id="7fbd27d4-859b-4fc7-b997-0f2eab5c88f9" class=""></p>
+        <p id="674631b2-dc4d-4305-950b-99ea753a50c2" class=""></p>
+        <figure id="85cf1cad-052b-4e3e-9e67-b55de1f5da0d">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-operators"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-operators</a
+            >
+          </div>
+        </figure>
+        <p id="27b23c83-65af-4ccf-94df-67a2533555b7" class=""></p>
+        <figure id="6f43bd9e-fb70-49b5-8b36-8115346f5b47" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="c11f6db9-0b52-4125-9fbd-30d7a1bad908" class=""></p>
+        <h1 id="52d3dc85-4e1a-4002-b903-0165b15e609d" class="">
+          Objective 08 - Create formatted strings
+        </h1>
+        <h2 id="f24be34c-243c-4bf6-9048-e891703b3f0f" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="272d2b82-b49c-4186-9f13-9193f3608e11" class="">
+          To format a string in Python, you use the <code>%</code> operator to
+          format a set of stored variables in a tuple. You also include <em
+            >argument specifiers</em
+          > in your string with special symbols
+          like <code>%s</code> and <code>%d</code>.
+        </p>
+        <p id="044b0df3-adab-427f-b4eb-9efcad2bbb9b" class="">
+          For example, let&#x27;s say you want to insert
+          a <code>name</code> variable inside a string. You would do the
+          following:
+        </p>
+        <pre
+          id="e10f736d-2402-4ef9-bde7-e2a41b02d817"
+          class="code code-wrap"
+        ><code>name = &quot;Austen&quot;
+formatted_string = &quot;Hello, %s!&quot; % name
+print(formatted_string) # Hello, Austen!</code></pre>
+        <p id="c5661af6-1dbc-4321-9b8b-70cd83039ed0" class="">
+          If you have more than one argument specifier, you need to enclose your
+          arguments in a tuple:
+        </p>
+        <pre
+          id="a66e884b-a42c-41be-ae49-71b1206acd9e"
+          class="code code-wrap"
+        ><code>name = &quot;Austen&quot;
+year = 2020
+print(&quot;Hey %s! It&#x27;s the year %d.&quot; % (name, year))
+# Hey Austen! It&#x27;s the year 2020.</code></pre>
+        <p id="4da15fb8-a62c-459d-ab8b-587c530fd874" class="">
+          Any object that is not a string can also be formatted using
+          the <code>%s</code> operator. The string which returns from the
+          object&#x27;s <code>repr</code> method will be used in the formatted
+          string.
+        </p>
+        <pre
+          id="51d28596-613f-4854-b189-3768053fd442"
+          class="code code-wrap"
+        ><code>my_list = [1,2,3]
+print(&quot;my_list: %s&quot; % my_list)
+# my_list: [1, 2, 3]</code></pre>
+        <p id="8bb9d1e4-bf02-42fa-8ec7-a33694de7a6f" class="">
+          A few of the common argument specifiers are:
+        </p>
+        <ul id="a5de12ea-1f26-4763-813d-9cebbe7a22a9" class="bulleted-list">
+          <li>
+            <code>%s</code> - String (or any object with a string
+            representation)
+          </li>
+        </ul>
+        <ul id="fee22a35-314b-4bce-9c20-0fdb95fd3def" class="bulleted-list">
+          <li><code>%d</code> - Integers</li>
+        </ul>
+        <ul id="a0c9a4e7-2ae2-4c0f-8bab-15976db9d92f" class="bulleted-list">
+          <li><code>%f</code> - Floating point numbers</li>
+        </ul>
+        <ul id="6a26fde0-7c6b-4104-8efe-984921d916ad" class="bulleted-list">
+          <li>
+            <code>%.&lt;number of digits&gt;f</code> - Floating point numbers
+            with a fixed amount of digits to the dot&#x27;s right.
+          </li>
+        </ul>
+        <ul id="6b02dba2-fea8-4f28-93b6-e583585c1808" class="bulleted-list">
+          <li>
+            <code>%x/%X</code> - Integers in hexadecimal (lowercase/uppercase)
+          </li>
+        </ul>
+        <h2 id="88a1ea4b-ac4b-4762-802a-562e83d21c5f" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="a85112cc-62da-4a23-bf18-1f5329bc1d10" class="">
+          Let&#x27;s see if we can use all of this information to practice
+          formatting a few strings.
+        </p>
+        <p id="97566669-9aa9-4fea-8131-2a95016bc820" class="">
+          Let&#x27;s imagine that we have some data that we want to inject into
+          a string.
+        </p>
+        <pre
+          id="27b9bd58-553f-44ac-9cdb-ec6b44d8889f"
+          class="code code-wrap"
+        ><code>product_name = &quot;bananas&quot;
+price = 1.23
+product_id = 123456</code></pre>
+        <p id="171f304a-157b-4215-9b85-73908782ba37" class="">
+          We need to print a formatted string using argument specifiers and a
+          tuple that contains our data:
+        </p>
+        <pre
+          id="fc01be78-4fac-4334-8ce5-79f7587b93a7"
+          class="code code-wrap"
+        ><code>print(&quot;%s (id: %d) are currently $%.2f.&quot; % (product_name, product_id, price))
+# bananas (id: 123456) are currently $1.23.</code></pre>
+        <p id="d948b674-ff03-4173-bd57-798dc962d367" class=""></p>
+        <figure id="6c4b700f-49f7-4604-84e1-4afbede104b1">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-formatted-strings#main.py"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-formatted-strings#main.py</a
+            >
+          </div>
+        </figure>
+        <p id="60b1853a-1111-4876-9048-1da3a0eaa824" class=""></p>
+        <p id="e28aa5b1-eaf2-49e4-b12b-246366023e65" class=""></p>
+        <p id="ec8dd55f-101b-4b05-a209-22112fb1eabb" class=""></p>
+        <figure id="f348141c-807d-4ddf-9b56-c34fd8cd29d6" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="3bfd65be-c7e0-4482-9769-a45e8d117406" class=""></p>
+        <p id="ab77b3a1-4f5c-4e36-931b-0a5a0ce8bab0" class=""></p>
+        <p id="d0f9a4bc-9a1a-4408-b807-aacf01514722" class=""></p>
+        <h1 id="7f10e92c-9383-41f8-b265-544419604875" class="">
+          Objective 09 - Perform basic string operations
+        </h1>
+        <h2 id="eb27ef1d-8bcd-40d0-a65b-e524efb6c709" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="b162869a-49f3-4664-b430-3fa36e840af2" class="">
+          You can think of a string as anything between quotes. Strings store a
+          sequence of characters or bits of text.
+        </p>
+        <p id="cf5317a4-b0f6-4bac-bdc1-3224c11c8315" class="">
+          There are lots of ways you can interact with strings in Python.
+        </p>
+        <h2 id="cbf7c10b-6011-4027-90cd-d813cd4f6835" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="23cfb22d-91fc-49e8-98cf-76ffd6f5461a" class="">
+          The <code>len()</code> method prints out the number of characters in
+          the string.
+        </p>
+        <pre
+          id="5f103052-d83f-495c-94fe-60c91f6ace58"
+          class="code code-wrap"
+        ><code>my_string = &quot;Hello, world!&quot;
+print(len(my_string)) # 12</code></pre>
+        <p id="c01e14f2-1e0d-4a2f-923c-4b3d588dada3" class="">
+          The <code>index()</code> method prints out the index of the substring
+          argument&#x27;s first occurrence.
+        </p>
+        <pre
+          id="acf9a4a7-b323-4243-9898-814a390233e3"
+          class="code code-wrap"
+        ><code>my_string = &quot;Hello, world!&quot;
+print(my_string.index(&quot;o&quot;))   # 4
+print(my_string.index(&quot;, w&quot;)) # 5</code></pre>
+        <p id="2330cfc6-1363-46c4-a4c0-77468efee9a1" class="">
+          The <code>count()</code> method returns the number of occurrences of
+          the substring argument.
+        </p>
+        <pre
+          id="28b1d02d-ef79-46b9-98bc-91ae395d377e"
+          class="code code-wrap"
+        ><code>my_string = &quot;Hello, world!&quot;
+print(my_string.count(&quot;o&quot;))  # 2
+print(my_string.count(&quot;ll&quot;)) # 1</code></pre>
+        <p id="491cbe4a-23ae-4f39-aeca-ef294599cb08" class="">
+          To slice a string, you can use this
+          syntax: <code>[start:stop:step]</code>. To reverse the string&#x27;s
+          order, you can set the step value to be <code>-1</code>.
+        </p>
+        <pre
+          id="68be26fb-4814-4093-83e8-8ee5dfaaa011"
+          class="code code-wrap"
+        ><code>my_string = &quot;Hello, world!&quot;
+print(my_string[3:7])   # lo,
+print(my_string[3:7:2]) # l,
+print(my_string[::-1])  # !dlrow ,olleH</code></pre>
+        <p id="02dc2da5-719e-45eb-9abd-460e393600d6" class="">
+          You can convert a string to uppercase or lowercase with
+          the <code>upper()</code> and <code>lower()</code> methods.
+        </p>
+        <pre
+          id="544e5c0f-7279-450d-bcd7-2c61277fd7c7"
+          class="code code-wrap"
+        ><code>my_string = &quot;Hello, world!&quot;
+print(my_string.upper()) # HELLO, WORLD!
+print(my_string.lower()) # hello, world!</code></pre>
+        <p id="52125e0f-49a7-4c1d-b618-68b66778efda" class="">
+          You can determine if a string starts with or ends with a specific
+          sequence with
+          the <code>startswith()</code> and <code>endswith()</code> methods.
+        </p>
+        <pre
+          id="274ad58e-a804-438d-a38a-f23ee699054c"
+          class="code code-wrap"
+        ><code>my_string = &quot;Hello, world!&quot;
+print(my_string.startswith(&quot;Hello&quot;)) # True
+print(my_string.endswith(&quot;globe!&quot;))  # False</code></pre>
+        <p id="d349dafe-5460-4427-b512-c141dc6f8377" class="">
+          The <code>split()</code> method allows you to split up a string into a
+          list. The default separator is any whitespace. You can also specify
+          the separator value with an argument if you want.
+        </p>
+        <pre
+          id="72338932-2875-4acf-9791-2f3a58f7cfd0"
+          class="code code-wrap"
+        ><code>my_string = &quot;Hello, world!&quot;
+print(my_string.split())    # [&#x27;Hello,&#x27;, &#x27;world!&#x27;]
+print(my_string.split(&quot;,&quot;)) # [&#x27;Hello&#x27;, &#x27; world!&#x27;]
+print(my_string.split(&quot;l&quot;)) # [&#x27;He&#x27;, &#x27;&#x27;, &#x27;o, wor&#x27;, &#x27;d!&#x27;]</code></pre>
+        <p id="2a995f9b-5fe0-4dc0-825f-09f9c699d6b4" class=""></p>
+        <figure id="95225324-12de-4239-a287-f2e6a19d6ee4">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations#main.py"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations#main.py</a
+            >
+          </div>
+        </figure>
+        <p id="9214a8c1-d29c-4a6e-9120-c6bf9132f173" class=""></p>
+        <figure id="367871f1-ef81-4e8d-98fe-17271f8ecdd3" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="c4078a0c-fab4-4b68-9ac4-2f3ec1a0c904" class=""></p>
+        <h1 id="745b741a-4f11-49b2-ab07-e90271d50be0" class="">
+          Objective 10 - Evaluate conditional expressions and use boolean
+          operators to control flow
+        </h1>
+        <h2 id="4059e938-1199-4f36-b637-8be545017173" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="1f96387f-cd45-4c3f-b7c5-75fe1201eee3" class="">
+          Python uses boolean values to evaluate conditions. An expression in
+          any Boolean context will evaluate to a Boolean value and then control
+          your program&#x27;s flow. Python&#x27;s boolean values are written
+          as <code>True</code> and <code>False</code> (make sure you capitalize
+          the first character).
+        </p>
+        <h2 id="cbe6f844-8e2e-46e9-bdaf-b3aad4fe853c" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="0725bfcd-4fd2-46c6-a8f1-a0f45de3ab5e" class="">
+          To compare the value of two expressions for equality, you use
+          the <code>==</code> operator. You can also use <code>&lt;</code> (less
+          than), <code>&gt;</code> (greater than), <code>&lt;=</code> (less than
+          or equal), <code>&gt;=</code> (greater than or equal),
+          and <code>!=</code> (not equal).
+        </p>
+        <pre
+          id="04475c8e-ebf4-4a2f-9caf-f450ecb16bb0"
+          class="code code-wrap"
+        ><code>x = 10
+print(x == 10) # True
+print(x == 5)  # False
+print(x &lt; 15)  # True
+print(x &gt; 15)  # False
+print(x &lt;= 10) # True
+print(x &gt;= 10) # True
+print(x != 20) # True</code></pre>
+        <p id="02d68cff-aa94-445a-99a7-5e9aab4f5cf1" class="">
+          You build up more complex boolean expressions by using
+          the <code>and</code> and <code>or</code> operators.
+        </p>
+        <pre
+          id="03937d22-3fdd-4301-a4ae-7f1bdd87e16d"
+          class="code code-wrap"
+        ><code>name = &quot;Elon&quot;
+age = 49
+if name == &quot;Elon&quot; and age == 49:
+    print(&quot;You are a 49 year old person named Elon.&quot;)
+
+if name == &quot;Elon&quot; or name == &quot;Bill&quot;:
+    print(&quot;Your name is either Elon or Bill.&quot;)</code></pre>
+        <p id="704a9fa1-0415-4a8d-9640-d066ba1c33d6" class="">
+          Any time you have an iterable object (like a list), you can check if a
+          specific item exists inside that iterable by using
+          the <code>in</code> operator.
+        </p>
+        <pre
+          id="a653c9ad-a13b-42e9-a310-c1276ad94369"
+          class="code code-wrap"
+        ><code>years = [2018, 2019, 2020, 2021]
+year = 2020
+
+if year in years:
+    print(&quot;%s is in the years collection&quot; % year)
+
+# 2020 is in the years collection</code></pre>
+        <p id="3f855be4-ba31-4f6b-beb6-1e3127a5361c" class="">
+          We can use the <code>if</code>, <code>elif</code>, and
+          the <code>else</code> keywords to define a series of code blocks that
+          will execute conditionally.
+        </p>
+        <pre
+          id="af8bbb71-6352-479d-858e-8ef7e3ac97b5"
+          class="code code-wrap"
+        ><code>first_statement = False
+second_statement = True
+
+if first_statement:
+    print(&quot;The first statement is true&quot;)
+elif second_statement:
+    print(&quot;The second statement is true&quot;)
+else:
+    print(&quot;Neither the first statement nor the second statement are true&quot;)</code></pre>
+        <p id="2969de5e-5f8c-4231-83ad-5d7555fd0e7a" class="">
+          Any object that is considered &quot;empty&quot; evaluates
+          to <code>False</code>. For
+          example, <code>&quot;&quot;</code>, <code>[]</code>,
+          and <code>0</code> all evaluate to <code>False</code>.
+        </p>
+        <p id="2e0a5eb1-990c-41d2-addd-910b503153ac" class="">
+          If we want to determine if two objects are actually the same instance
+          in memory, we use the <code>is</code> operator instead of the value
+          comparison operator <code>==</code>.
+        </p>
+        <pre
+          id="57f9bd2f-93a0-4aca-838a-f009a381b243"
+          class="code code-wrap"
+        ><code>a = [1,2,3]
+b = [1,2,3]
+
+print(a == b) # True because a and b have the same value
+print(a is b) # False because a and b reference two different list objects
+
+x = [1,2,3]
+y = x
+
+print(x == y) # True because x and y have the same value
+print(x is y) # True because x and y reference the same list object</code></pre>
+        <p id="7ec3c834-95ec-4351-a6eb-f8d70f0a130c" class="">
+          There is also the <code>not</code> operator, which inverts the boolean
+          that follows it:
+        </p>
+        <pre
+          id="de966990-04fb-4566-b762-84936af4f3cb"
+          class="code code-wrap"
+        ><code>print(not False)    # True
+print(not (1 == 1)) # False because 1 == 1 is True and then is inverted by not</code></pre>
+        <p id="d7ac8814-a6b3-4e1f-802e-d991b919eded" class=""></p>
+        <figure id="1feda6f3-0661-48f6-80cd-64b49de84622">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-conditional-expressions"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-conditional-expressions</a
+            >
+          </div>
+        </figure>
+        <p id="18f5fad7-eed5-430c-9c95-0033acf9f4e7" class=""></p>
+        <figure id="029f59cf-bb3e-46fd-922e-8855d9ea09ad" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="84be7fda-161e-4f8c-9301-8bacd8425bbb" class=""></p>
+        <p id="cac381e7-5dae-4990-815d-937388d041f2" class=""></p>
+        <p id="48d9e922-5ed2-4fbe-a66f-0c16715ab621" class=""></p>
+        <p id="03efd31a-5418-4fd6-974c-5f873001b63c" class=""></p>
+        <h1 id="0ad90189-6b5b-426d-b080-5bc73a118e74" class="">
+          Objective 11 - Use for and while loops and break and continue
+          statements
+        </h1>
+        <h2 id="8c50b61d-c665-42b7-864f-55933fe878c1" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="9c486412-9308-4006-bd92-faa6e15e817e" class="">
+          You can use two types of loops in Python, a <code>for</code> loop and
+          a <code>while</code> loop. A <code>for</code> loop iterates over a
+          given sequence (iterator expression). A <code>while</code> loop
+          repeats as long as a boolean context evaluates to <code>True</code>.
+        </p>
+        <p id="f09ccfff-5695-4dea-9f65-f5d707bc13f1" class="">
+          The <code>break</code> statement terminates the loop containing it.
+          Control of the program flows to the statement immediately after the
+          body of the loop. If the <code>break</code> statement is inside a
+          nested loop (loop inside another loop),
+          the <code>break</code> statement will only terminate the innermost
+          loop.
+        </p>
+        <p id="d38d83cd-c433-431c-a1e8-9685d6a864c9" class="">
+          You can use the <code>continue</code> statement to skip the rest of
+          the code inside a loop <em>for the current iteration only</em>. The
+          loop does not terminate entirely but continues with the next
+          iteration.
+        </p>
+        <h2 id="485629a7-30ab-4cd3-9a5c-68e5892068ce" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="5e06e46f-6533-4a94-9b2e-1b75a807f0c2" class="">
+          Here is an example of a few different ways you can use
+          a <code>range</code> as the iterable for a <code>for</code> loop.
+        </p>
+        <pre
+          id="f3ab91bf-18ab-44b4-8a5f-6d46514b13c1"
+          class="code code-wrap"
+        ><code># Prints 0, 1, 2, 3, 4
+for x in range(5):
+    print(x):
+
+# Prints 2, 3, 4, 5, 6
+for x in range(2, 7):
+    print(x)
+
+# Prints 1, 3, 5, 7
+for x in range(1, 8, 2):
+    print(x)</code></pre>
+        <p id="f468a5af-9600-4b6b-8ec4-5ac56e686d1b" class="">
+          This example shows the simple usage of a <code>while</code> loop to
+          print the same values as the <code>for</code> loops above.
+        </p>
+        <pre
+          id="40fe8180-3f53-4c46-ba85-96f568716172"
+          class="code code-wrap"
+        ><code># Prints 0, 1, 2, 3, 4
+count = 0
+while count &lt; 5:
+    print(count)
+    count += 1
+
+# Prints 2, 3, 4, 5, 6
+count = 2
+while count &lt; 7:
+    print(count)
+    count += 1
+
+# Prints 1, 3, 5, 7
+count = 1
+while count &lt; 8:
+    print(count)
+      count += 2</code></pre>
+        <p id="6a50fe5b-a04d-4662-912a-28667c0a6806" class="">
+          You can use a <code>break</code> statement to exit
+          a <code>for</code> loop or a <code>while</code> loop.
+        </p>
+        <pre
+          id="0dc7e924-c925-4921-9529-3235485a2b74"
+          class="code code-wrap"
+        ><code># Prints 0, 1, 2, 3, 4
+count = 0
+while True:
+    print(count)
+    count += 1
+    if count &gt;= 5:
+        break</code></pre>
+        <p id="9628f267-522a-4407-9c53-c87041d3e730" class="">
+          You can also use a <code>continue</code> statement to skip the current
+          block but not exit the loop entirely.
+        </p>
+        <pre
+          id="7e4cf4af-cc22-4ed8-b17a-238cff677434"
+          class="code code-wrap"
+        ><code># Prints 1, 3, 5, 7
+for x in range(8):
+    # if x is even, skip this block and do not print
+    if x % 2 == 0:
+        continue
+    print(x)</code></pre>
+        <p id="fed0050e-ef2e-4f10-8aa3-4797654aa6a7" class=""></p>
+        <p id="92e12690-d251-4f92-85ae-b18ce915af6d" class=""></p>
+        <p id="2ef4ee1d-f7cf-468a-a3f0-0572ddb2484e" class=""></p>
+        <figure id="146ca71e-0abe-40d0-ad7d-d0e8995fa426">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-loops"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-loops</a
+            >
+          </div>
+        </figure>
+        <p id="af12af15-f6ab-4308-963d-f544bd9dd00e" class=""></p>
+        <p id="c04676a9-7b5b-4d37-95ae-986f4645be7a" class=""></p>
+        <figure id="19cf201c-4d43-4866-a99b-e7d4ec9086bc" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="4f644875-9293-4ffe-9a45-137fad68754d" class=""></p>
+        <h1 id="36bc0e05-5965-4850-9710-34e0a76e94e3" class="">
+          Objective 12 - Create user-defined functions and call them
+        </h1>
+        <h2 id="1ac65520-ad13-422a-9c90-be0884e5acb9" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="78d1408f-6826-4612-a9f6-b4793d41c514" class="">
+          To make our code more readable and DRY (Don&#x27;t Repeat Yourself),
+          we often want to encapsulate code inside a callable function.
+        </p>
+        <p id="13e1394c-f9e1-4c8b-8e90-cf7726ff399a" class="">
+          To define a function in Python, we follow this syntax:
+        </p>
+        <pre
+          id="f31d75c7-7679-4b3b-b768-44b11f290a67"
+          class="code code-wrap"
+        ><code>def function_name(argument_1, argument_2, etc.):
+    # function line 1
+    # function line 2
+    # etc.</code></pre>
+        <h2 id="1501a3b8-b4ad-4e03-a200-8142232f7909" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="12b36af4-ad96-4fff-90b7-3c2928b5d627" class="">
+          Let&#x27;s define a greeting function that allows us to specify a name
+          and a specific greeting.
+        </p>
+        <pre
+          id="5ca6fe4f-0cba-4451-9c74-237c2dcbbd33"
+          class="code code-wrap"
+        ><code>def greet(name, greeting):
+    print(&quot;Hello, %s, %s&quot; % (name, greeting))</code></pre>
+        <p id="d8624863-8cec-483f-a0c8-75fdd4e52df9" class="">
+          Now, we can call our <code>greet</code> function and pass in the data
+          that we want.
+        </p>
+        <pre
+          id="75b0d1aa-7f98-416a-b0d2-4b233b0bf214"
+          class="code code-wrap"
+        ><code>greet(&quot;Austen&quot;, &quot;I hope you are having an excellent day!&quot;)
+# Hello, Austen, I hope you are having an excellent day!</code></pre>
+        <p id="95df1537-e857-4a0a-828e-410983078710" class="">
+          If we want to define a function that returns a value to the caller, we
+          use the <code>return</code> keyword.
+        </p>
+        <pre
+          id="e2165d0d-9300-44f3-894a-f2d1eb174d6f"
+          class="code code-wrap"
+        ><code>def double(x):
+    return x * 2
+
+eight = double(4)
+print(eight)
+# 8</code></pre>
+        <figure id="24df2dc6-50fd-49cb-84e6-5c80a252d51d">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-functions"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-functions</a
+            >
+          </div>
+        </figure>
+        <p id="21f2785a-3484-482e-871a-7994cc9118ec" class=""></p>
+        <figure id="3380fbcb-bfae-4ba1-b9bb-55c3f1177e7c" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="890b1c3b-4555-4f05-8b8a-c0e6a98767d7" class=""></p>
+        <p id="5983df4b-5524-4d15-aec0-e31c44ad645e" class=""></p>
+        <p id="73558421-fa41-43bb-ba90-fda78b97d543" class=""></p>
+        <p id="102185fe-e177-49a8-a6d9-65a1107e2bf6" class=""></p>
+        <p id="ac1f1222-2375-4099-8240-c5c80b63d424" class=""></p>
+        <figure id="503cdc75-2aa7-42cd-a734-c07fb62a7c07" class="image">
+          <a href="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+            ><img
+              style="width: 582px"
+              src="D1%20Notes%2035cf9b0c8d5d4908ac78e9977099e6f8/Untitled.png"
+          /></a>
+        </figure>
+        <p id="014ed774-0ad8-4ff3-8ab4-4d3090c4a7c9" class=""></p>
+      </div>
+    </article>
+  </body>
+</html>

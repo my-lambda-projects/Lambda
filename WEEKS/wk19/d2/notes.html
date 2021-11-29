@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>notes</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1
+      id="objective-01---recall-the-time-and-space-complexity-the-strengths-and-weaknesses-and-the-common-uses-of-a-queue"
+    >
+      Objective 01 - Recall the time and space complexity, the strengths and
+      weaknesses, and the common uses of a queue
+    </h1>
+    <h2 id="overview">Overview</h2>
+    <p>
+      A queue is a data structure that stores its items in a first-in, first-out
+      (FIFO) order. That is precisely why it is called a queue. It functions
+      just like a queue (or a line) would in everyday life. If you are the first
+      to arrive at the check-in desk at a hotel, you will be the first to be
+      served (and therefore, the first person to exit the queue). So, in other
+      words, the items that are added to the queue first are the first items to
+      be removed from the queue.
+    </p>
+    <h2 id="follow-along">Follow Along</h2>
+    <h3 id="time-and-space-complexity">Time and Space Complexity</h3>
+    <h4 id="enqueue">Enqueue</h4>
+    <p>
+      To enqueue an item (add an item to the back of the queue)
+      takes <code>O(1)</code> time.
+    </p>
+    <h4 id="dequeue">Dequeue</h4>
+    <p>
+      To dequeue an item (remove an item from the front of the queue)
+      takes <code>O(1)</code> time.
+    </p>
+    <h4 id="peek">Peek</h4>
+    <p>
+      To peek at an item (inspect the item from the front of the queue without
+      removing it) takes <code>O(1)</code> time.
+    </p>
+    <h4 id="space">Space</h4>
+    <p>
+      The space complexity of a queue is linear (<code>O(n)</code>). Each item
+      in the queue will take up space in memory.
+    </p>
+    <h3 id="strengths">Strengths</h3>
+    <p>
+      The primary strength of a queue is that all of its operations are fast
+      (take <code>O(1)</code> time).
+    </p>
+    <h3 id="weaknesses">Weaknesses</h3>
+    <p>
+      There are no weaknesses in this data structure. The reason is that it is a
+      very targeted data structure designed to do a few things well.
+    </p>
+    <h3 id="when-are-queues-useful">When are queues useful?</h3>
+    <p>
+      Queues are useful data structures in any situation where you want to make
+      sure things are processes in a FIFO order. Think of a web server. The
+      server might be trying to service thousands of page requests per minute.
+      It would make the most sense for the server to process and respond to the
+      requests in the same order that they were received. That way, the first
+      client to request a page is the first client to receive a response. Also,
+      you’ll learn soon enough about traversing hierarchical data structures.
+      One of the ways you do that is called a breadth-first traversal. To
+      conduct a breadth-first traversal, a queue can be used.
+    </p>
+    <h2 id="challenge">Challenge</h2>
+    <ol type="1">
+      <li>
+        In your own words, explain the strengths of a queue data structure.
+      </li>
+      <li>
+        If a queue only allows operations at the ends (front and back), what
+        other data structure would be a perfect one to build the queue?
+      </li>
+    </ol>
+    <h2 id="additional-resources">Additional Resources</h2>
+    <ul>
+      <li>
+        <a href="https://www.geeksforgeeks.org/queue-data-structure/"
+          >https://www.geeksforgeeks.org/queue-data-structure/ (Links to an
+          external site.)</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <hr />
+    <h1
+      id="objective-02---recall-the-time-and-space-complexity-the-strengths-and-weaknesses-and-the-common-uses-of-a-stack"
+    >
+      Objective 02 - Recall the time and space complexity, the strengths and
+      weaknesses, and the common uses of a stack
+    </h1>
+    <h2 id="overview-1">Overview</h2>
+    <p>
+      A stack data structure handles information in a last-in, first-out order.
+      This means that the last item added to the storage will be the first item
+      removed from the storage. A stack is like having a paper tray inbox on
+      your desk. Anytime a person walks by and drops a piece of paper or a
+      letter in your inbox, it will go on the top of your inbox. So, when you
+      process your inbox, the first item you would remove from the top of the
+      stack of papers would be the last item added to it.
+    </p>
+    <h2 id="follow-along-1">Follow Along</h2>
+    <h3 id="time-and-space-complexity-1">Time and Space Complexity</h3>
+    <h4 id="push">Push</h4>
+    <p>
+      To push an item (add an item to the top of the stack)
+      takes <code>O(1)</code> time.
+    </p>
+    <h4 id="pop">Pop</h4>
+    <p>
+      To pop an item (remove an item from the top of the stack)
+      takes <code>O(1)</code> time.
+    </p>
+    <h4 id="peek-1">Peek</h4>
+    <p>
+      To peek at an item (inspect the item from the top of the stack without
+      removing it) takes <code>O(1)</code> time.
+    </p>
+    <h4 id="space-1">Space</h4>
+    <p>
+      The space complexity of a stack is linear (<code>O(n)</code>). Each item
+      in the stack will take up space in memory.
+    </p>
+    <h3 id="strengths-1">Strengths</h3>
+    <p>
+      The primary strength of a stack is that all of its operations are fast
+      (take <code>O(1)</code> time).
+    </p>
+    <h3 id="weaknesses-1">Weaknesses</h3>
+    <p>
+      There are no weaknesses in this data structure. The reason is that it is a
+      very targeted data structure designed to do a few things well.
+    </p>
+    <h3 id="when-are-stacks-useful">When are stacks useful?</h3>
+    <p>
+      Stacks can be useful in any situation where you desire a LIFO order. One
+      common use-case is for parsing strings. Let’s say you wanted to parse a
+      string to ensure that all the parentheses in your string are correctly
+      nested. A stack could be useful for this. When you encounter an opening
+      parenthesis, you add it to the stack. When you encounter a closing
+      parenthesis, you remove the top opening parenthesis from the stack. After
+      going through all the characters in the string, the stack should be empty.
+      If it isn’t or if you try to remove an item from an empty stack, you’ll
+      know that the parentheses were not correctly nested.
+    </p>
+    <p>
+      Additionally, function calls and execution contexts are managed on a call
+      stack. When you call a function, it’s added to the call stack. When it
+      returns, it gets popped off of the stack. Last, an iterative
+      depth-first-search can be done using a stack.
+    </p>
+    <h2 id="challenge-1">Challenge</h2>
+    <ol type="1">
+      <li>
+        In your own words, explain the strengths of a stack data structure.
+      </li>
+      <li>
+        What two data structures would work well for implementing a stack?
+      </li>
+    </ol>
+    <h2 id="additional-resources-1">Additional Resources</h2>
+    <ul>
+      <li>
+        <a href="https://www.geeksforgeeks.org/stack-data-structure/"
+          >https://www.geeksforgeeks.org/stack-data-structure/ (Links to an
+          external site.)</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <hr />
+    <h1 id="objective-03---implement-a-queue-using-a-linked-list">
+      Objective 03 - Implement a queue using a linked list
+    </h1>
+    <h2 id="overview-2">Overview</h2>
+    <p>
+      To implement a queue, we need to maintain two pointers. One pointer will
+      point at the front (the first item) of the queue, and another pointer will
+      point at the rear (the last item) of the queue.
+    </p>
+    <p>
+      Additionally, we need to have two methods
+      available: <code>enqueue()</code> and <code>dequeue()</code>. <code>enqueue()</code> adds
+      a new item after the rear. <code>dequeue()</code> removes the front node
+      and resets the front pointer to the next node.
+    </p>
+    <h2 id="follow-along-2">Follow Along</h2>
+    <p>
+      We will use a <code>LinkedListNode</code> class for each of the items in
+      the queue.
+    </p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> LinkedListNode:</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> data</a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></a></code></pre>
+    </div>
+    <p>
+      For our <code>Queue</code> class, we first need to define
+      an <code>__init__</code> method. This method should initialize our
+      instance variables <code>front</code> and <code>rear</code>.
+    </p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> Queue:</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb2-3" title="3">        <span class="va">self</span>.front <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-4" title="4">        <span class="va">self</span>.rear <span class="op">=</span> <span class="va">None</span></a></code></pre>
+    </div>
+    <p>Next, we need to define our <code>enqueue</code> method:</p>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> Queue:</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb3-3" title="3">        <span class="va">self</span>.front <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb3-4" title="4">        <span class="va">self</span>.rear <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="kw">def</span> enqueue(<span class="va">self</span>, item):</a>
+<a class="sourceLine" id="cb3-6" title="6">        new_node <span class="op">=</span> LinkedListNode(item)</a>
+<a class="sourceLine" id="cb3-7" title="7">        <span class="co"># check if queue is empty</span></a>
+<a class="sourceLine" id="cb3-8" title="8">        <span class="cf">if</span> <span class="va">self</span>.rear <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb3-9" title="9">            <span class="va">self</span>.front <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb3-10" title="10">            <span class="va">self</span>.rear <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb3-11" title="11">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb3-12" title="12">            <span class="co"># add new node to rear</span></a>
+<a class="sourceLine" id="cb3-13" title="13">            <span class="va">self</span>.rear.<span class="bu">next</span> <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb3-14" title="14">            <span class="co"># reassign rear to new node</span></a>
+<a class="sourceLine" id="cb3-15" title="15">            <span class="va">self</span>.rear <span class="op">=</span> new_node</a></code></pre>
+    </div>
+    <p>Now, we need to define our <code>dequeue</code> method:</p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Queue:</a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb4-3" title="3">        <span class="va">self</span>.front <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-4" title="4">        <span class="va">self</span>.rear <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="kw">def</span> enqueue(<span class="va">self</span>, item):</a>
+<a class="sourceLine" id="cb4-6" title="6">        new_node <span class="op">=</span> LinkedListNode(item)</a>
+<a class="sourceLine" id="cb4-7" title="7">        <span class="co"># check if queue is empty</span></a>
+<a class="sourceLine" id="cb4-8" title="8">        <span class="cf">if</span> <span class="va">self</span>.rear <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb4-9" title="9">            <span class="va">self</span>.front <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb4-10" title="10">            <span class="va">self</span>.rear <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb4-11" title="11">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-12" title="12">            <span class="co"># add new node to rear</span></a>
+<a class="sourceLine" id="cb4-13" title="13">            <span class="va">self</span>.rear.<span class="bu">next</span> <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb4-14" title="14">            <span class="co"># reassign rear to new node</span></a>
+<a class="sourceLine" id="cb4-15" title="15">            <span class="va">self</span>.rear <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb4-16" title="16">    <span class="kw">def</span> dequeue(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb4-17" title="17">        <span class="co"># check if queue is empty</span></a>
+<a class="sourceLine" id="cb4-18" title="18">        <span class="cf">if</span> <span class="va">self</span>.front <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb4-19" title="19">            <span class="co"># keep copy of old front</span></a>
+<a class="sourceLine" id="cb4-20" title="20">            old_front <span class="op">=</span> <span class="va">self</span>.front</a>
+<a class="sourceLine" id="cb4-21" title="21">            <span class="co"># set new front</span></a>
+<a class="sourceLine" id="cb4-22" title="22">            <span class="va">self</span>.front <span class="op">=</span> old_front.<span class="bu">next</span></a>
+<a class="sourceLine" id="cb4-23" title="23"></a>
+<a class="sourceLine" id="cb4-24" title="24">        <span class="co"># check if the queue is now empty</span></a>
+<a class="sourceLine" id="cb4-25" title="25">        <span class="cf">if</span> <span class="va">self</span>.front <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb4-26" title="26">            <span class="co"># make sure rear is also None</span></a>
+<a class="sourceLine" id="cb4-27" title="27">            <span class="va">self</span>.rear <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-28" title="28"></a>
+<a class="sourceLine" id="cb4-29" title="29">        <span class="cf">return</span> old_front</a></code></pre>
+    </div>
+    <p>
+      Now we have a <code>Queue</code> class that uses a singly-linked list as
+      the underlying data structure.
+    </p>
+    <h2 id="challenge-2">Challenge</h2>
+    <h2 id="additional-resources-2">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/queue-linked-list-implementation/"
+          class="uri"
+          >https://www.geeksforgeeks.org/queue-linked-list-implementation/</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <hr />
+    <h1 id="objective-04---implement-a-stack-using-a-dynamic-array">
+      Objective 04 - Implement a stack using a dynamic array
+    </h1>
+    <h2 id="overview-3">Overview</h2>
+    <p>
+      There are two common ways to implement a stack. One is by using a linked
+      list, and the other is by using a dynamic array. Both of these
+      implementations work well.
+    </p>
+    <p>
+      In the implementation that uses a dynamic array (a list in Python),
+      the <code>push</code> method appends to the array, and
+      the <code>pop</code> method removes the last element from the array.
+    </p>
+    <h2 id="follow-along-3">Follow Along</h2>
+    <p>
+      First we need to define our <code>Stack</code> class and define
+      the <code>__init__</code> method:
+    </p>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb5-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> []</a></code></pre>
+    </div>
+    <p>
+      Now we need to define a <code>push</code> method to add an item to the top
+      of our stack:
+    </p>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">    <span class="kw">def</span> push(<span class="va">self</span>, item):</a>
+<a class="sourceLine" id="cb6-6" title="6">        <span class="va">self</span>.data.append(item)</a></code></pre>
+    </div>
+    <p>
+      Next, we need to define a <code>pop</code> method to remove the top item
+      from the stack:
+    </p>
+    <div class="sourceCode" id="cb7">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb7-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="kw">def</span> push(<span class="va">self</span>, item):</a>
+<a class="sourceLine" id="cb7-6" title="6">        <span class="va">self</span>.data.append(item)</a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="kw">def</span> pop(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb7-9" title="9">        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.data) <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb7-10" title="10">            <span class="cf">return</span> <span class="va">self</span>.data.pop()</a>
+<a class="sourceLine" id="cb7-11" title="11">        <span class="cf">return</span> <span class="st">&quot;The stack is empty&quot;</span></a></code></pre>
+    </div>
+    <h2 id="challenge-3">Challenge</h2>
+    <h2 id="additional-resources-3">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/stack-data-structure-introduction-program/"
+          >https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links
+          to an external site.)</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <hr />
+    <p>Immersive Reader</p>
+    <h1 id="objective-04---implement-a-stack-using-a-dynamic-array-1">
+      Objective 04 - Implement a stack using a dynamic array
+    </h1>
+    <h2 id="overview-4">Overview</h2>
+    <p>
+      There are two common ways to implement a stack. One is by using a linked
+      list, and the other is by using a dynamic array. Both of these
+      implementations work well.
+    </p>
+    <p>
+      In the implementation that uses a dynamic array (a list in Python),
+      the <code>push</code> method appends to the array, and
+      the <code>pop</code> method removes the last element from the array.
+    </p>
+    <h2 id="follow-along-4">Follow Along</h2>
+    <p>
+      First we need to define our <code>Stack</code> class and define
+      the <code>__init__</code> method:
+    </p>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb8-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> []</a></code></pre>
+    </div>
+    <p>
+      Now we need to define a <code>push</code> method to add an item to the top
+      of our stack:
+    </p>
+    <div class="sourceCode" id="cb9">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb9-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="kw">def</span> push(<span class="va">self</span>, item):</a>
+<a class="sourceLine" id="cb9-6" title="6">        <span class="va">self</span>.data.append(item)</a></code></pre>
+    </div>
+    <p>
+      Next, we need to define a <code>pop</code> method to remove the top item
+      from the stack:
+    </p>
+    <div class="sourceCode" id="cb10">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb10-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5">    <span class="kw">def</span> push(<span class="va">self</span>, item):</a>
+<a class="sourceLine" id="cb10-6" title="6">        <span class="va">self</span>.data.append(item)</a>
+<a class="sourceLine" id="cb10-7" title="7"></a>
+<a class="sourceLine" id="cb10-8" title="8">    <span class="kw">def</span> pop(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb10-9" title="9">        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.data) <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb10-10" title="10">            <span class="cf">return</span> <span class="va">self</span>.data.pop()</a>
+<a class="sourceLine" id="cb10-11" title="11">        <span class="cf">return</span> <span class="st">&quot;The stack is empty&quot;</span></a></code></pre>
+    </div>
+    <h2 id="challenge-4">Challenge</h2>
+    <h2 id="additional-resources-4">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/stack-data-structure-introduction-program/"
+          >https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links
+          to an external site.)</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <hr />
+    <h1 id="objective-05---implement-a-stack-using-a-linked-list">
+      Objective 05 - Implement a stack using a linked list
+    </h1>
+    <h2 id="overview-5">Overview</h2>
+    <p>
+      There are two common ways to implement a stack. One is by using a linked
+      list, and the other is by using a dynamic array. Both of these
+      implementations work well.
+    </p>
+    <p>
+      In the implementation that uses a linked list,
+      the <code>push</code> method inserts a new node at the linked list’s head,
+      and the <code>pop</code> method removes the node at the linked list’s
+      head.
+    </p>
+    <h2 id="follow-along-5">Follow Along</h2>
+    <p>
+      First, let’s define our <code>Stack</code> class and
+      its <code>__init__</code> method:
+    </p>
+    <div class="sourceCode" id="cb11">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">class</span> LinkedListNode:</a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</a>
+<a class="sourceLine" id="cb11-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> data</a>
+<a class="sourceLine" id="cb11-4" title="4">        <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb11-5" title="5"></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb11-7" title="7">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb11-8" title="8">        <span class="va">self</span>.top <span class="op">=</span> <span class="va">None</span></a></code></pre>
+    </div>
+    <p>
+      Now we need to define our <code>push</code> method to add items to the top
+      of the stack.
+    </p>
+    <div class="sourceCode" id="cb12">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">class</span> LinkedListNode:</a>
+<a class="sourceLine" id="cb12-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</a>
+<a class="sourceLine" id="cb12-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> data</a>
+<a class="sourceLine" id="cb12-4" title="4">        <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb12-5" title="5"></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb12-7" title="7">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb12-8" title="8">        <span class="va">self</span>.top <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb12-9" title="9"></a>
+<a class="sourceLine" id="cb12-10" title="10">    <span class="kw">def</span> push(<span class="va">self</span>, data):</a>
+<a class="sourceLine" id="cb12-11" title="11">        <span class="co"># create new node with data</span></a>
+<a class="sourceLine" id="cb12-12" title="12">        new_node <span class="op">=</span> LinkedListNode(data)</a>
+<a class="sourceLine" id="cb12-13" title="13">        <span class="co"># set current top to new node&#39;s next</span></a>
+<a class="sourceLine" id="cb12-14" title="14">        new_node.<span class="bu">next</span> <span class="op">=</span> <span class="va">self</span>.top</a>
+<a class="sourceLine" id="cb12-15" title="15">        <span class="co"># reset the top pointer to the new node</span></a>
+<a class="sourceLine" id="cb12-16" title="16">        <span class="va">self</span>.top <span class="op">=</span> new_node</a></code></pre>
+    </div>
+    <p>
+      Next, we need to define our <code>pop</code> method to get items off the
+      top of our stack.
+    </p>
+    <div class="sourceCode" id="cb13">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">class</span> LinkedListNode:</a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</a>
+<a class="sourceLine" id="cb13-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> data</a>
+<a class="sourceLine" id="cb13-4" title="4">        <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb13-5" title="5"></a>
+<a class="sourceLine" id="cb13-6" title="6"><span class="kw">class</span> Stack:</a>
+<a class="sourceLine" id="cb13-7" title="7">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb13-8" title="8">        <span class="va">self</span>.top <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb13-9" title="9"></a>
+<a class="sourceLine" id="cb13-10" title="10">    <span class="kw">def</span> push(<span class="va">self</span>, data):</a>
+<a class="sourceLine" id="cb13-11" title="11">        <span class="co"># create new node with data</span></a>
+<a class="sourceLine" id="cb13-12" title="12">        new_node <span class="op">=</span> LinkedListNode(data)</a>
+<a class="sourceLine" id="cb13-13" title="13">        <span class="co"># set current top to new node&#39;s next</span></a>
+<a class="sourceLine" id="cb13-14" title="14">        new_node.<span class="bu">next</span> <span class="op">=</span> <span class="va">self</span>.top</a>
+<a class="sourceLine" id="cb13-15" title="15">        <span class="co"># reset the top pointer to the new node</span></a>
+<a class="sourceLine" id="cb13-16" title="16">        <span class="va">self</span>.top <span class="op">=</span> new_node</a>
+<a class="sourceLine" id="cb13-17" title="17"></a>
+<a class="sourceLine" id="cb13-18" title="18">    <span class="kw">def</span> pop(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb13-19" title="19">        <span class="co"># make sure stack is not empty</span></a>
+<a class="sourceLine" id="cb13-20" title="20">        <span class="cf">if</span> <span class="va">self</span>.top <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb13-21" title="21">            <span class="co"># store popped node</span></a>
+<a class="sourceLine" id="cb13-22" title="22">            popped_node <span class="op">=</span> <span class="va">self</span>.top</a>
+<a class="sourceLine" id="cb13-23" title="23">            <span class="co"># reset top pointer to next node</span></a>
+<a class="sourceLine" id="cb13-24" title="24">            <span class="va">self</span>.top <span class="op">=</span> popped_node.<span class="bu">next</span></a>
+<a class="sourceLine" id="cb13-25" title="25">            <span class="co"># return the value from the popped node</span></a>
+<a class="sourceLine" id="cb13-26" title="26">            <span class="cf">return</span> popped_node.data</a></code></pre>
+    </div>
+    <h2 id="challenge-5">Challenge</h2>
+    <h2 id="additional-resources-5">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/stack-data-structure-introduction-program/"
+          >https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links
+          to an external site.)</a
+        >
+      </li>
+    </ul>
+  </body>
+</html>

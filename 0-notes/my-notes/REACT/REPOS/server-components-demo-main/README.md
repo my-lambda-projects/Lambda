@@ -1,17 +1,17 @@
 # React Server Components Demo
 
-* [What is this?](#what-is-this)
-* [When will I be able to use this?](#when-will-i-be-able-to-use-this)
-* [Setup](#setup)
-* [DB Setup](#db-setup)
-  + [Step 1. Create the Database](#step-1-create-the-database)
-  + [Step 2. Connect to the Database](#step-2-connect-to-the-database)
-  + [Step 3. Run the seed script](#step-3-run-the-seed-script)
-* [Notes about this app](#notes-about-this-app)
-  + [Interesting things to try](#interesting-things-to-try)
-* [Built by (A-Z)](#built-by-a-z)
-* [Code of Conduct](#code-of-conduct)
-* [License](#license)
+- [What is this?](#what-is-this)
+- [When will I be able to use this?](#when-will-i-be-able-to-use-this)
+- [Setup](#setup)
+- [DB Setup](#db-setup)
+  - [Step 1. Create the Database](#step-1-create-the-database)
+  - [Step 2. Connect to the Database](#step-2-connect-to-the-database)
+  - [Step 3. Run the seed script](#step-3-run-the-seed-script)
+- [Notes about this app](#notes-about-this-app)
+  - [Interesting things to try](#interesting-things-to-try)
+- [Built by (A-Z)](#built-by-a-z)
+- [Code of Conduct](#code-of-conduct)
+- [License](#license)
 
 ## What is this?
 
@@ -25,10 +25,10 @@ Server Components are an experimental feature and **are not ready for adoption**
 
 You will need to have nodejs >=14.9.0 in order to run this demo. [Node 14 LTS](https://nodejs.org/en/about/releases/) is a good choice!
 
-  ```
-  npm install
-  npm start
-  ```
+```
+npm install
+npm start
+```
 
 (Or `npm run start:prod` for a production build.)
 
@@ -132,7 +132,9 @@ You can watch a [recorded walkthrough of all these demo points here](https://you
 - [Tate Strickland](http://www.tatestrickland.com/) (Design)
 
 ## [Code of Conduct](https://engineering.fb.com/codeofconduct/)
+
 Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read the [full text](https://engineering.fb.com/codeofconduct/) so that you can understand what actions will and will not be tolerated.
 
 ## License
+
 This demo is MIT licensed.

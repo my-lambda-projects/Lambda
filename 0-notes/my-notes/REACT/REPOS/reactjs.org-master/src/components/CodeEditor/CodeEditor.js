@@ -82,7 +82,8 @@ class CodeEditor extends Component {
             [media.lessThan('small')]: {
               display: 'block',
             },
-          }}>
+          }}
+        >
           <div
             css={{
               flex: '0 0 70%',
@@ -92,13 +93,15 @@ class CodeEditor extends Component {
               [media.lessThan('medium')]: {
                 borderRadius: '10px 10px 0 0',
               },
-            }}>
+            }}
+          >
             <div
               css={{
                 padding: '0px 10px',
                 background: colors.darker,
                 color: colors.white,
-              }}>
+              }}
+            >
               <MetaTitle onDark={true}>
                 Live JSX Editor
                 <label
@@ -106,7 +109,8 @@ class CodeEditor extends Component {
                     fontSize: 14,
                     float: 'right',
                     cursor: 'pointer',
-                  }}>
+                  }}
+                >
                   <input
                     checked={this.state.showJSX}
                     onChange={(event) =>
@@ -142,7 +146,8 @@ class CodeEditor extends Component {
                   marginBottom: '0 !important',
                 },
               }}
-              className="gatsby-highlight">
+              className="gatsby-highlight"
+            >
               <LiveEditor ignoreTabKey={true} onChange={this._onChange} />
             </div>
           </div>
@@ -159,17 +164,20 @@ class CodeEditor extends Component {
                 [media.lessThan('medium')]: {
                   borderRadius: '0 0 10px 10px',
                 },
-              }}>
+              }}
+            >
               <div
                 css={{
                   padding: '0px 10px',
                   background: colors.error,
                   color: colors.white,
-                }}>
+                }}
+              >
                 <MetaTitle
                   cssProps={{
                     color: colors.white,
-                  }}>
+                  }}
+                >
                   Error
                 </MetaTitle>
               </div>
@@ -179,7 +187,8 @@ class CodeEditor extends Component {
                   wordBreak: 'break-word',
                   color: colors.error,
                   padding: 10,
-                }}>
+                }}
+              >
                 {errorMessage}
               </pre>
             </div>
@@ -195,12 +204,14 @@ class CodeEditor extends Component {
                 [media.lessThan('medium')]: {
                   borderRadius: '0 0 10px 10px',
                 },
-              }}>
+              }}
+            >
               <div
                 css={{
                   padding: '0 10px',
                   backgroundColor: colors.divider,
-                }}>
+                }}
+              >
                 <MetaTitle>Result</MetaTitle>
               </div>
               <div

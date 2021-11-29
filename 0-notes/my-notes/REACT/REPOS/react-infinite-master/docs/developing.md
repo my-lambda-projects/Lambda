@@ -1,11 +1,13 @@
 # Notes on Developing for React Infinite
 
 ## Infinite Jest
+
 I am seated in an office, surrounded by heads and bodies. There I've written some tests for this package, using Facebook's Jest library<small><sup>1</sup></small>, which provides automatic mocking and jsdom testing.
 
 Tests are located in the `__tests__` directory<small><sup>2</sup></small>, and can be run with `npm test` after `npm install`.
 
 ## Developing
+
 React Infinite is built with Browserify and Gulp. To get started, install the development dependencies with `npm install`. If you do not already have Gulp, you might wish to install it globally with `npm install -g gulp`.
 
 The newly revamped development environment is based on `gulp develop`. When run, this command sets up a watch on the `/src` folder with Browserify as well as the `examples` folder.

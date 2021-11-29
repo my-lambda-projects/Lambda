@@ -1,0 +1,3480 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Day3 Notes</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type='checkbox'] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+      }
+
+      .code {
+        font-family: 'SFMono-Regular', Menlo, Consolas, 'PT Mono',
+          'Liberation Mono', Courier, monospace;
+      }
+
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK KR';
+      }
+
+      .pdf .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK KR';
+      }
+
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+
+      .highlight-default {
+      }
+
+      .highlight-gray {
+        color: rgb(155, 154, 151);
+      }
+
+      .highlight-brown {
+        color: rgb(100, 71, 58);
+      }
+
+      .highlight-orange {
+        color: rgb(217, 115, 13);
+      }
+
+      .highlight-yellow {
+        color: rgb(223, 171, 1);
+      }
+
+      .highlight-teal {
+        color: rgb(15, 123, 108);
+      }
+
+      .highlight-blue {
+        color: rgb(11, 110, 153);
+      }
+
+      .highlight-purple {
+        color: rgb(105, 64, 165);
+      }
+
+      .highlight-pink {
+        color: rgb(173, 26, 114);
+      }
+
+      .highlight-red {
+        color: rgb(224, 62, 62);
+      }
+
+      .highlight-gray_background {
+        background: rgb(235, 236, 237);
+      }
+
+      .highlight-brown_background {
+        background: rgb(233, 229, 227);
+      }
+
+      .highlight-orange_background {
+        background: rgb(250, 235, 221);
+      }
+
+      .highlight-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+
+      .highlight-teal_background {
+        background: rgb(221, 237, 234);
+      }
+
+      .highlight-blue_background {
+        background: rgb(221, 235, 241);
+      }
+
+      .highlight-purple_background {
+        background: rgb(234, 228, 242);
+      }
+
+      .highlight-pink_background {
+        background: rgb(244, 223, 235);
+      }
+
+      .highlight-red_background {
+        background: rgb(251, 228, 228);
+      }
+
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+
+      .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+      }
+
+      .block-color-brown {
+        color: rgb(100, 71, 58);
+        fill: rgb(100, 71, 58);
+      }
+
+      .block-color-orange {
+        color: rgb(217, 115, 13);
+        fill: rgb(217, 115, 13);
+      }
+
+      .block-color-yellow {
+        color: rgb(223, 171, 1);
+        fill: rgb(223, 171, 1);
+      }
+
+      .block-color-teal {
+        color: rgb(15, 123, 108);
+        fill: rgb(15, 123, 108);
+      }
+
+      .block-color-blue {
+        color: rgb(11, 110, 153);
+        fill: rgb(11, 110, 153);
+      }
+
+      .block-color-purple {
+        color: rgb(105, 64, 165);
+        fill: rgb(105, 64, 165);
+      }
+
+      .block-color-pink {
+        color: rgb(173, 26, 114);
+        fill: rgb(173, 26, 114);
+      }
+
+      .block-color-red {
+        color: rgb(224, 62, 62);
+        fill: rgb(224, 62, 62);
+      }
+
+      .block-color-gray_background {
+        background: rgb(235, 236, 237);
+      }
+
+      .block-color-brown_background {
+        background: rgb(233, 229, 227);
+      }
+
+      .block-color-orange_background {
+        background: rgb(250, 235, 221);
+      }
+
+      .block-color-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+
+      .block-color-teal_background {
+        background: rgb(221, 237, 234);
+      }
+
+      .block-color-blue_background {
+        background: rgb(221, 235, 241);
+      }
+
+      .block-color-purple_background {
+        background: rgb(234, 228, 242);
+      }
+
+      .block-color-pink_background {
+        background: rgb(244, 223, 235);
+      }
+
+      .block-color-red_background {
+        background: rgb(251, 228, 228);
+      }
+
+      .select-value-color-default {
+        background-color: rgba(206, 205, 202, 0.5);
+      }
+
+      .select-value-color-gray {
+        background-color: rgba(155, 154, 151, 0.4);
+      }
+
+      .select-value-color-brown {
+        background-color: rgba(140, 46, 0, 0.2);
+      }
+
+      .select-value-color-orange {
+        background-color: rgba(245, 93, 0, 0.2);
+      }
+
+      .select-value-color-yellow {
+        background-color: rgba(233, 168, 0, 0.2);
+      }
+
+      .select-value-color-green {
+        background-color: rgba(0, 135, 107, 0.2);
+      }
+
+      .select-value-color-blue {
+        background-color: rgba(0, 120, 223, 0.2);
+      }
+
+      .select-value-color-purple {
+        background-color: rgba(103, 36, 222, 0.2);
+      }
+
+      .select-value-color-pink {
+        background-color: rgba(221, 0, 129, 0.2);
+      }
+
+      .select-value-color-red {
+        background-color: rgba(255, 0, 26, 0.2);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+
+      .checkbox-off {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+    </style>
+  </head>
+
+  <body>
+    <article id="abb7dbe1-f048-4085-b6a0-18c1cead1257" class="page serif">
+      <header>
+        <h1 class="page-title">Day3 Notes</h1>
+        <table class="properties">
+          <tbody>
+            <tr class="property-row property-row-text">
+              <th>
+                <span class="icon property-icon"
+                  ><svg
+                    viewBox="0 0 14 14"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      display: block;
+                      fill: rgba(55, 53, 47, 0.4);
+                      flex-shrink: 0;
+                      -webkit-backface-visibility: hidden;
+                    "
+                    class="typesText"
+                  >
+                    <path
+                      d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                    ></path></svg></span
+                >Column
+              </th>
+              <td>d3</td>
+            </tr>
+            <tr class="property-row property-row-last_edited_time">
+              <th>
+                <span class="icon property-icon"
+                  ><svg
+                    viewBox="0 0 14 14"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      display: block;
+                      fill: rgba(55, 53, 47, 0.4);
+                      flex-shrink: 0;
+                      -webkit-backface-visibility: hidden;
+                    "
+                    class="typesCreatedAt"
+                  >
+                    <path
+                      d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"
+                    ></path></svg></span
+                >Date Created
+              </th>
+              <td><time>@August 4, 2021 12:28 PM</time></td>
+            </tr>
+            <tr class="property-row property-row-text">
+              <th>
+                <span class="icon property-icon"
+                  ><svg
+                    viewBox="0 0 14 14"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      display: block;
+                      fill: rgba(55, 53, 47, 0.4);
+                      flex-shrink: 0;
+                      -webkit-backface-visibility: hidden;
+                    "
+                    class="typesText"
+                  >
+                    <path
+                      d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                    ></path></svg></span
+                >Links
+              </th>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </header>
+      <div class="page-body">
+        <p id="0320ee83-ae2e-4e28-a1c0-aa4e6d0f7d32" class=""></p>
+        <h1 id="bf494970-1d72-479c-948e-3075815f79d9" class="">
+          Objective 01 - Perform basic dictionary operations
+        </h1>
+        <h2 id="4b19de26-e7c6-4cc6-b179-8f86a5aea8b7" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="25ac38e9-0655-4289-a751-46ddcc3f0990" class="">
+          A dictionary is like a list, but instead of accessing values with an
+          index, you access values with a &quot;key.&quot; A &quot;key&quot; can
+          be any type of object (string, number, list, etc.). Also, unlike
+          lists, dictionaries do not have an order.
+        </p>
+        <h2 id="2a07c05c-78a3-46bf-b59a-0b95f324e527" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="6742ddcd-d3f7-4afe-98c3-92045c94eb0e" class="">
+          Let&#x27;s use a dictionary to create a collection that maps first
+          names as keys (strings) to phone numbers as values.
+        </p>
+        <pre
+          id="de697e2b-e34e-48b7-9e44-ba5574697be6"
+          class="code code-wrap"
+        ><code>phonebook = {} # creates an empty dictionary
+phonebook[&quot;Abe&quot;] = 4569874321
+phonebook[&quot;Bill&quot;] = 7659803241
+phonebook[&quot;Barry&quot;] = 6573214789
+
+print(phonebook)
+# {&#x27;Abe&#x27;: 4569874321, &#x27;Bill&#x27;: 7659803241, &#x27;Barry&#x27;: 6573214789}</code></pre>
+        <p id="57ae19a0-0a44-4528-88c8-ebd76c4ec682" class="">
+          Instead of adding one key-value pair at a time, we can initialize the
+          dictionary to have the same values.
+        </p>
+        <pre
+          id="12ca9346-a43a-42fa-9b28-d5a2ceeab7c0"
+          class="code code-wrap"
+        ><code>phonebook = {
+    &quot;Abe&quot;: 4569874321,
+    &quot;Bill&quot;: 7659803241,
+    &quot;Barry&quot;: 6573214789
+}
+
+print(phonebook)
+# {&#x27;Abe&#x27;: 4569874321, &#x27;Bill&#x27;: 7659803241, &#x27;Barry&#x27;: 6573214789}</code></pre>
+        <p id="a059965e-4932-4414-878b-d303b7ae9b0c" class="">
+          We can iterate over a dictionary as we iterated over a list. We can
+          use the <code>items()</code> method, which returns a tuple with the
+          key and value for each item in the dictionary.
+        </p>
+        <pre
+          id="d22300b6-2eab-4734-8aad-22f14bf3c411"
+          class="code code-wrap"
+        ><code>for name, number in phonebook.items():
+    print(&quot;Name: %s, Number: %s&quot; % (name, number))
+
+# Name: Abe, Number: 4569874321
+# Name: Bill, Number: 7659803241
+# Name: Barry, Number: 6573214789</code></pre>
+        <p id="a3f55c7e-c285-472e-a07e-885580892770" class="">
+          To remove a key-value pair from a dictionary, you need to use
+          the <code>del</code> keyword or use the <code>pop()</code> method
+          available on dictionary objects. The difference
+          is <code>pop()</code> deletes the item from the dictionary and returns
+          the value. When you use the <code>del</code> keyword, you&#x27;ve
+          written a statement that doesn&#x27;t evaluate to anything.
+        </p>
+        <pre
+          id="f50903e9-c7bc-4a05-8593-62344106bdf8"
+          class="code code-wrap"
+        ><code>phonebook = {
+    &quot;Abe&quot;: 4569874321,
+    &quot;Bill&quot;: 7659803241,
+    &quot;Barry&quot;: 6573214789
+}
+
+del phonebook[&quot;Abe&quot;]
+
+print(phonebook.pop(&quot;Bill&quot;))
+# 7659803241</code></pre>
+        <figure id="9bff8067-6028-4b6b-ba34-fa154544d3f5">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-dictionaries"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-dictionaries</a
+            >
+          </div>
+        </figure>
+        <figure id="67815118-27ba-4526-84a7-9775a6ac7890" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <h1 id="40580634-21f6-4333-91a6-36aca0fe64e6" class="">
+          Objective 02 - Recognize mutable and immutable objects
+        </h1>
+        <h2 id="b8f778ba-4965-4e7e-a552-d21d690d68e9" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="cc20981f-9444-4893-993e-3a9e733b15e0" class="">
+          In Python, everything is an object.
+        </p>
+        <pre
+          id="c4ee6fba-b941-43a4-96b8-c30c079218e5"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = &quot;hello&quot;
+&gt;&gt;&gt; c = [1,2,3]
+&gt;&gt;&gt; isinstance(a, object)
+True
+&gt;&gt;&gt; isinstance(b, object)
+True
+&gt;&gt;&gt; isinstance(c, object)
+True
+&gt;&gt;&gt;</code></pre>
+        <p id="c1cc6bbf-5872-428a-ba95-cf5c3d603476" class="">
+          Additionally, all objects in Python have three things:
+        </p>
+        <ol
+          type="1"
+          id="8e0f9a74-596a-46f4-8155-ac370ad207a6"
+          class="numbered-list"
+          start="1"
+        >
+          <li>Identity</li>
+        </ol>
+        <ol
+          type="1"
+          id="1c3adf65-5daf-4093-b0bf-88d26a99cd04"
+          class="numbered-list"
+          start="2"
+        >
+          <li>Type</li>
+        </ol>
+        <ol
+          type="1"
+          id="09c4a567-588c-4569-bb93-e589d5d9ad09"
+          class="numbered-list"
+          start="3"
+        >
+          <li>Value</li>
+        </ol>
+        <pre
+          id="830a1da7-ba30-43b1-8b56-8b5d8d59883e"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; # Identity
+... id(a)
+4483164816
+&gt;&gt;&gt; # Type
+... type(a)
+&lt;class &#x27;int&#x27;&gt;
+&gt;&gt;&gt; # Value
+... a
+1
+&gt;&gt;&gt;</code></pre>
+        <h2 id="a759b6e5-f883-48c9-a54a-a51f23588184" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <h3 id="71de5afa-3d28-4376-b007-a9d121d26911" class="">
+          <strong>Identity</strong>
+        </h3>
+        <p id="2271cd7a-1554-48a9-876c-535304383f50" class="">
+          An object&#x27;s <strong>identity</strong> can never change once it
+          has been created. You can think of an object&#x27;s identity as its
+          specific address in memory. In the code above, <code>a = 1</code
+          > created a new object in memory whose identity is represented by the
+          integer <code>4483164816</code>.
+        </p>
+        <p id="5fed8ba2-66e2-4d09-95ba-86b557db6990" class="">
+          Python has an <code>is</code> operator that allows you to compare two
+          object&#x27;s identities.
+        </p>
+        <pre
+          id="56996172-b0d6-495e-a625-99e720bd5cc8"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 2
+&gt;&gt;&gt; a is b
+False
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; a is b
+True
+&gt;&gt;&gt;</code></pre>
+        <p id="1d1fac45-21e3-4ec1-a3b0-7d646c0b0471" class="">
+          In the code above, we first assign <code>1</code> to the
+          variable <code>a</code>. Then, we assign <code>2</code> to the
+          variable <code>b</code>. These are two different objects in memory and
+          thus have different identities. We verify that they are different by
+          using the <code>is</code> operator, which returns <code>False</code>.
+          The line <code>b = a</code> assigns the variable <code>b</code> the
+          object that the variable <code>a</code> is pointed to. Now,
+          both <code>a</code> and <code>b</code> are referencing the same object
+          in memory. We can use the <code>id()</code> function to verify that
+          this is the case as well:
+        </p>
+        <pre
+          id="aa0a6f51-37d0-4f21-bb48-972b546a1b91"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; id(a)
+4483164816
+&gt;&gt;&gt; id(b)
+4483164816
+&gt;&gt;&gt;</code></pre>
+        <h3 id="355f4b55-d14d-462d-9dfe-d9a26ef65d10" class="">
+          <strong>Type</strong>
+        </h3>
+        <p id="68e96a34-bee6-4f54-a49e-3b427b1866d4" class="">
+          The <strong>type</strong> of an object determines what are its
+          possible values and what operations that object supports.
+          The <code>type()</code> function will return what type an object is:
+        </p>
+        <pre
+          id="8bfbdf5e-a0d7-44fd-9f4a-1d4ab2256b78"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; a = &#x27;Hello&#x27;
+&gt;&gt;&gt; type(a)
+&lt;class &#x27;str&#x27;&gt;
+&gt;&gt;&gt; b = 100
+&gt;&gt;&gt; type(b)
+&lt;class &#x27;int&#x27;&gt;
+&gt;&gt;&gt; c = True
+&gt;&gt;&gt; type(c)
+&lt;class &#x27;bool&#x27;&gt;
+&gt;&gt;&gt;</code></pre>
+        <p id="5a170b0f-bffa-41e5-b046-8c0aeee162b5" class="">
+          Just like an object&#x27;s identity, once an object is created, its
+          identity can never change. It&#x27;s an object&#x27;s type that
+          determines whether an object is <strong>mutable</strong> or <strong
+            >immutable.</strong
+          >
+        </p>
+        <h3 id="8dbae95e-fa60-4766-ad4e-1f97767e0093" class="">
+          <strong>Value</strong>
+        </h3>
+        <p id="8d2139ab-e653-40a5-a543-cd0db1d21413" class="">
+          The value of some objects <em>can be changed</em> after they are
+          created. The value of some objects <em>cannot be changed</em> after
+          they are created. If the object&#x27;s value can be changed, that
+          object is considered to be <strong>mutable</strong> (changeable). If
+          the object&#x27;s value cannot be changed, that object is considered
+          to be <strong>immutable</strong> (unchangeable).
+        </p>
+        <h3 id="cb1dc377-aeb3-4220-ad49-2c38ef4ddeb6" class="">
+          <strong>Mutable Objects</strong>
+        </h3>
+        <p id="c1c9bee2-0e54-4414-8600-fcdf0122bba6" class="">
+          A mutable object is an object whose value can be changed after it is
+          created. The word mutable is defined as:
+        </p>
+        <blockquote id="b8542adf-66c0-4f95-84ac-95c98f2138a9" class="">
+          liable to change
+        </blockquote>
+        <p id="6b138383-3128-4e6f-ad11-fc303946d18c" class="">
+          The following types of objects are mutable:
+        </p>
+        <ul id="4a5fd3ee-8767-4f6e-9e7c-f424b355ae7d" class="bulleted-list">
+          <li>list</li>
+        </ul>
+        <ul id="a81b9da1-f4cc-4a4b-bcae-3a935b0f0751" class="bulleted-list">
+          <li>set</li>
+        </ul>
+        <ul id="953b35b3-6f0e-4d0e-9436-7781349a7595" class="bulleted-list">
+          <li>dict</li>
+        </ul>
+        <ul id="41f050df-7815-4eb3-b0e0-59e048a97470" class="bulleted-list">
+          <li>byte array</li>
+        </ul>
+        <ul id="5c1a157e-05a5-4d97-a6f1-000d11d62710" class="bulleted-list">
+          <li>instances of user-defined classes</li>
+        </ul>
+        <p id="2fb82257-3e55-4bdd-a2e8-48be5112ec7f" class="">
+          Let&#x27;s look at a few examples in code:
+        </p>
+        <h3 id="c7f3d0ab-ec44-4ac8-ba26-0b566a8fc4ac" class="">
+          <strong>Lists</strong>
+        </h3>
+        <pre
+          id="aec05d8e-620f-43ce-a84a-02b41707a42f"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_list = [&#x27;laughter&#x27;, &#x27;happiness&#x27;, &#x27;love&#x27;]
+&gt;&gt;&gt; type(my_list)
+&lt;class &#x27;list&#x27;&gt;
+&gt;&gt;&gt; my_list[2] = &#x27;joy&#x27;
+&gt;&gt;&gt; my_list.append(&#x27;excellent&#x27;)
+&gt;&gt;&gt; my_list
+[&#x27;laughter&#x27;, &#x27;happiness&#x27;, &#x27;joy&#x27;, &#x27;excellent&#x27;]
+&gt;&gt;&gt;</code></pre>
+        <p id="84d9b054-d7ee-45f1-8fae-99368a9eb6bb" class="">
+          In the first line, we create a list object with three elements and
+          assign it to the variable <code>my_list</code>. Then, because lists
+          are mutable, we change <code>&#x27;love&#x27;</code> at index 2 to
+          be <code>&#x27;joy&#x27;</code> instead. We also can grow our list by
+          appending a new element to the list.
+        </p>
+        <h3 id="b1c38681-7e1c-4625-8b2a-d78c0942d1a3" class="">
+          <strong>Sets</strong>
+        </h3>
+        <pre
+          id="301d076a-23b4-428b-a2fe-cdaf8e3bc079"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_set = {&#x27;laughter&#x27;, &#x27;happiness&#x27;, &#x27;love&#x27;}
+&gt;&gt;&gt; type(my_set)
+&lt;class &#x27;set&#x27;&gt;
+&gt;&gt;&gt; my_set.add(&#x27;happy&#x27;)
+&gt;&gt;&gt; my_set
+{&#x27;love&#x27;, &#x27;happy&#x27;, &#x27;happiness&#x27;, &#x27;laughter&#x27;}
+&gt;&gt;&gt; my_set.remove(&#x27;happiness&#x27;)
+&gt;&gt;&gt; my_set
+{&#x27;love&#x27;, &#x27;happy&#x27;, &#x27;laughter&#x27;}</code></pre>
+        <p id="0726751d-d3d6-473b-88d4-9c584a038ba6" class="">
+          In the first line, we create a set object with three elements and
+          assign it to the variable <code>my_set</code>. Because set objects are
+          mutable, we can add <code>&#x27;happy&#x27;</code> to the set and
+          remove <code>&#x27;happiness&#x27;</code> from the set.
+        </p>
+        <h3 id="89303d9a-837c-4630-8b6b-2d3f0d303c21" class="">
+          <strong>Dicts</strong>
+        </h3>
+        <pre
+          id="1138bd8f-3fda-4b84-9afb-7739c1f7b495"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_dict = {&quot;first_name&quot;: &quot;Mattieu&quot;, &quot;last_name&quot;: &quot;Ricard&quot;}
+&gt;&gt;&gt; type(my_dict)
+&lt;class &#x27;dict&#x27;&gt;
+&gt;&gt;&gt; my_dict[&quot;location&quot;] = &quot;Nepal&quot;
+&gt;&gt;&gt; my_dict
+{&#x27;first_name&#x27;: &#x27;Mattieu&#x27;, &#x27;last_name&#x27;: &#x27;Ricard&#x27;, &#x27;location&#x27;: &#x27;Nepal&#x27;}
+&gt;&gt;&gt; del my_dict[&#x27;location&#x27;]
+&gt;&gt;&gt; my_dict
+{&#x27;first_name&#x27;: &#x27;Mattieu&#x27;, &#x27;last_name&#x27;: &#x27;Ricard&#x27;}</code></pre>
+        <p id="510121bf-5e5f-41d8-9dcf-5cd0115d36cc" class="">
+          On line one, we create a dict object that has two key-value pairs.
+          Then, because dict objects are mutable, we add key-value pair <code
+            >&quot;location&quot;: &quot;Nepal&quot;</code
+          >. Last, we delete that same key-value pair.
+        </p>
+        <p id="d80f2e06-77b0-4c6d-926e-5fb3f7ba65eb" class="">
+          Mutable objects work great when you know you will likely need to
+          change the size of the object as you use and interact with it.
+          Changing mutable objects is cheap (because you don&#x27;t have to copy
+          all existing elements to a new object).
+        </p>
+        <h3 id="574e6064-d0db-4a70-b586-bdcf16229032" class="">
+          <strong>Aliasing with Mutable Objects</strong>
+        </h3>
+        <p id="decaccfe-f4ac-4493-b509-e50f4a24808b" class="">
+          Below, I&#x27;m going to walk through what happens when
+          you <strong>alias</strong> a mutable object. In Python, aliasing
+          happens whenever a variable&#x27;s value is assigned to another
+          variable because variables are just names that store references to
+          values.
+        </p>
+        <p id="266ddd04-5593-45a6-8699-b17438e2fea7" class="">
+          Let me illustrate this with a helpful code visualizer tool called <a
+            href="http://www.pythontutor.com/"
+            >Python Tutor (Links to an external site.)</a
+          >:
+        </p>
+        <figure id="6c4ab25e-cd6d-4eeb-8666-34fdab1cc3e9" class="image">
+          <a
+            href="https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png"
+            ><img
+              src="https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png"
+          /></a>
+        </figure>
+        <p id="d573aafb-fb7e-40fd-bd0d-d8d15f3e83fd" class="">
+          On line 1, we instantiate a new list object with three elements
+          (<code>1</code>, <code>2</code>, and <code>3</code>). The
+          name <code>my_list_orig</code> is the variable that we assign the new
+          list to.
+        </p>
+        <figure id="1d5ddf67-66bf-433d-abd0-fabf846a409f" class="image">
+          <a
+            href="https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png"
+            ><img
+              src="https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png"
+          /></a>
+        </figure>
+        <p id="81a82762-c7bb-46dc-bd31-70828a347120" class="">
+          Then, on line 2, we create an alias of <code>my_list_orig</code> by
+          pointing <code>my_list_alias</code> to whatever
+          object <code>my_list_orig</code> is pointing at. Notice in the image
+          above that there is still only one list object. However, there are two
+          variables in the global frame, and they are both pointing to the same
+          object.
+        </p>
+        <figure id="d87c091e-5f7b-4862-be33-e774627ffd48" class="image">
+          <a
+            href="https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png"
+            ><img
+              src="https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png"
+          /></a>
+        </figure>
+        <p id="6e0e0a7e-a965-4337-a93f-5c40158d49c0" class="">
+          On line 3, we append a new element to <code>my_list_orig</code>.
+          Notice that, because both variables are referencing the same object,
+          even though we appended to <code>my_list_orig</code>, we also
+          modified <code>my_list_alias</code>.
+        </p>
+        <figure id="47ffe4e0-bce3-4780-a2da-b2a19884b4c1" class="image">
+          <a
+            href="https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png"
+            ><img
+              src="https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png"
+          /></a>
+        </figure>
+        <p id="53c4c89f-1c5a-4067-83ec-3769c87cd144" class="">
+          On line 4, we removed the
+          element <code>1</code> from <code>my_list_orig</code>. Notice, just
+          like when we added to the list, <code>my_list_alias</code> is also
+          affected.
+        </p>
+        <p id="2b4279fb-c59d-4476-9c35-1e8d014f78f8" class="">
+          <em
+            >This behavior is something you need to be aware of if you ever use
+            aliasing with mutable objects in your code.</em
+          >
+        </p>
+        <h3 id="91d4004a-5a17-486c-982e-d17b6ac752a1" class="">
+          <strong>Immutable Objects</strong>
+        </h3>
+        <p id="8d9c761e-cb7f-4285-9891-a44be35573b5" class="">
+          An immutable object is an object whose value cannot be changed after
+          it is created. Immutable means <em>not changeable</em>. Anytime you
+          try to update the value of an immutable object, a new object is
+          created instead.
+        </p>
+        <p id="8925c874-3bf8-41a3-9e7b-c26cdb719fa9" class="">
+          The following types are immutable:
+        </p>
+        <ul id="63d94c37-223e-4440-a286-2d4c8e5b0689" class="bulleted-list">
+          <li>Numbers (int, float, complex)</li>
+        </ul>
+        <ul id="b8c856b4-de19-4070-b32c-f90e2efae2cf" class="bulleted-list">
+          <li>Strings</li>
+        </ul>
+        <ul id="4b6b88ee-22d4-4596-898c-6b12dd0d4bfc" class="bulleted-list">
+          <li>Bytes</li>
+        </ul>
+        <ul id="d62739fc-70fb-4acd-a6a8-e2145d4a6211" class="bulleted-list">
+          <li>Booleans</li>
+        </ul>
+        <ul id="bfb1adfe-eef9-44d0-9fea-412b83b69019" class="bulleted-list">
+          <li>Tuples</li>
+        </ul>
+        <p id="cc00fd9e-2481-4c7e-88b3-0c885ebf2150" class="">
+          Immutable objects are useful when you want to make sure that the
+          object you created will always maintain the same value. Immutable
+          objects are more <em>expensive</em> to change (in terms of time and
+          space complexity) because changing the object requires making a copy
+          of the existing object.
+        </p>
+        <p id="03a0c80b-0c3b-4f17-8c6c-80e49ef916bb" class="">
+          Let&#x27;s look at a few examples:
+        </p>
+        <h3 id="b351db2b-e32d-4107-b878-03c6885baec7" class="">
+          <strong>Numbers</strong>
+        </h3>
+        <pre
+          id="b0a49a10-9b98-4595-bdd8-0ad8a493566d"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_int = 1
+&gt;&gt;&gt; id(my_int)
+4513307280
+&gt;&gt;&gt; type(my_int)
+&lt;class &#x27;int&#x27;&gt;
+&gt;&gt;&gt; my_int
+1
+&gt;&gt;&gt; my_int = 2
+&gt;&gt;&gt; id(my_int)
+4513307312
+&gt;&gt;&gt; type(my_int)
+&lt;class &#x27;int&#x27;&gt;
+&gt;&gt;&gt; my_int
+2
+&gt;&gt;&gt;</code></pre>
+        <p id="e2e389bd-2ef9-45f7-8cc9-33fe795ce5a6" class="">
+          In the code above, the first line creates a new int object, and the
+          variable <code>my_int</code> now points at that object. You can see
+          that this object has <code>int</code> for its
+          type, <code>4513307280</code> for its identity (location in memory),
+          and <code>1</code> for its value.
+        </p>
+        <p id="a61f0394-85d1-41e5-b910-626eda0abe0f" class="">
+          Then, we assign <code>2</code> to <code>my_int</code>which creates a
+          whole new object and assigns it to the variable <code>my_int</code>.
+          This object has <code>int</code> for its
+          type, <code>4513307312</code> for its identity (which you can see is
+          different from the first object), and <code>2</code> for its value.
+        </p>
+        <h3 id="8058b0ea-0c35-416d-a947-e5f25b61ec7d" class="">
+          <strong>Strings</strong>
+        </h3>
+        <p id="d181c731-d277-4721-9f88-a9ea9fbbc095" class="">
+          Let&#x27;s look at how string concatenation works in Python. Remember
+          that str objects are immutable.
+        </p>
+        <pre
+          id="b8462949-cc90-4708-9431-e6524f40f748"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_str = &#x27;a&#x27;
+&gt;&gt;&gt; type(my_str)
+&lt;class &#x27;str&#x27;&gt;
+&gt;&gt;&gt; id(my_str)
+140716674193840
+&gt;&gt;&gt; my_str
+&#x27;a&#x27;
+&gt;&gt;&gt; my_str += &#x27;b&#x27;
+&gt;&gt;&gt; type(my_str)
+&lt;class &#x27;str&#x27;&gt;
+&gt;&gt;&gt; id(my_str)
+140716674658992
+&gt;&gt;&gt; my_str
+&#x27;ab&#x27;
+&gt;&gt;&gt;</code></pre>
+        <p id="2b3fcfe9-c7cd-469b-9045-7ea8fd349bf8" class="">
+          So, on line 1, we create a string object with the
+          value <code>&#x27;a&#x27;</code> and assign it to the
+          variable <code>my_str</code>. We verify that the object is of
+          type <code>str</code>, we print its identity
+          (<code>140716674193840</code>) and print its value.
+        </p>
+        <p id="d05299fa-ae3a-4cb4-9d8a-de6ff97ef2bc" class="">
+          Then, we concatenate <code>&#x27;b&#x27;</code> onto the existing
+          string with the line <code>my_str += &#x27;b&#x27;</code>. Now,
+          because string objects are immutable, we cannot change a string
+          object&#x27;s value after it has been created. To concatenate, we
+          create a new string object and assign the
+          value <code>&#x27;ab&#x27;</code> to that object.
+        </p>
+        <p id="4303122c-7abd-4ec6-acb9-d71d90e0cad0" class="">
+          This behavior in Python is vital to be aware of when working with
+          string concatenation. If you have to add and remove frequently from a
+          string, this will be inefficient if you work with string objects
+          directly.
+        </p>
+        <h3 id="a73c36ee-01cb-4e7b-941a-dfcd337f4318" class="">
+          <strong>Tuples</strong>
+        </h3>
+        <p id="f1dbc46c-56ae-4ab1-b546-814153a17cff" class="">
+          Tuples are an immutable container of names, where each name has an
+          unchangeable (immutable) binding to an object in memory. You cannot
+          change the bindings of the names to the objects.
+        </p>
+        <pre
+          id="2528cfa2-9412-49e9-8fa7-c83edf94273f"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_tuple = (&#x27;love&#x27;, [1,2,3], True)
+&gt;&gt;&gt; my_tuple[0]
+&#x27;love&#x27;
+&gt;&gt;&gt; my_tuple[0] = &#x27;laughter&#x27;
+Traceback (most recent call last):
+ File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &#x27;tuple&#x27; object does not support item assignment
+&gt;&gt;&gt;</code></pre>
+        <p id="5a3092cc-335a-4993-8223-ff8e34668b7e" class="">
+          Here we created a tuple using <code>(</code> and <code>)</code> to
+          denote the tuple literal syntax. Just like a list, tuples can contain
+          elements of any type. Above, we&#x27;ve included a string, a list, and
+          a boolean as our tuple elements. We are proving the tuple
+          object&#x27;s immutability by showing the error that occurs when
+          trying to assign a new item to a position in the tuple.
+        </p>
+        <p id="da65fe3f-e3b4-4f4f-bb64-ef9179ec31ae" class="">
+          One thing that often causes confusion surrounding the immutability of
+          tuples in Python is demonstrated by the following behavior:
+        </p>
+        <pre
+          id="b23fa523-508f-40f7-8c18-946e2652234d"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_tuple[1] = [4,5,6]
+Traceback (most recent call last):
+ File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &#x27;tuple&#x27; object does not support item assignment
+&gt;&gt;&gt; id(my_tuple[1])
+140716674620864
+&gt;&gt;&gt; my_tuple[1][0] = 4
+&gt;&gt;&gt; my_tuple[1][1] = 5
+&gt;&gt;&gt; my_tuple[1][2] = 6
+&gt;&gt;&gt; my_tuple[1]
+[4, 5, 6]
+&gt;&gt;&gt; my_tuple
+(&#x27;love&#x27;, [4, 5, 6], True)
+&gt;&gt;&gt; id(my_tuple[1])
+140716674620864
+&gt;&gt;&gt;</code></pre>
+        <p id="428e6f99-a179-427c-a74f-e73a0db696ee" class="">
+          Notice that we cannot create a new list object and bind it to the name
+          at position 1 of our tuple. This is demonstrated when <code
+            >my_tuple[1] = [4,5,6]</code
+          > raises a <code>TypeError</code>. However, we can assign new objects
+          to the list that is at position 1 of our tuple? Why is that? Well,
+          what do we know about lists in Python? Lists are mutable objects. So,
+          we can modify a list without creating a new object. So, when we are
+          modifying the list directly (instead of assigning a new object), it
+          doesn&#x27;t affect our tuple&#x27;s immutability. Notice that the
+          identity (<code>140716674620864</code>) of the list
+          at <code>my_tuple[1]</code> doesn&#x27;t change after replacing its
+          three elements with <code>4</code>, <code>5</code>,
+          and <code>6</code>.
+        </p>
+        <h3 id="6e739a19-05e9-48db-964e-d417bf8ad2d0" class="">
+          <strong>Passing Objects to Functions</strong>
+        </h3>
+        <p id="7a52ef4f-7de9-4cf2-95a6-4666ad50cc06" class="">
+          Mutable and immutable objects are not treated the same when they are
+          passed as arguments to functions. When mutable objects are passed into
+          a function, they are passed by reference. So, suppose you change the
+          mutable object that was passed in as an argument. In that case, you
+          are changing the original object as well.
+        </p>
+        <h3 id="682b5f59-5515-4b4d-b6c2-e79831b48d2f" class="">
+          <strong>Mutable Objects as Arguments</strong>
+        </h3>
+        <pre
+          id="3bbe595a-a90b-46e0-87da-bff47b26d00b"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_list = [1,2,3]
+&gt;&gt;&gt; def append_num_to_list(lst, num):
+... lst.append(num)
+...
+&gt;&gt;&gt; append_num_to_list(my_list, 4)
+&gt;&gt;&gt; my_list
+[1, 2, 3, 4]
+&gt;&gt;&gt;</code></pre>
+        <figure id="89fe6df5-af83-47b5-89f7-d3c46f774675" class="image">
+          <a
+            href="https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif"
+            ><img
+              src="https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif"
+          /></a>
+        </figure>
+        <p id="a8d36a47-4c57-4e5b-919a-8651520695aa" class="">
+          Notice that when <code>append_num_to_list</code> is called
+          and <code>my_list</code> is passed in as an argument.
+          When <code>my_list</code> is bound to <code>lst</code> in that stack
+          frame, <code>lst</code> points to the original <code>my_list</code> in
+          memory. The function call did not create a copy
+          of <code>my_list</code>. This behavior is because lists are mutable
+          objects in Python.
+        </p>
+        <h3 id="99501a1b-8071-4c01-bb87-9fff6526bfde" class="">
+          <strong>Immutable Objects as Arguments</strong>
+        </h3>
+        <p id="25c01fab-ab2f-4960-999e-e6648963c7f4" class="">
+          Next, let&#x27;s see how Python behaves when we pass an immutable
+          object as an argument to a function:
+        </p>
+        <pre
+          id="67348cbb-9562-4b90-85b5-695718dd6ae4"
+          class="code code-wrap"
+        ><code>&gt;&gt;&gt; my_string = &quot;I am an immutable object.&quot;
+&gt;&gt;&gt; def concatenate_string_to_string(orig_string, string_to_add):
+... return orig_string + string_to_add
+...
+&gt;&gt;&gt; concatenate_string_to_string(my_string, &quot; I hope!&quot;)
+&#x27;I am an immutable object. I hope!&#x27;
+&gt;&gt;&gt; my_string
+&#x27;I am an immutable object.&#x27;
+&gt;&gt;&gt;</code></pre>
+        <figure id="395b3c0a-cb71-48f0-8132-615cce5fdf33" class="image">
+          <a
+            href="https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif"
+            ><img
+              src="https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif"
+          /></a>
+        </figure>
+        <p id="442786aa-94f2-42d0-8e6b-e4c19b3856cb" class="">
+          Notice when an immutable object is passed into a function, the object
+          is copied and bound to the parameter name. In the example above,
+          when <code>my_string</code> is passed
+          into <code>concatenate_string_to_string</code>, <code>my_string</code> is
+          copied to a new object bound to the name <code>orig_string</code>.
+        </p>
+        <p id="3299d74e-5278-4ed2-9dd0-e1f1277d827e" class=""></p>
+        <figure id="93e0cb3d-1e78-4663-ae7b-2d6c67ef143f">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-3-mutable-and-immutable-objects"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-3-mutable-and-immutable-objects</a
+            >
+          </div>
+        </figure>
+        <p id="c6a4cb03-d4aa-405b-aa87-e74b21c8a72c" class=""></p>
+        <p id="2721f448-7b5d-441d-9a61-646f8e3bd98d" class=""></p>
+        <p id="4374b1fe-177d-4eb0-8c84-77065fa3aa70" class=""></p>
+        <figure id="05d2441c-a5ef-40ee-8f5c-bdaae7797fb8" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <h1 id="3b997220-7d5d-41a9-a7df-acdd345d1ef5" class="">
+          Objective 03 - Compare the time complexity of different approaches to
+          a problem using Big O notation
+        </h1>
+        <h2 id="81c177d3-f340-4c0c-8ce6-11c6963face6" class="">
+          <strong>Overview</strong>
+        </h2>
+        <h3 id="e3ba71f4-5e36-4a36-bffd-4449a3680e4b" class="">
+          <strong>What is an algorithm?</strong>
+        </h3>
+        <p id="f9ce4198-de2d-4e35-a1ad-53ea420ae85d" class="">
+          An algorithm is a set of instructions for accomplishing a task. Within
+          this broad definition, we could call every piece of code an algorithm.
+        </p>
+        <h3 id="79d52fd8-4a3b-4d72-9ecb-86654236f772" class="">
+          <strong
+            >How do we measure how &quot;good&quot; an algorithm is?</strong
+          >
+        </h3>
+        <p id="100f3fa9-ba0b-41ce-8d81-3355e5b545ef" class="">
+          After coming up with a first-pass solution to a problem, we need to
+          measure how &quot;good&quot; our answer is. Will it stand up to the
+          test of millions of users? Is it fast enough that our users will be
+          blown away by how quickly they get their results? Or will torturously
+          slow speeds cause lag that scares them all away?
+        </p>
+        <p id="f0949d50-a958-471b-a7cd-7dc6e53b1df7" class="">
+          When given a choice between different algorithms, we want to choose
+          the most efficient algorithm (considering
+          both <em>time</em> and <em>space</em> efficiency depending on our
+          needs).
+        </p>
+        <p id="787d7edc-63e5-4d1e-8508-6826a58159ef" class="">
+          <em
+            >Note: It is common for your first solution to work with a few items
+            or users and break as you add more. Making sure that the solutions
+            scale is something all developers must look out for.</em
+          >
+        </p>
+        <h3 id="0b7817e3-3cc9-4de8-aeed-d4a4cb78bcec" class="">
+          <strong>What is Big O notation?</strong>
+        </h3>
+        <p id="77fa4f35-15ca-4477-a094-c299a0378232" class="">
+          We need a way to talk about efficiency (number of operations in the
+          worst case) in a more general sense.
+        </p>
+        <p id="5034e5d6-647f-40a0-915e-71cc7ac9c781" class="">
+          Big O notation is the language we use for describing how efficient an
+          algorithm is.
+        </p>
+        <p id="b026e675-6b09-46f5-aecf-dfd2aa90a4c1" class="">
+          The specific terms of Big O notation describe how fast the runtime
+          grows (relative to the input size), focusing on when the input gets
+          extremely large.
+        </p>
+        <p id="07750347-b52c-4c30-8645-3831eeb836b5" class="">
+          Why do we focus on the growth of runtime versus exact runtime? The
+          actual runtime depends on the specific computer running the algorithm,
+          so we cannot compare efficiencies that way. By focusing on the general
+          growth, we can avoid exact runtime differences between machines and
+          environments.
+        </p>
+        <p id="3bb0b843-11eb-452e-88a1-765ea2e1111d" class="">
+          We also talk about runtime relative to the input size because we need
+          to express our speed in terms of <em>something</em>. So we show the
+          speed of the algorithm in terms of the input size. That way, we can
+          see how the speed reacts as the input size grows.
+        </p>
+        <p id="9a627dc2-e825-4e6f-9886-e78362eb66fa" class="">
+          We don&#x27;t care about speed when the input size is small. The
+          differences in speed are likely to be minimal when the input size is
+          small. When the input size gets enormous, we can see the differences
+          in efficiency between algorithms.
+        </p>
+        <h3 id="b7b8259f-bffe-44df-93c3-d32a44526c34" class="">
+          <strong>Common Big O run times</strong>
+        </h3>
+        <p id="76384f02-5f13-491c-be22-f11625e2abf9" class="">
+          Refer to the table below to see a list of the most common runtimes.
+          The table is ordered from fastest to slowest.
+        </p>
+        <div
+          id="b5163be5-f743-4d5e-a966-871fb4e9f1af"
+          class="collection-content"
+        >
+          <h4 class="collection-title"></h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesText"
+                    >
+                      <path
+                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"
+                      ></path></svg></span
+                  >Classification
+                </th>
+                <th>
+                  <span class="icon property-icon"
+                    ><svg
+                      viewBox="0 0 14 14"
+                      style="
+                        width: 14px;
+                        height: 14px;
+                        display: block;
+                        fill: rgba(55, 53, 47, 0.4);
+                        flex-shrink: 0;
+                        -webkit-backface-visibility: hidden;
+                      "
+                      class="typesTitle"
+                    >
+                      <path
+                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"
+                      ></path></svg></span
+                  >Description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="33fe2847-3b84-4325-b9e6-d84ac086dd26">
+                <td class="cell-p^vq">Constant <code>O(1)</code></td>
+                <td class="cell-title">
+                  <a
+                    href="https://www.notion.so/The-runtime-is-entirely-unaffected-by-the-input-size-This-is-the-ideal-solution-33fe28473b844325b9e6d84ac086dd26"
+                    >The runtime is entirely unaffected by the input size. This
+                    is the ideal solution.</a
+                  >
+                </td>
+              </tr>
+              <tr id="b9f5a4b1-8c66-4e8d-ac0c-3b820dca2edf">
+                <td class="cell-p^vq">Logarithmic <code>O(log n)</code></td>
+                <td class="cell-title">
+                  <a
+                    href="https://www.notion.so/As-the-input-size-increases-the-runtime-will-grow-slightly-slower-This-is-a-pretty-good-solution-b9f5a4b18c664e8dac0c3b820dca2edf"
+                    >As the input size increases, the runtime will grow slightly
+                    slower. This is a pretty good solution.</a
+                  >
+                </td>
+              </tr>
+              <tr id="500d289e-f94a-41bd-a1ed-f0a5f3b03ad9">
+                <td class="cell-p^vq">Linear <code>O(n)</code></td>
+                <td class="cell-title">
+                  <a
+                    href="https://www.notion.so/As-the-input-size-increases-the-runtime-will-grow-at-the-same-rate-This-is-a-pretty-good-solution-500d289ef94a41bda1edf0a5f3b03ad9"
+                    >As the input size increases, the runtime will grow at the
+                    same rate. This is a pretty good solution.</a
+                  >
+                </td>
+              </tr>
+              <tr id="99af0b9c-9c1d-45c0-9b3a-cb2c44942a51">
+                <td class="cell-p^vq">Polynomial <code>O(n^c)</code></td>
+                <td class="cell-title">
+                  <a
+                    href="https://www.notion.so/As-the-input-size-increases-the-runtime-will-grow-at-a-faster-rate-This-might-work-for-small-input-99af0b9c9c1d45c09b3acb2c44942a51"
+                    >As the input size increases, the runtime will grow at a
+                    faster rate. This might work for small inputs but is not a
+                    scalable solution.</a
+                  >
+                </td>
+              </tr>
+              <tr id="a6c3e955-dc31-4afe-9519-16bc693931e4">
+                <td class="cell-p^vq">Exponential <code>O(c^n)</code></td>
+                <td class="cell-title">
+                  <a
+                    href="https://www.notion.so/As-the-input-size-increases-the-runtime-will-grow-at-a-much-faster-rate-This-solution-is-inefficie-a6c3e955dc314afe951916bc693931e4"
+                    >As the input size increases, the runtime will grow at a
+                    much faster rate. This solution is inefficient.</a
+                  >
+                </td>
+              </tr>
+              <tr id="aa52fd21-ffdc-427c-bc7c-9a30ac269248">
+                <td class="cell-p^vq">Factorial <code>O(n!)</code></td>
+                <td class="cell-title">
+                  <a
+                    href="https://www.notion.so/As-the-input-size-increases-the-runtime-will-grow-astronomically-even-with-relatively-small-inputs-aa52fd21ffdc427cbc7c9a30ac269248"
+                    >As the input size increases, the runtime will grow
+                    astronomically, even with relatively small inputs. This
+                    solution is exceptionally inefficient.</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="867c01fb-f9be-4d0f-803c-f30fa5c9f93b" class="">
+          Besides the table, it&#x27;s also essential to look at the curves of
+          these different runtimes.
+        </p>
+        <figure id="87512c8d-b758-4b30-b771-d8942ee6844e" class="image">
+          <a
+            href="https://tk-assets.lambdaschool.com/1b27038a-098f-46e5-bc20-03be9a3480b9_68747470733a2f2f746b2d6173736574732e6c616d6264617363686f6f6c2e636f6d2f65343335376235662d316436332d343463642d623861302d3439353732363061653965635f556e7469746c6564312e706e67.png"
+            ><img
+              src="https://tk-assets.lambdaschool.com/1b27038a-098f-46e5-bc20-03be9a3480b9_68747470733a2f2f746b2d6173736574732e6c616d6264617363686f6f6c2e636f6d2f65343335376235662d316436332d343463642d623861302d3439353732363061653965635f556e7469746c6564312e706e67.png"
+          /></a>
+        </figure>
+        <p id="8032922b-2b2e-4746-8214-526ab187cd72" class="">
+          Again, <code>n</code> represents the size of the data, and on the
+          chart above, <code>N</code> represents the number of operations. This
+          visualization should help illustrate why <code>O(1)</code> or <code
+            >O(log n)</code
+          > is the most desirable.
+        </p>
+        <p id="bc8f98af-8cf3-4e79-b029-a1c74695907b" class="">
+          <em>Note: Big O only matters for large data sets. An </em
+          ><code><em>O(n^3)</em></code
+          ><em
+            > solution is adequate, as long as you can guarantee that your
+            datasets will always be small.</em
+          >
+        </p>
+        <h3 id="beff6b50-9fac-4e89-af89-f7c5ed2c24c8" class="">
+          <strong>A few examples</strong>
+        </h3>
+        <p id="7f85ae00-870d-4703-bf83-521184816165" class="">
+          Let&#x27;s look at a few different examples of Python functions that
+          print something to the output. For each of these, the input will
+          be <code>items</code>.
+        </p>
+        <h3 id="4cc0832a-0b79-44c3-b4df-433946a11534" class="">
+          <strong>Constant Time </strong><code><strong>O(1)</strong></code>
+        </h3>
+        <pre
+          id="333a82c8-ec66-4ee8-a018-f541da850446"
+          class="code code-wrap"
+        ><code>def print_only_one_thing(list_of_things):
+    print(list_of_things[0])</code></pre>
+        <p id="deb7aaef-f3d9-4a6e-aebc-2ad26ff7d462" class="">
+          Why is this constant time? Because no matter how large or small the
+          input is (1,000,000 or 10), the number of computations within the
+          function is the same.
+        </p>
+        <h3 id="ee72ecc4-d53e-480a-be9b-64e61126ad9d" class="">
+          <strong>Linear Time </strong><code><strong>O(n)</strong></code>
+        </h3>
+        <pre
+          id="53fc0286-ba91-4801-a849-df92083a3ac0"
+          class="code code-wrap"
+        ><code>def print_list(list_of_things):
+    for thing in list_of_things:
+        print(thing)</code></pre>
+        <p id="814ab092-3ab2-4167-ab6b-a335c1d11f28" class="">
+          Why is this classified as linear time? Because the speed of the
+          algorithm increases at the same rate as the input size.
+          If <code>list_of_things</code> has ten items, then the function will
+          print ten times. If it has 10,000 items, then the function will print
+          10,000 times.
+        </p>
+        <h3 id="7a1fb8a7-19f0-437c-afe1-29273acfd362" class="">
+          <strong>Quadratic Time </strong><code><strong>O(n^2)</strong></code>
+        </h3>
+        <pre
+          id="2b8b61d2-b3f8-4f8f-b6ad-6dcbe42bd637"
+          class="code code-wrap"
+        ><code>def print_permutations(list_of_things):
+    for thing_one in list_of_things:
+        for thing_two in list_of_things:
+            print(thing_one, thing_two)</code></pre>
+        <p id="5eaf285d-d06a-44b2-918d-e01f36a7612b" class="">
+          Why is this quadratic time? The clue is the nested for loops. These
+          nested for loops mean that for each item
+          in <code>list_of_things</code> (the outer loop), we iterate through
+          every item in <code>list_of_things</code> (the inner loop). For an
+          input size of <code>n</code>, we have to
+          print <code>n</code> * <code>n</code> times or <code>n^2</code> times.
+        </p>
+        <h3 id="af690c30-475c-426f-b7f5-ce2f66f403db" class="">
+          <strong>What are we supposed to do with the constants?</strong>
+        </h3>
+        <p id="f97541ee-16d2-4bed-aaea-e28ad998340a" class="">
+          What if we had a function like this?
+        </p>
+        <pre
+          id="6827a64f-2bbe-4c27-a6c8-f332e38be98f"
+          class="code code-wrap"
+        ><code>def do_a_bunch_of_stuff(list_of_things): # O(1 + n/2 + 2000)
+    last_idx = len(list_of_things) - 1
+    print(list_of_things[last_idx]) # O(1)
+
+    middle_idx = len(list_of_things) / 2
+    idx = 0
+    while idx &lt; middle_idx: # O(n/2)
+        print(list_of_things[idx])
+        idx = idx + 1
+
+    for num in range(2000): # O(2000)
+        print(num)</code></pre>
+        <p id="07034a13-d7bc-4cca-9cbf-9423b89a3bcb" class="">
+          <code>print(items[last_idx])</code> is constant time because it
+          doesn&#x27;t change as the input changes. So, that portion of the
+          function is <code>O(1)</code>.
+        </p>
+        <p id="fffaccf7-911c-4f4f-8ff9-cd055c0cbce5" class="">
+          The while loop that prints up to the middle index is 1/2 of whatever
+          the input size is; we can say that portion of the function
+          is <code>O(n/2)</code>.
+        </p>
+        <p id="660c776d-8cd3-4636-bd3e-fa26f2db0524" class="">
+          The final portion will run 2000 times, no matter the size of the
+          input.
+        </p>
+        <p id="9ec0c04f-b911-4b70-9ee1-64db939f55cc" class="">
+          So, putting it all together, we could say that the efficiency is <code
+            >O(1 + n/2 + 2000)</code
+          >. However, we don&#x27;t say this. We describe this function as
+          having linear time <code>O(n)</code> because we drop all of the
+          constants. Why do we cut all of the constants? Because as the input
+          size gets huge, adding 2000 or dividing by 2 has minimal effect on the
+          algorithm&#x27;s performance.
+        </p>
+        <h3 id="65878652-448d-4470-b239-4b7adf7f1c0b" class="">
+          <strong>Most significant term</strong>
+        </h3>
+        <p id="51bf8c60-fcc6-4490-ae66-abfa92a2348c" class="">
+          Let&#x27;s consider the following function:
+        </p>
+        <pre
+          id="a520e478-6646-4949-8fd5-e7087ff0c3f3"
+          class="code code-wrap"
+        ><code>def do_different_things_in_the_same_function(list_of_things): # O(n + n^2)
+    # print all each item in the list
+    for thing in list_of_things: # O(n)
+        print(thing)
+
+    # print every possible pair of things in the list
+    for thing_one in list_of_things: # O(n * n) = O(n^2)
+        for thing_two in list_of_things:
+            print(thing_one, thing_two)</code></pre>
+        <p id="98f077e3-1dba-44f9-a2a5-09a076d77db0" class="">
+          We could describe this function as <code>O(n + n^2)</code>; however,
+          we only need to keep the essential term, <code>n^2</code>, so this
+          would be <code>O(n^2)</code>. Why can we do this? Because as the input
+          size (<code>n</code>) gets larger and larger, the less significant
+          terms have less effect, and only the most significant term is
+          important.
+        </p>
+        <h3 id="fc7b8042-3054-487d-8167-85ef540532cb" class="">
+          <strong>Big O represents the worst-case</strong>
+        </h3>
+        <p id="f99afc90-a28c-4a3a-906c-8613983ac178" class="">
+          Let&#x27;s consider the following function:
+        </p>
+        <pre
+          id="5bd1a610-470c-4b00-acac-d824a24f1eab"
+          class="code code-wrap"
+        ><code>def find_thing(list_of_things, thing_we_are_trying_to_find):
+    for thing in list_of_things:
+        if thing == thing_we_are_trying_to_find:
+            return True
+
+    return False</code></pre>
+        <p id="181df6b4-4425-44c3-8e16-b31ebd456f46" class="">
+          What would the result be if it just so happens that
+          the <code>thing_we_are_trying_to_find</code> in <code>list_of_things</code> is
+          the very first item in the list? The function would only have to look
+          at one item in <code>list_of_things</code> before returning. In this
+          case, it would be <code>O(1)</code>. But, when we talk about a
+          function&#x27;s complexity, we usually assume the &quot;worst
+          case.&quot; What would the &quot;worst-case&quot; be? It would be if
+          it were the last item in <code>list_of_things</code>. In that case, we
+          would have to look through all the <code>list_of_things</code>, and
+          that complexity would be <code>O(n)</code>.
+        </p>
+        <p id="3467e508-3445-4b20-9c26-447ecf6c7e83" class="">
+          <em
+            >Note: When talking about runtime complexity in casual conversation,
+            engineers often blur the distinction between big theta and big O
+            notation. In reality, these are two distinct ways of describing an
+            algorithm. Big theta gives both an upper and a lower bound for the
+            running time. Big O only provides an upper bound. Refer to the
+            following articles for a deeper dive: </em
+          ><a
+            href="https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/big-big-theta-notation"
+            ><em>Big-Theta notation (Links to an external site.)</em></a
+          ><em> and </em
+          ><a
+            href="https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/big-o-notation"
+            ><em>Big-O notation (Links to an external site.)</em></a
+          ><em>.</em>
+        </p>
+        <h3 id="78c4d9ee-066f-43f0-96cd-c29d6fadfcfd" class="">
+          <strong>Do constants ever matter?</strong>
+        </h3>
+        <p id="b1598acc-ca44-48ad-845f-12fd59b27df8" class="">
+          Complexity analysis with Big O notation is a valuable tool. It would
+          be best if you got in the habit of thinking about the efficiency of
+          the algorithms you write and use in your code. However, just because
+          two algorithms have the same Big O notation doesn&#x27;t mean they are
+          equal.
+        </p>
+        <p id="20e25513-f3ea-4381-9f88-b7d9e12816e4" class="">
+          Imagine you have a script that takes 1 hour to run. By improving the
+          function, you can divide that runtime by six, and now it only takes 10
+          minutes to run. With Big O
+          notation, <code>O(n)</code> and <code>O(n/6)</code> can both be
+          written as <code>O(n)</code>, but that doesn&#x27;t mean it isn&#x27;t
+          worth optimizing the script to save 50 minutes every time the script
+          runs.
+        </p>
+        <p id="b9b058da-6ce2-47df-a9a4-522a8644e89b" class="">
+          That being said, there is a term you should become familiar
+          with: <strong>premature optimization</strong> (<a
+            href="https://xkcd.com/1691/"
+            >xkcd: Optimization (Links to an external site.)</a
+          >). Sometimes, you can sacrifice readability or spend too much time on
+          something to improve its efficiency. Depending on the situation, it
+          could be that having a finished product to iterate on is more
+          important than maximally efficient code. It is your job as a developer
+          to know when making your code more efficient is necessary. You will
+          always be making calculated tradeoffs between runtime, memory,
+          development time, readability, and maintainability. It takes time to
+          develop the wisdom to strike the right balance depending on the
+          scenario.
+        </p>
+        <h2 id="280ec967-ebce-4a18-836f-51560ceb1c61" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="282da651-36f9-42bf-9448-2384641ca65c" class="">
+          Let&#x27;s look at a few code snippets and classify their runtime
+          complexity using Big O notation.
+        </p>
+        <pre
+          id="fa676480-715b-4427-bc59-60db003d262c"
+          class="code code-wrap"
+        ><code>def foo(n):
+    i = 1
+    while i &lt; n:
+        print(i)
+        i *= 2</code></pre>
+        <p id="a72a23fe-644b-407e-8cd9-be0431411548" class="">
+          First, let&#x27;s think about what the above function is doing.
+          It&#x27;s printing <code>i</code>…but <code>i</code> is not being
+          incremented by 1, as we usually see. It&#x27;s <em>doubled</em> every
+          time we run the loop. So, for example, if <code>n = 100</code>, then
+          the final result would be…
+        </p>
+        <pre
+          id="ec3132b9-17d3-4dd8-8f29-d145f74d18ad"
+          class="code code-wrap"
+        ><code>1
+2
+4
+8
+16
+32
+64</code></pre>
+        <p id="7c34e797-5834-4f19-99c9-7603e78dde49" class="">
+          Or if <code>n = 10</code>, then we would print…
+        </p>
+        <pre
+          id="5443aba2-501e-4d25-9e39-64c2e3694a76"
+          class="code code-wrap"
+        ><code>1
+2
+4
+8</code></pre>
+        <p id="54674076-f697-42ab-b213-c5a2ac08371f" class="">
+          We can use the process of elimination to narrow down which runtime
+          classification makes sense for this algorithm. The number of times the
+          loop runs seems to vary based on the value of <code>n</code>, so this
+          is NOT O(1).
+        </p>
+        <p id="22832b2f-843d-4e39-b483-b65b77ab7fe2" class="">
+          From the above examples, we can also see that the number of times the
+          loop runs is increasing <em>slower</em> than the input size is
+          increasing. <code>n</code> must be <em>doubled</em> before the loop
+          will run one more time. We can eliminate classifications such as <code
+            >O(n log n)</code
+          >, <code>O(n^c)</code>, <code>O(c^n)</code>, and <code>O(n!)</code>.
+        </p>
+        <p id="d1f6ddf4-46b3-46cf-85fc-f7f7ef4384f8" class="">
+          The only two options left at this point are logarithmic and linear.
+          Since the two growth rates (input, the number of operations) are not
+          the same, <strong>this function must run in logarithmic time!</strong>
+        </p>
+        <h2 id="7a7c3111-71f7-46dd-afd1-33e52cb6a3d7" class="">
+          <strong>Challenge</strong>
+        </h2>
+        <figure id="29db32a7-6542-42dc-8e34-6b0a9c599175">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-2-time-complexity"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-2-time-complexity</a
+            >
+          </div>
+        </figure>
+        <p id="6987a6dc-4f36-454f-bd1d-b3459bd66ee6" class=""></p>
+        <p id="9150d4e5-cdd2-4884-8c07-227009586d77" class=""></p>
+        <p id="71a0ca44-b5b2-42a4-b209-e49f8f7dbbbb" class=""></p>
+        <p id="363a3abb-59b9-4954-8aa8-189779ff2687" class=""></p>
+        <figure id="f1ef8e70-eeca-4e7a-9937-bec95a38c615" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <h1 id="fffb896d-1bb7-4a02-9eaa-54d396fac3c2" class="">
+          Objective 04 - Compare the space complexity of different approaches to
+          a problem using Big O notation
+        </h1>
+        <h2 id="e5a19300-74a3-4381-88ba-0dafc1d6937d" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="3341a045-1c6f-47a0-8a40-fff2fa28aadb" class="">
+          We often want to compare an algorithm&#x27;s time complexity (how
+          efficiently the number of operations grows as the input size
+          increases). Similarly, we also want to compare the space complexity of
+          an algorithm.
+        </p>
+        <p id="503240c5-1bd7-42c8-80dc-17e8432d1135" class="">
+          Talking about space complexity is very similar to talking about time
+          complexity. Except with space complexity, we are looking at the <em
+            ><strong
+              >efficiency of memory usage instead of the number of
+              operations.</strong
+            ></em
+          >
+        </p>
+        <p id="16864f73-22a6-40b0-ad3f-1caf5e66eec7" class="">
+          Often, it isn&#x27;t easy to optimize for time and space at the same
+          time. For instance, by increasing time efficiency, you may need to use
+          more memory and decrease space complexity. This is not always the
+          case, but you have to decide if you are optimizing for space or time
+          complexity because of this.
+        </p>
+        <h2 id="023476de-23a6-4536-af52-6dbc30a16e28" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="8e8376b9-ba02-45b0-bf3e-9ca52a03c995" class="">
+          This function takes <code>O(1)</code> space:
+        </p>
+        <pre
+          id="02a9806e-c69c-437b-9707-c7ae4f4c42df"
+          class="code code-wrap"
+        ><code>def print_something_a_certain_number_of_times(thing_to_print, number_of_times):
+    for i in range(number_of_times):
+        print(thing_to_print)</code></pre>
+        <p id="edb92629-fffe-480d-81ad-f5b3fac75417" class="">
+          The function above has a constant (<code>O(1)</code>) space complexity
+          because no matter how large <code>n</code> gets, the amount of memory
+          being used stays the same.
+        </p>
+        <p id="270303bb-63f8-4a7a-a765-46a5e42b5518" class="">
+          This function takes <code>O(n)</code> space:
+        </p>
+        <pre
+          id="d9b646b7-e664-4e77-8645-d854040b2f61"
+          class="code code-wrap"
+        ><code>def append_to_list_a_certain_number_of_times(number_of_times):
+    # create an empty list
+    my_list = []
+
+    # append to the list the number of times specified by the caller
+    for _ in range(n):
+        my_list.append(&quot;lambda&quot;)
+
+    return my_list</code></pre>
+        <p id="a0413193-16b2-44a2-b50d-f19cde21db7f" class="">
+          We are often referring to <em>additional</em> space when we talk about
+          space complexity–meaning that we do not include the memory used by the
+          inputs.
+        </p>
+        <p id="c1b68a12-ec31-4657-b0f3-0e02aa9908a4" class="">
+          This function takes constant space (<code>O(1)</code>) even though the
+          input has <code>n</code> items:
+        </p>
+        <pre
+          id="d4adea70-5b28-4185-ac8b-012f70899efc"
+          class="code code-wrap"
+        ><code>def get_the_max(items_list):
+    maximum = float(&quot;-inf&quot;)
+    for item in items_list:
+        if item &gt; maximum:
+            maximum = item
+
+    return maximum</code></pre>
+        <h2 id="8dc8f2cd-5628-410a-823e-07006a113284" class="">
+          <strong>Challenge</strong>
+        </h2>
+        <figure id="9fb7cad9-2b84-48b7-afa5-e5e231e173fa">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-2-space-complexity"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-2-space-complexity</a
+            >
+          </div>
+        </figure>
+        <p id="f8dff072-6bad-4c7a-b399-82e7e3be8103" class=""></p>
+        <p id="2686dd76-6d77-4017-ae15-09e3841acc05" class=""></p>
+        <p id="2cdc7015-f9e3-447a-89f9-08c170933a44" class=""></p>
+        <figure id="ad4379f8-d58a-4dc2-bd02-62fb95561e6a" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <p id="be57b8cc-82a1-4800-903d-6fcd1bf80bea" class=""></p>
+        <h1 id="f969fc81-9126-4ce6-94bf-733ce05f2774" class="">
+          Objective 05 - Use list comprehensions
+        </h1>
+        <h2 id="0c27947e-c0c9-4223-b8f4-5c1cdd7ca3ae" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="ef2df872-a0e5-4154-b2a3-6223f9fb27f7" class="">
+          List comprehensions are a potent tool. With a list comprehension, you
+          can create a new list based on another list in a single, highly
+          readable line.
+        </p>
+        <p id="27a914f5-e357-40f0-bb8b-889071f25c30" class="">
+          The format of a list comprehension follows this syntax:
+        </p>
+        <p id="096c9e18-ac27-4c08-b483-046733e8ab6b" class="">
+          <code
+            >[&lt;map expression&gt; for &lt;name&gt; in &lt;sequence
+            expression&gt; if &lt;filter expression&gt;]</code
+          >
+        </p>
+        <h2 id="26d955ad-4ec8-49de-b123-7afd45a4fa07" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="fd47841f-21af-46f1-9e0d-722a2bbb71d5" class="">
+          If you are using a <code>for</code> loop to map a list onto a new list
+          or filter an existing list, a list comprehension can be a better
+          option.
+        </p>
+        <p id="2c6402b5-141a-4b02-ba08-3f17848a3f78" class="">
+          Here is an example of replacing a <code>for</code> loop used to map
+          word lengths with a single line with a list comprehension.
+        </p>
+        <pre
+          id="474b3603-730d-4db5-aadb-a5712d385570"
+          class="code code-wrap"
+        ><code>sentence = &quot;Every moment is a fresh beginning.&quot;
+words = sentence.split()
+word_lengths = []
+
+# Using a for loop
+for word in words:
+    word_lengths.append(len(word))
+
+print(words)        # [&#x27;Every&#x27;, &#x27;moment&#x27;, &#x27;is&#x27;, &#x27;a&#x27;, &#x27;fresh&#x27;, &#x27;beginning.&#x27;]
+print(word_lengths) # [5, 6, 2, 1, 5, 10]
+
+# Using a list comprehension
+word_lengths = [len(word) for word in words]
+
+print(word_lengths) # [5, 6, 2, 1, 5, 10]</code></pre>
+        <p id="0746d0fa-ab7f-4007-81fa-287f15089da7" class="">
+          Here is an example of replacing a <code>for</code> loop used to filter
+          out odd numbers from a list with a list comprehension.
+        </p>
+        <pre
+          id="ad8a6ffe-c151-4ade-8a85-21159f143ab5"
+          class="code code-wrap"
+        ><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = []
+
+# Using a for loop
+for number in numbers:
+    if number % 2 == 0:
+        even_numbers.append(number)
+
+print(even_numbers) # [2, 4, 6, 8, 10]
+
+# Using a list comprehension
+even_numbers = [number for number in numbers if number % 2 == 0]
+
+print(even_numbers) # [2, 4, 6, 8, 10]</code></pre>
+        <p id="e5c4e18d-bc8c-4a9d-889c-f4ec6d42bd6d" class="">
+          You can also write a list comprehension that maps and filters
+          simultaneously. Let&#x27;s go back to our sentence example and only
+          track word lengths that are greater than 2.
+        </p>
+        <pre
+          id="cd64698f-44e6-46b3-bf00-43a5e0bcc2b5"
+          class="code code-wrap"
+        ><code>sentence = &quot;Every moment is a fresh beginning.&quot;
+words = sentence.split()
+word_lengths = []
+
+# Using a for loop
+for word in words:
+    if len(word) &gt; 2:
+        word_lengths.append(len(word))
+
+print(words)        # [&#x27;Every&#x27;, &#x27;moment&#x27;, &#x27;is&#x27;, &#x27;a&#x27;, &#x27;fresh&#x27;, &#x27;beginning.&#x27;]
+print(word_lengths) # [5, 6, 5, 10]
+
+# Using a list comprehension
+word_lengths = [len(word) for word in words if len(word) &gt; 2]
+
+print(word_lengths) # [5, 6, 5, 10]</code></pre>
+        <p id="4dde68c5-98f0-4c61-947a-02b0da84329c" class=""></p>
+        <figure id="6c14207c-f089-4482-8b18-585456c6d3ea">
+          <div class="source">
+            <a
+              href="https://replit.com/@mdmccarley89/cs-unit-1-sprint-1-module-1-list-comprehensions"
+              >https://replit.com/@mdmccarley89/cs-unit-1-sprint-1-module-1-list-comprehensions</a
+            >
+          </div>
+        </figure>
+        <p id="fd9fd1fc-d3ba-4b12-8b16-60274018b840" class=""></p>
+        <figure id="b0aa0666-9f3c-4dea-a87b-18d424d6f993" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <h1 id="bf11e95f-1675-4fcd-a082-5b2f9af8d775" class="">
+          Objective 05 - Use list comprehensions
+        </h1>
+        <h2 id="d8980e52-7964-4198-af5a-21f1ccecdc52" class="">
+          <strong>Overview</strong>
+        </h2>
+        <p id="bf757461-3b45-4a33-98c3-a21d6209ae0d" class="">
+          List comprehensions are a potent tool. With a list comprehension, you
+          can create a new list based on another list in a single, highly
+          readable line.
+        </p>
+        <p id="55d3a33c-03b0-4431-bde1-57d26a561271" class="">
+          The format of a list comprehension follows this syntax:
+        </p>
+        <p id="c7ced0c3-ee72-4dd0-8be6-cb4992a7448b" class="">
+          <code
+            >[&lt;map expression&gt; for &lt;name&gt; in &lt;sequence
+            expression&gt; if &lt;filter expression&gt;]</code
+          >
+        </p>
+        <h2 id="4b678037-29b2-48b8-bda2-044b51d8e02a" class="">
+          <strong>Follow Along</strong>
+        </h2>
+        <p id="e6cc73ba-4b78-4637-bdb2-29a683d298f4" class="">
+          If you are using a <code>for</code> loop to map a list onto a new list
+          or filter an existing list, a list comprehension can be a better
+          option.
+        </p>
+        <p id="0b184730-cbf3-4d98-903a-8445e0d36c35" class="">
+          Here is an example of replacing a <code>for</code> loop used to map
+          word lengths with a single line with a list comprehension.
+        </p>
+        <pre
+          id="5bd5a7b5-9290-4e6b-bd2f-d61ea1649b36"
+          class="code code-wrap"
+        ><code>sentence = &quot;Every moment is a fresh beginning.&quot;
+words = sentence.split()
+word_lengths = []
+
+# Using a for loop
+for word in words:
+    word_lengths.append(len(word))
+
+print(words)        # [&#x27;Every&#x27;, &#x27;moment&#x27;, &#x27;is&#x27;, &#x27;a&#x27;, &#x27;fresh&#x27;, &#x27;beginning.&#x27;]
+print(word_lengths) # [5, 6, 2, 1, 5, 10]
+
+# Using a list comprehension
+word_lengths = [len(word) for word in words]
+
+print(word_lengths) # [5, 6, 2, 1, 5, 10]</code></pre>
+        <p id="29e04395-62d7-495e-8495-024f5f894990" class="">
+          Here is an example of replacing a <code>for</code> loop used to filter
+          out odd numbers from a list with a list comprehension.
+        </p>
+        <pre
+          id="b71f3578-c7e0-46e9-9b7d-1053d99eaf00"
+          class="code code-wrap"
+        ><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = []
+
+# Using a for loop
+for number in numbers:
+    if number % 2 == 0:
+        even_numbers.append(number)
+
+print(even_numbers) # [2, 4, 6, 8, 10]
+
+# Using a list comprehension
+even_numbers = [number for number in numbers if number % 2 == 0]
+
+print(even_numbers) # [2, 4, 6, 8, 10]</code></pre>
+        <p id="6f9611be-24ca-4c7f-9d02-d76f2469256e" class="">
+          You can also write a list comprehension that maps and filters
+          simultaneously. Let&#x27;s go back to our sentence example and only
+          track word lengths that are greater than 2.
+        </p>
+        <pre
+          id="47594dd6-8668-44b8-a649-071647bcffe1"
+          class="code code-wrap"
+        ><code>sentence = &quot;Every moment is a fresh beginning.&quot;
+words = sentence.split()
+word_lengths = []
+
+# Using a for loop
+for word in words:
+    if len(word) &gt; 2:
+        word_lengths.append(len(word))
+
+print(words)        # [&#x27;Every&#x27;, &#x27;moment&#x27;, &#x27;is&#x27;, &#x27;a&#x27;, &#x27;fresh&#x27;, &#x27;beginning.&#x27;]
+print(word_lengths) # [5, 6, 5, 10]
+
+# Using a list comprehension
+word_lengths = [len(word) for word in words if len(word) &gt; 2]
+
+print(word_lengths) # [5, 6, 5, 10]</code></pre>
+        <h2 id="e9da68d8-9abb-4e3f-b0a4-f0f2651ea508" class="">
+          <strong>Challenge</strong>
+        </h2>
+        <figure id="12d3af68-32a8-4490-a4aa-b0f5478a6470">
+          <div class="source">
+            <a
+              href="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-list-comprehensions#main.py"
+              >https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-list-comprehensions#main.py</a
+            >
+          </div>
+        </figure>
+        <figure id="893f0fd0-605f-40ab-bf06-a236fcfda4e6" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <p id="8f65687f-86f6-4961-88c1-bd811479eb82" class=""></p>
+        <p id="d6870143-b112-44fb-85a3-d73d2b6801e0" class=""></p>
+        <p id="e09a88d6-a556-44ef-859d-2efc3b96c11d" class=""></p>
+        <p id="6764c701-2b7f-451e-a295-51cf86020f65" class=""></p>
+        <p id="b623f91a-2d6c-44b5-8a12-866a3bf43707" class=""></p>
+        <p id="15987ab7-e8a2-436f-a8eb-a6832036abd2" class=""></p>
+        <p id="cdfcf45f-f26b-4b6b-8c13-4977dad1f7cd" class=""></p>
+        <p id="6bfe8633-b677-4281-9a63-c367e6ea772d" class=""></p>
+        <p id="8b0bf224-9923-4480-aabd-d14e16b98b9f" class=""></p>
+        <figure id="1f150ded-42d7-47de-a857-cb4815b9812f" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <p id="039d06c2-1c87-49d8-89e1-9e16a63d4a77" class=""></p>
+        <p id="82451575-74bb-4ab4-9465-b0445052a54c" class=""></p>
+        <p id="98cffa1e-4769-440f-bcec-d2de4c1e067c" class=""></p>
+        <p id="a6e0cbda-cdfa-4959-867f-b3e819d418c4" class=""></p>
+        <p id="0291a0c1-baef-4785-8b5e-310aa9890fd2" class=""></p>
+        <p id="b8fecb9a-8deb-4c93-9ddf-b9ef756b63b9" class=""></p>
+        <p id="152b65bf-3e85-4a43-a808-43faef30f0b7" class=""></p>
+        <figure id="ca13f696-2f84-4c07-b171-a46757c7f0b3" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <p id="6dde7189-6fd8-4c24-802d-1def4623256e" class=""></p>
+        <p id="55fa22a4-021e-4a04-834d-b272b337b02e" class=""></p>
+        <p id="d1788824-0140-4e32-86b3-f790d2aef0e5" class=""></p>
+        <p id="2aa034c8-e01a-4508-9250-bd243ad7bdc8" class=""></p>
+        <p id="7fc20a9a-90fa-45f9-9047-f538d1534d59" class=""></p>
+        <p id="ce977d4a-9c74-47a1-bae3-abb02051330b" class=""></p>
+        <p id="d456f415-998f-4e8d-8050-37100233b904" class=""></p>
+        <p id="4b81b04a-169b-4493-b214-053acfe783a2" class=""></p>
+        <p id="4d9a0449-4ff7-45b5-85ca-e2554554ca10" class=""></p>
+        <p id="0da83fb3-9c0d-41a9-b3d6-79fc9ecd8dc7" class=""></p>
+        <p id="4dca42d0-4b4e-4518-ba23-7a2c2935b044" class=""></p>
+        <figure id="67e512bd-42aa-4cc8-9079-b0ee3ee571d4" class="image">
+          <a href="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+            ><img
+              style="width: 1139px"
+              src="Day3%20Notes%206781511827ba452684a79775a6ac7890/Untitled.png"
+          /></a>
+        </figure>
+        <h1 id="9f78d83f-bc0c-48aa-83b7-d819498e446f" class="">
+          <strong>When to Use a List Comprehension in Python</strong>
+        </h1>
+        <p id="935b8f4e-92a0-43cc-b96d-a6d01daa09cb" class="">by</p>
+        <p id="8a75d38c-806c-4496-8773-8cf1c4dc6f03" class="">
+          <a href="https://realpython.com/list-comprehension-python/#author"
+            >James Timmins</a
+          >
+        </p>
+        <p id="8b7118f5-7634-488b-8c9c-9457535f0ed2" class="">
+          <a
+            href="https://realpython.com/list-comprehension-python/#reader-comments"
+            >18 Comments</a
+          >
+        </p>
+        <p id="9c32fbea-0b06-4b2c-a05b-e6d6a0bda2ea" class="">
+          <a href="https://realpython.com/tutorials/basics/"
+            ><strong>basics</strong></a
+          >
+        </p>
+        <p id="2aa814e9-5958-4cc9-becd-02d41ab2f00c" class="">
+          <a href="https://realpython.com/tutorials/python/"
+            ><strong>python</strong></a
+          >
+        </p>
+        <p id="d5bd5d7f-09c3-4faf-ba10-632db1deb3ad" class="">
+          Mark as Completed
+        </p>
+        <p id="aaa89cbe-4e14-4c0d-ac57-9f9b63ca2ac2" class="">
+          <a
+            href="https://twitter.com/intent/tweet/?text=Check%20out%20this%20%23Python%20tutorial:%20When%20to%20Use%20a%20List%20Comprehension%20in%20Python%20by%20@realpython&amp;url=https%3A//realpython.com/list-comprehension-python/"
+            ><strong>Tweet</strong></a
+          > <a
+            href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/list-comprehension-python/"
+            ><strong>Share</strong></a
+          > <a
+            href="mailto:?subject=Python%20article%20for%20you&amp;body=Check%20out%20this%20Python%20tutorial:%0A%0AWhen%20to%20Use%20a%20List%20Comprehension%20in%20Python%0A%0Ahttps%3A//realpython.com/list-comprehension-python/"
+            ><strong>Email</strong></a
+          >
+        </p>
+        <p id="b9761028-d30b-481e-8b07-6f3c0f5cdb0d" class="">
+          <strong>Table of Contents</strong>
+        </p>
+        <ul id="5bc52018-02a7-4454-a47d-7fba3644fa65" class="bulleted-list">
+          <li>
+            <a
+              href="https://realpython.com/list-comprehension-python/#how-to-create-lists-in-python"
+              >How to Create Lists in Python</a
+            >
+            <ul id="38b208e2-c89b-4be0-9e82-b0d32416f7ae" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#using-for-loops"
+                  >Using for Loops</a
+                >
+              </li>
+            </ul>
+            <ul id="b913b239-e7d1-43d0-9027-8d0b083f0e69" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#using-map-objects"
+                  >Using map() Objects</a
+                >
+              </li>
+            </ul>
+            <ul id="2dde1c5d-69ee-42e7-92e8-9d7dea41fcdf" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#using-list-comprehensions"
+                  >Using List Comprehensions</a
+                >
+              </li>
+            </ul>
+            <ul id="2e580135-f2c9-4f36-af41-86f917895fa9" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#benefits-of-using-list-comprehensions"
+                  >Benefits of Using List Comprehensions</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul id="5fd5eb9d-32df-41be-a33e-3949f292f35f" class="bulleted-list">
+          <li>
+            <a
+              href="https://realpython.com/list-comprehension-python/#how-to-supercharge-your-comprehensions"
+              >How to Supercharge Your Comprehensions</a
+            >
+            <ul id="ccd4be80-3a6c-46fd-888e-34520193c5ba" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#using-conditional-logic"
+                  >Using Conditional Logic</a
+                >
+              </li>
+            </ul>
+            <ul id="4cb36d4e-275a-47f5-a36d-2c8f201cc2ff" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#using-set-and-dictionary-comprehensions"
+                  >Using Set and Dictionary Comprehensions</a
+                >
+              </li>
+            </ul>
+            <ul id="2e8aa2dd-a1c4-49b8-b58c-307a8cd0bee5" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#using-the-walrus-operator"
+                  >Using the Walrus Operator</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul id="8d21b7bd-c19b-4737-b20a-fdb887d99e4e" class="bulleted-list">
+          <li>
+            <a
+              href="https://realpython.com/list-comprehension-python/#when-not-to-use-a-list-comprehension-in-python"
+              >When Not to Use a List Comprehension in Python</a
+            >
+            <ul id="9159137d-794f-4245-be76-d57513bb76b9" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#watch-out-for-nested-comprehensions"
+                  >Watch Out for Nested Comprehensions</a
+                >
+              </li>
+            </ul>
+            <ul id="53375006-9e33-4807-ae29-4e8d2f9660d3" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#choose-generators-for-large-datasets"
+                  >Choose Generators for Large Datasets</a
+                >
+              </li>
+            </ul>
+            <ul id="6ded4c62-47ac-48a7-a35e-210bd92a0781" class="bulleted-list">
+              <li>
+                <a
+                  href="https://realpython.com/list-comprehension-python/#profile-to-optimize-performance"
+                  >Profile to Optimize Performance</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul id="b794066a-4e35-4b90-8dda-b5a27fb5fa50" class="bulleted-list">
+          <li>
+            <a
+              href="https://realpython.com/list-comprehension-python/#conclusion"
+              >Conclusion</a
+            >
+          </li>
+        </ul>
+        <p id="0aec42ed-55a8-4e99-a33d-d422863528a0" class="">
+          <a href="https://realpython.com/account/join/">Remove ads</a>
+        </p>
+        <p id="25c6c971-d9c6-4859-9414-e067e699e987" class="">
+          <strong>Watch Now</strong> This tutorial has a related video course
+          created by the Real Python team. Watch it together with the written
+          tutorial to deepen your understanding: <a
+            href="https://realpython.com/courses/understand-list-comprehensions/"
+            ><strong>Understanding Python List Comprehensions</strong></a
+          >
+        </p>
+        <p id="d7603abb-7691-4af3-bea3-3377e9b69b3b" class="">
+          Python is famous for allowing you to write code that’s elegant, easy
+          to write, and almost as easy to read as plain English. One of the
+          language’s most distinctive features is the <strong
+            >list comprehension</strong
+          >, which you can use to create powerful functionality within a single
+          line of code. However, many developers struggle to fully leverage the
+          more advanced features of a list comprehension in Python. Some
+          programmers even use them too much, which can lead to code that’s less
+          efficient and harder to read.
+        </p>
+        <p id="f037f61e-b750-4d59-a84a-f220c3c903d3" class="">
+          By the end of this tutorial, you’ll understand the full power of
+          Python list comprehensions and how to use their features comfortably.
+          You’ll also gain an understanding of the trade-offs that come with
+          using them so that you can determine when other approaches are more
+          preferable.
+        </p>
+        <p id="197ac9b5-3d0c-4fbd-bfe2-d988c219b100" class="">
+          <strong>In this tutorial, you’ll learn how to:</strong>
+        </p>
+        <ul id="48f52e75-5f26-40d9-98d9-2406361ee1f8" class="bulleted-list">
+          <li>
+            Rewrite loops and <code>map()</code> calls as a <strong
+              >list comprehension</strong
+            > in Python
+          </li>
+        </ul>
+        <ul id="4bb8bc5e-1656-4f7c-9ec4-43c9875aa13c" class="bulleted-list">
+          <li>
+            <strong>Choose</strong> between comprehensions, loops,
+            and <code>map()</code> calls
+          </li>
+        </ul>
+        <ul id="3c7ad7f7-f41a-43c5-9588-570d7ea737c8" class="bulleted-list">
+          <li>
+            Supercharge your comprehensions with <strong
+              >conditional logic</strong
+            >
+          </li>
+        </ul>
+        <ul id="2d0f2550-29ae-4f5d-ad93-ae87c81546a1" class="bulleted-list">
+          <li>
+            <strong>Use comprehensions</strong> to replace <code>filter()</code>
+          </li>
+        </ul>
+        <ul id="6adcb339-33a2-4ddb-a607-1d5e6cc821bd" class="bulleted-list">
+          <li>
+            <strong>Profile</strong> your code to solve performance questions
+          </li>
+        </ul>
+        <p id="4cf5daa1-bbeb-4783-bd98-f389bfed9488" class="">
+          <strong>Free Download:</strong> <a
+            href="https://realpython.com/bonus/python-tricks-sample-pdf/"
+            ><strong
+              >Get a sample chapter from Python Tricks: The Book</strong
+            ></a
+          > that shows you Python’s best practices with simple examples you can
+          apply instantly to write more beautiful + Pythonic code.
+        </p>
+        <h2 id="8800639c-62a2-4992-a448-ddc0a4d30b1d" class="">
+          <strong>How to Create Lists in Python</strong>
+        </h2>
+        <p id="87377c04-a3b3-4511-a46c-b66acf2c70db" class="">
+          There are a few different ways you can create <a
+            href="https://realpython.com/python-lists-tuples/"
+            >lists</a
+          > in Python. To better understand the trade-offs of using a list
+          comprehension in Python, let’s first see how to create lists with
+          these approaches.
+        </p>
+        <p id="0ed32000-097f-46f9-88ad-17d35854dab7" class="">
+          <a href="https://realpython.com/account/join/">Remove ads</a>
+        </p>
+        <h3 id="714f0426-4f9e-4ad4-a009-4ea8ac491475" class="">
+          <strong>Using </strong><code><strong>for</strong></code
+          ><strong> Loops</strong>
+        </h3>
+        <p id="fcb11278-ed4d-4bf5-8fc2-b668a0e26cb7" class="">
+          The most common type of loop is the <a
+            href="https://realpython.com/courses/python-for-loop/"
+            ><code>for</code></a
+          > loop. You can use a <code>for</code> loop to create a list of
+          elements in three steps:
+        </p>
+        <ol
+          type="1"
+          id="9ced9967-508e-4f39-bf77-57033c47e930"
+          class="numbered-list"
+          start="1"
+        >
+          <li>Instantiate an empty list.</li>
+        </ol>
+        <ol
+          type="1"
+          id="af6f0d7a-562e-4bf8-80d9-db6227ff7acc"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Loop over an iterable or <a
+              href="https://realpython.com/python-range/"
+              >range</a
+            > of elements.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="0e9bb6ec-df05-47da-847c-db7f40f6521b"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            <a href="https://realpython.com/python-append/">Append</a> each
+            element to the end of the list.
+          </li>
+        </ol>
+        <p id="ffd7dae1-bcea-4d12-ab66-3ff5ccb38f2d" class="">
+          If you want to create a list containing the first ten perfect squares,
+          then you can complete these steps in three lines of code:
+        </p>
+        <p id="432c7777-3cf1-47f1-b686-ba0061decde1" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; squares = [] &gt;&gt;&gt; for i in range(10): ...
+            squares.append(i * i) &gt;&gt;&gt; squares [0, 1, 4, 9, 16, 25, 36,
+            49, 64, 81]</code
+          >
+        </p>
+        <p id="07099beb-4ec3-4e99-a284-7e216027e260" class="">
+          Here, you instantiate an empty list, <code>squares</code>. Then, you
+          use a <code>for</code> loop to iterate over <code>range(10)</code>.
+          Finally, you multiply each <a
+            href="https://realpython.com/python-numbers/"
+            >number</a
+          > by itself and append the result to the end of the list.
+        </p>
+        <h3 id="296f4f8d-433b-42f6-a93f-4233dddecd39" class="">
+          <strong>Using </strong><code><strong>map()</strong></code
+          ><strong> Objects</strong>
+        </h3>
+        <p id="cec586ba-9883-4739-ac15-0c142b878487" class="">
+          <a href="https://realpython.com/python-map-function/"
+            ><code>map()</code></a
+          > provides an alternative approach that’s based in <a
+            href="https://realpython.com/python-functional-programming/"
+            >functional programming</a
+          >. You pass in a function and an iterable, and <code>map()</code> will
+          create an object. This object contains the output you would get from
+          running each iterable element through the supplied function.
+        </p>
+        <p id="d907e27b-00f0-4146-a854-268855bc7434" class="">
+          As an example, consider a situation in which you need to calculate the
+          price after tax for a list of transactions:
+        </p>
+        <p id="58c26da4-cbd4-4b1a-bb1c-691ffe88145b" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; txns = [1.09, 23.56, 57.84, 4.56, 6.78] &gt;&gt;&gt;
+            TAX_RATE = .08 &gt;&gt;&gt; def get_price_with_tax(txn): ... return
+            txn * (1 + TAX_RATE) &gt;&gt;&gt; final_prices =
+            map(get_price_with_tax, txns) &gt;&gt;&gt; list(final_prices)
+            [1.1772000000000002, 25.4448, 62.467200000000005, 4.9248,
+            7.322400000000001]</code
+          >
+        </p>
+        <p id="b76fef4a-93ce-4dbb-9eb5-6d87a5855b81" class="">
+          Here, you have an iterable <code>txns</code> and a
+          function <code>get_price_with_tax()</code>. You pass both of these
+          arguments to <code>map()</code>, and store the resulting object
+          in <code>final_prices</code>. You can easily convert this map object
+          into a list using <code>list()</code>.
+        </p>
+        <h3 id="c6bb771e-ba8b-431c-a27e-6711b39cf593" class="">
+          <strong>Using List Comprehensions</strong>
+        </h3>
+        <p id="25ff8a3b-0f38-40e9-8495-0a55477dbf38" class="">
+          List comprehensions are a third way of making lists. With this elegant
+          approach, you could rewrite the <code>for</code> loop from the first
+          example in just a single line of code:
+        </p>
+        <p id="b1911eb6-edd2-421b-8a53-c6cb76ae009f" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; squares = [i * i for i in range(10)] &gt;&gt;&gt;
+            squares [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code
+          >
+        </p>
+        <p id="fbdc927d-4d71-4ec7-ae1d-b9dae3e3123a" class="">
+          Rather than creating an empty list and adding each element to the end,
+          you simply define the list and its contents at the same time by
+          following this format:
+        </p>
+        <p id="f1c0b7ec-1ad1-4a56-8e52-6b304990fc64" class="">
+          &gt;&gt;&gt;
+
+          <code>new_list = [expression for member in iterable]</code>
+        </p>
+        <p id="9f3b2428-587c-489c-a023-41a653711e52" class="">
+          Every list comprehension in Python includes three elements:
+        </p>
+        <ol
+          type="1"
+          id="001d72aa-8d2a-4d39-9d47-13b7a6b1ae70"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            <code><strong>expression</strong></code
+            > is the member itself, a call to a method, or any other valid
+            expression that returns a value. In the example above, the
+            expression <code>i * i</code> is the square of the member value.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="bc39158e-6d14-42a9-b609-93530b9717fc"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            <code><strong>member</strong></code
+            > is the object or value in the list or iterable. In the example
+            above, the member value is <code>i</code>.
+          </li>
+        </ol>
+        <ol
+          type="1"
+          id="a5c25b35-d42d-44e7-ba7e-6e32c7d8c579"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            <code><strong>iterable</strong></code
+            > is a list, <a href="https://realpython.com/python-sets/">set</a>,
+            sequence, <a
+              href="https://realpython.com/introduction-to-python-generators/"
+              >generator</a
+            >, or any other object that can return its elements one at a time.
+            In the example above, the iterable is <code>range(10)</code>.
+          </li>
+        </ol>
+        <p id="52e51d58-21aa-4cc0-a44e-aa899ce5c918" class="">
+          Because the <strong>expression</strong> requirement is so flexible, a
+          list comprehension in Python works well in many places where you would
+          use <code>map()</code>. You can rewrite the pricing example with its
+          own list comprehension:
+        </p>
+        <p id="b0725ad1-ea85-40bc-9ffe-7f0d7519fdf0" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; txns = [1.09, 23.56, 57.84, 4.56, 6.78] &gt;&gt;&gt;
+            TAX_RATE = .08 &gt;&gt;&gt; def get_price_with_tax(txn): ... return
+            txn * (1 + TAX_RATE) &gt;&gt;&gt; final_prices =
+            [get_price_with_tax(i) for i in txns] &gt;&gt;&gt; final_prices
+            [1.1772000000000002, 25.4448, 62.467200000000005, 4.9248,
+            7.322400000000001]</code
+          >
+        </p>
+        <p id="6b36d36d-2a55-4a5d-a2ea-8b5af87e77c3" class="">
+          The only distinction between this implementation
+          and <code>map()</code> is that the list comprehension in Python
+          returns a list, not a map object.
+        </p>
+        <p id="40d4fb85-c814-4341-a178-100f9de7b9a5" class="">
+          <a href="https://realpython.com/account/join/">Remove ads</a>
+        </p>
+        <h3 id="a80e4706-f5a2-4e80-87eb-1a649d92ab19" class="">
+          <strong>Benefits of Using List Comprehensions</strong>
+        </h3>
+        <p id="84c78a06-49c4-46f5-9ec0-79fca6112401" class="">
+          List comprehensions are often described as being more <a
+            href="https://realpython.com/courses/idiomatic-python-101/"
+            >Pythonic</a
+          > than loops or <code>map()</code>. But rather than blindly accepting
+          that assessment, it’s worth it to understand the benefits of using a
+          list comprehension in Python when compared to the alternatives. Later
+          on, you’ll learn about a few scenarios where the alternatives are a
+          better choice.
+        </p>
+        <p id="4dd47657-a9a7-4d2e-975a-c07c217d54ce" class="">
+          One main benefit of using a list comprehension in Python is that it’s
+          a single tool that you can use in many different situations. In
+          addition to standard <a
+            href="https://realpython.com/python-lists-tuples/"
+            >list creation</a
+          >, list comprehensions can also be used for mapping and filtering. You
+          don’t have to use a different approach for each scenario.
+        </p>
+        <p id="8a663ad3-4de3-4b26-9efa-cd4a5e589b92" class="">
+          This is the main reason why list comprehensions are
+          considered <strong>Pythonic</strong>, as Python embraces simple,
+          powerful tools that you can use in a wide variety of situations. As an
+          added side benefit, whenever you use a list comprehension in Python,
+          you won’t need to remember the proper order of arguments like you
+          would when you call <code>map()</code>.
+        </p>
+        <p id="c5a93889-b6a8-4de7-80e8-469e5e4bee2f" class="">
+          List comprehensions are also more <strong>declarative</strong> than
+          loops, which means they’re easier to read and understand. Loops
+          require you to focus on how the list is created. You have to manually
+          create an empty list, loop over the elements, and add each of them to
+          the end of the list. With a list comprehension in Python, you can
+          instead focus on <em>what</em> you want to go in the list and trust
+          that Python will take care of <em>how</em> the list construction takes
+          place.
+        </p>
+        <h2 id="d8692e58-aa61-45f8-8b4d-4f56cadfbde5" class="">
+          <strong>How to Supercharge Your Comprehensions</strong>
+        </h2>
+        <p id="98e9a85b-45c9-48cb-ab0d-65f3df955829" class="">
+          In order to understand the full value that <a
+            href="https://realpython.com/courses/using-list-comprehensions-effectively/"
+            >list comprehensions</a
+          > can provide, it’s helpful to understand their range of possible
+          functionality. You’ll also want to understand the changes that are
+          coming to the list comprehension in <a
+            href="https://realpython.com/python38-new-features/"
+            >Python 3.8</a
+          >.
+        </p>
+        <h3 id="0ee5ceaa-9597-4e7a-b347-eedbc2cb97ff" class="">
+          <strong>Using Conditional Logic</strong>
+        </h3>
+        <p id="6945baa6-f114-4c05-aff7-52d1b66a7bc9" class="">
+          Earlier, you saw this formula for how to create list comprehensions:
+        </p>
+        <p id="b2d76954-797d-47c2-956a-e47ba52c7656" class="">
+          &gt;&gt;&gt;
+
+          <code>new_list = [expression for member in iterable]</code>
+        </p>
+        <p id="351deee8-5d7a-49c2-a7fe-e5f709721415" class="">
+          While this formula is accurate, it’s also a bit incomplete. A more
+          complete description of the comprehension formula adds support for
+          optional <strong>conditionals</strong>. The most common way to add <a
+            href="https://realpython.com/python-conditional-statements/"
+            >conditional logic</a
+          > to a list comprehension is to add a conditional to the end of the
+          expression:
+        </p>
+        <p id="322a3404-583b-4ee4-9def-9fe6c392668e" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >new_list = [expression for member in iterable (if
+            conditional)]</code
+          >
+        </p>
+        <p id="291a08e3-331c-4d80-8bf0-431ec2c382d8" class="">
+          Here, your conditional statement comes just before the closing
+          bracket.
+        </p>
+        <p id="699f6ad0-da93-406a-b558-6f87afce7025" class="">
+          Conditionals are important because they allow list comprehensions to
+          filter out unwanted values, which would normally require a call to <a
+            href="https://realpython.com/python-filter-function/"
+            ><code>filter()</code></a
+          >:
+        </p>
+        <p id="f9844442-0122-495f-bb96-759962a2112d" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; sentence = &#x27;the rocket came back from mars&#x27;
+            &gt;&gt;&gt; vowels = [i for i in sentence if i in
+            &#x27;aeiou&#x27;] &gt;&gt;&gt; vowels [&#x27;e&#x27;,
+            &#x27;o&#x27;, &#x27;e&#x27;, &#x27;a&#x27;, &#x27;e&#x27;,
+            &#x27;a&#x27;, &#x27;o&#x27;, &#x27;a&#x27;]</code
+          >
+        </p>
+        <p id="53e8f8ea-3f17-4fbe-9fd0-0b39120781c4" class="">
+          In this code block, the conditional statement filters out any
+          characters in <code>sentence</code> that aren’t a vowel.
+        </p>
+        <p id="150575ac-2996-4231-8111-01b37a385442" class="">
+          The conditional can test any valid expression. If you need a more
+          complex filter, then you can even move the conditional logic to a
+          separate function:
+        </p>
+        <p id="2c9bfe1c-1971-4c1f-948c-fc8c747b3ffc" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; sentence = &#x27;The rocket, who was named Ted, came
+            back \ ... from Mars because he missed his friends.&#x27;
+            &gt;&gt;&gt; def is_consonant(letter): ... vowels =
+            &#x27;aeiou&#x27; ... return letter.isalpha() and letter.lower() not
+            in vowels &gt;&gt;&gt; consonants = [i for i in sentence if
+            is_consonant(i)] [&#x27;T&#x27;, &#x27;h&#x27;, &#x27;r&#x27;,
+            &#x27;c&#x27;, &#x27;k&#x27;, &#x27;t&#x27;, &#x27;w&#x27;,
+            &#x27;h&#x27;, &#x27;w&#x27;, &#x27;s&#x27;, &#x27;n&#x27;,
+            &#x27;m&#x27;, &#x27;d&#x27;, \ &#x27;T&#x27;, &#x27;d&#x27;,
+            &#x27;c&#x27;, &#x27;m&#x27;, &#x27;b&#x27;, &#x27;c&#x27;,
+            &#x27;k&#x27;, &#x27;f&#x27;, &#x27;r&#x27;, &#x27;m&#x27;,
+            &#x27;M&#x27;, &#x27;r&#x27;, &#x27;s&#x27;, &#x27;b&#x27;, \
+            &#x27;c&#x27;, &#x27;s&#x27;, &#x27;h&#x27;, &#x27;m&#x27;,
+            &#x27;s&#x27;, &#x27;s&#x27;, &#x27;d&#x27;, &#x27;h&#x27;,
+            &#x27;s&#x27;, &#x27;f&#x27;, &#x27;r&#x27;, &#x27;n&#x27;,
+            &#x27;d&#x27;, &#x27;s&#x27;]</code
+          >
+        </p>
+        <p id="13591e79-6939-4110-a8a4-ea3ec604a0ef" class="">
+          Here, you create a complex filter <code>is_consonant()</code> and pass
+          this function as the conditional statement for your list
+          comprehension. Note that the member value <code>i</code> is also
+          passed as an argument to your function.
+        </p>
+        <p id="aaea6af6-4664-4b0e-9f6e-dee23e9f3c27" class="">
+          You can place the conditional at the end of the statement for simple
+          filtering, but what if you want to <em>change</em> a member value
+          instead of filtering it out? In this case, it’s useful to place the
+          conditional near the <em>beginning</em> of the expression:
+        </p>
+        <p id="653a9ecf-5d12-42d5-b714-ce457e23abee" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >new_list = [expression (if conditional) for member in
+            iterable]</code
+          >
+        </p>
+        <p id="d3ffa1f3-fda2-4ced-89dd-44abca2c92e6" class="">
+          With this formula, you can use conditional logic to select from
+          multiple possible output options. For example, if you have a list of
+          prices, then you may want to replace negative prices
+          with <code>0</code> and leave the positive values unchanged:
+        </p>
+        <p id="2aa5b86a-7c8f-4539-9fa1-b86d2a3cf2a3" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; original_prices = [1.25, -9.45, 10.22, 3.78, -5.92,
+            1.16] &gt;&gt;&gt; prices = [i if i &gt; 0 else 0 for i in
+            original_prices] &gt;&gt;&gt; prices [1.25, 0, 10.22, 3.78, 0,
+            1.16]</code
+          >
+        </p>
+        <p id="bc92b52a-8259-4674-ba70-9fc3eddd8d22" class="">
+          Here, your expression <code>i</code> contains a conditional
+          statement, <code>if i &gt; 0 else 0</code>. This tells Python to
+          output the value of <code>i</code> if the number is positive, but to
+          change <code>i</code> to <code>0</code> if the number is negative. If
+          this seems overwhelming, then it may be helpful to view the
+          conditional logic as its own function:
+        </p>
+        <p id="00f08a12-a12c-4a0c-9d42-0c97cae682fb" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; def get_price(price): ... return price if price &gt; 0
+            else 0 &gt;&gt;&gt; prices = [get_price(i) for i in original_prices]
+            &gt;&gt;&gt; prices [1.25, 0, 10.22, 3.78, 0, 1.16]</code
+          >
+        </p>
+        <p id="3408afee-7f8d-4ae7-9fb4-252f314822dc" class="">
+          Now, your conditional statement is contained
+          within <code>get_price()</code>, and you can use it as part of your
+          list comprehension expression.
+        </p>
+        <p id="03565f67-ba5b-4f76-9560-92ddb68e3f60" class="">
+          <a href="https://realpython.com/account/join/">Remove ads</a>
+        </p>
+        <h3 id="bf7ee057-ee0b-4a71-bd59-1ac5c5706d41" class="">
+          <strong>Using Set and Dictionary Comprehensions</strong>
+        </h3>
+        <p id="d2ff39f3-6e8c-40b8-af59-cb27b37c0b07" class="">
+          While the list comprehension in Python is a common tool, you can also
+          create set and <a href="https://realpython.com/python-dicts/"
+            >dictionary</a
+          > comprehensions. A <strong>set comprehension</strong> is almost
+          exactly the same as a list comprehension in Python. The difference is
+          that set comprehensions make sure the output contains no duplicates.
+          You can create a set comprehension by using curly braces instead of
+          brackets:
+        </p>
+        <p id="8b3a9ed6-44d4-4dcf-8c3b-caae2dbf69d8" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; quote = &quot;life, uh, finds a way&quot; &gt;&gt;&gt;
+            unique_vowels = {i for i in quote if i in &#x27;aeiou&#x27;}
+            &gt;&gt;&gt; unique_vowels {&#x27;a&#x27;, &#x27;e&#x27;,
+            &#x27;u&#x27;, &#x27;i&#x27;}</code
+          >
+        </p>
+        <p id="964d067b-ca18-41f5-a41e-5e8de0343ef1" class="">
+          Your set comprehension outputs all the unique vowels it found
+          in <code>quote</code>. Unlike lists, sets don’t guarantee that items
+          will be saved in any particular order. This is why the first member of
+          the set is <code>a</code>, even though the first vowel
+          in <code>quote</code> is <code>i</code>.
+        </p>
+        <p id="f387a8d0-bcda-465b-a665-bd5d7e0c9193" class="">
+          <strong>Dictionary comprehensions</strong> are similar, with the
+          additional requirement of defining a key:
+        </p>
+        <p id="717395f0-5822-4cda-bcef-a4b548f57956" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; squares = {i: i * i for i in range(10)} &gt;&gt;&gt;
+            squares {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64,
+            9: 81}</code
+          >
+        </p>
+        <p id="90d8834e-b4e3-40d4-ab04-6bdbb7fc5406" class="">
+          To create the <code>squares</code> dictionary, you use curly braces
+          (<code>{}</code>) as well as a key-value pair (<code>i: i * i</code>)
+          in your expression.
+        </p>
+        <h3 id="7973b973-185f-4def-aec0-961a9d609023" class="">
+          <strong>Using the Walrus Operator</strong>
+        </h3>
+        <p id="819f7f4a-8622-4015-9727-2ea0ea26f85a" class="">
+          Python 3.8 will introduce the <a
+            href="https://www.python.org/dev/peps/pep-0572/"
+            >assignment expression</a
+          >, also known as the <strong>walrus operator</strong>. To understand
+          how you can use it, consider the following example.
+        </p>
+        <p id="9a7e6870-9dae-4adf-aaf7-ce0007d34375" class="">
+          Say you need to make ten requests to an API that will return
+          temperature data. You only want to return results that are greater
+          than 100 degrees Fahrenheit. Assume that each request will return
+          different data. In this case, there’s no way to use a list
+          comprehension in Python to solve the problem. The formula <code
+            >expression for member in iterable (if conditional)</code
+          > provides no way for the conditional to assign data to a <a
+            href="https://realpython.com/python-variables/"
+            >variable</a
+          > that the expression can access.
+        </p>
+        <p id="41084e19-90e5-470e-b9ca-063ade924039" class="">
+          The <strong>walrus operator</strong> solves this problem. It allows
+          you to run an expression while simultaneously assigning the output
+          value to a variable. The following example shows how this is possible,
+          using <code>get_weather_data()</code> to generate fake weather data:
+        </p>
+        <p id="8d8a3a8c-5bf0-48ab-9599-74d797f70782" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; import random &gt;&gt;&gt; def get_weather_data(): ...
+            return random.randrange(90, 110) &gt;&gt;&gt; hot_temps = [temp for
+            _ in range(20) if (temp := get_weather_data()) &gt;= 100]
+            &gt;&gt;&gt; hot_temps [107, 102, 109, 104, 107, 109, 108, 101,
+            104]</code
+          >
+        </p>
+        <p id="5691498a-497c-48bb-af6e-75a302e4dc24" class="">
+          You won’t often need to use the assignment expression inside of a list
+          comprehension in Python, but it’s a useful tool to have at your
+          disposal when necessary.
+        </p>
+        <h2 id="44081b78-f5c6-44db-aaa2-e1ef8eadc325" class="">
+          <strong>When Not to Use a List Comprehension in Python</strong>
+        </h2>
+        <p id="b7807f2c-9dee-4bb3-b953-3d4c69371a9a" class="">
+          List comprehensions are useful and can help you write elegant code
+          that’s easy to read and debug, but they’re not the right choice for
+          all circumstances. They might make your code run more slowly or use
+          more memory. If your code is less performant or harder to understand,
+          then it’s probably better to choose an alternative.
+        </p>
+        <h3 id="e7c085b8-7212-43a6-b4df-353306ed7793" class="">
+          <strong>Watch Out for Nested Comprehensions</strong>
+        </h3>
+        <p id="e970015e-49cf-4f93-95f9-63a118ef30cb" class="">
+          Comprehensions can be <strong>nested</strong> to create combinations
+          of lists, dictionaries, and sets within a collection. For example, say
+          a climate laboratory is tracking the high temperature in five
+          different cities for the first week of June. The perfect data
+          structure for storing this data could be a Python list comprehension
+          nested within a dictionary comprehension:
+        </p>
+        <p id="fcdeb877-a0d1-4a60-9fdc-f585d483981d" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; cities = [&#x27;Austin&#x27;, &#x27;Tacoma&#x27;,
+            &#x27;Topeka&#x27;, &#x27;Sacramento&#x27;, &#x27;Charlotte&#x27;]
+            &gt;&gt;&gt; temps = {city: [0 for _ in range(7)] for city in
+            cities} &gt;&gt;&gt; temps { &#x27;Austin&#x27;: [0, 0, 0, 0, 0, 0,
+            0], &#x27;Tacoma&#x27;: [0, 0, 0, 0, 0, 0, 0], &#x27;Topeka&#x27;:
+            [0, 0, 0, 0, 0, 0, 0], &#x27;Sacramento&#x27;: [0, 0, 0, 0, 0, 0,
+            0], &#x27;Charlotte&#x27;: [0, 0, 0, 0, 0, 0, 0] }</code
+          >
+        </p>
+        <p id="70efc789-6549-4d61-9f30-8dc225dec87c" class="">
+          You create the outer collection <code>temps</code> with a dictionary
+          comprehension. The expression is a key-value pair, which contains yet
+          another comprehension. This code will quickly generate a list of data
+          for each city in <code>cities</code>.
+        </p>
+        <p id="94e48556-1c99-41ea-9544-4246c982bf3e" class="">
+          Nested lists are a common way to create <strong>matrices</strong>,
+          which are often used for mathematical purposes. Take a look at the
+          code block below:
+        </p>
+        <p id="3b01b706-9260-4dd9-b1a9-53fafb01072d" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; matrix = [[i for i in range(5)] for _ in range(6)]
+            &gt;&gt;&gt; matrix [ [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3,
+            4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4] ]</code
+          >
+        </p>
+        <p id="757f9d1b-30d8-408f-b6bf-c4f404ba8f5d" class="">
+          The outer list comprehension <code>[... for _ in range(6)]</code
+          > creates six rows, while the inner list comprehension <code
+            >[i for i in range(5)]</code
+          > fills each of these rows with values.
+        </p>
+        <p id="7c93f32c-af37-47f8-8699-8d4639352d37" class="">
+          So far, the purpose of each nested comprehension is pretty intuitive.
+          However, there are other situations, such
+          as <strong>flattening</strong> nested lists, where the logic arguably
+          makes your code more confusing. Take this example, which uses a nested
+          list comprehension to flatten a matrix:
+        </p>
+        <p id="e8a09f33-dfff-4c6d-aed6-09937815038a" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >matrix = [ ... [0, 0, 0], ... [1, 1, 1], ... [2, 2, 2], ... ]
+            &gt;&gt;&gt; flat = [num for row in matrix for num in row]
+            &gt;&gt;&gt; flat [0, 0, 0, 1, 1, 1, 2, 2, 2]</code
+          >
+        </p>
+        <p id="b27beae1-88ea-4c97-ae18-bd0bb3bdad47" class="">
+          The code to flatten the matrix is concise, but it may not be so
+          intuitive to understand how it works. On the other hand, if you were
+          to use <code>for</code> loops to flatten the same matrix, then your
+          code will be much more straightforward:
+        </p>
+        <p id="fdd69e69-3561-41df-a6a2-01e897004fe0" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; matrix = [ ... [0, 0, 0], ... [1, 1, 1], ... [2, 2,
+            2], ... ] &gt;&gt;&gt; flat = [] &gt;&gt;&gt; for row in matrix: ...
+            for num in row: ... flat.append(num) ... &gt;&gt;&gt; flat [0, 0, 0,
+            1, 1, 1, 2, 2, 2]</code
+          >
+        </p>
+        <p id="eb148889-6d26-49ec-bd1f-4c95dcbd2c03" class="">
+          Now you can see that the code traverses one row of the matrix at a
+          time, pulling out all the elements in that row before moving on to the
+          next one.
+        </p>
+        <p id="3decd2ed-55bb-4bb2-bd8b-a33363bba505" class="">
+          While the single-line nested list comprehension might seem more
+          Pythonic, what’s most important is to write code that your team can
+          easily understand and modify. When you choose your approach, you’ll
+          have to make a judgment call based on whether you think the
+          comprehension helps or hurts readability.
+        </p>
+        <figure id="4476e011-990f-48ec-aaf3-c89b722b631a" class="image">
+          <a href="https://img.realpython.net/681db5178e811f0240f3775742f6b3b9"
+            ><img
+              style="width: 1680px"
+              src="https://img.realpython.net/681db5178e811f0240f3775742f6b3b9"
+          /></a>
+        </figure>
+        <p id="fc604ad9-6cbd-4c3b-8281-c6bb95593c45" class="">
+          <a href="https://realpython.com/account/join/">Remove ads</a>
+        </p>
+        <h3 id="477acb6c-3c3f-4198-a9c8-b179dd5d80ad" class="">
+          <strong>Choose Generators for Large Datasets</strong>
+        </h3>
+        <p id="2af03e4d-2eb1-4689-ab5a-8414694ed65b" class="">
+          A list comprehension in Python works by loading the entire output list
+          into memory. For small or even medium-sized lists, this is generally
+          fine. If you want to sum the squares of the first one-thousand
+          integers, then a list comprehension will solve this problem admirably:
+        </p>
+        <p id="75e5f2da-7baa-4511-b4c1-dee1d77fc5c8" class="">
+          &gt;&gt;&gt;
+
+          <code>&gt;&gt;&gt; sum([i * i for i in range(1000)]) 332833500</code>
+        </p>
+        <p id="1eeb892e-7e57-4671-8bb0-3b3a43882e58" class="">
+          But what if you wanted to sum the squares of the
+          first <em>billion</em> integers? If you tried then on your machine,
+          then you may notice that your computer becomes non-responsive. That’s
+          because Python is trying to create a list with one billion integers,
+          which consumes more memory than your computer would like. Your
+          computer may not have the resources it needs to generate an enormous
+          list and store it in memory. If you try to do it anyway, then your
+          machine could slow down or even crash.
+        </p>
+        <p id="3ca8d752-e1ba-474d-bf41-87d6de3a92d4" class="">
+          When the size of a list becomes problematic, it’s often helpful to use
+          a <a href="https://realpython.com/courses/python-generators/"
+            >generator</a
+          > instead of a list comprehension in Python.
+          A <strong>generator</strong> doesn’t create a single, large data
+          structure in memory, but instead returns an iterable. Your code can
+          ask for the next value from the iterable as many times as necessary or
+          until you’ve reached the end of your sequence, while only storing a
+          single value at a time.
+        </p>
+        <p id="90f32151-4d25-4dc6-abd3-bd5dfdc9901d" class="">
+          If you were to sum the first billion squares with a generator, then
+          your program will likely run for a while, but it shouldn’t cause your
+          computer to freeze. The example below uses a generator:
+        </p>
+        <p id="ca8b6a6f-9e6e-4f5a-a417-08451f49019c" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; sum(i * i for i in range(1000000000))
+            333333332833333333500000000</code
+          >
+        </p>
+        <p id="708bbfa5-7ddb-4644-9e06-c17630d3ae71" class="">
+          You can tell this is a generator because the expression isn’t
+          surrounded by brackets or curly braces. Optionally, generators can be
+          surrounded by parentheses.
+        </p>
+        <p id="189e0ef9-c299-4b9b-9ca5-f7fe9ea00155" class="">
+          The example above still requires a lot of work, but it performs the
+          operations <strong>lazily</strong>. Because of lazy evaluation, values
+          are only calculated when they’re explicitly requested. After the
+          generator yields a value (for example, <code>567 * 567</code>), it can
+          add that value to the running sum, then discard that value and
+          generate the next value (<code>568 * 568</code>). When the sum
+          function requests the next value, the cycle starts over. This process
+          keeps the memory footprint small.
+        </p>
+        <p id="9ec60448-2f73-42e7-a85d-2de90a5d1245" class="">
+          <code>map()</code> also operates lazily, meaning memory won’t be an
+          issue if you choose to use it in this case:
+        </p>
+        <p id="4d941fb3-3d53-472a-89f2-8028304ba53e" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; sum(map(lambda i: i*i, range(1000000000)))
+            333333332833333333500000000</code
+          >
+        </p>
+        <p id="2ddab272-fb46-49a5-b266-be4cafc50f2f" class="">
+          It’s up to you whether you prefer the generator expression
+          or <code>map()</code>.
+        </p>
+        <h3 id="19a1ce66-5251-457a-bad4-af12615ed562" class="">
+          <strong>Profile to Optimize Performance</strong>
+        </h3>
+        <p id="c62dbccd-07ed-42f5-810b-4f7d6f9b3523" class="">
+          So, which approach is faster? Should you use list comprehensions or
+          one of their alternatives? Rather than adhere to a single rule that’s
+          true in all cases, it’s more useful to ask yourself whether or not
+          performance <strong>matters</strong> in your specific circumstance. If
+          not, then it’s usually best to choose whatever approach leads to the
+          cleanest code!
+        </p>
+        <p id="fcc99b34-2fba-4b95-ae65-d773aa2f189f" class="">
+          If you’re in a scenario where performance is important, then it’s
+          typically best to <strong>profile</strong> different approaches and
+          listen to the data. <a
+            href="https://docs.python.org/3/library/timeit.html"
+            ><code>timeit</code></a
+          > is a useful library for timing how long it takes chunks of code to
+          run. You can use <code>timeit</code> to compare the runtime
+          of <code>map()</code>, <code>for</code> loops, and list
+          comprehensions:
+        </p>
+        <p id="e003eb74-175a-4145-ab56-d9de7fcbfad4" class="">
+          &gt;&gt;&gt;
+
+          <code
+            >&gt;&gt;&gt; import random &gt;&gt;&gt; import timeit &gt;&gt;&gt;
+            TAX_RATE = .08 &gt;&gt;&gt; txns = [random.randrange(100) for _ in
+            range(100000)] &gt;&gt;&gt; def get_price(txn): ... return txn * (1
+            + TAX_RATE) ... &gt;&gt;&gt; def get_prices_with_map(): ... return
+            list(map(get_price, txns)) ... &gt;&gt;&gt; def
+            get_prices_with_comprehension(): ... return [get_price(txn) for txn
+            in txns] ... &gt;&gt;&gt; def get_prices_with_loop(): ... prices =
+            [] ... for txn in txns: ... prices.append(get_price(txn)) ... return
+            prices ... &gt;&gt;&gt; timeit.timeit(get_prices_with_map,
+            number=100) 2.0554370979998566 &gt;&gt;&gt;
+            timeit.timeit(get_prices_with_comprehension, number=100)
+            2.3982384680002724 &gt;&gt;&gt; timeit.timeit(get_prices_with_loop,
+            number=100) 3.0531821520007725</code
+          >
+        </p>
+        <p id="f549f195-b91c-4778-8df8-fd4a8c37efa0" class="">
+          Here, you define three methods that each use a different approach for
+          creating a list. Then, you tell <code>timeit</code> to run each of
+          those functions 100 times each. <code>timeit</code> returns the total
+          time it took to run those 100 executions.
+        </p>
+        <p id="b35d6043-f360-4b27-92c0-43213de40a8d" class="">
+          As the code demonstrates, the biggest difference is between the
+          loop-based approach and <code>map()</code>, with the loop taking 50%
+          longer to execute. Whether or not this matters depends on the needs of
+          your application.
+        </p>
+        <h2 id="d80f9c4e-e732-4717-98b4-d0e5344106f5" class="">
+          <strong>Conclusion</strong>
+        </h2>
+        <p id="b983b95b-d1a5-4848-8fd5-e186976ce864" class="">
+          In this tutorial, you learned how to use a <strong
+            >list comprehension</strong
+          > in Python to accomplish complex tasks without making your code
+          overly complicated.
+        </p>
+        <p id="7c003688-23e2-40b5-b109-7241731d6f22" class="">Now you can:</p>
+        <ul id="2d0908cb-1c80-4868-a684-d8026645f868" class="bulleted-list">
+          <li>
+            Simplify loops and <code>map()</code> calls with declarative <strong
+              >list comprehensions</strong
+            >
+          </li>
+        </ul>
+        <ul id="7475c09a-0fa5-4571-993f-a89d170328f2" class="bulleted-list">
+          <li>
+            Supercharge your comprehensions with <strong
+              >conditional logic</strong
+            >
+          </li>
+        </ul>
+        <ul id="cf537434-e615-41b4-8698-c05a7d034143" class="bulleted-list">
+          <li>
+            Create <strong>set</strong> and <strong>dictionary</strong> comprehensions
+          </li>
+        </ul>
+        <ul id="7ea4b71c-1e47-4059-a21f-504b41adc9c0" class="bulleted-list">
+          <li>
+            Determine when code clarity or performance dictates an <strong
+              >alternative approach</strong
+            >
+          </li>
+        </ul>
+        <p id="4285056a-53a8-45b8-bc47-35bccbf2aa42" class="">
+          Whenever you have to choose a list creation method, try multiple
+          implementations and consider what’s easiest to read and understand in
+          your specific scenario. If performance is important, then you can use
+          profiling tools to give you actionable data instead of relying on
+          hunches or guesses about what works the best.
+        </p>
+        <p id="50c0d5a9-cc8f-4ef1-a6e0-82eb26654476" class="">
+          Remember that while Python list comprehensions get a lot of attention,
+          your intuition and ability to use data when it counts will help you
+          write clean code that serves the task at hand. This, ultimately, is
+          the key to making your code Pythonic!
+        </p>
+        <p id="05296d4f-b30c-4bf7-b019-65ed44bc0a16" class=""></p>
+      </div>
+    </article>
+  </body>
+</html>

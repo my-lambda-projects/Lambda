@@ -1,85 +1,167 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>passing-data-from-parent-to-child-and-vice-versa-in-react-js</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p><img src="https://miro.medium.com/max/7000/0*-_XXEf-fntzJ4xBf" /></p>
-<p>Photo by <a href="https://unsplash.com/@daen_2chinda?utm_source=medium&amp;utm_medium=referral">Tanaphong Toochinda</a> on <a href="https://unsplash.com/?utm_source=medium&amp;utm_medium=referral">Unsplash</a></p>
-<p><a href="https://medium.com/@tbgarza2?source=post_page-----a93119370b4a--------------------------------"><img src="https://miro.medium.com/fit/c/56/56/2*lTkWNKvsPSgA3AxKyyV5EA.png" alt="Thomas Garza" /></a></p>
-<p>One of the best ways for me to understand complex topics is to see if I can relate the topic to something else in my life. When I first tried to understand parent and child components in React JS, I was lost. Then I tried to understand this concept from the perspective of human parents and children (particularly my own interactions with my parents and my own children/grandchildren).</p>
-<p>Parent components can pass data to child components with the props object. The way I think of this concept is giving my grandchild access to food or toys at Pawpaw’s house (my house). In code, this can be passing of specific properties, such as states or variables from parent component to child components.</p>
-<p>Parents also govern how the children relay data back to themselves. I see this as giving my grandchild choices of either playing outside or watching Mickey’s Playhouse inside. This can be done in the form of event handlers, such as functions to change states or perform other tasks.</p>
-<p>Child components can relay data back to parents either as events or input data. I see this similar to my grandchild telling me she wants to play out side or watch her show.</p>
-<p><strong>Parent Component</strong></p>
-<p>I created a parent component that contains a title and count state.</p>
-<p>class Parent extends React.Component {<br />
-constructor() {<br />
-super()<br />
-this.state = {<br />
-title: ‘Button’,<br />
-count: 0,<br />
-}<br />
-}</p>
-<p><strong>Event Handler</strong></p>
-<p>This function changes the title state to a new given title and increments the count.</p>
-<p>changeStates(newTitle) {<br />
-this.setState({<br />
-title: newTitle,<br />
-count: this.state.count + 1,<br />
-})<br />
-}</p>
-<p><strong>Parent renders to the page</strong></p>
-<p>The parent then will post this div to the DOM. This is where the title, count and changeStates function are given to the Child. For the changeStates function, the newTitle of ‘What?’ and ‘This!’ were hard coded to one of the Child components below (top button has ‘What?’, bottom button has ‘This!’).</p>
-<p>render() {<br />
-return (</p>
-<div>
-<h1>
-{this.state.title}
-</h1>
-<h2>
-{this.state.count}
-</h2>
-&lt;Child doWhat={this.changeStates.bind(this, ‘What?’)}<br />
-title={this.state.title}<br />
-count={this.state.count}/&gt;<br />
-&lt;Child doWhat={this.changeStates.bind(this, ‘This!’)}<br />
-title={this.state.title}<br />
-count={this.state.count}/&gt;<br />
-
-</div>
-<p>)<br />
-}<br />
-}</p>
-<p><strong>Child Component</strong></p>
-<p>This child component takes in the title, count and event handler (passed to the child as doWhat instead of changeStates). Here the child component determines what to do with the prop given by the parent component.</p>
-<p>const Child = ({ title, count, doWhat }) =&gt; (</p>
-<div>
-<pre><code>&lt;span&gt;{count}&lt;/span&gt;  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>passing-data-from-parent-to-child-and-vice-versa-in-react-js</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p><img src="https://miro.medium.com/max/7000/0*-_XXEf-fntzJ4xBf" /></p>
+    <p>
+      Photo by
+      <a
+        href="https://unsplash.com/@daen_2chinda?utm_source=medium&amp;utm_medium=referral"
+        >Tanaphong Toochinda</a
+      >
+      on
+      <a href="https://unsplash.com/?utm_source=medium&amp;utm_medium=referral"
+        >Unsplash</a
+      >
+    </p>
+    <p>
+      <a
+        href="https://medium.com/@tbgarza2?source=post_page-----a93119370b4a--------------------------------"
+        ><img
+          src="https://miro.medium.com/fit/c/56/56/2*lTkWNKvsPSgA3AxKyyV5EA.png"
+          alt="Thomas Garza"
+      /></a>
+    </p>
+    <p>
+      One of the best ways for me to understand complex topics is to see if I
+      can relate the topic to something else in my life. When I first tried to
+      understand parent and child components in React JS, I was lost. Then I
+      tried to understand this concept from the perspective of human parents and
+      children (particularly my own interactions with my parents and my own
+      children/grandchildren).
+    </p>
+    <p>
+      Parent components can pass data to child components with the props object.
+      The way I think of this concept is giving my grandchild access to food or
+      toys at Pawpaw’s house (my house). In code, this can be passing of
+      specific properties, such as states or variables from parent component to
+      child components.
+    </p>
+    <p>
+      Parents also govern how the children relay data back to themselves. I see
+      this as giving my grandchild choices of either playing outside or watching
+      Mickey’s Playhouse inside. This can be done in the form of event handlers,
+      such as functions to change states or perform other tasks.
+    </p>
+    <p>
+      Child components can relay data back to parents either as events or input
+      data. I see this similar to my grandchild telling me she wants to play out
+      side or watch her show.
+    </p>
+    <p><strong>Parent Component</strong></p>
+    <p>I created a parent component that contains a title and count state.</p>
+    <p>
+      class Parent extends React.Component {<br />
+      constructor() {<br />
+      super()<br />
+      this.state = {<br />
+      title: ‘Button’,<br />
+      count: 0,<br />
+      }<br />
+      }
+    </p>
+    <p><strong>Event Handler</strong></p>
+    <p>
+      This function changes the title state to a new given title and increments
+      the count.
+    </p>
+    <p>
+      changeStates(newTitle) {<br />
+      this.setState({<br />
+      title: newTitle,<br />
+      count: this.state.count + 1,<br />
+      })<br />
+      }
+    </p>
+    <p><strong>Parent renders to the page</strong></p>
+    <p>
+      The parent then will post this div to the DOM. This is where the title,
+      count and changeStates function are given to the Child. For the
+      changeStates function, the newTitle of ‘What?’ and ‘This!’ were hard coded
+      to one of the Child components below (top button has ‘What?’, bottom
+      button has ‘This!’).
+    </p>
+    <p>
+      render() {<br />
+      return (
+    </p>
+    <div>
+      <h1>{this.state.title}</h1>
+      <h2>{this.state.count}</h2>
+      &lt;Child doWhat={this.changeStates.bind(this, ‘What?’)}<br />
+      title={this.state.title}<br />
+      count={this.state.count}/&gt;<br />
+      &lt;Child doWhat={this.changeStates.bind(this, ‘This!’)}<br />
+      title={this.state.title}<br />
+      count={this.state.count}/&gt;<br />
+    </div>
+    <p>
+      )<br />
+      }<br />
+      }
+    </p>
+    <p><strong>Child Component</strong></p>
+    <p>
+      This child component takes in the title, count and event handler (passed
+      to the child as doWhat instead of changeStates). Here the child component
+      determines what to do with the prop given by the parent component.
+    </p>
+    <p>const Child = ({ title, count, doWhat }) =&gt; (</p>
+    <div>
+      <pre><code>&lt;span&gt;{count}&lt;/span&gt;  
 &lt;button onClick={doWhat}&gt;{title}&lt;/button&gt;  </code></pre>
-</div>
-<p>)</p>
-<p>Below are screenshots of the results of the above code displayed on the DOM at the initial loading of the page.</p>
-<p><img src="https://miro.medium.com/max/60/0*6zWUbRce5BVHGFPS?q=20" /></p>
-<p><img src="https://miro.medium.com/max/2732/0*6zWUbRce5BVHGFPS" /></p>
-<p>Initial Startup of Page</p>
-<p>Below shows the value of the title is changed to the hard coded ‘What?’ and the count is increased after pressing the top button.</p>
-<p><img src="https://miro.medium.com/max/60/0*peRxLXzWieSuYcl-?q=20" /></p>
-<p><img src="https://miro.medium.com/max/2732/0*peRxLXzWieSuYcl-" /></p>
-<p>After Pressing Top Button</p>
-<p>Now after pressing the bottom button, the title is changed to ‘This!’ and the count is increased to 2.</p>
-<p><img src="https://miro.medium.com/max/60/0*MgE_A-7MUnZnf20z?q=20" /></p>
-<p><img src="https://miro.medium.com/max/2732/0*MgE_A-7MUnZnf20z" /></p>
-<p>After Pressing Bottom Button</p>
-<p>The above example helps to demonstrate how data can be passed down from parent to children (title and count) and the children can pass data back to parents (onClick event). Try out this example for yourself to help solidify your own understanding of parent-child component data transfer.</p>
-</body>
+    </div>
+    <p>)</p>
+    <p>
+      Below are screenshots of the results of the above code displayed on the
+      DOM at the initial loading of the page.
+    </p>
+    <p><img src="https://miro.medium.com/max/60/0*6zWUbRce5BVHGFPS?q=20" /></p>
+    <p><img src="https://miro.medium.com/max/2732/0*6zWUbRce5BVHGFPS" /></p>
+    <p>Initial Startup of Page</p>
+    <p>
+      Below shows the value of the title is changed to the hard coded ‘What?’
+      and the count is increased after pressing the top button.
+    </p>
+    <p><img src="https://miro.medium.com/max/60/0*peRxLXzWieSuYcl-?q=20" /></p>
+    <p><img src="https://miro.medium.com/max/2732/0*peRxLXzWieSuYcl-" /></p>
+    <p>After Pressing Top Button</p>
+    <p>
+      Now after pressing the bottom button, the title is changed to ‘This!’ and
+      the count is increased to 2.
+    </p>
+    <p><img src="https://miro.medium.com/max/60/0*MgE_A-7MUnZnf20z?q=20" /></p>
+    <p><img src="https://miro.medium.com/max/2732/0*MgE_A-7MUnZnf20z" /></p>
+    <p>After Pressing Bottom Button</p>
+    <p>
+      The above example helps to demonstrate how data can be passed down from
+      parent to children (title and count) and the children can pass data back
+      to parents (onClick event). Try out this example for yourself to help
+      solidify your own understanding of parent-child component data transfer.
+    </p>
+  </body>
 </html>

@@ -24,7 +24,8 @@ export default function SidebarNote({note}) {
       title={note.title}
       expandedChildren={
         <p className="sidebar-note-excerpt">{summary || <i>(No content)</i>}</p>
-      }>
+      }
+    >
       <header className="sidebar-note-header">
         <strong>{note.title}</strong>
         <small>{lastUpdatedAt}</small>

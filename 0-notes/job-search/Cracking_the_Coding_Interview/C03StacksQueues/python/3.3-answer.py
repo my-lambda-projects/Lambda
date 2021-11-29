@@ -5,9 +5,9 @@
 # Therefore, in real life, we would likely start a new stack when the previous stack exceeds some threshold.
 # Implement a data structure SetOfStacks that mimics this.
 # SetOfStacks should be composed of several stacks and should create a new stack once
-    # the previous one exceeds capacity.
+# the previous one exceeds capacity.
 # SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stack.
-    # That is, pop() should return the same values as it would if there were just a single stack.
+# That is, pop() should return the same values as it would if there were just a single stack.
 
 
 class Stacks:
@@ -41,7 +41,7 @@ class Stacks:
                     current_length = len(self.SetofStacks[y])
                     item_to_move = self.SetofStacks[y][current_length]
                     # move last item of previous stack to last stack
-                    self.SetofStacks[y+1].insert(0, item_to_move)
+                    self.SetofStacks[y + 1].insert(0, item_to_move)
                     # repeat until you get to first stack
                 # then add item to top of first stack
                 self.SetofStacks[0].insert(0, item)

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>list-style-type_none</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="voiceover-and-list-style-type-none-writing-gerardkcohen.me">
+      VoiceOver and list-style-type: none | Writing | gerardkcohen.me
+    </h1>
+    <blockquote>
+      <p>With that bit of additional CSS, we are able to return the list</p>
+    </blockquote>
+    <pre><code>          semantics for VoiceOver users without needing to touch the markup.</code></pre>
+    <p>Writing</p>
+    <p>September 26, 2017</p>
+    <p>
+      <strong>Update 2019:</strong> This article made it’s rounds again via
+      Twitter, thanks to a
+      <a href="https://twitter.com/scottohara/status/1083732668729225216"
+        >Twitter thread</a
+      >
+      by Roger Johannson, Sara Souedian, and Scott O’Hara. After much back and
+      forth a new technique has been found, and Scott has posted
+      <a href="https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html"
+        >Fixing Lists</a
+      >. I also found out that Johnathan Neal has created an interesting
+      <a href="https://github.com/jonathantneal/postcss-list-style-safari-fix"
+        >postCSS plugin</a
+      >
+      to address this. Based on the Twitter conversation, there is no definite
+      answer as to whether which fix works best or if the fix is even still
+      needed. My advice, as always, TEST! TEST! TEST!
+    </p>
+    <p>
+      <strong>Update 2017:</strong> Thanks to
+      <span class="citation" data-cites="HugoGiraudel">[@HugoGiraudel]</span
+      >(https://twitter.com/HugoGiraudel) and
+      <span class="citation" data-cites="gumnos">[@gumnos]</span
+      >(https://twitter.com/gumnos) for pointing out that I can use zero-width
+      space would be a cleaner solution. I have updated the code below to
+      reflect this.
+    </p>
+    <hr />
+    <p>
+      A bug that keeps hitting me at work is VoiceOver not announcing unordered
+      lists properly when either the <code>list-style-type</code> is set to
+      <code>none</code> or <code>display</code> is set to <code>inline</code>.
+    </p>
+    <p>
+      The expected behavior is that the unordered list is announced with a role
+      of list along with the number of items, for example “list 4 items.”
+      Lastly, “end of list” is announced after the last item to again let a user
+      know that there are no more items in the list. For whatever reason,
+      setting the <code>list-style-type</code> to <code>none</code> or setting
+      <code>display</code> to <code>inline</code> on the
+      &lt;<code>li</code>&gt;’s will strip this useful information.
+    </p>
+    <p>
+      This is problematic, for me, because unordered lists are usually used for
+      navigational items, like top-level navigation or side navigation. With
+      most top-level nav, <code>display: inline;</code> is used for presenting a
+      horizontal list of items, while <code>list-style-type: none;</code> is
+      used to remove the bullets that render by default so you can have stylized
+      list of links. You do this a lot, you know you do.
+    </p>
+    <p>
+      This is kind of a big deal to so I wanted to see if I could figure out a
+      way to get it working right.
+    </p>
+    <h2 id="aria-to-the-rescue">ARIA to the rescue?</h2>
+    <p>
+      An obvious solution is to use ARIA roles <code>list</code> and
+      <code>listitem</code> to restore the semantics.
+    </p>
+    <p>Returning list semantics with ARIA</p>
+    <p>
+      This definitely works, but I don’t like it. It requires too much markup. I
+      also feel that since CSS caused the issue, I should be able to solve it
+      with CSS.
+    </p>
+    <h2 id="css-the-real-hero">CSS, the real hero</h2>
+    <p>
+      It didn’t take long before I came up with the following solution. I
+      haven’t spent any time trying to figure out why it works yet, which means
+      that I also don’t understand what other consequences there are.
+    </p>
+    <p>
+      For whatever reason, adding some pseudo content before each item will
+      magically return list semantics in VoiceOver.
+    </p>
+    <p>Returning list semantics with CSS</p>
+    <p>
+      With that bit of additional CSS, we are able to return the list semantics
+      for VoiceOver users without needing to touch the markup.
+    </p>
+    <h2 id="testing">Testing</h2>
+    <p>
+      One of the best things about this simple fix is that it does not impact
+      JAWS or NVDA, at least with the versions I have tested:
+    </p>
+    <ul>
+      <li>Safari 10.1.2 and VoiceOver/ macOS 10.11.6</li>
+      <li>Safari 10.1.2 and VoiceOver/ macOS 10.12.6</li>
+      <li>Safari 11.0 and VoiceOver/ macOS 10.12.6</li>
+      <li>
+        Safari Technology Preview Release 40 (11.1) and VoiceOver/ macOS 10.12.6
+      </li>
+      <li>Firefox 52.3.0 and NVDA 2015.4 (Thanks Shell!)</li>
+      <li>IE 11 and JAWS 18.0.2324 (Thanks Richard!)</li>
+    </ul>
+    <h2 id="item-position">Item Position?</h2>
+    <p>
+      I was surprised that the JAWS and NVDA was not announcing the position of
+      each item in the list by default, e.g. 1 of 4, 2 of 4, etc. The two
+      testers I talked to said they are not used to hearing that information.
+      VoiceOver 10.11.6 didn’t announce either, but 10.12.6 did. I am sure there
+      is some verbosity settings at play here. If you really need, you could
+      always use <code>aria-setsize</code> and/ or <code>aria-posinset</code>.
+      In any case, I was satisfied knowing that the fixed list announced the
+      same as the default list.
+    </p>
+    <h2 id="summary">Summary</h2>
+    <p>
+      Adding some pseudo-content before the list item will add the list
+      semantics back to the list, in the most simple case it could be some
+      zero-width space. It could be any pseudo-content, but it definitely needs
+      to be before, not after. Just make sure whatever you add does not get in
+      the way of interacting with the list item.
+    </p>
+    <p>
+      You can check out the test cases on JSFiddle:
+      <a href="https://jsfiddle.net/1h2hwu0o/2/"
+        >VoiceOver and Lists (JSFiddle)</a
+      >
+    </p>
+    <p>
+      <a
+        href="https://gerardkcohen.me/writing/2017/voiceover-list-style-type.html"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>

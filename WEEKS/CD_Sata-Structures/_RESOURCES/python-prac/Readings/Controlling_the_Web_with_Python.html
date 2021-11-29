@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Controlling_the_Web_with_Python</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="controlling-the-web-with-python">
+      Controlling the Web with Python
+    </h1>
+    <blockquote>
+      <p>An adventure in simple web automation</p>
+    </blockquote>
+    <p>
+      Anytime we find ourselves repeating tedious actions on the web with the
+      same sequence of steps, this is a great chance to write a program to
+      automate the process for us. With selenium and Python, we just need to
+      write a script once, and which then we can run it as many times and save
+      ourselves from repeating monotonous tasks (and in my case, eliminate the
+      chance of submitting an assignment in the wrong place)!
+    </p>
+    <p>
+      Here, I’ll walk through the solution I developed to automatically (and
+      correctly) submit my assignments. Along the way, we’ll cover the basics of
+      using Python and selenium to programmatically control the web. While this
+      program does work (I’m using it every day!) it’s pretty custom so you
+      won’t be able to copy and paste the code for your application.
+      Nonetheless, the general techniques here can be applied to a limitless
+      number of situations. (If you want to see the complete code, it’s
+      <a
+        href="https://gist.github.com/WillKoehrsen/127fb3963b12b4f0b339ff0c8ee14558"
+        >available on GitHub</a
+      >).
+    </p>
+    <p>
+      Before we can get to the fun part of automating the web, we need to figure
+      out the general structure of our solution. Jumping right into programming
+      without a plan is a great way to waste many hours in frustration. I want
+      to write a program to submit completed course assignments to the correct
+      location on Canvas (my university’s
+      <a href="https://en.wikipedia.org/wiki/Learning_management_system"
+        >“learning management system”</a
+      >). Starting with the basics, I need a way to tell the program the name of
+      the assignment to submit and the class. I went with a simple approach and
+      created a folder to hold completed assignments with child folders for each
+      class. In the child folders, I place the completed document named for the
+      particular assignment. The program can figure out the name of the class
+      from the folder, and the name of the assignment by the document title.
+    </p>
+    <p>
+      Here’s an example where the name of the class is EECS491 and the
+      assignment is “Assignment 3 — Inference in Larger Graphical Models”.
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1382/1*3WzLi_pB4gI999Xzp_tBrQ.png"
+      />
+    </p>
+    <p>File structure (left) and Complete Assignment (right)</p>
+    <p>
+      The first part of the program is a loop to go through the folders to find
+      the assignment and class, which we store in a Python tuple:
+    </p>
+    <p>
+      # os for file management<br />
+      import os# Build tuple of (class, file) to turn in<br />
+      submission_dir = ’completed_assignments’dir_list =
+      list(os.listdir(submission_dir))for directory in dir_list:<br />
+      file_list = list(os.listdir(os.path.join(submission_dir,<br />
+      directory)))<br />
+      if len(file_list) != 0:<br />
+      file_tup = (directory, file_list[0])
+    </p>
+    <pre><code>print(file\_tup)</code></pre>
+    <p>
+      <strong
+        >(‘EECS491’, ‘Assignment 3 - Inference in Larger Graphical
+        Models.txt’)</strong
+      >
+    </p>
+    <p>
+      This takes care of file management and the program now knows the program
+      and the assignment to turn in. The next step is to use selenium to
+      navigate to the correct webpage and upload the assignment.
+    </p>
+    <h2 id="web-control-with-selenium">Web Control with Selenium</h2>
+    <p>
+      To get started with selenium, we import the library and create a web
+      driver, which is a browser that is controlled by our program. In this
+      case, I’ll use Chrome as my browser and send the driver to the Canvas
+      website where I submit assignments.
+    </p>
+    <p>
+      import selenium# Using Chrome to access web<br />
+      driver = webdriver.Chrome()# Open the website<br />
+      driver.get(’<a href="https://canvas.case.edu%27/"
+        >https://canvas.case.edu’</a
+      >)
+    </p>
+    <p>
+      When we open the Canvas webpage, we are greeted with our first obstacle, a
+      login box! To get past this, we will need to fill in an id and a password
+      and click the login button.
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1294/1*6K21H6TqFp52ilxqhnyJ7g.png"
+      />
+    </p>
+    <p>
+      Imagine the web driver as a person who has never seen a web page before:
+      we need to tell it exactly where to click, what to type, and which buttons
+      to press. There are a number of ways to tell our web driver what elements
+      to find, all of which use selectors. A
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors"
+        >selector</a
+      >
+      is a unique identifier for an element on a webpage. To find the selector
+      for a specific element, say the CWRU ID box above, we need to inspect the
+      webpage. In Chrome, this is done by pressing “ctrl + shift + i” or right
+      clicking on any element and selecting “Inspect”. This brings up the
+      <a href="https://developer.chrome.com/devtools">Chrome developer tools</a
+      >, an extremely useful application which shows the
+      <a
+        href="https://www.pathinteractive.com/blog/design-development/rendering-a-webpage-with-google-webmaster-tools/"
+        >HTML underlying any webpage</a
+      >.
+    </p>
+    <p>
+      To find a selector for the “CWRU ID” box, I right clicked in the box, hit
+      “Inspect” and saw the following in developer tools. The highlighted line
+      corresponds to the id box element (this line is called an HTML tag).
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1888/1*smbJ9oczUAAZ5aSCREAvWA.png"
+      />
+    </p>
+    <p>HTML in Chrome developer tools for the webpage</p>
+    <p>
+      This HTML might look overwhelming, but we can ignore the majority of the
+      information and focus on the <code>id = "username"</code> and
+      <code>name="username"</code> parts. (these are known as attributes of the
+      HTML tag).
+    </p>
+    <p>
+      To select the id box with our web driver, we can use either the
+      <code>id</code> or <code>name</code> attribute we found in the developer
+      tools. Web drivers in selenium have many different methods for selecting
+      elements on a webpage and there are often multiple ways to select the
+      exact same item:
+    </p>
+    <p>
+      # Select the id box<br />
+      id_box = driver.find_element_by_name(‘username’)# Equivalent Outcome!<br />
+      id_box = driver.find_element_by_id(‘username’)
+    </p>
+    <p>
+      Our program now has access to the <code>id_box</code> and we can interact
+      with it in various ways, such as typing in keys, or clicking (if we have
+      selected a button).
+    </p>
+    <p>
+      # Send id information<br />
+      id_box.send_keys(‘my_username’)
+    </p>
+    <p>
+      We carry out the same process for the password box and login button,
+      selecting each based on what we see in the Chrome developer tools. Then,
+      we send information to the elements or click on them as needed.
+    </p>
+    <p>
+      # Find password box<br />
+      pass_box = driver.find_element_by_name(‘password’)# Send password<br />
+      pass_box.send_keys(‘my_password’)# Find login button<br />
+      login_button = driver.find_element_by_name(‘submit’)# Click login<br />
+      login_button.click()
+    </p>
+    <p>
+      Once we are logged in, we are greeted by this slightly intimidating
+      dashboard:
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/2456/1*jG-_h99LhbiWsJSeMwSGaw.png"
+      />
+    </p>
+    <p>
+      We again need to guide the program through the webpage by specifying
+      exactly the elements to click on and the information to enter. In this
+      case, I tell the program to select courses from the menu on the left, and
+      then the class corresponding to the assignment I need to turn in:
+    </p>
+    <p>
+      # Find and click on list of courses<br />
+      courses_button =
+      driver.find_element_by_id(‘global_nav_courses_link’)courses_button.click()#
+      Get the name of the folder<br />
+      folder = file_tup[0]
+    </p>
+    <pre><code># Class to select depends on folder</code></pre>
+    <p>
+      if folder == ‘EECS491’:<br />
+      class_select = driver.find_element_by_link_text(‘Artificial Intelligence:
+      Probabilistic Graphical Models (100/10039)’)
+    </p>
+    <p>
+      elif folder == ‘EECS531’:<br />
+      class_select = driver.find_element_by_link_text(‘Computer Vision
+      (100/10040)’)# Click on the specific class<br />
+      class_select.click()
+    </p>
+    <p>
+      The program finds the correct class using the name of the folder we stored
+      in the first step. In this case, I use the selection method
+      <code>find_element_by_link_text</code> to find the specific class. The
+      “link text” for an element is just another selector we can find by
+      inspecting the page. :
+    </p>
+    <p>
+      This workflow may seem a little tedious, but remember, we only have to do
+      it once when we write our program! After that, we can hit run as many
+      times as we want and the program will navigate through all these pages for
+      us.
+    </p>
+    <p>
+      We use the same ‘inspect page — select element — interact with element’
+      process to get through a couple more screens. Finally, we reach the
+      assignment submission page:
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1496/1*iyz1HiKgExkyWmzW2M5Vxg.png"
+      />
+    </p>
+    <p>
+      At this point, I could see the finish line, but initially this screen
+      perplexed me. I could click on the “Choose File” box pretty easily, but
+      how was I supposed to select the actual file I need to upload? The answer
+      turns out to be incredibly simple! We locate the
+      <code>Choose File</code> box using a selector, and use the
+      <code>send_keys</code> method to pass the exact path of the file (called
+      <code>file_location</code> in the code below) to the box:
+    </p>
+    <p>
+      # Choose File button<br />
+      choose_file =
+      driver.find_element_by_name(‘attachments[0][uploaded_data]’)# Complete
+      path of the file<br />
+      file_location = os.path.join(submission_dir, folder, file_name)# Send the
+      file location to the button<br />
+      choose_file.send_keys(file_location)
+    </p>
+    <p>
+      That’s it! By sending the exact path of the file to the button, we can
+      skip the whole process of navigating through folders to find the right
+      file. After sending the location, we are rewarded with the following
+      screen showing that our file is uploaded and ready for submission.
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1546/1*RUaMhWWmRg47s10a8Pv6lg.png"
+      />
+    </p>
+    <p>
+      Now, we select the “Submit Assignment” button, click, and our assignment
+      is turned in!
+    </p>
+    <p>
+      # Locate submit button and click<br />
+      submit_assignment = driver.find_element_by_id(‘submit_file_button’)<br />
+      submit_assignent.click()
+    </p>
+    <p>
+      <img src="https://miro.medium.com/max/416/1*dfC4W3awW86kw-KpQH-rOQ.png" />
+    </p>
+    <h2 id="cleaning-up">Cleaning Up</h2>
+    <p>
+      File management is always a critical step and I want to make sure I don’t
+      re-submit or lose old assignments. I decided the best solution was to
+      store a single file to be submitted in the
+      <code>completed_assignments</code> folder at any one time and move files
+      to a<code>submitted_assignments</code> folder once they had been turned
+      in. The final bit of code uses the os module to move the completed
+      assignment by renaming it with the desired location:
+    </p>
+    <p>
+      # Location of files after submission<br />
+      submitted_file_location = os.path.join(submitted_dir,
+      submitted_file_name)# Rename essentially copies and pastes files<br />
+      os.rename(file_location, submitted_file_location)
+    </p>
+    <p>
+      All of the proceeding code gets wrapped up in a single script, which I can
+      run from the command line. To limit opportunities for mistakes, I only
+      submit one assignment at a time, which isn’t a big deal given that it only
+      takes about 5 seconds to run the program!
+    </p>
+    <p>Here’s what it looks like when I start the program:</p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1618/1*FK2MNOJQgCabZdXAEYT2Gw.png"
+      />
+    </p>
+    <p>
+      The program provides me with a chance to make sure this is the correct
+      assignment before uploading. After the program has completed, I get the
+      following output:
+    </p>
+    <p>While the program is running, I can watch Python go to work for me:</p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1600/1*-drw9BuNnPEsDkm5TWRaOA.gif"
+      />
+    </p>
+    <p>
+      The technique of automating the web with Python works great for many
+      tasks, both general and in my field of data science. For example, we could
+      use selenium to automatically download new data files every day (assuming
+      the website doesn’t have an
+      <a href="https://en.wikipedia.org/wiki/Application_programming_interface"
+        >API</a
+      >). While it might seem like a lot of work to write the script initially,
+      the benefit comes from the fact that we can have the computer repeat this
+      sequence as many times as want in exactly the same manner. The program
+      will never lose focus and wander off to Twitter. It will faithfully carry
+      out the same exact series of steps with perfect consistency (which works
+      great until the website changes).
+    </p>
+    <p>
+      I should mention you do want to be careful before you automate critical
+      tasks. This example is relatively low-risk as I can always go back and
+      re-submit assignments and I usually double-check the program’s handiwork.
+      Websites change, and if you don’t change the program in response you might
+      end up with a script that does something completely different than what
+      you originally intended!
+    </p>
+    <p>
+      In terms of paying off, this program saves me about 30 seconds for every
+      assignment and took 2 hours to write. So, if I use it to turn in 240
+      assignments, then I come out ahead on time! However, the payoff of this
+      program is in designing a cool solution to a problem and learning a lot in
+      the process. While my time might have been more effectively spent working
+      on assignments rather than figuring out how to automatically turn them in,
+      I thoroughly enjoyed this challenge. There are few things as satisfying as
+      solving problems, and Python turns out to be a pretty good tool for doing
+      exactly that.
+    </p>
+    <p>
+      As always, I welcome feedback and constructive criticism. I can be reached
+      on Twitter
+      <span class="citation" data-cites="koehrsen_will"
+        >[<span class="citation" data-cites="koehrsen_will"
+          ><span class="citation" data-cites="koehrsen_will"
+            >@koehrsen_will</span
+          ></span
+        >]</span
+      >(http://twitter.com/<span class="citation" data-cites="koehrsen_will"
+        ><span class="citation" data-cites="koehrsen_will"
+          ><span class="citation" data-cites="koehrsen_will"
+            >@koehrsen_will</span
+          ></span
+        ></span
+      >).
+    </p>
+    <p>
+      <a
+        href="https://towardsdatascience.com/controlling-the-web-with-python-6fceb22c5f08"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>

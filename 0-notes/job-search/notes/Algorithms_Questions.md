@@ -21,6 +21,7 @@ b)  sum = 0
         j *= 2
         sum += 1
 ```
+
 b) O(n^2) because there are two nested loops
 
 ```

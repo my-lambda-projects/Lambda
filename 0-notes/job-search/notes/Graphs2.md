@@ -2,54 +2,62 @@
 
 ## Objectives
 
-* [Graph Intro](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/graph-intro)
-* [Graph Representations](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/graph-representations)
-* [Breadth First Search](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/breadth-first-search)
-* [Depth First Search](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/depth-first-search)
-* [Randomness](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/randomness)
-* [Connected Components](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/connected-components)
+- [Graph Intro](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/graph-intro)
+- [Graph Representations](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/graph-representations)
+- [Breadth First Search](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/breadth-first-search)
+- [Depth First Search](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/depth-first-search)
+- [Randomness](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/randomness)
+- [Connected Components](https://github.com/evoingram/endorsement/tree/master/SamplesDSAlgos/graphs/objectives/connected-components)
 
 ## Projects
 
-* [X] [Graph Traversal and Search](projects/graph)
-* [X] [Earliest Ancestor](projects/ancestor)
-* [X] [Random Social Network](projects/social)
-* [X] [Adventure Map Traversal](projects/adventure)
+- [x] [Graph Traversal and Search](projects/graph)
+- [x] [Earliest Ancestor](projects/ancestor)
+- [x] [Random Social Network](projects/social)
+- [x] [Adventure Map Traversal](projects/adventure)
 
 ## Graphs FAQ
 
 ### Contents
 
-* [What is a Graph?](#q100)
-* [Why is it important to learn Graphs?](#q101)
-* [How many types of graphs are there?](#q102)
-* [What is the time complexity (big-O) to add/remove/get a vertex/edge for a graph?](#q103)
+- [What is a Graph?](#q100)
+- [Why is it important to learn Graphs?](#q101)
+- [How many types of graphs are there?](#q102)
+- [What is the time complexity (big-O) to add/remove/get a vertex/edge for a graph?](#q103)
 
 ### Questions
 
 <a name="q100"></a>
+
 #### What is a Graph?
+
 A Graph is a data structure that models objects and pairwise relationships between them with nodes and edges. For example: Users and friendships, locations and paths between them, parents and children, etc.
 
 <a name="q101"></a>
+
 #### Why is it important to learn Graphs?
+
 Graphs represent relationships between data. Anytime you can identify a relationship pattern, you can build a graph and often gain insights through a traversal. These insights can be very powerful, allowing you to find new relationships, like users who have a similar taste in music or purchasing.
 
 <a name="q102"></a>
+
 #### How many types of graphs are there?
+
 Graphs can be directed or undirected, cyclic or acyclic, weighted or unweighted. They can also be represented with different underlying structures including, but not limited to, adjacency lists, adjacency matrices, object and pointers, or a custom solution.
 
 <a name="q103"></a>
+
 #### What is the time complexity (big-O) to add/remove/get a vertex/edge for a graph?
+
 It depends on the implementation. ([Graph Representations](https://github.com/LambdaSchool/Graphs/tree/master/objectives/graph-representations)). Before choosing an implementation, it is wise to consider the tradeoffs and complexities of the most commonly used operations.
 
 ## Intro to Graphs
 
 ### Intro Objectives
 
-* Learn how to represent a graph as an adjacency list
-* Learn how to represent a graph as an adjacency matrix
-* Learn the tradeoffs of the respective representations
+- Learn how to represent a graph as an adjacency list
+- Learn how to represent a graph as an adjacency matrix
+- Learn the tradeoffs of the respective representations
 
 ### Graph Representations
 
@@ -115,21 +123,21 @@ e: Average number of edges per vertex
 
 #### Space Complexity
 
-* **Adjacency Matrix**: O(V ^ 2)
+- **Adjacency Matrix**: O(V ^ 2)
 
-* **Adjacency List**: O(V + E)
+- **Adjacency List**: O(V + E)
 
 Consider a sparse graph with 100 vertices and only one edge. An adjacency list would have to store all 100 vertices but only needs to keep track of that single edge. The adjacency matrix would need to store 100x100=10,000 possible connections, even though all but one would be 0.
 
 Now consider a dense graph where each vertex points to each other vertex. In this case, the total number of edges will approach V^2 so the space complexities of each are comparable. However, dictionaries and sets are less space efficient than lists so for dense graphs, the adjacency matrix is more efficient.
 
-Takeaway: Adjacency lists are more space efficient for __sparse__ graphs while adjacency matrices become efficient for __dense__ graphs.
+Takeaway: Adjacency lists are more space efficient for **sparse** graphs while adjacency matrices become efficient for **dense** graphs.
 
 #### Add Vertex
 
-* **Adjacency Matrix**: O(V)
+- **Adjacency Matrix**: O(V)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Adding a vertex is extremely simple in an adjacency list:
 
@@ -153,9 +161,9 @@ Takeaway: Adding vertices is very efficient in adjacency lists but very ineffici
 
 #### Remove Vertex
 
-* **Adjacency Matrix**: O(V ^ 2)
+- **Adjacency Matrix**: O(V ^ 2)
 
-* **Adjacency List**: O(V)
+- **Adjacency List**: O(V)
 
 Removing vertices is pretty inefficient in both representations. In an adjacency matrix, we need to remove the removed vertex's row, then remove that column from each other row. Removing an element from a list requires moving everything after that element over by one slot which takes an average of V/2 operations. Since we need to do that for every single row in our matrix, that results in a V^2 time complexity. On top of that, we need to reduce the index of each vertex after our removed index by 1 as well which doesn't add to our quadratic time complexity, but does add extra operations.
 
@@ -165,9 +173,9 @@ Takeaway: Removing vertices is inefficient in both adjacency matrices and lists 
 
 #### Add Edge
 
-* **Adjacency Matrix**: O(1)
+- **Adjacency Matrix**: O(1)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Adding an edge in an adjacency matrix is quite simple:
 
@@ -187,9 +195,9 @@ Takeaway: Adding edges to both adjacency lists and matrices is very efficient.
 
 #### Remove Edge
 
-* **Adjacency Matrix**: O(1)
+- **Adjacency Matrix**: O(1)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Removing an edge from an adjacency matrix is quite simple:
 
@@ -209,9 +217,9 @@ Takeaway: Removing edges from both adjacency lists and matrices is very efficien
 
 #### Find Edge
 
-* **Adjacency Matrix**: O(1)
+- **Adjacency Matrix**: O(1)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Finding an edge in an adjacency matrix is quite simple:
 
@@ -231,9 +239,9 @@ Takeaway: Finding edges from both adjacency lists and matrices is very efficient
 
 #### Get All Edges from Vertex
 
-* **Adjacency Matrix**: O(V)
+- **Adjacency Matrix**: O(V)
 
-* **Adjacency List**: O(1)
+- **Adjacency List**: O(1)
 
 Say you want to know all the edges originating from a particular vertex. With an adjacency list, this is as simple as returning the value from the vertex dictionary:
 

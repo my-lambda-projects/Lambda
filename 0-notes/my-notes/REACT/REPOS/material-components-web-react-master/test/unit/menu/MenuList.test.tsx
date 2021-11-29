@@ -36,9 +36,8 @@ test('aria-hidden is set to props.ariaHidden', () => {
 });
 
 test('#handleSelect calls props.handleSelect', () => {
-  const handleSelect = td.func<
-    (activatedItemIndex: number, selected: MDCListIndex) => void
-  >();
+  const handleSelect =
+    td.func<(activatedItemIndex: number, selected: MDCListIndex) => void>();
   const wrapper = shallow(<MenuList handleSelect={handleSelect} />);
   coerceForTesting<MenuList>(wrapper.instance()).handleSelect!(0, 0);
   td.verify(handleSelect(0, 0), {times: 1});

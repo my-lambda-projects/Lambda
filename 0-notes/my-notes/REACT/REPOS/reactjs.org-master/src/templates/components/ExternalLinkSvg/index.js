@@ -13,7 +13,8 @@ const ExternalLinkSvg = ({cssProps = {}}: {cssProps: Object}) => (
     viewBox="0 0 100 100"
     width={15}
     height={15}
-    css={cssProps}>
+    css={cssProps}
+  >
     <path
       fill="currentColor"
       d={`

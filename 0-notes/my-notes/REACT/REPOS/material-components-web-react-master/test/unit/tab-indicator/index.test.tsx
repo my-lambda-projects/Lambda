@@ -115,20 +115,8 @@ test('child element should be rendered', () => {
       <i>meow</i>
     </TabIndicator>
   );
-  assert.equal(
-    wrapper
-      .children()
-      .first()
-      .type(),
-    'i'
-  );
-  assert.equal(
-    wrapper
-      .children()
-      .first()
-      .text(),
-    'meow'
-  );
+  assert.equal(wrapper.children().first().type(), 'i');
+  assert.equal(wrapper.children().first().text(), 'meow');
 });
 
 test('child element should include props.className and contentClasses', () => {
@@ -137,23 +125,12 @@ test('child element should include props.className and contentClasses', () => {
       <i className='test-class-name'>meow</i>
     </TabIndicator>
   );
+  assert.isTrue(wrapper.children().first().hasClass('test-class-name'));
   assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('test-class-name')
+    wrapper.children().first().hasClass('mdc-tab-indicator__content')
   );
   assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('mdc-tab-indicator__content')
-  );
-  assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('mdc-tab-indicator__content--underline')
+    wrapper.children().first().hasClass('mdc-tab-indicator__content--underline')
   );
 });
 
@@ -163,13 +140,7 @@ test('child custom element should render correctly', () => {
       <MaterialIcon icon='favorite' />
     </TabIndicator>
   );
-  assert.equal(
-    wrapper
-      .children()
-      .first()
-      .type(),
-    MaterialIcon
-  );
+  assert.equal(wrapper.children().first().type(), MaterialIcon);
 });
 
 test('child custom element should have content classes', () => {
@@ -179,16 +150,10 @@ test('child custom element should have content classes', () => {
     </TabIndicator>
   );
   assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('mdc-tab-indicator__content')
+    wrapper.children().first().hasClass('mdc-tab-indicator__content')
   );
   assert.isTrue(
-    wrapper
-      .children()
-      .first()
-      .hasClass('mdc-tab-indicator__content--icon')
+    wrapper.children().first().hasClass('mdc-tab-indicator__content--icon')
   );
 });
 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="playground-and-cheatsheet-for-learning-python">
+      Playground and Cheatsheet for Learning Python
+    </h1>
+    <p>
+      <a href="https://travis-ci.org/trekhleb/learn-python"
+        ><img
+          src="https://travis-ci.org/trekhleb/learn-python.svg?branch=master"
+          alt="Build Status"
+      /></a>
+    </p>
+    <blockquote>
+      <p>
+        This is a collection of Python scripts that are split by
+        <a href="#table-of-contents">topics</a> and contain code examples with
+        explanations, different use cases and links to further readings.
+      </p>
+    </blockquote>
+    <p>
+      <em>Read this in</em> <a href="README.pt-BR.md"><em>Português</em></a
+      >.
+    </p>
+    <p>
+      It is a <strong>playground</strong> because you may change or add the code
+      to see how it works and <a href="#testing-the-code">test it out</a> using
+      assertions. It also allows you to
+      <a href="#linting-the-code">lint the code</a> you’ve wrote and check if it
+      fits to Python code style guide. Altogether it might make your learning
+      process to be more interactive and it might help you to keep code quality
+      pretty high from very beginning.
+    </p>
+    <p>
+      It is a <strong>cheatsheet</strong> because you may get back to these code
+      examples once you want to recap the syntax of
+      <a href="#table-of-contents"
+        >standard Python statements and constructions</a
+      >. Also because the code is full of assertions you’ll be able to see
+      expected functions/statements output right away without launching them.
+    </p>
+    <blockquote>
+      <p>
+        <em
+          >You might also be interested in 🤖
+          <a href="https://github.com/trekhleb/machine-learning-experiments"
+            >Interactive Machine Learning Experiments</a
+          ></em
+        >
+      </p>
+    </blockquote>
+    <h2 id="how-to-use-this-repository">How to Use This Repository</h2>
+    <p>Each Python script in this repository has the following structure:</p>
+    <pre><code>&quot;&quot;&quot;Lists  &lt;--- Name of the topic here
+
+# @see: https://www.learnpython.org/en/Lists  &lt;-- Link to further readings goes here
+
+Here might go more detailed explanation of the current topic (i.e. general info about Lists).
+&quot;&quot;&quot;
+
+
+def test_list_type():
+    &quot;&quot;&quot;Explanation of sub-topic goes here.
+
+    Each file contains test functions that illustrate sub-topics (i.e. lists type, lists methods).
+    &quot;&quot;&quot;
+
+    # Here is an example of how to build a list.  &lt;-- Comments here explain the action
+    squares = [1, 4, 9, 16, 25]
+
+    # Lists can be indexed and sliced.
+    # Indexing returns the item.
+    assert squares[0] == 1  # &lt;-- Assertions here illustrate the result.
+    # Slicing returns a new list.
+    assert squares[-3:] == [9, 16, 25]  # &lt;-- Assertions here illustrate the result.</code></pre>
+    <p>So normally you might want to do the following:</p>
+    <ul>
+      <li>
+        <a href="#table-of-contents">Find the topic</a> you want to learn or
+        recap.
+      </li>
+      <li>
+        Read comments and/or documentation that is linked in each script’s
+        docstring (as in example above).
+      </li>
+      <li>
+        Look at code examples and assertions to see usage examples and expected
+        output.
+      </li>
+      <li>Change code or add new assertions to see how things work.</li>
+      <li>
+        <a href="#testing-the-code">Run tests</a> and
+        <a href="#linting-the-code">lint the code</a> to see if it work and is
+        written correctly.
+      </li>
+    </ul>
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ol type="1">
+      <li>
+        <strong>Getting Started</strong>
+        <ul>
+          <li>
+            <a href="src/getting_started/what_is_python.md">What is Python</a>
+          </li>
+          <li>
+            <a href="src/getting_started/python_syntax.md">Python Syntax</a>
+          </li>
+          <li><a href="src/getting_started/test_variables.py">Variables</a></li>
+        </ul>
+      </li>
+      <li>
+        <strong>Operators</strong>
+        <ul>
+          <li>
+            <a href="src/operators/test_arithmetic.py">Arithmetic Operators</a>
+            (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>,
+            <code>//</code>, <code>%</code>, <code>**</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_bitwise.py">Bitwise Operators</a>
+            (<code>&amp;</code>, <code>|</code>, <code>^</code>,
+            <code>&gt;&gt;</code>, <code>&lt;&lt;</code>, <code>~</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_assigment.py">Assignment Operators</a>
+            (<code>=</code>, <code>+=</code>, <code>-=</code>, <code>/=</code>,
+            <code>//=</code> etc.)
+          </li>
+          <li>
+            <a href="src/operators/test_comparison.py">Comparison Operator</a>
+            (<code>==</code>, <code>!=</code>, <code>&gt;</code>,
+            <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_logical.py">Logical Operators</a>
+            (<code>and</code>, <code>or</code>, <code>not</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_identity.py">Identity Operators</a>
+            (<code>is</code>, <code>is not</code>)
+          </li>
+          <li>
+            <a href="src/operators/test_membership.py">Membership Operators</a>
+            (<code>in</code>, <code>not in</code>)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Data Types</strong>
+        <ul>
+          <li>
+            <a href="src/data_types/test_numbers.py">Numbers</a> (including
+            booleans)
+          </li>
+          <li>
+            <a href="src/data_types/test_strings.py">Strings</a> and their
+            methods
+          </li>
+          <li>
+            <a href="src/data_types/test_lists.py">Lists</a> and their methods
+            (including list comprehensions)
+          </li>
+          <li><a href="src/data_types/test_tuples.py">Tuples</a></li>
+          <li>
+            <a href="src/data_types/test_sets.py">Sets</a> and their methods
+          </li>
+          <li>
+            <a href="src/data_types/test_dictionaries.py">Dictionaries</a>
+          </li>
+          <li>
+            <a href="src/data_types/test_type_casting.py">Type Casting</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Control Flow</strong>
+        <ul>
+          <li>
+            <a href="src/control_flow/test_if.py"
+              >The <code>if</code> statement</a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_for.py"
+              >The <code>for</code> statement</a
+            >
+            (and <code>range()</code> function)
+          </li>
+          <li>
+            <a href="src/control_flow/test_while.py"
+              >The <code>while</code> statement</a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_try.py"
+              >The <code>try</code> statements</a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_break.py"
+              >The <code>break</code> statement</a
+            >
+          </li>
+          <li>
+            <a href="src/control_flow/test_continue.py"
+              >The <code>continue</code> statement</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Functions</strong>
+        <ul>
+          <li>
+            <a href="src/functions/test_function_definition.py"
+              >Function Definition</a
+            >
+            (<code>def</code> and <code>return</code> statements)
+          </li>
+          <li>
+            <a href="src/functions/test_function_scopes.py"
+              >Scopes of Variables Inside Functions</a
+            >
+            (<code>global</code> and <code>nonlocal</code> statements)
+          </li>
+          <li>
+            <a href="src/functions/test_function_default_arguments.py"
+              >Default Argument Values</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_keyword_arguments.py"
+              >Keyword Arguments</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_arbitrary_arguments.py"
+              >Arbitrary Argument Lists</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_unpacking_arguments.py"
+              >Unpacking Argument Lists</a
+            >
+            (<code>*</code> and <code>**</code> statements)
+          </li>
+          <li>
+            <a href="src/functions/test_lambda_expressions.py"
+              >Lambda Expressions</a
+            >
+            (<code>lambda</code> statement)
+          </li>
+          <li>
+            <a href="src/functions/test_function_documentation_string.py"
+              >Documentation Strings</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_annotations.py"
+              >Function Annotations</a
+            >
+          </li>
+          <li>
+            <a href="src/functions/test_function_decorators.py"
+              >Function Decorators</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Classes</strong>
+        <ul>
+          <li>
+            <a href="src/classes/test_class_definition.py">Class Definition</a>
+            (<code>class</code> statement)
+          </li>
+          <li><a href="src/classes/test_class_objects.py">Class Objects</a></li>
+          <li>
+            <a href="src/classes/test_instance_objects.py">Instance Objects</a>
+          </li>
+          <li>
+            <a href="src/classes/test_method_objects.py">Method Objects</a>
+          </li>
+          <li>
+            <a href="src/classes/test_class_and_instance_variables.py"
+              >Class and Instance Variables</a
+            >
+          </li>
+          <li><a href="src/classes/test_inheritance.py">Inheritance</a></li>
+          <li>
+            <a href="src/classes/test_multiple_inheritance.py"
+              >Multiple Inheritance</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Modules</strong>
+        <ul>
+          <li>
+            <a href="src/modules/test_modules.py">Modules</a> (<code
+              >import</code
+            >
+            statement)
+          </li>
+          <li><a href="src/modules/test_packages.py">Packages</a></li>
+        </ul>
+      </li>
+      <li>
+        <strong>Errors and Exceptions</strong>
+        <ul>
+          <li>
+            <a href="src/exceptions/test_handle_exceptions.py"
+              >Handling Exceptions</a
+            >
+            (<code>try</code> statement)
+          </li>
+          <li>
+            <a href="src/exceptions/test_raise_exceptions.py"
+              >Raising Exceptions</a
+            >
+            (<code>raise</code> statement)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Files</strong>
+        <ul>
+          <li>
+            <a href="src/files/test_file_reading.py">Reading and Writing</a>
+            (<code>with</code> statement)
+          </li>
+          <li>
+            <a href="src/files/test_file_methods.py">Methods of File Objects</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Additions</strong>
+        <ul>
+          <li>
+            <a href="src/additions/test_pass.py"
+              >The <code>pass</code> statement</a
+            >
+          </li>
+          <li>
+            <a href="src/additions/test_generators.py">Generators</a> (<code
+              >yield</code
+            >
+            statement)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Brief Tour of the Standard Libraries</strong>
+        <ul>
+          <li>
+            <a href="src/standard_libraries/test_json.py">Serialization</a>
+            (<code>json</code> library)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_glob.py">File Wildcards</a>
+            (<code>glob</code> library)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_re.py"
+              >String Pattern Matching</a
+            >
+            (<code>re</code> library)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_math.py">Mathematics</a>
+            (<code>math</code>, <code>random</code>,
+            <code>statistics</code> libraries)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_datetime.py"
+              >Dates and Times</a
+            >
+            (<code>datetime</code> library)
+          </li>
+          <li>
+            <a href="src/standard_libraries/test_zlib.py">Data Compression</a>
+            (<code>zlib</code> library)
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h2 id="prerequisites">Prerequisites</h2>
+    <p><strong>Installing Python</strong></p>
+    <p>
+      Make sure that you have
+      <a href="https://realpython.com/installing-python/">Python3 installed</a>
+      on your machine.
+    </p>
+    <p>
+      You might want to use
+      <a href="https://docs.python.org/3/library/venv.html">venv</a> standard
+      Python library to create virtual environments and have Python, pip and all
+      dependent packages to be installed and served from the local project
+      directory to avoid messing with system wide packages and their versions.
+    </p>
+    <p>
+      Depending on your installation you might have access to Python3
+      interpreter either by running <code>python</code> or <code>python3</code>.
+      The same goes for pip package manager - it may be accessible either by
+      running <code>pip</code> or <code>pip3</code>.
+    </p>
+    <p>You may check your Python version by running:</p>
+    <pre><code>python --version</code></pre>
+    <p>
+      Note that in this repository whenever you see <code>python</code> it will
+      be assumed that it is Python <strong>3</strong>.
+    </p>
+    <p><strong>Installing dependencies</strong></p>
+    <p>
+      Install all dependencies that are required for the project by running:
+    </p>
+    <pre><code>pip install -r requirements.txt</code></pre>
+    <h2 id="testing-the-code">Testing the Code</h2>
+    <p>
+      Tests are made using
+      <a href="https://docs.pytest.org/en/latest/">pytest</a> framework.
+    </p>
+    <p>
+      You may add new tests for yourself by adding files and functions with
+      <code>test_</code> prefix (i.e. <code>test_topic.py</code> with
+      <code>def test_sub_topic()</code> function inside).
+    </p>
+    <p>
+      To run all the tests please execute the following command from the project
+      root folder:
+    </p>
+    <pre><code>pytest</code></pre>
+    <p>To run specific tests please execute:</p>
+    <pre><code>pytest ./path/to/the/test_file.py</code></pre>
+    <h2 id="linting-the-code">Linting the Code</h2>
+    <p>
+      Linting is done using <a href="http://pylint.pycqa.org/">pylint</a> and
+      <a href="http://flake8.pycqa.org/en/latest/">flake8</a> libraries.
+    </p>
+    <h3 id="pylint">PyLint</h3>
+    <p>
+      To check if the code is written with respect to
+      <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> style guide
+      please run:
+    </p>
+    <pre><code>pylint ./src/</code></pre>
+    <p>
+      In case if linter will detect error (i.e. <code>missing-docstring</code>)
+      you may want to read more about specific error by running:
+    </p>
+    <pre><code>pylint --help-msg=missing-docstring</code></pre>
+    <p><a href="http://pylint.pycqa.org/">More about PyLint</a></p>
+    <h3 id="flake8">Flake8</h3>
+    <p>
+      To check if the code is written with respect to
+      <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> style guide
+      please run:
+    </p>
+    <pre><code>flake8 ./src</code></pre>
+    <p>Or if you want to have more detailed output you may run:</p>
+    <pre><code>flake8 ./src --statistics --show-source --count</code></pre>
+    <p><a href="http://flake8.pycqa.org/en/latest/">More about Flake8</a></p>
+    <h2 id="supporting-the-project">Supporting the project</h2>
+    <p>
+      You may support this project via ❤️️
+      <a href="https://github.com/sponsors/trekhleb">GitHub</a> or ❤️️
+      <a href="https://www.patreon.com/trekhleb">Patreon</a>.
+    </p>
+  </body>
+</html>

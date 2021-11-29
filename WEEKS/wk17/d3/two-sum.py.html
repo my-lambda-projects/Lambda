@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>two-sum.py</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>[</p>
+    <figure>
+      <img
+        src="https://miro.medium.com/fit/c/96/96/2*yPQ43Px-go0EQ_XxuTbVkg.jpeg"
+        alt="Tylor Borgeson"
+      />
+      <figcaption>Tylor Borgeson</figcaption>
+    </figure>
+    <p>
+      ](https://medium.com/<span
+        class="citation"
+        data-cites="tylor.borgeson?source"
+        >@tylor.borgeson?source</span
+      >=post_page—–c1d84b029d35——————————–)
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*ETTIDamOmYZ7u7YjJvGuFA.jpeg"
+      />
+    </p>
+    <p>
+      Photo by
+      <a
+        href="https://unsplash.com/@thisisengineering?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+        >ThisisEngineering RAEng</a
+      >
+      on
+      <a
+        href="https://unsplash.com/s/photos/whiteboard?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+        >Unsplash</a
+      >
+    </p>
+    <p>
+      Given an array of integers, return <strong>indices</strong> of the two
+      numbers such that they add up to a specific <code>target</code>.
+    </p>
+    <p>
+      You may assume that each input would have
+      <strong><em>exactly</em></strong> one solution, and you may not use the
+      <em>same</em> element twice.
+    </p>
+    <p><strong>Example:</strong></p>
+    <p>
+      Given nums = [2, 7, 11, 15], target = 9,Because nums[<strong>0</strong>] +
+      nums[<strong>1</strong>] = 2 + 7 = 9,<br />
+      return [<strong>0</strong>, <strong>1</strong>].
+    </p>
+    <p>
+      One thing that I really appreciate about this problem is that there are
+      multiple ways of solving this problem, with each solution requiring a
+      different way of thinking before you even arrive at the idea of the
+      solution.
+    </p>
+    <h2 id="the-brute-force-solution">The Brute-force solution:</h2>
+    <p>
+      The first way you could go about solving this challenge is likely the way
+      that most people come up with when they first see the problem. This
+      solution’s pseudocode looks something like this:
+    </p>
+    <p>
+      for each number X in list of numbers:<br />
+      for each number Y in list of numbers starting from X:<br />
+      if X+Y equal target number, return indices
+    </p>
+    <p>
+      The issue is that you have a worst case run time of O(n²). If the two
+      numbers you are searching for are at the end of the list, you would need
+      to go through all of the numbers multiple times, once in the “X” loop and
+      each respective time in the “Y” loop.
+    </p>
+    <p>
+      This would give you the correct answer but the runtime is slow, and in the
+      case of a large number of numbers it could be very problematic.
+    </p>
+    <p>
+      def twoSum(self, nums: List[int], target: int) -&gt; List[int]:<br />
+      for i in range(len(nums)):<br />
+      for j in range(i+1, len(nums)):<br />
+      if nums[i] + nums[j] == target:<br />
+      return [i, j]
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*yAjKjrwEN5TvciGpBINZSA.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*yAjKjrwEN5TvciGpBINZSA.png"
+      />
+    </p>
+    <p>
+      This solution was quite slow even though the memory usage wasn’t too bad
+    </p>
+    <p>
+      If you this is your final solution in an interview at a large company,
+      where they may place a lot of emphasis on efficiency, you might be in
+      trouble.
+    </p>
+    <h2 id="the-dictionary-solution">The Dictionary Solution:</h2>
+    <p>
+      After spending some time thinking about this problem, I came to a
+      different solution which required, as I mentioned above, a different angle
+      of thinking.
+    </p>
+    <p>
+      This solution makes use of a Dictionary (or Key Value Map), which, as I
+      <a
+        href="https://levelup.gitconnected.com/valid-parentheses-interview-problem-in-python3-f98fb99c9cf?source=friends_link&amp;sk=bab7bcf161a856966dd7f9ba951ca5a5"
+        >mentioned in a previous post</a
+      >, is very useful in interview challenges due to its’ super quick value
+      look up.
+    </p>
+    <p>
+      The idea was, instead of looking for two numbers to add up to the target
+      number, do the following:
+    </p>
+    <p>
+      instantiate an empty dictionaryfor each number in list of numbers:<br />
+      result = subtract number from target number<br />
+      look for result in the dictionary (instant lookup)<br />
+      if found:<br />
+      return index of number and index of dictionary lookup result<br />
+      else:<br />
+      add number to dictionary as key with value being the index
+    </p>
+    <p>
+      Switching the way of thinking from the “number1 + number2 = target” to
+      “target - number1 = number2” was at first not too easy, but doing so
+      allowed not only for the use of the Key Value Map but also requires only
+      one iteration of the number list, meaning a worst case run time of O(n)
+      which is significantly better than the O(n²) from the Brute Force
+      approach.
+    </p>
+    <p>
+      def twoSum(self, nums: List[int], target: int) -&gt; List[int]:<br />
+      dictionary = {}<br />
+      answer = []
+    </p>
+    <pre><code>            for i in range(len(nums)):
+        secondNumber = target-nums\[i\]
+        if(secondNumber in dictionary.keys()):
+            secondIndex = nums.index(secondNumber)
+            if(i != secondIndex):
+                return sorted(\[i, secondIndex\])
+
+                        dictionary.update({nums\[i\]: i})</code></pre>
+    <p>
+      <img
+        src="https://miro.medium.com/max/60/1*2IRll46NMBaFpgam1Ygb4A.png?q=20"
+      />
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1400/1*2IRll46NMBaFpgam1Ygb4A.png"
+      />
+    </p>
+    <p>
+      With a 48ms and an average memory usage, I was pretty happy with the
+      solution.
+    </p>
+  </body>
+</html>

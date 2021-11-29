@@ -57,7 +57,8 @@ class CodepenExample extends Component<Props> {
               this._form = form;
             }}
             action={action}
-            method="POST">
+            method="POST"
+          >
             <input type="hidden" name="data" value={payload} />
 
             <p>

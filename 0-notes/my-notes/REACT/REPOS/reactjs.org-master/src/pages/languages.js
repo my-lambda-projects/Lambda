@@ -71,7 +71,8 @@ const Languages = ({location}: Props) => (
               <a
                 href="https://github.com/reactjs/reactjs.org-translation#reactjsorg-translation"
                 target="_blank"
-                rel="noopener">
+                rel="noopener"
+              >
                 Let us know
               </a>
               .
@@ -89,7 +90,8 @@ const LanguagesGrid = ({languages}) => (
       display: 'flex',
       flexWrap: 'wrap',
       marginLeft: -20,
-    }}>
+    }}
+  >
     {languages
       .sort((a, b) => a.code.localeCompare(b.code))
       .map(({code, name, status, translated_name}) => (
@@ -129,7 +131,8 @@ const Language = ({code, name, status, translatedName}) => {
           width: '25%',
         },
       }}
-      key={code}>
+      key={code}
+    >
       <div css={{}}>{name}</div>
       <div
         css={{
@@ -137,14 +140,16 @@ const Language = ({code, name, status, translatedName}) => {
           fontWeight: 'bold',
           marginBottom: 8,
           marginTop: 8,
-        }}>
+        }}
+      >
         {status === 0 && translatedName}
         {status > 0 && (
           <a
             href={`https://${prefix}reactjs.org/`}
             rel="nofollow"
             lang={code}
-            hrefLang={code}>
+            hrefLang={code}
+          >
             {translatedName}
           </a>
         )}
@@ -156,7 +161,8 @@ const Language = ({code, name, status, translatedName}) => {
           }}
           href={`https://github.com/reactjs/${prefix}reactjs.org/`}
           target="_blank"
-          rel="noopener">
+          rel="noopener"
+        >
           Contribute
         </a>
       </div>

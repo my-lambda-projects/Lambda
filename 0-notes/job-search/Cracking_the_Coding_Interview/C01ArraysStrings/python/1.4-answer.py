@@ -6,6 +6,8 @@
 # The palindrome does not need to be limited to just dictionary words.
 # You can ignore casing and non-letter characters.
 import re
+
+
 def palindromePerm(string):
     s1 = ""
     for letter in string:
@@ -41,7 +43,7 @@ def palindromePerm(string):
                         return False
     # return true if you made it here
     print(True)
-    return True 
+    return True
 
 
 palindromePerm("taco cat")

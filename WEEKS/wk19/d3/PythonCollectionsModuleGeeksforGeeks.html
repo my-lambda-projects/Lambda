@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PythonCollectionsModuleGeeksforGeeks</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="python-collections-module---geeksforgeeks">Python Collections Module - GeeksforGeeks</h1>
+<blockquote>
+<p>A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.</p>
+</blockquote>
+<p>The collection Module in Python provides different types of containers. A Container is an object that is used to store different objects and provide a way to access the contained objects and iterate over them. Some of the built-in containers are <a href="https://www.geeksforgeeks.org/python-tuples/">Tuple</a>, <a href="https://www.geeksforgeeks.org/python-list/">List</a>, <a href="https://www.geeksforgeeks.org/python-dictionary/">Dictionary</a>, etc. In this article, we will discuss the different containers provided by the collections module.</p>
+<blockquote>
+<p><strong>Table of Content:</strong></p>
+<ul>
+<li><a href="#counters">Counters</a></li>
+<li><a href="#ordereddict">OrderedDict</a></li>
+<li><a href="#defaultdict">DefaultDict</a></li>
+<li><a href="#chainmap">ChainMap</a></li>
+<li><a href="#namedtuple">NamedTuple</a></li>
+<li><a href="#deque">DeQue</a></li>
+<li><a href="#userdict">UserDict</a></li>
+<li><a href="#userlist">UserList</a></li>
+<li><a href="#userstring">UserString</a></li>
+</ul>
+</blockquote>
+<h2 id="counters">Counters</h2>
+<p>A <a href="https://www.geeksforgeeks.org/counters-in-python-set-1/">counter</a> is a sub-class of the dictionary. It is used to keep the count of the elements in an iterable in the form of an unordered dictionary where the key represents the element in the iterable and value represents the count of that element in the iterable.</p>
+<p><strong>Note:</strong> It is equivalent to bag or multiset of other languages.</p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.Counter([iterable-or-mapping])</p>
+<h3 id="initializing-counter-objects">Initializing Counter Objects</h3>
+<p>The counter object can be initialized using the counter() function and this function can be called in one of the following ways:</p>
+<ul>
+<li>With a sequence of items</li>
+<li>With a dictionary containing keys and counts</li>
+<li>With keyword arguments mapping string names to counts</li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>Counter</code></p>
+<p><code>print``(Counter([``'B'``,``'B'``,``'A'``,``'B'``,``'C'``,``'A'``,``'B'``,</code></p>
+<p><code>'B'``,``'A'``,``'C'``]))</code></p>
+<p><code>print``(Counter({``'A'``:``3``,</code> <code>'B'``:``5``,</code> <code>'C'``:``2``}))</code></p>
+<p><code>print``(Counter(A``=``3``, B``=``5``, C``=``2``))</code></p>
+<p><strong>Output:</strong></p>
+<p>Counter({‘B’: 5, ‘A’: 3, ‘C’: 2}) Counter({‘B’: 5, ‘A’: 3, ‘C’: 2}) Counter({‘B’: 5, ‘A’: 3, ‘C’: 2})</p>
+<p><strong>Note:</strong> For more information, refer  <a href="https://www.geeksforgeeks.org/counters-in-python-set-1/">Counters in Python.</a></p>
+<h2 id="ordereddict">OrderedDict</h2>
+<p>An <a href="https://www.geeksforgeeks.org/ordereddict-in-python/">OrderedDict</a> is also a sub-class of dictionary but unlike dictionary, it remembers the order in which the keys were inserted. </p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.OrderDict()</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-1">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>OrderedDict</code></p>
+<p><code>print``(``"This is a Dict:\n"``)</code></p>
+<p><code>d</code> <code>=</code> <code>{}</code></p>
+<p><code>d[``'a'``]</code> <code>=</code> <code>1</code></p>
+<p><code>d[``'b'``]</code> <code>=</code> <code>2</code></p>
+<p><code>d[``'c'``]</code> <code>=</code> <code>3</code></p>
+<p><code>d[``'d'``]</code> <code>=</code> <code>4</code></p>
+<p><code>for</code> <code>key, value</code> <code>in</code> <code>d.items():</code></p>
+<p><code>print``(key, value)</code></p>
+<p><code>print``(``"\nThis is an Ordered Dict:\n"``)</code></p>
+<p><code>od</code> <code>=</code> <code>OrderedDict()</code></p>
+<p><code>od[``'a'``]</code> <code>=</code> <code>1</code></p>
+<p><code>od[``'b'``]</code> <code>=</code> <code>2</code></p>
+<p><code>od[``'c'``]</code> <code>=</code> <code>3</code></p>
+<p><code>od[``'d'``]</code> <code>=</code> <code>4</code></p>
+<p><code>for</code> <code>key, value</code> <code>in</code> <code>od.items():</code></p>
+<p><code>print``(key, value)</code></p>
+<p><strong>Output:</strong></p>
+<p>This is a Dict:</p>
+<p>a 1 b 2 c 3 d 4</p>
+<p>This is an Ordered Dict:</p>
+<p>a 1 b 2 c 3 d 4</p>
+<p>While deleting and re-inserting the same key will push the key to the last to maintain the order of insertion of the key.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-2">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>OrderedDict</code></p>
+<p><code>od</code> <code>=</code> <code>OrderedDict()</code></p>
+<p><code>od[``'a'``]</code> <code>=</code> <code>1</code></p>
+<p><code>od[``'b'``]</code> <code>=</code> <code>2</code></p>
+<p><code>od[``'c'``]</code> <code>=</code> <code>3</code></p>
+<p><code>od[``'d'``]</code> <code>=</code> <code>4</code></p>
+<p><code>print``(``'Before Deleting'``)</code></p>
+<p><code>for</code> <code>key, value</code> <code>in</code> <code>od.items():</code></p>
+<p><code>print``(key, value)</code></p>
+<p><code>od.pop(``'a'``)</code></p>
+<p><code>od[``'a'``]</code> <code>=</code> <code>1</code></p>
+<p><code>print``(``'\nAfter re-inserting'``)</code></p>
+<p><code>for</code> <code>key, value</code> <code>in</code> <code>od.items():</code></p>
+<p><code>print``(key, value)</code></p>
+<p><strong>Output:</strong></p>
+<p>Before Deleting a 1 b 2 c 3 d 4</p>
+<p>After re-inserting b 2 c 3 d 4 a 1</p>
+<p><strong>Note:</strong> for more information, refer <a href="https://www.geeksforgeeks.org/ordereddict-in-python/">OrderedDict in Python</a></p>
+<h2 id="defaultdict">DefaultDict</h2>
+<p>A <a href="https://www.geeksforgeeks.org/defaultdict-in-python/">DefaultDict</a> is also a sub-class to dictionary. It is used to provide some default values for the key that does not exist and never raises a KeyError.</p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.defaultdict(default_factory)</p>
+<p>default_factory is a function that provides the default value for the dictionary created. If this parameter is absent then the KeyError is raised.</p>
+<h3 id="initializing-defaultdict-objects">Initializing DefaultDict Objects</h3>
+<p>DefaultDict objects can be initialized using DefaultDict() method by passing the data type as an argument.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-3">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>defaultdict</code></p>
+<p><code>d</code> <code>=</code> <code>defaultdict(``int``)</code></p>
+<p><code>L</code> <code>=</code> <code>[``1``,</code> <code>2``,</code> <code>3``,</code> <code>4``,</code> <code>2``,</code> <code>4``,</code> <code>1``,</code> <code>2``]</code></p>
+<p><code>for</code> <code>i</code> <code>in</code> <code>L:</code></p>
+<p><code>d[i]</code> <code>+``=</code> <code>1</code></p>
+<p><code>print``(d)</code></p>
+<p><strong>Output:</strong></p>
+<p>defaultdict(&lt;class ‘int’&gt;, {1: 2, 2: 3, 3: 1, 4: 2})</p>
+<p><strong>Example 2:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-4">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>defaultdict</code></p>
+<p><code>d</code> <code>=</code> <code>defaultdict(``list``)</code></p>
+<p><code>for</code> <code>i</code> <code>in</code> <code>range``(``5``):</code></p>
+<p><code>d[i].append(i)</code></p>
+<p><code>print``(``"Dictionary with values as list:"``)</code></p>
+<p><code>print``(d)</code></p>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>Dictionary with values as list: <br />
+defaultdict(&lt;class ‘list’&gt;, {0: [0], 1: [1], 2: [2], 3: [3], 4: [4]})</p>
+</blockquote>
+<p><strong>Note:</strong> For more information, refer <a href="https://www.geeksforgeeks.org/defaultdict-in-python/">Defaultdict in Python</a></p>
+<h2 id="chainmap">ChainMap</h2>
+<p>A <a href="https://www.geeksforgeeks.org/chainmap-in-python/">ChainMap</a> encapsulates many dictionaries into a single unit and returns a list of dictionaries.</p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.ChainMap(dict1, dict2)</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-5">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>ChainMap</code></p>
+<p><code>d1</code> <code>=</code> <code>{``'a'``:</code> <code>1``,</code> <code>'b'``:</code> <code>2``}</code></p>
+<p><code>d2</code> <code>=</code> <code>{``'c'``:</code> <code>3``,</code> <code>'d'``:</code> <code>4``}</code></p>
+<p><code>d3</code> <code>=</code> <code>{``'e'``:</code> <code>5``,</code> <code>'f'``:</code> <code>6``}</code></p>
+<p><code>c</code> <code>=</code> <code>ChainMap(d1, d2, d3)</code></p>
+<p><code>print``(c)</code></p>
+<p><strong>Output:</strong></p>
+<p>ChainMap({‘a’: 1, ‘b’: 2}, {‘c’: 3, ‘d’: 4}, {‘e’: 5, ‘f’: 6})</p>
+<h3 id="accessing-keys-and-values-from-chainmap">Accessing Keys and Values from ChainMap</h3>
+<p>Values from ChainMap can be accessed using the key name. They can also be accessed by using the keys() and values() method.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-6">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>ChainMap</code></p>
+<p><code>d1</code> <code>=</code> <code>{``'a'``:</code> <code>1``,</code> <code>'b'``:</code> <code>2``}</code></p>
+<p><code>d2</code> <code>=</code> <code>{``'c'``:</code> <code>3``,</code> <code>'d'``:</code> <code>4``}</code></p>
+<p><code>d3</code> <code>=</code> <code>{``'e'``:</code> <code>5``,</code> <code>'f'``:</code> <code>6``}</code></p>
+<p><code>c</code> <code>=</code> <code>ChainMap(d1, d2, d3)</code></p>
+<p><code>print``(c[``'a'``])</code></p>
+<p><code>print``(c.values())</code></p>
+<p><code>print``(c.keys())</code></p>
+<p><strong>Output:</strong></p>
+<blockquote>
+<p>1 <br />
+ValuesView(ChainMap({‘a’: 1, ‘b’: 2}, {‘c’: 3, ‘d’: 4}, {‘e’: 5, ‘f’: 6})) <br />
+KeysView(ChainMap({‘a’: 1, ‘b’: 2}, {‘c’: 3, ‘d’: 4}, {‘e’: 5, ‘f’: 6}))</p>
+</blockquote>
+<h3 id="adding-new-dictionary">Adding new dictionary</h3>
+<p>A new dictionary can be added by using the <strong>new_child()</strong> method. The newly added dictionary is added at the beginning of the ChainMap.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-7">Python3</h2>
+<p><code>import</code> <code>collections</code></p>
+<p><code>dic1</code> <code>=</code> <code>{</code> <code>'a'</code> <code>:</code> <code>1``,</code> <code>'b'</code> <code>:</code> <code>2</code> <code>}</code></p>
+<p><code>dic2</code> <code>=</code> <code>{</code> <code>'b'</code> <code>:</code> <code>3``,</code> <code>'c'</code> <code>:</code> <code>4</code> <code>}</code></p>
+<p><code>dic3</code> <code>=</code> <code>{</code> <code>'f'</code> <code>:</code> <code>5</code> <code>}</code></p>
+<p><code>chain</code> <code>=</code> <code>collections.ChainMap(dic1, dic2)</code></p>
+<p><code>print</code> <code>(``"All the ChainMap contents are : "``)</code></p>
+<p><code>print</code> <code>(chain)</code></p>
+<p><code>chain1</code> <code>=</code> <code>chain.new_child(dic3)</code></p>
+<p><code>print</code> <code>(``"Displaying new ChainMap : "``)</code></p>
+<p><code>print</code> <code>(chain1)</code></p>
+<p><strong>Output:</strong></p>
+<p>All the ChainMap contents are : ChainMap({‘a’: 1, ‘b’: 2}, {‘b’: 3, ‘c’: 4}) Displaying new ChainMap : ChainMap({‘f’: 5}, {‘a’: 1, ‘b’: 2}, {‘b’: 3, ‘c’: 4})</p>
+<p><strong>Note:</strong> For more information, refer <a href="https://www.geeksforgeeks.org/chainmap-in-python/">ChainMap in Python</a></p>
+<h2 id="namedtuple">NamedTuple</h2>
+<p>A <a href="https://www.geeksforgeeks.org/namedtuple-in-python/">NamedTuple</a> returns a tuple object with names for each position which the ordinary tuples lack. For example, consider a tuple names student where the first element represents fname, second represents lname and the third element represents the DOB. Suppose for calling fname instead of remembering the index position you can actually call the element by using the fname argument, then it will be really easy for accessing tuples element. This functionality is provided by the NamedTuple.</p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.namedtuple(typename, field_names)</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-8">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>namedtuple</code></p>
+<p><code>Student</code> <code>=</code> <code>namedtuple(``'Student'``,[``'name'``,``'age'``,``'DOB'``])</code></p>
+<p><code>S</code> <code>=</code> <code>Student(``'Nandini'``,``'19'``,``'2541997'``)</code></p>
+<p><code>print</code> <code>(``"The Student age using index is : "``,end</code> <code>=``"")</code></p>
+<p><code>print</code> <code>(S[``1``])</code></p>
+<p><code>print</code> <code>(``"The Student name using keyname is : "``,end</code> <code>=``"")</code></p>
+<p><code>print</code> <code>(S.name)</code></p>
+<p><strong>Output:</strong></p>
+<p>The Student age using index is : 19 The Student name using keyname is : Nandini</p>
+<h3 id="conversion-operations">Conversion Operations </h3>
+<p><strong>1. _make():</strong> This function is used to return a namedtuple() from the iterable passed as argument.</p>
+<p><strong>2. _asdict():</strong> This function returns the <a href="https://www.geeksforgeeks.org/ordereddict-in-python/">OrdereDict()</a> as constructed from the mapped values of namedtuple().</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-9">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>namedtuple</code></p>
+<p><code>Student</code> <code>=</code> <code>namedtuple(``'Student'``,[``'name'``,``'age'``,``'DOB'``])</code></p>
+<p><code>S</code> <code>=</code> <code>Student(``'Nandini'``,``'19'``,``'2541997'``)</code></p>
+<p><code>li</code> <code>=</code> <code>[``'Manjeet'``,</code> <code>'19'``,</code> <code>'411997'</code> <code>]</code></p>
+<p><code>di</code> <code>=</code> <code>{</code> <code>'name'</code> <code>:</code> <code>"Nikhil"``,</code> <code>'age'</code> <code>:</code> <code>19</code> <code>,</code> <code>'DOB'</code> <code>:</code> <code>'1391997'</code> <code>}</code></p>
+<p><code>print</code> <code>(``"The namedtuple instance using iterable is  : "``)</code></p>
+<p><code>print</code> <code>(Student._make(li))</code></p>
+<p><code>print</code> <code>(``"The OrderedDict instance using namedtuple is  : "``)</code></p>
+<p><code>print</code> <code>(S._asdict())</code></p>
+<p><strong>Output:</strong></p>
+<p>The namedtuple instance using iterable is : Student(name=‘Manjeet’, age=‘19’, DOB=‘411997’) The OrderedDict instance using namedtuple is : OrderedDict([(‘name’, ‘Nandini’), (‘age’, ‘19’), (‘DOB’, ‘2541997’)])</p>
+<p><strong>Note:</strong> For more  information, refer <a href="https://www.geeksforgeeks.org/namedtuple-in-python/">NamedTuple in Python</a></p>
+<h2 id="deque">Deque</h2>
+<p><a href="https://www.geeksforgeeks.org/deque-in-python/">Deque (Doubly Ended Queue)</a> is the optimized list for quicker append and pop operations from both sides of the container. It provides O(1) time complexity for append and pop operations as compared to list with O(n) time complexity.</p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.deque(list)</p>
+<p>This function takes the list as an argument.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-10">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>deque</code></p>
+<p><code>queue</code> <code>=</code> <code>deque([``'name'``,``'age'``,``'DOB'``])</code></p>
+<p><code>print``(queue)</code></p>
+<p><strong>Output:</strong></p>
+<p>deque([‘name’, ‘age’, ‘DOB’])</p>
+<h3 id="inserting-elements">Inserting Elements</h3>
+<p>Elements in deque can be inserted from both ends. To insert the elements from right append() method is used and to insert the elements from the left appendleft() method is used.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-11">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>deque</code></p>
+<p><code>de</code> <code>=</code> <code>deque([``1``,``2``,``3``])</code></p>
+<p><code>de.append(``4``)</code></p>
+<p><code>print</code> <code>(``"The deque after appending at right is : "``)</code></p>
+<p><code>print</code> <code>(de)</code></p>
+<p><code>de.appendleft(``6``)</code></p>
+<p><code>print</code> <code>(``"The deque after appending at left is : "``)</code></p>
+<p><code>print</code> <code>(de)</code></p>
+<p><strong>Output:</strong></p>
+<p>The deque after appending at right is : deque([1, 2, 3, 4]) The deque after appending at left is : deque([6, 1, 2, 3, 4])</p>
+<h3 id="removing-elements">Removing Elements</h3>
+<p>Elements can also be removed from the deque from both the ends. To remove elements from right use pop() method and to remove elements from the left use popleft() method.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-12">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>deque</code></p>
+<p><code>de</code> <code>=</code> <code>deque([``6``,</code> <code>1``,</code> <code>2``,</code> <code>3``,</code> <code>4``])</code></p>
+<p><code>de.pop()</code></p>
+<p><code>print</code> <code>(``"The deque after deleting from right is : "``)</code></p>
+<p><code>print</code> <code>(de)</code></p>
+<p><code>de.popleft()</code></p>
+<p><code>print</code> <code>(``"The deque after deleting from left is : "``)</code></p>
+<p><code>print</code> <code>(de)</code></p>
+<p><strong>Output:</strong></p>
+<p>The deque after deleting from right is : deque([6, 1, 2, 3]) The deque after deleting from left is : deque([1, 2, 3])</p>
+<p><strong>Note:</strong> For more information, refer <a href="https://www.geeksforgeeks.org/deque-in-python/">Deque in Python.</a></p>
+<h2 id="userdict">UserDict</h2>
+<p><a href="https://www.geeksforgeeks.org/collections-userdict-in-python/">UserDict</a> is a dictionary-like container that acts as a wrapper around the dictionary objects. This container is used when someone wants to create their own dictionary with some modified or new functionality. </p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.UserDict([initialdata])</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-13">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>UserDict</code></p>
+<p><code>class</code> <code>MyDict(UserDict):</code></p>
+<p><code>def</code> <code>__del__(``self``):</code></p>
+<p><code>raise</code> <code>RuntimeError(``"Deletion not allowed"``)</code></p>
+<p><code>def</code> <code>pop(``self``, s</code> <code>=</code> <code>None``):</code></p>
+<p><code>raise</code> <code>RuntimeError(``"Deletion not allowed"``)</code></p>
+<p><code>def</code> <code>popitem(``self``, s</code> <code>=</code> <code>None``):</code></p>
+<p><code>raise</code> <code>RuntimeError(``"Deletion not allowed"``)</code></p>
+<p><code>d</code> <code>=</code> <code>MyDict({``'a'``:``1``,</code></p>
+<p><code>'b'``:</code> <code>2``,</code></p>
+<p><code>'c'``:</code> <code>3``})</code></p>
+<p><code>d.pop(``1``)</code></p>
+<p><strong>Output:</strong></p>
+<p>Traceback (most recent call last): File “/home/f8db849e4cf1e58177983b2b6023c1a3.py”, line 32, in <module> d.pop(1) File “/home/f8db849e4cf1e58177983b2b6023c1a3.py”, line 20, in pop raise RuntimeError(“Deletion not allowed”) RuntimeError: Deletion not allowed Exception ignored in: &lt;bound method MyDict.__del__ of {‘a’: 1, ‘b’: 2, ‘c’: 3}&gt; Traceback (most recent call last): File “/home/f8db849e4cf1e58177983b2b6023c1a3.py”, line 15, in __del__ RuntimeError: Deletion not allowed</p>
+<p>Note: For more information, refer <a href="https://www.geeksforgeeks.org/collections-userdict-in-python/">UserDict in Python</a></p>
+<h2 id="userlist">UserList</h2>
+<p><a href="https://www.geeksforgeeks.org/collections-userlist-in-python/">UserList</a> is a list like container that acts as a wrapper around the list objects. This is useful when someone wants to create their own list with some modified or additional functionality.</p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.UserList([list])</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-14">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>UserList</code></p>
+<p><code>class</code> <code>MyList(UserList):</code></p>
+<p><code>def</code> <code>remove(``self``, s</code> <code>=</code> <code>None``):</code></p>
+<p><code>raise</code> <code>RuntimeError(``"Deletion not allowed"``)</code></p>
+<p><code>def</code> <code>pop(``self``, s</code> <code>=</code> <code>None``):</code></p>
+<p><code>raise</code> <code>RuntimeError(``"Deletion not allowed"``)</code></p>
+<p><code>L</code> <code>=</code> <code>MyList([``1``,</code> <code>2``,</code> <code>3``,</code> <code>4``])</code></p>
+<p><code>print``(``"Original List"``)</code></p>
+<p><code>L.append(``5``)</code></p>
+<p><code>print``(``"After Insertion"``)</code></p>
+<p><code>print``(L)</code></p>
+<p><code>L.remove()</code></p>
+<p><strong>Output:</strong></p>
+<p>Original List After Insertion [1, 2, 3, 4, 5]</p>
+<p>Traceback (most recent call last): File “/home/c90487eefa7474c0566435269f50a52a.py”, line 33, in <module> L.remove() File “/home/c90487eefa7474c0566435269f50a52a.py”, line 15, in remove raise RuntimeError(“Deletion not allowed”) RuntimeError: Deletion not allowed</p>
+<p><strong>Note:</strong> For more information, refer <a href="https://www.geeksforgeeks.org/collections-userlist-in-python/">UserList in Python</a></p>
+<h2 id="userstring">UserString</h2>
+<p><a href="https://www.geeksforgeeks.org/collections-userstring-in-python/">UserString</a> is a string like container and just like UserDict and UserList it acts as a wrapper around string objects. It is used when someone wants to create their own strings with some modified or additional functionality. </p>
+<p><strong>Syntax:</strong></p>
+<p>class collections.UserString(seq)</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Python3</li>
+</ul>
+<h2 id="python3-15">Python3</h2>
+<p><code>from</code> <code>collections</code> <code>import</code> <code>UserString</code></p>
+<p><code>class</code> <code>Mystring(UserString):</code></p>
+<p><code>def</code> <code>append(``self``, s):</code></p>
+<p><code>self``.data</code> <code>+``=</code> <code>s</code></p>
+<p><code>def</code> <code>remove(``self``, s):</code></p>
+<p><code>self``.data</code> <code>=</code> <code>self``.data.replace(s, "")</code></p>
+<p><code>s1</code> <code>=</code> <code>Mystring(``"Geeks"``)</code></p>
+<p><code>print``(``"Original String:"``, s1.data)</code></p>
+<p><code>s1.append(``"s"``)</code></p>
+<p><code>print``(``"String After Appending:"``, s1.data)</code></p>
+<p><code>s1.remove(``"e"``)</code></p>
+<p><code>print``(``"String after Removing:"``, s1.data)</code></p>
+<p><strong>Output:</strong></p>
+<p>Original String: Geeks String After Appending: Geekss String after Removing: Gkss</p>
+<p><strong>Note:</strong> For more information, refer <a href="https://www.geeksforgeeks.org/collections-userstring-in-python/">UserString in Python</a></p>
+<p> Attention geek! Strengthen your foundations with the <a href="https://practice.geeksforgeeks.org/courses/Python-Foundation?utm_source=geeksforgeeks&amp;utm_medium=article&amp;utm_campaign=GFG_Article_Bottom_Python_Foundation"><strong>Python Programming Foundation</strong></a> Course and learn the basics.  </p>
+<p>To begin with, your interview preparations Enhance your Data Structures concepts with the <a href="https://practice.geeksforgeeks.org/courses/Data-Structures-With-Python?utm_source=geeksforgeeks&amp;utm_medium=article&amp;utm_campaign=GFG_Article_Bottom_Python_DS"><strong>Python DS</strong></a> Course. And to begin with your Machine Learning Journey, join the <strong><a href="https://practice.geeksforgeeks.org/courses/machine-learning?utm_source=geeksforgeeks&amp;utm_medium=article&amp;utm_campaign=GFG_Article_Bottom_Python_ML">Machine Learning – Basic Level Course</a></strong></p>
+<p><a href="https://www.geeksforgeeks.org/python-collections-module/">Source</a></p>
+</body>
+</html>

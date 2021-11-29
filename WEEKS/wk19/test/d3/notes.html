@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>notes</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1
+      id="objective-01---describe-the-properties-of-a-binary-tree-and-the-properties-of-a-perfect-tree"
+    >
+      Objective 01 - Describe the properties of a binary tree and the properties
+      of a “perfect” tree
+    </h1>
+    <h2 id="overview">Overview</h2>
+    <p>
+      There are lots of different types of tree data structures. A binary tree
+      is a specific type of tree. It is called a binary tree because each node
+      in the tree can only have a maximum of two child nodes. It is common for a
+      node’s children to be called
+      either <code>left</code> or <code>right</code>. Here is an example of a
+      what a class for a binary tree node might look like:
+    </p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> BinaryTreeNode:</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="va">self</span>.value <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="va">self</span>.left <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-5" title="5">        <span class="va">self</span>.right <span class="op">=</span> <span class="va">None</span></a></code></pre>
+    </div>
+    <h2 id="follow-along">Follow Along</h2>
+    <p>
+      With this simple class, we can now build up a structure that could be
+      visualized like so:
+      <img
+        src="https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.png"
+        alt="https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.png"
+      />
+    </p>
+    <h3 id="perfect-trees">“Perfect” Trees</h3>
+    <p>
+      A “perfect” tree has all of its levels full. This means that there are not
+      any missing nodes in each level. “Perfect” trees have specific properties.
+      First, the quantity of each level’s nodes doubles as you go down.
+      <img
+        src="https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.png"
+        alt="https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.png"
+      />
+      Second, the quantity of the last level’s nodes is the same as the quantity
+      of all the other nodes plus one. These properties are useful for
+      understanding how to calculate the <em>height</em> of a tree. The height
+      of a tree is the number of levels that it contains. Based on the
+      properties outlined above, we can deduce that we can calculate the tree’s
+      height with the following formula:
+      <img
+        src="https://i.upmath.me/svg/log_2(n%2B1)%20%3D%20h"
+        alt="log_2(n+1) = h"
+      />
+      In the formula above, <code>n</code> is the total number of nodes. If you
+      know the tree’s height and want to calculate the total number of nodes,
+      you can do so with the following formula:
+      <img
+        src="https://i.upmath.me/svg/n%20%3D%202%5Eh%20-%201"
+        alt="n = 2^h - 1"
+      />
+      We can represent the relationship between a perfect binary tree’s total
+      number of nodes and its height because of the properties outlined above.
+      Challenge
+    </p>
+    <hr />
+    <ol type="1">
+      <li>
+        Calculate how many levels a perfect binary tree has given that the total
+        number of nodes is 127.
+      </li>
+      <li>
+        Calculate the total number of nodes on a perfect binary tree, given that
+        the tree’s height is 8. Additional Resources
+      </li>
+    </ol>
+    <hr />
+    <ul>
+      <li>
+        <a href="https://en.wikipedia.org/wiki/Binary_tree"
+          >https://en.wikipedia.org/wiki/Binary_tree (Links to an external
+          site.)</a
+        >
+      </li>
+      <li>
+        <a href="https://www.geeksforgeeks.org/binary-tree-data-structure/"
+          >https://www.geeksforgeeks.org/binary-tree-data-structure/ (Links to
+          an external site.)</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <hr />
+    <h1
+      id="objective-02---recall-the-time-and-space-complexity-the-strengths-and-weaknesses-and-the-common-uses-of-a-binary-search-tree"
+    >
+      Objective 02 - Recall the time and space complexity, the strengths and
+      weaknesses, and the common uses of a binary search tree
+    </h1>
+    <h2 id="overview-1">Overview</h2>
+    <p>
+      Just like a binary tree is a specific type of tree, a binary search tree
+      (BST) is a specific type of binary tree. A binary search tree is just like
+      a binary tree, except it follows specific rules about how it orders the
+      nodes contained within it. For each node in the BST, all the nodes to the
+      left are smaller, and all the nodes to the right of it are larger. We can
+      call a binary search tree balanced if the heights of its left and right
+      subtrees differ by at most one, and both of the subtrees are also
+      balanced.
+      <img
+        src="https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.png"
+        alt="https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.png"
+      />
+      Follow Along
+    </p>
+    <hr />
+    <h3 id="time-and-space-complexity">Time and Space Complexity</h3>
+    <h4 id="lookup">Lookup</h4>
+    <p>
+      If a binary search tree is balanced, then a lookup operation’s time
+      complexity is logarithmic (<code>O(log n)</code>). If the tree is
+      unbalanced, the time complexity can be linear (<code>O(n)</code>) in the
+      worst possible case (virtually a linear chain of nodes will have all the
+      nodes on one side of the tree).
+    </p>
+    <h4 id="insert">Insert</h4>
+    <p>
+      If a binary search tree is balanced, then an insertion operation’s time
+      complexity is logarithmic (<code>O(log n)</code>). If the tree is entirely
+      unbalanced, then the time complexity is linear (<code>O(n)</code>) in the
+      worst case.
+    </p>
+    <h4 id="delete">Delete</h4>
+    <p>
+      If a binary search tree is balanced, then a deletion operation’s time
+      complexity is logarithmic (<code>O(log n)</code>). If the tree is entirely
+      unbalanced, then the time complexity is linear (<code>O(n)</code>) in the
+      worst case.
+    </p>
+    <h4 id="space">Space</h4>
+    <p>
+      The space complexity of a binary search tree is linear
+      (<code>O(n)</code>). Each node in the binary search tree will take up
+      space in memory.
+    </p>
+    <h3 id="strengths">Strengths</h3>
+    <p>
+      One of the main strengths of a BST is that it is sorted by default. You
+      can pull out the data in order by using an in-order traversal. BSTs also
+      have efficient searches (<code>O(log n)</code>). They have the same
+      efficiency for their searches as a sorted array; however, BSTs are faster
+      with insertions and deletions. In the average-case, dictionaries have more
+      efficient operations than BSTs, but a BST has more efficient operations in
+      the worst-case.
+    </p>
+    <h3 id="weaknesses">Weaknesses</h3>
+    <p>
+      The primary weakness of a BST is that they only have efficient operations
+      if they are balanced. The more unbalanced they are, the worse the
+      efficiency of their operations gets. Another weakness is that they are
+      don’t have stellar efficiency in any one operation. They have good
+      efficiency for a lot of different operations. So, they are more of a
+      general-purpose data structure. If you want to learn more about trees that
+      automatically rearrange their nodes to remain balanced, look into <a
+        href="https://en.wikipedia.org/wiki/AVL_tree"
+        >AVL trees (Links to an external site.)</a
+      > or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree"
+        >Red-Black trees (Links to an external site.)</a
+      >
+      Challenge
+    </p>
+    <hr />
+    <ol type="1">
+      <li>
+        In your own words, explain why an unbalanced binary search tree’s
+        performance becomes degraded. Additional Resources
+      </li>
+    </ol>
+    <hr />
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/binary-search-tree-data-structure/"
+          >https://www.geeksforgeeks.org/binary-search-tree-data-structure/ (Links
+          to an external site.)</a
+        >
+      </li>
+      <li>
+        <a href="https://en.wikipedia.org/wiki/Binary_search_tree"
+          >https://en.wikipedia.org/wiki/Binary_search_tree (Links to an
+          external site.)</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <h1
+      id="objective-03---construct-a-binary-search-tree-that-can-perform-basic-operations-with-a-logarithmic-time-complexity"
+    >
+      Objective 03 - Construct a binary search tree that can perform basic
+      operations with a logarithmic time complexity
+    </h1>
+    <h2 id="overview-2">Overview</h2>
+    <p>
+      To create a binary search tree, we need to define two different classes:
+      one for the nodes that will make up the binary search tree and another for
+      the tree itself. Follow Along
+    </p>
+    <hr />
+    <p>
+      Let’s start by creating a <code>BSTNode</code> class. An instance
+      of <code>BSTNode</code> should have a <code>value</code>,
+      a <code>right</code> node, and a <code>left</code> node.
+    </p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> BSTNode:</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb2-3" title="3">        <span class="va">self</span>.value <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb2-4" title="4">        <span class="va">self</span>.left <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-5" title="5">        <span class="va">self</span>.right <span class="op">=</span> <span class="va">None</span></a></code></pre>
+    </div>
+    <p>
+      Now that we have our basic <code>BSTNode</code> class defined with an
+      initialization method let’s define our <code>BST</code> class. This class
+      will have an initialization method and an <code>insert</code> method.
+    </p>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> BST:</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb3-3" title="3">        <span class="va">self</span>.root <span class="op">=</span> BSTNode(value)</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="kw">def</span> insert(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb3-5" title="5">        <span class="va">self</span>.root.insert(value)</a></code></pre>
+    </div>
+    <p>
+      Notice that our <code>BST</code> class expects
+      each <code>BSTNode</code> to have an <code>insert</code> method available
+      on an instance object. But, we haven’t yet added
+      an <code>insert</code> method on the <code>BSTNode</code> class. Let’s do
+      that now.
+    </p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> BSTNode:</a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb4-3" title="3">        <span class="va">self</span>.value <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb4-4" title="4">        <span class="va">self</span>.left <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-5" title="5">        <span class="va">self</span>.right <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="kw">def</span> insert(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb4-7" title="7">        <span class="cf">if</span> value <span class="op">&lt;</span> <span class="va">self</span>.value:</a>
+<a class="sourceLine" id="cb4-8" title="8">            <span class="cf">if</span> <span class="va">self</span>.left <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb4-9" title="9">                <span class="va">self</span>.left <span class="op">=</span> BSTNode(value)</a>
+<a class="sourceLine" id="cb4-10" title="10">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-11" title="11">                <span class="va">self</span>.left.insert(value)</a>
+<a class="sourceLine" id="cb4-12" title="12">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-13" title="13">            <span class="cf">if</span> <span class="va">self</span>.right <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb4-14" title="14">                <span class="va">self</span>.right <span class="op">=</span> BSTNode(value)</a>
+<a class="sourceLine" id="cb4-15" title="15">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-16" title="16">                <span class="va">self</span>.right.insert(value)</a></code></pre>
+    </div>
+    <p>
+      Now that we can insert nodes into our binary search tree let’s define
+      a <code>search</code> method that can lookup values in our binary search
+      tree.
+    </p>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">class</span> BST:</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb5-3" title="3">        <span class="va">self</span>.root <span class="op">=</span> BSTNode(value)</a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="kw">def</span> insert(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb5-5" title="5">        <span class="va">self</span>.root.insert(value)</a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="kw">def</span> search(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="va">self</span>.root.search(value)</a></code></pre>
+    </div>
+    <p>
+      Our <code>BST</code> class expects there to be
+      a <code>search</code> method available on
+      the <code>BSTNode</code> instance stored at the root. Let’s go ahead and
+      define that now.
+    </p>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">class</span> BSTNode:</a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="va">self</span>.value <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb6-4" title="4">        <span class="va">self</span>.left <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-5" title="5">        <span class="va">self</span>.right <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="kw">def</span> insert(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb6-7" title="7">        <span class="cf">if</span> value <span class="op">&lt;</span> <span class="va">self</span>.value:</a>
+<a class="sourceLine" id="cb6-8" title="8">            <span class="cf">if</span> <span class="va">self</span>.left <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb6-9" title="9">                <span class="va">self</span>.left <span class="op">=</span> BSTNode(value)</a>
+<a class="sourceLine" id="cb6-10" title="10">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-11" title="11">                <span class="va">self</span>.left.insert(value)</a>
+<a class="sourceLine" id="cb6-12" title="12">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-13" title="13">            <span class="cf">if</span> <span class="va">self</span>.right <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb6-14" title="14">                <span class="va">self</span>.right <span class="op">=</span> BSTNode(value)</a>
+<a class="sourceLine" id="cb6-15" title="15">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-16" title="16">                <span class="va">self</span>.right.insert(value)</a>
+<a class="sourceLine" id="cb6-17" title="17">    <span class="kw">def</span> search(<span class="va">self</span>, target):</a>
+<a class="sourceLine" id="cb6-18" title="18">        <span class="cf">if</span> <span class="va">self</span>.value <span class="op">==</span> target:</a>
+<a class="sourceLine" id="cb6-19" title="19">            <span class="cf">return</span> <span class="va">self</span></a>
+<a class="sourceLine" id="cb6-20" title="20">        <span class="cf">elif</span> target <span class="op">&lt;</span> <span class="va">self</span>.value:</a>
+<a class="sourceLine" id="cb6-21" title="21">            <span class="cf">if</span> <span class="va">self</span>.left <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb6-22" title="22">                <span class="cf">return</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb6-23" title="23">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-24" title="24">                <span class="cf">return</span> <span class="va">self</span>.left.search(target)</a>
+<a class="sourceLine" id="cb6-25" title="25">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-26" title="26">            <span class="cf">if</span> <span class="va">self</span>.right <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb6-27" title="27">                <span class="cf">return</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb6-28" title="28">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-29" title="29">                <span class="cf">return</span> <span class="va">self</span>.right.search(target)</a></code></pre>
+    </div>
+    <h2 id="challenge">Challenge</h2>
+    <p>
+      To implement a <code>delete</code> operation on
+      our <code>BST</code> and <code>BSTNode</code> classes, we must consider
+      three cases:
+    </p>
+    <ol type="1">
+      <li>
+        If the <code>BSTNode</code> to be deleted is a leaf (has no children),
+        we can remove that node from the tree.
+      </li>
+      <li>
+        If the <code>BSTNode</code> to be deleted has only one child, we copy
+        the child node to be deleted and delete it.
+      </li>
+      <li>
+        If the <code>BSTNode</code> to be deleted has two children, we have to
+        find the “in-order successor”. The “in-order successor” is the next
+        highest value, the node that has the minimum value in the right subtree.
+        Given the above information, can you write pseudocode for a method that
+        can find the <em>minimum value</em> of all the nodes within a tree or
+        subtree? Additional Resources
+      </li>
+    </ol>
+    <hr />
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/"
+          >https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/ (Links
+          to an external site.)</a
+        >
+      </li>
+      <li>
+        <a href="https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/"
+          >https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/ (Links
+          to an external site.)</a
+        >
+      </li>
+    </ul>
+  </body>
+</html>

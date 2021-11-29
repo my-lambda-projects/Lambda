@@ -1,4 +1,3 @@
-
 [Hackernoon Article](https://hackernoon.com/the-top-10-object-oriented-design-interview-questions-developers-should-know-c7fc2e13ce39)
 
 ## Object Oriented Design Questions
@@ -26,7 +25,6 @@ Now, identify all the objects that will play a role in your solution. For exampl
 ## Identify Operations supported by Objects
 
 Work out all the behaviors you’d expect each object that you identified in the previous step to have. For example, a car should be able to move, park in a given spot, and hold a license plate. A parking spot should be able to accommodate a two-wheeled vehicle or a four-wheeled vehicle — and so on.
-
 
 ## Identify Interactions between Objects
 

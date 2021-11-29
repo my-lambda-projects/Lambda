@@ -1,0 +1,646 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>COVID-19</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d6c777ae-e784-47f6-910d-da97aa2eb701" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1545424920-b978eefcde48?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 33.720000000000006%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">✔️</span></div><h1 class="page-title">COVID-19</h1></header><div class="page-body"><p id="a81e4c6f-d033-4aab-b30d-70fe9137921b" class="">
+</p><p id="76ee29ee-bbe7-41ff-ade2-3c349a7eb358" class="">This page within the Learner Guide will be the source of truth for all things related to Lambda School and the Learner experience regarding COVID-19. This page will contain any updates related to schedules, meetups, and resources. Announcements will be made via the #announcements channel that will point back to this page with any changes that impact the entire student community.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c93d870d-dcb8-4670-baf7-5b06c149584d"><div style="font-size:1.5em"><span class="icon">❤️</span></div><div style="width:100%">This virus is impacting everyone. From instructors, staff, TLs/SLs, and Learners. We understand that this virus will impact everyone differently - both physically, mentally, and emotionally. There are members of our community who may face financial difficulties due to job loss, needing to care for children and other family members. Additionally, there are members of our community that they or their family members may be immunocompromised. While we cannot provide financial support, we will do everything we can to help support our community academically.</div></figure><p id="5322332a-f8bb-4255-9a1d-516beed7e7d1" class="">There is a lot of conflicting information and opinions out there. One of the most important things throughout this time is to be kind to yourself and others. We are all in different places physically and emotionally when it comes to COVID-19. Some may be stockpiling food and other goods, while others may be wondering why people are reacting in ways they view as extreme. We don&#x27;t know each others&#x27; stories. We don&#x27;t know if they or their loved ones have compromised immune systems and we don&#x27;t know their familial or financial situation. Whether or not you feel like individuals need to be concerned about this virus or not, it is important to be professional, kind, and respectful. </p><p id="80877a0e-c932-4345-89a7-feded8a1b706" class="">We will be relying on authoritative sources for recommendations, updates, and resources. Two of the main sources we will be utilizing are: the Center for Disease Control (CDC), and the World Health Organization (WHO).</p><h2 id="83c70896-56b0-4a05-9b81-58471ccaaa44" class="">Lambda School Updates:</h2><h3 id="45d4d6dd-af52-463f-a51d-ee8bc96d8921" class="">March 17, 2020:</h3><ul id="27081e15-729a-4664-a29e-3d70d9418326" class="bulleted-list"><li style="list-style-type:disc">At this time we are on a normal Lambda School schedule, classes will operate as scheduled. In person meetups have been cancelled until further notice (at least for the month of March - see announcement on Tuesday March 11, 2020). <ul id="dd8ad391-fce3-40b3-8176-3e8bf58dc9ec" class="bulleted-list"><li style="list-style-type:circle">Learners whose coursework is impacted due to illness should contact /frontdesk to discuss options</li></ul><ul id="c1ebb5d9-6267-4473-8717-6670d76a9600" class="bulleted-list"><li style="list-style-type:circle">Learners with young children who are home from school may turn their camera off during lecture and guided projects as needed. We encourage you to have cameras on, but until further notice, those with children at home may choose to have cameras off. </li></ul><ul id="db553784-1613-473f-8f4a-f46c907a1493" class="bulleted-list"><li style="list-style-type:circle">The one hiatus policy will be suspended for learners experiencing illness - if you need to make a request based on COVID-19, please submit a /frontdesk ticket and choose COVID-19 from the dropdown menu </li></ul><ul id="db6d72b5-c73f-4b44-bf8b-a3fe80d28412" class="bulleted-list"><li style="list-style-type:circle">We understand that your home dynamics may have changed and life happens. For right now, if you have to step away from live lecture, that is ok - we encourage you to do what you can to stay with the normal schedule, but understand if you need to rewatch the recording. We expect that daily and sprint modules are turned in on time, but get it if you need to watch the recording for a day or two. </li></ul></li></ul><h3 id="957dfbe6-dd5c-43c7-b649-20214b4ae63b" class="">March 20, 2020:</h3><ul id="4467f829-af8a-471a-83ac-11c6d4afcee1" class="toggle"><li><details open=""><summary>Announcement: </summary><p id="6aa7036a-d031-4d2b-94f2-487193022f01" class="">@channel Before reacting, please read this entire message as we have accounted for those that need the time away and those who want the structure of school.</p><p id="4407cc95-7a49-43d1-a75c-207e2be2ffc8" class="">As we stated in a previous announcement, we are constantly watching the status of COVID-19 around the world, thinking about you, and how we can best support each other during this time. With that in mind, we have decided to give our US- and EU-based students a much-needed and well-deserved break during the week of March 30-April 6, therefore, we will be <em>cancelling Build Weeks and the corresponding Labs sprint</em> for this unit for both full-time (3/30 - 4/3) and part-time students (3/23 - 4/3).</p><p id="beae50e3-c3b1-4f45-802a-992fa3156ddd" class="">If you’re feeling burned out, we encourage you to take this week to rest. If you would like to continue studying, we will have optional learning activities available, which I will explain below.</p><p id="ba447cbb-6b20-47fe-b11e-d6d3dff81a9f" class=""><strong>Regardless of what you choose to do from the below options, please keep an eye on the #announcements channel as we will continue to update students (information will also live in the </strong><a href=""><strong>Student Guide COVID-19</strong></a><strong> page)</strong></p><p id="48526c80-9caf-425d-ae1c-8d6af072c619" class="">You are not required to participate in any of the following activities – they are all optional and will not affect your progression at Lambda School. If you do not have the desire to do anything Lambda-related during this week, that is ok – please be well and take this time to rest. For those who want to do something, you may participate in the way that works best for you without any obligation. Please know that by not participating, you are not falling behind. You may also decide to participate in a project and then change your mind at any point and take the rest of the week off – we simply ask that you communicate any changes with your TL or a staff member.</p><ul id="fb34b2d9-29de-41e0-ae34-92c7606090ca" class="bulleted-list"><li style="list-style-type:disc">For PT students who are not in Build Weeks the week of 3/30, there will not be a Build Week starting April 20th; instead you will progress to the next unit based on mastery of the content.</li></ul><p id="847662e4-1897-4401-a2c3-4fb339af9f94" class=""><strong>For those who want to continue and/or participate</strong> in some structured activities here is a list of what we will be offering:</p><ul id="afd9096b-834a-442a-9efd-84db47c978c3" class="bulleted-list"><li style="list-style-type:disc">Optional “Look for the Helpers” (<a href="https://www.msn.com/en-us/sports/more-sports/fred-rogers-look-for-the-helpers/vi-BB11jf3P">see here for the inspiration</a>) themed projects during the week of March 30th (available to full-time and part-time students). More information will be provided next week in the #announcements channel.</li></ul><ul id="8a08ec74-5b48-42ab-bd8a-48f95f375b33" class="bulleted-list"><li style="list-style-type:disc">Additional support hours for both technical skills and community-building (Schedule will be posted in the #announcements channel as well as in the <a href="">COVID-19 Student Guide page</a>). These additional hours will be hosted by Lambda staff and instructors, and will be a fun way to get to know more faces at Lambda while receiving technical and non-technical support.</li></ul><ul id="980ebf59-db38-43cf-9edf-880cf8ab334c" class="bulleted-list"><li style="list-style-type:disc">Career Coaches will be available as usual through /frontdesk, office hours, parallel play, and round tables! Use this time to get a leg up on the job search and/or job search prep, and <a href="https://lambdaschool.com/the-commons/how-to-navigate-your-job-search-during-the-coronavirus-pandemic">click here for tips for job hunting during the pandemic</a>.</li></ul><ul id="c26d35c2-c0a2-464d-8e33-5b5e4fa103dd" class="bulleted-list"><li style="list-style-type:disc">For units with non-XFN BW projects, your instructors will coordinate with you on optional support for still completing related material.</li></ul><p id="394fefc1-4340-40a6-bfc3-56fa4f1f761d" class=""><strong>Mastery based progression assessment </strong>is still an important part of Lambda School. Build Weeks and Labs play a large role in individual assessment. We will still require students to pass all Sprint Challenges and Labs team requirements to determine if you are ready to progress to the next unit. Considering the stress everyone has been under, we will be providing the option to voluntarily repeat your unit. If you feel flex is right for you, please reach out to your TL. If you’re in Build Weeks, please take the online auto-graded assessment, and review your own scores to determine if you feel like you need the additional time to master the content.</p><p id="f235b2df-4102-40dc-beea-cc19d432caee" class="">As always, please be kind to one another – we are all handling this pandemic differently and all feelings and range of emotions are valid. Take this time to connect with loved ones, reach out to tell folks that you appreciate them, and take good care of yourself. If you have questions, please refer to the <a href="">Student Guide COVID-19 page</a> and the FAQs for this announcement.</p></details></li></ul><ul id="07b924ce-28eb-4037-ad76-6e378f3b3f6c" class="toggle"><li><details open=""><summary>FAQs Related to the Announcement: </summary><ul id="d9aa0fef-20ea-4dd2-b8a0-6372fd470b36" class="toggle"><li><details open=""><summary>How does this impact Flex?</summary><ul id="6e4ff896-c61f-4552-b291-2a45fe2ee24f" class="bulleted-list"><li style="list-style-type:disc">Flex for this unit will be based on sprints 1-3.</li></ul><ul id="f166079b-556a-4cf5-bceb-e21e9e63b127" class="bulleted-list"><li style="list-style-type:disc">We encourage you to still attempt the unit assessment to help you know where you are at with content mastery. The links for the unit assessments will be shared in cohort channels late next week.</li></ul><ul id="daffa281-f09d-4bf0-bc1b-8ac5d219cdee" class="bulleted-list"><li style="list-style-type:disc">We will be providing the option to voluntarily repeat the unit. If you feel this is right for you, please reach out to your TL.</li></ul></details></li></ul><ul id="348a9023-f14f-4fb9-bb71-0b9a280f0983" class="toggle"><li><details open=""><summary>Will I be behind if I do not participate in the activities?</summary><ul id="eef4fcac-33bc-4504-9951-d57b3f74c858" class="bulleted-list"><li style="list-style-type:disc">No - this is truly optional. Some students need and are comforted by the structure of school. We are creating the spring break with the option for work or a true break so that students can do what is best for them.</li></ul></details></li></ul><ul id="965bdf8b-8df4-446f-9632-578151aa744b" class="toggle"><li><details open=""><summary>How will passing Labs be handled?</summary><ul id="3500fce4-8a5a-4532-8e0d-300dcb902618" class="bulleted-list"><li style="list-style-type:disc">Labs teams will have one fewer sprint than normal to complete their required Product Cycles. If you have concerns about your team meeting those requirements, have your team lead set up a meeting with your manager to discuss your team’s situation.</li></ul><ul id="7428a61e-20fa-488b-b83b-d486c863cb01" class="bulleted-list"><li style="list-style-type:disc">Labs Managers will make adjustments to scheduled events during this sprint to ensure you don’t miss out on any of the Labs experience.</li></ul></details></li></ul><ul id="22f6bc1b-dba5-418b-b6df-b3fa1c60b832" class="toggle"><li><details open=""><summary>What if I am a PT student that is not in Build Weeks right now?</summary><ul id="9d416c67-c0a9-44f9-86d4-78c8a7be2488" class="bulleted-list"><li style="list-style-type:disc">This will still be spring break for you as well – the curriculum will be adjusted and you will pick back up where you left off. We will be cancelling Build Weeks the sprint beginning April 20th.</li></ul></details></li></ul><ul id="b36fd66a-c11e-462d-9bab-0f5dc67fbc31" class="toggle"><li><details open=""><summary>Will I get to pick the project I work on?</summary><ul id="39627dec-917b-4b9d-baae-7578acf559ec" class="bulleted-list"><li style="list-style-type:disc">Yes. We will be posting a list of the project options next week and you can choose whatever interests you.</li></ul></details></li></ul><ul id="c332b8ab-37a1-490f-b66c-b6eefd2e0f05" class="toggle"><li><details open=""><summary>Will TLs be available?</summary><ul id="a2b5324b-27cb-4695-be36-8a21b5eb4e5c" class="bulleted-list"><li style="list-style-type:disc">Yes, but on a limited basis – TLs are students first, and we want to allow them to take a break if they need to. For TLs that choose to participate in scheduled activities, we will have scheduled support, social, and community hours available. Watch the #announcements for a schedule of events and opportunities.</li></ul></details></li></ul><ul id="5c71cbc6-34e2-48df-81f3-4994720d6327" class="toggle"><li><details open=""><summary>If I participate in a project, will it be during my normal Lambda hours?</summary><ul id="7b88a35a-3a4a-4680-ab34-aacf3aa85e13" class="bulleted-list"><li style="list-style-type:disc">Yes, we will have projects available during regular hours for both FT and PT.</li></ul></details></li></ul><ul id="2ed8b996-1ce8-4ebc-a2d2-150cb5dbf539" class="toggle"><li><details open=""><summary>Will staff and instructors be available?</summary><ul id="414354f0-9aa2-40a2-8606-c059d0c1198d" class="bulleted-list"><li style="list-style-type:disc">Yes – while there will not be the normal schedule for lecture and guided projects, staff and instructors will still be working and available</li></ul><ul id="6fbe68cb-8443-47c7-9702-c69041affe16" class="bulleted-list"><li style="list-style-type:disc">We will have a schedule of events and opportunities coming soon (see the #announcements channel and/or the <a href="">COVID-19 page</a> in the Student Guide)</li></ul></details></li></ul><ul id="1cd77708-5f3c-4cb3-97f1-7640e8f323fd" class="toggle"><li><details open=""><summary>What if I have interviews or endorsement checkpoints scheduled during this time?</summary><ul id="65dfce0b-678c-4698-afab-908a5cc35632" class="bulleted-list"><li style="list-style-type:disc">These will operate as normal. If you need to take a break, please reach out to the Lambda staff that you have been working with to reschedule.</li></ul><ul id="612d0067-f7cf-45bc-90ea-fedd563c0c8e" class="bulleted-list"><li style="list-style-type:disc">If you have a job interview already scheduled, please move forward with it! If you have questions - please reach out to the career coaching team via /frontdesk or during office hours</li></ul></details></li></ul><ul id="3b6de430-df9a-4824-a9db-a7ff91073492" class="toggle"><li><details open=""><summary>Will skipping Build Weeks have an impact on my education and ability to find a job?</summary><ul id="02d3b924-b291-4943-93d0-0c6c6bb18d65" class="bulleted-list"><li style="list-style-type:disc">No, this shouldn’t have a negative impact on your learning or ability to find a job.</li></ul></details></li></ul><ul id="267e46d7-a1f8-4d0e-9fde-4024087c77d2" class="toggle"><li><details open=""><summary>If Build Week can be missed this time, does that mean the content in Build Week is not that important to my learning journey more generally?</summary><ul id="7e15033f-854d-4b36-be81-d93dbc8ae408" class="bulleted-list"><li style="list-style-type:disc">Build Weeks is an important opportunity to demonstrate your mastery of the content you have learned, to develop teamwork skills, and build things that you may use in your portfolio. However, new content is not taught during Build Week, so it’s the least disruptive time to institute a break. In normal circumstances, we would not make this choice, however it’s clear that many students need time away. We feel providing these options is the best alternative in an unprecedented time.</li></ul></details></li></ul><ul id="8aa7dcb1-301c-4f1c-9e3c-c3714c529d35" class="toggle"><li><details open=""><summary>If I choose to take the break during this time, do I need to stay involved in any way?</summary><ul id="9fd33374-b7db-4475-8353-ae2250a76875" class="bulleted-list"><li style="list-style-type:disc">Yes and no. Please take the break if you need it, we just ask that you look at Slack 1-2 times a day to stay up-to-date with announcements</li></ul></details></li></ul><ul id="c120bb23-11d0-4346-8e0e-3d6d9974b739" class="toggle"><li><details open=""><summary>If I choose to take a break during this time, will this week count as a hiatus? If I want to take a hiatus, what do I need to do?</summary><ul id="cb427cac-c06e-4ef3-8fdf-0bffddcbc626" class="bulleted-list"><li style="list-style-type:disc">This spring break will not count as a hiatus, this is a break available to all students.</li></ul><ul id="adc641d7-d38f-49c0-aa54-58419feb1f56" class="bulleted-list"><li style="list-style-type:disc">If you need to request a hiatus, please reach out as normal through /frontdesk (this is the official way to take a hiatus - please do not assume you are approved if you talk to your TL)</li></ul><ul id="ce1e31e8-3499-4d65-8314-dd7343eb4661" class="bulleted-list"><li style="list-style-type:disc">If you are taking a hiatus due to COVID-19, please choose “COVID-19” from the drop-down menu</li></ul></details></li></ul><ul id="0459d3fc-0bee-48ea-9bcf-dbf848b58397" class="toggle"><li><details open=""><summary>If I choose to participate in the optional activities, is this considered a hack-a-thon?</summary><ul id="49e7d1f1-1b54-42d6-90e8-712e48181392" class="bulleted-list"><li style="list-style-type:disc">No, this is not considered a hack-a-thon. Hack-a-thons are a lot of fun and spark some friendly competition. They have their place but that’s not what we’re looking for right now. We are taking a quote from Mr. Rogers, when times are hard we need to “look for the helpers.”</li></ul><ul id="be895cc9-f81b-4319-96f9-0a16f9c63789" class="bulleted-list"><li style="list-style-type:disc">Our goals and theme for these optional projects is to come together to be helpers during a time that is causing many stress, anxiety, fear, and heartache</li></ul></details></li></ul><ul id="5190a824-2b97-4e4a-93f7-2fffb32c3bec" class="toggle"><li><details open=""><summary>If I have scheduled meetings with my Mentor, should I attend or reschedule?</summary><ul id="77091909-4e53-472e-a726-2c4a9e0292c1" class="bulleted-list"><li style="list-style-type:disc">If you’re comfortable maintaining your meetings, please do so, but you are welcome to reschedule if needed.</li></ul></details></li></ul><ul id="9c87cd6e-084d-49ed-8b9d-86ad4c03b371" class="toggle"><li><details open=""><summary>Can I work on a personal project instead of participating in the options?</summary><ul id="b78af5d8-cf40-475d-8924-683dd9fb8c02" class="bulleted-list"><li style="list-style-type:disc">Absolutely! This time is meant for you to participate as much or as little as you need. If you want to use this week to work on a personal project, update your resume, or jump into some social time with other students - please do!</li></ul></details></li></ul><ul id="05da5655-1153-46de-bdac-700b847de547" class="toggle"><li><details open=""><summary>Will there be an additional break if the pandemic worsens?</summary><ul id="a3c2f9ad-6baf-4950-ae83-a72ace61833f" class="bulleted-list"><li style="list-style-type:disc">As promised in the <a href="https://lambdaschoolstudents.slack.com/archives/C4JUEB796/p1584470803296300">original announcement</a>, we will continue to monitor the situation and make the best decision for our staff, instructors, and students. At this time, there are no plans for an additional break. Please continue to watch the #announcements channel and the <a href="">COVID-19 Student Guide page</a> for any changes to the Lambda schedule.</li></ul></details></li></ul><ul id="d54c82e5-85c9-4fe0-b98b-34a3d8bc0758" class="toggle"><li><details open=""><summary>Can I change my mind about participating?</summary><ul id="3ebd5ef9-5e09-4745-a266-e7b9ba930b0e" class="bulleted-list"><li style="list-style-type:disc">Yes, if you need to step out of a project you’ve signed up for, please contact the staff sponsor for the project. If you would like to join a project mid-week, reach out to the staff member sponsoring the project. A list of projects and staff sponsors will be posted next week.</li></ul></details></li></ul><ul id="ae492f49-a7c1-42bd-9e9a-6d3513c8b156" class="toggle"><li><details open=""><summary>Will Lambda Staff be taking time off during the break?</summary><ul id="ba9484db-4ecc-4766-9615-962ef40457fa" class="bulleted-list"><li style="list-style-type:disc">Lambda School will still be open during the break. As with other jobs, staff and instructors who need time off can work with their supervisors.</li></ul></details></li></ul></details></li></ul><h2 id="ba9fb0be-d0ff-470b-8c31-bb28e0c0ef52" class="">Reaching out to Staff:</h2><ul id="ba0ec039-4606-4692-8753-aa8ecae16a01" class="bulleted-list"><li style="list-style-type:disc">To reach out to staff, please contact us via /frontdesk - this will allow us to properly track requests, questions, and concerns as well as direct your inquiry to the proper staff<ul id="7a1d221b-0ef4-424e-bac4-7c4951c4c426" class="bulleted-list"><li style="list-style-type:circle">Choose COVID-19 from the dropdown menu so that we can categorize and prioritize appropriately </li></ul><ul id="20a87dd8-84c0-4eee-8784-aec4d13129d8" class="bulleted-list"><li style="list-style-type:circle">Please know that we will respond to your ticket as soon as possible, but it may take longer than we like as we are experiencing a higher volume of tickets </li></ul></li></ul><p id="6f807dd8-0c6f-4b73-be51-005c53dcb6c1" class="">
+</p><h3 id="38ae6cd5-604b-4cff-8ffa-9c0fb65780ce" class="">April 9, 2020: </h3><ul id="1bbf1b77-7a03-4072-b46f-5bd63d49cd30" class="toggle"><li><details open=""><summary>Announcement</summary><p id="eff4ac1b-afec-4d55-a802-37835d8e7cdf" class="">As you know (and have experienced), the COVID-19 pandemic has impacted the entire world. It has shifted our sense of normal, put into perspective our relationships with others, and our financial situations. We want you to know we are continuously monitoring the situation and the changing dynamics in the market, and discussing how we can best support existing and potential new students in this uncertain time. We previously announced the one-week school break to relieve stress, ran a coding program to help you keep Lambda kids occupied, and this week, we wanted to give a quick heads up that we are temporarily reducing upfront tuition for incoming students as part of our COVID-19 response.</p><p id="29ac8bb8-32ef-4950-a183-9e60c1cc545c" class="">Lambda started in 2017 with a mission to unlock potential regardless of circumstance, and we work hard every day to achieve that mission. These uncertain times have shown us that our mission is needed now more than ever. We believe that for those that are ready to put in the hard work and dedication - we can help. We can provide the necessary education, job search assistance, and an opportunity to change the trajectory of students&#x27; lives in a short amount of time. In this time of uncertainty - there is hope.</p><p id="f22680d8-fc80-4ad1-ba6f-2aee42e376be" class="">For a short window of time, we will be offering a reduced tuition for students paying tuition upfront. The ISA option remains available at the same terms, cost, and protections as today. Some of you have asked about changes to your income or job status while in repayment due to hardship, there will be more information coming on that soon. Please remember that the ISA has natural protections built in if income drops below $50,000 or if someone loses their position.</p><p id="449d475e-5e6c-4081-b8f9-5388f407533d" class="">As always, please reach out to /frontdesk if you have any additional questions, and we are unable to answer individual financial questions here in thread due to privacy.</p></details></li></ul><ul id="508cb5fa-e37f-4823-9854-018d241a1808" class="toggle"><li><details open=""><summary>FAQs Related to the Announcement </summary><ul id="9896b535-a58b-4810-8b00-e3190cb448ef" class="toggle"><li><details open=""><summary>Does this temporary change in upfront tuition impact ISAs?</summary><ul id="716e3653-80ab-45d1-bcf7-a8ee940c2e84" class="bulleted-list"><li style="list-style-type:disc">No, there are no changes to existing or incoming ISAs.</li></ul></details></li></ul><ul id="dea4786d-be48-40f6-b7a0-48375ae34c1d" class="toggle"><li><details open=""><summary>If I previously paid tuition upfront and am a current student or alumni, does this impact me?</summary><ul id="67d98a4d-4c10-453e-982b-b8016911a4e5" class="bulleted-list"><li style="list-style-type:disc">No, this is only for incoming, new students who are prepaying tuition and starting a Lambda program from April 6, 2020 - June 30, 2020</li></ul></details></li></ul><ul id="42f65e38-660e-4cfb-9d75-f176e6131317" class="toggle"><li><details open=""><summary>To whom is the $15,000 tuition available?</summary><ul id="bf4ba4ae-63b4-43ac-88ad-18c0b0a77941" class="bulleted-list"><li style="list-style-type:disc">This is available to incoming students in qualifying locations who prepay and start a Lambda program from April 6, 2020 - June 30, 2020.</li></ul><ul id="2aa123bb-6e6c-4af6-a20a-31b3da53dcca" class="bulleted-list"><li style="list-style-type:disc">This is not available to currently enrolled students.</li></ul></details></li></ul><ul id="089acf17-79a4-439c-82bc-296e15bd585b" class="toggle"><li><details open=""><summary>Can I get my ISA adjusted?</summary><ul id="5a39158f-90b5-4d10-9a22-c05827e2b1ed" class="bulleted-list"><li style="list-style-type:disc">No, this is discount is not impacting ISAs, the ISA terms and conditions will stay the same for current and incoming students</li></ul></details></li></ul><ul id="7f2f8c30-7495-4850-8c9d-a1a3208a5850" class="toggle"><li><details open=""><summary>Is the Lambda School refund policy changing?</summary><ul id="8ba2a21d-2622-44d1-b85d-818fb6843cd6" class="bulleted-list"><li style="list-style-type:disc">No, for those who choose this option and everyone else, the refund policy will remain the same. You can view our refund policy in the <a href="ISA%20&amp;%20Finance%20Information%20ac0f3c1d93bd49738ab3cd430b631732/Cancellation,%20Refund,%20&amp;%20Tuition%20Proration%20Policy%20f%20070eb0b74d7c43dcb060fc1ad32a390e.html">Student Guide</a>.</li></ul></details></li></ul><ul id="99c39f77-70fe-4332-bb3a-01a653431df9" class="toggle"><li><details open=""><summary>Can I pay the upfront tuition amount sometime during my time at Lambda, and cancel my ISA?</summary><p id="d74611bb-bbfb-49f0-ad7f-7d41512944b9" class="">No, that is not an option that is available. The new amount is for new students only.</p></details></li></ul><ul id="f872fe92-5a09-4c82-8826-0ef5e2f8feaa" class="toggle"><li><details open=""><summary>Who can I go to for questions?</summary><ul id="0c74fe1c-87e1-40aa-9733-65c4a97af066" class="bulleted-list"><li style="list-style-type:disc">As always, please submit a /front desk ticket with any additional questions.</li></ul></details></li></ul><p id="d05616ca-59b5-4b6d-99a1-bb93dd33cdd2" class="">
+</p></details></li></ul><h2 id="677032c3-b4fb-46c3-81c1-3080ded30bf8" class="">April 21, 2020</h2><ul id="b1ef625e-bc6b-4ce7-9002-5ce168fe7597" class="toggle"><li><details open=""><summary>Announcement</summary><p id="a5d664da-976c-4b38-8744-5ced7b1ad61e" class="">@channel Today Lambda CEO &amp; Co-Founder Austen Allred shared the following message to our Staff and in the spirit of transparency we are sharing his note with you.</p><p id="f884d9e6-03a3-4964-80cb-091cb354e1ad" class="">[<a href="https://lambdaschool.com/the-commons/a-note-from-our-ceo-company-update">Link to Post</a>]</p><p id="ceb8881f-c068-4b27-a99e-bc4f3443ec83" class="">We want to assure you that the changes to our staffing and operational structure will not negatively impact your student or educational experience; in fact, we hope these changes will ultimately lead to an even higher quality Lambda experience for students.</p><p id="d51f2aa5-c4e1-4ea3-bf1e-52078befb7ab" class="">We realize announcements like this can be initially unnerving especially in this time of uncertainty when we are all having different experiences regarding health, wellbeing, social interactions, and isolation. Now more than ever, it is important to be kind to yourself and others, to stay focused on your work, and to take advantage of the support resources that Lambda has available.</p><p id="0bb20812-b442-4f46-9888-5cb98b320acc" class="">If you have additional questions, please see the <a href="">Student Guide</a>.</p></details></li></ul><ul id="fdd9b339-c83a-4b88-b341-378c9b1153fb" class="toggle"><li><details open=""><summary>FAQs Related to the Announcement</summary><ul id="8acec0e7-6987-45f8-a402-34b545883f11" class="toggle"><li><details open=""><summary><strong>Should I be worried about the future of Lambda given I am only X months i to the program?</strong></summary><p id="4101d6ae-753e-4776-a64c-b3a34e7e1a09" class="">No. We’re as committed as ever to every student in the school. Classes will run as planned. This move is to help us focus on the things most directly linked to students like you getting great jobs, and set a stronger foundation for the future.</p></details></li></ul><ul id="08dee84b-82d4-4aab-bc80-63f600d63081" class="toggle"><li><details open=""><summary><strong>How will this impact my education - and job placement?</strong></summary><p id="29d5c5f9-1836-43dc-a0aa-161a001c8099" class="">The success of our students is what our school is built on. These layoffs will not impact your student education or the support you will receive on your job search.</p></details></li></ul><ul id="0a4dc1d7-c753-4f6f-9811-57fd4f290650" class="toggle"><li><details open=""><summary><strong>Who will be teaching my class, be my go to for X, Y, Z?</strong></summary><p id="fb45bcf5-170d-4322-83ba-b36d026fc6aa" class="">Two cohorts will have a different instructor to finish the remainder of their current unit. The new instructors are two of our longest tenured instructors at Lambda.</p><p id="88879c9b-4825-43a8-9f71-c739cb730b98" class="">A small number of students who had endorsement interviews scheduled for this week will have those interviews rescheduled for later in the week or early next.</p><p id="abf15baa-e731-4330-b776-89dad9fac062" class="">We are also making some adjustments to better and more efficiently support job seeking students in our part time programs. More details on the latter will be shared with those students by the end of the week.</p><p id="4bf8aeb3-4276-425c-8344-8ba605ae8e39" class="">As part of these changes we will be staffing <em>up</em> on our Student Success team, and we are hoping you’ll notice in the near future quicker and better service out of Front Desk and other support from the team.</p><p id="8282f3af-714a-41a6-b630-82e7b99e419a" class="">Otherwise, everything will continue as before.</p></details></li></ul><ul id="0a0f87a5-debb-437e-9e73-91f8b1294dd6" class="toggle"><li><details open=""><summary><strong>What does this mean for Lambda - will we still be here?</strong></summary><p id="60a8ec42-3ae1-4679-84ba-6a32afd552f1" class="">Yes, absolutely. These proactive measures were done to help further ensure Lambda’s long term ability to fully support and serve our students.</p></details></li></ul></details></li></ul><p id="3673f73f-8789-4371-93a3-1272fd1af4cc" class="">
+</p><h2 id="9def5ab6-872a-48de-9555-b8dabef3964e" class="">May 4, 2020</h2><ul id="50312d5f-0554-4a51-abb0-724c0ff27972" class="toggle"><li><details open=""><summary>Announcement</summary><p id="b2e1cd04-297a-488e-9c86-a3edce2be59a" class="">As COVID-19 continues to affect all of our daily lives, we want to give you an update on what Lambda is doing to best support existing and potential new students in this uncertain time. Some of the updates below are reminders from past announcements. In order to make this more digestible - the below list contains links to the Student Guide for those who want more information.</p><ol type="1" id="2d0a51d7-c1dd-419b-8682-5dccb6807b57" class="numbered-list" start="1"><li><strong>Remote roles are the norm now. </strong>Learn more about how to market your remote learning at Lambda in an application and interview with our Career Coaches. [<a href="https://www.notion.so/d14cf62f0b46465ab4771b97a1dc7cd4">More info</a>]</li></ol><ol type="1" id="7dd6fa46-88a3-488a-bd1f-4a218dd46e8d" class="numbered-list" start="2"><li><strong>There are questions regarding financial hardship.</strong> Some alumni have had questions regarding COVID-19 and financial hardship. Alumni should be on the lookout for an announcement specifically for them. [<a href="">More info</a>]</li></ol><ol type="1" id="43f01c6d-5443-46a8-a372-cd8c162b90e0" class="numbered-list" start="3"><li><strong>We have free mental health resources.</strong> Through the Modern Health app you can access coaching, therapy, and mental health resources for students and staff. [<a href="https://www.notion.so/966f35ffb6ba405a94b47dcfb9160e62">More info]</a></li></ol><ol type="1" id="80863603-4d62-4d49-8690-61a7b6008be2" class="numbered-list" start="4"><li><strong>We are offering reduced tuition for incoming students who pay upfront. </strong> [<a href="">More info</a>]</li></ol><p id="5b4516da-6ab0-4375-80b6-51db97d24d54" class="">Remember that the source of truth for all things Lambda and COVID-19 can be found in the Student Guide.</p><p id="6250b2e4-b2f7-49e2-acba-394709d2d6e4" class="">As always, please reach out to /frontdesk with any additional questions. Please take care of yourself and be kind to yourself and others!</p></details></li></ul><ul id="4eb1a794-0a48-4fa3-a728-f34df569f85c" class="toggle"><li><details open=""><summary>FAQ related to the Announcement </summary><ul id="95748588-ccf9-44c9-9c7a-9118933c4403" class="toggle"><li><details open=""><summary><strong>What options do I have if I experience financial hardship?</strong></summary><p id="ae9d7a2e-9a60-4f2f-b134-81e686c8d80a" class="">The Lambda School ISA has built-in protection for financial hardship. Should you lose your job or should your income drop below $4,166 per month, your payments will automatically be paused after you’ve reported the change. That said, we understand that unique and unforeseeable financial emergencies sometimes occur.</p><p id="5eb9c4b4-5384-48dc-b3bc-0eecdc74b9b2" class="">In this situation please contact your ISA program manager (Leif at <a href="mailto:support@leif.org">support@leif.org</a>) to discuss available options rather than letting your account go into default. While we cannot guarantee your situation will qualify for any changes or deferment, we want you to know that we want the best for you and your family, and will do what we can to help in times of extreme financial hardship.</p></details></li></ul><p id="4426882e-491d-45a8-8231-eacdb9efc32e" class="">
+</p></details></li></ul><h2 id="505fdee9-4589-4417-9ee8-4403c1036471" class="">Resources:</h2><ul id="eca9205b-c4f1-4fce-b234-565ee1f03408" class="toggle"><li><details open=""><summary>Prevention</summary><p id="de8399af-660a-4703-9a68-33f27ccdfd17" class="">Center for Disease Control - <a href="https://www.cdc.gov/coronavirus/2019-ncov/prepare/get-your-household-ready-for-COVID-19.html">Get Your Home Ready</a></p><p id="ecb96f41-a5c6-40cb-a5e0-64d2226ebdf3" class="">World Health Organization - <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">Advice for the Public</a></p><p id="2e952666-a205-404e-a058-998ba8929236" class="">Harvard Medical School - <a href="https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center#Prevention">Prevention</a></p><p id="fedc8369-f6a8-4b31-9232-3919e7861ce2" class="">European Centre for Disease Prevention and Control - P<a href="https://www.ecdc.europa.eu/en/all-topics-z/coronavirus/threats-and-outbreaks/covid-19/preparedness-and-response-covid-19">reparedness Documentation</a></p><p id="4598267e-0d43-4bac-8df1-5b6b76feab57" class="">United States Government - <a href="https://www.whitehouse.gov/wp-content/uploads/2020/03/03.16.20_coronavirus-guidance_8.5x11_315PM.pdf">15 Days to Slow the Spread</a></p></details></li></ul><ul id="c091bc58-c2ab-4112-97b9-3aa9145f569b" class="toggle"><li><details open=""><summary>Signs and Symptoms</summary><p id="04fd1d8c-950c-45cc-b9ab-fafd91be9a9d" class="">CDC - <a href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/share-facts.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fshare-facts.html">Key Facts</a></p><p id="c403b5f8-8072-4b3a-a6ec-46995235419a" class="">Mayo Clinic - <a href="https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963">Covid-19</a></p></details></li></ul><ul id="67721cc6-fa01-4867-9037-a12ef1b3c98f" class="toggle"><li><details open=""><summary>What to do if you are sick</summary><p id="e6ec4bb4-816b-4dae-899f-f6c5e2370268" class="">CDC - <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/index.html">If you are sick</a></p><p id="4ee1922d-6ea4-45ed-9f42-cc5f50878902" class="">Mayo Clinic - <a href="https://www.mayoclinic.org/diseases-conditions/coronavirus/diagnosis-treatment/drc-20479976">Treatment Recommendations</a></p></details></li></ul><ul id="7a58c72f-7b8c-443a-bb3f-c7d3575a297e" class="toggle"><li><details open=""><summary>At risk populations</summary><p id="29b4bc58-bde8-4fc8-933e-2e95a0240e2c" class="">CDC - <a href="https://www.cdc.gov/coronavirus/2019-ncov/specific-groups/high-risk-complications.html">People at Risk for Serious Illness</a></p></details></li></ul><ul id="8fdb4185-ae50-45d7-a062-66f5a47ec039" class="toggle"><li><details open=""><summary>Taking care of your mental and emotional health</summary><p id="42914359-1d3d-4a8a-8b11-f8a06b8971d5" class="">Modern Health - <a href="https://www.notion.so/966f35ffb6ba405a94b47dcfb9160e62">as a student, you have access to mental health services</a><div class="indented"><p id="37824b52-771e-4b2b-8211-a7711e3f5dfa" class="">Be sure to check in on their app - they have been scheduling community support session specifically focused on anxiety, isolation, loneliness, maintaining a healthy lifestyle, etc. </p><ul id="8888b578-e7a5-4f68-a3a7-67261953e749" class="toggle"><li><details open=""><summary>Schedule and links for upcoming webinars:</summary><p id="bb08a992-8cd2-4298-9d6f-989472708917" class=""><strong>Tuesday, March 17, 2pm - 3pm PT:</strong></p><p id="6db16b79-1bc6-438a-82bc-a08f885f571f" class="">Managing Isolation and Loneliness -</p><p id="57b485d1-0235-4e9c-bdf0-94a1f21843ff" class=""><a href="https://zoom.us/webinar/register/4715843812471/WN_0bakJ2yVSIG2p9wh8KcGpA">https://zoom.us/webinar/register/4715843812471/WN_0bakJ2yVSIG2p9wh8KcGpA</a></p><p id="0dab385a-c062-464f-bed1-1b7bb1adfdd4" class=""><strong>Wednesday, March 18, 10am - 11am PT:</strong></p><p id="d0e0a20d-fd3c-409e-9e54-018bf2f440c7" class="">Maintaining Healthy Lifestyles During Stressful Times -</p><p id="f59d7b51-3420-4d0b-abe9-d393306e36bc" class=""><a href="https://zoom.us/webinar/register/1115843813063/WN_YEecMi9vRKO0jpaoulyFqw">https://zoom.us/webinar/register/1115843813063/WN_YEecMi9vRKO0jpaoulyFqw</a></p><p id="24d75598-d6c7-43c6-847d-ade12beceeb5" class=""><strong>Thursday, March 19, 1pm - 2pm PT:</strong></p><p id="d6eb8b01-bf99-4843-8d4c-6614ae4c9cd0" class="">Financial Confidence in Challenging Times -</p><p id="f0a3d2e5-eef2-4368-81d3-17a893319ce2" class=""><a href="https://zoom.us/webinar/register/3615843813340/WN_KAneKrkWSK2AIUIpL-TtGw">https://zoom.us/webinar/register/3615843813340/WN_KAneKrkWSK2AIUIpL-TtGw</a></p><p id="ca91ea62-75d6-407e-9e1d-cf1206636ddf" class=""><strong>Friday, March 20, 2 - 3pm PT</strong></p><p id="3ef97164-54fa-45d7-a4e0-1a94160a5dc3" class="">: WFH Wellbeing -</p><p id="7ad93f3a-562c-4afb-b4ea-498915a856e9" class=""><a href="https://zoom.us/webinar/register/5515843813667/WN_ZY8ANbWUQTumcg7O3bnHH">https://zoom.us/webinar/register/5515843813667/WN_ZY8ANbWUQTumcg7O3bnHH</a></p><p id="28c2d103-8d26-4e62-8774-e09a7e34b169" class=""><strong>Monday, March 23, 9am - 10am PT</strong></p><p id="1d6764ea-4007-4cfd-8580-160d2a5feed9" class="">: Mindfulness Workshop -</p><p id="52ea0f3a-6414-41cd-ae4f-d35ddbbef713" class=""><a href="https://zoom.us/webinar/register/5115843910617/WN_RhJGBQvwSaKlteYviyQWVA">https://zoom.us/webinar/register/5115843910617/WN_RhJGBQvwSaKlteYviyQWVA</a></p></details></li></ul></div></p><p id="7397d878-a8b9-42e5-9501-c10b6baef98c" class="">Physical Activity<div class="indented"><p id="f9b0e8d9-3b27-45ba-b175-70d4227eda55" class="">Many apps and other resources are creating free trials or open/free classes - be sure to search places like YouTube for in-home workouts </p></div></p><p id="f21e111b-5d84-43d0-9006-f0a0cb562290" class="">Learn something new or explore something new!<div class="indented"><p id="9b27d3aa-ea83-464a-84db-eea39279c31b" class="">The Met will be streaming free operas! Other venues may follow as well - so see if there is something new that you can explore, learn, watch, try out!</p></div></p></details></li></ul><ul id="a375d694-781d-4050-9d26-f9f7fdb2ba8e" class="toggle"><li><details open=""><summary>Employment &amp; Food</summary><p id="e4b2461d-d713-4b0d-b037-88962f2f242c" class="">United States Department of Labor - <a href="https://www.dol.gov/newsroom/releases/eta/eta20200312-0">Guidance on Unemployment Insurance</a></p><p id="b4783e03-3d5f-40b7-8581-9023b77cdf45" class="">Public Broadcasting Service (PBS) - <a href="http://pbs.org/newshour/health/how-to-help-others-in-the-covid-19-crisis">How to help others </a></p><p id="0de1c47e-f662-4ee8-b676-ba58db0d8ea7" class="">Feeding America - <a href="https://www.feedingamerica.org/about-us/press-room/feeding-america-establishes-covid-19-response-fund-help-food-banks-during">Food Bank Information</a></p></details></li></ul><ul id="8f0af8a7-266b-4e1b-ae80-59aef57b4734" class="toggle"><li><details open=""><summary>Personal Contingency Options</summary><figure id="cc5be3c7-9e65-4204-9b22-2f078f2a315a"><div class="source"><a href="https://www.notion.so/81ff2de6857148778d103ae0eb6140ce">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/81ff2de6-8571-4877-8d10-3ae0eb6140ce/COVID19-Personal_Contingency_Plan.docx</a></div></figure></details></li></ul><p id="34376cb4-d175-40a5-85db-916273fa379e" class="">This list of resources is not exhaustive. Each town, city, county, and state in the US will have different support. The same goes for our European and African Learners. We hope this list gives you a good starting point. We encourage you to use your search engine to assist in finding local resources and opportunities near you. </p><p id="088a930a-ee0b-497f-a8f7-56180c33d391" class="">
+</p><p id="cde2502e-13e5-48bb-b54f-c79a8d8bcd0f" class="">
+</p><p id="2c892346-e182-4ebc-86b1-708bfabf913a" class="">
+</p><ul id="922f9c2f-d2f7-4843-896c-4a7178b4c76c" class="toggle"><li><details open=""><summary>Revision History</summary><p id="69a3dc2e-93ca-41bb-885d-481b5e1832f5" class="">March 17, 2020, shared with students March 17, 2020</p><p id="b96aa172-94ab-4ed6-b1b7-b3c5967d8a3a" class="">
+</p></details></li></ul><p id="878beab7-cbe7-4f88-a977-63867d12f3bd" class="">
+</p></div></article></body></html>

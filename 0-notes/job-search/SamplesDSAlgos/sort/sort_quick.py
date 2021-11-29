@@ -1,20 +1,21 @@
 # Divide and conquer
 
 # when writing a recursive algorithm
-    # 1. what's our base/terminating case(s)?
-    # 2. if we aren't in the base case, 
-        # how are moving towards the base case(s)?
+# 1. what's our base/terminating case(s)?
+# 2. if we aren't in the base case,
+# how are moving towards the base case(s)?
 
 # QUICK SORT
-    # choose pivot
-    # rearrange everything according to its relationship with pivot
-    # sort into 2 lists and resort until done
-    # works better when pivot is in middle or random
-    # recursive
-    # better with runtimes than many iterative solutions
+# choose pivot
+# rearrange everything according to its relationship with pivot
+# sort into 2 lists and resort until done
+# works better when pivot is in middle or random
+# recursive
+# better with runtimes than many iterative solutions
 
 # time complexity:  Best O(n log(n))   |   Avg O(n log(n))   |   Worst O(n^2)
 # space complexity:  O(log(n))
+
 
 def partition(data):
     # pick the first element in data as our pivot
@@ -32,6 +33,7 @@ def partition(data):
             right.append(x)
     # return sorted array
     return left, pivot, right
+
 
 def quicksort(data):
     data_length = len(data)
@@ -63,11 +65,12 @@ def ip_partition(data, start, end):
             i += 1
         # move to next item
         j += 1
-    
+
     data[start], data[i - 1] = data[i - 1], data[start]
 
     # return the index of the pivot
     return i - 1
+
 
 def ip_quicksort(data, start=0, end=None):
 
@@ -78,11 +81,12 @@ def ip_quicksort(data, start=0, end=None):
     # if len(data) == 0:
     if start >= end:
         return
-    
+
     # returns the index of the pivot AND
-        # partitions the data around the pivot
+    # partitions the data around the pivot
     index = ip_partition(data, start, end)
-    
+
+
 # qs call for everything to the left of the pivot
 ip_quicksort(data, start, index - 1)
 # qs call for everything to the right of the pivot

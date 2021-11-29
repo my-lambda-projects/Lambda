@@ -1,15 +1,15 @@
-
 # os.chdir("E:\\projects\\LambdaSchool\\m6\\63a1\\src\\iterative_sorting\")
 # exec(open("iterative_sorting.py").read())
 
 # BUBBLE SORT:
-    # loop through array and compare each index with index next to it
-    # if out of order, swap them
-    # loop over array until everything in place AND 
-        # nothing swapped during last iteration
+# loop through array and compare each index with index next to it
+# if out of order, swap them
+# loop over array until everything in place AND
+# nothing swapped during last iteration
 
 # time complexity:  Best O(n)   |   Avg O(n^2)   |   Worst O(n^2)
 # space complexity:  O(1)
+
 
 def bubble_sort(arr):
     # get number of items in array
@@ -23,13 +23,13 @@ def bubble_sort(arr):
         # loop y through 0 to one before end
         for y in range(0, next_to_last):
             # compare current and next items
-                # if current item larger than next, swap
-            if arr[y] > arr[y+1]:
+            # if current item larger than next, swap
+            if arr[y] > arr[y + 1]:
                 # swap current and next items
                 y_value = arr[y]
-                next_y_value = arr[y+1]
+                next_y_value = arr[y + 1]
                 arr[y] = next_y_value
-                arr[y+1] = y_value
+                arr[y + 1] = y_value
                 # set swapped to true
                 swapped = True
         # if no number was swapped that means array is sorted now, break the loop.

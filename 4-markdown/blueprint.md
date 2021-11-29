@@ -1,5 +1,6 @@
- # Lambda Week 1:            
-```    
+# Lambda Week 1:
+
+```
 .
 ├──Farm to Table_files
 ├──Quiz_Git_files

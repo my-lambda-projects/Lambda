@@ -15,10 +15,11 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        self.next = None 
-    
+        self.next = None
+
+
 def sum_lists(head1, head2):
-    
+
     current_head1 = head1
     current_head2 = head2
     x = ""
@@ -42,10 +43,10 @@ def sum_lists(head1, head2):
 
     for z in range(0, length):
         current_head3.data = string_total[z]
-        print(current_head3.data)        
-        if z+1 > length:
+        print(current_head3.data)
+        if z + 1 > length:
             current_head3.next = None
         else:
-            current_head3.next = string_total[z+1]
-    
+            current_head3.next = string_total[z + 1]
+
     return current_head3

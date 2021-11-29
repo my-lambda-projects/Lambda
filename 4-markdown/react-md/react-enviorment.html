@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>react-enviorment</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="react-enviorment">REACT ENVIORMENT</h1>
+    <p>
+      First thing we need to do is setup our development environment and hook up
+      React. Our end goal will be to get a basic message up on screen. Let’s
+      create a new directory and download the packages we need.
+    </p>
+    <pre class="text"><code>mkdir starwars_api
+cd starwars_api
+npm init -y
+npm install --save react react-dom redux react-redux redux-thunk
+npm install --save-dev babel-core babel-preset-es2015 babel-preset-react webpack@2.1.0-beta.27 file-loader babel-loader webpack-dev-server@2.1.0-beta.11 react-hot-loader@3.0.0-beta.6</code></pre>
+    <p>
+      Now let’s create our entrance file. Create a file at
+      <code>src/app.js</code> and put the following in it.
+    </p>
+    <pre class="text"><code>import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import App from &#39;./components/App&#39;;
+import { AppContainer } from &#39;react-hot-loader&#39;;
+
+require(&#39;./index.html&#39;);
+
+// Create app
+const container = document.querySelector(&#39;#app-container&#39;);
+
+// Render app
+ReactDOM.render(
+  &lt;AppContainer&gt;
+    &lt;App /&gt;
+  &lt;/AppContainer&gt;
+  , container
+);
+
+// Hot module reloading
+if (module.hot) {
+  module.hot.accept(&#39;./components/App&#39;, () =&gt; {
+    ReactDOM.render(
+      &lt;AppContainer&gt;
+        &lt;App /&gt;
+      &lt;/AppContainer&gt;
+      , container
+    );
+  });
+}</code></pre>
+    <p>
+      We are displaying a central <code>App</code> component. So let’s create
+      it! Create a file at <code>src/components/App.js</code> and put the
+      following in it.
+    </p>
+    <pre class="text"><code>import React from &#39;react&#39;;
+
+const App = () =&gt;
+  &lt;div className=&#39;container&#39;&gt;
+    &lt;div className=&#39;row&#39;&gt;
+      Hello, World!
+    &lt;/div&gt;
+  &lt;/div&gt;;
+
+export default App;</code></pre>
+    <p>
+      We also need to create our <code>index.html</code> file that we are
+      including in our <code>app.js</code> file. Create a file at
+      <code>src/index.html</code> and put the following in it.
+    </p>
+    <pre class="text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;React Star Wars&lt;/title&gt;
+
+  &lt;!-- Latest compiled and minified CSS --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;
+
+  &lt;!-- Optional theme --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css&quot; integrity=&quot;sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp&quot; crossorigin=&quot;anonymous&quot;&gt;
+
+  &lt;style&gt;
+    h1 {
+      font-size: 30px;
+      font-weight: 200;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 5px;
+    }
+
+    ul {
+      padding-left: 15px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;app-container&quot;&gt;&lt;/div&gt;
+  &lt;script src=&quot;app.bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p>
+      This is a basic HTML page. We are including Bootstrap and its basic theme
+      for some simple styles. We also are adding some styles in a
+      <code>style</code> tag to help with the sizing of some elements. In the
+      <code>body</code>, we are adding our container element and our main app
+      bundle.
+    </p>
+    <p>
+      Now that we have all that setup, let’s create a webpack config that we can
+      use to build our project. Create a file in the root of your project called
+      <code>webpack.config.js</code> and put the following in it.
+    </p>
+    <pre class="text"><code>const webpack = require(&#39;webpack&#39;);
+const path = require(&#39;path&#39;);
+
+module.exports = {
+  entry: [
+    &#39;react-hot-loader/patch&#39;,
+    &#39;./src/app.js&#39;,
+  ],
+  output: {
+    path: path.resolve(__dirname, &#39;./build&#39;),
+    filename: &#39;app.bundle.js&#39;,
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.html$/,
+        loader: &#39;file-loader?name=[name].[ext]&#39;,
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: &#39;babel-loader&#39;,
+      },
+    ],
+  },
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+  ],
+};</code></pre>
+    <p>
+      Here we are exporting our config object like normal. We point webpack to
+      start at our <code>app.js</code> file and tell everything to output to a
+      <code>build</code> directory. We run all HTML files though the file
+      loader. This essentially just moves the file to our
+      <code>build</code> directory. Also, we run our JS files through the babel
+      loader to make sure they are transpiled to code that most browsers these
+      days understand. Lastly, we are including a plugin that will give us
+      pretty output in the console.
+    </p>
+    <p>Let’s create a <code>.babelrc</code> file to configure babel.</p>
+    <pre class="text"><code>{
+  &quot;presets&quot;: [
+    [&quot;es2015&quot;, { &quot;modules&quot;: false }],
+    &quot;react&quot;
+  ],
+  &quot;plugins&quot;: [
+    &quot;react-hot-loader/babel&quot;
+  ]
+}</code></pre>
+    <p>
+      Last thing. Let’s create some npm scripts so that we don’t need to
+      remember the commands we need to run our application. Add the following
+      scripts to your <code>package.json</code> file in the
+      <code>scripts</code> section.
+    </p>
+  </body>
+</html>

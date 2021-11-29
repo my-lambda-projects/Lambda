@@ -19,7 +19,8 @@ const NavigationFooter = ({next, prev, location}) => {
         color: colors.white,
         paddingTop: 50,
         paddingBottom: 50,
-      }}>
+      }}
+    >
       <Container>
         <Flex
           type="ul"
@@ -36,7 +37,8 @@ const NavigationFooter = ({next, prev, location}) => {
             [media.between('largerSidebar', 'sidebarFixed', true)]: {
               paddingRight: 380,
             },
-          }}>
+          }}
+        >
           <Flex basis="50%" type="li">
             {prev && (
               <div>
@@ -44,7 +46,8 @@ const NavigationFooter = ({next, prev, location}) => {
                 <div
                   css={{
                     paddingTop: 10,
-                  }}>
+                  }}
+                >
                   <PrimaryLink location={location} to={`${prev.id}.html`}>
                     {prev.title}
                   </PrimaryLink>
@@ -59,13 +62,15 @@ const NavigationFooter = ({next, prev, location}) => {
               type="li"
               css={{
                 textAlign: 'right',
-              }}>
+              }}
+            >
               <div>
                 <SecondaryLabel>Next article</SecondaryLabel>
                 <div
                   css={{
                     paddingTop: 10,
-                  }}>
+                  }}
+                >
                   <PrimaryLink location={location} to={`${next.id}.html`}>
                     {next.title}
                   </PrimaryLink>
@@ -117,7 +122,8 @@ const PrimaryLink = ({children, to, location}) => {
           borderColor: colors.white,
         },
       }}
-      to={updatedUrl}>
+      to={updatedUrl}
+    >
       {children}
     </Link>
   );
@@ -128,7 +134,8 @@ const SecondaryLabel = ({children}) => (
     css={{
       color: colors.brand,
       ...fonts.small,
-    }}>
+    }}
+  >
     {children}
   </div>
 );

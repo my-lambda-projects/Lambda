@@ -35,7 +35,8 @@ export default function SidebarNote({id, title, children, expandedChildren}) {
       className={[
         'sidebar-note-list-item',
         isExpanded ? 'note-expanded' : '',
-      ].join(' ')}>
+      ].join(' ')}
+    >
       {children}
       <button
         className="sidebar-note-open"
@@ -57,7 +58,8 @@ export default function SidebarNote({id, title, children, expandedChildren}) {
               searchText: loc.searchText,
             }));
           });
-        }}>
+        }}
+      >
         Open note for preview
       </button>
       <button
@@ -65,7 +67,8 @@ export default function SidebarNote({id, title, children, expandedChildren}) {
         onClick={(e) => {
           e.stopPropagation();
           setIsExpanded(!isExpanded);
-        }}>
+        }}
+      >
         {isExpanded ? (
           <img
             src="chevron-down.svg"

@@ -13,11 +13,13 @@ npm install @material/react-radio
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-radio/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-radio/dist/radio.css';
 ```
@@ -31,7 +33,7 @@ import Radio, {NativeRadioControl} from '@material/react-radio';
 class MyApp extends React.Component {
   state = {petValue: null};
 
-  render() {    
+  render() {
     return (
       <div>
         <Radio label='Dog' key='dog'>
@@ -50,7 +52,7 @@ class MyApp extends React.Component {
             onChange={(e) => this.setState({petValue: e.target.value})}
           />
         </Radio>
-    </div>
+      </div>
     );
   }
 }
@@ -60,20 +62,20 @@ class MyApp extends React.Component {
 
 ## Radio Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the `.mdc-radio` element.
-wrapperClasses | String | Classes to be applied to the `.mdc-form-field` wrapper element.
-label | String | Label associated with radio input control.
+| Prop Name      | Type   | Description                                                     |
+| -------------- | ------ | --------------------------------------------------------------- |
+| className      | String | Classes to be applied to the `.mdc-radio` element.              |
+| wrapperClasses | String | Classes to be applied to the `.mdc-form-field` wrapper element. |
+| label          | String | Label associated with radio input control.                      |
 
 # NativeRadioControl Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the `.mdc-radio` element.
-checked | Boolean | Default `false`. When true will switch radio to the checked state.
-value | String | The associated value with the radio element.
-disabled | Boolean | Default `false`. When true will disable the radio element.
+| Prop Name | Type    | Description                                                        |
+| --------- | ------- | ------------------------------------------------------------------ |
+| className | String  | Classes to be applied to the `.mdc-radio` element.                 |
+| checked   | Boolean | Default `false`. When true will switch radio to the checked state. |
+| value     | String  | The associated value with the radio element.                       |
+| disabled  | Boolean | Default `false`. When true will disable the radio element.         |
 
 ## Sass Mixins
 

@@ -28,7 +28,8 @@ const ExternalFooterLink = ({children, href, target, rel}: Props) => (
     }}
     href={href}
     target={target}
-    rel={rel}>
+    rel={rel}
+  >
     {children}
     <ExternalLinkSvg
       cssProps={{

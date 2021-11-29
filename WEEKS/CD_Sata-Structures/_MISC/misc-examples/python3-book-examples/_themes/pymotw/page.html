@@ -1,0 +1,1 @@
+{%- extends "layout.html" %} {% block body %} {{ body }} {% endblock %}

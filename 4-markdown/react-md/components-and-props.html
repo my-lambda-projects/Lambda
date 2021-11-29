@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>components-and-props</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="components-and-props">Components And Props</h1>
+    <h2 id="components-and-props-1">Components and Props</h2>
+    <p>
+      Components let you split the UI into independent, reusable pieces, and
+      think about each piece in isolation. This page provides an introduction to
+      the idea of components. You can find a
+      <a href="https://reactjs.org/docs/react-component.html"
+        >detailed component API reference here</a
+      >.
+    </p>
+    <p>
+      Conceptually, components are like JavaScript functions. They accept
+      arbitrary inputs (called “props”) and return React elements describing
+      what should appear on the screen.
+    </p>
+    <h3 id="function-and-class-components">
+      Function and Class Components <a id="function-and-class-components"></a>
+    </h3>
+    <p>
+      The simplest way to define a component is to write a JavaScript function:
+    </p>
+    <pre class="text"><code>function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}</code></pre>
+    <p>
+      This function is a valid React component because it accepts a single
+      “props” (which stands for properties) object argument with data and
+      returns a React element. We call such components “function components”
+      because they are literally JavaScript functions.
+    </p>
+    <p>
+      You can also use an
+      <a
+        href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes"
+        >ES6 class</a
+      >
+      to define a component:
+    </p>
+    <pre class="text"><code>class Welcome extends React.Component {
+  render() {
+    return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+  }
+}</code></pre>
+    <p>The above two components are equivalent from React’s point of view.</p>
+    <p>
+      Function and Class components both have some additional features that we
+      will discuss in the
+      <a href="https://reactjs.org/docs/state-and-lifecycle.html"
+        >next sections</a
+      >.
+    </p>
+    <h3 id="rendering-a-component">
+      Rendering a Component <a id="rendering-a-component"></a>
+    </h3>
+    <p>
+      Previously, we only encountered React elements that represent DOM tags:
+    </p>
+    <pre class="text"><code>const element = &lt;div /&gt;;</code></pre>
+    <p>However, elements can also represent user-defined components:</p>
+    <pre
+      class="text"
+    ><code>const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</code></pre>
+    <p>
+      When React sees an element representing a user-defined component, it
+      passes JSX attributes and children to this component as a single object.
+      We call this object “props”.
+    </p>
+    <p>For example, this code renders “Hello, Sara” on the page:</p>
+    <pre
+      class="text"
+    ><code>function Welcome(props) {  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;ReactDOM.render(
+  element,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+    <p>
+      <a
+        href="https://reactjs.org/redirect-to-codepen/components-and-props/rendering-a-component"
+        ><strong>Try it on CodePen</strong></a
+      >
+    </p>
+    <p>Let’s recap what happens in this example:</p>
+    <ol type="1">
+      <li>
+        We call <code>ReactDOM.render()</code> with the
+        <code>&lt;Welcome name="Sara" /&gt;</code> element.
+      </li>
+      <li>
+        React calls the <code>Welcome</code> component with
+        <code>{name: 'Sara'}</code> as the props.
+      </li>
+      <li>
+        Our <code>Welcome</code> component returns a
+        <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code> element as the result.
+      </li>
+      <li>
+        React DOM efficiently updates the DOM to match
+        <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code>.
+      </li>
+    </ol>
+    <blockquote>
+      <p>
+        <strong>Note:</strong> Always start component names with a capital
+        letter.
+      </p>
+      <p>
+        React treats components starting with lowercase letters as DOM tags. For
+        example, <code>&lt;div /&gt;</code> represents an HTML div tag, but
+        <code>&lt;Welcome /&gt;</code> represents a component and requires
+        <code>Welcome</code> to be in scope.
+      </p>
+      <p>
+        To learn more about the reasoning behind this convention, please read
+        <a
+          href="https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized"
+          >JSX In Depth</a
+        >.
+      </p>
+    </blockquote>
+    <h3 id="composing-components">
+      Composing Components <a id="composing-components"></a>
+    </h3>
+    <p>
+      Components can refer to other components in their output. This lets us use
+      the same component abstraction for any level of detail. A button, a form,
+      a dialog, a screen: in React apps, all those are commonly expressed as
+      components.
+    </p>
+    <p>
+      For example, we can create an <code>App</code> component that renders
+      <code>Welcome</code> many times:
+    </p>
+    <pre class="text"><code>function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome name=&quot;Sara&quot; /&gt;      &lt;Welcome name=&quot;Cahal&quot; /&gt;      &lt;Welcome name=&quot;Edite&quot; /&gt;    &lt;/div&gt;
+  );
+}
+
+ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+    <p>
+      <a
+        href="https://reactjs.org/redirect-to-codepen/components-and-props/composing-components"
+        ><strong>Try it on CodePen</strong></a
+      >
+    </p>
+    <p>
+      Typically, new React apps have a single <code>App</code> component at the
+      very top. However, if you integrate React into an existing app, you might
+      start bottom-up with a small component like <code>Button</code> and
+      gradually work your way to the top of the view hierarchy.
+    </p>
+    <h3 id="extracting-components">
+      Extracting Components <a id="extracting-components"></a>
+    </h3>
+    <p>Don’t be afraid to split components into smaller components.</p>
+    <p>For example, consider this <code>Comment</code> component:</p>
+    <pre class="text"><code>function Comment(props) {
+  return (
+    &lt;div className=&quot;Comment&quot;&gt;
+      &lt;div className=&quot;UserInfo&quot;&gt;
+        &lt;img className=&quot;Avatar&quot;
+          src={props.author.avatarUrl}
+          alt={props.author.name}
+        /&gt;
+        &lt;div className=&quot;UserInfo-name&quot;&gt;
+          {props.author.name}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;Comment-text&quot;&gt;
+        {props.text}
+      &lt;/div&gt;
+      &lt;div className=&quot;Comment-date&quot;&gt;
+        {formatDate(props.date)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    <p>
+      <a
+        href="https://reactjs.org/redirect-to-codepen/components-and-props/extracting-components"
+        ><strong>Try it on CodePen</strong></a
+      >
+    </p>
+    <p>
+      It accepts <code>author</code> (an object), <code>text</code> (a string),
+      and <code>date</code> (a date) as props, and describes a comment on a
+      social media website.
+    </p>
+    <p>
+      This component can be tricky to change because of all the nesting, and it
+      is also hard to reuse individual parts of it. Let’s extract a few
+      components from it.
+    </p>
+    <p>First, we will extract <code>Avatar</code> :</p>
+    <pre class="text"><code>function Avatar(props) {
+  return (
+    &lt;img className=&quot;Avatar&quot;      src={props.user.avatarUrl}      alt={props.user.name}    /&gt;  );
+}</code></pre>
+    <p>
+      The <code>Avatar</code> doesn’t need to know that it is being rendered
+      inside a <code>Comment</code> . This is why we have given its prop a more
+      generic name: <code>user</code> rather than <code>author</code> .
+    </p>
+    <p>
+      We recommend naming props from the component’s own point of view rather
+      than the context in which it is being used.
+    </p>
+    <p>We can now simplify <code>Comment</code> a tiny bit:</p>
+    <pre class="text"><code>function Comment(props) {
+  return (
+    &lt;div className=&quot;Comment&quot;&gt;
+      &lt;div className=&quot;UserInfo&quot;&gt;
+        &lt;Avatar user={props.author} /&gt;        &lt;div className=&quot;UserInfo-name&quot;&gt;
+          {props.author.name}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;Comment-text&quot;&gt;
+        {props.text}
+      &lt;/div&gt;
+      &lt;div className=&quot;Comment-date&quot;&gt;
+        {formatDate(props.date)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    <p>
+      Next, we will extract a <code>UserInfo</code> component that renders an
+      <code>Avatar</code> next to the user’s name:
+    </p>
+    <pre class="text"><code>function UserInfo(props) {
+  return (
+    &lt;div className=&quot;UserInfo&quot;&gt;      &lt;Avatar user={props.user} /&gt;      &lt;div className=&quot;UserInfo-name&quot;&gt;        {props.user.name}      &lt;/div&gt;    &lt;/div&gt;  );
+}</code></pre>
+    <p>This lets us simplify <code>Comment</code> even further:</p>
+    <pre class="text"><code>function Comment(props) {
+  return (
+    &lt;div className=&quot;Comment&quot;&gt;
+      &lt;UserInfo user={props.author} /&gt;      &lt;div className=&quot;Comment-text&quot;&gt;
+        {props.text}
+      &lt;/div&gt;
+      &lt;div className=&quot;Comment-date&quot;&gt;
+        {formatDate(props.date)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    <p>
+      <a
+        href="https://reactjs.org/redirect-to-codepen/components-and-props/extracting-components-continued"
+        ><strong>Try it on CodePen</strong></a
+      >
+    </p>
+    <p>
+      Extracting components might seem like grunt work at first, but having a
+      palette of reusable components pays off in larger apps. A good rule of
+      thumb is that if a part of your UI is used several times (
+      <code>Button</code> , <code>Panel</code> , <code>Avatar</code> ), or is
+      complex enough on its own ( <code>App</code> , <code>FeedStory</code> ,
+      <code>Comment</code> ), it is a good candidate to be extracted to a
+      separate component.
+    </p>
+    <h3 id="props-are-read-only">
+      Props are Read-Only <a id="props-are-read-only"></a>
+    </h3>
+    <p>
+      Whether you declare a component
+      <a
+        href="https://reactjs.org/docs/components-and-props.html#function-and-class-components"
+        >as a function or a class</a
+      >, it must never modify its own props. Consider this
+      <code>sum</code> function:
+    </p>
+    <pre class="text"><code>function sum(a, b) {
+  return a + b;
+}</code></pre>
+    <p>
+      Such functions are called
+      <a href="https://en.wikipedia.org/wiki/Pure_function">“pure”</a> because
+      they do not attempt to change their inputs, and always return the same
+      result for the same inputs.
+    </p>
+    <p>
+      In contrast, this function is impure because it changes its own input:
+    </p>
+    <pre class="text"><code>function withdraw(account, amount) {
+  account.total -= amount;
+}</code></pre>
+    <p>React is pretty flexible but it has a single strict rule:</p>
+    <p>
+      <strong
+        >All React components must act like pure functions with respect to their
+        props.</strong
+      >
+    </p>
+    <p>
+      Of course, application UIs are dynamic and change over time. In the
+      <a href="https://reactjs.org/docs/state-and-lifecycle.html"
+        >next section</a
+      >, we will introduce a new concept of “state”. State allows React
+      components to change their output over time in response to user actions,
+      network responses, and anything else, without violating this rule.
+    </p>
+  </body>
+</html>

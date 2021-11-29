@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>big-o-notation</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="big-o-notation">Big O Notation</h1>
+    <h2 id="common-data-structure-operations">
+      Common Data Structure Operations <a id="data-structures"></a>
+    </h2>
+    <table style="width: 100%">
+      <colgroup>
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th style="text-align: left">Data Structure</th>
+          <th style="text-align: left">Time Complexity</th>
+          <th style="text-align: left">Space Complexity</th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Average</td>
+          <td style="text-align: left">Worst</td>
+          <td style="text-align: left">Worst</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Access</td>
+          <td style="text-align: left">Search</td>
+          <td style="text-align: left">Insertion</td>
+          <td style="text-align: left">Deletion</td>
+          <td style="text-align: left">Access</td>
+          <td style="text-align: left">Search</td>
+          <td style="text-align: left">Insertion</td>
+          <td style="text-align: left">Deletion</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Array_data_structure"
+              >Array</a
+            >
+          </td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a
+              href="http://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29"
+              >Stack</a
+            >
+          </td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a
+              href="http://en.wikipedia.org/wiki/Queue_%28abstract_data_type%29"
+              >Queue</a
+            >
+          </td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a
+              href="http://en.wikipedia.org/wiki/Singly_linked_list#Singly_linked_lists"
+              >Singly-Linked List</a
+            >
+          </td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Doubly_linked_list"
+              >Doubly-Linked List</a
+            >
+          </td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(n)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Skip_list">Skip List</a>
+          </td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n log(n))</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Hash_table">Hash Table</a>
+          </td>
+          <td style="text-align: left"><code>N/A</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>Θ(1)</code></td>
+          <td style="text-align: left"><code>N/A</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Binary_search_tree"
+              >Binary Search Tree</a
+            >
+          </td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://en.wikipedia.org/wiki/Cartesian_tree"
+              >Cartesian Tree</a
+            >
+          </td>
+          <td style="text-align: left"><code>N/A</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>N/A</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/B_tree">B-Tree</a>
+          </td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Red-black_tree"
+              >Red-Black Tree</a
+            >
+          </td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="https://en.wikipedia.org/wiki/Splay_tree">Splay Tree</a>
+          </td>
+          <td style="text-align: left"><code>N/A</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>N/A</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL Tree</a>
+          </td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/K-d_tree">KD Tree</a>
+          </td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>Θ(log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="array-sorting-algorithms">
+      Array Sorting Algorithms <a id="sorting"></a>
+    </h2>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: left">Algorithm</th>
+          <th style="text-align: left">Time Complexity</th>
+          <th style="text-align: left">Space Complexity</th>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Best</td>
+          <td style="text-align: left">Average</td>
+          <td style="text-align: left">Worst</td>
+          <td style="text-align: left">Worst</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Quicksort">Quicksort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n log(n))</code></td>
+          <td style="text-align: left"><code>Θ(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n^2)</code></td>
+          <td style="text-align: left"><code>O(log(n))</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Merge_sort">Mergesort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n log(n))</code></td>
+          <td style="text-align: left"><code>Θ(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Timsort">Timsort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n)</code></td>
+          <td style="text-align: left"><code>Θ(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Heapsort">Heapsort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n log(n))</code></td>
+          <td style="text-align: left"><code>Θ(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n log(n))</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Bubble_sort">Bubble Sort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n)</code></td>
+          <td style="text-align: left"><code>Θ(n^2)</code></td>
+          <td style="text-align: left"><code>O(n^2)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Insertion_sort"
+              >Insertion Sort</a
+            >
+          </td>
+          <td style="text-align: left"><code>Ω(n)</code></td>
+          <td style="text-align: left"><code>Θ(n^2)</code></td>
+          <td style="text-align: left"><code>O(n^2)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Selection_sort"
+              >Selection Sort</a
+            >
+          </td>
+          <td style="text-align: left"><code>Ω(n^2)</code></td>
+          <td style="text-align: left"><code>Θ(n^2)</code></td>
+          <td style="text-align: left"><code>O(n^2)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://en.wikipedia.org/wiki/Tree_sort">Tree Sort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n log(n))</code></td>
+          <td style="text-align: left"><code>Θ(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n^2)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Shellsort">Shell Sort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n log(n))</code></td>
+          <td style="text-align: left"><code>Θ(n(log(n))^2)</code></td>
+          <td style="text-align: left"><code>O(n(log(n))^2)</code></td>
+          <td style="text-align: left"><code>O(1)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Bucket_sort">Bucket Sort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n+k)</code></td>
+          <td style="text-align: left"><code>Θ(n+k)</code></td>
+          <td style="text-align: left"><code>O(n^2)</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="http://en.wikipedia.org/wiki/Radix_sort">Radix Sort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(nk)</code></td>
+          <td style="text-align: left"><code>Θ(nk)</code></td>
+          <td style="text-align: left"><code>O(nk)</code></td>
+          <td style="text-align: left"><code>O(n+k)</code></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">
+            <a href="https://en.wikipedia.org/wiki/Counting_sort"
+              >Counting Sort</a
+            >
+          </td>
+          <td style="text-align: left"><code>Ω(n+k)</code></td>
+          <td style="text-align: left"><code>Θ(n+k)</code></td>
+          <td style="text-align: left"><code>O(n+k)</code></td>
+          <td style="text-align: left"><code>O(k)</code></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">
+            <a href="https://en.wikipedia.org/wiki/Cubesort">Cubesort</a>
+          </td>
+          <td style="text-align: left"><code>Ω(n)</code></td>
+          <td style="text-align: left"><code>Θ(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n log(n))</code></td>
+          <td style="text-align: left"><code>O(n)</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 import sys
-sys.path.append('../doubly_linked_list')
+
+sys.path.append("../doubly_linked_list")
 from doubly_linked_list import DoublyLinkedList
 
 # FIFO
@@ -24,13 +25,13 @@ What is the difference between using an array vs. a linked list when
 
 # STACK
 # A stack is a data structure whose primary purpose is to store and
-    # return elements in (Last In First Out)/FIFO order. 
+# return elements in (Last In First Out)/FIFO order.
 
 # time complexity:   Avg   | Worst
-    # Access:       O(n)   |   O(n)
-    # Search:       O(n)   |   O(n)
-    # Insertion:    O(1)   |   O(1)
-    # Deletion:     O(1)   |   O(1)
+# Access:       O(n)   |   O(n)
+# Search:       O(n)   |   O(n)
+# Insertion:    O(1)   |   O(1)
+# Deletion:     O(1)   |   O(1)
 
 # space complexity:  O(n)
 

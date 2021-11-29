@@ -21,7 +21,7 @@ The default value for all elements is inline. Most ""User Agent Stylesheets" (th
 The default value for elements. Think of elements like `<span>`, `<em>`, or `<b>` and how wrapping text in those elements within a string of text doesn’t break the flow of the text.
 
 ![](chrome-extension://css-tricks.com/wp-content/uploads/2011/09/inline-element.png "inline-element")  
-The `<em>` element has a 1px red border. Notice it sits right _inline_ with the rest of the text.  
+The `<em>` element has a 1px red border. Notice it sits right _inline_ with the rest of the text.
 
 An inline element will accept margin and padding, but the element still sits inline as you might expect. Margin and padding will only push other elements horizontally away, not vertically.
 
@@ -71,15 +71,15 @@ The `flow-root` display value creates a new ""block formatting context", but is 
 
 #### Desktop
 
-| Chrome | Firefox | IE | Edge | Safari |
-| --- | --- | --- | --- | --- |
-| 58 | 53 | No | 79 | 13 |
+| Chrome | Firefox | IE  | Edge | Safari |
+| ------ | ------- | --- | ---- | ------ |
+| 58     | 53      | No  | 79   | 13     |
 
 #### Mobile / Tablet
 
 | Android Chrome | Android Firefox | Android | iOS Safari |
-| --- | --- | --- | --- |
-| 89 | 86 | 89 | 13.0-13.1 |
+| -------------- | --------------- | ------- | ---------- |
+| 89             | 86              | 89      | 13.0-13.1  |
 
 ### Grid
 
@@ -123,7 +123,6 @@ To use, just mimic normal table structure. Simple example:
 
 ### More Information
 
-*   [MDN](https://developer.mozilla.org/en/CSS/display)
-
+- [MDN](https://developer.mozilla.org/en/CSS/display)
 
 [Source](https://css-tricks.com/almanac/properties/d/display/)

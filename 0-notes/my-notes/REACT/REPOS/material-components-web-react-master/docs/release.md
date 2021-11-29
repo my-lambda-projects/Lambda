@@ -10,10 +10,10 @@ If this is a scheduled release most of the development is on a release candidate
 
 Once merged into master, continue the process below.
 
-
 ### Release Steps
 
 #### Setup Local Environment
+
 > Employees are supposed to do this as part of onboarding, but we've put it here as a reminder.
 
 ```
@@ -23,8 +23,8 @@ npm login
 This will log you into NPM.
 
 #### Announce
-Ping the Slack announcements channel first! This will let other members of the team know NOT to merge PRs during this release process.
 
+Ping the Slack announcements channel first! This will let other members of the team know NOT to merge PRs during this release process.
 
 #### Pull
 
@@ -94,6 +94,7 @@ git push && git push --tags
 This will ensure the commits and tags are pushed to the remote git repository.
 
 > If you run into CLI errors such as:
+
 ```
 remote: error: GH006: Protected branch update failed for refs/heads/master.
 remote: error: Required status check "cla/google" is expected. At least one approved review is required by reviewers with write access.
@@ -101,6 +102,7 @@ To github.com:material-components/material-components-web-react.git
 ! [remote rejected]   master -> master (protected branch hook declined)
 You may need to update Github's master branch protection:
 ```
+
 > 1. Go to: settings page
 > 1. Uncheck Include administrators
 > 1. Click Save changes
@@ -115,14 +117,14 @@ These steps can be done anytime after the release. But should be taken care of b
 
 If it hasn't already been done, you will need to create a new RC branch. If the next release is v0.8.0, create a branch named `rc0.8.0` and push this to the Github repository for everyone to branch from. Once complete follow the remaining checklist items:
 
-* [ ] [Add a new protection rule](https://github.com/material-components/material-components-web-react/settings/branch_protection_rules/new) to the RC Branch.
-  * branch name should match new RC branch name.
-  * check the following:
-    * `Require pull request reviews before merging`
-    * `Require status checks to pass before merging`
-    * `Require branches to be up to date before merging`
-      * `Travis CI - Pull Request`
-      * `cla/google`
-    * `Include administrators`
-    * `Restrict who can push to matching branches`
-    * Should look like this:  ![protectionrule](https://user-images.githubusercontent.com/579873/48811016-b4814400-ece0-11e8-9a7e-1a9838ecf764.png)
+- [ ] [Add a new protection rule](https://github.com/material-components/material-components-web-react/settings/branch_protection_rules/new) to the RC Branch.
+  - branch name should match new RC branch name.
+  - check the following:
+    - `Require pull request reviews before merging`
+    - `Require status checks to pass before merging`
+    - `Require branches to be up to date before merging`
+      - `Travis CI - Pull Request`
+      - `cla/google`
+    - `Include administrators`
+    - `Restrict who can push to matching branches`
+    - Should look like this: ![protectionrule](https://user-images.githubusercontent.com/579873/48811016-b4814400-ece0-11e8-9a7e-1a9838ecf764.png)

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>using-web-components-in-react</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="using-web-components-in-react">Using Web Components in React</h1>
+    <p>
+      React and
+      <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
+        >Web Components</a
+      >
+      are built to solve different problems. Web Components provide strong
+      encapsulation for reusable components, while React provides a declarative
+      library that keeps the DOM in sync with your data. The two goals are
+      complementary. As a developer, you are free to use React in your Web
+      Components, or to use Web Components in React, or both.
+    </p>
+    <p>
+      Most people who use React don’t use Web Components, but you may want to,
+      especially if you are using third-party UI components that are written
+      using Web Components.
+    </p>
+    <h2 id="using-web-components-in-react-1">Using Web Components in React</h2>
+    <pre class="text"><code>class HelloMessage extends React.Component {
+  render() {
+    return &lt;div&gt;Hello &lt;x-search&gt;{this.props.name}&lt;/x-search&gt;!&lt;/div&gt;;
+  }
+}</code></pre>
+    <blockquote>
+      <p>Note:</p>
+      <p>
+        Web Components often expose an imperative API. For instance, a
+        <code>video</code> Web Component might expose <code>play()</code> and
+        <code>pause()</code> functions. To access the imperative APIs of a Web
+        Component, you will need to use a ref to interact with the DOM node
+        directly. If you are using third-party Web Components, the best solution
+        is to write a React component that behaves as a wrapper for your Web
+        Component.
+      </p>
+      <p>
+        Events emitted by a Web Component may not properly propagate through a
+        React render tree. You will need to manually attach event handlers to
+        handle these events within your React components.
+      </p>
+    </blockquote>
+    <p>
+      One common confusion is that Web Components use “class” instead of
+      “className”.
+    </p>
+    <pre class="text"><code>function BrickFlipbox() {
+  return (
+    &lt;brick-flipbox class=&quot;demo&quot;&gt;
+      &lt;div&gt;front&lt;/div&gt;
+      &lt;div&gt;back&lt;/div&gt;
+    &lt;/brick-flipbox&gt;
+  );
+}</code></pre>
+    <h2 id="using-react-in-your-web-components">
+      Using React in your Web Components
+    </h2>
+    <pre class="text"><code>class XSearch extends HTMLElement {
+  connectedCallback() {
+    const mountPoint = document.createElement(&#39;span&#39;);
+    this.attachShadow({ mode: &#39;open&#39; }).appendChild(mountPoint);
+
+    const name = this.getAttribute(&#39;name&#39;);
+    const url = &#39;https://www.google.com/search?q=&#39; + encodeURIComponent(name);
+    ReactDOM.render(&lt;a href={url}&gt;{name}&lt;/a&gt;, mountPoint);
+  }
+}
+customElements.define(&#39;x-search&#39;, XSearch);</code></pre>
+    <blockquote></blockquote>
+  </body>
+</html>

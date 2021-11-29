@@ -45,7 +45,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarOpen: true
+      sidebarOpen: true,
     };
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
@@ -90,7 +90,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       sidebarDocked: mql.matches,
-      sidebarOpen: false
+      sidebarOpen: false,
     };
 
     this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
@@ -132,29 +132,29 @@ export default App;
 
 ## Supported props
 
-| Property name      | Type                      | Default              | Description                                                                                                                                                              |
-| ------------------ | ------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| children           | Anything React can render | n/a                  | The main content                                                                                                                                                         |
-| rootClassName      | string                    | n/a                  | Add a custom class to the root component                                                                                                                                 |
-| sidebarClassName   | string                    | n/a                  | Add a custom class to the sidebar                                                                                                                                        |
-| contentClassName   | string                    | n/a                  | Add a custom class to the content                                                                                                                                        |
-| overlayClassName   | string                    | n/a                  | Add a custom class to the overlay                                                                                                                                        |
-| defaultSidebarWidth   | number                 | 0                    | Width in pixles of the sidebar on render. Use this to stop the sidebar from poping in after intial render. (Overrides transitions)                                      |
-| sidebar            | Anything React can render | n/a                  | The sidebar content                                                                                                                                                      |
-| onSetOpen          | function                  | n/a                  | Callback called when the sidebar wants to change the open prop. Happens after sliding the sidebar and when the overlay is clicked when the sidebar is open.              |
-| docked             | boolean                   | false                | If the sidebar should be always visible                                                                                                                                  |
-| open               | boolean                   | false                | If the sidebar should be open                                                                                                                                            |
-| transitions        | boolean                   | true                 | If transitions should be enabled                                                                                                                                         |
-| touch              | boolean                   | true                 | If touch gestures should be enabled                                                                                                                                      |
-| touchHandleWidth   | number                    | 20                   | Width in pixels you can start dragging from the edge when the sidebar is closed.                                                                                         |
-| dragToggleDistance | number                    | 30                   | Distance the sidebar has to be dragged before it will open/close after it is released.                                                                                   |
-| pullRight          | boolean                   | false                | Place the sidebar on the right                                                                                                                                           |
-| shadow             | boolean                   | true                 | Enable/Disable sidebar shadow                                                                                                                                            |
-| styles             | object                    | [See below](#styles) | Inline styles. These styles are merged with the defaults and applied to the respective elements.                                                                         |
-| rootId             | string                    | n/a                  | Add an id to the root component                                                                                                                                          |
-| sidebarId          | string                    | n/a                  | Add an id to the sidebar                                                                                                                                                 |
-| contentId          | string                    | n/a                  | Add an id to the content. The driving use case for adding an element id to content was to allow react-scroll to scroll the content area of the site using react-sidebar. |
-| overlayId          | string                    | n/a                  | Add an an id to the overlay                                                                                                                                              |
+| Property name       | Type                      | Default              | Description                                                                                                                                                              |
+| ------------------- | ------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| children            | Anything React can render | n/a                  | The main content                                                                                                                                                         |
+| rootClassName       | string                    | n/a                  | Add a custom class to the root component                                                                                                                                 |
+| sidebarClassName    | string                    | n/a                  | Add a custom class to the sidebar                                                                                                                                        |
+| contentClassName    | string                    | n/a                  | Add a custom class to the content                                                                                                                                        |
+| overlayClassName    | string                    | n/a                  | Add a custom class to the overlay                                                                                                                                        |
+| defaultSidebarWidth | number                    | 0                    | Width in pixles of the sidebar on render. Use this to stop the sidebar from poping in after intial render. (Overrides transitions)                                       |
+| sidebar             | Anything React can render | n/a                  | The sidebar content                                                                                                                                                      |
+| onSetOpen           | function                  | n/a                  | Callback called when the sidebar wants to change the open prop. Happens after sliding the sidebar and when the overlay is clicked when the sidebar is open.              |
+| docked              | boolean                   | false                | If the sidebar should be always visible                                                                                                                                  |
+| open                | boolean                   | false                | If the sidebar should be open                                                                                                                                            |
+| transitions         | boolean                   | true                 | If transitions should be enabled                                                                                                                                         |
+| touch               | boolean                   | true                 | If touch gestures should be enabled                                                                                                                                      |
+| touchHandleWidth    | number                    | 20                   | Width in pixels you can start dragging from the edge when the sidebar is closed.                                                                                         |
+| dragToggleDistance  | number                    | 30                   | Distance the sidebar has to be dragged before it will open/close after it is released.                                                                                   |
+| pullRight           | boolean                   | false                | Place the sidebar on the right                                                                                                                                           |
+| shadow              | boolean                   | true                 | Enable/Disable sidebar shadow                                                                                                                                            |
+| styles              | object                    | [See below](#styles) | Inline styles. These styles are merged with the defaults and applied to the respective elements.                                                                         |
+| rootId              | string                    | n/a                  | Add an id to the root component                                                                                                                                          |
+| sidebarId           | string                    | n/a                  | Add an id to the sidebar                                                                                                                                                 |
+| contentId           | string                    | n/a                  | Add an id to the content. The driving use case for adding an element id to content was to allow react-scroll to scroll the content area of the site using react-sidebar. |
+| overlayId           | string                    | n/a                  | Add an an id to the overlay                                                                                                                                              |
 
 ## Styles
 

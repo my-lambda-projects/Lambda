@@ -20,7 +20,7 @@ interface Props {
  */
 const Component = React.forwardRef(({ foo = true }: Props, ref: any) => {
   return <div />;
-})
+});
 
 Component.displayName = 'ABC';
 

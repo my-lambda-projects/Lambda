@@ -1,0 +1,644 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Learner Journey Overview</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="191601ac-b3a0-47df-b6da-5558a8e27c8c" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1542378135-815e52392963?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 82.59%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🗺</span></div><h1 class="page-title">Learner Journey Overview</h1></header><div class="page-body"><h1 id="2e5031e7-48f2-4fa1-b7df-3a265df61096" class="">Getting Started </h1><p id="3ec73336-aed8-4c42-b183-ee7e04aeadae" class="">Each Lambda School start date is comprised of new sections (also called cohorts) beginning across different courses. The section/cohort a Learner is in will be titled with a course abbreviation and the current iteration (eg. WEB24). </p><figure id="6f98959f-68e5-43b2-9981-8e43a0676c53" class="image"><a href="Learner%20Journey%20Overview%20191601acb3a047dfb6da5558a8e27c8c/127A9282_(1).jpg"><img style="width:480px" src="Learner%20Journey%20Overview%20191601acb3a047dfb6da5558a8e27c8c/127A9282_(1).jpg"/></a></figure><hr id="3c1200d7-8376-499f-a830-72020a35b556"/><h1 id="ea73fd20-580f-4b01-875c-881146f002b6" class="">Breaking Down the Curriculum</h1><ul id="8e1862d9-5c71-4b5c-953b-7e4723109126" class="bulleted-list"><li style="list-style-type:disc">Each course has a &quot;core&quot; <em><strong>Track</strong></em> of curriculum. <ul id="70eade2f-56fb-431d-80c1-bb1bc29dc976" class="bulleted-list"><li style="list-style-type:circle">The core track = 4 <em><strong>Units</strong></em></li></ul></li></ul><ul id="be14fe43-4241-4f69-beb9-8dc3826512e8" class="bulleted-list"><li style="list-style-type:disc">Each Unit is made up of 4 <em><strong>Sprints</strong></em>. <ul id="aa4f431c-54fd-4c46-ad3f-1bfdf52fdaf0" class="bulleted-list"><li style="list-style-type:circle">In part-time courses, one Sprint is covered over the course of two weeks. </li></ul><ul id="b502be2a-c177-4c82-b0f3-fbc997a5086c" class="bulleted-list"><li style="list-style-type:circle">In full-time courses, one Sprint is covered over the course of one week. </li></ul><ul id="781cabbb-a71b-4b17-8ae0-78dbd04c8c11" class="bulleted-list"><li style="list-style-type:circle">In most courses, the fourth Sprint of every Unit will be a <strong>Build</strong> Sprint.</li></ul></li></ul><ul id="c9438c98-6ead-4922-8abf-e66dee6dbd2f" class="bulleted-list"><li style="list-style-type:disc">Each Sprint is made up of 4 <em><strong>Modules</strong></em> and culminates with a <em><strong>Sprint Challenge.</strong></em><ul id="9bdbbb55-5579-42e0-983a-c04bbfc4d910" class="bulleted-list"><li style="list-style-type:circle">Every Module is made up of Guided Projects and Project Time.</li></ul><ul id="37a218db-5805-4c5b-83af-7019ece30ac3" class="bulleted-list"><li style="list-style-type:circle">Each Sprint Challenge combines the objectives from every module so that Learners can demonstrate their mastery of those objectives.</li></ul><figure id="7f6a6a35-bbc2-4c85-86b5-1af95892b810" class="image"><a href="Learner%20Journey%20Overview%20191601acb3a047dfb6da5558a8e27c8c/Untitled.png"><img style="width:1315px" src="Learner%20Journey%20Overview%20191601acb3a047dfb6da5558a8e27c8c/Untitled.png"/></a></figure></li></ul><p id="00307ba1-b1f6-48f3-91e0-e37380c4b764" class="">
+</p><h3 id="42bbd3eb-73bb-44b0-b4a1-26fca08707a2" class="">Sprint 1-16 = Core Track</h3><ul id="caab1bae-20b8-4839-bbcb-1effa81d3bf8" class="bulleted-list"><li style="list-style-type:disc">Covers all of the content from the core track curriculum. </li></ul><ul id="f9a6f6d4-e30c-492f-980a-508c110c1e70" class="bulleted-list"><li style="list-style-type:disc">Includes 4 Build Sprints during which learners apply the concepts they learned and assess mastery.</li></ul><h3 id="bc8a0724-3ee6-4e4b-b5e4-5ce77bc94879" class="">Sprint 17-20 = Computer Science</h3><ul id="b86091b3-028f-4fe2-9538-9ed990a0057b" class="bulleted-list"><li style="list-style-type:disc">Supporting content to make the Learner stronger and more hirable. <ul id="89a7f30a-a8b9-44a7-b9f3-486c186e4bbf" class="bulleted-list"><li style="list-style-type:circle">Web and Data science learners complete Computer Science. </li></ul></li></ul><h3 id="2d812f6b-9498-48d1-a0e8-9b71a229ab82" class="">Sprint 21-24 = Labs</h3><ul id="ba9145b6-ab42-4fa4-8847-9ac7e6ba8ec6" class="bulleted-list"><li style="list-style-type:disc">Participate in our in-house apprenticeship by building a real-world project in a small team</li></ul><ul id="f61e8e0f-5024-4b82-9d2b-84ae9e96d625" class="bulleted-list"><li style="list-style-type:disc">The work includes customer discovery, feature and planning, and delivery. Most teams will contribute to an existing codebase adding new features, and fixing bugs.</li></ul><h3 id="0c94b3e8-08f4-443a-867c-b4090ad86f4b" class="">Job Search Support</h3><ul id="f27195c1-5e0f-4fbd-9c53-573f0a693d9b" class="bulleted-list"><li style="list-style-type:disc">Continuing education and ongoing Job Search support with Career Coaches.</li></ul><p id="ef032d35-25d6-4a5e-9256-48cf26ffb81e" class="">
+</p><hr id="909eb5d1-5930-45be-bd9f-11e4ae0dd330"/><h1 id="dd666b75-e7ba-4363-978d-edb5aa710783" class="">Progress Requirements</h1><p id="be689d73-876a-4907-bc50-12c762f8e6d6" class=""><em><strong>Please note that we are in the process of updating the Learner Guide to reflect all noticed changes. If you have any questions, please reach out.</strong></em></p><p id="c63414f9-cec3-466d-bd56-881944da00ee" class="">To progress through each unit, Learners must demonstrate mastery over all sprints, including <a href="Build%20Sprints%20d0b13fb5f2b5447f846c56cc7a2ddcb1.html">Build Sprint</a>, and pass an assessment before progressing. Not passing two or more sprints may result in the Learner Flexing to the appropriate unit to repeat the content. If a Learner is unable to pass the unit after two attempts, the Learner may be withdrawn. </p><p id="05b597ad-1bed-41bd-8c98-e190f032d280" class="">Once Learners have successfully obtained the objectives within a core track, they will proceed to Computer Science and then Labs. After completing Labs, Learners have officially graduated from Lambda and move into Job Search Support.</p><p id="4bf47b38-0403-447a-96b3-a664f4aa89e6" class="">
+</p><figure id="c7807d03-1220-4fd3-bf6e-39de43f90832" class="image"><a href="Learner%20Journey%20Overview%20191601acb3a047dfb6da5558a8e27c8c/127A9601.jpg"><img style="width:384px" src="Learner%20Journey%20Overview%20191601acb3a047dfb6da5558a8e27c8c/127A9601.jpg"/></a></figure><p id="e8afc7bc-25b1-4518-93ab-0ec7974e21ea" class="">
+</p><hr id="58259c8d-d961-4702-8afe-bc5787b2f7fa"/><h1 id="7af5564c-8a86-4120-b30a-b7b1ff6c9801" class="">Have questions? </h1><p id="ea904637-f50d-490c-99e2-9688bc8a1d2d" class="">Reach out to<code>/frontdesk</code> on Slack.</p><p id="cd4d2aaa-f3ee-4598-bf0e-a578ffc20181" class="">
+</p><p id="1a23b33a-1ca9-4a68-b1fd-b68ec2206be9" class="">
+</p><p id="7f5fc549-0b2d-4e92-9ad6-3bbf79b66e70" class="">
+</p><ul id="d2f7ca41-9c96-4791-8a33-f7966d8bfd2a" class="toggle"><li><details open=""><summary>Revision History</summary><p id="056d40c9-6cbf-47c2-bf1d-4228c26a77b1" class="">October 24, 2019, shared with students October 25, 2019</p><p id="0f6ade96-06d7-4c5c-b20e-9cd84aea9695" class="">November 6, 2020, shared with students November 6, 2020</p><p id="ecd8a641-e165-413b-8f48-dc990ec7ddeb" class="">June 4, 2021, shared with students June 4, 2021</p></details></li></ul><p id="fc7be370-014f-4569-90ec-79e05852bbeb" class="">
+</p><p id="cf3e7bac-efe7-403c-af90-fcb314fa1292" class="">Copyright Lambda School 2020, All Rights Reserved</p></div></article></body></html>

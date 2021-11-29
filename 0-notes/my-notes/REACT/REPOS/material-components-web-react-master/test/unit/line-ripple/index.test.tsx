@@ -60,9 +60,8 @@ test(
     '#foundation.setRippleCenter',
   () => {
     const wrapper = shallow<LineRipple>(<LineRipple />);
-    wrapper.instance().foundation_.setRippleCenter = td.func<
-      (xCoordinate: number) => null
-    >();
+    wrapper.instance().foundation_.setRippleCenter =
+      td.func<(xCoordinate: number) => null>();
     wrapper.setProps({rippleCenter: 10});
     td.verify(wrapper.instance().foundation_.setRippleCenter(10), {times: 1});
   }
@@ -70,9 +69,8 @@ test(
 
 test('does not call #foundation.setRippleCenter when props.rippleCenter is NaN', () => {
   const wrapper = shallow<LineRipple>(<LineRipple />);
-  wrapper.instance().foundation_.setRippleCenter = td.func<
-    (xCoordinate: number) => null
-  >();
+  wrapper.instance().foundation_.setRippleCenter =
+    td.func<(xCoordinate: number) => null>();
   wrapper.setProps({rippleCenter: NaN});
   td.verify(
     wrapper.instance().foundation_.setRippleCenter(td.matchers.anything()),
@@ -113,9 +111,8 @@ test('#adapter.setStyle updates style', () => {
 
 test('onTransitionEnd calls the #foundation.handleTransitionEnd', () => {
   const wrapper = shallow<LineRipple>(<LineRipple />);
-  wrapper.instance().foundation_.handleTransitionEnd = td.func<
-    (env: TransitionEvent) => null
-  >();
+  wrapper.instance().foundation_.handleTransitionEnd =
+    td.func<(env: TransitionEvent) => null>();
   const event: React.TransitionEvent = coerceForTesting<React.TransitionEvent>({
     nativeEvent: {
       test: '123',

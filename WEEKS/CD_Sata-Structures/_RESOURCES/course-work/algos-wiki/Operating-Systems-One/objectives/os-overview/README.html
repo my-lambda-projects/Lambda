@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="operating-systems-overview">Operating Systems Overview</h1>
+    <p>
+      There are three operating systems that are primarily popular on general
+      purpose computers - Windows, Mac OS X, and Linux.
+    </p>
+    <p>
+      There are two operating systems that are essential for popular
+      handhelds–Android and iOS.
+    </p>
+    <p>
+      There are dozens of UNIX variants for simpler processors available.
+      Typically when working with a small dedicated cpu (like an ARM CPU on an
+      IoT device), the operating system supported for that device has been
+      defined by the manufacturer of the device and is a subset of Linux.
+    </p>
+    <h2 id="windows">Windows</h2>
+    <p>
+      Original popular OS for consumers, no permissions enabled fast and easy
+      development, high performance for games and other user applications.
+      Became a difficult model to maintain with the rise of the internet,
+      leading to many revisions.
+    </p>
+    <p>
+      Backwards compatibility is the hallmark of Windows, which causes endless
+      headaches for modern developers.
+    </p>
+    <h2 id="linux">Linux</h2>
+    <p>
+      Started by Linus Torvalds, who was at the time a student of Andrew
+      Tanenbaum’s, the Linux kernel is a copy of the MINIX kernel, which had
+      been created by his instructor. MINIX is copy of the POSIX, an industry
+      standardized system interface that was originally released in 1988. At the
+      time there were many variants of UNIX, all limited to mainframe computers
+      like VAX and PDP systems. The core of UNIX at this time is POSIX, which is
+      the basis for essentially every successful operating system except
+      Windows.
+    </p>
+    <p>
+      There are dozens of Linux forks at this time, called distros. Ubuntu is
+      the most famous and successful of these, and unless you want to build up a
+      career in system administration it is not necessary to learn any others.
+      The basics of the Linux operating system depend on a few basic
+      philosophies - processes that accept streams of text as input and produce
+      streams of text as output (pipes), file descriptors as references to
+      device drivers and other hardware (including individual files stored on a
+      permanent storage medium), and security enforced by basic access controls
+      applied to every component of the system.
+    </p>
+    <p>Development paradigms:</p>
+    <ul>
+      <li><p>C and C++ native development.</p></li>
+      <li>
+        <p>
+          Management of symbolic and dynamic links via /usr/lib and
+          /usr/local/lib and /usr/include and many more. Dependencies in linux
+          are stored in files with specific paths, and can either be built
+          natively using <code>gcc</code> or loaded using package management.
+        </p>
+      </li>
+    </ul>
+    <p>Technologies you should familiar with:</p>
+    <ul>
+      <li>Bash and shell scripting</li>
+      <li>SSH</li>
+      <li>System calls</li>
+    </ul>
+    <p>Technologies to be secondarily familiar with</p>
+    <ul>
+      <li>Network programming</li>
+    </ul>
+    <h2 id="macos-previously-mac-os-x">macOS (previously Mac OS X)</h2>
+    <p>
+      macOS is another fork of UNIX, now called Darwin but previously FreeBSD,
+      which was created in the 90s by Berkely (Berkeley Software Distribution).
+      OS X features a kernel and basic system libraries that are nearly
+      identical to Linux, with many small differences. OS X’s graphics layer,
+      Cocoa, differs substantially from Linux graphics layers, features much
+      greater reliability and consistency, and uniquely supports development in
+      Objective-C and Swift.
+    </p>
+    <blockquote>
+      <p>
+        Infographic:
+        <a
+          href="https://en.wikipedia.org/wiki/History_of_Unix#/media/File:Unix_history-simple.svg"
+          >Unix variant family tree</a
+        >
+      </p>
+    </blockquote>
+    <p>Technologies you need to be familiar with:</p>
+    <ul>
+      <li>XCode</li>
+      <li>Objective-C</li>
+      <li>Interface builder</li>
+    </ul>
+    <h2 id="exercises">Exercises</h2>
+    <p>
+      Explain the following to someone in class, or in your house, or on the
+      phone. If no one is available, any house plant will do.
+    </p>
+    <p>
+      (The answers to the below questions aren’t necessarily in the above text.)
+    </p>
+    <ul>
+      <li><p>Which of the Big Three is your favorite OS? Why?</p></li>
+      <li>
+        What did the Macintosh computer run as an OS before it ran macOS/OS X?
+        <ul>
+          <li>What were some of the drawbacks to this old OS?</li>
+        </ul>
+      </li>
+      <li><p>Why is C a popular language for writing operating systems?</p></li>
+    </ul>
+  </body>
+</html>

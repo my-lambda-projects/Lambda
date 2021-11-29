@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>notes</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+
+      span.underline {
+        text-decoration: underline;
+      }
+
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+
+      .sourceCode {
+        overflow: visible;
+      }
+
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+
+      div.sourceCode {
+        margin: 1em 0;
+      }
+
+      pre.sourceCode {
+        margin: 0;
+      }
+
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+
+      div.sourceCode {
+      }
+
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      /* Annotation */
+      code span.at {
+        color: #7d9029;
+      }
+
+      /* Attribute */
+      code span.bn {
+        color: #40a070;
+      }
+
+      /* BaseN */
+      code span.bu {
+      }
+
+      /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      }
+
+      /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      }
+
+      /* Char */
+      code span.cn {
+        color: #880000;
+      }
+
+      /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      }
+
+      /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      }
+
+      /* Documentation */
+      code span.dt {
+        color: #902000;
+      }
+
+      /* DataType */
+      code span.dv {
+        color: #40a070;
+      }
+
+      /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      /* Error */
+      code span.ex {
+      }
+
+      /* Extension */
+      code span.fl {
+        color: #40a070;
+      }
+
+      /* Float */
+      code span.fu {
+        color: #06287e;
+      }
+
+      /* Function */
+      code span.im {
+      }
+
+      /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      }
+
+      /* Keyword */
+      code span.op {
+        color: #666666;
+      }
+
+      /* Operator */
+      code span.ot {
+        color: #007020;
+      }
+
+      /* Other */
+      code span.pp {
+        color: #bc7a00;
+      }
+
+      /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      }
+
+      /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      }
+
+      /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      }
+
+      /* String */
+      code span.va {
+        color: #19177c;
+      }
+
+      /* Variable */
+      code span.vs {
+        color: #4070a0;
+      }
+
+      /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      /* Warning */
+    </style>
+  </head>
+
+  <body>
+    <p>
+      <a href="https://wiki.python.org/moin/TimeComplexity"
+        >The python page on time-complexity</a
+      >
+      shows that slicing lists has a time-complexity of O(k), where “k” is the
+      length of the slice. That’s for lists, not strings, but the complexity
+      can’t be O(1) for strings since the slicing must handle more characters as
+      the size is increased. The Worst case complexity of slicing is O(n) so off
+      the bat it’s already a fairly performant approach in the worst case
+      scenario. My only obstacle to solve this problem was not realizing that
+      the default language in the editor was JavaScript and so for the first 30
+      minutes of the assignment I was trying to debug the javascript errors that
+      arose from python syntax.
+    </p>
+    <p>I briefly considered</p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> csReverseString2(chars):</a>
+<a class="sourceLine" id="cb1-2" title="2">    new_string <span class="op">=</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    index <span class="op">=</span> <span class="bu">len</span>(chars)</a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">while</span> index:</a>
+<a class="sourceLine" id="cb1-5" title="5">        index <span class="op">-=</span> <span class="dv">1</span>                    <span class="co"># index = index - 1</span></a>
+<a class="sourceLine" id="cb1-6" title="6">        new_string <span class="op">+=</span> chars[index] <span class="co"># new_string = new_string + character</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="cf">return</span> new_string</a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="bu">print</span> (csReverseString2(<span class="st">&quot;helloworld&quot;</span>))</a></code></pre>
+    </div>
+    <blockquote>
+      <p>
+        But i opted not to take this approach favoring time complexity over
+        readability.
+      </p>
+    </blockquote>
+    <hr />
+    <hr />
+    <p>
+      In Python, strings are immutable. Changing a string does not modify the
+      string. It creates a new one.
+    </p>
+    <p>
+      Strings are sliceable. Slicing a string gives you a new string from one
+      point in the string, backwards or forwards, to another point, by given
+      increments. They take slice notation or a slice object in a subscript:
+    </p>
+    <p>
+      If I were instead to start with an empty string, and build up a new string
+      from the old one.
+    </p>
+    <h2 id="ie..">Ie..</h2>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">def</span> csReverseString2(chars):</a>
+<a class="sourceLine" id="cb2-3" title="3">    new_string <span class="op">=</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    index <span class="op">=</span> <span class="bu">len</span>(chars)</a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="cf">while</span> index:</a>
+<a class="sourceLine" id="cb2-6" title="6">        index <span class="op">-=</span> <span class="dv">1</span>                    <span class="co"># index = index - 1</span></a>
+<a class="sourceLine" id="cb2-7" title="7">        new_string <span class="op">+=</span> chars[index] <span class="co"># new_string = new_string + character</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="cf">return</span> new_string</a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="bu">print</span> (csReverseString2(<span class="st">&quot;helloworld&quot;</span>))</a></code></pre>
+    </div>
+    <blockquote>
+      <p>
+        This approach is computationally inefficient in time because, remember,
+        strings are immutable - so every time you’re appending a character onto
+        your new_string in your mind your computer is actually creating a new
+        one… which incurs it’s own time.
+      </p>
+    </blockquote>
+    <p>
+      <em
+        >As for space complexity any approach that involves loop &amp; indexes
+        to reverse a string will incur O(n</em
+      >n) time complexity in the WCS because of the string copies, As well as
+      O(n) space complexity because it uses extra memory to create temporary
+      strings (which are hopefully garbage collected in the loop)… but not a
+      guarantee. It’s worth noting that it is not possible to reverse the string
+      with O(1) space complexity because of the immutability of strings: you
+      need twice the memory because string operations cannot be done in-place
+      <em
+        >(this can be done on list of characters, but the string &lt;=&gt; list
+        conversions use memory)</em
+      >*
+    </p>
+    <h2 id="chars-1-on-the-other-hand">chars[::-1] … on the other hand</h2>
+    <ul>
+      <li>doesn’t use a visible loop</li>
+      <li>returns a string without the need to convert from/to list</li>
+      <li>uses compiled code from python runtime</li>
+    </ul>
+    <h3
+      id="i-don-not-know-of-a-more-time-or-space-efficient-implementation-or-surely-i-would-have-implemented-it.-if-forced-to-make-a-tradeoff-i-would-opt-for-time-complexity-as-space-is-cheap."
+    >
+      I don not know of a more time or space efficient implementation or surely
+      I would have implemented it. If forced to make a tradeoff I would opt for
+      time complexity as space is cheap….
+    </h3>
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <p>My solution was as follows:</p>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">def</span> csRemoveDuplicateWords(input_str):</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="cf">return</span> <span class="st">&#39; &#39;</span>.join(<span class="bu">dict</span>.fromkeys(input_str.split()))</a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="bu">print</span>(csRemoveDuplicateWords(<span class="st">&quot;alpha bravo bravo golf golf golf delta alpha bravo bravo golf golf golf delta&quot;</span>))</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="bu">print</span>(csRemoveDuplicateWords(<span class="st">&quot;my dog is my dog is super smart&quot;</span>) )</a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="bu">print</span>(csRemoveDuplicateWords(<span class="st">&quot;Your tests are broken broken broken broken broken&quot;</span>) )</a></code></pre>
+    </div>
+    <p>
+      I got the correct output for the test cases provided in the description
+      but somehow the automated tests did not produce the correct output.
+    </p>
+    <p>Initially I had</p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">def</span> csRemoveDuplicateWords(input_str):</a>
+<a class="sourceLine" id="cb4-2" title="2">    input_str<span class="op">=</span>input_str.split()</a>
+<a class="sourceLine" id="cb4-3" title="3">    unique<span class="op">=</span>[]</a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="cf">for</span> word <span class="kw">in</span> input_str:</a>
+<a class="sourceLine" id="cb4-5" title="5">      <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> unique:</a>
+<a class="sourceLine" id="cb4-6" title="6">        unique.append(word)</a>
+<a class="sourceLine" id="cb4-7" title="7">        input_str<span class="op">=</span><span class="st">&#39; &#39;</span>.join(unique)</a>
+<a class="sourceLine" id="cb4-8" title="8">        <span class="cf">return</span> input_str</a></code></pre>
+    </div>
+    <p>
+      However I wasn’t passing the tests and I figured being a relative newbie
+      to python syntax maybe I was making some kind of silly mistake and having
+      taken a long break and run down my allotted time I figured that perhaps
+      builtin methods would prove more fruitful… ultimately both implementations
+      accomplished the stated goal despite not passing the autotest.
+    </p>
+    <p>
+      I spent a lot of time before I even decided perhaps the tests were
+      misleading and decided to print the output only to realize that my
+      function was infact working.
+    </p>
+  </body>
+</html>

@@ -6,27 +6,27 @@ A tree class to keep track of things like the balance factor
     and the rebalancing logic
 """
 # AVL TREE
-    # trees stay as flat as possible
-    # initials of authors, specialized BSTs
-    # valid AVL always valid BST, not vice versa
-    # add value same as BST
-    # difference is, on way up your recursive calls, you check if
-        # node is balanced after adding new node
-    # tree out of balance if subtree's height differences > 1
-    # benefit is, we can guarantee no worst cases (O(n))
-        # worst case = O(log(n))
+# trees stay as flat as possible
+# initials of authors, specialized BSTs
+# valid AVL always valid BST, not vice versa
+# add value same as BST
+# difference is, on way up your recursive calls, you check if
+# node is balanced after adding new node
+# tree out of balance if subtree's height differences > 1
+# benefit is, we can guarantee no worst cases (O(n))
+# worst case = O(log(n))
 
 # rebalance:  if one side of tree gets too heavy, then we need to
-    # perform a rotation to get the tree back in balance
+# perform a rotation to get the tree back in balance
 # "too heavy":  max height of 1 child = 2+ than max height of other
-    # child
+# child
 # double rotation:  when opposite child is heavy during rotation
 
 # time complexity:   Avg   | Worst
-    # Access:       O(log(n))   |   O(log(n))
-    # Search:       O(log(n))   |   O(log(n))
-    # Insertion:    O(log(n))   |   O(log(n))
-    # Deletion:     O(log(n))   |   O(log(n))
+# Access:       O(log(n))   |   O(log(n))
+# Search:       O(log(n))   |   O(log(n))
+# Insertion:    O(log(n))   |   O(log(n))
+# Deletion:     O(log(n))   |   O(log(n))
 
 # space complexity:  O(n)
 
@@ -52,8 +52,7 @@ class AVLTree(object):
         else:
             root.right = self.insert_node(root.right, key)
 
-        root.height = 1 + max(self.get_height(root.left),
-                              self.get_height(root.right))
+        root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
 
         # update the balance factor and balance the tree
         balanceFactor = self.get_balance(root)
@@ -94,14 +93,12 @@ class AVLTree(object):
                 return temp
             temp = self.get_min_value_node(root.right)
             root.key = temp.key
-            root.right = self.delete(root.right,
-                                     temp.key)
+            root.right = self.delete(root.right, temp.key)
         if root is None:
             return root
 
         # update the balance factor of nodes
-        root.height = 1 + max(self.get_height(root.left),
-                              self.get_height(root.right))
+        root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
 
         balanceFactor = self.get_balance(root)
 
@@ -126,10 +123,8 @@ class AVLTree(object):
         T2 = y.left
         y.left = z
         z.right = T2
-        z.height = 1 + max(self.get_height(z.left),
-                           self.get_height(z.right))
-        y.height = 1 + max(self.get_height(y.left),
-                           self.get_height(y.right))
+        z.height = 1 + max(self.get_height(z.left), self.get_height(z.right))
+        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
         return y
 
     # function to perform right rotation
@@ -138,10 +133,8 @@ class AVLTree(object):
         T3 = y.right
         y.right = z
         z.left = T3
-        z.height = 1 + max(self.get_height(z.left),
-                           self.get_height(z.right))
-        y.height = 1 + max(self.get_height(y.left),
-                           self.get_height(y.right))
+        z.height = 1 + max(self.get_height(z.left), self.get_height(z.right))
+        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
         return y
 
     # get the height of the node

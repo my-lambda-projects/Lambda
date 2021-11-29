@@ -121,9 +121,7 @@ export default class Screenshot {
    * @private
    */
   generateImageHash_(imageBuffer: Buffer): string {
-    return createHash('sha256')
-      .update(imageBuffer)
-      .digest('hex');
+    return createHash('sha256').update(imageBuffer).digest('hex');
   }
   /**
    * Returns the golden hash

@@ -2,17 +2,16 @@ img {
   height: 80%;
   width: 10% !important;
 }
-.row{
+.row {
   display: flex;
   flex-direction: row;
   margin: auto;
-  min-width:600px;
-  
+  min-width: 600px;
 }
 
-a{
-  color:blue!important;
+a {
+  color: blue !important;
 }
-body{
-  zoom:0.5;
+body {
+  zoom: 0.5;
 }

@@ -20,7 +20,8 @@ const ChevronSvg = ({size = 10, cssProps = {}}: Props) => (
     x="0px"
     y="0px"
     width={size}
-    height={size}>
+    height={size}
+  >
     <g transform="translate(904.92214,-879.1482)">
       <path
         d={`

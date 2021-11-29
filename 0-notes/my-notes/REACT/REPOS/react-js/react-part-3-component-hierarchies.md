@@ -48,7 +48,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 In this example, App is a component while h1 is a built-in JSX tags
@@ -88,7 +88,7 @@ class Person extends React.Component {
   }
 }
 
-ReactDOM.render(<Person />, document.getElementById('root'));
+ReactDOM.render(<Person />, document.getElementById("root"));
 ```
 
 [Run code](https://codepen.io/annu12340/pen/WNQGBjy?editors=1010)\
@@ -108,7 +108,7 @@ class Parent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromChild: 'empty'
+      fromChild: "empty",
     };
   }
 
@@ -137,7 +137,7 @@ class Child extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      child: 'Data received'
+      child: "Data received",
     };
   }
 
@@ -188,7 +188,7 @@ ReactDOM.render(
   <MyComponent>
     <p>understanding prop.children </p>
   </MyComponent>,
-  document.getElementById('app')
+  document.getElementById("app")
 );
 ```
 
@@ -228,9 +228,9 @@ Now, we are all set to use reactstrap UI components in React app.
 Let’s check out how we can use reactstrap buttons in React app. First, we have to import Buttons component in src/App.js file and include the Buttons code from reactstrap site.
 
 ```js
-import React from 'react';
-import { Button } from 'reactstrap';
-import './App.css';
+import React from "react";
+import { Button } from "reactstrap";
+import "./App.css";
 
 class App extends React.Component {
   render() {
@@ -271,7 +271,7 @@ The reactstrap Modal component creates a Bootstrap Modal with a header, a body, 
   <ModalFooter>
     <Button color="primary" onClick={this.toggle}>
       Do Something
-    </Button>{' '}
+    </Button>{" "}
     <Button color="secondary" onClick={this.toggle}>
       Cancel
     </Button>
@@ -295,14 +295,14 @@ First let us create an array of random quotes and save it in a json file
 ```js
 [
   {
-    quote: 'Life isn’t about getting and having, it’s about giving and being.'
+    quote: "Life isn’t about getting and having, it’s about giving and being.",
   },
   {
-    quote: 'Whatever the mind of man can conceive and believe, it can achieve.'
+    quote: "Whatever the mind of man can conceive and believe, it can achieve.",
   },
   {
-    quote: 'Strive not to be a success, but rather to be of value.'
-  }
+    quote: "Strive not to be a success, but rather to be of value.",
+  },
 ];
 ```
 
@@ -317,7 +317,7 @@ Our app has 2 components:-
    This component takes in a text and wraps it in a h1 tags with an id "text" using an arrow function. It is then exported back
 
 ```js
-import React from 'react';
+import React from "react";
 const QuoteText = ({ text }) => <h1 id="text">{text}</h1>;
 export default QuoteText;
 ```
@@ -326,8 +326,8 @@ export default QuoteText;
    This component is the parent of QuoteText.js. It also create a button to generate new quotes when clicked
 
 ```js
-import React from 'react';
-import QuoteText from './QuoteText';
+import React from "react";
+import QuoteText from "./QuoteText";
 
 function QuoteBox({ quote, onClickButtonNew }) {
   return (
@@ -352,10 +352,10 @@ For convenice, we take both QuoteText.js and QuoteBox.js inside a components fol
 In the App.js we create a function called generateQuote. It returns a random texr from the array of quotes from the json file. It acts as a parent from the QuoteBox component
 
 ```js
-import React, { useState } from 'react';
-import './App.css';
-import QuoteBox from './components/QuoteBox';
-import quotes from './quotes';
+import React, { useState } from "react";
+import "./App.css";
+import QuoteBox from "./components/QuoteBox";
+import quotes from "./quotes";
 
 const App = () => {
   const [quote, setQuote] = useState({});
@@ -378,12 +378,12 @@ export default App;
 #### Add the code to index.js
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import App from './App';
+import App from "./App";
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <App />

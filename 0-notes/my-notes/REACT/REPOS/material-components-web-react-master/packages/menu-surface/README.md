@@ -13,11 +13,13 @@ npm install @material/react-menu-surface
 ### Styles
 
 with Sass:
+
 ```js
 import '@material/react-menu-surface/index.scss';
 ```
 
 with CSS:
+
 ```js
 import '@material/react-menu-surface/dist/menu-surface.css';
 ```
@@ -46,15 +48,14 @@ class MyApp extends React.Component {
       return;
     }
     this.setState({anchorElement: element});
-  }
+  };
 
   render() {
     return (
-      <div
-        className='mdc-menu-surface--anchor'
-        ref={this.setAnchorElement}
-      >
-        <Button raised onClick={() => this.setState({open: true})}>Open Menu</Button>
+      <div className='mdc-menu-surface--anchor' ref={this.setAnchorElement}>
+        <Button raised onClick={() => this.setState({open: true})}>
+          Open Menu
+        </Button>
 
         <MenuSurface
           open={this.state.open}
@@ -64,17 +65,18 @@ class MyApp extends React.Component {
         >
           <img
             style={{maxWidth: '20vw', maxHeight: '20vh'}}
-            src='http://images.my.photo.url' />
+            src='http://images.my.photo.url'
+          />
         </MenuSurface>
       </div>
     );
   }
 }
 ```
+
 #### Anchored to Coordinates (right-click)
 
 You may want to anchor your menu surface to x, y coordinates. One example being a right-click contextmenu. Instead of passing an `anchorElement` you need to pass `coordinates`.
-
 
 ```js
 import React from 'react';
@@ -114,7 +116,8 @@ class MyApp extends React.Component {
         >
           <img
             style={{maxWidth: '20vw', maxHeight: '20vh'}}
-            src='http://images.my.photo.url' />
+            src='http://images.my.photo.url'
+          />
         </MenuSurface>
       </div>
     );
@@ -126,19 +129,19 @@ class MyApp extends React.Component {
 
 ## Props
 
-Prop Name | Type | Description
---- | --- | ---
-className | String | Classes to be applied to the root element.
-anchorCorner | Corner | Sets the corner that the menu surface will be anchored to. See [MDC Web constants.js](https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu-surface/constants.js#L74).
-anchorElement | Element | Sets the anchor element used as an anchor for `menu-surface` positioning logic. Should contain class `.mdc-menu-surface--anchor`.
-anchorMargin | Object* | Sets the distance from the anchor point that the menu surface should be shown.
-coordinates | {x: Number, y: Number} | Sets the anchor coordinates when menu surface does not use anchorElement.
-open | Boolean | Changing value will trigger open/close of the menu surface.
-quickOpen | Boolean | Disables the open/close animation of the menu surface, which makes the open/close instant.
-fixed | Boolean | Sets the menu surface to fixed positioning.
-onClose | Function | Callback triggered after menu surface closes.
+| Prop Name     | Type                   | Description                                                                                                                                                                                                   |
+| ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| className     | String                 | Classes to be applied to the root element.                                                                                                                                                                    |
+| anchorCorner  | Corner                 | Sets the corner that the menu surface will be anchored to. See [MDC Web constants.js](https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu-surface/constants.js#L74). |
+| anchorElement | Element                | Sets the anchor element used as an anchor for `menu-surface` positioning logic. Should contain class `.mdc-menu-surface--anchor`.                                                                             |
+| anchorMargin  | Object\*               | Sets the distance from the anchor point that the menu surface should be shown.                                                                                                                                |
+| coordinates   | {x: Number, y: Number} | Sets the anchor coordinates when menu surface does not use anchorElement.                                                                                                                                     |
+| open          | Boolean                | Changing value will trigger open/close of the menu surface.                                                                                                                                                   |
+| quickOpen     | Boolean                | Disables the open/close animation of the menu surface, which makes the open/close instant.                                                                                                                    |
+| fixed         | Boolean                | Sets the menu surface to fixed positioning.                                                                                                                                                                   |
+| onClose       | Function               | Callback triggered after menu surface closes.                                                                                                                                                                 |
 
-> * | AnchorMargin takes the form of {top: Number, bottom: Number , left: Number , right : Number}
+> - | AnchorMargin takes the form of {top: Number, bottom: Number , left: Number , right : Number}
 
 ## Sass Mixins
 

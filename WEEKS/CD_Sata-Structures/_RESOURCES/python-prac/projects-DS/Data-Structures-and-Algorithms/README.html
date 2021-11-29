@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="section"><img src="assets/title.svg" /></h1>
+    <h4
+      id="a-collection-of-data-structures-and-algorithms-implemented-in-python-and-javascript."
+    >
+      A collection of data structures and algorithms implemented in Python and
+      JavaScript.
+    </h4>
+    <h2 id="contents">Contents</h2>
+    <ul>
+      <li>
+        <a href="#data-structures">Data Structures</a>
+        <ul>
+          <li><a href="src/data-structures">Tree</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#algorithms">Algorithms</a> 🚧
+        <ul>
+          <li><a href="#tree-traversal">Tree Traversal</a></li>
+          <li>Sorting</li>
+          <li>Searching</li>
+          <li>Graph problems</li>
+          <li>Sets</li>
+          <li><a href="#strings">Strings</a></li>
+        </ul>
+      </li>
+      <li>
+        Algorithm Designs and Techniques 🚧
+        <ul>
+          <li>Divide and conquer</li>
+          <li>Dynamic programming</li>
+          <li>Greedy algorithms</li>
+        </ul>
+      </li>
+      <li>
+        <a href="src/analysis-of-algorithms/README.md"
+          >Analysis of Algorithms</a
+        >
+        🚧
+        <ul>
+          <li>
+            <a href="src/analysis-of-algorithms/asymptotic-notation/README.md"
+              >Asymptotic Notation</a
+            >
+          </li>
+          <li>Comparing complexities</li>
+          <li>NP-completeness theory</li>
+        </ul>
+      </li>
+    </ul>
+    <p>🚧 <em>denotes section is WIP</em></p>
+    <h2 id="data-structures">Data Structures</h2>
+    <blockquote>
+      <p>
+        In computer science, a <strong>data structure</strong> is a data
+        organization, management and storage format that enables efficient
+        access and modification. More precisely, a
+        <strong>data structure</strong> is a collection of data values, the
+        relationships among them, and the functions or operations that can be
+        applied to the data.
+        <em
+          >—
+          <a href="https://en.wikipedia.org/wiki/Data_structure"
+            >Wikipedia</a
+          ></em
+        >
+      </p>
+    </blockquote>
+    <table style="width: 99%">
+      <colgroup>
+        <col style="width: 31%" />
+        <col style="width: 68%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>
+            <a href="src/data-structures/tree">Tree</a>
+          </td>
+          <td>
+            non-linear data structure that simulates a hierarchical tree
+            structure
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="algorithms">Algorithms</h2>
+    <blockquote>
+      <p>
+        In mathematics and computer science, an <strong>algorithm</strong> is an
+        unambiguous specification of how to solve a class of problems. “A set of
+        rules that precisely defines a sequence of operations.” —
+        <em><a href="https://en.wikipedia.org/wiki/Algorithm">Wikipedia</a></em>
+      </p>
+    </blockquote>
+    <h3 id="tree-traversal">Tree Traversal</h3>
+    <table style="width: 99%">
+      <colgroup>
+        <col style="width: 51%" />
+        <col style="width: 48%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>
+            <a href="src/algorithms/tree/depth-first-search"
+              >Depth-First Search (DFS)</a
+            >
+          </td>
+          <td>
+            algorithm for searching or traversing tree or graph data structures
+          </td>
+        </tr>
+        <tr class="even">
+          <td>
+            <a href="src/algorithms/tree/breadth-first-search"
+              >Breadth-First Search (BFS)</a
+            >
+          </td>
+          <td>
+            algorithm for searching or traversing tree or graph data structures
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="strings">Strings</h3>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>
+            <a href="src/algorithms/strings/knuth-morris-pratt"
+              >Knuth-Morris-Pratt (KMP)</a
+            >
+          </td>
+          <td>string-searching algorithm</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="algorithm-designs-and-techniques">
+      Algorithm Designs and Techniques
+    </h2>
+    <h3 id="divide-and-conquer">Divide and conquer</h3>
+    <h3 id="dynamic-programming">Dynamic programming</h3>
+    <h3 id="greedy-algorithms">Greedy algorithms</h3>
+    <hr />
+    <h4 id="references"><em>References:</em></h4>
+    <p>
+      <em
+        ><a href="http://www.algorist.com/">The Algorithm Design Manual</a> —
+        Steven Skiena</em
+      ><br />
+      <em
+        ><a
+          href="https://mitpress.mit.edu/books/introduction-algorithms-third-edition"
+          >Introduction to Algorithms</a
+        >
+        — Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford
+        Stein</em
+      ><br />
+      <em
+        ><a
+          href="https://www.oreilly.com/library/view/learning-javascript-data/9781783554874/"
+          >Learning JavaScript Data Structures and Algorithms</a
+        >
+        — Loiane Groner</em
+      ><br />
+      <em
+        ><a href="https://github.com/trekhleb/javascript-algorithms"
+          >JavaScript Algorithms</a
+        >
+        — <a href="https://github.com/trekhleb">Oleksii Trekhleb</a></em
+      >
+    </p>
+    <p><a href="#contents">↑</a> 👋</p>
+  </body>
+</html>

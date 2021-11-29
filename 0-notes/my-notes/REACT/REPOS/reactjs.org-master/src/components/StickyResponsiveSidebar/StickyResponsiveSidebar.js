@@ -110,7 +110,8 @@ class StickyResponsiveSidebar extends Component<Props, State> {
             [media.greaterThan('sidebarFixed')]: {
               borderLeft: '1px solid #ececec',
             },
-          }}>
+          }}
+        >
           <div
             style={{
               transform: `translate(0px, ${menuOffset}px)`,
@@ -134,7 +135,8 @@ class StickyResponsiveSidebar extends Component<Props, State> {
               [media.greaterThan('small')]: {
                 transform: 'none !important',
               },
-            }}>
+            }}
+          >
             <Sidebar closeParentMenu={this._closeNavMenu} {...this.props} />
           </div>
         </div>
@@ -155,7 +157,8 @@ class StickyResponsiveSidebar extends Component<Props, State> {
           }}
           onClick={this._openNavMenu}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <Container>
             <div
               css={{
@@ -171,7 +174,8 @@ class StickyResponsiveSidebar extends Component<Props, State> {
                   overflow: 'hidden',
                   alignItems: 'flex-start',
                 },
-              }}>
+              }}
+            >
               <div
                 css={{
                   width: 20,
@@ -180,7 +184,8 @@ class StickyResponsiveSidebar extends Component<Props, State> {
                   display: 'flex',
                   flexDirection: 'column',
                   color: colors.brand,
-                }}>
+                }}
+              >
                 <ChevronSvg
                   size={15}
                   cssProps={{

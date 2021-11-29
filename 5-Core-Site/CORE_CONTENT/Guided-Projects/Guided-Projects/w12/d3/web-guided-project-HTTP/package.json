@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+<<<<<<< HEAD
+    "prettier": "^2.3.1"
+  },
+  "name": "web-guided-project-http",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+   "pretty": "prettier --write \"./**/*.{js,jsx,py,md,html,css}\"" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgoonz/web-guided-project-HTTP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bgoonz/web-guided-project-HTTP/issues"
+  },
+  "homepage": "https://github.com/bgoonz/web-guided-project-HTTP#readme"
+=======
+    "@bgoonz11/repoutils": "^1.0.5"
+  }
+>>>>>>> efeed13fc6958de8aaefb011aae0a1e3d2ee654c
+}

@@ -8,20 +8,15 @@ Some of our components accept a `React.Component` as a prop. If you decide to bu
 
 Pass the prop `className` to the className prop on the parent element. As an example please see the [MaterialIcon Component](../packages/material-icon/index.js) or the example below:
 
-
 ```js
 class Dog extends React.Component {
   render() {
     const {className = ''} = this.props;
     const allClasses = `${className} dog-class`;
 
-    return (
-      <div className={allClasses}>
-        Woof
-      </div>
-    );
+    return <div className={allClasses}>Woof</div>;
   }
-};
+}
 ```
 
 ## Importing with ES5
@@ -46,11 +41,7 @@ import '@material/react-button/dist/button.css';
 
 class MyApp extends React.Component {
   render() {
-    return (
-      <Button>
-        Click Me!
-      </Button>
-    );
+    return <Button>Click Me!</Button>;
   }
 }
 ```

@@ -1,0 +1,649 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Lambda School Email &amp; Slack Migration </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4d898450-36e5-43c1-9765-2704045b8371" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1512626120412-faf41adb4874?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 30.789999999999996%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">✉️</span></div><h1 class="page-title">Lambda School Email &amp; Slack Migration </h1></header><div class="page-body"><p id="ee0a52d4-7fa6-43f0-bc31-29180f281bbe" class="">
+</p><p id="8a6e4a37-d667-4c4c-922e-01e53c0520da" class="">As we grow, we will continue to evaluate and improve the use of our tools. From March 31, 2020 - April 26, 2020, we will be upgrading the entire Lambda School Slack to an upgraded experience called <a href="https://slack.com/help/articles/360004150931-What-is-Slack-Enterprise-Grid">Slack Enterprise Grid</a>. </p><p id="67e7889c-7197-4693-a64a-d525d47d7fc5" class="">This requires action from students. Below are upcoming deadlines and a list of what you can expect from this upgrade. Slack is a key tool that we use to communicate and build community within Lambda School. Students need to complete the steps asked of them below or they will not have access to Slack and therefore will not be active members of our community.</p><p id="de5c18af-127a-4398-989f-5b37831a0591" class="">Additionally, it is important that you go through the FAQs for important information regarding the reason for the switch and policies regarding the use and privacy of the @lambdastudents.com email addresses.</p><p id="d5e10011-c988-4e1b-81bb-c800a8f870b5" class="">
+</p><p id="0ab37b41-bab0-4688-9b8e-11bf336d1aab" class="">
+</p><nav id="cdfa43c3-4d2f-4a37-b0b8-e19f11e1e174" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b6d90337-2ac2-42f6-9c73-3dccfd2ac862">Slack Enterprise Grid Migration (highlighted in yellow means action needed from students and/or alumni): </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1f033f7f-6986-4349-8f0e-9284aed6753e">Desktop Slack App: Instructions for Adding new Slack &quot;Students Workspace&quot;</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d285aa28-fb37-4bf7-9792-5bf79221dee4">Mobile Slack App: Instructions for Adding new Slack &quot;Students Workspace&quot;</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9a0a32af-c84a-4908-9b3b-a9b6184918bb">FAQs </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a7de9aa9-2c77-4aeb-b6cf-2cca2abca595">DEPRECATED — <a href="http://lambdastudents.com">lambdastudents.com</a> email timelines</a></div></nav><h2 id="b6d90337-2ac2-42f6-9c73-3dccfd2ac862" class="">Slack Enterprise Grid Migration (highlighted in yellow means action needed from students and/or alumni): </h2><ul id="93458ed8-0363-4a65-906a-80db6da90b20" class="bulleted-list"><li style="list-style-type:disc">The migration will begin at<strong> 9 PM Pacific </strong>on Saturday, April 25th and will end at 5.30 AM Pacific on Monday, April 27th.</li></ul><ul id="ccf013a9-4c0e-4ab2-a69f-9ecced2c81b2" class="bulleted-list"><li style="list-style-type:disc">You <strong>will not be able to access Lambda School Slack Workspace</strong> from Saturday, April 25th, 9 PM Pacific to Sunday, April 26th, 10 AM Pacific.</li></ul><ul id="b5ed62ed-e55a-4c40-9fd3-926bc73408a4" class="bulleted-list"><li style="list-style-type:disc">Starting Sunday, April 26th at 10 AM Pacific - you will need to <strong>add the new Lambda Students Slack Workspace</strong> in your Slack app. We will provide detailed instructions on how to do that later this week. <em><strong>No action required for this until Sunday.</strong></em></li></ul><p id="76ce6941-b2f1-4681-b190-b540b5603f3c" class=""><strong>[ACTION REQUIRED]</strong></p><ul id="060b9d9f-b822-489a-992f-e3a3fe4b3203" class="block-color-yellow_background bulleted-list"><li style="list-style-type:disc"><strong>Students</strong> - For those of you who have received @lambdastudents.com email and Okta account, Please activate your Okta account ASAP if you haven’t already done so. Without the active Okta account, you will not be able to login to Lambda School Slack starting this weekend (April 25th).<ul id="96adcc9c-78ef-4ee4-97e4-e1035a2e4c05" class="bulleted-list"><li style="list-style-type:circle">Please reach out to <a href="mailto:contact@lambdaschool.co">contact@lambdaschool.co</a>m if you are having issues with your Okta account.</li></ul></li></ul><ul id="adfdabb6-f751-489f-b882-4d32d98922fd" class="block-color-yellow_background bulleted-list"><li style="list-style-type:disc"><strong>Alumni</strong> - For those of you who have not received Okta account and @lambdastudents.com account, you will continue to access Slack using your personal email. We will provide instructions for adding a new Alumni workspace later this week.</li></ul><p id="0d8c2b2d-69b2-4b51-9b0d-4e2628df40e8" class="">
+</p><h2 id="1f033f7f-6986-4349-8f0e-9284aed6753e" class="">Desktop Slack App: Instructions for Adding new Slack &quot;Students Workspace&quot;</h2><p id="2d15d26e-21ec-4bfb-81b3-668c882998b9" class="block-color-yellow"><strong>tl;dr The new workspace URL is </strong><a href="https://lambda-students.slack.com"><strong>lambda-students.slack.com</strong></a><strong>. </strong></p><p id="195da88e-dddd-40ee-b452-63f44b738609" class="">Watch <a href="https://www.notion.so/04ae42b8447f4c0fb86dd484fdf59c55">this loom how to video</a> or read below.</p><p id="afd07e31-c1f6-40f4-bfb7-7fc7fc39024d" class="">The following will show how to add the workspace to your desktop Slack. </p><figure id="d5aaab90-aa29-4582-8be9-408584ecd4a2" class="image"><a href="Lambda%20School%20Email%20&amp;%20Slack%20Migration%204d89845036e543c197652704045b8371/Slack_Grid_Migration_Adding_Mobile_and_Desktop_A.jpg"><img style="width:1440px" src="Lambda%20School%20Email%20&amp;%20Slack%20Migration%204d89845036e543c197652704045b8371/Slack_Grid_Migration_Adding_Mobile_and_Desktop_A.jpg"/></a></figure><figure id="2a0d5aba-1845-463d-b6d9-e909467cb506" class="image"><a href="Lambda%20School%20Email%20&amp;%20Slack%20Migration%204d89845036e543c197652704045b8371/Slack_Grid_Migration_Adding_Mobile_and_Desktop_B.jpg"><img style="width:672px" src="Lambda%20School%20Email%20&amp;%20Slack%20Migration%204d89845036e543c197652704045b8371/Slack_Grid_Migration_Adding_Mobile_and_Desktop_B.jpg"/></a></figure><p id="13073391-1b48-4d56-b2ce-9a480b5f9580" class="">
+</p><h2 id="d285aa28-fb37-4bf7-9792-5bf79221dee4" class="">Mobile Slack App: Instructions for Adding new Slack &quot;Students Workspace&quot;</h2><p id="6e6b4e62-e2e1-47f5-8027-bc0acecf1564" class="">
+</p><p id="4b63033c-8ca9-4327-82ed-f46d3be5d81d" class="block-color-yellow"><strong>tl;dr The new workspace URL is </strong><a href="https://lambda-students.slack.com"><strong>lambda-students.slack.com</strong></a><strong>. </strong></p><p id="c8780857-6697-4afc-8273-0b0eee75121c" class="">The cleanest way to start is to log out of both Slack and Okta. If you have any trouble, log out of Slack and/or Okta. Also be sure that you&#x27;ve updated Slack as the new workspace is on the new version of Slack.</p><figure id="7a35f57b-6d8b-4a0a-b716-f6b999076f7c" class="image"><a href="Lambda%20School%20Email%20&amp;%20Slack%20Migration%204d89845036e543c197652704045b8371/Slack_Grid_Migration_Adding_Mobile.jpg"><img style="width:1440px" src="Lambda%20School%20Email%20&amp;%20Slack%20Migration%204d89845036e543c197652704045b8371/Slack_Grid_Migration_Adding_Mobile.jpg"/></a></figure><p id="9480fb09-ba08-45f5-b3dd-fb585f698e73" class="">
+</p><h2 id="9a0a32af-c84a-4908-9b3b-a9b6184918bb" class="">FAQs </h2><ul id="9e12aae2-a1c4-4b74-aeed-e9fad9b275ea" class="toggle"><li><details open=""><summary>Why are we doing this?</summary><p id="647e9126-4c02-4188-a95d-d1a7c8700077" class="">We are upgrading to <a href="https://slack.com/help/articles/360004150931-What-is-Slack-Enterprise-Grid">Slack Enterprise Grid</a>, which will unlock new capabilities within slack for students and staff. This requires a single sign on (SSO). In order to provide that SSO, we are using a service from Okta.</p></details></li></ul><ul id="2734d265-8c79-41ec-a664-868fd844e83b" class="toggle"><li><details open=""><summary>What happens if I (as a current student) do not active your Okta account by the due date?</summary><p id="409f5abc-bd6f-445b-87e8-500d4a7d9435" class="">Because this is changing how you access Slack, if you don&#x27;t activate your Okta account, you won&#x27;t be able to log into Slack, which is required to be an active member of Lambda School. </p></details></li></ul><ul id="18a41259-4358-4633-95c3-63a051069b1b" class="toggle"><li><details open=""><summary>How will this impact the data I have in Slack? DMs, class channels, etc.</summary><p id="110b4289-62c9-4824-8b6d-31b230d3404f" class="">This will not impact the data in Slack.</p></details></li></ul><ul id="d6c1ee96-ebf4-4630-a061-6421496012a9" class="toggle"><li><details open=""><summary>What is Zoho?</summary><p id="c13539a0-7dab-4c51-a245-1716e429ad26" class="">Zoho is a provider of email and calendars. Through Zoho, we will provide current students in good standing emails using the domain: @lambdastudents.com </p><p id="1290c7c4-2938-45dc-a651-25f9f0ab084a" class="">One of the many great things about this is that it will allow students to show their official affiliation with Lambda to employers via this email.</p></details></li></ul><ul id="08a3dc4c-49ce-483f-9bb9-d33a868b10c4" class="toggle"><li><details open=""><summary>What is Okta?</summary><p id="40dcc217-c925-4c16-b5d5-d3c30213c09c" class="">Okta is a leader for creating Single Sign On (SSO) and identity management. You may have experienced SSOs before - think &quot;sign in using Google&quot; or &quot;sign in using Facebook&quot;. </p></details></li></ul><ul id="c996a0e8-aaf1-4ef6-9289-ccde564bbf87" class="toggle"><li><details open=""><summary>Why does this not include alumni? Do they still have access to Slack?</summary><p id="8f18672d-fb24-4131-a1be-5a90ec739a4f" class="">Alumni will not have @lambdastudents.com email, but they will continue to access Slack using their personal email. </p></details></li></ul><ul id="c27cff83-4223-49ef-80aa-3c316630d9f3" class="toggle"><li><details open=""><summary>How to access your Zoho email:</summary><p id="f6eda3f4-687d-4789-b41c-83b92869c6d6" class="">
+</p><h1 id="20dd80a2-f98c-4c32-9c4f-bd7edce8d8aa" class="">How to access your new Zoho email account</h1><p id="8ac9fcf8-2546-45c5-abc5-3dd3a89aefc7" class="">After first-time login and account set up there are 2 ways you can access your Zoho mailbox.</p><h2 id="f4392a9a-82c7-44a0-9525-883fbefb55f9" class="">Option 1 - Login to Okta:</h2><p id="3a01fc9d-22aa-4b0a-8dc4-0dd99d99eac1" class="">You can login to Okta at <a href="https://lambdaschoolsso.okta.com/">https://lambdaschoolsso.okta.com</a>.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="9f8da7ec-13f4-43df-8d2d-b57e895ec9a3"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">Please note that you must login at <a href="https://www.notion.so/Accessing-Zoho-Email-a51fca9679364976a219921a970146ae">https://lambdaschool</a><a href="https://www.notion.so/Accessing-Zoho-Email-a51fca9679364976a219921a970146ae"><strong>sso.</strong></a><a href="https://www.notion.so/Accessing-Zoho-Email-a51fca9679364976a219921a970146ae">okta.com</a>. If you try logging in without the &quot;sso&quot; in the name, it will not work.</div></figure><figure id="1fd55a4e-a750-4954-aafb-4fe6425d49bd" class="image"><a href="https://lh4.googleusercontent.com/2vAys5wDQD-4UD_pyDcK7zoAwKBzthQd5wyJe5tvW85gxmm38dEYr1fP3dXhg0agmBf_PFQJl_zJb6Rxq_gPHc1PeOPYFHpiUIhCCy3pxwFJnyVxTK4wpSRLrKf-EzcV9NLbHib0"><img src="https://lh4.googleusercontent.com/2vAys5wDQD-4UD_pyDcK7zoAwKBzthQd5wyJe5tvW85gxmm38dEYr1fP3dXhg0agmBf_PFQJl_zJb6Rxq_gPHc1PeOPYFHpiUIhCCy3pxwFJnyVxTK4wpSRLrKf-EzcV9NLbHib0"/></a></figure><p id="a849f69d-ff88-4487-a899-7c960e2459c2" class="">After logging in you’ll see your Okta dashboard and can click Zoho from there.</p><figure id="6a1018be-3936-4c08-8338-e656b2c332f1" class="image"><a href="https://lh3.googleusercontent.com/lqL1kpLP0g28sknXDEGeZPMt4w0scN_MvIPnc-jI97KYNrLUomfajLFwjIciMqOnyo7Nr8vaz4pkLzj1DY-Q10e1QvyZSxrvVM5Wrm4KLHJX3woTeTaJE4otBOgl30fpA8339AbL"><img src="https://lh3.googleusercontent.com/lqL1kpLP0g28sknXDEGeZPMt4w0scN_MvIPnc-jI97KYNrLUomfajLFwjIciMqOnyo7Nr8vaz4pkLzj1DY-Q10e1QvyZSxrvVM5Wrm4KLHJX3woTeTaJE4otBOgl30fpA8339AbL"/></a></figure><h2 id="9715d5c2-77e3-4764-9286-fac24a23d1ed" class="">Option 2 - Login to Zoho directly:</h2><p id="5565b3fd-9ae9-40e1-92f1-2f3b59ce5f9d" class="">You can login to your Zoho mail directly at <a href="https://mail.zoho.com/">https://mail.zoho.com</a>. Click the login link in the upper right corner of Zoho mail webpage.</p><figure id="c8d2a665-99d9-4953-a627-b1b3929e5196" class="image"><a href="https://lh6.googleusercontent.com/YBn_CxYekKKBbYdM6UAOwAOqTU5w_VeQOhKS4-3sFJtrFqYR0JOeVv_y7Le7RQ2shInxeFZj__pdtbejArzUW8lwgaR2tGZXjC4MEWqUQxzCbun7kf6i3NYaLTzdfTf_LyUU0Bq5"><img src="https://lh6.googleusercontent.com/YBn_CxYekKKBbYdM6UAOwAOqTU5w_VeQOhKS4-3sFJtrFqYR0JOeVv_y7Le7RQ2shInxeFZj__pdtbejArzUW8lwgaR2tGZXjC4MEWqUQxzCbun7kf6i3NYaLTzdfTf_LyUU0Bq5"/></a></figure><p id="01bec292-0538-4da7-ad43-003a20b71a0c" class="">On this page you’ll enter your lambdastudents.com email address.</p><figure id="739015fe-0041-4f5e-9e05-002e97d36953" class="image"><a href="https://lh6.googleusercontent.com/o2PaCabCJCXPtoPRiIT9QOoB4qio7_AjUO-fClsMgkNUOZSi1ealr-jscGqJG0l0vIt7dAaE_Ks1Axbs_SGPDgmQVibRBZ8wr0dz9HArljhDYaWW16EB_gpwvvnVAwlfrkVHuYbF"><img src="https://lh6.googleusercontent.com/o2PaCabCJCXPtoPRiIT9QOoB4qio7_AjUO-fClsMgkNUOZSi1ealr-jscGqJG0l0vIt7dAaE_Ks1Axbs_SGPDgmQVibRBZ8wr0dz9HArljhDYaWW16EB_gpwvvnVAwlfrkVHuYbF"/></a></figure><p id="2fd2b4d0-793c-428b-b564-b742d255a2e5" class="">If you are not logged in to Okta already, you’ll be redirected to the Okta login page. Login here with your lambdastudents.com email and Okta password.</p><figure id="3a76aa7f-2a12-45ea-9d12-11ceb3cb93c5" class="image"><a href="https://lh3.googleusercontent.com/Z9LcT3a7ZWXTJUQwuxyFgAKHPONs7DE7qwEd0VzbfDNkBVefXBQisWjzA66LViHnklegn2pwP4nq-_1P6RYIKGTLqv2SIg2WFuYhy2HP51t07pyFXMhd14ZhgB1AlCUva0id2AFT"><img src="https://lh3.googleusercontent.com/Z9LcT3a7ZWXTJUQwuxyFgAKHPONs7DE7qwEd0VzbfDNkBVefXBQisWjzA66LViHnklegn2pwP4nq-_1P6RYIKGTLqv2SIg2WFuYhy2HP51t07pyFXMhd14ZhgB1AlCUva0id2AFT"/></a></figure><p id="6830d0f4-a06a-4941-9fbd-386bcb911c52" class="">After logging in you’ll be at your Zoho mailbox.</p></details></li></ul><ul id="db409dff-9fe9-445c-9e82-fd55386faf28" class="toggle"><li><details open=""><summary>How/why is Slack changing? </summary><p id="7e845a48-9321-4f4c-b0eb-4996d85f3b97" class="">This is an upgrade. We are going to have more capabilities for staff and students within Slack - which is important as we continue to grow. </p></details></li></ul><ul id="e875623e-e489-44e9-a938-7f0520c253f3" class="toggle"><li><details open=""><summary>Does this change how I use Slack?</summary><p id="3168dc45-fcdc-4c59-b488-34df8280b403" class="">You will still utilize the same channels in Slack - we will let you know if there are any changes to naming conventions, such as changing the &quot;handles&quot; that individuals use to @ mention each other. </p></details></li></ul><ul id="76136f54-0213-4f67-b5a5-57435ee32b4b" class="toggle"><li><details open=""><summary>Why do I need a <a href="http://lambdaschool.com">lambdastudents.com</a> email?</summary><p id="17473bf0-8846-45fc-916a-b1829710e7a2" class="">Okta SSO accounts for students are connected to @lambdastudents.com email addresses.</p><p id="d91ec53f-6e70-4736-9df0-f796b2de4357" class="">This also allows for a single email to receive communications from Lambda School. Additionally, we are better able to manage students access to our infrastructure. </p></details></li></ul><ul id="2349686d-b35b-45fa-b29e-4d8cd0d88723" class="toggle"><li><details open=""><summary>What do I do if it doesn&#x27;t work?</summary><p id="a49d8b7e-1b49-4e98-bd2b-23d517b848ad" class="">If you have problems activating your Okta account or if it doesn&#x27;t work, please post it in the public channel <del><strong>#students_okta_support</strong></del><strong>  #slack_student_migration </strong>with the problem you are running into. Someone from our staff will help you on that channel.</p></details></li></ul><ul id="d9c2d6ea-8d96-474f-823a-cf90e22445a1" class="toggle"><li><details open=""><summary>I am a current student and want to use my email to log in, not the Lambda one, can I?</summary><p id="17e27cae-7e65-44b1-afeb-ce71fb701803" class="">Log in for Slack will require the use of the @lambdastudents.com email address - there is no option for students to use their personal email for login to Slack.</p></details></li></ul><ul id="dd29dafb-b63e-489f-8f1a-5afff4ad881f" class="toggle"><li><details open=""><summary>Do I need to check my new Lambda email?</summary><p id="483b5003-5a95-4d79-b954-92a3f35d3c4a" class="">Yes. Lambda will use this email address to communicate important information to students. </p></details></li></ul><ul id="0fca7374-426c-4523-8e2f-8350f3eefe71" class="toggle"><li><details open=""><summary>What guidelines exist regarding my new Lambda email? </summary><ul id="d73f4868-5e42-425f-a1d8-70d14899e98e" class="bulleted-list"><li style="list-style-type:disc">@lambdastudents.com email addresses provides Lambda School a means of official communication between the school and students.</li></ul><ul id="dbc71746-b2f9-441c-95b5-d896a9c7d2ed" class="bulleted-list"><li style="list-style-type:disc">Email services are available for students to support learning and for communication between the School and the student. We suggest you treat this like a work account and generally do not use this account for your personal email. </li></ul><ul id="6486128e-0965-449d-90d4-16bc50aea45e" class="bulleted-list"><li style="list-style-type:disc">Lambda School is the administrator of all School email accounts and as such may be called on to enforce compliance with applicable law including copyright and other intellectual property rights. You are expected to comply with the law and with reasonable usage policy in your use of these accounts, and your account may be suspended if you do not do so. </li></ul><ul id="50959329-9733-4ab2-ad67-f77dde086bff" class="bulleted-list"><li style="list-style-type:disc">In the future we may launch additional features and services for these accounts such as the ability to link with student dashboards. We will notify you of these new features.  </li></ul><ul id="241af0f0-50b1-4d34-99e7-1d741f80860c" class="bulleted-list"><li style="list-style-type:disc">As a reminder, you are held to all policies at Lambda including, but not limited to the Lambda School privacy policy at <a href="https://lambdaschool.com/privacy-policy">https://lambdaschool.com/privacy-policy</a> </li></ul><ul id="53565ad0-77d6-4e60-80ae-f4420b6f5c76" class="toggle"><li><details open=""><summary>Examples of prohibited use:</summary><p id="376c10b7-6a7b-4dd9-bbee-3e56c5ecad1b" class="">The below are examples of prohibited use. This list is not exhaustive. </p><ul id="aaa27b25-081f-4e4c-be62-47b86ea54dc3" class="bulleted-list"><li style="list-style-type:disc">Intentional and unauthorized access to other people&#x27;s emails;</li></ul><ul id="12ddfdff-50a4-49de-9f38-f365e0af2a2a" class="bulleted-list"><li style="list-style-type:disc">Intentional distribution of viruses, worms, Trojan horses, malware, corrupted files, hoaxes, or other items of a destructive or deceptive nature; </li></ul><ul id="0b14e822-d637-4633-8200-b9d080377f54" class="bulleted-list"><li style="list-style-type:disc">Tests or reverse-engineers the email services in order to find limitations, vulnerabilities, or evade filtering capabilities; </li></ul><ul id="2abfedbc-9135-403a-abfb-227b9d043588" class="bulleted-list"><li style="list-style-type:disc">Constitutes, fosters, or promotes pornography; </li></ul><ul id="bbe37987-bd8c-4eed-a00f-e894307edd51" class="bulleted-list"><li style="list-style-type:disc">Is excessively violent, incites violence, threatens violence, or contains harassing content;</li></ul><ul id="4235d10f-2aa6-41a2-97fb-1c60bb578780" class="bulleted-list"><li style="list-style-type:disc">Creates a risk to a person&#x27;s safety or health, creates a risk to public safety or health, compromises national security, or interferes with an investigation by law enforcement;</li></ul><ul id="eb3a03d5-67de-4934-9c49-b56ce552a8b8" class="bulleted-list"><li style="list-style-type:disc">Improperly exposes trade secrets or other confidential or proprietary information; </li></ul><ul id="6b63f7c4-9de5-490d-915a-7c8abac41743" class="bulleted-list"><li style="list-style-type:disc">Misrepresents the sender of the email; </li></ul><ul id="352dbcda-b7e4-4b97-9b8f-2d98143576a9" class="bulleted-list"><li style="list-style-type:disc">Sending &quot;spam&quot;, chain letters, or any other type of unauthorized widespread distribution of unsolicited mail;</li></ul><ul id="8bcc5ef2-0c10-4300-9209-f0c544c9a4d7" class="bulleted-list"><li style="list-style-type:disc">Use of email for commercial activities or personal gain (except as specifically authorized by Lambda School policies and in accord with Lambda School procedures);</li></ul><ul id="e13a74c5-d240-4aad-ba08-2a8a5c0414db" class="bulleted-list"><li style="list-style-type:disc">Use of email for partisan political or lobbying activities;</li></ul><ul id="df209dcb-838c-423c-a0d3-42dfa44e105c" class="bulleted-list"><li style="list-style-type:disc">Sending messages that constitute violations of Lambda School&#x27;s Student Guide and/or Code of Conduct;</li></ul><ul id="3a9d01b8-bb16-4c06-9ab8-9b67348878e6" class="bulleted-list"><li style="list-style-type:disc">Creation and use of a false or alias email address in order to impersonate another or send fraudulent communications;</li></ul><ul id="450fe83b-7a4e-4c44-abd0-c7d47f519da2" class="bulleted-list"><li style="list-style-type:disc">Use of email to transmit materials in a manner which violates copyright laws.</li></ul><ul id="b163e74b-2c8b-4965-9499-416bd8b5dd95" class="bulleted-list"><li style="list-style-type:disc">Conducting business for profit under the aegis of the School</li></ul></details></li></ul></details></li></ul><ul id="fa1d1d75-8cdd-4ba8-ab86-db6efbc384af" class="toggle"><li><details open=""><summary>What is the privacy policy for data in these accounts?</summary><ul id="57920bb2-beb9-4f0a-b81e-4af50f725937" class="bulleted-list"><li style="list-style-type:disc">Student email users are advised that electronic data (and communications using the School&#x27;s tools for transmission or storage) may be reviewed and/or accessed in accordance with Lambda School&#x27;s policies. We do not actively monitor email, but we are subject to legal processes and may be called on to do so. </li></ul><ul id="d559a2ec-d4da-4f22-b1d9-f438b5abf4da" class="bulleted-list"><li style="list-style-type:disc">Lambda School has the authority to access and inspect the contents of files or email on its electronic systems.<ul id="ff032f0b-d05d-45f6-99f8-bf1c56de5d4c" class="bulleted-list"><li style="list-style-type:circle">While Lambda School will make every attempt to keep email messages secure, privacy is not a guarantee and students should have no general expectation of privacy in email messages sent through Lambda School email accounts.</li></ul><ul id="0ecd219d-eb58-40eb-94ae-21aee25f64e6" class="bulleted-list"><li style="list-style-type:circle">Such access will be on an as-needed basis and any email accessed will only be disclosed to individuals who have been properly authorized and have an appropriate need to know. </li></ul></li></ul><ul id="e6adce38-294f-44ed-9261-1e13d0280c62" class="bulleted-list"><li style="list-style-type:disc">You can also review Lambda&#x27;s formal privacy policy at <a href="http://www.lambdaschool.com/privacy">www.lambdaschool.com/privacy</a> </li></ul><ul id="959e067d-304d-4b43-aba6-31b10d872f5f" class="bulleted-list"><li style="list-style-type:disc">Lambda School attempts to provide secure, private, and reliable email services. However, Lambda School cannot guarantee the security, privacy, or reliability of email services. As with all email services, students should exercise caution in using Lambda School email accounts to communicate confidential or sensitive matters. </li></ul></details></li></ul><ul id="b28e70b5-53e8-4a0c-8608-ba080f05c1b7" class="toggle"><li><details open=""><summary>Will I have access to my Lambda email indefinitely or only up until a specific time after I leave Lambda?</summary><p id="38916ad3-f9a7-4fce-8d97-f71319e6aea4" class="">You have access to the email as long as you are in school. This is inline with any university or work email policy. You will not have access to your Lambda email indefinitely. Specifically,  accounts are deactivated one month after either graduation, hiring, or sooner where a student is withdrawn or otherwise separated from and/or completed with Lambda School as outlined in the policies in the Student Guide. </p></details></li></ul><ul id="546408a1-fe3c-4bde-a4e2-2d883b01066c" class="toggle"><li><details open=""><summary>If I&#x27;m changing my name in a few months, how should I approach setting up my email? Am I able to change it later if needed?</summary><p id="917811c1-b720-44a3-add4-45cf41d55665" class="">Unfortunately at this time you will not be able to change the username (first part of the email prior to the @lambdastudents.com) on your email account. If this changes in the future, we will let you know.</p><p id="d157487e-53f7-49c0-a2f5-0e5a955002f6" class="">If you would like to change the name used on your other Lambda profiles (Slack, Training Kit, etc.) you may request to do so through /frontdesk. </p></details></li></ul><ul id="88c7aabd-8321-4e10-8ebf-af83ff1def1d" class="toggle"><li><details open=""><summary>Should this be the email I use on github?</summary><p id="82516607-73c8-4e7e-8537-08504a893fc3" class="">No. Not at this time. We will enable more and more services that you can access using this email down the road but at this time Github will not be integrated with Okta.</p></details></li></ul><ul id="acae7b6c-1b89-42e4-8903-6ffd6b2263c2" class="toggle"><li><details open=""><summary>What will the new Slack space look like?</summary><p id="1fdea23a-8143-4d5e-804f-6ceb1db8e67f" class="">The main thing that is changing with this is that Lambda School Students will have a dedicated Slack workspace. Slack is also rolling out smaller UI changes with this migration.  Here is how <a href="https://slack.com/help/articles/360043092173-The-new-Slack-experience">New Slack experience</a> would look like.</p></details></li></ul><ul id="e90c68de-67e4-460e-91c1-7c077ef2608e" class="toggle"><li><details open=""><summary>Will I have access to the channels I am currently in?</summary><p id="25b8f345-e0fc-471a-9d84-82ef116a3506" class="">Yes. Students should be in all the same channels after migration.</p></details></li></ul><ul id="bf2ddf88-7738-4a37-96f7-d467e66a70f1" class="toggle"><li><details open=""><summary>Will I lose my DM history? </summary><p id="47691861-5f56-418b-bc08-bef952594977" class="">No, history will be migrated. It may be only partially visible until Monday morning.</p></details></li></ul><ul id="5aa42baa-f11e-41dc-9871-df5642d063e5" class="toggle"><li><details open=""><summary>You said there would be more info for alumni - what is changing for us/what do we need to know?</summary><p id="3977fe9c-5b77-4b86-838e-4c8bc117fa59" class="">We are creating a new dedicated Slack workspace for Alumni. Here is what to expect for Alumni:</p><ul id="827728e1-ea27-4368-8719-e18598f395a9" class="bulleted-list"><li style="list-style-type:disc"><strong>You will access Lambda School Alumni workspace with your personal email address.</strong></li></ul><ul id="8993ee3c-9605-4079-8c92-54be74b7e28d" class="bulleted-list"><li style="list-style-type:disc"><strong>You will be a Multi-Channel Guest in the new Alumni Workspace. </strong>Multi-Channel Guests have many of the same privileges as Members. More information about Multi-Channel Guests can be found <a href="https://slack.com/help/articles/202518103-Multi-Channel-and-Single-Channel-Guests">here</a>.</li></ul><ul id="85ad6ebd-01dd-4670-88bc-532f401e0a70" class="bulleted-list"><li style="list-style-type:disc"><strong>You will have access to some channels in the Lambda Student Workspace.</strong><p id="fbbfca38-6b36-40b0-bd7a-625e9509f25b" class="">You will have access to <em>#hired</em>, <em>#job_board</em>, <em>#career_help</em>, and other cohort-specific channels. We want to make sure that you stay connected to students, and so we may expand access based on demand. Note that our priority is to keep things organized for students, instructors, and other relevant staff.</p></li></ul><p id="a5e8ae69-8b37-4558-a033-3b4c41a0f7a0" class="">
+</p></details></li></ul><ul id="36a7b5c4-e61c-40bd-9869-daeca167e6a9" class="toggle"><li><details open=""><summary>What does the Slack upgrade do/what does it give us that we didn&#x27;t have before?</summary><p id="76ba9122-982d-4ab8-8709-beba371b84f9" class="">Slack upgrade enables new features, capabilities and improved slack experience for students. It also enables Single Sign-On login to Slack using Okta.</p><p id="c23e91e2-9209-43b9-8054-1c23feb52c18" class="">More about Slack Enterprise Upgrade features are here: <a href="https://slack.com/help/articles/360004150931-What-is-Slack-Enterprise-Grid">https://slack.com/help/articles/360004150931-What-is-Slack-Enterprise-Grid</a></p><p id="06081cad-45b1-4506-89bc-1afeb33dcdce" class="">
+</p></details></li></ul><ul id="71c22a0d-6d57-4e7f-84e1-8b06044991e3" class="toggle"><li><details open=""><summary>Will Slack be down for this upgrade? If so, what is the time-frame?</summary><p id="f8164234-bf66-4cdf-b972-ebbdd0a7caf4" class="">Yes, there will be downtime from 9:00 PM Pacific Sat 4/25 - 10:00 AM Pacific on Sun 4/26.</p></details></li></ul><p id="e32d45bf-92bc-4262-85bb-46ed8b1e19df" class="">
+</p><h2 id="a7de9aa9-2c77-4aeb-b6cf-2cca2abca595" class="">DEPRECATED — <a href="http://lambdastudents.com">lambdastudents.com</a> email timelines</h2><p id="18431b74-aec9-4446-be75-ff096bf3c132" class="">
+</p><ul id="06921bbc-fa9b-4056-a524-97305a316817" class="bulleted-list"><li style="list-style-type:disc">March 31st: Students sent invitation to activate an account in Okta<ul id="28187cae-9ef6-4d88-a969-051fd24699d2" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background">March 31st - April 6th: Students need to activate an Okta account via the invite in their personal email. After the account is activated, students will have access to their @lambdastudents.com email account.</mark></li></ul><ul id="b5a20299-85fa-4ba8-ac26-c535452dd09b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background">March 31st - April 6th: Students will need to accept the invite they&#x27;ve received to activate Okta, single sign on. Once they activate their Okta account, their new @lambdastudents.com email will be created automatically.</mark></li></ul></li></ul><p id="97a3fe5a-7321-482e-8b3f-2749fbf28e7b" class="">
+</p><ul id="534d5ffe-d66c-4b9f-9c0f-8bcab3e5a409" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background">April 7th Onwards: Students will use their @lambdastudents.com email address to sign in to Slack.</mark><ul id="66777128-9357-489b-9e43-795e22b62dad" class="bulleted-list"><li style="list-style-type:circle">You may have to do this on April 6th if you are logging into Slack after 7pm Pacific on April 6th. </li></ul></li></ul></div></article></body></html>

@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>controlflow</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="navigation">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li>
+        <a href="datastructures.html" title="5. Data Structures">next</a> |
+      </li>
+      <li>
+        <a
+          href="introduction.html"
+          title="3. An Informal Introduction to Python"
+          >previous</a
+        >
+        |
+      </li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+    <p><span id="tut-morecontrol"></span></p>
+    <h1 id="more-control-flow-tools">
+      <span class="section-number">4. </span>More Control Flow Tools<a
+        href="#more-control-flow-tools"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h1>
+    <p>
+      Besides the
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#while"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >while</code
+        ></a
+      >
+      statement just introduced, Python uses the usual flow control statements
+      known from other languages, with some twists.
+    </p>
+    <p><span id="tut-if"></span></p>
+    <h2 id="if-statements">
+      <span class="section-number">4.1. </span><code>if</code> Statements<a
+        href="#if-statements"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Perhaps the most well-known statement type is the
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#if"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >if</code
+        ></a
+      >
+      statement. For example:
+    </p>
+    <pre><code>&gt;&gt;&gt; x = int(input(&quot;Please enter an integer: &quot;))
+Please enter an integer: 42
+&gt;&gt;&gt; if x &lt; 0:
+...     x = 0
+...     print(&#39;Negative changed to zero&#39;)
+... elif x == 0:
+...     print(&#39;Zero&#39;)
+... elif x == 1:
+...     print(&#39;Single&#39;)
+... else:
+...     print(&#39;More&#39;)
+...
+More</code></pre>
+    <p>
+      There can be zero or more
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#elif"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >elif</code
+        ></a
+      >
+      parts, and the
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#else"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >else</code
+        ></a
+      >
+      part is optional. The keyword ‘<code>elif</code>’ is short for ‘else if’,
+      and is useful to avoid excessive indentation. An <code>if</code> …
+      <code>elif</code> … <code>elif</code> … sequence is a substitute for the
+      <code>switch</code> or <code>case</code> statements found in other
+      languages.
+    </p>
+    <p><span id="tut-for"></span></p>
+    <h2 id="for-statements">
+      <span class="section-number">4.2. </span><code>for</code> Statements<a
+        href="#for-statements"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#for"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >for</code
+        ></a
+      >
+      statement in Python differs a bit from what you may be used to in C or
+      Pascal. Rather than always iterating over an arithmetic progression of
+      numbers (like in Pascal), or giving the user the ability to define both
+      the iteration step and halting condition (as C), Python’s
+      <code>for</code> statement iterates over the items of any sequence (a list
+      or a string), in the order that they appear in the sequence. For example
+      (no pun intended):
+    </p>
+    <pre><code>&gt;&gt;&gt; # Measure some strings:
+... words = [&#39;cat&#39;, &#39;window&#39;, &#39;defenestrate&#39;]
+&gt;&gt;&gt; for w in words:
+...     print(w, len(w))
+...
+cat 3
+window 6
+defenestrate 12</code></pre>
+    <p>
+      Code that modifies a collection while iterating over that same collection
+      can be tricky to get right. Instead, it is usually more straight-forward
+      to loop over a copy of the collection or to create a new collection:
+    </p>
+    <pre><code># Strategy:  Iterate over a copy
+for user, status in users.copy().items():
+    if status == &#39;inactive&#39;:
+        del users[user]
+
+# Strategy:  Create a new collection
+active_users = {}
+for user, status in users.items():
+    if status == &#39;active&#39;:
+        active_users[user] = status</code></pre>
+    <p><span id="tut-range"></span></p>
+    <h2 id="the-range-function">
+      <span class="section-number">4.3. </span>The
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#range"
+        class="reference internal"
+        title="range"
+        ><code class="sourceCode python"
+          ><span class="bu">range</span>()</code
+        ></a
+      >
+      Function<a
+        href="#the-range-function"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      If you do need to iterate over a sequence of numbers, the built-in
+      function
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#range"
+        class="reference internal"
+        title="range"
+        ><code class="sourceCode python"
+          ><span class="bu">range</span>()</code
+        ></a
+      >
+      comes in handy. It generates arithmetic progressions:
+    </p>
+    <pre><code>&gt;&gt;&gt; for i in range(5):
+...     print(i)
+...
+0
+1
+2
+3
+4</code></pre>
+    <p>
+      The given end point is never part of the generated sequence;
+      <code>range(10)</code> generates 10 values, the legal indices for items of
+      a sequence of length 10. It is possible to let the range start at another
+      number, or to specify a different increment (even negative; sometimes this
+      is called the ‘step’):
+    </p>
+    <pre><code>range(5, 10)
+   5, 6, 7, 8, 9
+
+range(0, 10, 3)
+   0, 3, 6, 9
+
+range(-10, -100, -30)
+  -10, -40, -70</code></pre>
+    <p>
+      To iterate over the indices of a sequence, you can combine
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#range"
+        class="reference internal"
+        title="range"
+        ><code class="sourceCode python"
+          ><span class="bu">range</span>()</code
+        ></a
+      >
+      and
+      <a
+        href="https://docs.python.org/3/library/functions.html#len"
+        class="reference internal"
+        title="len"
+        ><code class="sourceCode python"><span class="bu">len</span>()</code></a
+      >
+      as follows:
+    </p>
+    <pre><code>&gt;&gt;&gt; a = [&#39;Mary&#39;, &#39;had&#39;, &#39;a&#39;, &#39;little&#39;, &#39;lamb&#39;]
+&gt;&gt;&gt; for i in range(len(a)):
+...     print(i, a[i])
+...
+0 Mary
+1 had
+2 a
+3 little
+4 lamb</code></pre>
+    <p>
+      In most such cases, however, it is convenient to use the
+      <a
+        href="https://docs.python.org/3/library/functions.html#enumerate"
+        class="reference internal"
+        title="enumerate"
+        ><code class="sourceCode python"
+          ><span class="bu">enumerate</span>()</code
+        ></a
+      >
+      function, see
+      <a href="datastructures.html#tut-loopidioms" class="reference internal"
+        ><span class="std std-ref">Looping Techniques</span></a
+      >.
+    </p>
+    <p>A strange thing happens if you just print a range:</p>
+    <pre><code>&gt;&gt;&gt; print(range(10))
+range(0, 10)</code></pre>
+    <p>
+      In many ways the object returned by
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#range"
+        class="reference internal"
+        title="range"
+        ><code class="sourceCode python"
+          ><span class="bu">range</span>()</code
+        ></a
+      >
+      behaves as if it is a list, but in fact it isn’t. It is an object which
+      returns the successive items of the desired sequence when you iterate over
+      it, but it doesn’t really make the list, thus saving space.
+    </p>
+    <p>
+      We say such an object is
+      <a
+        href="https://docs.python.org/3/glossary.html#term-iterable"
+        class="reference internal"
+        ><span class="xref std std-term">iterable</span></a
+      >, that is, suitable as a target for functions and constructs that expect
+      something from which they can obtain successive items until the supply is
+      exhausted. We have seen that the
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#for"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >for</code
+        ></a
+      >
+      statement is such a construct, while an example of a function that takes
+      an iterable is
+      <a
+        href="https://docs.python.org/3/library/functions.html#sum"
+        class="reference internal"
+        title="sum"
+        ><code class="sourceCode python"><span class="bu">sum</span>()</code></a
+      >:
+    </p>
+    <pre><code>&gt;&gt;&gt; sum(range(4))  # 0 + 1 + 2 + 3
+6</code></pre>
+    <p>
+      Later we will see more functions that return iterables and take iterables
+      as arguments. Lastly, maybe you are curious about how to get a list from a
+      range. Here is the solution:
+    </p>
+    <pre><code>&gt;&gt;&gt; list(range(4))
+[0, 1, 2, 3]</code></pre>
+    <p>
+      In chapter
+      <a href="datastructures.html#tut-structures" class="reference internal"
+        ><span class="std std-ref">Data Structures</span></a
+      >, we will discuss in more detail about
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#list"
+        class="reference internal"
+        title="list"
+        ><code class="sourceCode python"
+          ><span class="bu">list</span>()</code
+        ></a
+      >.
+    </p>
+    <p><span id="tut-break"></span></p>
+    <h2 id="break-and-continue-statements-and-else-clauses-on-loops">
+      <span class="section-number">4.4. </span><code>break</code> and
+      <code>continue</code> Statements, and <code>else</code> Clauses on Loops<a
+        href="#break-and-continue-statements-and-else-clauses-on-loops"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#break"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >break</code
+        ></a
+      >
+      statement, like in C, breaks out of the innermost enclosing
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#for"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >for</code
+        ></a
+      >
+      or
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#while"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >while</code
+        ></a
+      >
+      loop.
+    </p>
+    <p>
+      Loop statements may have an <code>else</code> clause; it is executed when
+      the loop terminates through exhaustion of the iterable (with
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#for"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >for</code
+        ></a
+      >) or when the condition becomes false (with
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#while"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >while</code
+        ></a
+      >), but not when the loop is terminated by a
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#break"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >break</code
+        ></a
+      >
+      statement. This is exemplified by the following loop, which searches for
+      prime numbers:
+    </p>
+    <pre><code>&gt;&gt;&gt; for n in range(2, 10):
+...     for x in range(2, n):
+...         if n % x == 0:
+...             print(n, &#39;equals&#39;, x, &#39;*&#39;, n//x)
+...             break
+...     else:
+...         # loop fell through without finding a factor
+...         print(n, &#39;is a prime number&#39;)
+...
+2 is a prime number
+3 is a prime number
+4 equals 2 * 2
+5 is a prime number
+6 equals 2 * 3
+7 is a prime number
+8 equals 2 * 4
+9 equals 3 * 3</code></pre>
+    <p>
+      (Yes, this is the correct code. Look closely: the <code>else</code> clause
+      belongs to the
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#for"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >for</code
+        ></a
+      >
+      loop, <strong>not</strong> the
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#if"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >if</code
+        ></a
+      >
+      statement.)
+    </p>
+    <p>
+      When used with a loop, the <code>else</code> clause has more in common
+      with the <code>else</code> clause of a
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#try"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >try</code
+        ></a
+      >
+      statement than it does with that of
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#if"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >if</code
+        ></a
+      >
+      statements: a
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#try"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >try</code
+        ></a
+      >
+      statement’s <code>else</code> clause runs when no exception occurs, and a
+      loop’s <code>else</code> clause runs when no <code>break</code> occurs.
+      For more on the <code>try</code> statement and exceptions, see
+      <a href="errors.html#tut-handling" class="reference internal"
+        ><span class="std std-ref">Handling Exceptions</span></a
+      >.
+    </p>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#continue"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >continue</code
+        ></a
+      >
+      statement, also borrowed from C, continues with the next iteration of the
+      loop:
+    </p>
+    <pre><code>&gt;&gt;&gt; for num in range(2, 10):
+...     if num % 2 == 0:
+...         print(&quot;Found an even number&quot;, num)
+...         continue
+...     print(&quot;Found an odd number&quot;, num)
+...
+Found an even number 2
+Found an odd number 3
+Found an even number 4
+Found an odd number 5
+Found an even number 6
+Found an odd number 7
+Found an even number 8
+Found an odd number 9</code></pre>
+    <p><span id="tut-pass"></span></p>
+    <h2 id="pass-statements">
+      <span class="section-number">4.5. </span><code>pass</code> Statements<a
+        href="#pass-statements"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      The
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#pass"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >pass</code
+        ></a
+      >
+      statement does nothing. It can be used when a statement is required
+      syntactically but the program requires no action. For example:
+    </p>
+    <pre><code>&gt;&gt;&gt; while True:
+...     pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+...</code></pre>
+    <p>This is commonly used for creating minimal classes:</p>
+    <pre><code>&gt;&gt;&gt; class MyEmptyClass:
+...     pass
+...</code></pre>
+    <p>
+      Another place
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#pass"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >pass</code
+        ></a
+      >
+      can be used is as a place-holder for a function or conditional body when
+      you are working on new code, allowing you to keep thinking at a more
+      abstract level. The <code>pass</code> is silently ignored:
+    </p>
+    <pre><code>&gt;&gt;&gt; def initlog(*args):
+...     pass   # Remember to implement this!
+...</code></pre>
+    <p><span id="tut-functions"></span></p>
+    <h2 id="defining-functions">
+      <span class="section-number">4.6. </span>Defining Functions<a
+        href="#defining-functions"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      We can create a function that writes the Fibonacci series to an arbitrary
+      boundary:
+    </p>
+    <pre><code>&gt;&gt;&gt; def fib(n):    # write Fibonacci series up to n
+...     &quot;&quot;&quot;Print a Fibonacci series up to n.&quot;&quot;&quot;
+...     a, b = 0, 1
+...     while a &lt; n:
+...         print(a, end=&#39; &#39;)
+...         a, b = b, a+b
+...     print()
+...
+&gt;&gt;&gt; # Now call the function we just defined:
+... fib(2000)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597</code></pre>
+    <p>
+      The keyword
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#def"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >def</code
+        ></a
+      >
+      introduces a function <em>definition</em>. It must be followed by the
+      function name and the parenthesized list of formal parameters. The
+      statements that form the body of the function start at the next line, and
+      must be indented.
+    </p>
+    <p>
+      The first statement of the function body can optionally be a string
+      literal; this string literal is the function’s documentation string, or
+      <em>docstring</em>. (More about docstrings can be found in the section
+      <a href="#tut-docstrings" class="reference internal"
+        ><span class="std std-ref">Documentation Strings</span></a
+      >.) There are tools which use docstrings to automatically produce online
+      or printed documentation, or to let the user interactively browse through
+      code; it’s good practice to include docstrings in code that you write, so
+      make a habit of it.
+    </p>
+    <p>
+      The <em>execution</em> of a function introduces a new symbol table used
+      for the local variables of the function. More precisely, all variable
+      assignments in a function store the value in the local symbol table;
+      whereas variable references first look in the local symbol table, then in
+      the local symbol tables of enclosing functions, then in the global symbol
+      table, and finally in the table of built-in names. Thus, global variables
+      and variables of enclosing functions cannot be directly assigned a value
+      within a function (unless, for global variables, named in a
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#global"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >global</code
+        ></a
+      >
+      statement, or, for variables of enclosing functions, named in a
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#nonlocal"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >nonlocal</code
+        ></a
+      >
+      statement), although they may be referenced.
+    </p>
+    <p>
+      The actual parameters (arguments) to a function call are introduced in the
+      local symbol table of the called function when it is called; thus,
+      arguments are passed using <em>call by value</em> (where the
+      <em>value</em> is always an object <em>reference</em>, not the value of
+      the object).
+      <a href="#id2" id="id1" class="footnote-reference brackets">1</a> When a
+      function calls another function, or calls itself recursively, a new local
+      symbol table is created for that call.
+    </p>
+    <p>
+      A function definition associates the function name with the function
+      object in the current symbol table. The interpreter recognizes the object
+      pointed to by that name as a user-defined function. Other names can also
+      point to that same function object and can also be used to access the
+      function:
+    </p>
+    <pre><code>&gt;&gt;&gt; fib
+&lt;function fib at 10042ed0&gt;
+&gt;&gt;&gt; f = fib
+&gt;&gt;&gt; f(100)
+0 1 1 2 3 5 8 13 21 34 55 89</code></pre>
+    <p>
+      Coming from other languages, you might object that <code>fib</code> is not
+      a function but a procedure since it doesn’t return a value. In fact, even
+      functions without a
+      <a
+        href="https://docs.python.org/3/reference/simple_stmts.html#return"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >return</code
+        ></a
+      >
+      statement do return a value, albeit a rather boring one. This value is
+      called <code>None</code> (it’s a built-in name). Writing the value
+      <code>None</code> is normally suppressed by the interpreter if it would be
+      the only value written. You can see it if you really want to using
+      <a
+        href="https://docs.python.org/3/library/functions.html#print"
+        class="reference internal"
+        title="print"
+        ><code class="sourceCode python"
+          ><span class="bu">print</span>()</code
+        ></a
+      >:
+    </p>
+    <pre><code>&gt;&gt;&gt; fib(0)
+&gt;&gt;&gt; print(fib(0))
+None</code></pre>
+    <p>
+      It is simple to write a function that returns a list of the numbers of the
+      Fibonacci series, instead of printing it:
+    </p>
+    <pre><code>&gt;&gt;&gt; def fib2(n):  # return Fibonacci series up to n
+...     &quot;&quot;&quot;Return a list containing the Fibonacci series up to n.&quot;&quot;&quot;
+...     result = []
+...     a, b = 0, 1
+...     while a &lt; n:
+...         result.append(a)    # see below
+...         a, b = b, a+b
+...     return result
+...
+&gt;&gt;&gt; f100 = fib2(100)    # call it
+&gt;&gt;&gt; f100                # write the result
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</code></pre>
+    <p>This example, as usual, demonstrates some new Python features:</p>
+    <ul>
+      <li>
+        <p>
+          The
+          <a
+            href="https://docs.python.org/3/reference/simple_stmts.html#return"
+            class="reference internal"
+            ><code class="xref std std-keyword docutils literal notranslate"
+              >return</code
+            ></a
+          >
+          statement returns with a value from a function.
+          <code>return</code> without an expression argument returns
+          <code>None</code>. Falling off the end of a function also returns
+          <code>None</code>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The statement <code>result.append(a)</code> calls a <em>method</em> of
+          the list object <code>result</code>. A method is a function that
+          ‘belongs’ to an object and is named <code>obj.methodname</code>, where
+          <code>obj</code> is some object (this may be an expression), and
+          <code>methodname</code> is the name of a method that is defined by the
+          object’s type. Different types define different methods. Methods of
+          different types may have the same name without causing ambiguity. (It
+          is possible to define your own object types and methods, using
+          <em>classes</em>, see
+          <a href="classes.html#tut-classes" class="reference internal"
+            ><span class="std std-ref">Classes</span></a
+          >) The method <code>append()</code> shown in the example is defined
+          for list objects; it adds a new element at the end of the list. In
+          this example it is equivalent to <code>result = result + [a]</code>,
+          but more efficient.
+        </p>
+      </li>
+    </ul>
+    <p><span id="tut-defining"></span></p>
+    <h2 id="more-on-defining-functions">
+      <span class="section-number">4.7. </span>More on Defining Functions<a
+        href="#more-on-defining-functions"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      It is also possible to define functions with a variable number of
+      arguments. There are three forms, which can be combined.
+    </p>
+    <p><span id="tut-defaultargs"></span></p>
+    <h3 id="default-argument-values">
+      <span class="section-number">4.7.1. </span>Default Argument Values<a
+        href="#default-argument-values"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      The most useful form is to specify a default value for one or more
+      arguments. This creates a function that can be called with fewer arguments
+      than it is defined to allow. For example:
+    </p>
+    <pre><code>def ask_ok(prompt, retries=4, reminder=&#39;Please try again!&#39;):
+    while True:
+        ok = input(prompt)
+        if ok in (&#39;y&#39;, &#39;ye&#39;, &#39;yes&#39;):
+            return True
+        if ok in (&#39;n&#39;, &#39;no&#39;, &#39;nop&#39;, &#39;nope&#39;):
+            return False
+        retries = retries - 1
+        if retries &lt; 0:
+            raise ValueError(&#39;invalid user response&#39;)
+        print(reminder)</code></pre>
+    <p>This function can be called in several ways:</p>
+    <ul>
+      <li>
+        <p>
+          giving only the mandatory argument:
+          <code>ask_ok('Do you really want to quit?')</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          giving one of the optional arguments:
+          <code>ask_ok('OK to overwrite the file?', 2)</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          or even giving all arguments:
+          <code
+            >ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or
+            no!')</code
+          >
+        </p>
+      </li>
+    </ul>
+    <p>
+      This example also introduces the
+      <a
+        href="https://docs.python.org/3/reference/expressions.html#in"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >in</code
+        ></a
+      >
+      keyword. This tests whether or not a sequence contains a certain value.
+    </p>
+    <p>
+      The default values are evaluated at the point of function definition in
+      the <em>defining</em> scope, so that
+    </p>
+    <pre><code>i = 5
+
+def f(arg=i):
+    print(arg)
+
+i = 6
+f()</code></pre>
+    <p>will print <code>5</code>.</p>
+    <p>
+      <strong>Important warning:</strong> The default value is evaluated only
+      once. This makes a difference when the default is a mutable object such as
+      a list, dictionary, or instances of most classes. For example, the
+      following function accumulates the arguments passed to it on subsequent
+      calls:
+    </p>
+    <pre><code>def f(a, L=[]):
+    L.append(a)
+    return L
+
+print(f(1))
+print(f(2))
+print(f(3))</code></pre>
+    <p>This will print</p>
+    <pre><code>[1]
+[1, 2]
+[1, 2, 3]</code></pre>
+    <p>
+      If you don’t want the default to be shared between subsequent calls, you
+      can write the function like this instead:
+    </p>
+    <pre><code>def f(a, L=None):
+    if L is None:
+        L = []
+    L.append(a)
+    return L</code></pre>
+    <p><span id="tut-keywordargs"></span></p>
+    <h3 id="keyword-arguments">
+      <span class="section-number">4.7.2. </span>Keyword Arguments<a
+        href="#keyword-arguments"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      Functions can also be called using
+      <a
+        href="https://docs.python.org/3/glossary.html#term-keyword-argument"
+        class="reference internal"
+        ><span class="xref std std-term">keyword arguments</span></a
+      >
+      of the form <code>kwarg=value</code>. For instance, the following
+      function:
+    </p>
+    <pre><code>def parrot(voltage, state=&#39;a stiff&#39;, action=&#39;voom&#39;, type=&#39;Norwegian Blue&#39;):
+    print(&quot;-- This parrot wouldn&#39;t&quot;, action, end=&#39; &#39;)
+    print(&quot;if you put&quot;, voltage, &quot;volts through it.&quot;)
+    print(&quot;-- Lovely plumage, the&quot;, type)
+    print(&quot;-- It&#39;s&quot;, state, &quot;!&quot;)</code></pre>
+    <p>
+      accepts one required argument (<code>voltage</code>) and three optional
+      arguments (<code>state</code>, <code>action</code>, and
+      <code>type</code>). This function can be called in any of the following
+      ways:
+    </p>
+    <pre><code>parrot(1000)                                          # 1 positional argument
+parrot(voltage=1000)                                  # 1 keyword argument
+parrot(voltage=1000000, action=&#39;VOOOOOM&#39;)             # 2 keyword arguments
+parrot(action=&#39;VOOOOOM&#39;, voltage=1000000)             # 2 keyword arguments
+parrot(&#39;a million&#39;, &#39;bereft of life&#39;, &#39;jump&#39;)         # 3 positional arguments
+parrot(&#39;a thousand&#39;, state=&#39;pushing up the daisies&#39;)  # 1 positional, 1 keyword</code></pre>
+    <p>but all the following calls would be invalid:</p>
+    <pre><code>parrot()                     # required argument missing
+parrot(voltage=5.0, &#39;dead&#39;)  # non-keyword argument after a keyword argument
+parrot(110, voltage=220)     # duplicate value for the same argument
+parrot(actor=&#39;John Cleese&#39;)  # unknown keyword argument</code></pre>
+    <p>
+      In a function call, keyword arguments must follow positional arguments.
+      All the keyword arguments passed must match one of the arguments accepted
+      by the function (e.g. <code>actor</code> is not a valid argument for the
+      <code>parrot</code> function), and their order is not important. This also
+      includes non-optional arguments (e.g. <code>parrot(voltage=1000)</code> is
+      valid too). No argument may receive a value more than once. Here’s an
+      example that fails due to this restriction:
+    </p>
+    <pre><code>&gt;&gt;&gt; def function(a):
+...     pass
+...
+&gt;&gt;&gt; function(0, a=0)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: function() got multiple values for keyword argument &#39;a&#39;</code></pre>
+    <p>
+      When a final formal parameter of the form <code>**name</code> is present,
+      it receives a dictionary (see
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#typesmapping"
+        class="reference internal"
+        ><span class="std std-ref">Mapping Types — dict</span></a
+      >) containing all keyword arguments except for those corresponding to a
+      formal parameter. This may be combined with a formal parameter of the form
+      <code>*name</code> (described in the next subsection) which receives a
+      <a href="datastructures.html#tut-tuples" class="reference internal"
+        ><span class="std std-ref">tuple</span></a
+      >
+      containing the positional arguments beyond the formal parameter list.
+      (<code>*name</code> must occur before <code>**name</code>.) For example,
+      if we define a function like this:
+    </p>
+    <pre><code>def cheeseshop(kind, *arguments, **keywords):
+    print(&quot;-- Do you have any&quot;, kind, &quot;?&quot;)
+    print(&quot;-- I&#39;m sorry, we&#39;re all out of&quot;, kind)
+    for arg in arguments:
+        print(arg)
+    print(&quot;-&quot; * 40)
+    for kw in keywords:
+        print(kw, &quot;:&quot;, keywords[kw])</code></pre>
+    <p>It could be called like this:</p>
+    <pre><code>cheeseshop(&quot;Limburger&quot;, &quot;It&#39;s very runny, sir.&quot;,
+           &quot;It&#39;s really very, VERY runny, sir.&quot;,
+           shopkeeper=&quot;Michael Palin&quot;,
+           client=&quot;John Cleese&quot;,
+           sketch=&quot;Cheese Shop Sketch&quot;)</code></pre>
+    <p>and of course it would print:</p>
+    <pre><code>-- Do you have any Limburger ?
+-- I&#39;m sorry, we&#39;re all out of Limburger
+It&#39;s very runny, sir.
+It&#39;s really very, VERY runny, sir.
+----------------------------------------
+shopkeeper : Michael Palin
+client : John Cleese
+sketch : Cheese Shop Sketch</code></pre>
+    <p>
+      Note that the order in which the keyword arguments are printed is
+      guaranteed to match the order in which they were provided in the function
+      call.
+    </p>
+    <h3 id="special-parameters">
+      <span class="section-number">4.7.3. </span>Special parameters<a
+        href="#special-parameters"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      By default, arguments may be passed to a Python function either by
+      position or explicitly by keyword. For readability and performance, it
+      makes sense to restrict the way arguments can be passed so that a
+      developer need only look at the function definition to determine if items
+      are passed by position, by position or keyword, or by keyword.
+    </p>
+    <p>A function definition may look like:</p>
+    <pre><code>def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+      -----------    ----------     ----------
+        |             |                  |
+        |        Positional or keyword   |
+        |                                - Keyword only
+         -- Positional only</code></pre>
+    <p>
+      where <code>/</code> and <code>*</code> are optional. If used, these
+      symbols indicate the kind of parameter by how the arguments may be passed
+      to the function: positional-only, positional-or-keyword, and keyword-only.
+      Keyword parameters are also referred to as named parameters.
+    </p>
+    <h4 id="positional-or-keyword-arguments">
+      <span class="section-number">4.7.3.1. </span>Positional-or-Keyword
+      Arguments<a
+        href="#positional-or-keyword-arguments"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h4>
+    <p>
+      If <code>/</code> and <code>*</code> are not present in the function
+      definition, arguments may be passed to a function by position or by
+      keyword.
+    </p>
+    <h4 id="positional-only-parameters">
+      <span class="section-number">4.7.3.2. </span>Positional-Only Parameters<a
+        href="#positional-only-parameters"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h4>
+    <p>
+      Looking at this in a bit more detail, it is possible to mark certain
+      parameters as <em>positional-only</em>. If <em>positional-only</em>, the
+      parameters’ order matters, and the parameters cannot be passed by keyword.
+      Positional-only parameters are placed before a
+      <code>/</code> (forward-slash). The <code>/</code> is used to logically
+      separate the positional-only parameters from the rest of the parameters.
+      If there is no <code>/</code> in the function definition, there are no
+      positional-only parameters.
+    </p>
+    <p>
+      Parameters following the <code>/</code> may be
+      <em>positional-or-keyword</em> or <em>keyword-only</em>.
+    </p>
+    <h4 id="keyword-only-arguments">
+      <span class="section-number">4.7.3.3. </span>Keyword-Only Arguments<a
+        href="#keyword-only-arguments"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h4>
+    <p>
+      To mark parameters as <em>keyword-only</em>, indicating the parameters
+      must be passed by keyword argument, place an <code>*</code> in the
+      arguments list just before the first <em>keyword-only</em> parameter.
+    </p>
+    <h4 id="function-examples">
+      <span class="section-number">4.7.3.4. </span>Function Examples<a
+        href="#function-examples"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h4>
+    <p>
+      Consider the following example function definitions paying close attention
+      to the markers <code>/</code> and <code>*</code>:
+    </p>
+    <pre><code>&gt;&gt;&gt; def standard_arg(arg):
+...     print(arg)
+...
+&gt;&gt;&gt; def pos_only_arg(arg, /):
+...     print(arg)
+...
+&gt;&gt;&gt; def kwd_only_arg(*, arg):
+...     print(arg)
+...
+&gt;&gt;&gt; def combined_example(pos_only, /, standard, *, kwd_only):
+...     print(pos_only, standard, kwd_only)</code></pre>
+    <p>
+      The first function definition, <code>standard_arg</code>, the most
+      familiar form, places no restrictions on the calling convention and
+      arguments may be passed by position or keyword:
+    </p>
+    <pre><code>&gt;&gt;&gt; standard_arg(2)
+2
+
+&gt;&gt;&gt; standard_arg(arg=2)
+2</code></pre>
+    <p>
+      The second function <code>pos_only_arg</code> is restricted to only use
+      positional parameters as there is a <code>/</code> in the function
+      definition:
+    </p>
+    <pre><code>&gt;&gt;&gt; pos_only_arg(1)
+1
+
+&gt;&gt;&gt; pos_only_arg(arg=1)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: pos_only_arg() got an unexpected keyword argument &#39;arg&#39;</code></pre>
+    <p>
+      The third function <code>kwd_only_args</code> only allows keyword
+      arguments as indicated by a <code>*</code> in the function definition:
+    </p>
+    <pre><code>&gt;&gt;&gt; kwd_only_arg(3)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: kwd_only_arg() takes 0 positional arguments but 1 was given
+
+&gt;&gt;&gt; kwd_only_arg(arg=3)
+3</code></pre>
+    <p>
+      And the last uses all three calling conventions in the same function
+      definition:
+    </p>
+    <pre><code>&gt;&gt;&gt; combined_example(1, 2, 3)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: combined_example() takes 2 positional arguments but 3 were given
+
+&gt;&gt;&gt; combined_example(1, 2, kwd_only=3)
+1 2 3
+
+&gt;&gt;&gt; combined_example(1, standard=2, kwd_only=3)
+1 2 3
+
+&gt;&gt;&gt; combined_example(pos_only=1, standard=2, kwd_only=3)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: combined_example() got an unexpected keyword argument &#39;pos_only&#39;</code></pre>
+    <p>
+      Finally, consider this function definition which has a potential collision
+      between the positional argument <code>name</code> and
+      <code>**kwds</code> which has <code>name</code> as a key:
+    </p>
+    <pre><code>def foo(name, **kwds):
+    return &#39;name&#39; in kwds</code></pre>
+    <p>
+      There is no possible call that will make it return <code>True</code> as
+      the keyword <code>'name'</code> will always bind to the first parameter.
+      For example:
+    </p>
+    <pre><code>&gt;&gt;&gt; foo(1, **{&#39;name&#39;: 2})
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: foo() got multiple values for argument &#39;name&#39;
+&gt;&gt;&gt;</code></pre>
+    <p>
+      But using <code>/</code> (positional only arguments), it is possible since
+      it allows <code>name</code> as a positional argument and
+      <code>'name'</code> as a key in the keyword arguments:
+    </p>
+    <pre><code>def foo(name, /, **kwds):
+    return &#39;name&#39; in kwds
+&gt;&gt;&gt; foo(1, **{&#39;name&#39;: 2})
+True</code></pre>
+    <p>
+      In other words, the names of positional-only parameters can be used in
+      <code>**kwds</code> without ambiguity.
+    </p>
+    <h4 id="recap">
+      <span class="section-number">4.7.3.5. </span>Recap<a
+        href="#recap"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h4>
+    <p>
+      The use case will determine which parameters to use in the function
+      definition:
+    </p>
+    <pre><code>def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):</code></pre>
+    <p>As guidance:</p>
+    <ul>
+      <li>
+        <p>
+          Use positional-only if you want the name of the parameters to not be
+          available to the user. This is useful when parameter names have no
+          real meaning, if you want to enforce the order of the arguments when
+          the function is called or if you need to take some positional
+          parameters and arbitrary keywords.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use keyword-only when names have meaning and the function definition
+          is more understandable by being explicit with names or you want to
+          prevent users relying on the position of the argument being passed.
+        </p>
+      </li>
+      <li>
+        <p>
+          For an API, use positional-only to prevent breaking API changes if the
+          parameter’s name is modified in the future.
+        </p>
+      </li>
+    </ul>
+    <p><span id="tut-arbitraryargs"></span></p>
+    <h3 id="arbitrary-argument-lists">
+      <span class="section-number">4.7.4. </span>Arbitrary Argument Lists<a
+        href="#arbitrary-argument-lists"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      Finally, the least frequently used option is to specify that a function
+      can be called with an arbitrary number of arguments. These arguments will
+      be wrapped up in a tuple (see
+      <a href="datastructures.html#tut-tuples" class="reference internal"
+        ><span class="std std-ref">Tuples and Sequences</span></a
+      >). Before the variable number of arguments, zero or more normal arguments
+      may occur.
+    </p>
+    <pre><code>def write_multiple_items(file, separator, *args):
+    file.write(separator.join(args))</code></pre>
+    <p>
+      Normally, these <code>variadic</code> arguments will be last in the list
+      of formal parameters, because they scoop up all remaining input arguments
+      that are passed to the function. Any formal parameters which occur after
+      the <code>*args</code> parameter are ‘keyword-only’ arguments, meaning
+      that they can only be used as keywords rather than positional arguments.
+    </p>
+    <pre><code>&gt;&gt;&gt; def concat(*args, sep=&quot;/&quot;):
+...     return sep.join(args)
+...
+&gt;&gt;&gt; concat(&quot;earth&quot;, &quot;mars&quot;, &quot;venus&quot;)
+&#39;earth/mars/venus&#39;
+&gt;&gt;&gt; concat(&quot;earth&quot;, &quot;mars&quot;, &quot;venus&quot;, sep=&quot;.&quot;)
+&#39;earth.mars.venus&#39;</code></pre>
+    <p><span id="tut-unpacking-arguments"></span></p>
+    <h3 id="unpacking-argument-lists">
+      <span class="section-number">4.7.5. </span>Unpacking Argument Lists<a
+        href="#unpacking-argument-lists"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      The reverse situation occurs when the arguments are already in a list or
+      tuple but need to be unpacked for a function call requiring separate
+      positional arguments. For instance, the built-in
+      <a
+        href="https://docs.python.org/3/library/stdtypes.html#range"
+        class="reference internal"
+        title="range"
+        ><code class="sourceCode python"
+          ><span class="bu">range</span>()</code
+        ></a
+      >
+      function expects separate <em>start</em> and <em>stop</em> arguments. If
+      they are not available separately, write the function call with the
+      <code>*</code>-operator to unpack the arguments out of a list or tuple:
+    </p>
+    <pre><code>&gt;&gt;&gt; list(range(3, 6))            # normal call with separate arguments
+[3, 4, 5]
+&gt;&gt;&gt; args = [3, 6]
+&gt;&gt;&gt; list(range(*args))            # call with arguments unpacked from a list
+[3, 4, 5]</code></pre>
+    <p>
+      In the same fashion, dictionaries can deliver keyword arguments with the
+      <code>**</code>-operator:
+    </p>
+    <pre><code>&gt;&gt;&gt; def parrot(voltage, state=&#39;a stiff&#39;, action=&#39;voom&#39;):
+...     print(&quot;-- This parrot wouldn&#39;t&quot;, action, end=&#39; &#39;)
+...     print(&quot;if you put&quot;, voltage, &quot;volts through it.&quot;, end=&#39; &#39;)
+...     print(&quot;E&#39;s&quot;, state, &quot;!&quot;)
+...
+&gt;&gt;&gt; d = {&quot;voltage&quot;: &quot;four million&quot;, &quot;state&quot;: &quot;bleedin&#39; demised&quot;, &quot;action&quot;: &quot;VOOM&quot;}
+&gt;&gt;&gt; parrot(**d)
+-- This parrot wouldn&#39;t VOOM if you put four million volts through it. E&#39;s bleedin&#39; demised !</code></pre>
+    <p><span id="tut-lambda"></span></p>
+    <h3 id="lambda-expressions">
+      <span class="section-number">4.7.6. </span>Lambda Expressions<a
+        href="#lambda-expressions"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      Small anonymous functions can be created with the
+      <a
+        href="https://docs.python.org/3/reference/expressions.html#lambda"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >lambda</code
+        ></a
+      >
+      keyword. This function returns the sum of its two arguments:
+      <code>lambda a, b: a+b</code>. Lambda functions can be used wherever
+      function objects are required. They are syntactically restricted to a
+      single expression. Semantically, they are just syntactic sugar for a
+      normal function definition. Like nested function definitions, lambda
+      functions can reference variables from the containing scope:
+    </p>
+    <pre><code>&gt;&gt;&gt; def make_incrementor(n):
+...     return lambda x: x + n
+...
+&gt;&gt;&gt; f = make_incrementor(42)
+&gt;&gt;&gt; f(0)
+42
+&gt;&gt;&gt; f(1)
+43</code></pre>
+    <p>
+      The above example uses a lambda expression to return a function. Another
+      use is to pass a small function as an argument:
+    </p>
+    <pre><code>&gt;&gt;&gt; pairs = [(1, &#39;one&#39;), (2, &#39;two&#39;), (3, &#39;three&#39;), (4, &#39;four&#39;)]
+&gt;&gt;&gt; pairs.sort(key=lambda pair: pair[1])
+&gt;&gt;&gt; pairs
+[(4, &#39;four&#39;), (1, &#39;one&#39;), (3, &#39;three&#39;), (2, &#39;two&#39;)]</code></pre>
+    <p><span id="tut-docstrings"></span></p>
+    <h3 id="documentation-strings">
+      <span class="section-number">4.7.7. </span>Documentation Strings<a
+        href="#documentation-strings"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      Here are some conventions about the content and formatting of
+      documentation strings.
+    </p>
+    <p>
+      The first line should always be a short, concise summary of the object’s
+      purpose. For brevity, it should not explicitly state the object’s name or
+      type, since these are available by other means (except if the name happens
+      to be a verb describing a function’s operation). This line should begin
+      with a capital letter and end with a period.
+    </p>
+    <p>
+      If there are more lines in the documentation string, the second line
+      should be blank, visually separating the summary from the rest of the
+      description. The following lines should be one or more paragraphs
+      describing the object’s calling conventions, its side effects, etc.
+    </p>
+    <p>
+      The Python parser does not strip indentation from multi-line string
+      literals in Python, so tools that process documentation have to strip
+      indentation if desired. This is done using the following convention. The
+      first non-blank line <em>after</em> the first line of the string
+      determines the amount of indentation for the entire documentation string.
+      (We can’t use the first line since it is generally adjacent to the
+      string’s opening quotes so its indentation is not apparent in the string
+      literal.) Whitespace “equivalent” to this indentation is then stripped
+      from the start of all lines of the string. Lines that are indented less
+      should not occur, but if they occur all their leading whitespace should be
+      stripped. Equivalence of whitespace should be tested after expansion of
+      tabs (to 8 spaces, normally).
+    </p>
+    <p>Here is an example of a multi-line docstring:</p>
+    <pre><code>&gt;&gt;&gt; def my_function():
+...     &quot;&quot;&quot;Do nothing, but document it.
+...
+...     No, really, it doesn&#39;t do anything.
+...     &quot;&quot;&quot;
+...     pass
+...
+&gt;&gt;&gt; print(my_function.__doc__)
+Do nothing, but document it.
+
+    No, really, it doesn&#39;t do anything.</code></pre>
+    <p><span id="tut-annotations"></span></p>
+    <h3 id="function-annotations">
+      <span class="section-number">4.7.8. </span>Function Annotations<a
+        href="#function-annotations"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h3>
+    <p>
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#function"
+        class="reference internal"
+        ><span class="std std-ref">Function annotations</span></a
+      >
+      are completely optional metadata information about the types used by
+      user-defined functions (see <span id="index-6" class="target"></span
+      ><a
+        href="https://www.python.org/dev/peps/pep-3107"
+        class="pep reference external"
+        ><strong>PEP 3107</strong></a
+      >
+      and <span id="index-7" class="target"></span
+      ><a
+        href="https://www.python.org/dev/peps/pep-0484"
+        class="pep reference external"
+        ><strong>PEP 484</strong></a
+      >
+      for more information).
+    </p>
+    <p>
+      <a
+        href="https://docs.python.org/3/glossary.html#term-function-annotation"
+        class="reference internal"
+        ><span class="xref std std-term">Annotations</span></a
+      >
+      are stored in the <code>__annotations__</code> attribute of the function
+      as a dictionary and have no effect on any other part of the function.
+      Parameter annotations are defined by a colon after the parameter name,
+      followed by an expression evaluating to the value of the annotation.
+      Return annotations are defined by a literal <code>-&gt;</code>, followed
+      by an expression, between the parameter list and the colon denoting the
+      end of the
+      <a
+        href="https://docs.python.org/3/reference/compound_stmts.html#def"
+        class="reference internal"
+        ><code class="xref std std-keyword docutils literal notranslate"
+          >def</code
+        ></a
+      >
+      statement. The following example has a required argument, an optional
+      argument, and the return value annotated:
+    </p>
+    <pre><code>&gt;&gt;&gt; def f(ham: str, eggs: str = &#39;eggs&#39;) -&gt; str:
+...     print(&quot;Annotations:&quot;, f.__annotations__)
+...     print(&quot;Arguments:&quot;, ham, eggs)
+...     return ham + &#39; and &#39; + eggs
+...
+&gt;&gt;&gt; f(&#39;spam&#39;)
+Annotations: {&#39;ham&#39;: &lt;class &#39;str&#39;&gt;, &#39;return&#39;: &lt;class &#39;str&#39;&gt;, &#39;eggs&#39;: &lt;class &#39;str&#39;&gt;}
+Arguments: spam eggs
+&#39;spam and eggs&#39;</code></pre>
+    <p><span id="tut-codingstyle"></span></p>
+    <h2 id="intermezzo-coding-style">
+      <span class="section-number">4.8. </span>Intermezzo: Coding Style<a
+        href="#intermezzo-coding-style"
+        class="headerlink"
+        title="Permalink to this headline"
+        >¶</a
+      >
+    </h2>
+    <p>
+      Now that you are about to write longer, more complex pieces of Python, it
+      is a good time to talk about <em>coding style</em>. Most languages can be
+      written (or more concise, <em>formatted</em>) in different styles; some
+      are more readable than others. Making it easy for others to read your code
+      is always a good idea, and adopting a nice coding style helps tremendously
+      for that.
+    </p>
+    <p>
+      For Python, <span id="index-9" class="target"></span
+      ><a
+        href="https://www.python.org/dev/peps/pep-0008"
+        class="pep reference external"
+        ><strong>PEP 8</strong></a
+      >
+      has emerged as the style guide that most projects adhere to; it promotes a
+      very readable and eye-pleasing coding style. Every Python developer should
+      read it at some point; here are the most important points extracted for
+      you:
+    </p>
+    <ul>
+      <li>
+        <p>Use 4-space indentation, and no tabs.</p>
+        <p>
+          4 spaces are a good compromise between small indentation (allows
+          greater nesting depth) and large indentation (easier to read). Tabs
+          introduce confusion, and are best left out.
+        </p>
+      </li>
+      <li>
+        <p>Wrap lines so that they don’t exceed 79 characters.</p>
+        <p>
+          This helps users with small displays and makes it possible to have
+          several code files side-by-side on larger displays.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use blank lines to separate functions and classes, and larger blocks
+          of code inside functions.
+        </p>
+      </li>
+      <li><p>When possible, put comments on a line of their own.</p></li>
+      <li><p>Use docstrings.</p></li>
+      <li>
+        <p>
+          Use spaces around operators and after commas, but not directly inside
+          bracketing constructs: <code>a = f(1, 2) + g(3, 4)</code>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Name your classes and functions consistently; the convention is to use
+          <code>UpperCamelCase</code> for classes and
+          <code>lowercase_with_underscores</code> for functions and methods.
+          Always use <code>self</code> as the name for the first method argument
+          (see
+          <a href="classes.html#tut-firstclasses" class="reference internal"
+            ><span class="std std-ref">A First Look at Classes</span></a
+          >
+          for more on classes and methods).
+        </p>
+      </li>
+      <li>
+        <p>
+          Don’t use fancy encodings if your code is meant to be used in
+          international environments. Python’s default, UTF-8, or even plain
+          ASCII work best in any case.
+        </p>
+      </li>
+      <li>
+        <p>
+          Likewise, don’t use non-ASCII characters in identifiers if there is
+          only the slightest chance people speaking a different language will
+          read or maintain the code.
+        </p>
+      </li>
+    </ul>
+    <p>Footnotes</p>
+    <p>
+      <span class="brackets"><a href="#id1" class="fn-backref">1</a></span
+      ><br />
+      Actually, <em>call by object reference</em> would be a better description,
+      since if a mutable object is passed, the caller will see any changes the
+      callee makes to it (items inserted into a list).
+    </p>
+    <h3 id="table-of-contents">
+      <a href="https://docs.python.org/3/contents.html">Table of Contents</a>
+    </h3>
+    <ul>
+      <li>
+        <a href="#" class="reference internal">4. More Control Flow Tools</a>
+        <ul>
+          <li>
+            <a href="#if-statements" class="reference internal"
+              >4.1.
+              <code class="xref std std-keyword docutils literal notranslate"
+                >if</code
+              >
+              Statements</a
+            >
+          </li>
+          <li>
+            <a href="#for-statements" class="reference internal"
+              >4.2.
+              <code class="xref std std-keyword docutils literal notranslate"
+                >for</code
+              >
+              Statements</a
+            >
+          </li>
+          <li>
+            <a href="#the-range-function" class="reference internal"
+              >4.3. The
+              <code class="sourceCode python"
+                ><span class="bu">range</span>()</code
+              >
+              Function</a
+            >
+          </li>
+          <li>
+            <a
+              href="#break-and-continue-statements-and-else-clauses-on-loops"
+              class="reference internal"
+              >4.4.
+              <code class="xref std std-keyword docutils literal notranslate"
+                >break</code
+              >
+              and
+              <code class="xref std std-keyword docutils literal notranslate"
+                >continue</code
+              >
+              Statements, and
+              <code class="xref std std-keyword docutils literal notranslate"
+                >else</code
+              >
+              Clauses on Loops</a
+            >
+          </li>
+          <li>
+            <a href="#pass-statements" class="reference internal"
+              >4.5.
+              <code class="xref std std-keyword docutils literal notranslate"
+                >pass</code
+              >
+              Statements</a
+            >
+          </li>
+          <li>
+            <a href="#defining-functions" class="reference internal"
+              >4.6. Defining Functions</a
+            >
+          </li>
+          <li>
+            <a href="#more-on-defining-functions" class="reference internal"
+              >4.7. More on Defining Functions</a
+            >
+            <ul>
+              <li>
+                <a href="#default-argument-values" class="reference internal"
+                  >4.7.1. Default Argument Values</a
+                >
+              </li>
+              <li>
+                <a href="#keyword-arguments" class="reference internal"
+                  >4.7.2. Keyword Arguments</a
+                >
+              </li>
+              <li>
+                <a href="#special-parameters" class="reference internal"
+                  >4.7.3. Special parameters</a
+                >
+                <ul>
+                  <li>
+                    <a
+                      href="#positional-or-keyword-arguments"
+                      class="reference internal"
+                      >4.7.3.1. Positional-or-Keyword Arguments</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#positional-only-parameters"
+                      class="reference internal"
+                      >4.7.3.2. Positional-Only Parameters</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#keyword-only-arguments" class="reference internal"
+                      >4.7.3.3. Keyword-Only Arguments</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#function-examples" class="reference internal"
+                      >4.7.3.4. Function Examples</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#recap" class="reference internal"
+                      >4.7.3.5. Recap</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#arbitrary-argument-lists" class="reference internal"
+                  >4.7.4. Arbitrary Argument Lists</a
+                >
+              </li>
+              <li>
+                <a href="#unpacking-argument-lists" class="reference internal"
+                  >4.7.5. Unpacking Argument Lists</a
+                >
+              </li>
+              <li>
+                <a href="#lambda-expressions" class="reference internal"
+                  >4.7.6. Lambda Expressions</a
+                >
+              </li>
+              <li>
+                <a href="#documentation-strings" class="reference internal"
+                  >4.7.7. Documentation Strings</a
+                >
+              </li>
+              <li>
+                <a href="#function-annotations" class="reference internal"
+                  >4.7.8. Function Annotations</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#intermezzo-coding-style" class="reference internal"
+              >4.8. Intermezzo: Coding Style</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="previous-topic">Previous topic</h4>
+    <p>
+      <a href="introduction.html" title="previous chapter"
+        ><span class="section-number">3. </span>An Informal Introduction to
+        Python</a
+      >
+    </p>
+    <h4 id="next-topic">Next topic</h4>
+    <p>
+      <a href="datastructures.html" title="next chapter"
+        ><span class="section-number">5. </span>Data Structures</a
+      >
+    </p>
+    <h3 id="this-page">This Page</h3>
+    <ul>
+      <li><a href="https://docs.python.org/3/bugs.html">Report a Bug</a></li>
+      <li>
+        <a
+          href="https://github.com/python/cpython/blob/3.9/Doc/tutorial/controlflow.rst"
+          >Show Source</a
+        >
+      </li>
+    </ul>
+    <h3 id="navigation-1">Navigation</h3>
+    <ul>
+      <li>
+        <a href="https://docs.python.org/3/genindex.html" title="General Index"
+          >index</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.python.org/3/py-modindex.html"
+          title="Python Module Index"
+          >modules</a
+        >
+        |
+      </li>
+      <li>
+        <a href="datastructures.html" title="5. Data Structures">next</a> |
+      </li>
+      <li>
+        <a
+          href="introduction.html"
+          title="3. An Informal Introduction to Python"
+          >previous</a
+        >
+        |
+      </li>
+      <li><img src="../_static/py.png" /></li>
+      <li><a href="https://www.python.org/">Python</a> »</li>
+      <li>
+        <a href="https://docs.python.org/3/index.html">3.9.5 Documentation</a> »
+      </li>
+      <li><a href="index.html">The Python Tutorial</a> »</li>
+      <li></li>
+    </ul>
+  </body>
+</html>

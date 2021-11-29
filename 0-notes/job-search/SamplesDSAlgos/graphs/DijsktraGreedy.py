@@ -4,7 +4,7 @@
 # for adjacency matrix representation of the graph
 
 # Library for INT_MAX
-'''
+"""
 Greedy is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit. 
 Greedy algorithms are used for optimization problems. 
 An optimization problem can be solved using Greedy if the problem has the following property: 
@@ -23,17 +23,15 @@ Dijkstra’s Shortest Path: The Dijkstra’s algorithm is very similar to Prim�
     The Greedy Choice is to pick the edge that connects the two sets and is on the smallest weight path from source to the set that contains not yet 
         included vertices.
 
-'''
+"""
 
 import sys
 
 
-class Graph():
-
+class Graph:
     def __init__(self, vertices):
         self.V = vertices
-        self.graph = [[0 for column in range(vertices)]
-                      for row in range(vertices)]
+        self.graph = [[0 for column in range(vertices)] for row in range(vertices)]
 
     def printSolution(self, dist):
         print("Vertex \tDistance from Source")
@@ -82,8 +80,11 @@ class Graph():
             # distance is greater than new distance and
             # the vertex in not in the shotest path tree
             for v in range(self.V):
-                if self.graph[u][v] > 0 and sptSet[v] == False and \
-                        dist[v] > dist[u] + self.graph[u][v]:
+                if (
+                    self.graph[u][v] > 0
+                    and sptSet[v] == False
+                    and dist[v] > dist[u] + self.graph[u][v]
+                ):
                     dist[v] = dist[u] + self.graph[u][v]
 
         self.printSolution(dist)
@@ -91,16 +92,17 @@ class Graph():
 
 # Driver program
 g = Graph(9)
-g.graph = [[0, 4, 0, 0, 0, 0, 0, 8, 0],
-           [4, 0, 8, 0, 0, 0, 0, 11, 0],
-           [0, 8, 0, 7, 0, 4, 0, 0, 2],
-           [0, 0, 7, 0, 9, 14, 0, 0, 0],
-           [0, 0, 0, 9, 0, 10, 0, 0, 0],
-           [0, 0, 4, 14, 10, 0, 2, 0, 0],
-           [0, 0, 0, 0, 0, 2, 0, 1, 6],
-           [8, 11, 0, 0, 0, 0, 1, 0, 7],
-           [0, 0, 2, 0, 0, 0, 6, 7, 0]
-           ]
+g.graph = [
+    [0, 4, 0, 0, 0, 0, 0, 8, 0],
+    [4, 0, 8, 0, 0, 0, 0, 11, 0],
+    [0, 8, 0, 7, 0, 4, 0, 0, 2],
+    [0, 0, 7, 0, 9, 14, 0, 0, 0],
+    [0, 0, 0, 9, 0, 10, 0, 0, 0],
+    [0, 0, 4, 14, 10, 0, 2, 0, 0],
+    [0, 0, 0, 0, 0, 2, 0, 1, 6],
+    [8, 11, 0, 0, 0, 0, 1, 0, 7],
+    [0, 0, 2, 0, 0, 0, 6, 7, 0],
+]
 
 g.dijkstra(0)
 

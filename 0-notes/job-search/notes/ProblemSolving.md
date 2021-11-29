@@ -14,7 +14,7 @@
 - How big can input be (how much data)?
 - What are outputs your code produces?
 - What is range of output?
-- How big can output be?  How much data?
+- How big can output be? How much data?
 - How performant must code be?
 - What's missing from task description?
 - Are there third-party stakeholders we should consult?
@@ -92,7 +92,7 @@ Drop back steps as necessary.
 #### Questions To Ask In Step 3
 
 - Does your implementation handle all inputs?
-- What language is best to solve this problem technically?  
+- What language is best to solve this problem technically?
 - What language is best to solve this problem for the company?
 - What is best way to split code into functional modules?
 - Are any modules reusable for later projects?

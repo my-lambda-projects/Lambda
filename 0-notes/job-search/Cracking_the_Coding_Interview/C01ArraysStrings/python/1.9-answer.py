@@ -1,9 +1,10 @@
 # String Rotation
 
-# Assume you have a method isSubstring, which checks if one word is a substring of another.  
+# Assume you have a method isSubstring, which checks if one word is a substring of another.
 
-# Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to 
-    # isSubstring(i.e. "waterbottle" is a rotation of "erbottlewat").
+# Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to
+# isSubstring(i.e. "waterbottle" is a rotation of "erbottlewat").
+
 
 def string_rotation(s1, s2):
     rotated_string = ""
@@ -16,9 +17,9 @@ def string_rotation(s1, s2):
             # add first letter to end
             rotated_string = rotated_string + first_letter
             # check s2 against s1 each time
-            if s2 == rotated_string: 
+            if s2 == rotated_string:
                 print(True)
-                return True 
+                return True
     print(False)
     return False
     pass

@@ -26,7 +26,8 @@ const FooterLink = ({children, target, to}: Props) => (
       },
     }}
     to={to}
-    target={target}>
+    target={target}
+  >
     {children}
   </Link>
 );

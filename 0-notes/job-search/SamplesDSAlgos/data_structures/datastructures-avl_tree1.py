@@ -4,35 +4,37 @@ A tree class to keep track of things like the balance factor
     and the rebalancing logic
 """
 # AVL TREE
-    # trees stay as flat as possible
-    # initials of authors, specialized BSTs
-    # valid AVL always valid BST, not vice versa
-    # add value same as BST
-    # difference is, on way up your recursive calls, you check if
-        # node is balanced after adding new node
-    # tree out of balance if subtree's height differences > 1
-    # benefit is, we can guarantee no worst cases (O(n))
-        # worst case = O(log(n))
+# trees stay as flat as possible
+# initials of authors, specialized BSTs
+# valid AVL always valid BST, not vice versa
+# add value same as BST
+# difference is, on way up your recursive calls, you check if
+# node is balanced after adding new node
+# tree out of balance if subtree's height differences > 1
+# benefit is, we can guarantee no worst cases (O(n))
+# worst case = O(log(n))
 
 # rebalance:  if one side of tree gets too heavy, then we need to
-    # perform a rotation to get the tree back in balance
+# perform a rotation to get the tree back in balance
 # "too heavy":  max height of 1 child = 2+ than max height of other
-    # child
+# child
 # double rotation:  when opposite child is heavy during rotation
 
 # time complexity:   Avg   | Worst
-    # Access:       O(log(n))   |   O(log(n))
-    # Search:       O(log(n))   |   O(log(n))
-    # Insertion:    O(log(n))   |   O(log(n))
-    # Deletion:     O(log(n))   |   O(log(n))
+# Access:       O(log(n))   |   O(log(n))
+# Search:       O(log(n))   |   O(log(n))
+# Insertion:    O(log(n))   |   O(log(n))
+# Deletion:     O(log(n))   |   O(log(n))
 
 # space complexity:  O(n)
+
 
 class Node:
     def __init__(self, key):
         self.key = key
         self.left = None
         self.right = None
+
 
 class AVLTree:
     def __init__(self, node=None):
@@ -42,19 +44,23 @@ class AVLTree:
         self.balance = 0
 
     # Display the whole tree. Uses recursive def.
-    def display(self, level=0, pref=''):
+    def display(self, level=0, pref=""):
         # Update height before balancing
-        self.update_height()  
+        self.update_height()
         self.update_balance()
 
         if self.node != None:
-            print('-' * level * 2, pref, self.node.key,
-                  f'[{self.height}:{self.balance}]',
-                  'L' if self.height == 0 else ' ')
+            print(
+                "-" * level * 2,
+                pref,
+                self.node.key,
+                f"[{self.height}:{self.balance}]",
+                "L" if self.height == 0 else " ",
+            )
             if self.node.left != None:
-                self.node.left.display(level + 1, '<')
+                self.node.left.display(level + 1, "<")
             if self.node.right != None:
-                self.node.right.display(level + 1, '>')
+                self.node.right.display(level + 1, ">")
 
     # Computes the maximum number of levels there are in the tree
     def update_height(self):
@@ -101,9 +107,9 @@ class AVLTree:
             self.balance = height_left - height_right
             return self.balance
 
-    # Perform a left rotation, making the right child of this node 
-        # the parent and making the old parent the left child of the 
-        # new parent. 
+    # Perform a left rotation, making the right child of this node
+    # the parent and making the old parent the left child of the
+    # new parent.
     def left_rotate(self):
         # making the right child of this node the parent
         child_right = self.node.right
@@ -111,9 +117,9 @@ class AVLTree:
         # making the old parent the left child of the new parent
         child_right.node.left = self
 
-    # Perform a right rotation, making the left child of this node the 
-        # parent and making the old parent the right child of the 
-        # new parent. 
+    # Perform a right rotation, making the left child of this node the
+    # parent and making the old parent the right child of the
+    # new parent.
     def right_rotate(self):
         # making the left child of this node the parent
         node_child = self.node.left
@@ -121,16 +127,16 @@ class AVLTree:
         # making the old parent the right child of the new parent
         node_child.node.right = self
 
-    # Sets in motion the rebalancing logic to ensure the tree is balanced 
-        # such that the balance factor is 1 or -1
+    # Sets in motion the rebalancing logic to ensure the tree is balanced
+    # such that the balance factor is 1 or -1
     def rebalance(self):
         if self.balance > 1:
 
             # if balance > 1 & right balance > 0, rotate left
             if self.node.right.balance > 0:
                 self.left_rotate()
-            # if balance <= 0 and right balance is negative, rotate right and 
-                # recursively run
+            # if balance <= 0 and right balance is negative, rotate right and
+            # recursively run
             else:
                 self.node.right.right_rotate()
                 self.rebalance()
@@ -140,14 +146,14 @@ class AVLTree:
             # if balance is -2+ & left balance > 0, rotate right
             if self.node.left.balance > 0:
                 self.right_rotate()
-            # if balance is -2+ & left balance is negative, rotate left and 
-                # recursively run
+            # if balance is -2+ & left balance is negative, rotate left and
+            # recursively run
             else:
                 self.node.left.left_rotate()
                 self.rebalance()
 
     # Uses the same insertion logic as a binary search tree:
-        # after the value is inserted, we need to check to see if we need to rebalance
+    # after the value is inserted, we need to check to see if we need to rebalance
     def insert(self, key):
         # if node isn't empty
         if self.node is not None:

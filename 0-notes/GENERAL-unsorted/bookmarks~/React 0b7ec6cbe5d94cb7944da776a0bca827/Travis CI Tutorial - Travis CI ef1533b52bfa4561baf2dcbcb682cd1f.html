@@ -1,0 +1,2488 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Travis CI Tutorial - Travis CI</title>
+    <style>
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+          "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+      .code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho",
+          "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC",
+          "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol", "Twemoji", "Noto Color Emoji", "Noto Sans CJK SC",
+          "Noto Sans CJK KR";
+      }
+
+      .pdf .code {
+        font-family: Source Code Pro, "SFMono-Regular", Consolas,
+          "Liberation Mono", Menlo, Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK SC", "Noto Sans Mono CJK KR";
+      }
+
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho",
+          "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC",
+          "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif,
+          "Twemoji", "Noto Color Emoji", "Noto Sans CJK SC", "Noto Sans CJK KR";
+      }
+
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC",
+          "Noto Sans Mono CJK KR";
+      }
+
+      .highlight-default {
+      }
+      .highlight-gray {
+        color: rgb(155, 154, 151);
+      }
+      .highlight-brown {
+        color: rgb(100, 71, 58);
+      }
+      .highlight-orange {
+        color: rgb(217, 115, 13);
+      }
+      .highlight-yellow {
+        color: rgb(223, 171, 1);
+      }
+      .highlight-teal {
+        color: rgb(15, 123, 108);
+      }
+      .highlight-blue {
+        color: rgb(11, 110, 153);
+      }
+      .highlight-purple {
+        color: rgb(105, 64, 165);
+      }
+      .highlight-pink {
+        color: rgb(173, 26, 114);
+      }
+      .highlight-red {
+        color: rgb(224, 62, 62);
+      }
+      .highlight-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .highlight-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .highlight-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .highlight-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .highlight-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .highlight-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .highlight-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .highlight-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .highlight-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+      }
+      .block-color-brown {
+        color: rgb(100, 71, 58);
+        fill: rgb(100, 71, 58);
+      }
+      .block-color-orange {
+        color: rgb(217, 115, 13);
+        fill: rgb(217, 115, 13);
+      }
+      .block-color-yellow {
+        color: rgb(223, 171, 1);
+        fill: rgb(223, 171, 1);
+      }
+      .block-color-teal {
+        color: rgb(15, 123, 108);
+        fill: rgb(15, 123, 108);
+      }
+      .block-color-blue {
+        color: rgb(11, 110, 153);
+        fill: rgb(11, 110, 153);
+      }
+      .block-color-purple {
+        color: rgb(105, 64, 165);
+        fill: rgb(105, 64, 165);
+      }
+      .block-color-pink {
+        color: rgb(173, 26, 114);
+        fill: rgb(173, 26, 114);
+      }
+      .block-color-red {
+        color: rgb(224, 62, 62);
+        fill: rgb(224, 62, 62);
+      }
+      .block-color-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .block-color-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .block-color-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .block-color-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .block-color-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .block-color-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .block-color-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .block-color-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .block-color-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .select-value-color-default {
+        background-color: rgba(206, 205, 202, 0.5);
+      }
+      .select-value-color-gray {
+        background-color: rgba(155, 154, 151, 0.4);
+      }
+      .select-value-color-brown {
+        background-color: rgba(140, 46, 0, 0.2);
+      }
+      .select-value-color-orange {
+        background-color: rgba(245, 93, 0, 0.2);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(233, 168, 0, 0.2);
+      }
+      .select-value-color-green {
+        background-color: rgba(0, 135, 107, 0.2);
+      }
+      .select-value-color-blue {
+        background-color: rgba(0, 120, 223, 0.2);
+      }
+      .select-value-color-purple {
+        background-color: rgba(103, 36, 222, 0.2);
+      }
+      .select-value-color-pink {
+        background-color: rgba(221, 0, 129, 0.2);
+      }
+      .select-value-color-red {
+        background-color: rgba(255, 0, 26, 0.2);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+      .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+    </style>
+  </head>
+  <body>
+    <article id="ef1533b5-2bfa-4561-baf2-dcbcb682cd1f" class="page sans">
+      <header>
+        <h1 class="page-title">Travis CI Tutorial - Travis CI</h1>
+      </header>
+      <div class="page-body">
+        <h1 id="f8f83902-4c32-476b-88dd-1f793ba47c1a" class="">
+          <a href="https://travis-ci.com/">Travis</a>
+        </h1>
+        <ul id="a39798db-18e0-48ac-9d67-bb649f38dd1e" class="bulleted-list">
+          <li><a href="https://blog.travis-ci.com/">Blog</a></li>
+        </ul>
+        <ul id="5dbf08ed-d9cd-42d7-94fa-abeb3fe1ebd6" class="bulleted-list">
+          <li><a href="https://docs.travis-ci.com/">Docs</a></li>
+        </ul>
+        <ul id="5dce5907-2df5-4a26-b7b7-b3dfd6a9c79e" class="bulleted-list">
+          <li>Menu</li>
+        </ul>
+        <h3 id="b3c2a391-f0bb-4b62-a39d-99228472ff86" class="">
+          Getting Started
+        </h3>
+        <ul id="04345d90-f08e-400a-97df-2c0b204c2b5f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/for-beginners/"
+              >Core Concepts for Beginners</a
+            >
+          </li>
+        </ul>
+        <ul id="ca42b12d-0b12-4c8c-9b36-c15e0646ec5f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/tutorial/"
+              >Travis CI Tutorial</a
+            >
+          </li>
+        </ul>
+        <ul id="b18b79a2-360b-45b0-937d-dfca4598e344" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/customizing-the-build/"
+              >Customizing the Build</a
+            >
+          </li>
+        </ul>
+        <ul id="5dc99dbf-0d38-4d1a-9053-66ace4d3068f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/speeding-up-the-build/"
+              >Speeding up the Build</a
+            >
+          </li>
+        </ul>
+        <ul id="765cc8ca-017d-46d5-aee6-86e561664c40" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/docker/"
+              >Using Docker in your Build</a
+            >
+          </li>
+        </ul>
+        <ul id="09cd82bc-596c-4343-b36d-95c3bf787b09" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/gui-and-headless-browsers/"
+              >Headless Testing with Browsers</a
+            >
+          </li>
+        </ul>
+        <ul id="20c37843-e80c-432c-bf05-8c2409b0745e" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/pull-requests/"
+              >Building Pull Requests</a
+            >
+          </li>
+        </ul>
+        <ul id="8cef9612-d6d0-47b6-8477-79a13628bc02" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/cron-jobs/">Cron Jobs</a>
+          </li>
+        </ul>
+        <ul id="4a7864d5-aebd-48e6-830e-5421928d2d34" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/common-build-problems/"
+              >Common Build Problems</a
+            >
+          </li>
+        </ul>
+        <ul id="7a493489-9abd-4dee-8702-b490b4b7a920" class="bulleted-list">
+          <li>
+            <a href="https://github.com/travis-ci/travis#readme"
+              >Command Line Client</a
+            >
+          </li>
+        </ul>
+        <ul id="73d41fdc-be22-412d-bbb8-f699ebcf2752" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/build-config-imports/"
+              >Build Config Imports</a
+            >
+          </li>
+        </ul>
+        <ul id="8a7ef577-8d6a-495b-8e75-35922f6116e0" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/build-config-validation/"
+              >Build Config Validation</a
+            >
+          </li>
+        </ul>
+        <h3 id="2b33fd61-3193-417f-8e57-60c8ffbfd81e" class="">
+          Jobs, Builds, Matrices and Stages
+        </h3>
+        <ul id="3dfdc211-d7d4-4e9a-a362-8c314af01624" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/job-lifecycle/"
+              >Job Lifecycle</a
+            >
+          </li>
+        </ul>
+        <ul id="46da2898-6e0d-4c9d-b26d-0db68571f772" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/build-matrix/"
+              >Build Matrix</a
+            >
+          </li>
+        </ul>
+        <ul id="0c9d40e8-32e0-4c6e-a18d-d61b77f5ae0b" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/build-stages/"
+              >Build Stages</a
+            >
+          </li>
+        </ul>
+        <ul id="1e6dd525-5481-4740-8be1-7674a2453804" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/conditional-builds-stages-jobs/"
+              >Conditional Builds, Stages, and Jobs</a
+            >
+          </li>
+        </ul>
+        <h3 id="1a1fe68c-8d37-4e8a-959c-82bc05c6ff4d" class="">
+          Installing Dependencies
+        </h3>
+        <ul id="d52e9ff5-6653-49c9-a1ea-1a13933cae64" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/installing-dependencies/"
+              >Installing Dependencies</a
+            >
+          </li>
+        </ul>
+        <ul id="a10d8ad5-086f-4113-bef1-deabb52022c7" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/private-dependencies/"
+              >Private Dependencies GitHub</a
+            >
+          </li>
+        </ul>
+        <ul id="ce92dbd4-fb58-4f69-993c-9032faa75436" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/private-dependencies-bb/"
+              >Private Dependencies Bitbucket</a
+            >
+          </li>
+        </ul>
+        <ul id="31572e56-ef2a-4e62-a514-cc8de6f189dd" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/database-setup/"
+              >Setting up Services and Databases</a
+            >
+          </li>
+        </ul>
+        <ul id="aba8576f-dbbb-4661-b02f-75f45c00b8a3" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/caching/"
+              >Caching Dependencies</a
+            >
+          </li>
+        </ul>
+        <ul id="37e75391-d65c-41b1-b811-d3671d48023f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/ssh-known-hosts/"
+              >Adding to SSH Known Hosts</a
+            >
+          </li>
+        </ul>
+        <h3 id="2c527621-717f-47b2-a2d4-bb087df9a140" class="">
+          Programming Languages
+        </h3>
+        <ul id="4fe0f0b5-5b2e-4401-b8bd-d11d33aeea28" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/android/"
+              >Android</a
+            >
+          </li>
+        </ul>
+        <ul id="cc169263-6050-44f1-b421-e42e0815bdb6" class="bulleted-list">
+          <li><a href="https://docs.travis-ci.com/user/languages/c/">C</a></li>
+        </ul>
+        <ul id="9627ee94-9d5d-4568-b5bd-4ef98537e497" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/csharp/">C#</a>
+          </li>
+        </ul>
+        <ul id="b27358c6-b718-46df-bb5f-f06953fcd737" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/cpp/">C++</a>
+          </li>
+        </ul>
+        <ul id="b7208d7a-5978-4fba-bf54-cea0983796ed" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/clojure/"
+              >Clojure</a
+            >
+          </li>
+        </ul>
+        <ul id="11e7e958-34c9-4ed7-8d52-dbf3ae7e71cc" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/crystal/"
+              >Crystal</a
+            >
+          </li>
+        </ul>
+        <ul id="905e1bc8-7913-49d4-a843-47fa95f10aad" class="bulleted-list">
+          <li><a href="https://docs.travis-ci.com/user/languages/d/">D</a></li>
+        </ul>
+        <ul id="32e5fff7-be4e-4050-a264-1cf94a20dc85" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/dart/">Dart</a>
+          </li>
+        </ul>
+        <ul id="e299bc72-a6d1-4ae0-b5db-ee47cd45cce0" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/elixir/"
+              >Elixir</a
+            >
+          </li>
+        </ul>
+        <ul id="c9aac72a-6533-49dc-98c5-1485c54cdab7" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/elm/">Elm</a>
+          </li>
+        </ul>
+        <ul id="c819cb5c-874b-4b34-8b97-648918e57a42" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/erlang/"
+              >Erlang</a
+            >
+          </li>
+        </ul>
+        <ul id="15435f1f-2682-46b2-b9d8-bae2c3812fde" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/csharp/">F#</a>
+          </li>
+        </ul>
+        <ul id="65952b39-ac91-402c-bf8d-e8bf186cbb89" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/languages/minimal-and-generic/"
+              >Generic</a
+            >
+          </li>
+        </ul>
+        <ul id="9d62f395-af35-4109-bd7b-e974db5f0bcd" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/go/">Go</a>
+          </li>
+        </ul>
+        <ul id="5baa4a99-03bc-45d4-9b64-f9e0ab5b3c8c" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/groovy/"
+              >Groovy</a
+            >
+          </li>
+        </ul>
+        <ul id="f589a89b-905b-4791-99b2-9bbd0b19fb34" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/haskell/"
+              >Haskell</a
+            >
+          </li>
+        </ul>
+        <ul id="31311718-058a-4344-beae-37eb5838b60e" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/haxe/">Haxe</a>
+          </li>
+        </ul>
+        <ul id="2ca05053-2bdc-4fc4-a9d8-47f8b8559f7f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/java/">Java</a>
+          </li>
+        </ul>
+        <ul id="671d038a-5a87-4e61-bde2-5076cfc2b087" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/languages/javascript-with-nodejs/"
+              >JavaScript (with Node.js)</a
+            >
+          </li>
+        </ul>
+        <ul id="3a74b5f6-189b-4077-bc1c-451c5d087b58" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/julia/">Julia</a>
+          </li>
+        </ul>
+        <ul id="c7862c3c-509f-44db-b6de-8940e3466410" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/matlab/"
+              >MATLAB</a
+            >
+          </li>
+        </ul>
+        <ul id="b36f1d0d-c971-4278-b673-7b682ce07a03" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/languages/minimal-and-generic/"
+              >Minimal</a
+            >
+          </li>
+        </ul>
+        <ul id="a39842f3-a91f-41c0-92f6-ae283c1a6055" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/nix/">Nix</a>
+          </li>
+        </ul>
+        <ul id="dbc91118-9c0e-4f5b-9ed3-f717db154ae5" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/objective-c/"
+              >Objective-C</a
+            >
+          </li>
+        </ul>
+        <ul id="e8a7eb55-7bfe-47d0-a9b9-4d7c76f3a372" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/perl/">Perl</a>
+          </li>
+        </ul>
+        <ul id="4060c68d-edc1-4147-b11d-f82450f5f760" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/perl6/">Perl6</a>
+          </li>
+        </ul>
+        <ul id="99e9e2b6-2ca4-488e-8306-08154ce887a1" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/php/">PHP</a>
+          </li>
+        </ul>
+        <ul id="8177327b-1659-40d2-8a7b-d37d58205aa7" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/python/"
+              >Python</a
+            >
+          </li>
+        </ul>
+        <ul id="6d0d8127-3b03-4d36-9a4c-f8448a0db864" class="bulleted-list">
+          <li><a href="https://docs.travis-ci.com/user/languages/r/">R</a></li>
+        </ul>
+        <ul id="3bd5c981-be84-4fa4-8ccd-897c9b01e287" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/ruby/">Ruby</a>
+          </li>
+        </ul>
+        <ul id="dd858b60-6b48-4bb8-9857-4bf53a2c6599" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/rust/">Rust</a>
+          </li>
+        </ul>
+        <ul id="3f857f1b-083a-42b4-9276-0b88503ed718" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/scala/">Scala</a>
+          </li>
+        </ul>
+        <ul id="219840bc-b7d4-449e-a690-8d97452d1b3b" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/smalltalk/"
+              >Smalltalk</a
+            >
+          </li>
+        </ul>
+        <ul id="a221fc96-eb01-47ef-84ed-7b0396be55cf" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/objective-c/"
+              >Swift</a
+            >
+          </li>
+        </ul>
+        <ul id="10a1fd57-908e-4040-a68a-1ba304d6a83e" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/languages/csharp/"
+              >Visual Basic</a
+            >
+          </li>
+        </ul>
+        <ul id="569e10e2-0c5e-4a25-8661-aa4c2bd77705" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/languages/community-supported-languages/"
+              >Adding a language</a
+            >
+          </li>
+        </ul>
+        <h3 id="009c1e49-0c04-4575-85b2-6f13aa035ce0" class="">
+          Deployments and Uploads
+        </h3>
+        <ul id="2f1777b8-07a6-4627-a67d-e2ebb64f9211" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/">Overview</a>
+          </li>
+        </ul>
+        <ul id="7499eec0-aa46-46a7-a76a-952de46a62f7" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/anynines/"
+              >anynines</a
+            >
+          </li>
+        </ul>
+        <ul id="31b952db-7015-4ce8-9ab5-96c8e6a1f307" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/atlas/"
+              >Atlas</a
+            >
+          </li>
+        </ul>
+        <ul id="9a0ba201-4010-496a-bd8d-144279a043e1" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/codedeploy/"
+              >AWS CodeDeploy</a
+            >
+          </li>
+        </ul>
+        <ul id="1b2cfb53-6461-4702-89cb-282cd0ec986e" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/deployment/elasticbeanstalk/"
+              >AWS Elastic Beanstalk</a
+            >
+          </li>
+        </ul>
+        <ul id="1553faf2-298d-41d3-8fab-212f791eb1ca" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/lambda/"
+              >AWS Lambda</a
+            >
+          </li>
+        </ul>
+        <ul id="a7be07f1-0a4c-4b43-887d-fb919ff63a39" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/opsworks/"
+              >AWS OpsWorks</a
+            >
+          </li>
+        </ul>
+        <ul id="f3343c30-b389-4ff7-988b-ec2898fa5578" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/s3/">AWS S3</a>
+          </li>
+        </ul>
+        <ul id="f22ccb0c-90f0-4cb8-a138-a4119402e18b" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/azure-web-apps/"
+              >Azure Web Apps</a
+            >
+          </li>
+        </ul>
+        <ul id="7bc42a87-cf05-4212-90f1-6e02619895f9" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/bintray/"
+              >bintray</a
+            >
+          </li>
+        </ul>
+        <ul id="85b63914-599e-4046-b877-c61a46048f4a" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/bitballoon/"
+              >BitBalloon</a
+            >
+          </li>
+        </ul>
+        <ul id="f997f594-d0c9-464c-9312-f7d914045eae" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/deployment/bluemixcloudfoundry/"
+              >Bluemix CloudFoundry</a
+            >
+          </li>
+        </ul>
+        <ul id="606eda8f-3497-434a-b472-c81cd55d5135" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/boxfuse/"
+              >Boxfuse</a
+            >
+          </li>
+        </ul>
+        <ul id="37a0ac41-275d-44f2-97f7-f7540bb57978" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/catalyze/"
+              >Catalyze</a
+            >
+          </li>
+        </ul>
+        <ul id="bb07537f-10d6-43bb-9327-5e4bc7aa65c9" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/deployment/chefsupermarket/"
+              >Chef Supermarket</a
+            >
+          </li>
+        </ul>
+        <ul id="51881a82-5a03-4745-a51d-7a3c5e1e0628" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/cloud66/"
+              >Cloud 66</a
+            >
+          </li>
+        </ul>
+        <ul id="e0843436-0f46-4ff7-8ead-e2190e07167c" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/cloudfoundry/"
+              >CloudFoundry</a
+            >
+          </li>
+        </ul>
+        <ul id="535e4d1d-eee2-41a1-bd1f-13e93201382e" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/cargo/"
+              >Cargo</a
+            >
+          </li>
+        </ul>
+        <ul id="57b998f4-9057-46f6-bd61-4d576120c72e" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/engineyard/"
+              >Engine Yard</a
+            >
+          </li>
+        </ul>
+        <ul id="8429c07f-854c-4843-9beb-2fe965007f5c" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/pages/"
+              >GitHub Pages</a
+            >
+          </li>
+        </ul>
+        <ul id="cb6dfd90-a468-4055-8622-4664ca54f95e" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/releases/"
+              >GitHub Releases</a
+            >
+          </li>
+        </ul>
+        <ul id="11aa64bf-236d-4ee5-bac6-9bf62ac17140" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/deployment/google-app-engine/"
+              >Google App Engine</a
+            >
+          </li>
+        </ul>
+        <ul id="cbcd1d4c-3ddd-4eda-b0db-f20d5423116a" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/gcs/"
+              >Google Cloud Storage</a
+            >
+          </li>
+        </ul>
+        <ul id="b716dd99-ccc4-4110-a7c0-27b111f53e9a" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/firebase/"
+              >Google Firebase</a
+            >
+          </li>
+        </ul>
+        <ul id="df84a536-7b08-4788-8d61-7b144f106c3f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/hackage/"
+              >Hackage</a
+            >
+          </li>
+        </ul>
+        <ul id="3748d724-b926-4036-a9c0-48564a89ea26" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/hephy/"
+              >Hephy</a
+            >
+          </li>
+        </ul>
+        <ul id="c02edb8a-4169-46be-b597-551d8f20dee7" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/heroku/"
+              >Heroku</a
+            >
+          </li>
+        </ul>
+        <ul id="33d07d23-7b46-498d-9d92-f26c2beb72c3" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/launchpad/"
+              >Launchpad</a
+            >
+          </li>
+        </ul>
+        <ul id="823ffa48-6a12-486e-b201-4d5e5849cd7f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/npm/">npm</a>
+          </li>
+        </ul>
+        <ul id="c22026b9-d5f4-4967-bc01-81af5edfc5a3" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/openshift/"
+              >OpenShift</a
+            >
+          </li>
+        </ul>
+        <ul id="f06db40c-22f9-4525-83a2-270e16ff7963" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/packagecloud/"
+              >packagecloud.io</a
+            >
+          </li>
+        </ul>
+        <ul id="e754d0ac-091a-459f-8ea3-63d2a462504d" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/puppetforge/"
+              >Puppet Forge</a
+            >
+          </li>
+        </ul>
+        <ul id="9a402e65-5592-4a13-8c20-fc87cbae6a95" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/pypi/">PyPI</a>
+          </li>
+        </ul>
+        <ul id="2207b71d-0679-476b-a0dd-d7921d031f33" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/cloudfiles/"
+              >Rackspace Cloud Files</a
+            >
+          </li>
+        </ul>
+        <ul id="59ba4388-ad4b-4b77-8133-4dbcf314924c" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/rubygems/"
+              >RubyGems</a
+            >
+          </li>
+        </ul>
+        <ul id="fbd6f58e-c3ff-419f-95c2-2bf9ef2b5bd0" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/scalingo/"
+              >Scalingo</a
+            >
+          </li>
+        </ul>
+        <ul id="8e804124-2b45-4858-8d3b-479cbf20a002" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/script/"
+              >Script</a
+            >
+          </li>
+        </ul>
+        <ul id="5d03e0d0-d09d-494f-86a7-542b086159e1" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/snaps/"
+              >Snap Store</a
+            >
+          </li>
+        </ul>
+        <ul id="d5e7b369-d0cd-4c42-9d56-8af43190c2f3" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/surge/"
+              >Surge.sh</a
+            >
+          </li>
+        </ul>
+        <ul id="39d209e5-86de-4a82-ba81-9c3d030e5266" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/testfairy/"
+              >TestFairy</a
+            >
+          </li>
+        </ul>
+        <ul id="70410ecc-b19c-4bb5-af0e-f5c66216c985" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deployment/transifex/"
+              >Transifex</a
+            >
+          </li>
+        </ul>
+        <ul id="c3e07a06-9594-46f0-95b2-83cae2518957" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/uploading-artifacts/"
+              >Uploading Build Artifacts</a
+            >
+          </li>
+        </ul>
+        <h3 id="e7917db4-4858-4f3f-84ec-14d968e3e3c5" class="">
+          CI Environment Reference
+        </h3>
+        <ul id="b59947ce-095f-4361-bacc-a9f49cebd5d9" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/reference/overview/"
+              >Overview</a
+            >
+          </li>
+        </ul>
+        <ul id="87cd2ec7-ed7c-4d18-83e7-bbec9fea2285" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/reference/linux/"
+              >Ubuntu Linux CI Environment References</a
+            >
+          </li>
+        </ul>
+        <ul id="52fc05d0-7d09-4c5d-a7ef-21e81425d6f5" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/reference/osx/"
+              >macOS CI Environment Reference</a
+            >
+          </li>
+        </ul>
+        <ul id="2844a10f-50a0-4a1e-92f7-344c7d40fa16" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/reference/windows/"
+              >Windows CI Environment Reference</a
+            >
+          </li>
+        </ul>
+        <ul id="22c71975-ac58-4ff9-9688-ec4cd9c15896" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/reference/freebsd/"
+              >FreeBSD CI Environment Reference</a
+            >
+          </li>
+        </ul>
+        <ul id="effaa28a-d529-437f-beca-699de0d611a4" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/multi-os/"
+              >Building on Multiple Operating Systems</a
+            >
+          </li>
+        </ul>
+        <ul id="e5c93cce-1790-4145-b123-7a0467480eaa" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/multi-cpu-architectures/"
+              >Building on Multiple CPU Architectures</a
+            >
+          </li>
+        </ul>
+        <ul id="ce9909b0-aefb-428b-a771-5760ce3a43ab" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/environment-variables/"
+              >Environment Variables</a
+            >
+          </li>
+        </ul>
+        <ul id="1c40fa6a-05b5-48e7-a086-313a5445540d" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/build-environment-updates/"
+              >Build Environment Updates</a
+            >
+          </li>
+        </ul>
+        <ul id="0f3dcc6e-eff4-4679-bd00-65046536f8de" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/ip-addresses/"
+              >Build Machines IP Addresses</a
+            >
+          </li>
+        </ul>
+        <h3 id="01a2846d-3d46-4ab4-af65-5c5abdb434c7" class="">
+          Encrypting Files and Data
+        </h3>
+        <ul id="01bd394e-531e-455c-999c-1076a57987d0" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/encryption-keys/"
+              >Encrypting Sensitive Data</a
+            >
+          </li>
+        </ul>
+        <ul id="7b05a095-f4b1-4747-b70f-2601609176b8" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/encrypting-files/"
+              >Encrypting Files</a
+            >
+          </li>
+        </ul>
+        <ul id="0fffb4b9-9420-4037-b350-02ec19257293" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/github-oauth-scopes/"
+              >GitHub Permissions used by Travis CI</a
+            >
+          </li>
+        </ul>
+        <ul id="1df0a64a-329f-4e8a-a654-6c87f7600316" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/bb-oauth-scopes/"
+              >Bitbucket Permissions used by Travis CI</a
+            >
+          </li>
+        </ul>
+        <ul id="e14804ac-c1b8-4811-900c-4b51339deaff" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/assembla-oauth-scopes/"
+              >Assembla Permissions used by Travis CI</a
+            >
+          </li>
+        </ul>
+        <ul id="74de1446-adb0-49e1-9764-07635a3fb97e" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/gl-oauth-scopes/"
+              >GitLab Permissions used by Travis CI</a
+            >
+          </li>
+        </ul>
+        <ul id="34f75a17-2ebc-4813-b5d7-ac60b76670ab" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/best-practices-security/"
+              >Best Practices in Securing Your Data</a
+            >
+          </li>
+        </ul>
+        <h3 id="7c336978-0ac6-496f-8348-1f0702339553" class="">
+          Integrations and Notifications
+        </h3>
+        <ul id="5a81615c-ec75-468b-a133-ad6615b6ea92" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/notifications/"
+              >Configuring Notifications</a
+            >
+          </li>
+        </ul>
+        <ul id="29059991-d813-47b5-9549-480c9e086acb" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/status-images/"
+              >Showing Build Status Images</a
+            >
+          </li>
+        </ul>
+        <ul id="e419d47b-5e0d-4ce1-81fc-a2b157e293fc" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/code-climate/"
+              >Code Climate</a
+            >
+          </li>
+        </ul>
+        <ul id="ce4aba1f-c03f-4ab6-8743-ee481b6966e4" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/deepsource/">DeepSource</a>
+          </li>
+        </ul>
+        <ul id="d5a83da1-9cdb-4853-b687-dc1142b30af3" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/coveralls/">Coveralls</a>
+          </li>
+        </ul>
+        <ul id="17f9fb86-9d6a-4a5e-9a4f-17a694d4a621" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/coverity-scan/"
+              >Coverity Scan</a
+            >
+          </li>
+        </ul>
+        <ul id="46f5cb8b-dae2-4b17-adc7-bc5814f67544" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/browserstack/"
+              >BrowserStack</a
+            >
+          </li>
+        </ul>
+        <ul id="beb9f2b9-a727-4261-bbe7-5bd8e7af6083" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/sauce-connect/"
+              >Sauce Labs</a
+            >
+          </li>
+        </ul>
+        <ul id="db650e18-3326-40c0-beaf-a61818373706" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/sonarcloud/">SonarCloud</a>
+          </li>
+        </ul>
+        <ul id="64464843-f861-40e8-aa9f-b25e4575255f" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/sourceclear/"
+              >SourceClear</a
+            >
+          </li>
+        </ul>
+        <ul id="f8b58c22-1765-4759-95b2-fc93bf04d47c" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/build-feeds/"
+              >Atom Feeds</a
+            >
+          </li>
+        </ul>
+        <ul id="6072006c-0c4f-4a5d-b572-e28698c5db79" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/cc-menu/"
+              >CCMenu / CCTray Feeds</a
+            >
+          </li>
+        </ul>
+        <ul id="def04629-796e-49b0-954c-25018d8d6cd6" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/integration/platformio/"
+              >Embedded Builds with PlatformIO</a
+            >
+          </li>
+        </ul>
+        <ul id="1d50d7cd-fdd3-4ba1-99ac-025637b42dc2" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/apps/"
+              >3rd Party Apps, Clients and Tools</a
+            >
+          </li>
+        </ul>
+        <h3 id="834b0d89-6bfd-4c0a-8e7f-091bf1c22c68" class="">
+          Developer Program
+        </h3>
+        <ul id="1232b8a6-8da0-4885-8091-9c8cbe9ddb16" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/developer/">Overview</a>
+          </li>
+        </ul>
+        <ul id="10ef8587-8e04-42ae-b4e1-26820db43e67" class="bulleted-list">
+          <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        </ul>
+        <ul id="b6f70d1d-1dd7-4882-a267-d4af282e6769" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/triggering-builds/"
+              >Triggering Builds with API V3</a
+            >
+          </li>
+        </ul>
+        <ul id="5cfa517b-697d-4fe2-b81f-2e59293be707" class="bulleted-list">
+          <li>
+            <a href="https://github.com/travis-ci/travis#ruby-library"
+              >The Ruby Library</a
+            >
+          </li>
+        </ul>
+        <h3 id="defd5068-f812-4b5c-981d-cfe42a91bfd4" class="">
+          Hosted Billing
+        </h3>
+        <ul id="5af68ced-6e67-4512-9e15-eb3b4ac1ec96" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/billing-overview/"
+              >Overview</a
+            >
+          </li>
+        </ul>
+        <ul id="546ea2ca-0da7-4e52-800e-50c55403bbdb" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/billing-faq/">FAQ</a>
+          </li>
+        </ul>
+        <h3 id="e5a7f1a9-9a60-40ab-a9f0-15c9d5ed96db" class="">
+          Travis CI Enterprise
+        </h3>
+        <ul id="d9088aea-bb04-4ddb-a5f9-6d4f60f6fe16" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/enterprise/"
+              >Enterprise Docs</a
+            >
+          </li>
+        </ul>
+        <p id="deba0aad-a897-40f0-8d82-e5d15e3a46d1" class="">
+          This documentation site is open source. The
+          <a href="https://github.com/travis-ci/docs-travis-ci-com"
+            >README in our Git repository</a
+          >
+          explains how to contribute.
+        </p>
+        <p id="2df24f09-2168-4f60-8a07-31fa73df005d" class="">
+          <a
+            href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/tutorial.md"
+            >Improve this page on GitHub</a
+          >
+        </p>
+        <ul id="4a3dd193-0fc2-46c8-9ed2-3ef107e1607f" class="bulleted-list">
+          <li><a href="about:blank#prerequisites">Prerequisites</a></li>
+        </ul>
+        <ul id="7ff2746d-bcc6-4ab1-a5b3-d5a63861a026" class="bulleted-list">
+          <li>
+            <a href="about:blank#to-get-started-with-travis-ci-using-github"
+              >To get started with Travis CI using GitHub</a
+            >
+          </li>
+        </ul>
+        <ul id="a3e071d7-8be4-4e13-bed8-eba4c6f6ca03" class="bulleted-list">
+          <li>
+            <a href="about:blank#to-get-started-with-travis-ci-using-bitbucket"
+              >To get started with Travis CI using Bitbucket</a
+            >
+          </li>
+        </ul>
+        <ul id="4ed940a7-606a-438b-84f3-95e7d57634ca" class="bulleted-list">
+          <li>
+            <a href="about:blank#to-get-started-with-travis-ci-using-gitlab"
+              >To get started with Travis CI using GitLab</a
+            >
+          </li>
+        </ul>
+        <ul id="f643e14d-5a69-4b07-816a-df749371018d" class="bulleted-list">
+          <li>
+            <a href="about:blank#to-get-started-with-travis-ci-using-assembla"
+              >To get started with Travis CI using Assembla</a
+            >
+          </li>
+        </ul>
+        <ul id="83bc3e6a-8473-4491-826d-a2660babafa6" class="bulleted-list">
+          <li>
+            <a href="about:blank#switching-accounts">Switching accounts</a>
+          </li>
+        </ul>
+        <ul id="428a0870-76c4-4906-b062-927a72324938" class="bulleted-list">
+          <li>
+            <a href="about:blank#selecting-a-different-programming-language"
+              >Selecting a different programming language</a
+            >
+          </li>
+        </ul>
+        <ul id="05dc8fc6-3978-48c4-9cab-2ca2bd8fc47a" class="bulleted-list">
+          <li>
+            <a href="about:blank#more-than-running-tests"
+              >More than running tests</a
+            >
+          </li>
+        </ul>
+        <ul id="32b34c87-ff5e-405e-84fc-737b188cf6ef" class="bulleted-list">
+          <li><a href="about:blank#further-reading">Further Reading</a></li>
+        </ul>
+        <p id="6b6f7b68-b94d-4c00-b2a4-ddb4adecdea3" class="">
+          This is a very short guide to using Travis CI with your cloud platform
+          hosted code repository. If you’re new to continuous integration or
+          would like some more information on what Travis CI does, start with
+          <a href="https://docs.travis-ci.com/user/for-beginners"
+            >Core Concepts for Beginners</a
+          >
+          instead.
+        </p>
+        <h2 id="14120157-ba67-4920-89c4-c8528adaaf20" class="">
+          Prerequisites <a href="about:blank#prerequisites">#</a>
+        </h2>
+        <p id="164f43c1-45ef-44b4-8787-bef0f70cadfc" class="">
+          To start using Travis CI, make sure you have:
+        </p>
+        <ul id="038b20f3-4569-4382-a2f2-13d1f23a4375" class="bulleted-list">
+          <li>
+            A <a href="https://github.com/">GitHub</a> or
+            <a href="https://bitbucket.org/">Bitbucket</a> or
+            <a href="https://about.gitlab.com/">GitLab</a> or
+            <a href="https://www.assembla.com/">Assembla</a> account.
+          </li>
+        </ul>
+        <ul id="1d86e3fa-28e3-4333-8ce8-e71374dcbb9b" class="bulleted-list">
+          <li>
+            Owner permissions for a project hosted on
+            <a
+              href="https://help.github.com/categories/importing-your-projects-to-github/"
+              >GitHub</a
+            >
+            or
+            <a
+              href="https://confluence.atlassian.com/bitbucket/transfer-repository-ownership-289964397.html"
+              >Bitbucket</a
+            >
+            or
+            <a
+              href="https://www.tutorialspoint.com/gitlab/gitlab_user_permissions.htm"
+              >GitLab</a
+            >
+            or
+            <a
+              href="https://articles.assembla.com/en/articles/1665737-advanced-user-permissions-controls"
+              >Assembla</a
+            >.
+          </li>
+        </ul>
+        <h2 id="bcc30c35-0177-4a35-8a46-6ae499058378" class="">
+          To get started with Travis CI using GitHub
+          <a href="about:blank#to-get-started-with-travis-ci-using-github">#</a>
+        </h2>
+        <ol
+          id="47db69ee-ce8f-49ab-be7d-e4a620bc5602"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Go to <a href="https://travis-ci.com/">Travis-ci.com</a> and
+            <a href="https://travis-ci.com/signin"
+              ><em>Sign up with GitHub</em></a
+            >.
+          </li>
+        </ol>
+        <ol
+          id="80d08466-709e-420e-9287-5cf8f08bad3b"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Accept the Authorization of Travis CI. You’ll be redirected to
+            GitHub. For any doubts on the Travis CI GitHub Authorized OAuth App
+            access rights message, please read more details
+            <a
+              href="https://docs.travis-ci.com/user/tutorial#travis-ci-github-oauth-app-access-rights"
+              >below</a
+            >
+          </li>
+        </ol>
+        <ol
+          id="f9bdcbe4-c079-4525-8c73-382857e76571"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            Click on your profile picture in the top right of your Travis
+            Dashboard, click Settings and then the green
+            <em>Activate</em> button, and select the repositories you want to
+            use with Travis CI.
+          </li>
+        </ol>
+        <blockquote id="2eb9b8e3-84da-4b90-8ef5-256659139db3" class="">
+          Or you click the Activate all repositories using GitHub Apps button on
+          the getting started page to just activate all your repos
+        </blockquote>
+        <ol
+          id="72d2174e-2bee-4dce-8aeb-ae37404be652"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Add a <code>.travis.yml</code> file to your repository to tell
+            Travis CI what to do.
+            <p id="95b55e20-8dbf-49a9-a5b1-ebed56b94a6a" class="">
+              The following example specifies a Ruby project that should be
+              built with Ruby 2.2 and the latest versions of JRuby.
+            </p>
+            <pre
+              id="e596da1f-58fe-4f95-9c25-3e933f6f2afa"
+              class="code code-wrap"
+            ><code>language: ruby
+rvm:
+ - 2.2
+ - jruby</code></pre>
+            <p id="4e79db0f-6587-4d96-8bbb-30b68ecb838d" class="">YAML</p>
+            <p id="d7d349a2-b56e-4b92-bab9-00a5493cc026" class="">
+              The defaults for Ruby projects are <code>bundle install</code> to
+              <a
+                href="https://docs.travis-ci.com/user/job-lifecycle/#customizing-the-installation-phase"
+                >install dependencies</a
+              >, and <code>rake</code> to build the project.
+            </p>
+          </li>
+        </ol>
+        <ol
+          id="1f3c77ac-a93d-4640-8677-b17103631b36"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Add the <code>.travis.yml</code> file to git, commit and push to
+            trigger a Travis CI build:
+            <blockquote id="045337e5-2249-4d90-b502-3bb95ea390f8" class="">
+              Travis only runs builds on the commits you push after you’ve added
+              a .travis.yml file.
+            </blockquote>
+          </li>
+        </ol>
+        <ol
+          id="6108d255-25b3-462b-a15b-145063d14df4"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            Check the build status page to see if your build
+            <a
+              href="https://docs.travis-ci.com/user/job-lifecycle/#breaking-the-build"
+              >passes or fails</a
+            >
+            according to the return status of the build command by visiting
+            <a href="https://travis-ci.com/auth">Travis CI</a> and selecting
+            your repository.
+          </li>
+        </ol>
+        <h3 id="bc60ec26-5d68-4c61-beab-4a48c4ab200f" class="">
+          Travis CI GitHub OAuth App access rights
+          <a href="about:blank#travis-ci-github-oauth-app-access-rights">#</a>
+        </h3>
+        <p id="5622b985-508c-40cf-b075-3c726a8e48cf" class="">
+          When you sign in to
+          <a href="https://travis-ci.com/">travis-ci.com</a> using GitHub for
+          the first time, you will receive a message from GitHub saying:
+        </p>
+        <blockquote id="7b8b6868-9f97-4e87-bf92-bd1df552d10f" class="">
+          Travis CI by travis-pro wants to access your [account name] account.
+        </blockquote>
+        <p id="8f71256b-9a19-41cc-926c-88207c4fec0c" class="">
+          and in the repositories section it will state:
+        </p>
+        <blockquote id="1103d444-62ea-44cb-af9b-52f4f3880580" class="">
+          This application will be able to read and write all public and private
+          repository data.
+        </blockquote>
+        <p id="b9760e7e-c3b6-40aa-aee0-aaf71969bf9f" class="">
+          This is not how Travis CI accesses your data, however we can explain
+          it later in the process.
+        </p>
+        <p id="33ab825e-f4f4-45e1-b525-5d560e86e36f" class="">
+          The warning is triggerred due to GitHub OAuth App permissions which
+          Travis CI uses, and due to the available granularity of permission
+          scopes (see GitHub
+          <a
+            href="https://docs.github.com/en/developers/apps/scopes-for-oauth-apps"
+            >Scopes for OAuth Apps documentation</a
+          >
+          ).
+        </p>
+        <p id="a5e916fe-3d8c-4635-aae2-2e6b35062de0" class="">
+          <strong
+            >Travis CI does not access all your repositories by default</strong
+          >.
+        </p>
+        <p id="01de2473-84df-4b65-a0af-674c14797518" class="">
+          Once you acknowledge the access rights, you will see Travis CI OAuth
+          application present in your GitHub
+          <a href="https://github.com/settings/applications"
+            >Authorized OAuth Apps list</a
+          >, however
+          <strong
+            >you need to explicitly configure which repositories Travis CI has
+            access to</strong
+          >
+          within your
+          <a href="https://travis-ci.com/">travis-ci.com</a> account. The
+          configuration is done during the activation of Travis CI for your
+          repositories. You can use either the ‘All repositories’ option or the
+          ‘Only select repositories’ option during the activation process.
+        </p>
+        <p id="f78ab990-58db-4977-9241-46d6fd46a008" class="">
+          When the Travis CI activation has completed, you will see the actual
+          Travis CI GitHub Application installed in
+          <a href="https://github.com/settings/installations"
+            >Installed GitHub Apps</a
+          >
+          section.
+        </p>
+        <p id="a8b2487c-7967-4481-a1ac-03fd5405b16e" class="">
+          Travis CI uses OAuth permissions in the following way:
+        </p>
+        <p id="2d8914a4-cd78-4625-874c-c3faf87cdece" class="">
+          1) Travis CI’s system synchronizes certain metadata with GitHub. This
+          metadata is required for proper service functioning. In particular, we
+          sync users, orgs, memberships, repos, permissions and, (optionally)
+          branches. This type of sync happens either once a day by schedule or
+          per the user’s request. You can find more information and source code
+          <a href="https://github.com/travis-ci/travis-github-sync#syncs"
+            >in this repository</a
+          >
+        </p>
+        <p id="7547e349-fd18-4691-a9f1-9c8470aa424b" class="">
+          2) In order to run builds, Travis CI’s system clones a repository,
+          from which the build is triggered, to the build environment. The build
+          environment is an isolated virtual machine or an LXD container, which
+          gets terminated as soon as the build finishes. Cloning happens only
+          after a build request, and therefore only for the repositories
+          explicitly enabled at GitHub settings.
+        </p>
+        <p id="74cfa5a9-235c-4fff-9025-aec9d02b1494" class="">
+          3) To set up a build environment and prepare the build, Travis CI’s
+          system fetches and processes the <code>.travis.yml</code> config file
+          from the repository and the branch explicitly specified in the build
+          request, triggered by GitHub.
+        </p>
+        <p id="d8cd1bcb-f3a6-4c08-9b53-bfd147b87794" class="">
+          4) Travis CI’s system reports build results back to GitHub via its
+          <a href="https://developer.github.com/v3/checks/">Checks API</a>.
+        </p>
+        <h2 id="de274eb0-6daa-4992-b325-b5ebda0ff3a4" class="">
+          To get started with Travis CI using Bitbucket
+          <a href="about:blank#to-get-started-with-travis-ci-using-bitbucket"
+            >#</a
+          >
+        </h2>
+        <blockquote id="aa473310-1ab2-4c3b-92e3-e33347a2ca0d" class="">
+          This section documents the new Bitbucket option that is currently in
+          beta.
+        </blockquote>
+        <ol
+          id="99b11123-ffa6-4c67-b620-a147fe467740"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Go to <a href="https://travis-ci.com/">Travis-ci.com</a> and
+            <a href="https://travis-ci.com/signin"
+              ><em>Sign up with Bitbucket</em></a
+            >.
+          </li>
+        </ol>
+        <ol
+          id="66da1294-18ec-4aeb-b69b-0bd49b99c9da"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Accept the Authorization of Travis CI. You’ll be redirected to
+            Bitbucket.
+          </li>
+        </ol>
+        <ol
+          id="17dfca25-8ee7-43f4-a561-ff5239a56bc5"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            Click on your profile picture in the top right of your Travis
+            Dashboard, click <em>Settings</em>, and toggle the repositories you
+            want to use with Travis CI.
+          </li>
+        </ol>
+        <ol
+          id="bdbf0c56-d390-48a7-b323-be7078e7adf9"
+          class="numbered-list"
+          start="4"
+        >
+          <li>
+            Add a <code>.travis.yml</code> file to your repository to tell
+            Travis CI what to do.
+            <p id="9309a623-4cee-4779-9aaf-5ee4ace33cc1" class="">
+              The following example specifies a Ruby project that should be
+              built with Ruby 2.2 and the latest versions of JRuby.
+            </p>
+            <pre
+              id="ae15a4b3-f594-4582-8d94-79fcdd357f53"
+              class="code code-wrap"
+            ><code>language: ruby
+rvm:
+ - 2.2
+ - jruby</code></pre>
+            <p id="50dfdeab-263c-4322-b1a4-43516cad7bf4" class="">YAML</p>
+            <p id="3450b83a-18cb-4a09-84c3-663a3cb16a27" class="">
+              The defaults for Ruby projects are <code>bundle install</code> to
+              <a
+                href="https://docs.travis-ci.com/user/job-lifecycle/#customizing-the-installation-phase"
+                >install dependencies</a
+              >, and <code>rake</code> to build the project.
+            </p>
+          </li>
+        </ol>
+        <ol
+          id="1b595fda-6f7f-427d-b2b5-ddaafb4dc741"
+          class="numbered-list"
+          start="5"
+        >
+          <li>
+            Add the <code>.travis.yml</code> file to git, commit and push to
+            trigger a Travis CI build:
+            <blockquote id="63084221-e383-434e-bc43-a3e1ccf1d1c9" class="">
+              Travis only runs builds on the commits you push after you’ve added
+              a .travis.yml file.
+            </blockquote>
+          </li>
+        </ol>
+        <ol
+          id="3eca263d-56b6-4307-80c4-83471495b8bc"
+          class="numbered-list"
+          start="6"
+        >
+          <li>
+            Check the build status page to see if your build
+            <a
+              href="https://docs.travis-ci.com/user/job-lifecycle/#breaking-the-build"
+              >passes or fails</a
+            >
+            according to the return status of the build command by visiting
+            <a href="https://travis-ci.com/auth">Travis CI</a> and selecting
+            your repository.
+          </li>
+        </ol>
+        <h2 id="77c918e1-5424-46a6-acc1-ccdb132e0753" class="">
+          To get started with Travis CI using GitLab
+          <a href="about:blank#to-get-started-with-travis-ci-using-gitlab">#</a>
+        </h2>
+        <blockquote id="9266eec7-3aed-41bc-8ad9-7eb79c3fd2ac" class="">
+          This section documents the new GitLab option that is currently in
+          beta.
+        </blockquote>
+        <ol
+          id="57ad93c4-5cd8-46cd-ad2e-4ccd25fce70f"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Go to <a href="https://travis-ci.com/">Travis-ci.com</a> and
+            <a href="https://travis-ci.com/signin"
+              ><em>Sign up with GitLab</em></a
+            >.
+          </li>
+        </ol>
+        <ol
+          id="7a6909a8-a534-453f-bb3e-e349db888851"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Accept the Authorization of Travis CI. You’ll be redirected to
+            GitLab.
+          </li>
+        </ol>
+        <ol
+          id="2df0381e-3136-4c52-88d1-927895b4036d"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            Click on your profile picture in the top right of your Travis
+            Dashboard, click <em>Settings</em>, and toggle the repositories you
+            want to use with Travis CI.
+          </li>
+        </ol>
+        <ol
+          id="6cf26445-eee0-4114-8444-4d4aaa675230"
+          class="numbered-list"
+          start="4"
+        >
+          <li>
+            Add a <code>.travis.yml</code> file to your repository to tell
+            Travis CI what to do.
+            <p id="5affddb0-d6ff-4d84-9c37-9d3f6ae8a72c" class="">
+              The following example specifies a Ruby project that should be
+              built with Ruby 2.2 and the latest versions of JRuby.
+            </p>
+            <pre
+              id="e49f3da7-de64-46a9-a866-b3268e12f83d"
+              class="code code-wrap"
+            ><code>language: ruby
+rvm:
+ - 2.2
+ - jruby</code></pre>
+            <p id="266e41f5-a1c8-4679-acb6-bf2811e4d03b" class="">YAML</p>
+            <p id="82382fc9-3006-4bcf-a1c7-ee62366dfa97" class="">
+              The defaults for Ruby projects are <code>bundle install</code> to
+              <a
+                href="https://docs.travis-ci.com/user/job-lifecycle/#customizing-the-installation-phase"
+                >install dependencies</a
+              >, and <code>rake</code> to build the project.
+            </p>
+          </li>
+        </ol>
+        <ol
+          id="7fbccabd-b418-48ad-bd96-cd6cfb7971d3"
+          class="numbered-list"
+          start="5"
+        >
+          <li>
+            Add the <code>.travis.yml</code> file to git, commit and push to
+            trigger a Travis CI build:
+            <blockquote id="c592b13d-6969-4ea6-a7c3-5d253c382f13" class="">
+              Travis only runs builds on the commits you push after you’ve added
+              a .travis.yml file.
+            </blockquote>
+          </li>
+        </ol>
+        <ol
+          id="925b81a5-b555-41cb-bbb4-4ae2d63accba"
+          class="numbered-list"
+          start="6"
+        >
+          <li>
+            Check the build status page to see if your build
+            <a
+              href="https://docs.travis-ci.com/user/job-lifecycle/#breaking-the-build"
+              >passes or fails</a
+            >
+            according to the return status of the build command by visiting
+            <a href="https://travis-ci.com/auth">Travis CI</a> and selecting
+            your repository.
+          </li>
+        </ol>
+        <h2 id="5df7943a-d2e2-432d-af7a-3e64c02962ff" class="">
+          To get started with Travis CI using Assembla
+          <a href="about:blank#to-get-started-with-travis-ci-using-assembla"
+            >#</a
+          >
+        </h2>
+        <blockquote id="f6de89d2-47e9-48b0-96fd-b49ede84de82" class="">
+          This section documents the new Assembla option that is currently in
+          beta.
+        </blockquote>
+        <ol
+          id="4de36a4d-5de8-4e64-b60b-a9fc33a32bc6"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Go to <a href="https://travis-ci.com/">Travis-ci.com</a> and
+            <a href="https://travis-ci.com/signin"
+              ><em>Sign up with Assembla</em></a
+            >.
+          </li>
+        </ol>
+        <ol
+          id="1d95cd50-2c2c-454e-9f16-c9fb96cbdaa5"
+          class="numbered-list"
+          start="2"
+        >
+          <li>
+            Accept the Authorization of Travis CI. You’ll be redirected to
+            Assembla.
+          </li>
+        </ol>
+        <ol
+          id="104e85fd-8e0b-485d-a987-3aceae3b06f0"
+          class="numbered-list"
+          start="3"
+        >
+          <li>
+            Click on your profile picture in the top right of your Travis
+            Dashboard, click <em>Settings</em>, and toggle the repositories you
+            want to use with Travis CI.
+          </li>
+        </ol>
+        <ol
+          id="a80b76f6-1b31-437d-a3dd-ae2abcca26e3"
+          class="numbered-list"
+          start="4"
+        >
+          <li>
+            Add a <code>.travis.yml</code> file to your repository to tell
+            Travis CI what to do.
+            <p id="a9194833-5795-40a7-9693-158a480e6bc4" class="">
+              The following example specifies a Ruby project that should be
+              built with Ruby 2.2 and the latest versions of JRuby.
+            </p>
+            <pre
+              id="9aca9eb8-831c-493a-a404-23684b8aa3a4"
+              class="code code-wrap"
+            ><code>language: ruby
+rvm:
+ - 2.2
+ - jruby</code></pre>
+            <p id="9ad20631-a3d9-4f10-bbf5-390d8b6e1d34" class="">YAML</p>
+            <p id="d2e6b474-a531-47e0-9d9d-e8b154c39adf" class="">
+              The defaults for Ruby projects are <code>bundle install</code> to
+              <a
+                href="https://docs.travis-ci.com/user/job-lifecycle/#customizing-the-installation-phase"
+                >install dependencies</a
+              >, and <code>rake</code> to build the project.
+            </p>
+          </li>
+        </ol>
+        <ol
+          id="f3d6032b-3806-43db-b363-56bed206ddea"
+          class="numbered-list"
+          start="5"
+        >
+          <li>
+            Add the <code>.travis.yml</code> file to git, commit and push to
+            trigger a Travis CI build:
+            <blockquote id="4c330f41-be31-4941-9b59-b9d6d97ad8c7" class="">
+              Travis only runs builds on the commits you push after you’ve added
+              a .travis.yml file.
+            </blockquote>
+          </li>
+        </ol>
+        <ol
+          id="e52d3246-57f8-4061-8291-281699eb506a"
+          class="numbered-list"
+          start="6"
+        >
+          <li>
+            Check the build status page to see if your build
+            <a
+              href="https://docs.travis-ci.com/user/job-lifecycle/#breaking-the-build"
+              >passes or fails</a
+            >
+            according to the return status of the build command by visiting
+            <a href="https://travis-ci.com/auth">Travis CI</a> and selecting
+            your repository.
+          </li>
+        </ol>
+        <h2 id="b3b91a0c-66aa-419c-880d-012331771623" class="">
+          Switching accounts <a href="about:blank#switching-accounts">#</a>
+        </h2>
+        <p id="e3290479-00e2-400b-a645-7eae120a719c" class="">
+          You can easily switch between your cloud platform provider accounts:
+        </p>
+        <ol
+          id="c7630a71-fee3-42a4-a931-df45ee561eeb"
+          class="numbered-list"
+          start="1"
+        >
+          <li>
+            Click on your account icon in the top right corner on
+            <a href="https://travis-ci.com/">Travis-ci.com</a>.
+          </li>
+        </ol>
+        <ol
+          id="2f3d60d0-271a-41f5-96ae-8aeaae275433"
+          class="numbered-list"
+          start="2"
+        >
+          <li>Select the desired account and have fun using Travis CI.</li>
+        </ol>
+        <h2 id="758c033c-cafc-40e3-b77a-17b2f05ed102" class="">
+          Selecting a different programming language
+          <a href="about:blank#selecting-a-different-programming-language">#</a>
+        </h2>
+        <p id="22a12cd7-3a4e-4daf-8474-6314fbc5d6fe" class="">
+          Use one of these common languages:
+        </p>
+        <pre
+          id="b518aecd-6a1f-4dd9-9f7d-c9c61c40efed"
+          class="code code-wrap"
+        ><code>language: ruby</code></pre>
+        <p id="cd4fd234-2a98-437a-9d4b-dd278d542478" class="">YAML</p>
+        <pre
+          id="8b887fa6-5064-4836-a72a-b715550e44b2"
+          class="code code-wrap"
+        ><code>language: java</code></pre>
+        <p id="3943f71e-38a2-4e09-9117-052b115d4569" class="">YAML</p>
+        <pre
+          id="41b2cb96-3618-4941-a7b1-f6577c7ea239"
+          class="code code-wrap"
+        ><code>language: node_js</code></pre>
+        <p id="5847fe08-ccd2-45f4-bccf-065286f69e39" class="">YAML</p>
+        <pre
+          id="e6e25b92-a3cc-4606-aab9-4cd1e81dd3d5"
+          class="code code-wrap"
+        ><code>language: python</code></pre>
+        <p id="22be19f8-02cc-4df3-9404-e6006d7906b2" class="">YAML</p>
+        <pre
+          id="06a65589-5fd5-46b8-b95e-710cfab68a2c"
+          class="code code-wrap"
+        ><code>language: php</code></pre>
+        <p id="fd77a5b7-71bb-4741-88e9-bb00729337ec" class="">YAML</p>
+        <pre
+          id="da4c315a-e271-423c-978b-76fb07ca824e"
+          class="code code-wrap"
+        ><code>language: go</code></pre>
+        <p id="d7f4a998-c629-4784-9279-65736264b1ae" class="">YAML</p>
+        <p id="f36a65fc-abad-4ed7-afbf-cabaee056c95" class="">
+          If you have tests that need to run on macOS or your project uses Swift
+          or Objective-C, use our macOS environment:
+        </p>
+        <pre
+          id="e853d8c8-f868-4368-86d9-6d00577beee2"
+          class="code code-wrap"
+        ><code>os: osx</code></pre>
+        <p id="72e96507-a9e9-48b6-835a-1d9694b0eabf" class="">YAML</p>
+        <blockquote id="7f7614ec-30af-4cab-9375-b5dae3948165" class="">
+          You do not necessarily need to use macOS if you develop on a Mac.
+          macOS is required only if you need Swift, Objective-C, or other
+          macOS-specific software.
+        </blockquote>
+        <p id="a3bf4781-eb5c-4797-aec9-a77bc1c247a2" class="">
+          Travis CI supports many
+          <a href="https://docs.travis-ci.com/user/languages/"
+            >programming languages</a
+          >.
+        </p>
+        <h2 id="a57889ae-26a0-46ee-80de-5a12757e9dab" class="">
+          More than running tests
+          <a href="about:blank#more-than-running-tests">#</a>
+        </h2>
+        <p id="583a25d0-6280-420a-8aef-1db35c3b5e03" class="">
+          Travis CI isn’t just for running tests, there are many other things
+          you can do with your code:
+        </p>
+        <ul id="db209300-8f3c-4d1f-b167-0a97e7efa1bd" class="bulleted-list">
+          <li>
+            deploy to
+            <a href="https://docs.travis-ci.com/user/deployment/pages/"
+              >GitHub pages</a
+            >
+          </li>
+        </ul>
+        <ul id="6ea7a285-6f33-46ce-b26e-6baba53510f9" class="bulleted-list">
+          <li>
+            run apps on
+            <a href="https://docs.travis-ci.com/user/deployment/heroku/"
+              >Heroku</a
+            >
+          </li>
+        </ul>
+        <ul id="72dc9c8a-62a5-45f8-89e7-f563e23f7621" class="bulleted-list">
+          <li>
+            upload
+            <a href="https://docs.travis-ci.com/user/deployment/rubygems/"
+              >RubyGems</a
+            >
+          </li>
+        </ul>
+        <ul id="6a77dc8c-ba96-41a3-9b8a-eeeb6c351ea5" class="bulleted-list">
+          <li>
+            send
+            <a href="https://docs.travis-ci.com/user/notifications/"
+              >notifications</a
+            >
+          </li>
+        </ul>
+        <h2 id="fcfe2ad0-0a15-4780-88b0-1e8b03980403" class="">
+          Further Reading <a href="about:blank#further-reading">#</a>
+        </h2>
+        <p id="3ee8f1f8-4ec6-400d-9d8b-dd6ae6b79df3" class="">
+          Read more about
+        </p>
+        <ul id="cba309b1-05a2-46ab-a651-f9a6ebdafc32" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/customizing-the-build"
+              >customizing your build</a
+            >
+          </li>
+        </ul>
+        <ul id="2c57ab03-f59a-4d4b-96d2-1cd0f1d68175" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/best-practices-security/"
+              >security best practices</a
+            >
+          </li>
+        </ul>
+        <ul id="74e2294b-6091-4825-9530-32bb01eb1041" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/build-stages/"
+              >build stages</a
+            >
+          </li>
+        </ul>
+        <ul id="818090a6-5bc8-4f72-8f82-db6beb928bd6" class="bulleted-list">
+          <li>
+            <a
+              href="https://docs.travis-ci.com/user/customizing-the-build/#build-matrix"
+              >build matrixes</a
+            >
+          </li>
+        </ul>
+        <ul id="b85a1129-05bd-4cea-9c84-a5036fc31243" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/installing-dependencies"
+              >installing dependencies</a
+            >
+          </li>
+        </ul>
+        <ul id="b6c94c91-8540-4fd7-a642-132094570ea2" class="bulleted-list">
+          <li>
+            <a href="https://docs.travis-ci.com/user/database-setup/"
+              >setting up databases</a
+            >
+          </li>
+        </ul>
+        <p id="0845aec3-2c0a-4e0d-934d-a12ae2f160d5" class="">
+          Travis CI Mascot
+        </p>
+        <h3 id="8368d7b4-1652-4edc-bec3-d2edf82d3407" class="">
+          ©Travis CI, GmbH
+        </h3>
+        <p id="241e5973-c065-4801-b5d9-d2034d8af6e5" class="">
+          Rigaer Straße 8
+        </p>
+        <p id="53682ae8-8c47-4317-a1d0-2fa22b5c6724" class="">
+          10247 Berlin, Germany
+        </p>
+        <ul id="75569a4d-38bc-4d43-a534-68808a25a4d0" class="bulleted-list">
+          <li>
+            <a href="https://travisci.workable.com/">Work with Travis CI</a>
+          </li>
+        </ul>
+        <h3 id="8adbbeb5-bf4f-4a1f-9a0a-846313957ac8" class="">Help</h3>
+        <ul id="ca45230b-8f90-47ba-9242-11d78825654c" class="bulleted-list">
+          <li><a href="https://docs.travis-ci.com/">Documentation</a></li>
+        </ul>
+        <ul id="7aa52ecd-3494-49a3-873b-a573a145e48e" class="bulleted-list">
+          <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        </ul>
+        <ul id="46dcac53-b68e-4543-ba20-b8cd90f63417" class="bulleted-list">
+          <li><a href="https://blog.travis-ci.com/">Blog</a></li>
+        </ul>
+        <ul id="99c71b95-8cae-41fa-8110-755e1c336e20" class="bulleted-list">
+          <li><a href="mailto:support@travis-ci.com">Email</a></li>
+        </ul>
+        <ul id="9834a766-ef83-4729-a5d8-fbcabfcb0e0b" class="bulleted-list">
+          <li><a href="https://twitter.com/travisci">Twitter</a></li>
+        </ul>
+        <h3 id="88061f86-e638-43e4-aec6-ac2cd3859890" class="">Company</h3>
+        <ul id="f5d32213-b2c4-493d-b5cb-13eee96ede46" class="bulleted-list">
+          <li><a href="https://docs.travis-ci.com/imprint.html">Imprint</a></li>
+        </ul>
+        <ul id="30b5b432-04f7-417a-8b10-1f94126bcc5d" class="bulleted-list">
+          <li><a href="https://ideracorp.com/legal/TravisCI">Legal</a></li>
+        </ul>
+        <h3 id="152be450-e725-4ee0-aa2e-f3f490e77b4b" class="">
+          Travis CI Status
+        </h3>
+        <ul id="990f7757-b911-4e4a-b106-f9a43e641d3b" class="bulleted-list">
+          <li>
+            Status:
+            <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+          </li>
+        </ul>
+        <p id="220ad2d5-0479-41a1-a185-fec25c0a89cf" class="">
+          <a href="about:blank#">×</a>
+        </p>
+        <p id="0dbcc8d1-1e7c-40f9-9b9c-bb6a480e3c79" class="">
+          This site is still being indexed. Please try your search again in a
+          few minutes.
+        </p>
+        <p id="cfd590e0-0fb9-4e4c-aefd-a53a9ad85ed2" class="">
+          <a href="http://swiftype.com/?ref=pbo">search by swiftype</a>
+        </p>
+      </div>
+    </article>
+  </body>
+</html>

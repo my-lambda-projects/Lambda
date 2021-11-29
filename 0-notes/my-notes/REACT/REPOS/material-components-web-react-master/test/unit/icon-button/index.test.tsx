@@ -99,9 +99,8 @@ test('#adapter.setAttr sets aria-pressed', () => {
 });
 
 test('#adapter.notifyChange calls props.handleChange', () => {
-  const handleChange = td.func<
-    (event: MDCIconButtonToggleEventDetail) => void
-  >();
+  const handleChange =
+    td.func<(event: MDCIconButtonToggleEventDetail) => void>();
   const wrapper = shallow<IconButton<HTMLButtonElement>>(
     <IconButton handleChange={handleChange} />
   );

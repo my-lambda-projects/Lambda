@@ -47,4 +47,3 @@ So JavaScript does consider these to be relatively equal since they both represe
 ![](https://miro.medium.com/max/1026/1*59myGFyjC5CKybc68poKPQ.png)
 
 So if you need to check if a value is either `null` or `undefined`, you can check for abstract equality and compare it to either null or undefined. Both will return the same result.
-

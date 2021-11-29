@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>linked-list-python</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1 id="how-to-create-a-linked-list-in-python">
+      How to create a Linked List in Python
+    </h1>
+    <blockquote>
+      <p>How to create a Linked List in Python</p>
+    </blockquote>
+    <p>
+      <img
+        src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/cdn-cgi/image/f=auto,fit=cover,w=32,h=32/v2api/author/profile/6547532599525376/image/5933301341618176"
+        title="Edpresso Team"
+      />Edpresso Team
+    </p>
+    <p>
+      A
+      <a href="https://www.educative.io/edpresso/what-is-a-linked-list"
+        ><strong>linked list</strong></a
+      >
+      is a data structure made of a chain of <em>node</em> objects. Each
+      <strong>node</strong> contains a value and a pointer to the next node in
+      the chain.
+    </p>
+    <p>
+      Linked lists are preferred over arrays due to their dynamic size and ease
+      of insertion and deletion properties.
+    </p>
+    <p>
+      The <strong>head pointer</strong> points to the first node, and the last
+      element of the list points to <code>null</code>. When the list is empty,
+      the head pointer points to <code>null</code>.
+    </p>
+    <figure>
+      <img
+        src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/api/edpresso/shot/5077575695073280/image/5192456339456000"
+        alt="svg viewer"
+      />
+      <figcaption>svg viewer</figcaption>
+    </figure>
+    <h2 id="linked-lists-in-python">Linked lists in Python</h2>
+    <p>
+      Original Python does not ship with a built-in linked list data structure
+      like the one seen in
+      <a href="https://www.educative.io/edpresso/what-is-linkedlist-in-java"
+        >Java</a
+      >.
+    </p>
+    <p>
+      Let’s see how we can create our own implementation of a standard
+      <em>class-based</em>
+      <a href="https://www.educative.io/edpresso/what-is-a-singly-linked-list"
+        >singly linked list</a
+      >
+      in Python.
+    </p>
+    <h3 id="start-with-a-single-node">1. Start with a single node</h3>
+    <p>
+      Let’s start with a single node since linking several nodes gives us a
+      complete list. For this, we make a <code>Node</code> class that holds some
+      <code>data</code> and a single pointer <code>next</code>, that will be
+      used to point to the next <code>Node</code> type object in the Linked
+      List.
+    </p>
+    <p>Enter to Rename, Shift+Enter to Preview</p>
+    <h3 id="join-nodes-to-get-a-linked-list">
+      2. Join nodes to get a linked list
+    </h3>
+    <p>
+      The next step is to join multiple single nodes containing
+      <code>data</code> using the <code>next</code> pointers, and have a single
+      <code>head</code> pointer pointing to a complete instance of a Linked
+      List.
+    </p>
+    <p>
+      Using the <code>head</code> pointer, we will be able to traverse the whole
+      list, even perform all kinds of list manipulations while we are at it.
+    </p>
+    <p>
+      For this, we create a <code>LinkedList</code> class with a single
+      <code>head</code> pointer:
+    </p>
+    <p>Enter to Rename, Shift+Enter to Preview</p>
+    <h3 id="add-required-methods-to-the-linkedlist-class">
+      3. Add required methods to the <code>LinkedList</code> class
+    </h3>
+    <p>
+      Last but not least, we can add various linked list manipulation methods in
+      our implementation.
+    </p>
+    <p>
+      Let’s have a look at the <em>insertion</em> and <em>print</em> methods for
+      our <code>LinkedList</code> implementation below:
+    </p>
+    <p># A single node of a singly linked list</p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">class</span> Node:</a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co"># constructor</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">def</span> <span class="op">\</span>_<span class="op">\</span>_init<span class="op">\</span>_<span class="op">\</span>_(<span class="va">self</span>, data <span class="op">=</span> <span class="va">None</span>, <span class="bu">next</span><span class="op">=</span><span class="va">None</span>):</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="va">self</span>.data <span class="op">=</span> data</a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="bu">next</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co"># A Linked List class with a single head node</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">class</span> LinkedList:</a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="kw">def</span> <span class="op">\</span>_<span class="op">\</span>_init<span class="op">\</span>_<span class="op">\</span>_(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="va">self</span>.head <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-12" title="12"></a>
+<a class="sourceLine" id="cb1-13" title="13">  <span class="co"># insertion method for the linked list</span></a>
+<a class="sourceLine" id="cb1-14" title="14">  <span class="kw">def</span> insert(<span class="va">self</span>, data):</a>
+<a class="sourceLine" id="cb1-15" title="15">    newNode <span class="op">=</span> Node(data)</a>
+<a class="sourceLine" id="cb1-16" title="16">    <span class="cf">if</span>(<span class="va">self</span>.head):</a>
+<a class="sourceLine" id="cb1-17" title="17">      current <span class="op">=</span> <span class="va">self</span>.head</a>
+<a class="sourceLine" id="cb1-18" title="18">      <span class="cf">while</span>(current.<span class="bu">next</span>):</a>
+<a class="sourceLine" id="cb1-19" title="19">        current <span class="op">=</span> current.<span class="bu">next</span></a>
+<a class="sourceLine" id="cb1-20" title="20">      current.<span class="bu">next</span> <span class="op">=</span> newNode</a>
+<a class="sourceLine" id="cb1-21" title="21">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-22" title="22">      <span class="va">self</span>.head <span class="op">=</span> newNode</a>
+<a class="sourceLine" id="cb1-23" title="23"></a>
+<a class="sourceLine" id="cb1-24" title="24">  <span class="co"># print method for the linked list</span></a>
+<a class="sourceLine" id="cb1-25" title="25">  <span class="kw">def</span> printLL(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-26" title="26">    current <span class="op">=</span> <span class="va">self</span>.head</a>
+<a class="sourceLine" id="cb1-27" title="27">    <span class="cf">while</span>(current):</a>
+<a class="sourceLine" id="cb1-28" title="28">      <span class="bu">print</span>(current.data)</a>
+<a class="sourceLine" id="cb1-29" title="29">      current <span class="op">=</span> current.<span class="bu">next</span></a>
+<a class="sourceLine" id="cb1-30" title="30"></a>
+<a class="sourceLine" id="cb1-31" title="31"><span class="co"># Singly Linked List with insertion and print methods</span></a>
+<a class="sourceLine" id="cb1-32" title="32">LL <span class="op">=</span> LinkedList()</a>
+<a class="sourceLine" id="cb1-33" title="33">LL.insert(<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb1-34" title="34">LL.insert(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb1-35" title="35">LL.insert(<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb1-36" title="36">LL.printLL()</a></code></pre>
+    </div>
+  </body>
+</html>

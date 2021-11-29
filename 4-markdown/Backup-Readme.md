@@ -1,7 +1,9 @@
 -[build-log](https://app.netlify.com/teams/bgoonz/builds/6079ad62b489600007b91367)
+
 - [Lambda Resources Website)](#lambda-resources-website)
 
 ![demo](./frames.gif)
+
 # Lambda Resources Website)
 
 ![demo2](https://github.com/bgoonz/Lambda/blob/master/eDTCKsuaI2.gif?raw=true)
@@ -9,11 +11,6 @@
 #### Loading Gif:
 
 ![loading](./giphy.gif)
-
-
-
-
-
 
 ```
 
@@ -4887,35 +4884,33 @@
 
 ## Contents
 
-* _**`Platforms`**_
-* _**`Programming Languages`**_
-* _**`Front-End Development`**_
-* _**`Back-End Development`**_
-* _**`Computer Science`**_
-* _**`Big Data`**_
-* _**`Theory`**_
-* _**`Books`**_
-* _**`Editors`**_
-* _**`Gaming`**_
-* _**`Development Environment`**_
-* _**`Entertainment`**_
-* _**`Databases`**_
-* _**`Media`**_
-* _**`Learn`**_
-* _**`Security`**_
-* _**`Content Management Systems`**_
-* _**`Hardware`**_
-* _**`Business`**_
-* _**`Work`**_
-* _**`Networking`**_
-* _**`Decentralized Systems`**_
-* _**`Higher Education`**_
-* _**`Events`**_
-* _**`Testing`**_
-* _**`Miscellaneous`**_
-* _**`Related`**_
-
-
+- _**`Platforms`**_
+- _**`Programming Languages`**_
+- _**`Front-End Development`**_
+- _**`Back-End Development`**_
+- _**`Computer Science`**_
+- _**`Big Data`**_
+- _**`Theory`**_
+- _**`Books`**_
+- _**`Editors`**_
+- _**`Gaming`**_
+- _**`Development Environment`**_
+- _**`Entertainment`**_
+- _**`Databases`**_
+- _**`Media`**_
+- _**`Learn`**_
+- _**`Security`**_
+- _**`Content Management Systems`**_
+- _**`Hardware`**_
+- _**`Business`**_
+- _**`Work`**_
+- _**`Networking`**_
+- _**`Decentralized Systems`**_
+- _**`Higher Education`**_
+- _**`Events`**_
+- _**`Testing`**_
+- _**`Miscellaneous`**_
+- _**`Related`**_
 
 ---
 
@@ -4925,684 +4920,763 @@
 
 ## Platforms)
 
-* [Node.js](https://github.com/sindresorhus/awesome-nodejs#readme) - Async non-blocking event-driven JavaScript runtime built on Chrome's V8 JavaScript engine.)
-  * [Cross-Platform](https://github.com/bcoe/awesome-cross-platform-nodejs#readme) - Writing cross-platform code on Node.js.)
-* [Frontend Development](https://github.com/dypsilon/frontend-dev-bookmarks#readme))
-* [iOS](https://github.com/vsouza/awesome-ios#readme) - Mobile operating system for Apple phones and tablets.)
-* [Android](https://github.com/JStumpp/awesome-android#readme) - Mobile operating system developed by Google.)
-* [IoT & Hybrid Apps](https://github.com/weblancaster/awesome-IoT-hybrid#readme))
-* [Electron](https://github.com/sindresorhus/awesome-electron#readme) - Cross-platform native desktop apps using JavaScript/HTML/CSS.)
-* [Cordova](https://github.com/busterc/awesome-cordova#readme) - JavaScript API for hybrid apps.)
-* [React Native](https://github.com/jondot/awesome-react-native#readme) - JavaScript framework for writing natively rendering mobile apps for iOS and Android.)
-* [Xamarin](https://github.com/XamSome/awesome-xamarin#readme) - Mobile app development IDE, testing, and distribution.)
-* [Linux](https://github.com/inputsh/awesome-linux#readme))
-  * [Containers](https://github.com/Friz-zy/awesome-linux-containers#readme))
-  * [eBPF](https://github.com/zoidbergwill/awesome-ebpf#readme) - Virtual machine that allows you to write more efficient and powerful tracing and monitoring for Linux systems.)
-  * [Arch-based Projects](https://github.com/PandaFoss/Awesome-Arch#readme) - Linux distributions and projects based on Arch Linux.)
-* [macOS](https://github.com/iCHAIT/awesome-macOS#readme) - Operating system for Apple's Mac computers.)
-  * [Command-Line](https://github.com/herrbischoff/awesome-macos-command-line#readme))
-  * [Screensavers](https://github.com/agarrharr/awesome-macos-screensavers#readme))
-  * [Apps](https://github.com/jaywcjlove/awesome-mac#readme))
-  * [Open Source Apps](https://github.com/serhii-londar/open-source-mac-os-apps#readme))
-* [watchOS](https://github.com/yenchenlin/awesome-watchos#readme) - Operating system for the Apple Watch.)
-* [JVM](https://github.com/deephacks/awesome-jvm#readme))
-* [Salesforce](https://github.com/mailtoharshit/awesome-salesforce#readme))
-* [Amazon Web Services](https://github.com/donnemartin/awesome-aws#readme))
-* [Windows](https://github.com/Awesome-Windows/Awesome#readme))
-* [IPFS](https://github.com/ipfs/awesome-ipfs#readme) - P2P hypermedia protocol.)
-* [Fuse](https://github.com/fuse-compound/awesome-fuse#readme) - Mobile development tools.)
-* [Heroku](https://github.com/ianstormtaylor/awesome-heroku#readme) - Cloud platform as a service.)
-* [Raspberry Pi](https://github.com/thibmaek/awesome-raspberry-pi#readme) - Credit card-sized computer aimed at teaching kids programming, but capable of a lot more.)
-* [Qt](https://github.com/JesseTG/awesome-qt#readme) - Cross-platform GUI app framework.)
-* [WebExtensions](https://github.com/fregante/Awesome-WebExtensions#readme) - Cross-browser extension system.)
-* [RubyMotion](https://github.com/motion-open-source/awesome-rubymotion#readme) - Write cross-platform native apps for iOS, Android, macOS, tvOS, and watchOS in Ruby.)
-* [Smart TV](https://github.com/vitalets/awesome-smart-tv#readme) - Create apps for different TV platforms.)
-* [GNOME](https://github.com/Kazhnuz/awesome-gnome#readme) - Simple and distraction-free desktop environment for Linux.)
-* [KDE](https://github.com/francoism90/awesome-kde#readme) - A free software community dedicated to creating an open and user-friendly computing experience.)
-* [.NET](https://github.com/quozd/awesome-dotnet#readme))
-  * [Core](https://github.com/thangchung/awesome-dotnet-core#readme))
-  * [Roslyn](https://github.com/ironcev/awesome-roslyn#readme) - Open-source compilers and code analysis APIs for C\# and VB.NET languages.)
-* [Amazon Alexa](https://github.com/miguelmota/awesome-amazon-alexa#readme) - Virtual home assistant.)
-* [DigitalOcean](https://github.com/jonleibowitz/awesome-digitalocean#readme) - Cloud computing platform designed for developers.)
-* [Flutter](https://github.com/Solido/awesome-flutter#readme) - Google's mobile SDK for building native iOS and Android apps from a single codebase written in Dart.)
-* [Home Assistant](https://github.com/frenck/awesome-home-assistant#readme) - Open source home automation that puts local control and privacy first.)
-* [IBM Cloud](https://github.com/victorshinya/awesome-ibmcloud#readme) - Cloud platform for developers and companies.)
-* [Firebase](https://github.com/jthegedus/awesome-firebase#readme) - App development platform built on Google Cloud Platform.)
-* [Robot Operating System 2.0](https://github.com/fkromer/awesome-ros2#readme) - Set of software libraries and tools that help you build robot apps.)
-* [Adafruit IO](https://github.com/adafruit/awesome-adafruitio#readme) - Visualize and store data from any device.)
-* [Cloudflare](https://github.com/irazasyed/awesome-cloudflare#readme) - CDN, DNS, DDoS protection, and security for your site.)
-* [Actions on Google](https://github.com/ravirupareliya/awesome-actions-on-google#readme) - Developer platform for Google Assistant.)
-* [ESP](https://github.com/agucova/awesome-esp#readme) - Low-cost microcontrollers with WiFi and broad IoT applications.)
-* [Deno](https://github.com/denolib/awesome-deno#readme) - A secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust.)
-* [DOS](https://github.com/balintkissdev/awesome-dos#readme) - Operating system for x86-based personal computers that was popular during the 1980s and early 1990s.)
-* [Nix](https://github.com/nix-community/awesome-nix#readme) - Package manager for Linux and other Unix systems that makes package management reliable and reproducible.)
-)
+- [Node.js](https://github.com/sindresorhus/awesome-nodejs#readme) - Async non-blocking event-driven JavaScript runtime built on Chrome's V8 JavaScript engine.)
+  - [Cross-Platform](https://github.com/bcoe/awesome-cross-platform-nodejs#readme) - Writing cross-platform code on Node.js.)
+- [Frontend Development](https://github.com/dypsilon/frontend-dev-bookmarks#readme))
+- [iOS](https://github.com/vsouza/awesome-ios#readme) - Mobile operating system for Apple phones and tablets.)
+- [Android](https://github.com/JStumpp/awesome-android#readme) - Mobile operating system developed by Google.)
+- [IoT & Hybrid Apps](https://github.com/weblancaster/awesome-IoT-hybrid#readme))
+- [Electron](https://github.com/sindresorhus/awesome-electron#readme) - Cross-platform native desktop apps using JavaScript/HTML/CSS.)
+- [Cordova](https://github.com/busterc/awesome-cordova#readme) - JavaScript API for hybrid apps.)
+- [React Native](https://github.com/jondot/awesome-react-native#readme) - JavaScript framework for writing natively rendering mobile apps for iOS and Android.)
+- [Xamarin](https://github.com/XamSome/awesome-xamarin#readme) - Mobile app development IDE, testing, and distribution.)
+- [Linux](https://github.com/inputsh/awesome-linux#readme))
+  - [Containers](https://github.com/Friz-zy/awesome-linux-containers#readme))
+  - [eBPF](https://github.com/zoidbergwill/awesome-ebpf#readme) - Virtual machine that allows you to write more efficient and powerful tracing and monitoring for Linux systems.)
+  - [Arch-based Projects](https://github.com/PandaFoss/Awesome-Arch#readme) - Linux distributions and projects based on Arch Linux.)
+- [macOS](https://github.com/iCHAIT/awesome-macOS#readme) - Operating system for Apple's Mac computers.)
+  - [Command-Line](https://github.com/herrbischoff/awesome-macos-command-line#readme))
+  - [Screensavers](https://github.com/agarrharr/awesome-macos-screensavers#readme))
+  - [Apps](https://github.com/jaywcjlove/awesome-mac#readme))
+  - [Open Source Apps](https://github.com/serhii-londar/open-source-mac-os-apps#readme))
+- [watchOS](https://github.com/yenchenlin/awesome-watchos#readme) - Operating system for the Apple Watch.)
+- [JVM](https://github.com/deephacks/awesome-jvm#readme))
+- [Salesforce](https://github.com/mailtoharshit/awesome-salesforce#readme))
+- [Amazon Web Services](https://github.com/donnemartin/awesome-aws#readme))
+- [Windows](https://github.com/Awesome-Windows/Awesome#readme))
+- [IPFS](https://github.com/ipfs/awesome-ipfs#readme) - P2P hypermedia protocol.)
+- [Fuse](https://github.com/fuse-compound/awesome-fuse#readme) - Mobile development tools.)
+- [Heroku](https://github.com/ianstormtaylor/awesome-heroku#readme) - Cloud platform as a service.)
+- [Raspberry Pi](https://github.com/thibmaek/awesome-raspberry-pi#readme) - Credit card-sized computer aimed at teaching kids programming, but capable of a lot more.)
+- [Qt](https://github.com/JesseTG/awesome-qt#readme) - Cross-platform GUI app framework.)
+- [WebExtensions](https://github.com/fregante/Awesome-WebExtensions#readme) - Cross-browser extension system.)
+- [RubyMotion](https://github.com/motion-open-source/awesome-rubymotion#readme) - Write cross-platform native apps for iOS, Android, macOS, tvOS, and watchOS in Ruby.)
+- [Smart TV](https://github.com/vitalets/awesome-smart-tv#readme) - Create apps for different TV platforms.)
+- [GNOME](https://github.com/Kazhnuz/awesome-gnome#readme) - Simple and distraction-free desktop environment for Linux.)
+- [KDE](https://github.com/francoism90/awesome-kde#readme) - A free software community dedicated to creating an open and user-friendly computing experience.)
+- [.NET](https://github.com/quozd/awesome-dotnet#readme))
+  - [Core](https://github.com/thangchung/awesome-dotnet-core#readme))
+  - [Roslyn](https://github.com/ironcev/awesome-roslyn#readme) - Open-source compilers and code analysis APIs for C\# and VB.NET languages.)
+- [Amazon Alexa](https://github.com/miguelmota/awesome-amazon-alexa#readme) - Virtual home assistant.)
+- [DigitalOcean](https://github.com/jonleibowitz/awesome-digitalocean#readme) - Cloud computing platform designed for developers.)
+- [Flutter](https://github.com/Solido/awesome-flutter#readme) - Google's mobile SDK for building native iOS and Android apps from a single codebase written in Dart.)
+- [Home Assistant](https://github.com/frenck/awesome-home-assistant#readme) - Open source home automation that puts local control and privacy first.)
+- [IBM Cloud](https://github.com/victorshinya/awesome-ibmcloud#readme) - Cloud platform for developers and companies.)
+- [Firebase](https://github.com/jthegedus/awesome-firebase#readme) - App development platform built on Google Cloud Platform.)
+- [Robot Operating System 2.0](https://github.com/fkromer/awesome-ros2#readme) - Set of software libraries and tools that help you build robot apps.)
+- [Adafruit IO](https://github.com/adafruit/awesome-adafruitio#readme) - Visualize and store data from any device.)
+- [Cloudflare](https://github.com/irazasyed/awesome-cloudflare#readme) - CDN, DNS, DDoS protection, and security for your site.)
+- [Actions on Google](https://github.com/ravirupareliya/awesome-actions-on-google#readme) - Developer platform for Google Assistant.)
+- [ESP](https://github.com/agucova/awesome-esp#readme) - Low-cost microcontrollers with WiFi and broad IoT applications.)
+- [Deno](https://github.com/denolib/awesome-deno#readme) - A secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust.)
+- [DOS](https://github.com/balintkissdev/awesome-dos#readme) - Operating system for x86-based personal computers that was popular during the 1980s and early 1990s.)
+- [Nix](https://github.com/nix-community/awesome-nix#readme) - Package manager for Linux and other Unix systems that makes package management reliable and reproducible.)
+  )
+
 ## Programming Languages)
+
 )
-* [JavaScript](https://github.com/sorrycc/awesome-javascript#readme))
-  * [Promises](https://github.com/wbinnssmith/awesome-promises#readme))
-  * [Standard Style](https://github.com/standard/awesome-standard#readme) - Style guide and linter.)
-  * [Must Watch Talks](https://github.com/bolshchikov/js-must-watch#readme))
-  * [Tips](https://github.com/loverajoel/jstips#readme))
-  * [Network Layer](https://github.com/Kikobeats/awesome-network-js#readme))
-  * [Micro npm Packages](https://github.com/parro-it/awesome-micro-npm-packages#readme))
-  * [Mad Science npm Packages](https://github.com/feross/awesome-mad-science#readme) - Impossible sounding projects that exist.)
-  * [Maintenance Modules](https://github.com/maxogden/maintenance-modules#readme) - For npm packages.)
-  * [npm](https://github.com/sindresorhus/awesome-npm#readme) - Package manager.)
-  * [AVA](https://github.com/avajs/awesome-ava#readme) - Test runner.)
-  * [ESLint](https://github.com/dustinspecker/awesome-eslint#readme) - Linter.)
-  * [Functional Programming](https://github.com/stoeffel/awesome-fp-js#readme))
-  * [Observables](https://github.com/sindresorhus/awesome-observables#readme))
-  * [npm scripts](https://github.com/RyanZim/awesome-npm-scripts#readme) - Task runner.)
-  * [30 Seconds of Code](https://github.com/30-seconds/30-seconds-of-code#readme) - Code snippets you can understand in 30 seconds.)
-  * [Ponyfills](https://github.com/Richienb/awesome-ponyfills#readme) - Like polyfills but without overriding native APIs.)
-* [Swift](https://github.com/matteocrippa/awesome-swift#readme) - Apple's compiled programming language that is secure, modern, programmer-friendly, and fast.)
-  * [Education](https://github.com/hsavit1/Awesome-Swift-Education#readme))
-  * [Playgrounds](https://github.com/uraimo/Awesome-Swift-Playgrounds#readme))
-* [Python](https://github.com/vinta/awesome-python#readme) - General-purpose programming language designed for readability.)
-  * [Asyncio](https://github.com/timofurrer/awesome-asyncio#readme) - Asynchronous I/O in Python 3.)
-  * [Scientific Audio](https://github.com/faroit/awesome-python-scientific-audio#readme) - Scientific research in audio/music.)
-  * [CircuitPython](https://github.com/adafruit/awesome-circuitpython#readme) - A version of Python for microcontrollers.)
-  * [Data Science](https://github.com/krzjoa/awesome-python-data-science#readme) - Data analysis and machine learning.)
-  * [Typing](https://github.com/typeddjango/awesome-python-typing#readme) - Optional static typing for Python.)
-  * [MicroPython](https://github.com/mcauser/awesome-micropython#readme) - A lean and efficient implementation of Python 3 for microcontrollers.)
-* [Rust](https://github.com/rust-unofficial/awesome-rust#readme))
-* [Haskell](https://github.com/krispo/awesome-haskell#readme))
-* [PureScript](https://github.com/passy/awesome-purescript#readme))
-* [Go](https://github.com/avelino/awesome-go#readme))
-* [Scala](https://github.com/lauris/awesome-scala#readme))
-  * [Scala Native](https://github.com/tindzk/awesome-scala-native#readme) - Optimizing ahead-of-time compiler for Scala based on LLVM.)
-* [Ruby](https://github.com/markets/awesome-ruby#readme))
-* [Clojure](https://github.com/razum2um/awesome-clojure#readme))
-* [ClojureScript](https://github.com/hantuzun/awesome-clojurescript#readme))
-* [Elixir](https://github.com/h4cc/awesome-elixir#readme))
-* [Elm](https://github.com/sporto/awesome-elm#readme))
-* [Erlang](https://github.com/drobakowski/awesome-erlang#readme))
-* [Julia](https://github.com/svaksha/Julia.jl#readme) - High-level dynamic programming language designed to address the needs of high-performance numerical analysis and computational science.)
-* [Lua](https://github.com/LewisJEllis/awesome-lua#readme))
-* [C](https://github.com/inputsh/awesome-c#readme))
-* [C/C++](https://github.com/fffaraz/awesome-cpp#readme) - General-purpose language with a bias toward system programming and embedded, resource-constrained software.)
-* [R](https://github.com/qinwf/awesome-R#readme) - Functional programming language and environment for statistical computing and graphics.)
-  * [Learning](https://github.com/iamericfletcher/awesome-r-learning-resources#readme))
-* [D](https://github.com/dlang-community/awesome-d#readme))
-* [Common Lisp](https://github.com/CodyReichert/awesome-cl#readme) - Powerful dynamic multiparadigm language that facilitates iterative and interactive development.)
-  * [Learning](https://github.com/GustavBertram/awesome-common-lisp-learning#readme))
-* [Perl](https://github.com/hachiojipm/awesome-perl#readme))
-* [Groovy](https://github.com/kdabir/awesome-groovy#readme))
-* [Dart](https://github.com/yissachar/awesome-dart#readme))
-* [Java](https://github.com/akullpp/awesome-java#readme) - Popular secure object-oriented language designed for flexibility to "write once, run anywhere".)
-  * [RxJava](https://github.com/eleventigers/awesome-rxjava#readme))
-* [Kotlin](https://github.com/KotlinBy/awesome-kotlin#readme))
-* [OCaml](https://github.com/ocaml-community/awesome-ocaml#readme))
-* [ColdFusion](https://github.com/seancoyne/awesome-coldfusion#readme))
-* [Fortran](https://github.com/rabbiabram/awesome-fortran#readme))
-* [PHP](https://github.com/ziadoz/awesome-php#readme) - Server-side scripting language.)
-  * [Composer](https://github.com/jakoch/awesome-composer#readme) - Package manager.)
-* [Pascal](https://github.com/Fr0sT-Brutal/awesome-pascal#readme))
-* [AutoHotkey](https://github.com/ahkscript/awesome-AutoHotkey#readme))
-* [AutoIt](https://github.com/J2TeaM/awesome-AutoIt#readme))
-* [Crystal](https://github.com/veelenga/awesome-crystal#readme))
-* [Frege](https://github.com/sfischer13/awesome-frege#readme) - Haskell for the JVM.)
-* [CMake](https://github.com/onqtam/awesome-cmake#readme) - Build, test, and package software.)
-* [ActionScript 3](https://github.com/robinrodricks/awesome-actionscript3#readme) - Object-oriented language targeting Adobe AIR.)
-* [Eta](https://github.com/sfischer13/awesome-eta#readme) - Functional programming language for the JVM.)
-* [Idris](https://github.com/joaomilho/awesome-idris#readme) - General purpose pure functional programming language with dependent types influenced by Haskell and ML.)
-* [Ada/SPARK](https://github.com/ohenley/awesome-ada#readme) - Modern programming language designed for large, long-lived apps where reliability and efficiency are essential.)
-* [Q\#](https://github.com/ebraminio/awesome-qsharp#readme) - Domain-specific programming language used for expressing quantum algorithms.)
-* [Imba](https://github.com/koolamusic/awesome-imba#readme) - Programming language inspired by Ruby and Python and compiles to performant JavaScript.)
-* [Vala](https://github.com/desiderantes/awesome-vala#readme) - Programming language designed to take full advantage of the GLib and GNOME ecosystems, while preserving the speed of C code.)
-* [Coq](https://github.com/coq-community/awesome-coq#readme) - Formal language and environment for programming and specification which facilitates interactive development of machine-checked proofs.)
-* [V](https://github.com/vlang/awesome-v#readme) - Simple, fast, safe, compiled language for developing maintainable software.)
-)
+
+- [JavaScript](https://github.com/sorrycc/awesome-javascript#readme))
+  - [Promises](https://github.com/wbinnssmith/awesome-promises#readme))
+  - [Standard Style](https://github.com/standard/awesome-standard#readme) - Style guide and linter.)
+  - [Must Watch Talks](https://github.com/bolshchikov/js-must-watch#readme))
+  - [Tips](https://github.com/loverajoel/jstips#readme))
+  - [Network Layer](https://github.com/Kikobeats/awesome-network-js#readme))
+  - [Micro npm Packages](https://github.com/parro-it/awesome-micro-npm-packages#readme))
+  - [Mad Science npm Packages](https://github.com/feross/awesome-mad-science#readme) - Impossible sounding projects that exist.)
+  - [Maintenance Modules](https://github.com/maxogden/maintenance-modules#readme) - For npm packages.)
+  - [npm](https://github.com/sindresorhus/awesome-npm#readme) - Package manager.)
+  - [AVA](https://github.com/avajs/awesome-ava#readme) - Test runner.)
+  - [ESLint](https://github.com/dustinspecker/awesome-eslint#readme) - Linter.)
+  - [Functional Programming](https://github.com/stoeffel/awesome-fp-js#readme))
+  - [Observables](https://github.com/sindresorhus/awesome-observables#readme))
+  - [npm scripts](https://github.com/RyanZim/awesome-npm-scripts#readme) - Task runner.)
+  - [30 Seconds of Code](https://github.com/30-seconds/30-seconds-of-code#readme) - Code snippets you can understand in 30 seconds.)
+  - [Ponyfills](https://github.com/Richienb/awesome-ponyfills#readme) - Like polyfills but without overriding native APIs.)
+- [Swift](https://github.com/matteocrippa/awesome-swift#readme) - Apple's compiled programming language that is secure, modern, programmer-friendly, and fast.)
+  - [Education](https://github.com/hsavit1/Awesome-Swift-Education#readme))
+  - [Playgrounds](https://github.com/uraimo/Awesome-Swift-Playgrounds#readme))
+- [Python](https://github.com/vinta/awesome-python#readme) - General-purpose programming language designed for readability.)
+  - [Asyncio](https://github.com/timofurrer/awesome-asyncio#readme) - Asynchronous I/O in Python 3.)
+  - [Scientific Audio](https://github.com/faroit/awesome-python-scientific-audio#readme) - Scientific research in audio/music.)
+  - [CircuitPython](https://github.com/adafruit/awesome-circuitpython#readme) - A version of Python for microcontrollers.)
+  - [Data Science](https://github.com/krzjoa/awesome-python-data-science#readme) - Data analysis and machine learning.)
+  - [Typing](https://github.com/typeddjango/awesome-python-typing#readme) - Optional static typing for Python.)
+  - [MicroPython](https://github.com/mcauser/awesome-micropython#readme) - A lean and efficient implementation of Python 3 for microcontrollers.)
+- [Rust](https://github.com/rust-unofficial/awesome-rust#readme))
+- [Haskell](https://github.com/krispo/awesome-haskell#readme))
+- [PureScript](https://github.com/passy/awesome-purescript#readme))
+- [Go](https://github.com/avelino/awesome-go#readme))
+- [Scala](https://github.com/lauris/awesome-scala#readme))
+  - [Scala Native](https://github.com/tindzk/awesome-scala-native#readme) - Optimizing ahead-of-time compiler for Scala based on LLVM.)
+- [Ruby](https://github.com/markets/awesome-ruby#readme))
+- [Clojure](https://github.com/razum2um/awesome-clojure#readme))
+- [ClojureScript](https://github.com/hantuzun/awesome-clojurescript#readme))
+- [Elixir](https://github.com/h4cc/awesome-elixir#readme))
+- [Elm](https://github.com/sporto/awesome-elm#readme))
+- [Erlang](https://github.com/drobakowski/awesome-erlang#readme))
+- [Julia](https://github.com/svaksha/Julia.jl#readme) - High-level dynamic programming language designed to address the needs of high-performance numerical analysis and computational science.)
+- [Lua](https://github.com/LewisJEllis/awesome-lua#readme))
+- [C](https://github.com/inputsh/awesome-c#readme))
+- [C/C++](https://github.com/fffaraz/awesome-cpp#readme) - General-purpose language with a bias toward system programming and embedded, resource-constrained software.)
+- [R](https://github.com/qinwf/awesome-R#readme) - Functional programming language and environment for statistical computing and graphics.)
+  - [Learning](https://github.com/iamericfletcher/awesome-r-learning-resources#readme))
+- [D](https://github.com/dlang-community/awesome-d#readme))
+- [Common Lisp](https://github.com/CodyReichert/awesome-cl#readme) - Powerful dynamic multiparadigm language that facilitates iterative and interactive development.)
+  - [Learning](https://github.com/GustavBertram/awesome-common-lisp-learning#readme))
+- [Perl](https://github.com/hachiojipm/awesome-perl#readme))
+- [Groovy](https://github.com/kdabir/awesome-groovy#readme))
+- [Dart](https://github.com/yissachar/awesome-dart#readme))
+- [Java](https://github.com/akullpp/awesome-java#readme) - Popular secure object-oriented language designed for flexibility to "write once, run anywhere".)
+  - [RxJava](https://github.com/eleventigers/awesome-rxjava#readme))
+- [Kotlin](https://github.com/KotlinBy/awesome-kotlin#readme))
+- [OCaml](https://github.com/ocaml-community/awesome-ocaml#readme))
+- [ColdFusion](https://github.com/seancoyne/awesome-coldfusion#readme))
+- [Fortran](https://github.com/rabbiabram/awesome-fortran#readme))
+- [PHP](https://github.com/ziadoz/awesome-php#readme) - Server-side scripting language.)
+  - [Composer](https://github.com/jakoch/awesome-composer#readme) - Package manager.)
+- [Pascal](https://github.com/Fr0sT-Brutal/awesome-pascal#readme))
+- [AutoHotkey](https://github.com/ahkscript/awesome-AutoHotkey#readme))
+- [AutoIt](https://github.com/J2TeaM/awesome-AutoIt#readme))
+- [Crystal](https://github.com/veelenga/awesome-crystal#readme))
+- [Frege](https://github.com/sfischer13/awesome-frege#readme) - Haskell for the JVM.)
+- [CMake](https://github.com/onqtam/awesome-cmake#readme) - Build, test, and package software.)
+- [ActionScript 3](https://github.com/robinrodricks/awesome-actionscript3#readme) - Object-oriented language targeting Adobe AIR.)
+- [Eta](https://github.com/sfischer13/awesome-eta#readme) - Functional programming language for the JVM.)
+- [Idris](https://github.com/joaomilho/awesome-idris#readme) - General purpose pure functional programming language with dependent types influenced by Haskell and ML.)
+- [Ada/SPARK](https://github.com/ohenley/awesome-ada#readme) - Modern programming language designed for large, long-lived apps where reliability and efficiency are essential.)
+- [Q\#](https://github.com/ebraminio/awesome-qsharp#readme) - Domain-specific programming language used for expressing quantum algorithms.)
+- [Imba](https://github.com/koolamusic/awesome-imba#readme) - Programming language inspired by Ruby and Python and compiles to performant JavaScript.)
+- [Vala](https://github.com/desiderantes/awesome-vala#readme) - Programming language designed to take full advantage of the GLib and GNOME ecosystems, while preserving the speed of C code.)
+- [Coq](https://github.com/coq-community/awesome-coq#readme) - Formal language and environment for programming and specification which facilitates interactive development of machine-checked proofs.)
+- [V](https://github.com/vlang/awesome-v#readme) - Simple, fast, safe, compiled language for developing maintainable software.)
+  )
+
 ## Front-End Development)
+
 )
-* [ES6 Tools](https://github.com/addyosmani/es6-tools#readme))
-* [Web Performance Optimization](https://github.com/davidsonfellipe/awesome-wpo#readme))
-* [Web Tools](https://github.com/lvwzhen/tools#readme))
-* [CSS](https://github.com/awesome-css-group/awesome-css#readme) - Style sheet language that specifies how HTML elements are displayed on screen.)
-  * [Critical-Path Tools](https://github.com/addyosmani/critical-path-css-tools#readme))
-  * [Scalability](https://github.com/davidtheclark/scalable-css-reading-list#readme))
-  * [Must-Watch Talks](https://github.com/AllThingsSmitty/must-watch-css#readme))
-  * [Protips](https://github.com/AllThingsSmitty/css-protips#readme))
-  * [Frameworks](https://github.com/troxler/awesome-css-frameworks#readme))
-* [React](https://github.com/enaqx/awesome-react#readme) - App framework.)
-  * [Relay](https://github.com/expede/awesome-relay#readme) - Framework for building data-driven React apps.)
-  * [React Hooks](https://github.com/glauberfc/awesome-react-hooks#readme) - A new feature that lets you use state and other React features without writing a class.)
-* [Web Components](https://github.com/mateusortiz/webcomponents-the-right-way#readme))
-* [Polymer](https://github.com/Granze/awesome-polymer#readme) - JavaScript library to develop Web Components.)
-* [Angular](https://github.com/PatrickJS/awesome-angular#readme) - App framework.)
-* [Backbone](https://github.com/sadcitizen/awesome-backbone#readme) - App framework.)
-* [HTML5](https://github.com/diegocard/awesome-html5#readme) - Markup language used for websites & web apps.)
-* [SVG](https://github.com/willianjusten/awesome-svg#readme) - XML-based vector image format.)
-* [Canvas](https://github.com/raphamorim/awesome-canvas#readme))
-* [KnockoutJS](https://github.com/dnbard/awesome-knockout#readme) - JavaScript library.)
-* [Dojo Toolkit](https://github.com/petk/awesome-dojo#readme) - JavaScript toolkit.)
-* [Inspiration](https://github.com/NoahBuscher/Inspire#readme))
-* [Ember](https://github.com/ember-community-russia/awesome-ember#readme) - App framework.)
-* [Android UI](https://github.com/wasabeef/awesome-android-ui#readme))
-* [iOS UI](https://github.com/cjwirth/awesome-ios-ui#readme))
-* [Meteor](https://github.com/Urigo/awesome-meteor#readme))
-* [BEM](https://github.com/sturobson/BEM-resources#readme))
-* [Flexbox](https://github.com/afonsopacifer/awesome-flexbox#readme))
-* [Web Typography](https://github.com/deanhume/typography#readme))
-* [Web Accessibility](https://github.com/brunopulis/awesome-a11y#readme))
-* [Material Design](https://github.com/sachin1092/awesome-material#readme))
-* [D3](https://github.com/wbkd/awesome-d3#readme) - Library for producing dynamic, interactive data visualizations.)
-* [Emails](https://github.com/jonathandion/awesome-emails#readme))
-* [jQuery](https://github.com/petk/awesome-jquery#readme) - Easy to use JavaScript library for DOM manipulation.)
-  * [Tips](https://github.com/AllThingsSmitty/jquery-tips-everyone-should-know#readme))
-* [Web Audio](https://github.com/notthetup/awesome-webaudio#readme))
-* [Offline-First](https://github.com/pazguille/offline-first#readme))
-* [Static Website Services](https://github.com/agarrharr/awesome-static-website-services#readme))
-* [Cycle.js](https://github.com/cyclejs-community/awesome-cyclejs#readme) - Functional and reactive JavaScript framework.)
-* [Text Editing](https://github.com/dok/awesome-text-editing#readme))
-* [Motion UI Design](https://github.com/fliptheweb/motion-ui-design#readme))
-* [Vue.js](https://github.com/vuejs/awesome-vue#readme) - App framework.)
-* [Marionette.js](https://github.com/sadcitizen/awesome-marionette#readme) - App framework.)
-* [Aurelia](https://github.com/aurelia-contrib/awesome-aurelia#readme) - App framework.)
-* [Charting](https://github.com/zingchart/awesome-charting#readme))
-* [Ionic Framework 2](https://github.com/candelibas/awesome-ionic#readme))
-* [Chrome DevTools](https://github.com/ChromeDevTools/awesome-chrome-devtools#readme))
-* [PostCSS](https://github.com/jdrgomes/awesome-postcss#readme) - CSS tool.)
-* [Draft.js](https://github.com/nikgraf/awesome-draft-js#readme) - Rich text editor framework for React.)
-* [Service Workers](https://github.com/TalAter/awesome-service-workers#readme))
-* [Progressive Web Apps](https://github.com/TalAter/awesome-progressive-web-apps#readme))
-* [choo](https://github.com/choojs/awesome-choo#readme) - App framework.)
-* [Redux](https://github.com/brillout/awesome-redux#readme) - State container for JavaScript apps.)
-* [webpack](https://github.com/webpack-contrib/awesome-webpack#readme) - Module bundler.)
-* [Browserify](https://github.com/browserify/awesome-browserify#readme) - Module bundler.)
-* [Sass](https://github.com/Famolus/awesome-sass#readme) - CSS preprocessor.)
-* [Ant Design](https://github.com/websemantics/awesome-ant-design#readme) - Enterprise-class UI design language.)
-* [Less](https://github.com/LucasBassetti/awesome-less#readme) - CSS preprocessor.)
-* [WebGL](https://github.com/sjfricke/awesome-webgl#readme) - JavaScript API for rendering 3D graphics.)
-* [Preact](https://github.com/preactjs/awesome-preact#readme) - App framework.)
-* [Progressive Enhancement](https://github.com/jbmoelker/progressive-enhancement-resources#readme))
-* [Next.js](https://github.com/unicodeveloper/awesome-nextjs#readme) - Framework for server-rendered React apps.)
-* [lit-html](https://github.com/web-padawan/awesome-lit-html#readme) - HTML templating library for JavaScript.)
-* [JAMstack](https://github.com/automata/awesome-jamstack#readme) - Modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt markup.)
-* [WordPress-Gatsby](https://github.com/henrikwirth/awesome-wordpress-gatsby#readme) - Web development technology stack with WordPress as a back end and Gatsby as a front end.)
-* [Mobile Web Development](https://github.com/myshov/awesome-mobile-web-development#readme) - Creating a great mobile web experience.)
-* [Storybook](https://github.com/lauthieb/awesome-storybook#readme) - Development environment for UI components.)
-* [Blazor](https://github.com/AdrienTorris/awesome-blazor#readme) - .NET web framework using C\#/Razor and HTML that runs in the browser with WebAssembly.)
-* [PageSpeed Metrics](https://github.com/csabapalfi/awesome-pagespeed-metrics#readme) - Metrics to help understand page speed and user experience.)
-* [Tailwind CSS](https://github.com/aniftyco/awesome-tailwindcss#readme) - Utility-first CSS framework for rapid UI development.)
-* [Seed](https://github.com/seed-rs/awesome-seed-rs#readme) - Rust framework for creating web apps running in WebAssembly.)
-* [Web Performance Budget](https://github.com/pajaydev/awesome-web-performance-budget#readme) - Techniques to ensure certain performance metrics for a website.)
-* [Web Animation](https://github.com/sergey-pimenov/awesome-web-animation#readme) - Animations in the browser with JavaScript, CSS, SVG, etc.)
-* [Yew](https://github.com/jetli/awesome-yew#readme) - Rust framework inspired by Elm and React for creating multi-threaded frontend web apps with WebAssembly.)
-* [Material-UI](https://github.com/nadunindunil/awesome-material-ui#readme) - Material Design React components for faster and easier web development.)
-* [Building Blocks for Web Apps](https://github.com/componently-com/awesome-building-blocks-for-web-apps#readme) - Standalone features to be integrated into web apps.)
-* [Svelte](https://github.com/TheComputerM/awesome-svelte#readme) - App framework.)
-* [Design systems](https://github.com/klaufel/awesome-design-systems#readme) - Collection of reusable components, guided by rules that ensure consistency and speed.)
-)
+
+- [ES6 Tools](https://github.com/addyosmani/es6-tools#readme))
+- [Web Performance Optimization](https://github.com/davidsonfellipe/awesome-wpo#readme))
+- [Web Tools](https://github.com/lvwzhen/tools#readme))
+- [CSS](https://github.com/awesome-css-group/awesome-css#readme) - Style sheet language that specifies how HTML elements are displayed on screen.)
+  - [Critical-Path Tools](https://github.com/addyosmani/critical-path-css-tools#readme))
+  - [Scalability](https://github.com/davidtheclark/scalable-css-reading-list#readme))
+  - [Must-Watch Talks](https://github.com/AllThingsSmitty/must-watch-css#readme))
+  - [Protips](https://github.com/AllThingsSmitty/css-protips#readme))
+  - [Frameworks](https://github.com/troxler/awesome-css-frameworks#readme))
+- [React](https://github.com/enaqx/awesome-react#readme) - App framework.)
+  - [Relay](https://github.com/expede/awesome-relay#readme) - Framework for building data-driven React apps.)
+  - [React Hooks](https://github.com/glauberfc/awesome-react-hooks#readme) - A new feature that lets you use state and other React features without writing a class.)
+- [Web Components](https://github.com/mateusortiz/webcomponents-the-right-way#readme))
+- [Polymer](https://github.com/Granze/awesome-polymer#readme) - JavaScript library to develop Web Components.)
+- [Angular](https://github.com/PatrickJS/awesome-angular#readme) - App framework.)
+- [Backbone](https://github.com/sadcitizen/awesome-backbone#readme) - App framework.)
+- [HTML5](https://github.com/diegocard/awesome-html5#readme) - Markup language used for websites & web apps.)
+- [SVG](https://github.com/willianjusten/awesome-svg#readme) - XML-based vector image format.)
+- [Canvas](https://github.com/raphamorim/awesome-canvas#readme))
+- [KnockoutJS](https://github.com/dnbard/awesome-knockout#readme) - JavaScript library.)
+- [Dojo Toolkit](https://github.com/petk/awesome-dojo#readme) - JavaScript toolkit.)
+- [Inspiration](https://github.com/NoahBuscher/Inspire#readme))
+- [Ember](https://github.com/ember-community-russia/awesome-ember#readme) - App framework.)
+- [Android UI](https://github.com/wasabeef/awesome-android-ui#readme))
+- [iOS UI](https://github.com/cjwirth/awesome-ios-ui#readme))
+- [Meteor](https://github.com/Urigo/awesome-meteor#readme))
+- [BEM](https://github.com/sturobson/BEM-resources#readme))
+- [Flexbox](https://github.com/afonsopacifer/awesome-flexbox#readme))
+- [Web Typography](https://github.com/deanhume/typography#readme))
+- [Web Accessibility](https://github.com/brunopulis/awesome-a11y#readme))
+- [Material Design](https://github.com/sachin1092/awesome-material#readme))
+- [D3](https://github.com/wbkd/awesome-d3#readme) - Library for producing dynamic, interactive data visualizations.)
+- [Emails](https://github.com/jonathandion/awesome-emails#readme))
+- [jQuery](https://github.com/petk/awesome-jquery#readme) - Easy to use JavaScript library for DOM manipulation.)
+  - [Tips](https://github.com/AllThingsSmitty/jquery-tips-everyone-should-know#readme))
+- [Web Audio](https://github.com/notthetup/awesome-webaudio#readme))
+- [Offline-First](https://github.com/pazguille/offline-first#readme))
+- [Static Website Services](https://github.com/agarrharr/awesome-static-website-services#readme))
+- [Cycle.js](https://github.com/cyclejs-community/awesome-cyclejs#readme) - Functional and reactive JavaScript framework.)
+- [Text Editing](https://github.com/dok/awesome-text-editing#readme))
+- [Motion UI Design](https://github.com/fliptheweb/motion-ui-design#readme))
+- [Vue.js](https://github.com/vuejs/awesome-vue#readme) - App framework.)
+- [Marionette.js](https://github.com/sadcitizen/awesome-marionette#readme) - App framework.)
+- [Aurelia](https://github.com/aurelia-contrib/awesome-aurelia#readme) - App framework.)
+- [Charting](https://github.com/zingchart/awesome-charting#readme))
+- [Ionic Framework 2](https://github.com/candelibas/awesome-ionic#readme))
+- [Chrome DevTools](https://github.com/ChromeDevTools/awesome-chrome-devtools#readme))
+- [PostCSS](https://github.com/jdrgomes/awesome-postcss#readme) - CSS tool.)
+- [Draft.js](https://github.com/nikgraf/awesome-draft-js#readme) - Rich text editor framework for React.)
+- [Service Workers](https://github.com/TalAter/awesome-service-workers#readme))
+- [Progressive Web Apps](https://github.com/TalAter/awesome-progressive-web-apps#readme))
+- [choo](https://github.com/choojs/awesome-choo#readme) - App framework.)
+- [Redux](https://github.com/brillout/awesome-redux#readme) - State container for JavaScript apps.)
+- [webpack](https://github.com/webpack-contrib/awesome-webpack#readme) - Module bundler.)
+- [Browserify](https://github.com/browserify/awesome-browserify#readme) - Module bundler.)
+- [Sass](https://github.com/Famolus/awesome-sass#readme) - CSS preprocessor.)
+- [Ant Design](https://github.com/websemantics/awesome-ant-design#readme) - Enterprise-class UI design language.)
+- [Less](https://github.com/LucasBassetti/awesome-less#readme) - CSS preprocessor.)
+- [WebGL](https://github.com/sjfricke/awesome-webgl#readme) - JavaScript API for rendering 3D graphics.)
+- [Preact](https://github.com/preactjs/awesome-preact#readme) - App framework.)
+- [Progressive Enhancement](https://github.com/jbmoelker/progressive-enhancement-resources#readme))
+- [Next.js](https://github.com/unicodeveloper/awesome-nextjs#readme) - Framework for server-rendered React apps.)
+- [lit-html](https://github.com/web-padawan/awesome-lit-html#readme) - HTML templating library for JavaScript.)
+- [JAMstack](https://github.com/automata/awesome-jamstack#readme) - Modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt markup.)
+- [WordPress-Gatsby](https://github.com/henrikwirth/awesome-wordpress-gatsby#readme) - Web development technology stack with WordPress as a back end and Gatsby as a front end.)
+- [Mobile Web Development](https://github.com/myshov/awesome-mobile-web-development#readme) - Creating a great mobile web experience.)
+- [Storybook](https://github.com/lauthieb/awesome-storybook#readme) - Development environment for UI components.)
+- [Blazor](https://github.com/AdrienTorris/awesome-blazor#readme) - .NET web framework using C\#/Razor and HTML that runs in the browser with WebAssembly.)
+- [PageSpeed Metrics](https://github.com/csabapalfi/awesome-pagespeed-metrics#readme) - Metrics to help understand page speed and user experience.)
+- [Tailwind CSS](https://github.com/aniftyco/awesome-tailwindcss#readme) - Utility-first CSS framework for rapid UI development.)
+- [Seed](https://github.com/seed-rs/awesome-seed-rs#readme) - Rust framework for creating web apps running in WebAssembly.)
+- [Web Performance Budget](https://github.com/pajaydev/awesome-web-performance-budget#readme) - Techniques to ensure certain performance metrics for a website.)
+- [Web Animation](https://github.com/sergey-pimenov/awesome-web-animation#readme) - Animations in the browser with JavaScript, CSS, SVG, etc.)
+- [Yew](https://github.com/jetli/awesome-yew#readme) - Rust framework inspired by Elm and React for creating multi-threaded frontend web apps with WebAssembly.)
+- [Material-UI](https://github.com/nadunindunil/awesome-material-ui#readme) - Material Design React components for faster and easier web development.)
+- [Building Blocks for Web Apps](https://github.com/componently-com/awesome-building-blocks-for-web-apps#readme) - Standalone features to be integrated into web apps.)
+- [Svelte](https://github.com/TheComputerM/awesome-svelte#readme) - App framework.)
+- [Design systems](https://github.com/klaufel/awesome-design-systems#readme) - Collection of reusable components, guided by rules that ensure consistency and speed.)
+  )
+
 ## Back-End Development)
+
 )
-* [Flask](https://github.com/mjhea0/awesome-flask#readme) - Python framework.)
-* [Docker](https://github.com/veggiemonk/awesome-docker#readme))
-* [Vagrant](https://github.com/iJackUA/awesome-vagrant#readme) - Automation virtual machine environment.)
-* [Pyramid](https://github.com/uralbash/awesome-pyramid#readme) - Python framework.)
-* [Play1 Framework](https://github.com/PerfectCarl/awesome-play1#readme))
-* [CakePHP](https://github.com/friendsofcake/awesome-cakephp#readme) - PHP framework.)
-* [Symfony](https://github.com/sitepoint-editors/awesome-symfony#readme) - PHP framework.)
-  * [Education](https://github.com/pehapkari/awesome-symfony-education#readme))
-* [Laravel](https://github.com/chiraggude/awesome-laravel#readme) - PHP framework.)
-  * [Education](https://github.com/fukuball/Awesome-Laravel-Education#readme))
-  * [TALL Stack](https://github.com/blade-ui-kit/awesome-tall-stack#readme) - Full-stack development solution featuring libraries built by the Laravel community.)
-* [Rails](https://github.com/gramantin/awesome-rails#readme) - Web app framework for Ruby.)
-  * [Gems](https://github.com/hothero/awesome-rails-gem#readme) - Packages.)
-* [Phalcon](https://github.com/phalcon/awesome-phalcon#readme) - PHP framework.)
-* [Useful `.htaccess` Snippets](https://github.com/phanan/htaccess#readme))
-* [nginx](https://github.com/fcambus/nginx-resources#readme) - Web server.)
-* [Dropwizard](https://github.com/stve/awesome-dropwizard#readme) - Java framework.)
-* [Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#readme) - Open-source platform that automates Linux container operations.)
-* [Lumen](https://github.com/unicodeveloper/awesome-lumen#readme) - PHP micro-framework.)
-* [Serverless Framework](https://github.com/pmuens/awesome-serverless#readme) - Serverless computing and serverless architectures.)
-* [Apache Wicket](https://github.com/PhantomYdn/awesome-wicket#readme) - Java web app framework.)
-* [Vert.x](https://github.com/vert-x3/vertx-awesome#readme) - Toolkit for building reactive apps on the JVM.)
-* [Terraform](https://github.com/shuaibiyy/awesome-terraform#readme) - Tool for building, changing, and versioning infrastructure.)
-* [Vapor](https://github.com/Cellane/awesome-vapor#readme) - Server-side development in Swift.)
-* [Dash](https://github.com/ucg8j/awesome-dash#readme) - Python web app framework.)
-* [FastAPI](https://github.com/mjhea0/awesome-fastapi#readme) - Python web app framework.)
-* [CDK](https://github.com/kolomied/awesome-cdk#readme) - Open-source software development framework for defining cloud infrastructure in code.)
-* [IAM](https://github.com/kdeldycke/awesome-iam#readme) - User accounts, authentication and authorization.)
-)
+
+- [Flask](https://github.com/mjhea0/awesome-flask#readme) - Python framework.)
+- [Docker](https://github.com/veggiemonk/awesome-docker#readme))
+- [Vagrant](https://github.com/iJackUA/awesome-vagrant#readme) - Automation virtual machine environment.)
+- [Pyramid](https://github.com/uralbash/awesome-pyramid#readme) - Python framework.)
+- [Play1 Framework](https://github.com/PerfectCarl/awesome-play1#readme))
+- [CakePHP](https://github.com/friendsofcake/awesome-cakephp#readme) - PHP framework.)
+- [Symfony](https://github.com/sitepoint-editors/awesome-symfony#readme) - PHP framework.)
+  - [Education](https://github.com/pehapkari/awesome-symfony-education#readme))
+- [Laravel](https://github.com/chiraggude/awesome-laravel#readme) - PHP framework.)
+  - [Education](https://github.com/fukuball/Awesome-Laravel-Education#readme))
+  - [TALL Stack](https://github.com/blade-ui-kit/awesome-tall-stack#readme) - Full-stack development solution featuring libraries built by the Laravel community.)
+- [Rails](https://github.com/gramantin/awesome-rails#readme) - Web app framework for Ruby.)
+  - [Gems](https://github.com/hothero/awesome-rails-gem#readme) - Packages.)
+- [Phalcon](https://github.com/phalcon/awesome-phalcon#readme) - PHP framework.)
+- [Useful `.htaccess` Snippets](https://github.com/phanan/htaccess#readme))
+- [nginx](https://github.com/fcambus/nginx-resources#readme) - Web server.)
+- [Dropwizard](https://github.com/stve/awesome-dropwizard#readme) - Java framework.)
+- [Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#readme) - Open-source platform that automates Linux container operations.)
+- [Lumen](https://github.com/unicodeveloper/awesome-lumen#readme) - PHP micro-framework.)
+- [Serverless Framework](https://github.com/pmuens/awesome-serverless#readme) - Serverless computing and serverless architectures.)
+- [Apache Wicket](https://github.com/PhantomYdn/awesome-wicket#readme) - Java web app framework.)
+- [Vert.x](https://github.com/vert-x3/vertx-awesome#readme) - Toolkit for building reactive apps on the JVM.)
+- [Terraform](https://github.com/shuaibiyy/awesome-terraform#readme) - Tool for building, changing, and versioning infrastructure.)
+- [Vapor](https://github.com/Cellane/awesome-vapor#readme) - Server-side development in Swift.)
+- [Dash](https://github.com/ucg8j/awesome-dash#readme) - Python web app framework.)
+- [FastAPI](https://github.com/mjhea0/awesome-fastapi#readme) - Python web app framework.)
+- [CDK](https://github.com/kolomied/awesome-cdk#readme) - Open-source software development framework for defining cloud infrastructure in code.)
+- [IAM](https://github.com/kdeldycke/awesome-iam#readme) - User accounts, authentication and authorization.)
+  )
+
 ## Computer Science)
+
 )
-* [University Courses](https://github.com/prakhar1989/awesome-courses#readme))
-* [Data Science](https://github.com/academic/awesome-datascience#readme))
-  * [Tutorials](https://github.com/siboehm/awesome-learn-datascience#readme))
-* [Machine Learning](https://github.com/josephmisiti/awesome-machine-learning#readme))
-  * [Tutorials](https://github.com/ujjwalkarn/Machine-Learning-Tutorials#readme))
-  * [ML with Ruby](https://github.com/arbox/machine-learning-with-ruby#readme) - Learning, implementing, and applying Machine Learning using Ruby.)
-  * [Core ML Models](https://github.com/likedan/Awesome-CoreML-Models#readme) - Models for Apple's machine learning framework.)
-  * [H2O](https://github.com/h2oai/awesome-h2o#readme) - Open source distributed machine learning platform written in Java with APIs in R, Python, and Scala.)
-  * [Software Engineering for Machine Learning](https://github.com/SE-ML/awesome-seml#readme) - From experiment to production-level machine learning.)
-  * [AI in Finance](https://github.com/georgezouq/awesome-ai-in-finance#readme) - Solving problems in finance with machine learning.)
-  * [JAX](https://github.com/n2cholas/awesome-jax#readme) - Automatic differentiation and XLA compilation brought together for high-performance machine learning research.)
-* [Speech and Natural Language Processing](https://github.com/edobashira/speech-language-processing#readme))
-  * [Spanish](https://github.com/dav009/awesome-spanish-nlp#readme))
-  * [NLP with Ruby](https://github.com/arbox/nlp-with-ruby#readme))
-  * [Question Answering](https://github.com/seriousran/awesome-qa#readme) - The science of asking and answering in natural language with a machine.)
-  * [Natural Language Generation](https://github.com/tokenmill/awesome-nlg#readme) - Generation of text used in data to text, conversational agents, and narrative generation applications.)
-* [Linguistics](https://github.com/theimpossibleastronaut/awesome-linguistics#readme))
-* [Cryptography](https://github.com/sobolevn/awesome-cryptography#readme))
-  * [Papers](https://github.com/pFarb/awesome-crypto-papers#readme) - Theory basics for using cryptography by non-cryptographers.)
-* [Computer Vision](https://github.com/jbhuang0604/awesome-computer-vision#readme))
-* [Deep Learning](https://github.com/ChristosChristofidis/awesome-deep-learning#readme) - Neural networks.)
-  * [TensorFlow](https://github.com/jtoy/awesome-tensorflow#readme) - Library for machine intelligence.)
-  * [TensorFlow.js](https://github.com/aaronhma/awesome-tensorflow-js#readme) - WebGL-accelerated machine learning JavaScript library for training and deploying models.)
-  * [TensorFlow Lite](https://github.com/margaretmz/awesome-tensorflow-lite#readme) - Framework that optimizes TensorFlow models for on-device machine learning.)
-  * [Papers](https://github.com/terryum/awesome-deep-learning-papers#readme) - The most cited deep learning papers.)
-  * [Education](https://github.com/guillaume-chevalier/awesome-deep-learning-resources#readme))
-* [Deep Vision](https://github.com/kjw0612/awesome-deep-vision#readme))
-* [Open Source Society University](https://github.com/ossu/computer-science#readme))
-* [Functional Programming](https://github.com/lucasviola/awesome-functional-programming#readme))
-* [Empirical Software Engineering](https://github.com/dspinellis/awesome-msr#readme) - Evidence-based research on software systems.)
-* [Static Analysis & Code Quality](https://github.com/analysis-tools-dev/static-analysis#readme))
-* [Information Retrieval](https://github.com/harpribot/awesome-information-retrieval#readme) - Learn to develop your own search engine.)
-* [Quantum Computing](https://github.com/desireevl/awesome-quantum-computing#readme) - Computing which utilizes quantum mechanics and qubits on quantum computers.)
-)
+
+- [University Courses](https://github.com/prakhar1989/awesome-courses#readme))
+- [Data Science](https://github.com/academic/awesome-datascience#readme))
+  - [Tutorials](https://github.com/siboehm/awesome-learn-datascience#readme))
+- [Machine Learning](https://github.com/josephmisiti/awesome-machine-learning#readme))
+  - [Tutorials](https://github.com/ujjwalkarn/Machine-Learning-Tutorials#readme))
+  - [ML with Ruby](https://github.com/arbox/machine-learning-with-ruby#readme) - Learning, implementing, and applying Machine Learning using Ruby.)
+  - [Core ML Models](https://github.com/likedan/Awesome-CoreML-Models#readme) - Models for Apple's machine learning framework.)
+  - [H2O](https://github.com/h2oai/awesome-h2o#readme) - Open source distributed machine learning platform written in Java with APIs in R, Python, and Scala.)
+  - [Software Engineering for Machine Learning](https://github.com/SE-ML/awesome-seml#readme) - From experiment to production-level machine learning.)
+  - [AI in Finance](https://github.com/georgezouq/awesome-ai-in-finance#readme) - Solving problems in finance with machine learning.)
+  - [JAX](https://github.com/n2cholas/awesome-jax#readme) - Automatic differentiation and XLA compilation brought together for high-performance machine learning research.)
+- [Speech and Natural Language Processing](https://github.com/edobashira/speech-language-processing#readme))
+  - [Spanish](https://github.com/dav009/awesome-spanish-nlp#readme))
+  - [NLP with Ruby](https://github.com/arbox/nlp-with-ruby#readme))
+  - [Question Answering](https://github.com/seriousran/awesome-qa#readme) - The science of asking and answering in natural language with a machine.)
+  - [Natural Language Generation](https://github.com/tokenmill/awesome-nlg#readme) - Generation of text used in data to text, conversational agents, and narrative generation applications.)
+- [Linguistics](https://github.com/theimpossibleastronaut/awesome-linguistics#readme))
+- [Cryptography](https://github.com/sobolevn/awesome-cryptography#readme))
+  - [Papers](https://github.com/pFarb/awesome-crypto-papers#readme) - Theory basics for using cryptography by non-cryptographers.)
+- [Computer Vision](https://github.com/jbhuang0604/awesome-computer-vision#readme))
+- [Deep Learning](https://github.com/ChristosChristofidis/awesome-deep-learning#readme) - Neural networks.)
+  - [TensorFlow](https://github.com/jtoy/awesome-tensorflow#readme) - Library for machine intelligence.)
+  - [TensorFlow.js](https://github.com/aaronhma/awesome-tensorflow-js#readme) - WebGL-accelerated machine learning JavaScript library for training and deploying models.)
+  - [TensorFlow Lite](https://github.com/margaretmz/awesome-tensorflow-lite#readme) - Framework that optimizes TensorFlow models for on-device machine learning.)
+  - [Papers](https://github.com/terryum/awesome-deep-learning-papers#readme) - The most cited deep learning papers.)
+  - [Education](https://github.com/guillaume-chevalier/awesome-deep-learning-resources#readme))
+- [Deep Vision](https://github.com/kjw0612/awesome-deep-vision#readme))
+- [Open Source Society University](https://github.com/ossu/computer-science#readme))
+- [Functional Programming](https://github.com/lucasviola/awesome-functional-programming#readme))
+- [Empirical Software Engineering](https://github.com/dspinellis/awesome-msr#readme) - Evidence-based research on software systems.)
+- [Static Analysis & Code Quality](https://github.com/analysis-tools-dev/static-analysis#readme))
+- [Information Retrieval](https://github.com/harpribot/awesome-information-retrieval#readme) - Learn to develop your own search engine.)
+- [Quantum Computing](https://github.com/desireevl/awesome-quantum-computing#readme) - Computing which utilizes quantum mechanics and qubits on quantum computers.)
+  )
+
 ## Big Data)
+
 )
-* [Big Data](https://github.com/onurakpolat/awesome-bigdata#readme))
-* [Public Datasets](https://github.com/awesomedata/awesome-public-datasets#readme))
-* [Hadoop](https://github.com/youngwookim/awesome-hadoop#readme) - Framework for distributed storage and processing of very large data sets.)
-* [Data Engineering](https://github.com/igorbarinov/awesome-data-engineering#readme))
-* [Streaming](https://github.com/manuzhang/awesome-streaming#readme))
-* [Apache Spark](https://github.com/awesome-spark/awesome-spark#readme) - Unified engine for large-scale data processing.)
-* [Qlik](https://github.com/ambster-public/awesome-qlik#readme) - Business intelligence platform for data visualization, analytics, and reporting apps.)
-* [Splunk](https://github.com/sduff/awesome-splunk#readme) - Platform for searching, monitoring, and analyzing structured and unstructured machine-generated big data in real-time.)
-)
+
+- [Big Data](https://github.com/onurakpolat/awesome-bigdata#readme))
+- [Public Datasets](https://github.com/awesomedata/awesome-public-datasets#readme))
+- [Hadoop](https://github.com/youngwookim/awesome-hadoop#readme) - Framework for distributed storage and processing of very large data sets.)
+- [Data Engineering](https://github.com/igorbarinov/awesome-data-engineering#readme))
+- [Streaming](https://github.com/manuzhang/awesome-streaming#readme))
+- [Apache Spark](https://github.com/awesome-spark/awesome-spark#readme) - Unified engine for large-scale data processing.)
+- [Qlik](https://github.com/ambster-public/awesome-qlik#readme) - Business intelligence platform for data visualization, analytics, and reporting apps.)
+- [Splunk](https://github.com/sduff/awesome-splunk#readme) - Platform for searching, monitoring, and analyzing structured and unstructured machine-generated big data in real-time.)
+  )
+
 ## Theory)
+
 )
-* [Papers We Love](https://github.com/papers-we-love/papers-we-love#readme))
-* [Talks](https://github.com/JanVanRyswyck/awesome-talks#readme))
-* [Algorithms](https://github.com/tayllan/awesome-algorithms#readme))
-  * [Education](https://github.com/gaerae/awesome-algorithms-education#readme) - Learning and practicing.)
-* [Algorithm Visualizations](https://github.com/enjalot/algovis#readme))
-* [Artificial Intelligence](https://github.com/owainlewis/awesome-artificial-intelligence#readme))
-* [Search Engine Optimization](https://github.com/marcobiedermann/search-engine-optimization#readme))
-* [Competitive Programming](https://github.com/lnishan/awesome-competitive-programming#readme))
-* [Math](https://github.com/rossant/awesome-math#readme))
-* [Recursion Schemes](https://github.com/passy/awesome-recursion-schemes#readme) - Traversing nested data structures.)
-)
+
+- [Papers We Love](https://github.com/papers-we-love/papers-we-love#readme))
+- [Talks](https://github.com/JanVanRyswyck/awesome-talks#readme))
+- [Algorithms](https://github.com/tayllan/awesome-algorithms#readme))
+  - [Education](https://github.com/gaerae/awesome-algorithms-education#readme) - Learning and practicing.)
+- [Algorithm Visualizations](https://github.com/enjalot/algovis#readme))
+- [Artificial Intelligence](https://github.com/owainlewis/awesome-artificial-intelligence#readme))
+- [Search Engine Optimization](https://github.com/marcobiedermann/search-engine-optimization#readme))
+- [Competitive Programming](https://github.com/lnishan/awesome-competitive-programming#readme))
+- [Math](https://github.com/rossant/awesome-math#readme))
+- [Recursion Schemes](https://github.com/passy/awesome-recursion-schemes#readme) - Traversing nested data structures.)
+  )
+
 ## Books)
+
 )
-* [Free Programming Books](https://github.com/EbookFoundation/free-programming-books#readme))
-* [Go Books](https://github.com/dariubs/GoBooks#readme))
-* [R Books](https://github.com/RomanTsegelskyi/rbooks#readme))
-* [Mind Expanding Books](https://github.com/hackerkid/Mind-Expanding-Books#readme))
-* [Book Authoring](https://github.com/TalAter/awesome-book-authoring#readme))
-* [Elixir Books](https://github.com/sger/ElixirBooks#readme))
-)
+
+- [Free Programming Books](https://github.com/EbookFoundation/free-programming-books#readme))
+- [Go Books](https://github.com/dariubs/GoBooks#readme))
+- [R Books](https://github.com/RomanTsegelskyi/rbooks#readme))
+- [Mind Expanding Books](https://github.com/hackerkid/Mind-Expanding-Books#readme))
+- [Book Authoring](https://github.com/TalAter/awesome-book-authoring#readme))
+- [Elixir Books](https://github.com/sger/ElixirBooks#readme))
+  )
+
 ## Editors)
+
 )
-* [Sublime Text](https://github.com/dreikanter/sublime-bookmarks#readme))
-* [Vim](https://github.com/mhinz/vim-galore#readme))
-* [Emacs](https://github.com/emacs-tw/awesome-emacs#readme))
-* [Atom](https://github.com/mehcode/awesome-atom#readme) - Open-source and hackable text editor.)
-* [Visual Studio Code](https://github.com/viatsko/awesome-vscode#readme) - Cross-platform open-source text editor.)
-)
+
+- [Sublime Text](https://github.com/dreikanter/sublime-bookmarks#readme))
+- [Vim](https://github.com/mhinz/vim-galore#readme))
+- [Emacs](https://github.com/emacs-tw/awesome-emacs#readme))
+- [Atom](https://github.com/mehcode/awesome-atom#readme) - Open-source and hackable text editor.)
+- [Visual Studio Code](https://github.com/viatsko/awesome-vscode#readme) - Cross-platform open-source text editor.)
+  )
+
 ## Gaming)
+
 )
-* [Game Development](https://github.com/ellisonleao/magictools#readme))
-* [Game Talks](https://github.com/hzoo/awesome-gametalks#readme))
-* [Godot](https://github.com/Calinou/awesome-godot#readme) - Game engine.)
-* [Open Source Games](https://github.com/leereilly/games#readme))
-* [Unity](https://github.com/RyanNielson/awesome-unity#readme) - Game engine.)
-* [Chess](https://github.com/hkirat/awesome-chess#readme))
-* [LÖVE](https://github.com/love2d-community/awesome-love2d#readme) - Game engine.)
-* [PICO-8](https://github.com/pico-8/awesome-PICO-8#readme) - Fantasy console.)
-* [Game Boy Development](https://github.com/gbdev/awesome-gbdev#readme))
-* [Construct 2](https://github.com/WebCreationClub/awesome-construct#readme) - Game engine.)
-* [Gideros](https://github.com/stetso/awesome-gideros#readme) - Game engine.)
-* [Minecraft](https://github.com/bs-community/awesome-minecraft#readme) - Sandbox video game.)
-* [Game Datasets](https://github.com/leomaurodesenv/game-datasets#readme) - Materials and datasets for Artificial Intelligence in games.)
-* [Haxe Game Development](https://github.com/Dvergar/awesome-haxe-gamedev#readme) - A high-level strongly typed programming language used to produce cross-platform native code.)
-* [libGDX](https://github.com/rafaskb/awesome-libgdx#readme) - Java game framework.)
-* [PlayCanvas](https://github.com/playcanvas/awesome-playcanvas#readme) - Game engine.)
-* [Game Remakes](https://github.com/radek-sprta/awesome-game-remakes#readme) - Actively maintained open-source game remakes.)
-* [Flame](https://github.com/flame-engine/awesome-flame#readme) - Game engine for Flutter.)
-* [Discord Communities](https://github.com/mhxion/awesome-discord-communities#readme) - Chat with friends and communities.)
-* [CHIP-8](https://github.com/tobiasvl/awesome-chip-8#readme) - Virtual computer game machine from the 70s.)
-* [Games of Coding](https://github.com/michelpereira/awesome-games-of-coding#readme) - Learn a programming language by making games.)
-)
+
+- [Game Development](https://github.com/ellisonleao/magictools#readme))
+- [Game Talks](https://github.com/hzoo/awesome-gametalks#readme))
+- [Godot](https://github.com/Calinou/awesome-godot#readme) - Game engine.)
+- [Open Source Games](https://github.com/leereilly/games#readme))
+- [Unity](https://github.com/RyanNielson/awesome-unity#readme) - Game engine.)
+- [Chess](https://github.com/hkirat/awesome-chess#readme))
+- [LÖVE](https://github.com/love2d-community/awesome-love2d#readme) - Game engine.)
+- [PICO-8](https://github.com/pico-8/awesome-PICO-8#readme) - Fantasy console.)
+- [Game Boy Development](https://github.com/gbdev/awesome-gbdev#readme))
+- [Construct 2](https://github.com/WebCreationClub/awesome-construct#readme) - Game engine.)
+- [Gideros](https://github.com/stetso/awesome-gideros#readme) - Game engine.)
+- [Minecraft](https://github.com/bs-community/awesome-minecraft#readme) - Sandbox video game.)
+- [Game Datasets](https://github.com/leomaurodesenv/game-datasets#readme) - Materials and datasets for Artificial Intelligence in games.)
+- [Haxe Game Development](https://github.com/Dvergar/awesome-haxe-gamedev#readme) - A high-level strongly typed programming language used to produce cross-platform native code.)
+- [libGDX](https://github.com/rafaskb/awesome-libgdx#readme) - Java game framework.)
+- [PlayCanvas](https://github.com/playcanvas/awesome-playcanvas#readme) - Game engine.)
+- [Game Remakes](https://github.com/radek-sprta/awesome-game-remakes#readme) - Actively maintained open-source game remakes.)
+- [Flame](https://github.com/flame-engine/awesome-flame#readme) - Game engine for Flutter.)
+- [Discord Communities](https://github.com/mhxion/awesome-discord-communities#readme) - Chat with friends and communities.)
+- [CHIP-8](https://github.com/tobiasvl/awesome-chip-8#readme) - Virtual computer game machine from the 70s.)
+- [Games of Coding](https://github.com/michelpereira/awesome-games-of-coding#readme) - Learn a programming language by making games.)
+  )
+
 ## Development Environment)
+
 )
-* [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins#readme) - For macOS.)
-* [Dev Env](https://github.com/jondot/awesome-devenv#readme))
-* [Dotfiles](https://github.com/webpro/awesome-dotfiles#readme))
-* [Shell](https://github.com/alebcay/awesome-shell#readme))
-* [Fish](https://github.com/jorgebucaran/awsm.fish#readme) - User-friendly shell.)
-* [Command-Line Apps](https://github.com/agarrharr/awesome-cli-apps#readme))
-* [ZSH Plugins](https://github.com/unixorn/awesome-zsh-plugins#readme))
-* [GitHub](https://github.com/phillipadsmith/awesome-github#readme) - Hosting service for Git repositories.)
-  * [Browser Extensions](https://github.com/stefanbuck/awesome-browser-extensions-for-github#readme))
-  * [Cheat Sheet](https://github.com/tiimgreen/github-cheat-sheet#readme))
-  * [Pinned Gists](https://github.com/matchai/awesome-pinned-gists#readme) - Dynamic pinned gists for your GitHub profile.)
-* [Git Cheat Sheet & Git Flow](https://github.com/arslanbilal/git-cheat-sheet#readme))
-* [Git Tips](https://github.com/git-tips/tips#readme))
-* [Git Add-ons](https://github.com/stevemao/awesome-git-addons#readme) - Enhance the `git` CLI.)
-* [Git Hooks](https://github.com/compscilauren/awesome-git-hooks#readme) - Scripts for automating tasks during `git` workflows.)
-* [SSH](https://github.com/moul/awesome-ssh#readme))
-* [FOSS for Developers](https://github.com/tvvocold/FOSS-for-Dev#readme))
-* [Hyper](https://github.com/bnb/awesome-hyper#readme) - Cross-platform terminal app built on web technologies.)
-* [PowerShell](https://github.com/janikvonrotz/awesome-powershell#readme) - Cross-platform object-oriented shell.)
-* [Alfred Workflows](https://github.com/alfred-workflows/awesome-alfred-workflows#readme) - Productivity app for macOS.)
-* [Terminals Are Sexy](https://github.com/k4m4/terminals-are-sexy#readme))
-* [GitHub Actions](https://github.com/sdras/awesome-actions#readme) - Create tasks to automate your workflow and share them with others on GitHub.)
-)
+
+- [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins#readme) - For macOS.)
+- [Dev Env](https://github.com/jondot/awesome-devenv#readme))
+- [Dotfiles](https://github.com/webpro/awesome-dotfiles#readme))
+- [Shell](https://github.com/alebcay/awesome-shell#readme))
+- [Fish](https://github.com/jorgebucaran/awsm.fish#readme) - User-friendly shell.)
+- [Command-Line Apps](https://github.com/agarrharr/awesome-cli-apps#readme))
+- [ZSH Plugins](https://github.com/unixorn/awesome-zsh-plugins#readme))
+- [GitHub](https://github.com/phillipadsmith/awesome-github#readme) - Hosting service for Git repositories.)
+  - [Browser Extensions](https://github.com/stefanbuck/awesome-browser-extensions-for-github#readme))
+  - [Cheat Sheet](https://github.com/tiimgreen/github-cheat-sheet#readme))
+  - [Pinned Gists](https://github.com/matchai/awesome-pinned-gists#readme) - Dynamic pinned gists for your GitHub profile.)
+- [Git Cheat Sheet & Git Flow](https://github.com/arslanbilal/git-cheat-sheet#readme))
+- [Git Tips](https://github.com/git-tips/tips#readme))
+- [Git Add-ons](https://github.com/stevemao/awesome-git-addons#readme) - Enhance the `git` CLI.)
+- [Git Hooks](https://github.com/compscilauren/awesome-git-hooks#readme) - Scripts for automating tasks during `git` workflows.)
+- [SSH](https://github.com/moul/awesome-ssh#readme))
+- [FOSS for Developers](https://github.com/tvvocold/FOSS-for-Dev#readme))
+- [Hyper](https://github.com/bnb/awesome-hyper#readme) - Cross-platform terminal app built on web technologies.)
+- [PowerShell](https://github.com/janikvonrotz/awesome-powershell#readme) - Cross-platform object-oriented shell.)
+- [Alfred Workflows](https://github.com/alfred-workflows/awesome-alfred-workflows#readme) - Productivity app for macOS.)
+- [Terminals Are Sexy](https://github.com/k4m4/terminals-are-sexy#readme))
+- [GitHub Actions](https://github.com/sdras/awesome-actions#readme) - Create tasks to automate your workflow and share them with others on GitHub.)
+  )
+
 ## Entertainment)
+
 )
-* [Science Fiction](https://github.com/sindresorhus/awesome-scifi#readme) - Scifi.)
-* [Fantasy](https://github.com/RichardLitt/awesome-fantasy#readme))
-* [Podcasts](https://github.com/ayr-ton/awesome-geek-podcasts#readme))
-* [Email Newsletters](https://github.com/zudochkin/awesome-newsletters#readme))
-* [IT Quotes](https://github.com/victorlaerte/awesome-it-quotes#readme))
-)
+
+- [Science Fiction](https://github.com/sindresorhus/awesome-scifi#readme) - Scifi.)
+- [Fantasy](https://github.com/RichardLitt/awesome-fantasy#readme))
+- [Podcasts](https://github.com/ayr-ton/awesome-geek-podcasts#readme))
+- [Email Newsletters](https://github.com/zudochkin/awesome-newsletters#readme))
+- [IT Quotes](https://github.com/victorlaerte/awesome-it-quotes#readme))
+  )
+
 ## Databases)
+
 )
-* [Database](https://github.com/numetriclabz/awesome-db#readme))
-* [MySQL](https://github.com/shlomi-noach/awesome-mysql#readme))
-* [SQLAlchemy](https://github.com/dahlia/awesome-sqlalchemy#readme))
-* [InfluxDB](https://github.com/mark-rushakoff/awesome-influxdb#readme))
-* [Neo4j](https://github.com/neueda/awesome-neo4j#readme))
-* [MongoDB](https://github.com/ramnes/awesome-mongodb#readme) - NoSQL database.)
-* [RethinkDB](https://github.com/d3viant0ne/awesome-rethinkdb#readme))
-* [TinkerPop](https://github.com/mohataher/awesome-tinkerpop#readme) - Graph computing framework.)
-* [PostgreSQL](https://github.com/dhamaniasad/awesome-postgres#readme) - Object-relational database.)
-* [CouchDB](https://github.com/quangv/awesome-couchdb#readme) - Document-oriented NoSQL database.)
-* [HBase](https://github.com/rayokota/awesome-hbase#readme) - Distributed, scalable, big data store.)
-* [NoSQL Guides](https://github.com/erictleung/awesome-nosql-guides#readme) - Help on using non-relational, distributed, open-source, and horizontally scalable databases.)
-* [Contexture](https://github.com/chrislatorres/awesome-contexture#readme) - Abstracts queries/filters and results/aggregations from different backing data stores like ElasticSearch and MongoDB.)
-* [Database Tools](https://github.com/mgramin/awesome-db-tools#readme) - Everything that makes working with databases easier.)
-* [Grakn](https://github.com/graknlabs/awesome#readme) - Logical database to organize large and complex networks of data as one body of knowledge.)
-)
+
+- [Database](https://github.com/numetriclabz/awesome-db#readme))
+- [MySQL](https://github.com/shlomi-noach/awesome-mysql#readme))
+- [SQLAlchemy](https://github.com/dahlia/awesome-sqlalchemy#readme))
+- [InfluxDB](https://github.com/mark-rushakoff/awesome-influxdb#readme))
+- [Neo4j](https://github.com/neueda/awesome-neo4j#readme))
+- [MongoDB](https://github.com/ramnes/awesome-mongodb#readme) - NoSQL database.)
+- [RethinkDB](https://github.com/d3viant0ne/awesome-rethinkdb#readme))
+- [TinkerPop](https://github.com/mohataher/awesome-tinkerpop#readme) - Graph computing framework.)
+- [PostgreSQL](https://github.com/dhamaniasad/awesome-postgres#readme) - Object-relational database.)
+- [CouchDB](https://github.com/quangv/awesome-couchdb#readme) - Document-oriented NoSQL database.)
+- [HBase](https://github.com/rayokota/awesome-hbase#readme) - Distributed, scalable, big data store.)
+- [NoSQL Guides](https://github.com/erictleung/awesome-nosql-guides#readme) - Help on using non-relational, distributed, open-source, and horizontally scalable databases.)
+- [Contexture](https://github.com/chrislatorres/awesome-contexture#readme) - Abstracts queries/filters and results/aggregations from different backing data stores like ElasticSearch and MongoDB.)
+- [Database Tools](https://github.com/mgramin/awesome-db-tools#readme) - Everything that makes working with databases easier.)
+- [Grakn](https://github.com/graknlabs/awesome#readme) - Logical database to organize large and complex networks of data as one body of knowledge.)
+  )
+
 ## Media)
+
 )
-* [Creative Commons Media](https://github.com/shime/creative-commons-media#readme))
-* [Fonts](https://github.com/brabadu/awesome-fonts#readme))
-* [Codeface](https://github.com/chrissimpkins/codeface#readme) - Text editor fonts.)
-* [Stock Resources](https://github.com/neutraltone/awesome-stock-resources#readme))
-* [GIF](https://github.com/davisonio/awesome-gif#readme) - Image format known for animated images.)
-* [Music](https://github.com/ciconia/awesome-music#readme))
-* [Open Source Documents](https://github.com/44bits/awesome-opensource-documents#readme))
-* [Audio Visualization](https://github.com/willianjusten/awesome-audio-visualization#readme))
-* [Broadcasting](https://github.com/ebu/awesome-broadcasting#readme))
-* [Pixel Art](https://github.com/Siilwyn/awesome-pixel-art#readme) - Pixel-level digital art.)
-* [FFmpeg](https://github.com/transitive-bullshit/awesome-ffmpeg#readme) - Cross-platform solution to record, convert and stream audio and video.)
-* [Icons](https://github.com/notlmn/awesome-icons#readme) - Downloadable SVG/PNG/font icon projects.)
-* [Audiovisual](https://github.com/stingalleman/awesome-audiovisual#readme) - Lighting, audio and video in professional environments.)
-)
+
+- [Creative Commons Media](https://github.com/shime/creative-commons-media#readme))
+- [Fonts](https://github.com/brabadu/awesome-fonts#readme))
+- [Codeface](https://github.com/chrissimpkins/codeface#readme) - Text editor fonts.)
+- [Stock Resources](https://github.com/neutraltone/awesome-stock-resources#readme))
+- [GIF](https://github.com/davisonio/awesome-gif#readme) - Image format known for animated images.)
+- [Music](https://github.com/ciconia/awesome-music#readme))
+- [Open Source Documents](https://github.com/44bits/awesome-opensource-documents#readme))
+- [Audio Visualization](https://github.com/willianjusten/awesome-audio-visualization#readme))
+- [Broadcasting](https://github.com/ebu/awesome-broadcasting#readme))
+- [Pixel Art](https://github.com/Siilwyn/awesome-pixel-art#readme) - Pixel-level digital art.)
+- [FFmpeg](https://github.com/transitive-bullshit/awesome-ffmpeg#readme) - Cross-platform solution to record, convert and stream audio and video.)
+- [Icons](https://github.com/notlmn/awesome-icons#readme) - Downloadable SVG/PNG/font icon projects.)
+- [Audiovisual](https://github.com/stingalleman/awesome-audiovisual#readme) - Lighting, audio and video in professional environments.)
+  )
+
 ## Learn)
+
 )
-* [CLI Workshoppers](https://github.com/therebelrobot/awesome-workshopper#readme) - Interactive tutorials.)
-* [Learn to Program](https://github.com/karlhorky/learn-to-program#readme))
-* [Speaking](https://github.com/matteofigus/awesome-speaking#readme))
-* [Tech Videos](https://github.com/lucasviola/awesome-tech-videos#readme))
-* [Dive into Machine Learning](https://github.com/hangtwenty/dive-into-machine-learning#readme))
-* [Computer History](https://github.com/watson/awesome-computer-history#readme))
-* [Programming for Kids](https://github.com/HollyAdele/awesome-programming-for-kids#readme))
-* [Educational Games](https://github.com/yrgo/awesome-educational-games#readme) - Learn while playing.)
-* [JavaScript Learning](https://github.com/micromata/awesome-javascript-learning#readme))
-* [CSS Learning](https://github.com/micromata/awesome-css-learning#readme) - Mainly about CSS - the language and the modules.)
-* [Product Management](https://github.com/dend/awesome-product-management#readme) - Learn how to be a better product manager.)
-* [Roadmaps](https://github.com/liuchong/awesome-roadmaps#readme) - Gives you a clear route to improve your knowledge and skills.)
-* [YouTubers](https://github.com/JoseDeFreitas/awesome-youtubers#readme) - Watch video tutorials from YouTubers that teach you about technology.)
-)
+
+- [CLI Workshoppers](https://github.com/therebelrobot/awesome-workshopper#readme) - Interactive tutorials.)
+- [Learn to Program](https://github.com/karlhorky/learn-to-program#readme))
+- [Speaking](https://github.com/matteofigus/awesome-speaking#readme))
+- [Tech Videos](https://github.com/lucasviola/awesome-tech-videos#readme))
+- [Dive into Machine Learning](https://github.com/hangtwenty/dive-into-machine-learning#readme))
+- [Computer History](https://github.com/watson/awesome-computer-history#readme))
+- [Programming for Kids](https://github.com/HollyAdele/awesome-programming-for-kids#readme))
+- [Educational Games](https://github.com/yrgo/awesome-educational-games#readme) - Learn while playing.)
+- [JavaScript Learning](https://github.com/micromata/awesome-javascript-learning#readme))
+- [CSS Learning](https://github.com/micromata/awesome-css-learning#readme) - Mainly about CSS - the language and the modules.)
+- [Product Management](https://github.com/dend/awesome-product-management#readme) - Learn how to be a better product manager.)
+- [Roadmaps](https://github.com/liuchong/awesome-roadmaps#readme) - Gives you a clear route to improve your knowledge and skills.)
+- [YouTubers](https://github.com/JoseDeFreitas/awesome-youtubers#readme) - Watch video tutorials from YouTubers that teach you about technology.)
+  )
+
 ## Security)
+
 )
-* [Application Security](https://github.com/paragonie/awesome-appsec#readme))
-* [Security](https://github.com/sbilly/awesome-security#readme))
-* [CTF](https://github.com/apsdehal/awesome-ctf#readme) - Capture The Flag.)
-* [Malware Analysis](https://github.com/rshipp/awesome-malware-analysis#readme))
-* [Android Security](https://github.com/ashishb/android-security-awesome#readme))
-* [Hacking](https://github.com/carpedm20/awesome-hacking#readme))
-* [Honeypots](https://github.com/paralax/awesome-honeypots#readme) - Deception trap, designed to entice an attacker into attempting to compromise the information systems in an organization.)
-* [Incident Response](https://github.com/meirwah/awesome-incident-response#readme))
-* [Vehicle Security and Car Hacking](https://github.com/jaredthecoder/awesome-vehicle-security#readme))
-* [Web Security](https://github.com/qazbnm456/awesome-web-security#readme) - Security of web apps & services.)
-* [Lockpicking](https://github.com/fabacab/awesome-lockpicking#readme) - The art of unlocking a lock by manipulating its components without the key.)
-* [Cybersecurity Blue Team](https://github.com/fabacab/awesome-cybersecurity-blueteam#readme) - Groups of individuals who identify security flaws in information technology systems.)
-* [Fuzzing](https://github.com/cpuu/awesome-fuzzing#readme) - Automated software testing technique that involves feeding pseudo-randomly generated input data.)
-* [Embedded and IoT Security](https://github.com/fkie-cad/awesome-embedded-and-iot-security#readme))
-* [GDPR](https://github.com/bakke92/awesome-gdpr#readme) - Regulation on data protection and privacy for all individuals within EU.)
-* [DevSecOps](https://github.com/TaptuIT/awesome-devsecops#readme) - Integration of security practices into [DevOps](https://en.wikipedia.org/wiki/DevOps).)
-)
+
+- [Application Security](https://github.com/paragonie/awesome-appsec#readme))
+- [Security](https://github.com/sbilly/awesome-security#readme))
+- [CTF](https://github.com/apsdehal/awesome-ctf#readme) - Capture The Flag.)
+- [Malware Analysis](https://github.com/rshipp/awesome-malware-analysis#readme))
+- [Android Security](https://github.com/ashishb/android-security-awesome#readme))
+- [Hacking](https://github.com/carpedm20/awesome-hacking#readme))
+- [Honeypots](https://github.com/paralax/awesome-honeypots#readme) - Deception trap, designed to entice an attacker into attempting to compromise the information systems in an organization.)
+- [Incident Response](https://github.com/meirwah/awesome-incident-response#readme))
+- [Vehicle Security and Car Hacking](https://github.com/jaredthecoder/awesome-vehicle-security#readme))
+- [Web Security](https://github.com/qazbnm456/awesome-web-security#readme) - Security of web apps & services.)
+- [Lockpicking](https://github.com/fabacab/awesome-lockpicking#readme) - The art of unlocking a lock by manipulating its components without the key.)
+- [Cybersecurity Blue Team](https://github.com/fabacab/awesome-cybersecurity-blueteam#readme) - Groups of individuals who identify security flaws in information technology systems.)
+- [Fuzzing](https://github.com/cpuu/awesome-fuzzing#readme) - Automated software testing technique that involves feeding pseudo-randomly generated input data.)
+- [Embedded and IoT Security](https://github.com/fkie-cad/awesome-embedded-and-iot-security#readme))
+- [GDPR](https://github.com/bakke92/awesome-gdpr#readme) - Regulation on data protection and privacy for all individuals within EU.)
+- [DevSecOps](https://github.com/TaptuIT/awesome-devsecops#readme) - Integration of security practices into [DevOps](https://en.wikipedia.org/wiki/DevOps).)
+  )
+
 ## Content Management Systems)
+
 )
-* [Umbraco](https://github.com/umbraco-community/awesome-umbraco#readme))
-* [Refinery CMS](https://github.com/refinerycms-contrib/awesome-refinerycms#readme) - Ruby on Rails CMS.)
-* [Wagtail](https://github.com/springload/awesome-wagtail#readme) - Django CMS focused on flexibility and user experience.)
-* [Textpattern](https://github.com/drmonkeyninja/awesome-textpattern#readme) - Lightweight PHP-based CMS.)
-* [Drupal](https://github.com/nirgn975/awesome-drupal#readme) - Extensible PHP-based CMS.)
-* [Craft CMS](https://github.com/craftcms/awesome#readme) - Content-first CMS.)
-* [Sitecore](https://github.com/MartinMiles/Awesome-Sitecore#readme) - .NET digital marketing platform that combines CMS with tools for managing multiple websites.)
-* [Silverstripe CMS](https://github.com/wernerkrauss/awesome-silverstripe-cms#readme) - PHP MVC framework that serves as a classic or headless CMS.)
-)
+
+- [Umbraco](https://github.com/umbraco-community/awesome-umbraco#readme))
+- [Refinery CMS](https://github.com/refinerycms-contrib/awesome-refinerycms#readme) - Ruby on Rails CMS.)
+- [Wagtail](https://github.com/springload/awesome-wagtail#readme) - Django CMS focused on flexibility and user experience.)
+- [Textpattern](https://github.com/drmonkeyninja/awesome-textpattern#readme) - Lightweight PHP-based CMS.)
+- [Drupal](https://github.com/nirgn975/awesome-drupal#readme) - Extensible PHP-based CMS.)
+- [Craft CMS](https://github.com/craftcms/awesome#readme) - Content-first CMS.)
+- [Sitecore](https://github.com/MartinMiles/Awesome-Sitecore#readme) - .NET digital marketing platform that combines CMS with tools for managing multiple websites.)
+- [Silverstripe CMS](https://github.com/wernerkrauss/awesome-silverstripe-cms#readme) - PHP MVC framework that serves as a classic or headless CMS.)
+  )
+
 ## Hardware)
+
 )
-* [Robotics](https://github.com/Kiloreux/awesome-robotics#readme))
-* [Internet of Things](https://github.com/HQarroum/awesome-iot#readme))
-* [Electronics](https://github.com/kitspace/awesome-electronics#readme) - For electronic engineers and hobbyists.)
-* [Bluetooth Beacons](https://github.com/rabschi/awesome-beacon#readme))
-* [Electric Guitar Specifications](https://github.com/gitfrage/guitarspecs#readme) - Checklist for building your own electric guitar.)
-* [Plotters](https://github.com/beardicus/awesome-plotters#readme) - Computer-controlled drawing machines and other visual art robots.)
-* [Robotic Tooling](https://github.com/protontypes/awesome-robotic-tooling#readme) - Free and open tools for professional robotic development.)
-* [LIDAR](https://github.com/szenergy/awesome-lidar#readme) - Sensor for measuring distances by illuminating the target with laser light.)
-)
+
+- [Robotics](https://github.com/Kiloreux/awesome-robotics#readme))
+- [Internet of Things](https://github.com/HQarroum/awesome-iot#readme))
+- [Electronics](https://github.com/kitspace/awesome-electronics#readme) - For electronic engineers and hobbyists.)
+- [Bluetooth Beacons](https://github.com/rabschi/awesome-beacon#readme))
+- [Electric Guitar Specifications](https://github.com/gitfrage/guitarspecs#readme) - Checklist for building your own electric guitar.)
+- [Plotters](https://github.com/beardicus/awesome-plotters#readme) - Computer-controlled drawing machines and other visual art robots.)
+- [Robotic Tooling](https://github.com/protontypes/awesome-robotic-tooling#readme) - Free and open tools for professional robotic development.)
+- [LIDAR](https://github.com/szenergy/awesome-lidar#readme) - Sensor for measuring distances by illuminating the target with laser light.)
+  )
+
 ## Business)
+
 )
-* [Open Companies](https://github.com/opencompany/awesome-open-company#readme))
-* [Places to Post Your Startup](https://github.com/mmccaff/PlacesToPostYourStartup#readme))
-* [OKR Methodology](https://github.com/domenicosolazzo/awesome-okr#readme) - Goal setting & communication best practices.)
-* [Leading and Managing](https://github.com/LappleApple/awesome-leading-and-managing#readme) - Leading people and being a manager in a technology company/environment.)
-* [Indie](https://github.com/mezod/awesome-indie#readme) - Independent developer businesses.)
-* [Tools of the Trade](https://github.com/cjbarber/ToolsOfTheTrade#readme) - Tools used by companies on Hacker News.)
-* [Clean Tech](https://github.com/nglgzz/awesome-clean-tech#readme) - Fighting climate change with technology.)
-* [Wardley Maps](https://github.com/wardley-maps-community/awesome-wardley-maps#readme) - Provides high situational awareness to help improve strategic planning and decision making.)
-* [Social Enterprise](https://github.com/RayBB/awesome-social-enterprise#readme) - Building an organization primarily focused on social impact that is at least partially self-funded.)
-* [Engineering Team Management](https://github.com/kdeldycke/awesome-engineering-team-management#readme) - How to transition from software development to engineering management.)
-* [Developer-First Products](https://github.com/agamm/awesome-developer-first#readme) - Products that target developers as the user.)
-)
+
+- [Open Companies](https://github.com/opencompany/awesome-open-company#readme))
+- [Places to Post Your Startup](https://github.com/mmccaff/PlacesToPostYourStartup#readme))
+- [OKR Methodology](https://github.com/domenicosolazzo/awesome-okr#readme) - Goal setting & communication best practices.)
+- [Leading and Managing](https://github.com/LappleApple/awesome-leading-and-managing#readme) - Leading people and being a manager in a technology company/environment.)
+- [Indie](https://github.com/mezod/awesome-indie#readme) - Independent developer businesses.)
+- [Tools of the Trade](https://github.com/cjbarber/ToolsOfTheTrade#readme) - Tools used by companies on Hacker News.)
+- [Clean Tech](https://github.com/nglgzz/awesome-clean-tech#readme) - Fighting climate change with technology.)
+- [Wardley Maps](https://github.com/wardley-maps-community/awesome-wardley-maps#readme) - Provides high situational awareness to help improve strategic planning and decision making.)
+- [Social Enterprise](https://github.com/RayBB/awesome-social-enterprise#readme) - Building an organization primarily focused on social impact that is at least partially self-funded.)
+- [Engineering Team Management](https://github.com/kdeldycke/awesome-engineering-team-management#readme) - How to transition from software development to engineering management.)
+- [Developer-First Products](https://github.com/agamm/awesome-developer-first#readme) - Products that target developers as the user.)
+  )
+
 ## Work)
+
 )
-* [Slack](https://github.com/matiassingers/awesome-slack#readme) - Team collaboration.)
-  * [Communities](https://github.com/filipelinhares/awesome-slack#readme))
-* [Remote Jobs](https://github.com/lukasz-madon/awesome-remote-job#readme))
-* [Productivity](https://github.com/jyguyomarch/awesome-productivity#readme))
-* [Niche Job Boards](https://github.com/tramcar/awesome-job-boards#readme))
-* [Programming Interviews](https://github.com/DopplerHQ/awesome-interview-questions#readme))
-* [Code Review](https://github.com/joho/awesome-code-review#readme) - Reviewing code.)
-* [Creative Technology](https://github.com/j0hnm4r5/awesome-creative-technology#readme) - Businesses & groups that specialize in combining computing, design, art, and user experience.)
-)
+
+- [Slack](https://github.com/matiassingers/awesome-slack#readme) - Team collaboration.)
+  - [Communities](https://github.com/filipelinhares/awesome-slack#readme))
+- [Remote Jobs](https://github.com/lukasz-madon/awesome-remote-job#readme))
+- [Productivity](https://github.com/jyguyomarch/awesome-productivity#readme))
+- [Niche Job Boards](https://github.com/tramcar/awesome-job-boards#readme))
+- [Programming Interviews](https://github.com/DopplerHQ/awesome-interview-questions#readme))
+- [Code Review](https://github.com/joho/awesome-code-review#readme) - Reviewing code.)
+- [Creative Technology](https://github.com/j0hnm4r5/awesome-creative-technology#readme) - Businesses & groups that specialize in combining computing, design, art, and user experience.)
+  )
+
 ## Networking)
+
 )
-* [Software-Defined Networking](https://github.com/sdnds-tw/awesome-sdn#readme))
-* [Network Analysis](https://github.com/briatte/awesome-network-analysis#readme))
-* [PCAPTools](https://github.com/caesar0301/awesome-pcaptools#readme))
-* [Real-Time Communications](https://github.com/rtckit/awesome-rtc#readme) - Network protocols for near simultaneous exchange of media and data.)
-)
+
+- [Software-Defined Networking](https://github.com/sdnds-tw/awesome-sdn#readme))
+- [Network Analysis](https://github.com/briatte/awesome-network-analysis#readme))
+- [PCAPTools](https://github.com/caesar0301/awesome-pcaptools#readme))
+- [Real-Time Communications](https://github.com/rtckit/awesome-rtc#readme) - Network protocols for near simultaneous exchange of media and data.)
+  )
+
 ## Decentralized Systems)
+
 )
-* [Bitcoin](https://github.com/igorbarinov/awesome-bitcoin#readme) - Bitcoin services and tools for software developers.)
-* [Ripple](https://github.com/vhpoet/awesome-ripple#readme) - Open source distributed settlement network.)
-* [Non-Financial Blockchain](https://github.com/machinomy/awesome-non-financial-blockchain#readme) - Non-financial blockchain applications.)
-* [Mastodon](https://github.com/tleb/awesome-mastodon#readme) - Open source decentralized microblogging network.)
-* [Ethereum](https://github.com/ttumiel/Awesome-Ethereum#readme) - Distributed computing platform for smart contract development.)
-* [Blockchain AI](https://github.com/steven2358/awesome-blockchain-ai#readme) - Blockchain projects for artificial intelligence and machine learning.)
-* [EOSIO](https://github.com/DanailMinchev/awesome-eosio#readme) - A decentralized operating system supporting industrial-scale apps.)
-* [Corda](https://github.com/chainstack/awesome-corda#readme) - Open source blockchain platform designed for business.)
-* [Waves](https://github.com/msmolyakov/awesome-waves#readme) - Open source blockchain platform and development toolset for Web 3.0 apps and decentralized solutions.)
-* [Substrate](https://github.com/substrate-developer-hub/awesome-substrate#readme) - Framework for writing scalable, upgradeable blockchains in Rust.)
-)
+
+- [Bitcoin](https://github.com/igorbarinov/awesome-bitcoin#readme) - Bitcoin services and tools for software developers.)
+- [Ripple](https://github.com/vhpoet/awesome-ripple#readme) - Open source distributed settlement network.)
+- [Non-Financial Blockchain](https://github.com/machinomy/awesome-non-financial-blockchain#readme) - Non-financial blockchain applications.)
+- [Mastodon](https://github.com/tleb/awesome-mastodon#readme) - Open source decentralized microblogging network.)
+- [Ethereum](https://github.com/ttumiel/Awesome-Ethereum#readme) - Distributed computing platform for smart contract development.)
+- [Blockchain AI](https://github.com/steven2358/awesome-blockchain-ai#readme) - Blockchain projects for artificial intelligence and machine learning.)
+- [EOSIO](https://github.com/DanailMinchev/awesome-eosio#readme) - A decentralized operating system supporting industrial-scale apps.)
+- [Corda](https://github.com/chainstack/awesome-corda#readme) - Open source blockchain platform designed for business.)
+- [Waves](https://github.com/msmolyakov/awesome-waves#readme) - Open source blockchain platform and development toolset for Web 3.0 apps and decentralized solutions.)
+- [Substrate](https://github.com/substrate-developer-hub/awesome-substrate#readme) - Framework for writing scalable, upgradeable blockchains in Rust.)
+  )
+
 ## Higher Education)
+
 )
-* [Computational Neuroscience](https://github.com/eselkin/awesome-computational-neuroscience#readme) - A multidisciplinary science which uses computational approaches to study the nervous system.)
-* [Digital History](https://github.com/maehr/awesome-digital-history#readme) - Computer-aided scientific investigation of history.)
-* [Scientific Writing](https://github.com/writing-resources/awesome-scientific-writing#readme) - Distraction-free scientific writing with Markdown, reStructuredText and Jupyter notebooks.)
-)
+
+- [Computational Neuroscience](https://github.com/eselkin/awesome-computational-neuroscience#readme) - A multidisciplinary science which uses computational approaches to study the nervous system.)
+- [Digital History](https://github.com/maehr/awesome-digital-history#readme) - Computer-aided scientific investigation of history.)
+- [Scientific Writing](https://github.com/writing-resources/awesome-scientific-writing#readme) - Distraction-free scientific writing with Markdown, reStructuredText and Jupyter notebooks.)
+  )
+
 ## Events)
+
 )
-* [Creative Tech Events](https://github.com/danvoyce/awesome-creative-tech-events#readme) - Events around the globe for creative coding, tech, design, music, arts and cool stuff.)
-* [Events in Italy](https://github.com/ildoc/awesome-italy-events#readme) - Tech-related events in Italy.)
-* [Events in the Netherlands](https://github.com/awkward/awesome-netherlands-events#readme) - Tech-related events in the Netherlands.)
-)
+
+- [Creative Tech Events](https://github.com/danvoyce/awesome-creative-tech-events#readme) - Events around the globe for creative coding, tech, design, music, arts and cool stuff.)
+- [Events in Italy](https://github.com/ildoc/awesome-italy-events#readme) - Tech-related events in Italy.)
+- [Events in the Netherlands](https://github.com/awkward/awesome-netherlands-events#readme) - Tech-related events in the Netherlands.)
+  )
+
 ## Testing)
+
 )
-* [Testing](https://github.com/TheJambo/awesome-testing#readme) - Software testing.)
-* [Visual Regression Testing](https://github.com/mojoaxel/awesome-regression-testing#readme) - Ensures changes did not break the functionality or style.)
-* [Selenium](https://github.com/christian-bromann/awesome-selenium#readme) - Open-source browser automation framework and ecosystem.)
-* [Appium](https://github.com/SrinivasanTarget/awesome-appium#readme) - Test automation tool for apps.)
-* [TAP](https://github.com/sindresorhus/awesome-tap#readme) - Test Anything Protocol.)
-* [JMeter](https://github.com/aliesbelik/awesome-jmeter#readme) - Load testing and performance measurement tool.)
-* [k6](https://github.com/k6io/awesome-k6#readme) - Open-source, developer-centric performance monitoring and load testing solution.)
-* [Playwright](https://github.com/mxschmitt/awesome-playwright#readme) - Node.js library to automate Chromium, Firefox and WebKit with a single API.)
-* [Quality Assurance Roadmap](https://github.com/fityanos/awesome-quality-assurance-roadmap#readme) - How to start & build a career in software testing.)
-)
+
+- [Testing](https://github.com/TheJambo/awesome-testing#readme) - Software testing.)
+- [Visual Regression Testing](https://github.com/mojoaxel/awesome-regression-testing#readme) - Ensures changes did not break the functionality or style.)
+- [Selenium](https://github.com/christian-bromann/awesome-selenium#readme) - Open-source browser automation framework and ecosystem.)
+- [Appium](https://github.com/SrinivasanTarget/awesome-appium#readme) - Test automation tool for apps.)
+- [TAP](https://github.com/sindresorhus/awesome-tap#readme) - Test Anything Protocol.)
+- [JMeter](https://github.com/aliesbelik/awesome-jmeter#readme) - Load testing and performance measurement tool.)
+- [k6](https://github.com/k6io/awesome-k6#readme) - Open-source, developer-centric performance monitoring and load testing solution.)
+- [Playwright](https://github.com/mxschmitt/awesome-playwright#readme) - Node.js library to automate Chromium, Firefox and WebKit with a single API.)
+- [Quality Assurance Roadmap](https://github.com/fityanos/awesome-quality-assurance-roadmap#readme) - How to start & build a career in software testing.)
+  )
+
 ## Miscellaneous)
+
 )
-* [JSON](https://github.com/burningtree/awesome-json#readme) - Text based data interchange format.)
-  * [GeoJSON](https://github.com/tmcw/awesome-geojson#readme))
-  * [Datasets](https://github.com/jdorfman/awesome-json-datasets#readme))
-* [CSV](https://github.com/secretGeek/awesomeCSV#readme) - A text file format that stores tabular data and uses a comma to separate values.)
-* [Discounts for Student Developers](https://github.com/AchoArnold/discount-for-student-dev#readme))
-* [Radio](https://github.com/kyleterry/awesome-radio#readme))
-* [Awesome](https://github.com/sindresorhus/awesome#readme) - Recursion illustrated.)
-* [Analytics](https://github.com/onurakpolat/awesome-analytics#readme))
-* [REST](https://github.com/marmelab/awesome-rest#readme))
-* [Continuous Integration and Continuous Delivery](https://github.com/cicdops/awesome-ciandcd#readme))
-* [Services Engineering](https://github.com/mmcgrana/services-engineering#readme))
-* [Free for Developers](https://github.com/ripienaar/free-for-dev#readme))
-* [Answers](https://github.com/cyberglot/awesome-answers#readme) - Stack Overflow, Quora, etc.)
-* [Sketch](https://github.com/diessica/awesome-sketch#readme) - Design app for macOS.)
-* [Boilerplate Projects](https://github.com/melvin0008/awesome-projects-boilerplates#readme))
-* [Readme](https://github.com/matiassingers/awesome-readme#readme))
-* [Design and Development Guides](https://github.com/NARKOZ/guides#readme))
-* [Software Engineering Blogs](https://github.com/kilimchoi/engineering-blogs#readme))
-* [Self Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted#readme))
-* [FOSS Production Apps](https://github.com/DataDaoDe/awesome-foss-apps#readme))
-* [Gulp](https://github.com/alferov/awesome-gulp#readme) - Task runner.)
-* [AMA](https://github.com/sindresorhus/amas#readme) - Ask Me Anything.)
-  * [Answers](https://github.com/stoeffel/awesome-ama-answers#readme))
-* [Open Source Photography](https://github.com/ibaaj/awesome-OpenSourcePhotography#readme))
-* [OpenGL](https://github.com/eug/awesome-opengl#readme) - Cross-platform API for rendering 2D and 3D graphics.)
-* [GraphQL](https://github.com/chentsulin/awesome-graphql#readme))
-* [Transit](https://github.com/CUTR-at-USF/awesome-transit#readme))
-* [Research Tools](https://github.com/emptymalei/awesome-research#readme))
-* [Data Visualization](https://github.com/fasouto/awesome-dataviz#readme))
-* [Social Media Share Links](https://github.com/vinkla/shareable-links#readme))
-* [Microservices](https://github.com/mfornos/awesome-microservices#readme))
-* [Unicode](https://github.com/jagracey/Awesome-Unicode#readme) - Unicode standards, quirks, packages and resources.)
-  * [Code Points](https://github.com/Codepoints/awesome-codepoints#readme))
-* [Beginner-Friendly Projects](https://github.com/MunGell/awesome-for-beginners#readme))
-* [Katas](https://github.com/gamontal/awesome-katas#readme))
-* [Tools for Activism](https://github.com/drewrwilson/toolsforactivism#readme))
-* [Citizen Science](https://github.com/dylanrees/citizen-science#readme) - For community-based and non-institutional scientists.)
-* [MQTT](https://github.com/hobbyquaker/awesome-mqtt#readme) - "Internet of Things" connectivity protocol.)
-* [Hacking Spots](https://github.com/daviddias/awesome-hacking-locations#readme))
-* [For Girls](https://github.com/cristianoliveira/awesome4girls#readme))
-* [Vorpal](https://github.com/vorpaljs/awesome-vorpal#readme) - Node.js CLI framework.)
-* [Vulkan](https://github.com/vinjn/awesome-vulkan#readme) - Low-overhead, cross-platform 3D graphics and compute API.)
-* [LaTeX](https://github.com/egeerardyn/awesome-LaTeX#readme) - Typesetting language.)
-* [Economics](https://github.com/antontarasenko/awesome-economics#readme) - An economist's starter kit.)
-* [Funny Markov Chains](https://github.com/sublimino/awesome-funny-markov#readme))
-* [Bioinformatics](https://github.com/danielecook/Awesome-Bioinformatics#readme))
-* [Cheminformatics](https://github.com/hsiaoyi0504/awesome-cheminformatics#readme) - Informatics techniques applied to problems in chemistry.)
-* [Colorful](https://github.com/Siddharth11/Colorful#readme) - Choose your next color scheme.)
-* [Steam](https://github.com/scholtzm/awesome-steam#readme) - Digital distribution platform.)
-* [Bots](https://github.com/hackerkid/bots#readme) - Building bots.)
-* [Site Reliability Engineering](https://github.com/dastergon/awesome-sre#readme))
-* [Empathy in Engineering](https://github.com/KimberlyMunoz/empathy-in-engineering#readme) - Building and promoting more compassionate engineering cultures.)
-* [DTrace](https://github.com/xen0l/awesome-dtrace#readme) - Dynamic tracing framework.)
-* [Userscripts](https://github.com/bvolpato/awesome-userscripts#readme) - Enhance your browsing experience.)
-* [Pokémon](https://github.com/tobiasbueschel/awesome-pokemon#readme) - Pokémon and Pokémon GO.)
-* [ChatOps](https://github.com/exAspArk/awesome-chatops#readme) - Managing technical and business operations through a chat.)
-* [Falsehood](https://github.com/kdeldycke/awesome-falsehood#readme) - Falsehoods programmers believe in.)
-* [Domain-Driven Design](https://github.com/heynickc/awesome-ddd#readme) - Software development approach for complex needs by connecting the implementation to an evolving model.)
-* [Quantified Self](https://github.com/woop/awesome-quantified-self#readme) - Self-tracking through technology.)
-* [SaltStack](https://github.com/hbokh/awesome-saltstack#readme) - Python-based config management system.)
-* [Web Design](https://github.com/nicolesaidy/awesome-web-design#readme) - For digital designers.)
-* [Creative Coding](https://github.com/terkelg/awesome-creative-coding#readme) - Programming something expressive instead of something functional.)
-* [No-Login Web Apps](https://github.com/aviaryan/awesome-no-login-web-apps#readme) - Web apps that work without login.)
-* [Free Software](https://github.com/johnjago/awesome-free-software#readme) - Free as in freedom.)
-* [Framer](https://github.com/podo/awesome-framer#readme) - Prototyping interactive UI designs.)
-* [Markdown](https://github.com/BubuAnabelas/awesome-markdown#readme) - Markup language.)
-* [Dev Fun](https://github.com/mislavcimpersak/awesome-dev-fun#readme) - Funny developer projects.)
-* [Healthcare](https://github.com/kakoni/awesome-healthcare#readme) - Open source healthcare software for facilities, providers, developers, policy experts, and researchers.)
-* [Magento 2](https://github.com/DavidLambauer/awesome-magento2#readme) - Open Source eCommerce built with PHP.)
-* [TikZ](https://github.com/xiaohanyu/awesome-tikz#readme) - Graph drawing packages for TeX/LaTeX/ConTeXt.)
-* [Neuroscience](https://github.com/analyticalmonk/awesome-neuroscience#readme) - Study of the nervous system and brain.)
-* [Ad-Free](https://github.com/johnjago/awesome-ad-free#readme) - Ad-free alternatives.)
-* [Esolangs](https://github.com/angrykoala/awesome-esolangs#readme) - Programming languages designed for experimentation or as jokes rather than actual use.)
-* [Prometheus](https://github.com/roaldnefs/awesome-prometheus#readme) - Open-source monitoring system.)
-* [Homematic](https://github.com/homematic-community/awesome-homematic#readme) - Smart home devices.)
-* [Ledger](https://github.com/sfischer13/awesome-ledger#readme) - Double-entry accounting on the command-line.)
-* [Web Monetization](https://github.com/thomasbnt/awesome-web-monetization#readme) - A free open web standard service that allows you to send money directly in your browser.)
-* [Uncopyright](https://github.com/johnjago/awesome-uncopyright#readme) - Public domain works.)
-* [Crypto Currency Tools & Algorithms](https://github.com/Zheaoli/awesome-coins#readme) - Digital currency where encryption is used to regulate the generation of units and verify transfers.)
-* [Diversity](https://github.com/folkswhocode/awesome-diversity#readme) - Creating a more inclusive and diverse tech community.)
-* [Open Source Supporters](https://github.com/zachflower/awesome-open-source-supporters#readme) - Companies that offer their tools and services for free to open source projects.)
-* [Design Principles](https://github.com/robinstickel/awesome-design-principles#readme) - Create better and more consistent designs and experiences.)
-* [Theravada](https://github.com/johnjago/awesome-theravada#readme) - Teachings from the Theravada Buddhist tradition.)
-* [inspectIT](https://github.com/inspectit-labs/awesome-inspectit#readme) - Open source Java app performance management tool.)
-* [Open Source Maintainers](https://github.com/nayafia/awesome-maintainers#readme) - The experience of being an open source maintainer.)
-* [Calculators](https://github.com/xxczaki/awesome-calculators#readme) - Calculators for every platform.)
-* [Captcha](https://github.com/ZYSzys/awesome-captcha#readme) - A type of challenge-response test used in computing to determine whether or not the user is human.)
-* [Jupyter](https://github.com/markusschanta/awesome-jupyter#readme) - Create and share documents that contain code, equations, visualizations and narrative text.)
-* [FIRST Robotics Competition](https://github.com/andrewda/awesome-frc#readme) - International high school robotics championship.)
-* [Humane Technology](https://github.com/humanetech-community/awesome-humane-tech#readme) - Open source projects that help improve society.)
-* [Speakers](https://github.com/karlhorky/awesome-speakers#readme) - Conference and meetup speakers in the programming and design community.)
-* [Board Games](https://github.com/edm00se/awesome-board-games#readme) - Table-top gaming fun for all.)
-* [Software Patreons](https://github.com/uraimo/awesome-software-patreons#readme) - Fund individual programmers or the development of open source projects.)
-* [Parasite](https://github.com/ecohealthalliance/awesome-parasite#readme) - Parasites and host-pathogen interactions.)
-* [Food](https://github.com/jzarca01/awesome-food#readme) - Food-related projects on GitHub.)
-* [Mental Health](https://github.com/dreamingechoes/awesome-mental-health#readme) - Mental health awareness and self-care in the software industry.)
-* [Bitcoin Payment Processors](https://github.com/alexk111/awesome-bitcoin-payment-processors#readme) - Start accepting Bitcoin.)
-* [Scientific Computing](https://github.com/nschloe/awesome-scientific-computing#readme) - Solving complex scientific problems using computers.)
-* [Amazon Sellers](https://github.com/ScaleLeap/awesome-amazon-seller#readme))
-* [Agriculture](https://github.com/brycejohnston/awesome-agriculture#readme) - Open source technology for farming and gardening.)
-* [Product Design](https://github.com/matttga/awesome-product-design#readme) - Design a product from the initial concept to production.)
-* [Prisma](https://github.com/catalinmiron/awesome-prisma#readme) - Turn your database into a GraphQL API.)
-* [Software Architecture](https://github.com/simskij/awesome-software-architecture#readme) - The discipline of designing and building software.)
-* [Connectivity Data and Reports](https://github.com/stevesong/awesome-connectivity-info#readme) - Better understand who has access to telecommunication and internet infrastructure and on what terms.)
-* [Stacks](https://github.com/stackshareio/awesome-stacks#readme) - Tech stacks for building different apps and features.)
-* [Cytodata](https://github.com/cytodata/awesome-cytodata#readme) - Image-based profiling of biological phenotypes for computational biologists.)
-* [IRC](https://github.com/davisonio/awesome-irc#readme) - Open source messaging protocol.)
-* [Advertising](https://github.com/cenoura/awesome-ads#readme) - Advertising and programmatic media for websites.)
-* [Earth](https://github.com/philsturgeon/awesome-earth#readme) - Find ways to resolve the climate crisis.)
-* [Naming](https://github.com/gruhn/awesome-naming#readme) - Naming things in computer science done right.)
-* [Biomedical Information Extraction](https://github.com/caufieldjh/awesome-bioie#readme) - How to extract information from unstructured biomedical data and text.)
-* [Web Archiving](https://github.com/iipc/awesome-web-archiving#readme) - An effort to preserve the Web for future generations.)
-* [WP-CLI](https://github.com/schlessera/awesome-wp-cli#readme) - Command-line interface for WordPress.)
-* [Credit Modeling](https://github.com/mourarthur/awesome-credit-modeling#readme) - Methods for classifying credit applicants into risk classes.)
-* [Ansible](https://github.com/KeyboardInterrupt/awesome-ansible#readme) - A Python-based, open source IT configuration management and automation platform.)
-* [Biological Visualizations](https://github.com/keller-mark/awesome-biological-visualizations#readme) - Interactive visualization of biological data on the web.)
-* [QR Code](https://github.com/aureooms/awesome-qr-code#readme) - A type of matrix barcode that can be used to store and share a small amount of information.)
-* [Veganism](https://github.com/sdassow/awesome-veganism#readme) - Making the plant-based lifestyle easy and accessible.)
-* [Translations](https://github.com/mbiesiad/awesome-translations#readme) - The transfer of the meaning of a text from one language to another.)
-)
+
+- [JSON](https://github.com/burningtree/awesome-json#readme) - Text based data interchange format.)
+  - [GeoJSON](https://github.com/tmcw/awesome-geojson#readme))
+  - [Datasets](https://github.com/jdorfman/awesome-json-datasets#readme))
+- [CSV](https://github.com/secretGeek/awesomeCSV#readme) - A text file format that stores tabular data and uses a comma to separate values.)
+- [Discounts for Student Developers](https://github.com/AchoArnold/discount-for-student-dev#readme))
+- [Radio](https://github.com/kyleterry/awesome-radio#readme))
+- [Awesome](https://github.com/sindresorhus/awesome#readme) - Recursion illustrated.)
+- [Analytics](https://github.com/onurakpolat/awesome-analytics#readme))
+- [REST](https://github.com/marmelab/awesome-rest#readme))
+- [Continuous Integration and Continuous Delivery](https://github.com/cicdops/awesome-ciandcd#readme))
+- [Services Engineering](https://github.com/mmcgrana/services-engineering#readme))
+- [Free for Developers](https://github.com/ripienaar/free-for-dev#readme))
+- [Answers](https://github.com/cyberglot/awesome-answers#readme) - Stack Overflow, Quora, etc.)
+- [Sketch](https://github.com/diessica/awesome-sketch#readme) - Design app for macOS.)
+- [Boilerplate Projects](https://github.com/melvin0008/awesome-projects-boilerplates#readme))
+- [Readme](https://github.com/matiassingers/awesome-readme#readme))
+- [Design and Development Guides](https://github.com/NARKOZ/guides#readme))
+- [Software Engineering Blogs](https://github.com/kilimchoi/engineering-blogs#readme))
+- [Self Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted#readme))
+- [FOSS Production Apps](https://github.com/DataDaoDe/awesome-foss-apps#readme))
+- [Gulp](https://github.com/alferov/awesome-gulp#readme) - Task runner.)
+- [AMA](https://github.com/sindresorhus/amas#readme) - Ask Me Anything.)
+  - [Answers](https://github.com/stoeffel/awesome-ama-answers#readme))
+- [Open Source Photography](https://github.com/ibaaj/awesome-OpenSourcePhotography#readme))
+- [OpenGL](https://github.com/eug/awesome-opengl#readme) - Cross-platform API for rendering 2D and 3D graphics.)
+- [GraphQL](https://github.com/chentsulin/awesome-graphql#readme))
+- [Transit](https://github.com/CUTR-at-USF/awesome-transit#readme))
+- [Research Tools](https://github.com/emptymalei/awesome-research#readme))
+- [Data Visualization](https://github.com/fasouto/awesome-dataviz#readme))
+- [Social Media Share Links](https://github.com/vinkla/shareable-links#readme))
+- [Microservices](https://github.com/mfornos/awesome-microservices#readme))
+- [Unicode](https://github.com/jagracey/Awesome-Unicode#readme) - Unicode standards, quirks, packages and resources.)
+  - [Code Points](https://github.com/Codepoints/awesome-codepoints#readme))
+- [Beginner-Friendly Projects](https://github.com/MunGell/awesome-for-beginners#readme))
+- [Katas](https://github.com/gamontal/awesome-katas#readme))
+- [Tools for Activism](https://github.com/drewrwilson/toolsforactivism#readme))
+- [Citizen Science](https://github.com/dylanrees/citizen-science#readme) - For community-based and non-institutional scientists.)
+- [MQTT](https://github.com/hobbyquaker/awesome-mqtt#readme) - "Internet of Things" connectivity protocol.)
+- [Hacking Spots](https://github.com/daviddias/awesome-hacking-locations#readme))
+- [For Girls](https://github.com/cristianoliveira/awesome4girls#readme))
+- [Vorpal](https://github.com/vorpaljs/awesome-vorpal#readme) - Node.js CLI framework.)
+- [Vulkan](https://github.com/vinjn/awesome-vulkan#readme) - Low-overhead, cross-platform 3D graphics and compute API.)
+- [LaTeX](https://github.com/egeerardyn/awesome-LaTeX#readme) - Typesetting language.)
+- [Economics](https://github.com/antontarasenko/awesome-economics#readme) - An economist's starter kit.)
+- [Funny Markov Chains](https://github.com/sublimino/awesome-funny-markov#readme))
+- [Bioinformatics](https://github.com/danielecook/Awesome-Bioinformatics#readme))
+- [Cheminformatics](https://github.com/hsiaoyi0504/awesome-cheminformatics#readme) - Informatics techniques applied to problems in chemistry.)
+- [Colorful](https://github.com/Siddharth11/Colorful#readme) - Choose your next color scheme.)
+- [Steam](https://github.com/scholtzm/awesome-steam#readme) - Digital distribution platform.)
+- [Bots](https://github.com/hackerkid/bots#readme) - Building bots.)
+- [Site Reliability Engineering](https://github.com/dastergon/awesome-sre#readme))
+- [Empathy in Engineering](https://github.com/KimberlyMunoz/empathy-in-engineering#readme) - Building and promoting more compassionate engineering cultures.)
+- [DTrace](https://github.com/xen0l/awesome-dtrace#readme) - Dynamic tracing framework.)
+- [Userscripts](https://github.com/bvolpato/awesome-userscripts#readme) - Enhance your browsing experience.)
+- [Pokémon](https://github.com/tobiasbueschel/awesome-pokemon#readme) - Pokémon and Pokémon GO.)
+- [ChatOps](https://github.com/exAspArk/awesome-chatops#readme) - Managing technical and business operations through a chat.)
+- [Falsehood](https://github.com/kdeldycke/awesome-falsehood#readme) - Falsehoods programmers believe in.)
+- [Domain-Driven Design](https://github.com/heynickc/awesome-ddd#readme) - Software development approach for complex needs by connecting the implementation to an evolving model.)
+- [Quantified Self](https://github.com/woop/awesome-quantified-self#readme) - Self-tracking through technology.)
+- [SaltStack](https://github.com/hbokh/awesome-saltstack#readme) - Python-based config management system.)
+- [Web Design](https://github.com/nicolesaidy/awesome-web-design#readme) - For digital designers.)
+- [Creative Coding](https://github.com/terkelg/awesome-creative-coding#readme) - Programming something expressive instead of something functional.)
+- [No-Login Web Apps](https://github.com/aviaryan/awesome-no-login-web-apps#readme) - Web apps that work without login.)
+- [Free Software](https://github.com/johnjago/awesome-free-software#readme) - Free as in freedom.)
+- [Framer](https://github.com/podo/awesome-framer#readme) - Prototyping interactive UI designs.)
+- [Markdown](https://github.com/BubuAnabelas/awesome-markdown#readme) - Markup language.)
+- [Dev Fun](https://github.com/mislavcimpersak/awesome-dev-fun#readme) - Funny developer projects.)
+- [Healthcare](https://github.com/kakoni/awesome-healthcare#readme) - Open source healthcare software for facilities, providers, developers, policy experts, and researchers.)
+- [Magento 2](https://github.com/DavidLambauer/awesome-magento2#readme) - Open Source eCommerce built with PHP.)
+- [TikZ](https://github.com/xiaohanyu/awesome-tikz#readme) - Graph drawing packages for TeX/LaTeX/ConTeXt.)
+- [Neuroscience](https://github.com/analyticalmonk/awesome-neuroscience#readme) - Study of the nervous system and brain.)
+- [Ad-Free](https://github.com/johnjago/awesome-ad-free#readme) - Ad-free alternatives.)
+- [Esolangs](https://github.com/angrykoala/awesome-esolangs#readme) - Programming languages designed for experimentation or as jokes rather than actual use.)
+- [Prometheus](https://github.com/roaldnefs/awesome-prometheus#readme) - Open-source monitoring system.)
+- [Homematic](https://github.com/homematic-community/awesome-homematic#readme) - Smart home devices.)
+- [Ledger](https://github.com/sfischer13/awesome-ledger#readme) - Double-entry accounting on the command-line.)
+- [Web Monetization](https://github.com/thomasbnt/awesome-web-monetization#readme) - A free open web standard service that allows you to send money directly in your browser.)
+- [Uncopyright](https://github.com/johnjago/awesome-uncopyright#readme) - Public domain works.)
+- [Crypto Currency Tools & Algorithms](https://github.com/Zheaoli/awesome-coins#readme) - Digital currency where encryption is used to regulate the generation of units and verify transfers.)
+- [Diversity](https://github.com/folkswhocode/awesome-diversity#readme) - Creating a more inclusive and diverse tech community.)
+- [Open Source Supporters](https://github.com/zachflower/awesome-open-source-supporters#readme) - Companies that offer their tools and services for free to open source projects.)
+- [Design Principles](https://github.com/robinstickel/awesome-design-principles#readme) - Create better and more consistent designs and experiences.)
+- [Theravada](https://github.com/johnjago/awesome-theravada#readme) - Teachings from the Theravada Buddhist tradition.)
+- [inspectIT](https://github.com/inspectit-labs/awesome-inspectit#readme) - Open source Java app performance management tool.)
+- [Open Source Maintainers](https://github.com/nayafia/awesome-maintainers#readme) - The experience of being an open source maintainer.)
+- [Calculators](https://github.com/xxczaki/awesome-calculators#readme) - Calculators for every platform.)
+- [Captcha](https://github.com/ZYSzys/awesome-captcha#readme) - A type of challenge-response test used in computing to determine whether or not the user is human.)
+- [Jupyter](https://github.com/markusschanta/awesome-jupyter#readme) - Create and share documents that contain code, equations, visualizations and narrative text.)
+- [FIRST Robotics Competition](https://github.com/andrewda/awesome-frc#readme) - International high school robotics championship.)
+- [Humane Technology](https://github.com/humanetech-community/awesome-humane-tech#readme) - Open source projects that help improve society.)
+- [Speakers](https://github.com/karlhorky/awesome-speakers#readme) - Conference and meetup speakers in the programming and design community.)
+- [Board Games](https://github.com/edm00se/awesome-board-games#readme) - Table-top gaming fun for all.)
+- [Software Patreons](https://github.com/uraimo/awesome-software-patreons#readme) - Fund individual programmers or the development of open source projects.)
+- [Parasite](https://github.com/ecohealthalliance/awesome-parasite#readme) - Parasites and host-pathogen interactions.)
+- [Food](https://github.com/jzarca01/awesome-food#readme) - Food-related projects on GitHub.)
+- [Mental Health](https://github.com/dreamingechoes/awesome-mental-health#readme) - Mental health awareness and self-care in the software industry.)
+- [Bitcoin Payment Processors](https://github.com/alexk111/awesome-bitcoin-payment-processors#readme) - Start accepting Bitcoin.)
+- [Scientific Computing](https://github.com/nschloe/awesome-scientific-computing#readme) - Solving complex scientific problems using computers.)
+- [Amazon Sellers](https://github.com/ScaleLeap/awesome-amazon-seller#readme))
+- [Agriculture](https://github.com/brycejohnston/awesome-agriculture#readme) - Open source technology for farming and gardening.)
+- [Product Design](https://github.com/matttga/awesome-product-design#readme) - Design a product from the initial concept to production.)
+- [Prisma](https://github.com/catalinmiron/awesome-prisma#readme) - Turn your database into a GraphQL API.)
+- [Software Architecture](https://github.com/simskij/awesome-software-architecture#readme) - The discipline of designing and building software.)
+- [Connectivity Data and Reports](https://github.com/stevesong/awesome-connectivity-info#readme) - Better understand who has access to telecommunication and internet infrastructure and on what terms.)
+- [Stacks](https://github.com/stackshareio/awesome-stacks#readme) - Tech stacks for building different apps and features.)
+- [Cytodata](https://github.com/cytodata/awesome-cytodata#readme) - Image-based profiling of biological phenotypes for computational biologists.)
+- [IRC](https://github.com/davisonio/awesome-irc#readme) - Open source messaging protocol.)
+- [Advertising](https://github.com/cenoura/awesome-ads#readme) - Advertising and programmatic media for websites.)
+- [Earth](https://github.com/philsturgeon/awesome-earth#readme) - Find ways to resolve the climate crisis.)
+- [Naming](https://github.com/gruhn/awesome-naming#readme) - Naming things in computer science done right.)
+- [Biomedical Information Extraction](https://github.com/caufieldjh/awesome-bioie#readme) - How to extract information from unstructured biomedical data and text.)
+- [Web Archiving](https://github.com/iipc/awesome-web-archiving#readme) - An effort to preserve the Web for future generations.)
+- [WP-CLI](https://github.com/schlessera/awesome-wp-cli#readme) - Command-line interface for WordPress.)
+- [Credit Modeling](https://github.com/mourarthur/awesome-credit-modeling#readme) - Methods for classifying credit applicants into risk classes.)
+- [Ansible](https://github.com/KeyboardInterrupt/awesome-ansible#readme) - A Python-based, open source IT configuration management and automation platform.)
+- [Biological Visualizations](https://github.com/keller-mark/awesome-biological-visualizations#readme) - Interactive visualization of biological data on the web.)
+- [QR Code](https://github.com/aureooms/awesome-qr-code#readme) - A type of matrix barcode that can be used to store and share a small amount of information.)
+- [Veganism](https://github.com/sdassow/awesome-veganism#readme) - Making the plant-based lifestyle easy and accessible.)
+- [Translations](https://github.com/mbiesiad/awesome-translations#readme) - The transfer of the meaning of a text from one language to another.)
+  )
+
 ## Related)
-)
-* [All Awesome Lists](https://github.com/topics/awesome) - All the Awesome lists on GitHub.)
-* [Awesome Indexed](https://awesome-indexed.mathew-davies.co.uk/) - Search the Awesome dataset.)
-* [Awesome Search](https://awesomelists.top/) - Quick search for Awesome lists.)
-* [StumbleUponAwesome](https://github.com/basharovV/StumbleUponAwesome) - Discover random pages from the Awesome dataset using a browser extension.)
-* [Awesome CLI](https://github.com/umutphp/awesome-cli) - A simple command-line tool to dive into Awesome lists.)
-* [Awesome Viewer](http://awesome.digitalbunker.dev/) - A visualizer for all of the above Awesome lists.)
-)
- Created 1 minute ago \| Updated 58 seconds ago)
+
 )
 
+- [All Awesome Lists](https://github.com/topics/awesome) - All the Awesome lists on GitHub.)
+- [Awesome Indexed](https://awesome-indexed.mathew-davies.co.uk/) - Search the Awesome dataset.)
+- [Awesome Search](https://awesomelists.top/) - Quick search for Awesome lists.)
+- [StumbleUponAwesome](https://github.com/basharovV/StumbleUponAwesome) - Discover random pages from the Awesome dataset using a browser extension.)
+- [Awesome CLI](https://github.com/umutphp/awesome-cli) - A simple command-line tool to dive into Awesome lists.)
+- [Awesome Viewer](http://awesome.digitalbunker.dev/) - A visualizer for all of the above Awesome lists.)
+  )
+  Created 1 minute ago \| Updated 58 seconds ago)
+  )
 
-----
+---
 
 <details> <summary>1-projects/Atomic-Design-Solution-master/dogs/</summary>
 
 ### [1-projects/Atomic-Design-Solution-master/dogs/README.md](1-projects/Atomic-Design-Solution-master/dogs/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Table of Contents](#table-of-contents)
 - [Updating to New Releases](#updating-to-new-releases)
@@ -5664,9 +5738,9 @@
   - [Configuring the Proxy Manually](#configuring-the-proxy-manually)
   - [Configuring a WebSocket Proxy](#configuring-a-websocket-proxy)
 - [Using HTTPS in Development](#using-https-in-development)
-    - [Windows (cmd.exe)](#windows-cmdexe-1)
-    - [Windows (Powershell)](#windows-powershell-1)
-    - [Linux, macOS (Bash)](#linux-macos-bash-1)
+  - [Windows (cmd.exe)](#windows-cmdexe-1)
+  - [Windows (Powershell)](#windows-powershell-1)
+  - [Linux, macOS (Bash)](#linux-macos-bash-1)
 - [Generating Dynamic `<meta>` Tags on the Server](#generating-dynamic-meta-tags-on-the-server)
 - [Pre-Rendering into Static HTML Files](#pre-rendering-into-static-html-files)
 - [Injecting Data from the Server into the Page](#injecting-data-from-the-server-into-the-page)
@@ -5688,9 +5762,9 @@
     - [Travis CI](#travis-ci)
     - [CircleCI](#circleci)
   - [On your own environment](#on-your-own-environment)
-      - [Windows (cmd.exe)](#windows-cmdexe-2)
-      - [Windows (Powershell)](#windows-powershell-2)
-      - [Linux, macOS (Bash)](#linux-macos-bash-2)
+    - [Windows (cmd.exe)](#windows-cmdexe-2)
+    - [Windows (Powershell)](#windows-powershell-2)
+    - [Linux, macOS (Bash)](#linux-macos-bash-2)
   - [Disabling jsdom](#disabling-jsdom)
   - [Snapshot Testing](#snapshot-testing)
   - [Editor Integration](#editor-integration)
@@ -5742,13 +5816,14 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 </details><details> <summary>1-projects/Atomic-Design-Solution-master/</summary>
 
 ### [1-projects/Atomic-Design-Solution-master/README.md](1-projects/Atomic-Design-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Client Side Routing - HTTP - Atomic Design](#client-side-routing---http---atomic-design)
   - [Topics](#topics)
@@ -5762,88 +5837,92 @@
 # Client Side Routing - HTTP - Atomic Design
 
 ## Topics
-  * Routing with React Router
-  * Axios for making HTTP requests
-  * JavaScript Promises
-  * Atomic Design
+
+- Routing with React Router
+- Axios for making HTTP requests
+- JavaScript Promises
+- Atomic Design
 
 ## Description
+
 In this `create-react-app` initialized app, you will be working with the provided UI library, which has been developed based on `Atomic Design` principles. This is not the only way to design and organize your components, but it will serve as an example of a very strong option.
 
 The app you will be finishing is an app that lists a few dog breeds, shows an image, and provides links to view their sub-breeds.
 
 ## Instructions
+
 You are given the `atoms`, `molecules`, `organisms`, and `templates` needed to build out this app. You will just need to consume them in your pages `Breeds.js` and `SubBreeds.js`. All of your HTTP requests should be made from inside of the page files.
 
-* Requirements for `Breeds.js`
-  * Title should be "Breeds"
-  * Show a list of dog breeds
-  * Each list item should be a link to a `SubBreed` page that shows the sub-breed details
-  * Show an image of the first dog breed in the list, with that breed as a title for the image
-  * use the provided method `filterBreeds` or any modification of it to limit the list (This is to make sure that the breeds we show actually have sub-breeds. Make sure you still make the initial get requests for the list of dogs first though as part of the assignment exercise)
+- Requirements for `Breeds.js`
 
-* Requirements for `SubBreeds.js`
-  * Title should be "Sub-breeds"
-  * Subtitle should be the given breed
-  * Show a list of sub-breeds for the given breed
-  * Show an image of the first sub-breed in the list, with that sub-breed as a title for the image
+  - Title should be "Breeds"
+  - Show a list of dog breeds
+  - Each list item should be a link to a `SubBreed` page that shows the sub-breed details
+  - Show an image of the first dog breed in the list, with that breed as a title for the image
+  - use the provided method `filterBreeds` or any modification of it to limit the list (This is to make sure that the breeds we show actually have sub-breeds. Make sure you still make the initial get requests for the list of dogs first though as part of the assignment exercise)
 
-##  Resources
-  * Dog Breed API: https://dog.ceo/dog-api/
-  * Atomic Design: http://bradfrost.com/blog/post/atomic-web-design/
+- Requirements for `SubBreeds.js`
+  - Title should be "Sub-breeds"
+  - Subtitle should be the given breed
+  - Show a list of sub-breeds for the given breed
+  - Show an image of the first sub-breed in the list, with that sub-breed as a title for the image
+
+## Resources
+
+- Dog Breed API: https://dog.ceo/dog-api/
+- Atomic Design: http://bradfrost.com/blog/post/atomic-web-design/
 
 ## Post-assignment Resouces:
-  * Component Folder Pattern: https://medium.com/styled-components/component-folder-pattern-ee42df37ec68
-  * Modified Atomic Design: https://medium.com/@yejodido/atomic-components-managing-dynamic-react-components-using-atomic-design-part-1-5f07451f261f
 
-
-
-
-
+- Component Folder Pattern: https://medium.com/styled-components/component-folder-pattern-ee42df37ec68
+- Modified Atomic Design: https://medium.com/@yejodido/atomic-components-managing-dynamic-react-components-using-atomic-design-part-1-5f07451f261f
 
 </details><details> <summary>1-projects/Basic-JavaScript-master/</summary>
 
 ### [1-projects/Basic-JavaScript-master/README.md](1-projects/Basic-JavaScript-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Basic JavaScript + ES6](#basic-javascript--es6)
-    - [Project Description](#project-description)
-    - [Instructions](#instructions)
+  - [Project Description](#project-description)
+  - [Instructions](#instructions)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Basic JavaScript + ES6
-* ES6 
-* Const vs Let vs Var
-* Lambda/Arrow functions
-* Object Destructuring 
+
+- ES6
+- Const vs Let vs Var
+- Lambda/Arrow functions
+- Object Destructuring
 
 ### Project Description
-* This project should be very familiar to you. You have already suffered through the logic behind a lot of these expressions/functions. 
-* We're excited to give you something you've already worked on, but to now just convert the code into ES6 syntax. 
-* Learning to program is all about repetition. So teaching you a new concept with material that you've already learned will help you solidify the material and also teach you new concepts along the way.
-* Project files 1 - 3 are all that need to be completed for this assignment. And Project-4 is *Extra Credit*. 
-* Please have fun!
+
+- This project should be very familiar to you. You have already suffered through the logic behind a lot of these expressions/functions.
+- We're excited to give you something you've already worked on, but to now just convert the code into ES6 syntax.
+- Learning to program is all about repetition. So teaching you a new concept with material that you've already learned will help you solidify the material and also teach you new concepts along the way.
+- Project files 1 - 3 are all that need to be completed for this assignment. And Project-4 is _Extra Credit_.
+- Please have fun!
 
 ### Instructions
-* Fork and clone this repo.
-* `cd` into this project and Run the command `npm i` to install needed node packages.
-* Run the command `npm test` to run the tests.
-* Work through the files and make the tests pass.
-* Submit a pull request when you are finished and we will review your code.
 
-
-
-
+- Fork and clone this repo.
+- `cd` into this project and Run the command `npm i` to install needed node packages.
+- Run the command `npm test` to run the tests.
+- Work through the files and make the tests pass.
+- Submit a pull request when you are finished and we will review your code.
 
 </details><details> <summary>1-projects/Client-Auth-Solution-master/</summary>
 
 ### [1-projects/Client-Auth-Solution-master/README.md](1-projects/Client-Auth-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [LS-Client-Auth](#ls-client-auth)
   - [Packages](#packages)
@@ -5856,57 +5935,55 @@ You are given the `atoms`, `molecules`, `organisms`, and `templates` needed to b
 
 ## Packages
 
-* `redux-thunk`
-* `cors`
+- `redux-thunk`
+- `cors`
 
 ## Topics
 
-*  Redux Thunk
-* localStorage
-* axios's config object
-* http headers
-
+- Redux Thunk
+- localStorage
+- axios's config object
+- http headers
 
 ## Assignment
 
-Clone down this project.  Run `npm i`.
+Clone down this project. Run `npm i`.
 Start your MongoDB server by running `mongod` from the command line.
 Start the server (on the solution branch) of the LS-Auth repository.
 
-Complete the SignUp component.  When the user fills out the form you should send and
-axios POST request to the server to save the user to the database.  If successful then you
+Complete the SignUp component. When the user fills out the form you should send and
+axios POST request to the server to save the user to the database. If successful then you
 should save the provided JWT to localStorage and then redirect the user to `/users`.
 User the existing code as a reference.
 
 You will also need to make sure that your server is using the `cors` middleware.
 Instructions for adding cors:
-* `npm i --save cors`
-* `const cors = require('cors');`
-* `app.use(cors());`
 
-
-
-
+- `npm i --save cors`
+- `const cors = require('cors');`
+- `app.use(cors());`
 
 </details><details> <summary>1-projects/Components-BEM-Solution-master/</summary>
 
 ### [1-projects/Components-BEM-Solution-master/README.md](1-projects/Components-BEM-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [**COMPONENTS-BEM**](#components-bem)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-**COMPONENTS-BEM**
-----------------------------------
+## **COMPONENTS-BEM**
 
 Topics:
-* Naming Conventions
-* BEM
-* Constructors with ES6 class syntax
+
+- Naming Conventions
+- BEM
+- Constructors with ES6 class syntax
 
 You will be turning the wireframes provided in the markups directory into a page.
 
@@ -5917,21 +5994,20 @@ Here is some Lorem Ipsum text:
 
 `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus nibh, gravida nec felis quis, facilisis facilisis lectus. Nulla ac orci pretium, condimentum orci quis, accumsan nisi. Aliquam erat volutpat. Curabitur cursus mattis libero, at viverra risus hendrerit quis. Fusce imperdiet tristique tortor non tincidunt. Mauris accumsan urna nec augue feugiat porta. Proin vitae magna in ex malesuada laoreet eget a nulla. Aliquam tristique et elit at consequat. In hac habitasse platea dictumst.`
 
-
 ## Resources
-  BEM: http://getbem.com/naming/
-  
-  Constructors (and factory function): https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
 
+BEM: http://getbem.com/naming/
 
-
+Constructors (and factory function): https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
 
 </details><details> <summary>1-projects/Components-Constructors-Solution-master/</summary>
 
 ### [1-projects/Components-Constructors-Solution-master/README.md](1-projects/Components-Constructors-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [**COMPONENTS-CONSTURCTORS**](#components-consturctors)
 - [Description](#description)
@@ -5939,13 +6015,13 @@ Here is some Lorem Ipsum text:
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-**COMPONENTS-CONSTURCTORS**
-----------------------------------
+## **COMPONENTS-CONSTURCTORS**
 
 Topics:
-* Naming Conventions
-* BEM
-* Constructors with ES6 class syntax
+
+- Naming Conventions
+- BEM
+- Constructors with ES6 class syntax
 
 You will be building on your prior work from Components-BEM by adding a `Tabs` component.
 
@@ -5954,27 +6030,27 @@ The HTML and CSS for the Tabs component and instance are provided so that you ma
 You may need to adjust some of the naming for the usuage of `Box` in the HTML provided if it's different in your implementation.
 
 ## Description
-  The `Tabs` component should be a grouping of links and associated items. Only one item is shown at a time, and each item is shown when its corresponding link is clicked. You should default to the first link and item upon page load.
 
-  You will also be doing a more complex query with `querySelector` and Data Attributes. It's a great challenge to try to work out on your own. If it's holding you back too much, you may ask your TA for the solution to that query.
+The `Tabs` component should be a grouping of links and associated items. Only one item is shown at a time, and each item is shown when its corresponding link is clicked. You should default to the first link and item upon page load.
+
+You will also be doing a more complex query with `querySelector` and Data Attributes. It's a great challenge to try to work out on your own. If it's holding you back too much, you may ask your TA for the solution to that query.
 
 ## Resources
 
-  Data Attributes: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+Data Attributes: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 
-  BEM: http://getbem.com/naming/
-  
-  Constructors (and factory function): https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
+BEM: http://getbem.com/naming/
 
-
-
+Constructors (and factory function): https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
 
 </details><details> <summary>1-projects/Data-Structures-master/</summary>
 
 ### [1-projects/Data-Structures-master/Data_Structures_Questions.md](1-projects/Data-Structures-master/Data_Structures_Questions.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Stack](#stack)
 - [Queue](#queue)
@@ -6040,14 +6116,14 @@ Answer the following questions for each of the data structures you implemented a
 
 ## Binary Search Tree
 
-1. What is the runtime complexity of `insert`? 
+1. What is the runtime complexity of `insert`?
 
 2. What is the runtime complexity of `contains`?
 
-3. What is the runtime complexity of `get_max`? 
+3. What is the runtime complexity of `get_max`?
 
 4. What is the runtime complexity of `for_each`?
-    
+
 ## Heap
 
 1. What is the runtime complexity of `_bubble_up`?
@@ -6060,15 +6136,12 @@ Answer the following questions for each of the data structures you implemented a
 
 5. What is the runtime complexity of `get_max`?
 
-
-
-
-
 ### [1-projects/Data-Structures-master/FAQ.md](1-projects/Data-Structures-master/FAQ.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Data Structures FAQ](#data-structures-faq)
   - [Contents](#contents)
@@ -6078,7 +6151,7 @@ Answer the following questions for each of the data structures you implemented a
       - [What are real-world use-cases for a Stack data structure?](#what-are-real-world-use-cases-for-a-stack-data-structure)
       - [What are real-world use-cases for a Linked List data structure?](#what-are-real-world-use-cases-for-a-linked-list-data-structure)
       - [How are Linked-Lists different than an Array?](#how-are-linked-lists-different-than-an-array)
-      - [I've always been able to add as much as I want to an Array and take things out from the beginning, end, or anywhere else.  It's never been a problem before, why are we bothering with all of this?](#ive-always-been-able-to-add-as-much-as-i-want-to-an-array-and-take-things-out-from-the-beginning-end-or-anywhere-else--its-never-been-a-problem-before-why-are-we-bothering-with-all-of-this)
+      - [I've always been able to add as much as I want to an Array and take things out from the beginning, end, or anywhere else. It's never been a problem before, why are we bothering with all of this?](#ive-always-been-able-to-add-as-much-as-i-want-to-an-array-and-take-things-out-from-the-beginning-end-or-anywhere-else--its-never-been-a-problem-before-why-are-we-bothering-with-all-of-this)
       - [What are real-world use-cases for a LRU Cache?](#what-are-real-world-use-cases-for-a-lru-cache)
       - [What is the dictionary being used for in the LRU Cache?](#what-is-the-dictionary-being-used-for-in-the-lru-cache)
       - [What are real-world use-cases for a Binary Search Tree data structure?](#what-are-real-world-use-cases-for-a-binary-search-tree-data-structure)
@@ -6089,59 +6162,73 @@ Answer the following questions for each of the data structures you implemented a
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Data Structures FAQ
+
 ## Contents
+
 ### General
 
 #### My imports aren't working, help!
-Python can be tricky with how imports work and can vary from environment to environment.  If you are having trouble, the easiest solution is to copy the file you want to import into the same folder as the file you want to import it into and use `from file import class`.
 
-This is not a best practice for a real application, but it is acceptable for this exercise.  Just remember that this may mean if you want to change or update your code, you will have to do it in multiple places.
+Python can be tricky with how imports work and can vary from environment to environment. If you are having trouble, the easiest solution is to copy the file you want to import into the same folder as the file you want to import it into and use `from file import class`.
+
+This is not a best practice for a real application, but it is acceptable for this exercise. Just remember that this may mean if you want to change or update your code, you will have to do it in multiple places.
 
 #### What are real-world use-cases for a Queue data structure?
-Queues are used anywhere in which you want to work with data `First in First Out` (FIFO).  Server requests, without any prioritization, are handled this way. We'll also use it to conduct a breadth first traversal and breadth first search. 
+
+Queues are used anywhere in which you want to work with data `First in First Out` (FIFO). Server requests, without any prioritization, are handled this way. We'll also use it to conduct a breadth first traversal and breadth first search.
 
 #### What are real-world use-cases for a Stack data structure?
-Stacks are used when you want to work with data `Last in First Out` (LIFO or FILO).  They're used in processor architecture,  undo logic, and depth first searches and traversals.
+
+Stacks are used when you want to work with data `Last in First Out` (LIFO or FILO). They're used in processor architecture, undo logic, and depth first searches and traversals.
 
 #### What are real-world use-cases for a Linked List data structure?
-Linked Lists can be used to create `queues` and `stacks`.  They're also a key part of resolving collisions in hash tables, which we'll learn more about in a few weeks.
+
+Linked Lists can be used to create `queues` and `stacks`. They're also a key part of resolving collisions in hash tables, which we'll learn more about in a few weeks.
 
 #### How are Linked-Lists different than an Array?
-Both linked lists and arrays are linear data structures.  An array is the most space efficient type of storage possible and has great time complexity for most operations.  Logically, the array is linear in structure, and it is stored in a linear segment of memory.  It is accessed by starting at the memory address of the pointer and counting forward the number of bits resulting from the `index` times the size of the data type.  One weakness is the time complexity of operations that take data out of anywhere but the end and another is changing the size of the array.
 
-A linked list is not as efficient for storage because each element requires a pointer to the next, and in a doubly-linked list, previous element.  It is also more difficult to access the elements.  Because there's no index, you must loop through the list to search for the item you want, which is O(n).  However, a linked list does not require a contiguous block of memory.  It has 0(1) to remove or add items anywhere in the list.
+Both linked lists and arrays are linear data structures. An array is the most space efficient type of storage possible and has great time complexity for most operations. Logically, the array is linear in structure, and it is stored in a linear segment of memory. It is accessed by starting at the memory address of the pointer and counting forward the number of bits resulting from the `index` times the size of the data type. One weakness is the time complexity of operations that take data out of anywhere but the end and another is changing the size of the array.
 
-Generally speaking, it's usually best to use an array unless you expect to frequently add and remove items from anywhere other than the end.  In that case, it's better to use a linked list.  
+A linked list is not as efficient for storage because each element requires a pointer to the next, and in a doubly-linked list, previous element. It is also more difficult to access the elements. Because there's no index, you must loop through the list to search for the item you want, which is O(n). However, a linked list does not require a contiguous block of memory. It has 0(1) to remove or add items anywhere in the list.
 
-#### I've always been able to add as much as I want to an Array and take things out from the beginning, end, or anywhere else.  It's never been a problem before, why are we bothering with all of this?
-We're looking under the hood!  High level languages like Python abstract away most of the inner workings of everything we do.  Most of the time this is a good thing and most of the time it doesn't matter.  However, we're professional engineers and sometimes we need to solve problems where the details can have a major impact on success or failure.  Think about your car.  Do you know exactly how much weight you can put in it?  Probably not, nor do you need to.  But if you find yourself needing to put a load of bags of concrete in the trunk it suddenly becomes very important.  As an engineer, you'll be expected to understand when the details do and do not matter.
+Generally speaking, it's usually best to use an array unless you expect to frequently add and remove items from anywhere other than the end. In that case, it's better to use a linked list.
+
+#### I've always been able to add as much as I want to an Array and take things out from the beginning, end, or anywhere else. It's never been a problem before, why are we bothering with all of this?
+
+We're looking under the hood! High level languages like Python abstract away most of the inner workings of everything we do. Most of the time this is a good thing and most of the time it doesn't matter. However, we're professional engineers and sometimes we need to solve problems where the details can have a major impact on success or failure. Think about your car. Do you know exactly how much weight you can put in it? Probably not, nor do you need to. But if you find yourself needing to put a load of bags of concrete in the trunk it suddenly becomes very important. As an engineer, you'll be expected to understand when the details do and do not matter.
 
 #### What are real-world use-cases for a LRU Cache?
-An LRU cache is an efficient type of caching system that keeps recently used items and when the cache becomes full, pushes out the least recently used item in the cache.  It can be used any time a subset of data is used frequently that needs to be pulled from a source with a long lookup time.  For example, cacheing the most frequently accessed items from a database on a remote server.
+
+An LRU cache is an efficient type of caching system that keeps recently used items and when the cache becomes full, pushes out the least recently used item in the cache. It can be used any time a subset of data is used frequently that needs to be pulled from a source with a long lookup time. For example, cacheing the most frequently accessed items from a database on a remote server.
 
 #### What is the dictionary being used for in the LRU Cache?
-We can't access items in a linked list directly because linked lists are not indexed.  To see if an item is already in the cache, we'd need to loop through the cache at O(n).  By also adding a dictionary to organize the nodes that are already present in memory, we index the linked list for a very small overhead cost.
+
+We can't access items in a linked list directly because linked lists are not indexed. To see if an item is already in the cache, we'd need to loop through the cache at O(n). By also adding a dictionary to organize the nodes that are already present in memory, we index the linked list for a very small overhead cost.
 
 #### What are real-world use-cases for a Binary Search Tree data structure?
+
 A BST in the way that is being implemented for this Sprint is a bit too simple to see any real-world use-cases. There are many (more complex) variants of BSTs that do see production use. One very notable variant is the [B-tree](https://en.wikipedia.org/wiki/B-tree), which is a self-balancing ordered variant of the BST. B-trees play a critical role in database and file system indexing. Other notable variants include the AVL tree, which is a self-balancing BST and the prefix tree, which is specialized for handling text.
 
 #### How is the root element of a Binary Search Tree decided?
-The first element added to a BST is the root of the tree. However, doing it this way means that it's a very simple matter to end up with a lopsided BST. If we simply insert a monotonically ascending or descending sequence of values, then the tree would essentially flatten down to a linked list, and we'd lose all the benefits that a BST is supposed to confer. Self-balancing variants of the BST exist in order to alleviate this exact problem. 
+
+The first element added to a BST is the root of the tree. However, doing it this way means that it's a very simple matter to end up with a lopsided BST. If we simply insert a monotonically ascending or descending sequence of values, then the tree would essentially flatten down to a linked list, and we'd lose all the benefits that a BST is supposed to confer. Self-balancing variants of the BST exist in order to alleviate this exact problem.
 
 #### What is the difference between Breadth First and Depth First?
-In depth first, we pick one path at each branch and keep going forward until we hit a dead end, then  backtrack and take the first branch we find.  In breadth first, we go by layers, one row deeper each time.  This means that we jump around a bit.
+
+In depth first, we pick one path at each branch and keep going forward until we hit a dead end, then backtrack and take the first branch we find. In breadth first, we go by layers, one row deeper each time. This means that we jump around a bit.
 
 #### What is the difference between a Search and a Traversal?
-A search and a traversal are processed exactly the same.  The difference is that we stop a search when we find what we were looking for, or when all nodes have been visited without finding it.  In a traversal, we always keep going until we've visited every node.
 
-
+A search and a traversal are processed exactly the same. The difference is that we stop a search when we find what we were looking for, or when all nodes have been visited without finding it. In a traversal, we always keep going until we've visited every node.
 
 </details><details> <summary>1-projects/Data-Structures-master/heap/</summary>
 
 ### [1-projects/Data-Structures-master/heap/README.md](1-projects/Data-Structures-master/heap/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Stretch Goal: Heaps](#stretch-goal-heaps)
   - [Max Heaps](#max-heaps)
@@ -6152,34 +6239,35 @@ A search and a traversal are processed exactly the same.  The difference is that
 # Stretch Goal: Heaps
 
 ## Max Heaps
-* Should have the methods `insert`, `delete`, `get_max`, `_bubble_up`, and `_sift_down`.
-  * `insert` adds the input value into the heap; this method should ensure that the inserted value is in the correct spot in the heap
-  * `delete` removes and returns the 'topmost' value from the heap; this method needs to ensure that the heap property is maintained after the topmost element has been removed. 
-  * `get_max` returns the maximum value in the heap _in constant time_.
-  * `get_size` returns the number of elements stored in the heap.
-  * `_bubble_up` moves the element at the specified index "up" the heap by swapping it with its parent if the parent's value is less than the value at the specified index.
-  * `_sift_down` grabs the indices of this element's children and determines which child has a larger value. If the larger child's value is larger than the parent's value, the child element is swapped with the parent.
+
+- Should have the methods `insert`, `delete`, `get_max`, `_bubble_up`, and `_sift_down`.
+  - `insert` adds the input value into the heap; this method should ensure that the inserted value is in the correct spot in the heap
+  - `delete` removes and returns the 'topmost' value from the heap; this method needs to ensure that the heap property is maintained after the topmost element has been removed.
+  - `get_max` returns the maximum value in the heap _in constant time_.
+  - `get_size` returns the number of elements stored in the heap.
+  - `_bubble_up` moves the element at the specified index "up" the heap by swapping it with its parent if the parent's value is less than the value at the specified index.
+  - `_sift_down` grabs the indices of this element's children and determines which child has a larger value. If the larger child's value is larger than the parent's value, the child element is swapped with the parent.
 
 ![Image of a Heap in Tree form](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Max-Heap.svg/501px-Max-Heap.svg.png)
 
 ![Image of a Heap in Array form](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/603px-Heap-as-array.svg.png)
 
 ## Generic Heaps
+
 A max heap is pretty useful, but what's even more useful is to have our heap be generic such that the user can define their own priority function and pass it to the heap to use.
 
 Augment your heap implementation so that it exhibits this behavior. If no comparator function is passed in to the heap constructor, it should default to being a max heap. Also change the name of the `get_max` function to `get_priority`.
 
-You can test your implementation against the tests in `test_generic_heap.py`. The test expects your augmented heap implementation lives in a file called `generic_heap.py`. Feel free to change the import statement to work with your file structure or copy/paste your implementation into a file with the expected name. 
-
-
-
+You can test your implementation against the tests in `test_generic_heap.py`. The test expects your augmented heap implementation lives in a file called `generic_heap.py`. Feel free to change the import statement to work with your file structure or copy/paste your implementation into a file with the expected name.
 
 </details><details> <summary>1-projects/Data-Structures-master/</summary>
 
 ### [1-projects/Data-Structures-master/README.md](1-projects/Data-Structures-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Data Structures](#data-structures)
   - [Completion Requirements](#completion-requirements)
@@ -6193,91 +6281,101 @@ You can test your implementation against the tests in `test_generic_heap.py`. Th
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Data Structures 
+# Data Structures
 
 Topics:
- * Singly Linked Lists
- * Queues and Stacks
- * Doubly Linked Lists
- * Binary Search Trees
- * Related Code Challenge Problems
+
+- Singly Linked Lists
+- Queues and Stacks
+- Doubly Linked Lists
+- Binary Search Trees
+- Related Code Challenge Problems
 
 Stretch Goals:
- * LRU Cache
- * Heaps
- * AVL Trees
+
+- LRU Cache
+- Heaps
+- AVL Trees
 
 ## Completion Requirements
- * Module 1: Implement the Stack and Queue classes using built-in Python lists and the Node and LinkedList classes you created during the Module 1 Guided Project.
- * Module 2: Implement the Doubly Linked List class
- * Module 3: Implement the Binary Search Tree class
- * Module 4: Implement traversal methods on Binary Search Trees
- 
- > NOTE: The quickest and easiest way to reliably import a file in Python is to just copy and paste the file you want to import into the same directory as the file that wants to import. This obviously isn't considered best practice, but it is the most reliable way to do it across all platforms.  If the import isn't working, feel free to try this method.
+
+- Module 1: Implement the Stack and Queue classes using built-in Python lists and the Node and LinkedList classes you created during the Module 1 Guided Project.
+- Module 2: Implement the Doubly Linked List class
+- Module 3: Implement the Binary Search Tree class
+- Module 4: Implement traversal methods on Binary Search Trees
+
+> NOTE: The quickest and easiest way to reliably import a file in Python is to just copy and paste the file you want to import into the same directory as the file that wants to import. This obviously isn't considered best practice, but it is the most reliable way to do it across all platforms. If the import isn't working, feel free to try this method.
 
 ### Stacks
-* Should have the methods: `push`, `pop`, and `len`.
-   * `push` adds an item to the top of the stack.
-   * `pop` removes and returns the element at the top of the stack
-   * `len` returns the number of elements in the stack.
+
+- Should have the methods: `push`, `pop`, and `len`.
+  - `push` adds an item to the top of the stack.
+  - `pop` removes and returns the element at the top of the stack
+  - `len` returns the number of elements in the stack.
 
 ### Queues
- * Has the methods: `enqueue`, `dequeue`, and `len`.
-   * `enqueue` adds an element to the back of the queue.
-   * `dequeue` removes and returns the element at the front of the queue.
-   * `len` returns the number of elements in the queue.
- 
+
+- Has the methods: `enqueue`, `dequeue`, and `len`.
+  - `enqueue` adds an element to the back of the queue.
+  - `dequeue` removes and returns the element at the front of the queue.
+  - `len` returns the number of elements in the queue.
+
 ![Image of Queue](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/600px-Data_Queue.svg.png)
 
 ### Doubly Linked Lists
- * The `ListNode` class, which represents a single node in the doubly-linked list, has already been implemented for you. Inspect this code and try to understand what it is doing to the best of your ability.
- * The `DoublyLinkedList` class itself should have the methods: `add_to_head`, `add_to_tail`, `remove_from_head`, `remove_from_tail`, `move_to_front`, `move_to_end`, `delete`, and `get_max`.
-   * `add_to_head` replaces the head of the list with a new value that is passed in.
-   * `add_to_tail` replaces the tail of the list with a new value that is passed in.
-   * `remove_from_head` removes the head node and returns the value stored in it.
-   * `remove_from_tail` removes the tail node and returns the value stored in it.
-   * `move_to_front` takes a reference to a node in the list and moves it to the front of the list, shifting all other list nodes down. 
-   * `move_to_end` takes a reference to a node in the list and moves it to the end of the list, shifting all other list nodes up. 
-   * `delete` takes a reference to a node in the list and removes it from the list. The deleted node's `previous` and `next` pointers should point to each afterwards.
-   * `get_max` returns the maximum value in the list. 
- * The `head` property is a reference to the first node and the `tail` property is a reference to the last node.
- 
+
+- The `ListNode` class, which represents a single node in the doubly-linked list, has already been implemented for you. Inspect this code and try to understand what it is doing to the best of your ability.
+- The `DoublyLinkedList` class itself should have the methods: `add_to_head`, `add_to_tail`, `remove_from_head`, `remove_from_tail`, `move_to_front`, `move_to_end`, `delete`, and `get_max`.
+  - `add_to_head` replaces the head of the list with a new value that is passed in.
+  - `add_to_tail` replaces the tail of the list with a new value that is passed in.
+  - `remove_from_head` removes the head node and returns the value stored in it.
+  - `remove_from_tail` removes the tail node and returns the value stored in it.
+  - `move_to_front` takes a reference to a node in the list and moves it to the front of the list, shifting all other list nodes down.
+  - `move_to_end` takes a reference to a node in the list and moves it to the end of the list, shifting all other list nodes up.
+  - `delete` takes a reference to a node in the list and removes it from the list. The deleted node's `previous` and `next` pointers should point to each afterwards.
+  - `get_max` returns the maximum value in the list.
+- The `head` property is a reference to the first node and the `tail` property is a reference to the last node.
+
 ![Image of Doubly Linked List](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png)
 
 ### Binary Search Trees
-* Should have the methods `insert`, `contains`, `get_max`.
-  * `insert` adds the input value to the binary search tree, adhering to the rules of the ordering of elements in a binary search tree.
-  * `contains` searches the binary search tree for the input value, returning a boolean indicating whether the value exists in the tree or not.
-  * `get_max` returns the maximum value in the binary search tree.
-  * `for_each` performs a traversal of _every_ node in the tree, executing the passed-in callback function on each tree node value. There is a myriad of ways to perform tree traversal; in this case any of them should work. 
+
+- Should have the methods `insert`, `contains`, `get_max`.
+  - `insert` adds the input value to the binary search tree, adhering to the rules of the ordering of elements in a binary search tree.
+  - `contains` searches the binary search tree for the input value, returning a boolean indicating whether the value exists in the tree or not.
+  - `get_max` returns the maximum value in the binary search tree.
+  - `for_each` performs a traversal of _every_ node in the tree, executing the passed-in callback function on each tree node value. There is a myriad of ways to perform tree traversal; in this case any of them should work.
 
 ![Image of Binary Search Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/300px-Binary_search_tree.svg.png)
 
 ---
 
-Once you've gotten the tests passing, it's time to analyze the runtime complexity of your `get` and `set` operations. There's a way to get both operations down to sub-linear time. In fact, we can get them each down to constant time by picking the right data structures to use. 
+Once you've gotten the tests passing, it's time to analyze the runtime complexity of your `get` and `set` operations. There's a way to get both operations down to sub-linear time. In fact, we can get them each down to constant time by picking the right data structures to use.
 
 Here are you some things to think about with regards to optimizing your implementation: If you opted to use a dictionary to work with key-value pairs, we know that dictionaries give us constant access time, which is great. It's cheap and efficient to fetch pairs. A problem arises though from the fact that dictionaries don't have any way of remembering the order in which key-value pairs are added. But we definitely need something to remember the order in which pairs are added. Can you think of some ways to get around this constraint?
 
 ## Stretch Goals
 
 ### LRU Cache
-An LRU (Least Recently Used) cache is an in-memory storage structure that adheres to the [Least Recently Used](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) caching strategy. 
 
-In essence, you can think of an LRU cache as a data structure that keeps track of the order in which elements (which take the form of key-value pairs) it holds are added and updated. The cache also has a max number of entries it can hold. This is important because once the cache is holding the max number of entries, if a new entry is to be inserted, another pre-existing entry needs to be evicted from the cache. Because the cache is using a least-recently used strategy, the oldest entry (the one that was added/updated the longest time ago) is removed to make space for the new entry. 
+An LRU (Least Recently Used) cache is an in-memory storage structure that adheres to the [Least Recently Used](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>) caching strategy.
 
-So what operations will we need on our cache? We'll certainly need some sort of `set` operation to add key-value pairs to the cache. Newly-set pairs will get moved up the priority order such that every other pair in the cache is now one spot lower in the priority order that the cache maintains. The lowest-priority pair will get removed from the cache if the cache is already at its maximal capacity. Additionally, in the case that the key already exists in the cache, we simply want to overwrite the old value associated with the key with the newly-specified value. 
+In essence, you can think of an LRU cache as a data structure that keeps track of the order in which elements (which take the form of key-value pairs) it holds are added and updated. The cache also has a max number of entries it can hold. This is important because once the cache is holding the max number of entries, if a new entry is to be inserted, another pre-existing entry needs to be evicted from the cache. Because the cache is using a least-recently used strategy, the oldest entry (the one that was added/updated the longest time ago) is removed to make space for the new entry.
+
+So what operations will we need on our cache? We'll certainly need some sort of `set` operation to add key-value pairs to the cache. Newly-set pairs will get moved up the priority order such that every other pair in the cache is now one spot lower in the priority order that the cache maintains. The lowest-priority pair will get removed from the cache if the cache is already at its maximal capacity. Additionally, in the case that the key already exists in the cache, we simply want to overwrite the old value associated with the key with the newly-specified value.
 
 We'll also need a `get` operation that fetches a value given a key. When a key-value pair is fetched from the cache, we'll go through the same priority-increase dance that also happens when a new pair is added to the cache.
 
-Note that the only way for entries to be removed from the cache is when one needs to be evicted to make room for a new one. Thus, there is no explicit `remove` method. 
+Note that the only way for entries to be removed from the cache is when one needs to be evicted to make room for a new one. Thus, there is no explicit `remove` method.
 
-Given the above spec, try to get a working implementation that passes the tests. What data structure(s) might be good candidates with which to build our cache on top of? Hint: Since our cache is going to be storing key-value pairs, we might want to use a structure that is adept at handling those. 
+Given the above spec, try to get a working implementation that passes the tests. What data structure(s) might be good candidates with which to build our cache on top of? Hint: Since our cache is going to be storing key-value pairs, we might want to use a structure that is adept at handling those.
 
 ### AVL Tree
+
 An AVL tree (Georgy Adelson-Velsky and Landis' tree, named after the inventors) is a self-balancing binary search tree. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property.
 
 We define balance factor for each node as :
+
 ```
 balanceFactor = height(left subtree) - height(right subtree)
 ```
@@ -6286,42 +6384,36 @@ The balance factor of any node of an AVL tree is in the integer range [-1,+1]. I
 
 ![AVL tree rebalancing](https://s3.amazonaws.com/hr-challenge-images/0/1436854305-b167cc766c-AVL_Tree_Rebalancing.svg.png)
 
-Implement an AVL Tree class that exhibits the aforementioned behavior. The tree's `insert` method should perform the same logic as what was implemented for the binary search tree, with the caveat that upon inserting a new element into the tree, it will then check to see if the tree needs to be rebalanced. 
+Implement an AVL Tree class that exhibits the aforementioned behavior. The tree's `insert` method should perform the same logic as what was implemented for the binary search tree, with the caveat that upon inserting a new element into the tree, it will then check to see if the tree needs to be rebalanced.
 
 How does the time complexity of the AVL Tree's insertion method differ from the binary search tree's?
-
-
-
-
 
 </details><details> <summary>1-projects/DOM-JavaScript-mini-Solution-master/</summary>
 
 ### [1-projects/DOM-JavaScript-mini-Solution-master/README.md](1-projects/DOM-JavaScript-mini-Solution-master/README.md)
 
-
-
-
-
 </details><details> <summary>1-projects/HTML-CSS-mini-Solution-master/</summary>
 
 ### [1-projects/HTML-CSS-mini-Solution-master/README.md](1-projects/HTML-CSS-mini-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [**HTML/CSS mini**](#htmlcss-mini)
 - [Extra Credit](#extra-credit)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-**HTML/CSS mini**
-----------------------------------
+## **HTML/CSS mini**
 
-Topics:  
-* Box Model
-* Flex Box
-* BEM Naming Conventions
-* Extra Credit: Media Queries
+Topics:
+
+- Box Model
+- Flex Box
+- BEM Naming Conventions
+- Extra Credit: Media Queries
 
 You will be turning the provided wireframe into a page. For your first implementation, use only box model rules. Half way through the alotted time, refactor what you have to use flexbox. Make your second solution on a second branch.
 
@@ -6332,21 +6424,20 @@ You're provided with an index.html file and a styles.css file to begin with, but
 <img src="./mockups/full_width.png"/>
 
 ## Extra Credit
-  * Make your Box Model solution responsive to browser resizing using media queries.
+
+- Make your Box Model solution responsive to browser resizing using media queries.
   <a src="https://docs.google.com/document/d/15ucW3PUI3mBPq85gUF_TrVmm9W3HM8LZ6VxhZKZdDqE/edit?usp=sharing"><strong>Media Query Min & Max Width Quick Reference</strong></a>
-<img src="./mockups/mid_width.png" style="width: 500px; display: inline-block;" />
-<img src="./mockups/small_width.png" style="width: 300px; display: inline-block;" />
-
-
-
-
+  <img src="./mockups/mid_width.png" style="width: 500px; display: inline-block;" />
+  <img src="./mockups/small_width.png" style="width: 300px; display: inline-block;" />
 
 </details><details> <summary>1-projects/Intro-Python-I-master/</summary>
 
 ### [1-projects/Intro-Python-I-master/FAQ.md](1-projects/Intro-Python-I-master/FAQ.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [FAQ](#faq)
   - [Contents](#contents)
@@ -6389,7 +6480,7 @@ You're provided with an index.html file and a styles.css file to begin with, but
     - [If a subclass inherits from two superclasses with a method of the same name, which method will the subclass use?](#if-a-subclass-inherits-from-two-superclasses-with-a-method-of-the-same-name-which-method-will-the-subclass-use)
     - [How to handle multiple inheritance and why/when to do it in the first place?](#how-to-handle-multiple-inheritance-and-whywhen-to-do-it-in-the-first-place)
     - [Why use tuples instead of lists?](#why-use-tuples-instead-of-lists)
-    - [What's the difference between __repr__ and __str__?](#whats-the-difference-between-__repr__-and-__str__)
+    - [What's the difference between **repr** and **str**?](#whats-the-difference-between-__repr__-and-__str__)
     - [How does `sys.argv` work?](#how-does-sysargv-work)
     - [How do I concatenate two arrays into a single array?](#how-do-i-concatenate-two-arrays-into-a-single-array)
     - [What are some ways to learn a new language?](#what-are-some-ways-to-learn-a-new-language)
@@ -6410,79 +6501,81 @@ What's the difference between inheritance and polymorphism?
 
 ### General CS
 
-* [What are some things we can do to prepare for CS?](#q100)
-* [What are some ways to learn a new language?](#q3600)
-* [Why test code frequently?](#q3700)
-* [Why isn't official documentation more helpful than Stack Overflow?](#q3800)
-* [During an interview, what do I do if I can't remember the exact syntax?](#q3900)
+- [What are some things we can do to prepare for CS?](#q100)
+- [What are some ways to learn a new language?](#q3600)
+- [Why test code frequently?](#q3700)
+- [Why isn't official documentation more helpful than Stack Overflow?](#q3800)
+- [During an interview, what do I do if I can't remember the exact syntax?](#q3900)
 
 ### General Python
 
-* [In regard to the code challenge solution, why is the '+' operator being used to concatenate strings? I thought we were supposed to use the join() method in Python?](#q300)
-* [How do you get out of the Python built-in `help`?](#q400)
-* [Are there any helpful VS Code extensions that are recommend for using with Python?](#q500)
-* [I'm on Windows; what command do I use to run Python?](#q600)
-* [What version of Python do I need?](#q700)
-* [How do I get out of the Python REPL?](#q900)
-* [What does "REPL" mean?](#q1000)
-* [I'm on a Mac and when I run Python it says I'm on version 2.7. Why?](#q1100)
-* [Does Python use tabs or spaces?](#q1200)
-* [Can you use boolean shortcut assignments?](#q1700)
-* [Can you do anonymous functions?](#q1800)
-* [What are all those method names with double underscores around them?](#q2000)
-* [Where are good Python docs?](#q2600)
-* [Which linter?](#q2700)
-* [What's the difference between __repr__ and __str__?](#q3300)
-* [How does `sys.argv` work?](#q3400)
+- [In regard to the code challenge solution, why is the '+' operator being used to concatenate strings? I thought we were supposed to use the join() method in Python?](#q300)
+- [How do you get out of the Python built-in `help`?](#q400)
+- [Are there any helpful VS Code extensions that are recommend for using with Python?](#q500)
+- [I'm on Windows; what command do I use to run Python?](#q600)
+- [What version of Python do I need?](#q700)
+- [How do I get out of the Python REPL?](#q900)
+- [What does "REPL" mean?](#q1000)
+- [I'm on a Mac and when I run Python it says I'm on version 2.7. Why?](#q1100)
+- [Does Python use tabs or spaces?](#q1200)
+- [Can you use boolean shortcut assignments?](#q1700)
+- [Can you do anonymous functions?](#q1800)
+- [What are all those method names with double underscores around them?](#q2000)
+- [Where are good Python docs?](#q2600)
+- [Which linter?](#q2700)
+- [What's the difference between **repr** and **str**?](#q3300)
+- [How does `sys.argv` work?](#q3400)
 
 ### Pipenv
 
-* [Do I need to use pipenv?](#q800)
-* [When do we run pipenv shell?](#q2200)
-* [How do I get out of the pipenv shell?](#q2300)
-* [How do I install additional packages from pipenv?](#q2400)
-* [Is it possible to use system-wide packages from inside the virtual environment?](#q2500)
+- [Do I need to use pipenv?](#q800)
+- [When do we run pipenv shell?](#q2200)
+- [How do I get out of the pipenv shell?](#q2300)
+- [How do I install additional packages from pipenv?](#q2400)
+- [Is it possible to use system-wide packages from inside the virtual environment?](#q2500)
 
 ### Object-Oriented Programming
 
-* [Why is there such a debate between OOP and functional programming, and why should we care?](#q200)
-* [Following this flow: 1) class Dog is created with attributes size and weight. 2) New instance called Snoopy of class Dog is created. 3) Class Dog gets the method bark() dynamically added to it. Question: will Snoopy now have access to bark() method?](#q2900)
-* [Can you dynamically add new methods/properties to class through other functions? Or must all properties/methods be declared at once?](#q2800)
-* [If a subclass inherits from two superclasses with a method of the same name, which method will the subclass use?](#q3000)
-* [How to handle multiple inheritance and why/when to do it in the first place?](#q3100)
+- [Why is there such a debate between OOP and functional programming, and why should we care?](#q200)
+- [Following this flow: 1) class Dog is created with attributes size and weight. 2) New instance called Snoopy of class Dog is created. 3) Class Dog gets the method bark() dynamically added to it. Question: will Snoopy now have access to bark() method?](#q2900)
+- [Can you dynamically add new methods/properties to class through other functions? Or must all properties/methods be declared at once?](#q2800)
+- [If a subclass inherits from two superclasses with a method of the same name, which method will the subclass use?](#q3000)
+- [How to handle multiple inheritance and why/when to do it in the first place?](#q3100)
 
 ### Python Scoping
 
-* [Does Python have hoisting?](#q1400)
-* [Does scoping work similar to other languages?](#q1500)
-* [Can you return a reference to a function from another function? Or store it in a variable?](#q1600)
-* [Can you do anonymous functions?](#q1800)
+- [Does Python have hoisting?](#q1400)
+- [Does scoping work similar to other languages?](#q1500)
+- [Can you return a reference to a function from another function? Or store it in a variable?](#q1600)
+- [Can you do anonymous functions?](#q1800)
 
 ### Types
 
-* [How do I convert an iterator into a list?](#q1300)
-* [Is a dict like a JavaScript object?](#q1900)
-* [How do I get a value from a dict?](#q2100)
-* [Why use tuples instead of lists?](#q3200)
-* [How do I concatenate two arrays into a single array?](#q3500)
+- [How do I convert an iterator into a list?](#q1300)
+- [Is a dict like a JavaScript object?](#q1900)
+- [How do I get a value from a dict?](#q2100)
+- [Why use tuples instead of lists?](#q3200)
+- [How do I concatenate two arrays into a single array?](#q3500)
 
 ## Questions
 
 <a name="q100"></a>
+
 ### What are some things we can do to prepare for CS?
 
-* [CS Wiki](https://github.com/LambdaSchool/CS-Wiki/wiki)
-* [Polya's Problem Solving Techniques](https://github.com/LambdaSchool/CS-Wiki/wiki/Polya%27s-Problem-Solving-Techniques)
-* [Solving Programming Problems](https://github.com/LambdaSchool/CS-Wiki/wiki/Solving-Programming-Problems)
-* [CS Reading List](https://github.com/LambdaSchool/CS-Wiki/wiki/Computer-Science-Reading-List)
-* [How to Google effectively](https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Google-Effectively)
-* [How to read specs and code](https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Read-Specifications-and-Code)
-* [Command line primer](https://github.com/LambdaSchool/CS-Wiki/wiki/Command-Line-Primer)
-* [Coding style guidelines](https://github.com/LambdaSchool/CS-Wiki/wiki/CS-Coding-Style-Guidelines)
+- [CS Wiki](https://github.com/LambdaSchool/CS-Wiki/wiki)
+- [Polya's Problem Solving Techniques](https://github.com/LambdaSchool/CS-Wiki/wiki/Polya%27s-Problem-Solving-Techniques)
+- [Solving Programming Problems](https://github.com/LambdaSchool/CS-Wiki/wiki/Solving-Programming-Problems)
+- [CS Reading List](https://github.com/LambdaSchool/CS-Wiki/wiki/Computer-Science-Reading-List)
+- [How to Google effectively](https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Google-Effectively)
+- [How to read specs and code](https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Read-Specifications-and-Code)
+- [Command line primer](https://github.com/LambdaSchool/CS-Wiki/wiki/Command-Line-Primer)
+- [Coding style guidelines](https://github.com/LambdaSchool/CS-Wiki/wiki/CS-Coding-Style-Guidelines)
 
-------------------------------------------------------------------------
+---
 
 <a name="q200"></a>
+
 ### Why is there such a debate between OOP and functional programming, and why should we care?
 
 There are a lot of [programming
@@ -6504,10 +6597,11 @@ But we encourage this kind of learning because most popular languages are to
 some degree _multi-paradigm_, and the more techniques you know from more
 paradigms, the more effective you are in that multi-paradigm langage.
 
-------------------------------------------------------------------------
+---
 
 <a name="q300"></a>
-### In regard to the code challenge solution, why is the '+' operator being used to concatenate strings? I thought we were supposed to use the join() method in Python? 
+
+### In regard to the code challenge solution, why is the '+' operator being used to concatenate strings? I thought we were supposed to use the join() method in Python?
 
 Using `join()` to join large numbers of strings is definitely faster in Python
 than using the `+` operator to do it. The reason is that every time you `join()`
@@ -6524,11 +6618,12 @@ version. That's worth something.
 Finally, if `+` is fast enough for this case, it might not be worth the time to
 bother with making a list of strings to `join()`.
 
-* [Speed comparison with different ways of concatenating strings](https://waymoot.org/home/python_string/)
+- [Speed comparison with different ways of concatenating strings](https://waymoot.org/home/python_string/)
 
-------------------------------------------------------------------------
+---
 
 <a name="q400"></a>
+
 ### How do you get out of the Python built-in `help`?
 
 Hit `q` for "quit".
@@ -6536,16 +6631,18 @@ Hit `q` for "quit".
 It's a common command in Unix "pagers" (programs that show documents a page at a
 time).
 
-------------------------------------------------------------------------
+---
 
 <a name="q500"></a>
+
 ### Are there any helpful VS Code extensions that are recommend for using with Python?
 
-* [Official VS Code Python Extension](https://code.visualstudio.com/docs/languages/python)
+- [Official VS Code Python Extension](https://code.visualstudio.com/docs/languages/python)
 
-------------------------------------------------------------------------
+---
 
 <a name="q600"></a>
+
 ### I'm on Windows; what command do I use to run Python?
 
 If you're running in PowerShell or cmd, use:
@@ -6556,9 +6653,10 @@ py
 
 If in bash, use `python` or `python3`.
 
-------------------------------------------------------------------------
+---
 
 <a name="q700"></a>
+
 ### What version of Python do I need?
 
 You should have version 3.7 or higher. Test with:
@@ -6567,48 +6665,54 @@ You should have version 3.7 or higher. Test with:
 python --version
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q800"></a>
+
 ### Do I need to use pipenv?
 
 You should. Good Python devs know how.
 
-------------------------------------------------------------------------
+---
 
 <a name="q900"></a>
+
 ### How do I get out of the Python REPL?
 
 Hit `CTRL-D`. This is the way End-Of-File is signified in Unix-likes.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1000"></a>
+
 ### What does "REPL" mean?
 
 _Read, Evaluate, Print Loop_.
 
 It reads your input, evaluates it, and prints the result. And loops.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1100"></a>
+
 ### I'm on a Mac and when I run Python it says I'm on version 2.7. Why?
 
 Macs come with version 2.7 by default. You'll need to install version 3.
 
 And preferable use `pipenv` after that.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1200"></a>
+
 ### Does Python use tabs or spaces?
 
 [PEP 8](https://www.python.org/dev/peps/pep-0008/) says four spaces.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1300"></a>
+
 ### How do I convert an iterator into a list?
 
 Cast it:
@@ -6623,18 +6727,20 @@ produces:
 [0, 1, 2, 3, 4]
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q1400"></a>
+
 ### Does Python have hoisting?
 
 No.
 
-* [What is hoisting?](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+- [What is hoisting?](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
-------------------------------------------------------------------------
+---
 
 <a name="q1500"></a>
+
 ### Does scoping work similar to other languages?
 
 Generally, and also not really. Variables are either global or function-local.
@@ -6643,16 +6749,18 @@ Since there are no declarations, there's no block-level scope.
 
 It is similar to `var` in JavaScript.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1600"></a>
+
 ### Can you return a reference to a function from another function? Or store it in a variable?
 
 Yes. Functions are [first-class citizens](https://en.wikipedia.org/wiki/First-class_citizen).
 
-------------------------------------------------------------------------
+---
 
 <a name="q1700"></a>
+
 ### Can you use boolean shortcut assignments?
 
 Yes, you can. This is common in Perl and JavaScript, but it's not particularly [idiomatic](https://en.wikipedia.org/wiki/Programming_idiom) in Python.
@@ -6661,9 +6769,10 @@ Yes, you can. This is common in Perl and JavaScript, but it's not particularly [
 x = SomethingFalsey or 5
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q1800"></a>
+
 ### Can you do anonymous functions?
 
 You can use `lambda` for simple functions:
@@ -6676,31 +6785,34 @@ adder(4, 5)   # 9
 do_some_math(4, 5, lambda x, y: y - x)
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q1900"></a>
+
 ### Is a dict like a JavaScript object?
 
 Sort of.
 
 The syntax is different, though. In Python you must use `[]` notation to access elements. And you must use `"` around the key names.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2000"></a>
+
 ### What are all those method names with double underscores around them?
 
 Those are function you typically don't need to use, but can override or call if you wish.
 
 Most commonly used are:
 
-* `__init__()` is the constructor for objects
-* `__str__()` returns a string representation of the object
-* `__repr__()` returns a string representation of the object, for debugging
+- `__init__()` is the constructor for objects
+- `__str__()` returns a string representation of the object
+- `__repr__()` returns a string representation of the object, for debugging
 
-------------------------------------------------------------------------
+---
 
 <a name="q2100"></a>
+
 ### How do I get a value from a dict?
 
 ```python
@@ -6714,56 +6826,63 @@ print(d["a"])
 
 You don't use dot notation.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2200"></a>
+
 ### When do we run pipenv shell?
 
 `pipenv shell` puts you into your work environment. When you're ready to work, or run the code, or install new dependencies, you should be in your pipenv shell.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2300"></a>
+
 ### How do I get out of the pipenv shell?
 
 Type `exit`.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2400"></a>
+
 ### How do I install additional packages from pipenv?
 
 ```shell
 pipenv install packagename
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q2500"></a>
+
 ### Is it possible to use system-wide packages from inside the virtual environment?
 
 This is [not recommended](https://pipenv.readthedocs.io/en/latest/diagnose/#no-module-named-module-name).
 
-------------------------------------------------------------------------
+---
 
 <a name="q2600"></a>
+
 ### Where are good Python docs?
 
-* [Official documentation](https://docs.python.org/3/) tutorial and library reference.
+- [Official documentation](https://docs.python.org/3/) tutorial and library reference.
 
 The official docs might be hard to read at first, but you'll get used to them
 quickly
 
-------------------------------------------------------------------------
+---
 
 <a name="q2700"></a>
+
 ### Which linter?
 
 Pylint or Flake8. The latter seems to be a bit more popular.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2800"></a>
+
 ### Can you dynamically add new methods/properties to class through other functions? Or must all properties/methods be declared at once?
 
 You can add them dynamically at runtime, but you have to add them to the class itself:
@@ -6788,16 +6907,18 @@ f.hi()   # Prints "Hi"
 
 This is not a common thing to see in Python, however.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2900"></a>
+
 ### Following this flow: 1) class Dog is created with attributes size and weight. 2) New instance called Snoopy of class Dog is created. 3) Class Dog gets the method bark() dynamically added to it. Question: will Snoopy now have access to bark() method?
 
 Yes.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3000"></a>
+
 ### If a subclass inherits from two superclasses with a method of the same name, which method will the subclass use?
 
 The answer to this is twofold:
@@ -6810,10 +6931,10 @@ The answer to this is twofold:
    the [MRO Algorithm](https://en.wikipedia.org/wiki/C3_linearization) which is
    what Python uses.
 
-
-------------------------------------------------------------------------
+---
 
 <a name="q3100"></a>
+
 ### How to handle multiple inheritance and why/when to do it in the first place?
 
 ```python
@@ -6834,19 +6955,21 @@ However, [a lot of people find it's not worth the
 trouble](https://softwareengineering.stackexchange.com/questions/218458/is-there-any-real-reason-multiple-inheritance-is-hated))
 and opt for other solutions, like composition.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3200"></a>
+
 ### Why use tuples instead of lists?
 
-* Tuples are immutable. There's a school of thought that says bugs can be reduced if you make as many things immutable as you can.
-* Tuples are faster than lists to access.
-* Some tuples (containing primitive types), can be used as `dict` keys.
+- Tuples are immutable. There's a school of thought that says bugs can be reduced if you make as many things immutable as you can.
+- Tuples are faster than lists to access.
+- Some tuples (containing primitive types), can be used as `dict` keys.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3300"></a>
-### What's the difference between __repr__ and __str__?
+
+### What's the difference between **repr** and **str**?
 
 Generally speaking, `__repr__` is the string a dev would want to see if they
 dumped an object to the screen. `__str__` is the string a user would want to see
@@ -6879,9 +7002,10 @@ Goat(leg_count=4)
 Goat(leg_count=4)
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q3400"></a>
+
 ### How does `sys.argv` work?
 
 It's a list that holds _command line arguments_. This is a way for a user to run
@@ -6937,9 +7061,10 @@ $ python foo.py 4
 4
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q3500"></a>
+
 ### How do I concatenate two arrays into a single array?
 
 Use `extend()`.
@@ -6953,32 +7078,34 @@ a.extend(b)
 print(a)   # [ 1, 2, 3, 4, 5, 6 ]
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q3600"></a>
+
 ### What are some ways to learn a new language?
 
-* Figure out how variables and functions work.
-* Build small toy programs to test individual features.
-* Build a larger project that exercises many features.
-* Don't get frustrated! Treat the problem like a curiosity, a thing to be studied.
-* Do small tutorials or code-alongs.
-* Find docs you like.
-* Learn the differences between this language and one you know.
-* Learn this language's way of doing the things you know.
+- Figure out how variables and functions work.
+- Build small toy programs to test individual features.
+- Build a larger project that exercises many features.
+- Don't get frustrated! Treat the problem like a curiosity, a thing to be studied.
+- Do small tutorials or code-alongs.
+- Find docs you like.
+- Learn the differences between this language and one you know.
+- Learn this language's way of doing the things you know.
 
 Things to look for in the new language:
 
-* Collections (arrays, vectors, dictionaries)
-* Data types
-* Iterators
-* Flow control (if, while, loops, etc)
-* Functions
-* etc.
+- Collections (arrays, vectors, dictionaries)
+- Data types
+- Iterators
+- Flow control (if, while, loops, etc)
+- Functions
+- etc.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3700"></a>
+
 ### Why test code frequently?
 
 It's often better to make progress in small increments than to write a bunch of
@@ -6988,9 +7115,10 @@ Also, it's easier to stay motivated if you spend 10 minutes getting a first
 version going, even if it's missing 99% of its features, and then starting to
 iterate on that.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3800"></a>
+
 ### Why isn't official documentation more helpful than Stack Overflow?
 
 Often official documentation is more geared toward being a concise reference.
@@ -7005,9 +7133,10 @@ great for that.
 
 Both types of documentation have their purpose.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3900"></a>
+
 ### During an interview, what do I do if I can't remember the exact syntax?
 
 Just say so.
@@ -7018,15 +7147,12 @@ it `push()`? In any case, we'll call the function here that does that."
 (Turns out it's `append()` in Python, but being honest and describing what it is
 your're trying to do will get you 99% of the way there in an interview.)
 
-
-
-
-
 ### [1-projects/Intro-Python-I-master/README.md](1-projects/Intro-Python-I-master/README.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Intro to Python I](#intro-to-python-i)
   - [Techniques for learning new languages](#techniques-for-learning-new-languages)
@@ -7053,40 +7179,40 @@ and what doesn't as you go through the process of exploring Python.
 
 ## Techniques for learning new languages
 
-* Try to relate things you already know in another language (e.g. what an
+- Try to relate things you already know in another language (e.g. what an
   _array_ is) to the corresponding things in Python (e.g. a _list_) and how to
   use them.
 
-* Write a bunch of "toy programs" that demonstrate different key features of the
+- Write a bunch of "toy programs" that demonstrate different key features of the
   language
 
-* Explore the standard library that's available for the language. Skim it
+- Explore the standard library that's available for the language. Skim it
   briefly for now--the idea isn't to memorize everything but to file away
   generally what functionality is available.
 
-* Write a more substantial toy program that uses a variety of the features.
+- Write a more substantial toy program that uses a variety of the features.
 
 Again, keep track of what works for you. Try different things to see what works
 best for learning new languages.
 
 ## Resources
 
-* [Installing Python 3](https://github.com/LambdaSchool/CS-Wiki/wiki/Installing-Python-3)
-* [JavaScript<->Python cheatsheet](https://github.com/LambdaSchool/CS-Wiki/wiki/Javascript-Python-cheatsheet)
-* [How to read Specs and Code](https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Read-Specifications-and-Code)
-* [Python 3 standard library](https://docs.python.org/3.6/library/)
+- [Installing Python 3](https://github.com/LambdaSchool/CS-Wiki/wiki/Installing-Python-3)
+- [JavaScript<->Python cheatsheet](https://github.com/LambdaSchool/CS-Wiki/wiki/Javascript-Python-cheatsheet)
+- [How to read Specs and Code](https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Read-Specifications-and-Code)
+- [Python 3 standard library](https://docs.python.org/3.6/library/)
 
 ## Getting started
 
-Make sure you have Python 3 installed. You can check this by running `python3 --version` in your terminal and ensuring that it returns a version string that is at least 3.6.5. 
+Make sure you have Python 3 installed. You can check this by running `python3 --version` in your terminal and ensuring that it returns a version string that is at least 3.6.5.
 
 ## Goals
 
-* Learn the basic syntax and structure of Python
+- Learn the basic syntax and structure of Python
 
 ## Summary
 
-* Implement a number of tiny Python programs that demonstrate Python syntax and
+- Implement a number of tiny Python programs that demonstrate Python syntax and
   language concepts.
 
 ## Instructions
@@ -7096,26 +7222,26 @@ _Note: This project spans two modules (modules 1 and 2). You should roughly try 
 Each directory inside the `src/` directory presents exercises revolving around a
 particular concept in Python. Not all of these concepts are unique to Python (in
 fact, most probably aren't). This means that you can leverage knowledge you've
-obtained via exposure to other programming languages towards learning Python. 
+obtained via exposure to other programming languages towards learning Python.
 
-The suggested order for going through each of the directories is: 
+The suggested order for going through each of the directories is:
 
-* `hello` -- Hello world
-* `bignum` -- Print some big numbers
-* `datatypes` -- Experiment with type conversion
-* `modules` -- Learn to import from modules
-* `printing` -- Formatted print output
-* `lists` -- Python's version of arrays
-* `tuples` -- Immutable lists typically for heterogenous data
-* `slices` -- Accessing parts of lists
-* `comprehensions` -- List comprehensions
-* `dictionaries` -- Dictionaries
-* `functions` -- Functions
-* `args` -- Arguments and Keyword Arguments
-* `scopes` -- Global, Local, and Non-Local scope
-* `file_io` -- Read and write from files
-* `cal` -- Experiment with module imports and implement a text-based calendar
-* `classes` -- Classes and objects
+- `hello` -- Hello world
+- `bignum` -- Print some big numbers
+- `datatypes` -- Experiment with type conversion
+- `modules` -- Learn to import from modules
+- `printing` -- Formatted print output
+- `lists` -- Python's version of arrays
+- `tuples` -- Immutable lists typically for heterogenous data
+- `slices` -- Accessing parts of lists
+- `comprehensions` -- List comprehensions
+- `dictionaries` -- Dictionaries
+- `functions` -- Functions
+- `args` -- Arguments and Keyword Arguments
+- `scopes` -- Global, Local, and Non-Local scope
+- `file_io` -- Read and write from files
+- `cal` -- Experiment with module imports and implement a text-based calendar
+- `classes` -- Classes and objects
 
 ## Stretch Goals
 
@@ -7139,13 +7265,14 @@ The suggested order for going through each of the directories is:
       Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), one
       of the oldest algorithms known (ca. 200 BC).
 
-
 </details><details> <summary>1-projects/Intro-Python-II-master/</summary>
 
 ### [1-projects/Intro-Python-II-master/FAQ.md](1-projects/Intro-Python-II-master/FAQ.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [FAQ](#faq)
 
@@ -7155,9 +7282,6 @@ The suggested order for going through each of the directories is:
 
 [Refer to the FAQ in Intro-Python-I](https://github.com/LambdaSchool/Intro-Python-I/blob/master/FAQ.md).
 
-
-
-
 ### [1-projects/Intro-Python-II-master/object_reference_hints.md](1-projects/Intro-Python-II-master/object_reference_hints.md)
 
 Remember that multiple variables can refer to the same object.
@@ -7166,14 +7290,14 @@ In the diagram below, there are only 2 `Room` objects, total. (There are more in
 
 There are 5 variables. 3 of them point to the one Room object that is the foyer:
 
-* `room['foyer']`
-* `room['outside'].n_to`
-* `player.location`
+- `room['foyer']`
+- `room['outside'].n_to`
+- `player.location`
 
 The remaining 2 point to the one Room object that is the outside:
 
-* `room['outside']`
-* `room['foyer'].s_to`
+- `room['outside']`
+- `room['foyer'].s_to`
 
 ```
 room['outside'] -> Room("Outside Cave Entrance")
@@ -7216,12 +7340,12 @@ room['foyer'] -> Room("Foyer")
 
 _Assigning doesn't copy the object. It just makes another reference to the same object._
 
-
 ### [1-projects/Intro-Python-II-master/README.md](1-projects/Intro-Python-II-master/README.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Intro to Python II](#intro-to-python-ii)
   - [What We're Building](#what-were-building)
@@ -7238,168 +7362,165 @@ _Assigning doesn't copy the object. It just makes another reference to the same 
 
 Up to this point, you've gotten your feet wet by working on a bunch of small Python programs. In this module, we're going to continue to solidify your Python chops by implementing a full-featured project according to a provided specification.
 
-
 ## What We're Building
-[What's an Adventure Game? ![vid](https://tk-assets.lambdaschool.com/7928cdb4-b8a3-45a6-b231-5b9d1fc1e002_ScreenShot2019-03-22at5.47.28PM.png)](https://youtu.be/WaZccFqJUT8)
 
+[What's an Adventure Game? ![vid](https://tk-assets.lambdaschool.com/7928cdb4-b8a3-45a6-b231-5b9d1fc1e002_ScreenShot2019-03-22at5.47.28PM.png)](https://youtu.be/WaZccFqJUT8)
 
 ## Goals
 
-* Put your Python basics into practice by implementing a text adventure game
+- Put your Python basics into practice by implementing a text adventure game
 
-* Practice writing code that conforms to a specification
-
+- Practice writing code that conforms to a specification
 
 ## MVP
 
 ### Day 1 MVP
 
-* Create the input command parser in `adv.py` which allows the program to receive player input and commands to move to rooms
+- Create the input command parser in `adv.py` which allows the program to receive player input and commands to move to rooms
   in the four cardinal directions.
-* Fill out Player and Room classes in `player.py` and `room.py`
+- Fill out Player and Room classes in `player.py` and `room.py`
 
 ### Day 2 MVP
 
-* Make rooms able to hold multiple items
-* Make the player able to carry multiple items
-* Add items to the game that the user can carry around
-* Add `get [ITEM_NAME]` and `drop [ITEM_NAME]` commands to the parser
+- Make rooms able to hold multiple items
+- Make the player able to carry multiple items
+- Add items to the game that the user can carry around
+- Add `get [ITEM_NAME]` and `drop [ITEM_NAME]` commands to the parser
 
 ## Specification
 
 The `/src` directory contains the files `adv.py`, which is where the main logic for the game should live, `room.py`, which will contain the definition of the Room class, and `player.py`, which will contain the definition of the Player class.
 
+- Add a REPL parser to `adv.py` that accepts directional commands to move the player
 
-* Add a REPL parser to `adv.py` that accepts directional commands to move the player
-  * After each move, the REPL should print the name and description of the player's current room
-  * Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
-  * The parser should print an error if the player tries to move where there is no room.
+  - After each move, the REPL should print the name and description of the player's current room
+  - Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
+  - The parser should print an error if the player tries to move where there is no room.
 
-* Put the Room class in `room.py` based on what you see in `adv.py`.
+- Put the Room class in `room.py` based on what you see in `adv.py`.
 
-  * The room should have `name` and `description` attributes.
+  - The room should have `name` and `description` attributes.
 
-  * The room should also have `n_to`, `s_to`, `e_to`, and `w_to` attributes
+  - The room should also have `n_to`, `s_to`, `e_to`, and `w_to` attributes
     which point to the room in that respective direction.
 
-* Put the Player class in `player.py`.
-  * Players should have a `name` and `current_room` attributes
+- Put the Player class in `player.py`.
 
+  - Players should have a `name` and `current_room` attributes
 
-* Create a file called `item.py` and add an `Item` class in there.
+- Create a file called `item.py` and add an `Item` class in there.
 
-  * The item should have `name` and `description` attributes.
+  - The item should have `name` and `description` attributes.
 
-     * Hint: the name should be one word for ease in parsing later.
+    - Hint: the name should be one word for ease in parsing later.
 
-  * This will be the _base class_ for specialized item types to be declared
+  - This will be the _base class_ for specialized item types to be declared
     later.
 
-* Add the ability to add items to rooms.
+- Add the ability to add items to rooms.
 
-  * The `Room` class should be extended with a `list` that holds the `Item`s
+  - The `Room` class should be extended with a `list` that holds the `Item`s
     that are currently in that room.
 
-  * Add functionality to the main loop that prints out all the items that are
+  - Add functionality to the main loop that prints out all the items that are
     visible to the player when they are in that room.
 
-* Add capability to add `Item`s to the player's inventory. The inventory can
+- Add capability to add `Item`s to the player's inventory. The inventory can
   also be a `list` of items "in" the player, similar to how `Item`s can be in a
   `Room`.
 
-* Add a new type of sentence the parser can understand: two words.
+- Add a new type of sentence the parser can understand: two words.
 
-  * Until now, the parser could just understand one sentence form:
+  - Until now, the parser could just understand one sentence form:
 
-     `verb`
+    `verb`
 
     such as "n" or "q".
 
-  * But now we want to add the form:
+  - But now we want to add the form:
 
     `verb` `object`
 
     such as "take coins" or "drop sword".
 
-  * Split the entered command and see if it has 1 or 2 words in it to determine
+  - Split the entered command and see if it has 1 or 2 words in it to determine
     if it's the first or second form.
 
-* Implement support for the verb `get` followed by an `Item` name. This will be
+- Implement support for the verb `get` followed by an `Item` name. This will be
   used to pick up `Item`s.
 
-  * If the user enters `get` or `take` followed by an `Item` name, look at the
+  - If the user enters `get` or `take` followed by an `Item` name, look at the
     contents of the current `Room` to see if the item is there.
 
-     * If it is there, remove it from the `Room` contents, and add it to the
-       `Player` contents.
+    - If it is there, remove it from the `Room` contents, and add it to the
+      `Player` contents.
 
-     * If it's not there, print an error message telling the user so.
+    - If it's not there, print an error message telling the user so.
 
-     * Add an `on_take` method to `Item`.
+    - Add an `on_take` method to `Item`.
 
-        * Call this method when the `Item` is picked up by the player.
+      - Call this method when the `Item` is picked up by the player.
 
-        * `on_take` should print out "You have picked up [NAME]" when you pick up an item.
+      - `on_take` should print out "You have picked up [NAME]" when you pick up an item.
 
-        * The `Item` can use this to run additional code when it is picked up.
+      - The `Item` can use this to run additional code when it is picked up.
 
-     * Add an `on_drop` method to `Item`. Implement it similar to `on_take`.
+    - Add an `on_drop` method to `Item`. Implement it similar to `on_take`.
 
-* Implement support for the verb `drop` followed by an `Item` name. This is the
+- Implement support for the verb `drop` followed by an `Item` name. This is the
   opposite of `get`/`take`.
 
-* Add the `i` and `inventory` commands that both show a list of items currently
+- Add the `i` and `inventory` commands that both show a list of items currently
   carried by the player.
-
 
 ## Stretch Goals
 
 In arbitrary order:
 
-* Add more rooms
+- Add more rooms
 
-* Add scoring
+- Add scoring
 
-* Subclass items into treasures
+- Subclass items into treasures
 
-* Add a subclass to `Item` called `LightSource`.
+- Add a subclass to `Item` called `LightSource`.
 
-  * During world creation, add a `lamp` `LightSource` to a convenient `Room`.
+  - During world creation, add a `lamp` `LightSource` to a convenient `Room`.
 
-  * Override `on_drop` in `LightSource` that tells the player "It's not wise to
-  drop your source of light!" if the player drops it. (But still lets them drop
-  it.)
+  - Override `on_drop` in `LightSource` that tells the player "It's not wise to
+    drop your source of light!" if the player drops it. (But still lets them drop
+    it.)
 
-  * Add an attribute to `Room` called `is_light` that is `True` if the `Room` is
-  naturally illuminated, or `False` if a `LightSource` is required to see what
-  is in the room.
+  - Add an attribute to `Room` called `is_light` that is `True` if the `Room` is
+    naturally illuminated, or `False` if a `LightSource` is required to see what
+    is in the room.
 
-  * Modify the main loop to test if there is light in the `Room` (i.e. if
+  - Modify the main loop to test if there is light in the `Room` (i.e. if
     `is_light` is `True` **or** there is a `LightSource` item in the `Room`'s
     contents **or** if there is a `LightSource` item in the `Player`'s contents).
 
-  * If there is light in the room, display name, description, and contents as
+  - If there is light in the room, display name, description, and contents as
     normal.
 
-  * If there isn't, print out "It's pitch black!" instead.
+  - If there isn't, print out "It's pitch black!" instead.
 
-  * Hint: `isinstance` might help you figure out if there's a `LightSource`
+  - Hint: `isinstance` might help you figure out if there's a `LightSource`
     among all the nearby `Item`s.
 
-  * Modify the `get`/`take` code to print "Good luck finding that in the dark!" if
-  the user tries to pick up an `Item` in the dark.
+  - Modify the `get`/`take` code to print "Good luck finding that in the dark!" if
+    the user tries to pick up an `Item` in the dark.
 
-* Add methods to notify items when they are picked up or dropped
+- Add methods to notify items when they are picked up or dropped
 
-* Add light and darkness to the game
+- Add light and darkness to the game
 
-* Add more items to the game.
+- Add more items to the game.
 
-* Add a way to win.
+- Add a way to win.
 
-* Add more to the parser.
+- Add more to the parser.
 
-  * Remember the last `Item` mentioned and substitute that if the user types
+  - Remember the last `Item` mentioned and substitute that if the user types
     "it" later, e.g.
 
     ```
@@ -7407,40 +7528,41 @@ In arbitrary order:
     drop it
     ```
 
-  * Add `Item`s with adjectives, like "rusty sword" and "silver sword".
+  - Add `Item`s with adjectives, like "rusty sword" and "silver sword".
 
-    * Modify the parser to handle commands like "take rusty sword" as well as
+    - Modify the parser to handle commands like "take rusty sword" as well as
       "take sword".
 
-      * If the user is in a room that contains both the rusty sword _and_ silver
+      - If the user is in a room that contains both the rusty sword _and_ silver
         sword, and they type "take sword", the parser should say, "I don't know
         which you mean: rusty sword or silver sword."
 
-* Modify the code that calls `on_take` to check the return value. If `on_take`
+- Modify the code that calls `on_take` to check the return value. If `on_take`
   returns `False`, then don't continue picking up the object. (I.e. prevent the
   user from picking it up.)
 
-  * This enables you to add logic to `on_take` to code things like "don't allow
+  - This enables you to add logic to `on_take` to code things like "don't allow
     the user to pick up the dirt unless they're holding the shovel.
 
-* Add monsters.
+- Add monsters.
 
-* Add the `attack` verb that allows you to specify a monster to attack.
+- Add the `attack` verb that allows you to specify a monster to attack.
 
-* Add an `on_attack` method to the monster class.
+- Add an `on_attack` method to the monster class.
 
-* Similar to the `on_take` return value modification, above, have `on_attack`
+- Similar to the `on_take` return value modification, above, have `on_attack`
   prevent the attack from succeeding unless the user possesses a `sword` item.
 
-* Come up with more stretch goals! The sky's the limit!
-
+- Come up with more stretch goals! The sky's the limit!
 
 </details><details> <summary>1-projects/Intro-to-C-master/</summary>
 
 ### [1-projects/Intro-to-C-master/FAQ.md](1-projects/Intro-to-C-master/FAQ.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Intro to C FAQ](#intro-to-c-faq)
   - [Contents](#contents)
@@ -7454,7 +7576,7 @@ In arbitrary order:
     - [Heap, Stack, Dynamic Memory](#heap-stack-dynamic-memory)
   - [Questions](#questions)
     - [`runtests.sh: $'\r': command not found` or `Syntax error: word unexpected (expecting "do")`](#runtestssh-%5Cr-command-not-found-or-syntax-error-word-unexpected-expecting-do)
-    - [`runtests.sh: 3: 56059 Segmentation fault: 11  $VALGRIND`](#runtestssh-3-56059-segmentation-fault-11--valgrind)
+    - [`runtests.sh: 3: 56059 Segmentation fault: 11 $VALGRIND`](#runtestssh-3-56059-segmentation-fault-11--valgrind)
     - [Mac: `malformed object` error when running `make tests`](#mac-malformed-object-error-when-running-make-tests)
     - [Should I bother fixing compiler warnings?](#should-i-bother-fixing-compiler-warnings)
     - [Can I accidentally destroy my computer running C code?](#can-i-accidentally-destroy-my-computer-running-c-code)
@@ -7525,99 +7647,100 @@ In arbitrary order:
 
 ### Common Errors
 
-* [`runtests.sh: $'\r': command not found` or `Syntax error: word unexpected (expecting "do")`](#q100)
-* [`runtests.sh: 56059 Segmentation fault: 11  $VALGRIND`](#q200)
-* [Mac: `malformed object` error when running `make tests`](#q300)
-* [What does the "implicit declaration of function" warning mean?](#q1500)
-* [What is a segmentation fault and how do I stop it?](#q2100)
-* [What's the `incompatible integer to pointer conversion` error?](#q3400)
-* [What is an `undefined symbol` linker error?](#q5300)
-* [What is "undefined behavior" in C?](#q5000)
-* [Should I bother fixing compiler warnings?](#q400)
+- [`runtests.sh: $'\r': command not found` or `Syntax error: word unexpected (expecting "do")`](#q100)
+- [`runtests.sh: 56059 Segmentation fault: 11 $VALGRIND`](#q200)
+- [Mac: `malformed object` error when running `make tests`](#q300)
+- [What does the "implicit declaration of function" warning mean?](#q1500)
+- [What is a segmentation fault and how do I stop it?](#q2100)
+- [What's the `incompatible integer to pointer conversion` error?](#q3400)
+- [What is an `undefined symbol` linker error?](#q5300)
+- [What is "undefined behavior" in C?](#q5000)
+- [Should I bother fixing compiler warnings?](#q400)
 
 ### General C
 
-* [Can I accidentally destroy my computer running C code?](#q500)
-* [Why do we subtract '0' from a char to convert it from ASCII to a numeric value?](#q1100)
-* [What's the difference between `puts()`, `fprintf()`, and `printf()`?](#q1600)
-* [Why does `025 == 21`?](#q1700)
-* [What is the "true dev workflow" in C?](#q1800)
-* [Does C have garbage collection?](#q1900)
-* [Why is C code faster than other languages?](#q2000)
-* [Are variables automatically initialized to zero when I declare them?](#q2500)
-* [What VS Code plugins are good for C development?](#q2700)
-* [What are some additional C resources?](#q2800)
-* [How do I get the debugger working?](#q2900)
-* [Does C have closures?](#q3100)
-* [If I look at an uninitialized variable, will the garbage in it ever be leftover data from another process?](#q3200)
-* [What are `stdin`, `stdout`, and `stderr`?](#q3900)
-* [How do I know which header files to `#include` for any particular function?](#q4000)
-* [What are bits, bytes, kilobytes, megabytes, and all that?](#q4400)
-* [What's the difference between `#include` with double quotes and `#include` with angle brackets?](#q4600)
-* [Why does `main()` return `0`? What does the return value mean?](#q5800)
-* [Is there a difference between `exit()` and `return`?](#q4800)
-* [What is "undefined behavior" in C?](#q5000)
-* [How do I write preprocessor macros with `#define`?](#q5200)
-* [How do I make my own header files and what do I put in them?](#q5400)
-* [How do I make my own Makefile?](#q5500)
-* [Why are there so many `printf()` variants? How do I know which one to use?](#q5600)
-* [Why is `main()` always at the bottom of the file?](#q5700)
-* [Do we have to have a `main()`? Can there be more than one?](#q5900)
-* [Can `main()` return `void`? What about `main()` with no parameters?](#q6000)
-* [Do we need a semicolon at the end of every line?](#q6100)
+- [Can I accidentally destroy my computer running C code?](#q500)
+- [Why do we subtract '0' from a char to convert it from ASCII to a numeric value?](#q1100)
+- [What's the difference between `puts()`, `fprintf()`, and `printf()`?](#q1600)
+- [Why does `025 == 21`?](#q1700)
+- [What is the "true dev workflow" in C?](#q1800)
+- [Does C have garbage collection?](#q1900)
+- [Why is C code faster than other languages?](#q2000)
+- [Are variables automatically initialized to zero when I declare them?](#q2500)
+- [What VS Code plugins are good for C development?](#q2700)
+- [What are some additional C resources?](#q2800)
+- [How do I get the debugger working?](#q2900)
+- [Does C have closures?](#q3100)
+- [If I look at an uninitialized variable, will the garbage in it ever be leftover data from another process?](#q3200)
+- [What are `stdin`, `stdout`, and `stderr`?](#q3900)
+- [How do I know which header files to `#include` for any particular function?](#q4000)
+- [What are bits, bytes, kilobytes, megabytes, and all that?](#q4400)
+- [What's the difference between `#include` with double quotes and `#include` with angle brackets?](#q4600)
+- [Why does `main()` return `0`? What does the return value mean?](#q5800)
+- [Is there a difference between `exit()` and `return`?](#q4800)
+- [What is "undefined behavior" in C?](#q5000)
+- [How do I write preprocessor macros with `#define`?](#q5200)
+- [How do I make my own header files and what do I put in them?](#q5400)
+- [How do I make my own Makefile?](#q5500)
+- [Why are there so many `printf()` variants? How do I know which one to use?](#q5600)
+- [Why is `main()` always at the bottom of the file?](#q5700)
+- [Do we have to have a `main()`? Can there be more than one?](#q5900)
+- [Can `main()` return `void`? What about `main()` with no parameters?](#q6000)
+- [Do we need a semicolon at the end of every line?](#q6100)
 
 ### Strings
 
-* [Can you use `+` to concatenate two strings?](#q2400)
-* [For string literals like `"Hello"`, are those stored on the stack or heap?](#q3600)
-* [Why does `strcmp()` return `0` when strings match? Since `0` means "false" in C, that seems backwards.](#q4900)
+- [Can you use `+` to concatenate two strings?](#q2400)
+- [For string literals like `"Hello"`, are those stored on the stack or heap?](#q3600)
+- [Why does `strcmp()` return `0` when strings match? Since `0` means "false" in C, that seems backwards.](#q4900)
 
 ### Structs
 
-* [Is a `struct` comparable to something in Python or JS? Is it like a class?](#q600)
-* [Can you have default parameters in the structs?](#q700)
-* [Why do functions tend to return pointers to structs, and not just copies of the struct?](#q1000)
+- [Is a `struct` comparable to something in Python or JS? Is it like a class?](#q600)
+- [Can you have default parameters in the structs?](#q700)
+- [Why do functions tend to return pointers to structs, and not just copies of the struct?](#q1000)
 
 ### Types
 
-* [Why does unsigned char type accept a number when it's clearly referring to a character?](#q800)
-* [What's the difference between a `float` and a `double`, or between an `int` and a `long`?](#q2300)
-* [What type should I use to hold numbers bigger than an `int` can hold?](#q2600)
-* [When do I have to explicitly cast a type to another type?](#q4100)
-* [In C, can we assume an `int` is 32 bits?](#q4500)
+- [Why does unsigned char type accept a number when it's clearly referring to a character?](#q800)
+- [What's the difference between a `float` and a `double`, or between an `int` and a `long`?](#q2300)
+- [What type should I use to hold numbers bigger than an `int` can hold?](#q2600)
+- [When do I have to explicitly cast a type to another type?](#q4100)
+- [In C, can we assume an `int` is 32 bits?](#q4500)
 
 ### Arrays
 
-* [When I pass an array as an argument to a function, when do I use pointer notation and when do I use array notation ?](#q900)
+- [When I pass an array as an argument to a function, when do I use pointer notation and when do I use array notation ?](#q900)
 
 ### Pointers
 
-* [When I pass an array as an argument to a function, when do I use pointer notation and when do I use array notation ?](#q900)
-* [Why do functions tend to return pointers to structs, and not just copies of the struct?](#q1000)
-* [When do I need a pointer to a pointer?](#q1200)
-* [Do other languages use pointers?](#q1300)
-* [What's the difference between "`int *x`" and "`int* x`"?](#q1400)
-* [How do I print a pointer with `printf`?](#q3000)
-* [How many levels of indirection can you have with pointers? `int******`?](#q3300)
-* [What's the `incompatible integer to pointer conversion` error?](#q3400)
-* [Should I declare a pointer to a thing, or just declare the thing?](#q4700)
-* [When you free a pointer, does it get set to `NULL` automatically?](#q5100)
-* [Can a pointer pointer to more than one thing? What about to arrays and `struct`s?](#q6200)
-* [If variables are stored in memory, where are pointers stored?](#q6300)
+- [When I pass an array as an argument to a function, when do I use pointer notation and when do I use array notation ?](#q900)
+- [Why do functions tend to return pointers to structs, and not just copies of the struct?](#q1000)
+- [When do I need a pointer to a pointer?](#q1200)
+- [Do other languages use pointers?](#q1300)
+- [What's the difference between "`int *x`" and "`int* x`"?](#q1400)
+- [How do I print a pointer with `printf`?](#q3000)
+- [How many levels of indirection can you have with pointers? `int******`?](#q3300)
+- [What's the `incompatible integer to pointer conversion` error?](#q3400)
+- [Should I declare a pointer to a thing, or just declare the thing?](#q4700)
+- [When you free a pointer, does it get set to `NULL` automatically?](#q5100)
+- [Can a pointer pointer to more than one thing? What about to arrays and `struct`s?](#q6200)
+- [If variables are stored in memory, where are pointers stored?](#q6300)
 
 ### Heap, Stack, Dynamic Memory
 
-* [What happens if my program exits but I forgot to `free()` some memory I allocated?](#q2200)
-* [Are there any other ways besides `malloc()` to store things on the heap?](#q3500)
-* [Is the C stack like the stack data structure?](#q3700)
-* [Is the C heap like a binary heap data structure?](#q3800)
-* [Is `realloc()` the same as calling `malloc()`, copying the data over, then calling `free()` on the original pointer?](#q4200)
-* [What happens if I `free()` a `NULL` pointer?](#q4300)
-* [When you free a pointer, does it get set to `NULL` automatically?](#q5100)
+- [What happens if my program exits but I forgot to `free()` some memory I allocated?](#q2200)
+- [Are there any other ways besides `malloc()` to store things on the heap?](#q3500)
+- [Is the C stack like the stack data structure?](#q3700)
+- [Is the C heap like a binary heap data structure?](#q3800)
+- [Is `realloc()` the same as calling `malloc()`, copying the data over, then calling `free()` on the original pointer?](#q4200)
+- [What happens if I `free()` a `NULL` pointer?](#q4300)
+- [When you free a pointer, does it get set to `NULL` automatically?](#q5100)
 
 ## Questions
 
 <a name="q100"></a>
+
 ### `runtests.sh: $'\r': command not found` or `Syntax error: word unexpected (expecting "do")`
 
 If you see this error:
@@ -7645,7 +7768,7 @@ mv runtests.tmp runtests.sh
 
 The root of the problem is a setting in git that causes all newlines (LF) to
 be converted to carriage-return/newline (CRLF). The script `runtests.sh` is a
-_bash script_ that bash runs, and bash *hates* `\r` and pukes everywhere.
+_bash script_ that bash runs, and bash _hates_ `\r` and pukes everywhere.
 
 To cause git to _not_ do newline conversion for future clones, run the
 following:
@@ -7654,17 +7777,19 @@ following:
 git config --global core.autocrlf false
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q200"></a>
-### `runtests.sh: 3: 56059 Segmentation fault: 11  $VALGRIND`
+
+### `runtests.sh: 3: 56059 Segmentation fault: 11 $VALGRIND`
 
 This means you got a segfault in your program. See [What is a segmentation fault
 and how do I stop it?](#what-is-segfault)
 
-------------------------------------------------------------------------
+---
 
 <a name="q300"></a>
+
 ### Mac: `malformed object` error when running `make tests`
 
 This is caused by an older version of the `ar` and `ranlib` packages being installed.
@@ -7684,9 +7809,10 @@ sudo brew update
 sudo brew upgrade gcc
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q400"></a>
+
 ### Should I bother fixing compiler warnings?
 
 YES!
@@ -7704,9 +7830,10 @@ void foo(int a)
     (void)a; // Do nothing, but at least the compiler will be quiet
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q500"></a>
+
 ### Can I accidentally destroy my computer running C code?
 
 Nope! Not with a modern OS.
@@ -7722,9 +7849,10 @@ you're not supposed to, or wiping out a disk you're not supposed to, etc.
 The worst you'll see is a `Segmentation fault` message which means your program
 tried to do something bad and the OS killed it.
 
-------------------------------------------------------------------------
+---
 
 <a name="q600"></a>
+
 ### Is a `struct` comparable to something in Python or JS? Is it like a class?
 
 It's like a class, except with only data (fields, properties) attached to it.
@@ -7765,9 +7893,10 @@ int main(void)
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q700"></a>
+
 ### Can you have default parameters in the structs?
 
 No. The best you can do is have a helper function set the defaults.
@@ -7796,9 +7925,10 @@ values:
 struct foo x = { .a = 10, .b = 20, .c = 30 };
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q800"></a>
+
 ### Why does unsigned char type accept a number when it's clearly referring to a character?
 
 Deep down, computers just deal in numbers (`1`s and `0`s). They don't know what
@@ -7838,17 +7968,17 @@ is typically 4 bytes (but not always).
 
 You can think of these additional bytes as analogous to adding more digits to
 your numbers. The more digits you have, the more range you can store. Two
-decimal digits only gets you from 0 to 99, but 8 digits gets you from 0 to
-99999999. Similarly, one byte only gets you from 0 to 255, but 4 bytes gets you
+decimal digits only gets you from 0 to 99, but 8 digits gets you from 0 to 99999999. Similarly, one byte only gets you from 0 to 255, but 4 bytes gets you
 from 0 to 4,294,967,295.
 
 If you never needed numbers larger than 255, you could use `unsigned char` for
 all your variables! (But since modern computers are at least as fast with `int`s
 as they are with `char`s, people just use `int`s.)
 
-------------------------------------------------------------------------
+---
 
 <a name="q900"></a>
+
 ### When I pass an array as an argument to a function, when do I use pointer notation and when do I use array notation ?
 
 It's a little-known FunFact that C doesn't actually pass entire arrays to
@@ -7867,15 +7997,19 @@ So when you declare your function, you can do any of these:
 ```c
 void foo(int *a)
 ```
+
 ```c
 void foo(int a[])
 ```
+
 ```c
 void foo(int a[1])
 ```
+
 ```c
 void foo(int a[2000])
 ```
+
 ```c
 void foo(int a[999999999])
 ```
@@ -7908,9 +8042,10 @@ This only applies for multidimensional arrays. For 1-dimensional arrays, the
 rule still applies; you still need to specify all dimensions except the first
 one... but since there is only one, you never need to specify it.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1000"></a>
+
 ### Why do functions tend to return pointers to structs, and not just copies of the struct?
 
 It's possible to do this:
@@ -7966,9 +8101,10 @@ struct foo *my_func(void)
 The reason is because `f` vaporizes as soon as the function returns (since it's
 just a local variable), so any pointers to it are invalid.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1100"></a>
+
 ### Why do we subtract '0' from a char to convert it from ASCII to a numeric value?
 
 The code typically looks like this:
@@ -7991,18 +8127,18 @@ it, since `50 - 48 = 2`. But why the `'0'`, then?
 
 Here's part of the ASCII table, just the numbers:
 
-|Character|ASCII value|
-|:-------:|:---------:|
-|  `'0'`  |    48     |
-|  `'1'`  |    49     |
-|  `'2'`  |    50     |
-|  `'3'`  |    51     |
-|  `'4'`  |    52     |
-|  `'5'`  |    53     |
-|  `'6'`  |    54     |
-|  `'7'`  |    55     |
-|  `'8'`  |    56     |
-|  `'9'`  |    57     |
+| Character | ASCII value |
+| :-------: | :---------: |
+|   `'0'`   |     48      |
+|   `'1'`   |     49      |
+|   `'2'`   |     50      |
+|   `'3'`   |     51      |
+|   `'4'`   |     52      |
+|   `'5'`   |     53      |
+|   `'6'`   |     54      |
+|   `'7'`   |     55      |
+|   `'8'`   |     56      |
+|   `'9'`   |     57      |
 
 It's no coincidence it's done this way. Turns out that if you subtract `48` from
 any ASCII character that is a digit, you'll end up with the numeric value of
@@ -8014,9 +8150,10 @@ Example: `'7'` is value `55` (from the table), compute `55 - 48` and you get
 And since `'0'` is `48`, it's become idiomatic in C to convert ASCII digits to
 values by subtracting `'0'` from them.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1200"></a>
+
 ### When do I need a pointer to a pointer?
 
 There are a few reasons you might need one, but the most common is when you pass
@@ -8108,8 +8245,7 @@ Solution? We need to pass a pointer to `q` to `alloc_ints()` so that
 `alloc_ints()` can modify the value of `q`.
 
 But `q` is already a pointer! It's an `int *`! So when we take the address-of it
-(AKA get a pointer to it), we'll end up with a pointer to a pointer, or an `int
-**`!
+(AKA get a pointer to it), we'll end up with a pointer to a pointer, or an `int **`!
 
 ```c
 void alloc_ints(int **p, int count)
@@ -8134,9 +8270,10 @@ int main(void)
 
 Success!
 
-------------------------------------------------------------------------
+---
 
 <a name="q1300"></a>
+
 ### Do other languages use pointers?
 
 Most all of them do, but some are more explicit about it than others. In
@@ -8212,9 +8349,10 @@ property on the thing that `a` points to".
 And when we set `a` to `NULL`, it's just modifying `a`, not the thing that `a`
 points to (namely `f`).
 
-------------------------------------------------------------------------
+---
 
 <a name="q1400"></a>
+
 ### What's the difference between "`int *x`" and "`int* x`"?
 
 Syntactically, nothing. They're equivalent.
@@ -8245,9 +8383,10 @@ int y, *x; // Also equivalent to the previous two examples
 It's idiomatic to keep the asterisk tucked up next to the variable that's the
 pointer.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1500"></a>
+
 ### What does the "implicit declaration of function" warning mean?
 
 This is the compiler saying "Hey, you're calling a function but I haven't seen a
@@ -8327,9 +8466,10 @@ functions that no other file will even need to call), those usually are either
 defined at the top of the file before their first call. If that's inconvenient,
 a prototype can be placed at the top of the `.c` file, instead.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1600"></a>
+
 ### What's the difference between `puts()`, `fprintf()`, and `printf()`?
 
 `puts()` simply outputs a string. It does no formatting of variables. Its only
@@ -8379,9 +8519,10 @@ if (argc != 2) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q1700"></a>
+
 ### Why does `025 == 21`?
 
 In C, any time you have a plain leading `0` on front of a number, the compiler
@@ -8397,9 +8538,10 @@ Octal is rarely used in practice, and it's common for new C programmers to put
 One of the last common places to see octal numbers is in [Unix file
 permissions](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
 
-------------------------------------------------------------------------
+---
 
 <a name="q1800"></a>
+
 ### What is the "true dev workflow" in C?
 
 There is none.
@@ -8416,9 +8558,10 @@ But dev for specific platforms like Windows probably happens in [Visual
 Studio](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) instead of using
 `make` and the rest of it.
 
-------------------------------------------------------------------------
+---
 
 <a name="q1900"></a>
+
 ### Does C have garbage collection?
 
 Nope!
@@ -8426,9 +8569,9 @@ Nope!
 When it comes to freeing up memory that is no longer needed by the program,
 there are basically two schools of thought:
 
-* Have the programmer manually manage that memory by explicitly allocating and
+- Have the programmer manually manage that memory by explicitly allocating and
   freeing it. (C's `malloc()` and `free()` functions.)
-* Have the runtime automatically manage all that for you. (Garbage collection,
+- Have the runtime automatically manage all that for you. (Garbage collection,
   automatic reference counting, etc.)
 
 C is too low-level to automatically manage memory usage for you.
@@ -8441,9 +8584,10 @@ pointers to data that you got back from `malloc()` when you're done with them.
 Also, when a program exits, all memory associated with it is freed by the OS,
 whether locals or `malloc()`d data.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2000"></a>
+
 ### Why is C code faster than other languages?
 
 The big thing is _interpreted_ versus _compiled_.
@@ -8468,9 +8612,10 @@ it doesn't have to do a lot of things behind your back.
 Additionally, people have been working on optimizing the output from C compilers
 for over 45 years. That's a big head start over other languages.
 
-------------------------------------------------------------------------
+---
 
 <a name="what-is-segfault"></a><a name="q2100"></a>
+
 ### What is a segmentation fault and how do I stop it?
 
 It means you've accessed some memory you weren't supposed to. The OS killed your
@@ -8488,9 +8633,10 @@ pointers behind syntactic sugar).
 Maybe you're accessing a `NULL` pointer, or an array out of bounds, or modifying
 something you're not allowed to modify.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2200"></a>
+
 ### What happens if my program exits but I forgot to `free()` some memory I allocated?
 
 All memory associated with a process is freed when the program exits, even if
@@ -8499,9 +8645,10 @@ you forgot to `free()` it.
 It's considered shoddy programming to not `free()` all the things you
 `malloc()`d, though. The OS will free it, but it's bad style to rely on that.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2300"></a>
+
 ### What's the difference between a `float` and a `double`, or between an `int` and a `long`?
 
 It's all about the range of numbers you want to be able to store.
@@ -8517,9 +8664,10 @@ a `long` could hold much larger numbers.
 Use as little as you need. If a `float` or `int` can do the job, use them. If
 you need more precision or larger numbers, step up to the next larger type.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2400"></a>
+
 ### Can you use `+` to concatenate two strings?
 
 No.
@@ -8530,9 +8678,10 @@ The reason is that strings are represented as `char*` types, and adding two
 Use the `strcat()` function in `<string.h>` to concatenate one string onto
 another.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2500"></a>
+
 ### Are variables automatically initialized to zero when I declare them?
 
 No.
@@ -8544,9 +8693,10 @@ types. If you don't, random garbage will be in them when you use them.
 > is out of scope for Lambda) and global variables get initialized to zero
 > automatically. But it's still good form to explicitly initialize them.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2600"></a>
+
 ### What type should I use to hold numbers bigger than an `int` can hold?
 
 If you don't need negative numbers, try `unsigned int`.
@@ -8563,16 +8713,18 @@ If you need big numbers _and_ a lot of precision _and_ none of the above are big
 enough, check out the [GNU Multiple Precision library](https://gmplib.org/). It
 does arbitrary precision arithmetic to as much precision as you have RAM.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2700"></a>
+
 ### What VS Code plugins are good for C development?
 
 "C/C++ IntelliSense, debugging, and code browsing" by Microsoft is a good one.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2800"></a>
+
 ### What are some additional C resources?
 
 A great C book is _The C Programming Language_ Second Edition, by Kernighan [the
@@ -8589,9 +8741,10 @@ Googling `printf example`, for example, will get you good results.
 
 Googling `man printf` will bring up the `man` page for `printf`.
 
-------------------------------------------------------------------------
+---
 
 <a name="q2900"></a>
+
 ### How do I get the debugger working?
 
 The commonly-used debugger is called `gdb` (GNU Debugger).
@@ -8620,9 +8773,10 @@ If you're not seeing program output in the `Output` tab, try adding this to your
 We recommend Googling for `vscode gdb setup macos`, substituting whatever
 platform you're on for `macos` and setting the search date range to be recent.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3000"></a>
+
 ### How do I print a pointer with `printf`?
 
 Use the `%p` format specifier. This will print the value of the pointer (i.e.
@@ -8631,35 +8785,39 @@ memory address.)
 
 In practice, pointers are rarely printed except for debugging.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3100"></a>
+
 ### Does C have closures?
 
-No, not in the way that you're used to from higher-level languages. What C does have that essentially acts as a poor man's closure is function pointers. These are literally what their name implies: pointers to functions. 
+No, not in the way that you're used to from higher-level languages. What C does have that essentially acts as a poor man's closure is function pointers. These are literally what their name implies: pointers to functions.
 
-The standard library implementation of the quicksort sorting algorithm provides a good example of this. It's function signature is 
+The standard library implementation of the quicksort sorting algorithm provides a good example of this. It's function signature is
+
 ```
 void qsort(void *base, size_t nitems, size_t size, int (*compare)(const void *, const void *))
 ```
 
-The parameter to notice is the `int (*compare)(const void *, const void *)`. This is a function pointer, mainly denoted by the asterisk in front of the function name all wrapped in parentheses and followed by another set of parentheses containing a parameter signature. 
+The parameter to notice is the `int (*compare)(const void *, const void *)`. This is a function pointer, mainly denoted by the asterisk in front of the function name all wrapped in parentheses and followed by another set of parentheses containing a parameter signature.
 
-This signature is saying that the `qsort` function, in addition to the other parameters it receives, also receives a pointer to a function that receives two `const void *`s and returns an `int`. 
+This signature is saying that the `qsort` function, in addition to the other parameters it receives, also receives a pointer to a function that receives two `const void *`s and returns an `int`.
 
 Function pointers are used to fulfill the same use case as closures. They can be used to pass some dynamic logic into another function. In the case of `qsort`, the function pointer points to a function that specifies how the comparison for the sorting should be done.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3200"></a>
+
 ### If I look at an uninitialized variable, will the garbage in it ever be leftover data from another process?
 
 Not on a modern OS. It would be a security risk, so the OS makes sure this never
 happens.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3300"></a>
+
 ### How many levels of indirection can you have with pointers? `int******`?
 
 It's effectively unlimited. But the more you have, the less readable your code
@@ -8667,13 +8825,14 @@ is.
 
 In real life:
 
-* 99.8% (roughly) of pointer usage is single indirection, like `int*`.
-* 1.5% (roughly) is double indirection, like `char**`.
-* And the remaining 0.5% is the rest of it.
+- 99.8% (roughly) of pointer usage is single indirection, like `int*`.
+- 1.5% (roughly) is double indirection, like `char**`.
+- And the remaining 0.5% is the rest of it.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3400"></a>
+
 ### What's the `incompatible integer to pointer conversion` error?
 
 This means you have a type mismatch in your assignment.
@@ -8686,9 +8845,10 @@ pointer type.
 Maybe you meant to take the address of the right hand side? Or dereference the
 right hand side?
 
-------------------------------------------------------------------------
+---
 
 <a name="q3500"></a>
+
 ### Are there any other ways besides `malloc()` to store things on the heap?
 
 Short answer: no.
@@ -8701,9 +8861,10 @@ operating system. In practice, this is very rare; people just call `malloc()`.
 
 In Unix, that syscall is `brk()` (or `sbrk()`). The behavior of this call is a bit strange no
 
-------------------------------------------------------------------------
+---
 
 <a name="q3600"></a>
+
 ### For string literals like `"Hello"`, are those stored on the stack or heap?
 
 Neither.
@@ -8767,9 +8928,10 @@ char *s = "Hello!";
 *s = 'B'; // segfault!
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q3700"></a>
+
 ### Is the C stack like the stack data structure?
 
 Yup! It's used by C to allocate space for local variables when you call functions.
@@ -8778,9 +8940,10 @@ When you return from a function, all those local variables are popped off the
 stack and thrown away. (Which is why local variables only last as long as the
 function!)
 
-------------------------------------------------------------------------
+---
 
 <a name="q3800"></a>
+
 ### Is the C heap like a binary heap data structure?
 
 No--it's just a name collision.
@@ -8789,27 +8952,29 @@ Just assume the heap is a big, contiguous chunk of memory. It can be used for
 whatever, but in C, it is typically managed by `malloc()` and `free()` so that
 we don't have to worry about it.
 
-------------------------------------------------------------------------
+---
 
 <a name="q3900"></a>
+
 ### What are `stdin`, `stdout`, and `stderr`?
 
 These are the three files that are automatically opened for a process when it is first created.
 
-|Stream           | File Name |  Device  |
-|-----------------|:---------:|:--------:|
+| Stream          | File Name |  Device  |
+| --------------- | :-------: | :------: |
 | Standard Input  |  `stdin`  | Keyboard |
-| Standard Output |  `stdout` |  Screen  |
-| Standard Error  |  `stderr` |  Screen  |
+| Standard Output | `stdout`  |  Screen  |
+| Standard Error  | `stderr`  |  Screen  |
 
 `stderr` is typically used specifically for error messages, even though it goes
 to the same place as `stdout`. (The idea is that you can redirect all normal
 output to one place, and all error output to another place. Or suppress normal
 output while allowing error output.)
 
-------------------------------------------------------------------------
+---
 
 <a name="q4000"></a>
+
 ### How do I know which header files to `#include` for any particular function?
 
 Check the man page for the function in question. It'll show it in the _Synopsis_
@@ -8818,9 +8983,11 @@ section.
 Example for `printf()`:
 
 > **SYNOPSIS**
+>
 > ```c
 >    #include <stdio.h>
 > ```
+>
 > ```c
 >     int
 >     printf(const char * restrict format, ...);
@@ -8844,9 +9011,10 @@ And section 2 for the `mkdir()` syscall:
 man 2 mkdir
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q4100"></a>
+
 ### When do I have to explicitly cast a type to another type?
 
 Barely ever.
@@ -8913,9 +9081,10 @@ void foo(int a)
     printf("\n");
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q4200"></a>
+
 ### Is `realloc()` the same as calling `malloc()`, copying the data over, then calling `free()` on the original pointer?
 
 Effectively, yes, it's the same. Practically, you should use `realloc()`.
@@ -8930,12 +9099,13 @@ of the memory region and not bother moving the data.
 Also, if you shrink the space, `realloc()` will likely not copy the data. It'll
 just truncate it.
 
-------------------------------------------------------------------------
+---
 
 <a name="q4300"></a>
+
 ### What happens if I `free()` a `NULL` pointer?
 
-Nothing. It's a [no-op](https://en.wikipedia.org/wiki/NOP_(code)).
+Nothing. It's a [no-op](<https://en.wikipedia.org/wiki/NOP_(code)>).
 
 Basically, inside the library code for `free()`, there's something that looks
 like this:
@@ -8959,9 +9129,10 @@ spec](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1124.pdf) section
 > space has been deallocated by a call to `free` or `realloc`, the behavior is
 > undefined.
 
-------------------------------------------------------------------------
+---
 
 <a name="q4400"></a>
+
 ### What are bits, bytes, kilobytes, megabytes, and all that?
 
 A [_bit_](https://www.youtube.com/watch?v=_fGujzulsas) is a single `1` or `0`.
@@ -9005,9 +9176,10 @@ That said, in conversation, if someone says _kilobyte_, odds are extremely high
 they mean 1024 bytes, not 1000 bytes. _kibibyte_ is uncommonly used in
 conversation.
 
-------------------------------------------------------------------------
+---
 
 <a name="q4500"></a>
+
 ### In C, can we assume an `int` is 32 bits?
 
 No.
@@ -9025,9 +9197,10 @@ that lists the minimum sizes of the types. If you want your code to be portable
 to other compilers and systems, choose a type with a minimum size that works for
 the numbers you need to hold.
 
-------------------------------------------------------------------------
+---
 
 <a name="q4600"></a>
+
 ### What's the difference between `#include` with double quotes and `#include` with angle brackets?
 
 In general, use double quotes for your own header files, and angle brackets for
@@ -9048,9 +9221,10 @@ the header file. This is where all the built-in header files are installed. On
 Unix machines, this tends to be the `/usr/include` directory, but it depends on
 the OS and compiler.
 
-------------------------------------------------------------------------
+---
 
 <a name="q4700"></a>
+
 ### Should I declare a pointer to a thing, or just declare the thing?
 
 It depends on if you want a thing or not, or if you just want to point to
@@ -9085,9 +9259,10 @@ to it? Sure, why not?
 int *p = &a; // and there's a pointer to it
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q4800"></a>
+
 ### Is there a difference between `exit()` and `return`?
 
 If you're in the `main()` function, then no.
@@ -9100,9 +9275,10 @@ If you're in `main()`, `return` also exits the running process.
 
 If you're in any other function, `return` just returns from that function.
 
-------------------------------------------------------------------------
+---
 
 <a name="q4900"></a>
+
 ### Why does `strcmp()` return `0` when strings match? Since `0` means "false" in C, that seems backwards.
 
 `strcmp()` returns the _difference_ between two strings. If the strings are the
@@ -9124,9 +9300,10 @@ So not only can it tell you if the strings are the same, it can tell you their
 relative sort order. And that means you can pass it in as the comparator
 function to the library built-in `qsort()` function.
 
-------------------------------------------------------------------------
+---
 
 <a name="ub"></a><a name="q5000"></a>
+
 ### What is "undefined behavior" in C?
 
 There are a number of things you're allowed to do in C where the compiler is
@@ -9144,19 +9321,20 @@ list of _all_ the things you can do that cause undefined behavior.
 
 At Lambda, the most common things you can do to get UB is using bad pointer references.
 
-* Accessing memory you've already `free()`d.
-* Freeing memory more than once.
-* Accessing an array off the end of its bounds.
-* Dereferencing a pointer that points to garbage.
-* Dereferencing a `NULL` pointer.
-* Returning a pointer to a local variable and dereferencing that.
+- Accessing memory you've already `free()`d.
+- Freeing memory more than once.
+- Accessing an array off the end of its bounds.
+- Dereferencing a pointer that points to garbage.
+- Dereferencing a `NULL` pointer.
+- Returning a pointer to a local variable and dereferencing that.
 
 GCC with `-Wall -Wextra` should warn on a lot of these. This is why it's
 _really_ important to fix all those warnings.
 
-------------------------------------------------------------------------
+---
 
 <a name="q5100"></a>
+
 ### When you free a pointer, does it get set to `NULL` automatically?
 
 No.
@@ -9187,9 +9365,10 @@ p = NULL; // NOW p is NULL
 (Note that it's [undefined behavior](#ub) to _dereference_ a pointer after
 you've `free()`d it. But it's still OK to change that pointer's value.)
 
-------------------------------------------------------------------------
+---
 
 <a name="q5200"></a>
+
 ### How do I write preprocessor macros with `#define`?
 
 You've probably already seen simple cases of `#define` like this:
@@ -9286,9 +9465,10 @@ And now the expansion of our line will be:
 
 That will work in all expected cases.
 
-------------------------------------------------------------------------
+---
 
 <a name="q5300"></a>
+
 ### What is an `undefined symbol` linker error?
 
 This happens when you've called a function, and the _linker_ can't find it in
@@ -9351,9 +9531,10 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 To fix, we need to figure out which file `foobaz()` is defined in, and make sure
 to pass that filename to the compiler when we build.
 
-------------------------------------------------------------------------
+---
 
 <a name="q5400"></a>
+
 ### How do I make my own header files and what do I put in them?
 
 If you have a `.c` file and you want to be able to use functions, `#define`s, or
@@ -9424,9 +9605,10 @@ When you build, you must specify all `.c` files on the command line:
 gcc -Wall -Wextra -o main main.c square.c
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q5500"></a>
+
 ### How do I make my own Makefile?
 
 **IMPORTANT: Any lines shown _indented_ in any Makefile _must_ begin with a
@@ -9520,11 +9702,12 @@ that file exists on disk or not before trying to build it. But in this case,
 `all` is not a file; it's just recipe we're using to get all targets to build by
 default.
 
-* [GNU make documentation](https://www.gnu.org/software/make/manual/make.html)
+- [GNU make documentation](https://www.gnu.org/software/make/manual/make.html)
 
-------------------------------------------------------------------------
+---
 
 <a name="q5600"></a>
+
 ### Why are there so many `printf()` variants? How do I know which one to use?
 
 The way to approach it is when you think, "I need something just like
@@ -9533,24 +9716,25 @@ the man page and see if there's a `printf()` variant that suits your needs.
 
 The first letters let you know what speciality each one has:
 
-* `printf()`: stock, no frills.
-* `fprintf()`: "file printf"; print to a specified `FILE*` instead of to `stdout`.
-* `sprintf()`: "string printf"; print to a string instead of to `stdout`.
-* `snprintf()`: "string printf, with a limited count"; print to a string instead
+- `printf()`: stock, no frills.
+- `fprintf()`: "file printf"; print to a specified `FILE*` instead of to `stdout`.
+- `sprintf()`: "string printf"; print to a string instead of to `stdout`.
+- `snprintf()`: "string printf, with a limited count"; print to a string instead
   of to `stdout`, and also specify the maximum number of characters that
   `snprintf()` is allowed to store in the buffer. This is good to protect
   against buffer overruns, and there's a valid argument that you should _never_
   use `sprintf()`, preferring `snprintf()` instead.
-* `vprintf()`: "variadic printf"; anything that starts with a `v` in `printf`
+- `vprintf()`: "variadic printf"; anything that starts with a `v` in `printf`
   land has to do with [variadic
   functions](https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html),
   i.e. functions with argument lists of variable lengths. These are out of scope
   at Lambda.
-* etc.
+- etc.
 
-------------------------------------------------------------------------
+---
 
 <a name="q5700"></a>
+
 ### Why is `main()` always at the bottom of the file?
 
 C has the feature that you have to _declare_ a function before you can use it.
@@ -9564,9 +9748,10 @@ It's more common for C devs to put `main()` at the bottom of the file that
 contains it, and C devs expect it that way, but it's not wrong or frowned upon
 to use prototypes to put it at the top instead.
 
-------------------------------------------------------------------------
+---
 
 <a name="q5800"></a>
+
 ### Why does `main()` return `0`? What does the return value mean?
 
 It doesn't _have_ to. The return value from `main()` is the _exit status_ of the
@@ -9606,9 +9791,10 @@ $ echo $?
 At the OS level, `fork()` is used to create a new process, and `wait()` is used
 to get the exit status back from that process.
 
-------------------------------------------------------------------------
+---
 
 <a name="q5900"></a>
+
 ### Do we have to have a `main()`? Can there be more than one?
 
 Only if you want to have a program that you can run. When you first launch a
@@ -9621,7 +9807,7 @@ It could be that individual files don't have a `main()` in them, but when the
 whole project it built, `main()` is brought in from another source file.
 
 Also, there's a thing called a
-[library](https://en.wikipedia.org/wiki/Library_(computing)) which is a
+[library](<https://en.wikipedia.org/wiki/Library_(computing)>) which is a
 collection of functionality that your program makes use of, but doesn't have a
 `main()`, itself. Your program has the `main()`, and it just _calls_ routines
 that are in the library.
@@ -9631,9 +9817,10 @@ library that holds all the standard C functionality (e.g. `printf()`, `sqrt()`,
 etc.) but doesn't have a `main()` of its own. Other programs simply use the
 library.
 
-------------------------------------------------------------------------
+---
 
 <a name="q6000"></a>
+
 ### Can `main()` return `void`? What about `main()` with no parameters?
 
 No. The function signature for `main()` must be one of the following:
@@ -9654,9 +9841,10 @@ int main(void)  // OK
 int main()      // Obsolete
 ```
 
-------------------------------------------------------------------------
+---
 
 <a name="q6100"></a>
+
 ### Do we need a semicolon at the end of every line?
 
 Yes.
@@ -9665,9 +9853,10 @@ Or, more technically, at the end of every statement or expression.
 
 C won't fill them in automatically like JavaScript will.
 
-------------------------------------------------------------------------
+---
 
 <a name="q6200"></a>
+
 ### Can a pointer point to more than one thing? What about to arrays and `struct`s?
 
 A pointer is a memory address. A single memory address, a single index number
@@ -9686,9 +9875,10 @@ If you have a `struct`, it points to the first byte of that `struct`.
 If you have an array of a zillion `struct`s, it points to the first byte of the
 0th `struct` in that array.
 
-------------------------------------------------------------------------
+---
 
 <a name="q6300"></a>
+
 ### If variables are stored in memory, where are pointers stored?
 
 Pointers themselves are variables.
@@ -9705,18 +9895,16 @@ The only difference between a pointer and an integer is that you can dereference
 the pointer to see what it's pointing to. You can't dereference an integer. In
 memory, they're both just stored as numbers.
 
-------------------------------------------------------------------------
-
-
-
-
+---
 
 </details><details> <summary>1-projects/Intro-to-C-master/fizzbuzz/</summary>
 
 ### [1-projects/Intro-to-C-master/fizzbuzz/README.md](1-projects/Intro-to-C-master/fizzbuzz/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Functions in C](#functions-in-c)
   - [Implementing fizzbuzz](#implementing-fizzbuzz)
@@ -9725,11 +9913,12 @@ memory, they're both just stored as numbers.
 
 # Functions in C
 
-Functions in C are not much different from functions in JavaScript. Probably the most notable difference, at least from a syntactic point of view, is that you need to specify types on all your variables and input parameters, along with needing to specify the return type of the function. Remember, C is a _strongly_ typed language, as opposed to JavaScript which is a _loosely_ typed language where types are entirely inferred by the interpreter. The C compiler ensures that you specify your types and that your code is consistent with the types you specify. 
+Functions in C are not much different from functions in JavaScript. Probably the most notable difference, at least from a syntactic point of view, is that you need to specify types on all your variables and input parameters, along with needing to specify the return type of the function. Remember, C is a _strongly_ typed language, as opposed to JavaScript which is a _loosely_ typed language where types are entirely inferred by the interpreter. The C compiler ensures that you specify your types and that your code is consistent with the types you specify.
 
 Here is a non-comprehensive list of C data types: [https://codeforwin.org/2015/05/list-of-all-format-specifiers-in-c-programming.html](https://codeforwin.org/2015/05/list-of-all-format-specifiers-in-c-programming.html)
 
 To reiterate, you might declare a function in C like this:
+
 ```c
     int foo(int param1, int param2)
     {
@@ -9737,35 +9926,36 @@ To reiterate, you might declare a function in C like this:
         return 0;
     }
 ```
-This function signature states that it receives two integer parameters and returns an integer. 
+
+This function signature states that it receives two integer parameters and returns an integer.
 
 Here's another example:
+
 ```c
     void bar(int[])
     {
         ...
     }
 ```
+
 This function signature states that it receives a single integer array and doesn't return anything. You'll often see this kind of function signature when you want the function to simply mutate the input and/or print the contents of the input.
 
-For printing output, you'll want to use the `printf` function, which is included in the `stdlib` library. 
+For printing output, you'll want to use the `printf` function, which is included in the `stdlib` library.
 
 ## Implementing fizzbuzz
 
-Your first task is going to be writing good ol' fizzbuzz in C! Your `fizzbuzz` function should receive some integer n, then loop up till n, printing out "Fizz" if the current iteration i is divisible by 3, "Buzz" if it's divisible by 5, or "FizzBuzz" if it is divisible by both 3 and 5. Additionally, for each iteration where nothing is printed, your function should increment a counter and return the result of that counter at the end of its execution. 
+Your first task is going to be writing good ol' fizzbuzz in C! Your `fizzbuzz` function should receive some integer n, then loop up till n, printing out "Fizz" if the current iteration i is divisible by 3, "Buzz" if it's divisible by 5, or "FizzBuzz" if it is divisible by both 3 and 5. Additionally, for each iteration where nothing is printed, your function should increment a counter and return the result of that counter at the end of its execution.
 
-Navigate to the `fizzbuzz.c` file. You'll write your code in there. When you want to test it, type `make tests` into your terminal (make sure you're doing this from the directory where the `Makefile` is located), which will run the `Makefile` and compile your program and, if the compilation was successful, run the tests for it as well. 
-
-
-
-
+Navigate to the `fizzbuzz.c` file. You'll write your code in there. When you want to test it, type `make tests` into your terminal (make sure you're doing this from the directory where the `Makefile` is located), which will run the `Makefile` and compile your program and, if the compilation was successful, run the tests for it as well.
 
 </details><details> <summary>1-projects/Intro-to-C-master/hangman/</summary>
 
 ### [1-projects/Intro-to-C-master/hangman/README.md](1-projects/Intro-to-C-master/hangman/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Hangman](#hangman)
   - [Objective](#objective)
@@ -9778,51 +9968,57 @@ Navigate to the `fizzbuzz.c` file. You'll write your code in there. When you wan
 # Hangman
 
 ## Objective
-Write a program that allows you play a game of Hangman. All of your code can be written in the `hangman.c` file. 
+
+Write a program that allows you play a game of Hangman. All of your code can be written in the `hangman.c` file.
 
 ## How your Program Should Work
-The main loop of the program prints the current state of the game and then waits for input from the player. When the player types in input (either a single letter guess or a word guess), the game checks if the letter is one that is in the target word or if the word guess matches the target word. If the guess is correct, the game state updates accordingly by revealing the guess as part of the target word. If the guess is incorrect, the game state updates accordingly by showing that letter in the 'incorrect guesses' list and adding another limb to the hangman drawing. 
 
-You'll compile your program with 
+The main loop of the program prints the current state of the game and then waits for input from the player. When the player types in input (either a single letter guess or a word guess), the game checks if the letter is one that is in the target word or if the word guess matches the target word. If the guess is correct, the game state updates accordingly by revealing the guess as part of the target word. If the guess is incorrect, the game state updates accordingly by showing that letter in the 'incorrect guesses' list and adding another limb to the hangman drawing.
+
+You'll compile your program with
+
 ```
 gcc -o hangman hangman.c
 ```
-This will create an executable called `hangman` that you'll execute with the command `./hangman` once you've successfully compiled the program. 
+
+This will create an executable called `hangman` that you'll execute with the command `./hangman` once you've successfully compiled the program.
 
 For this implementation, your program should receive a single word parameter; that will be the word that the player is trying to guess. So running your program might look like this
+
 ```
 ./hangman antidisestablishmentarianism
 ```
-This will start the game loop, which will then continue running until the player wins, the player loses, or the player exits the game. 
+
+This will start the game loop, which will then continue running until the player wins, the player loses, or the player exits the game.
 
 ## How to Tackle the Problem
+
 This problem can be broken down into many subproblems. Each subproblem can be further broken down into chunks that you can think about how to implement in code. These include, but are not limited to, the following:
- - [ ] Reading input from the user and recording it properly
-    - [ ] Figuring out how to parse command line arguments 
- - [ ] Properly recording game state
-    - [ ] Keeping track of all letters/words that have been inputted
-    - [ ] Recording the incorrect guesses
- - [ ] Printing the proper UI given the game's current state
- - [ ] Implementing the ability to accept both single letter guesses as well as entire word guesses
-    - [ ] Having the game UI respond appropriately when a player makes a correct / incorrect guess
- - [ ] Adding the ability for the user to exit the game by typing in the proper keyword
+
+- [ ] Reading input from the user and recording it properly
+  - [ ] Figuring out how to parse command line arguments
+- [ ] Properly recording game state
+  - [ ] Keeping track of all letters/words that have been inputted
+  - [ ] Recording the incorrect guesses
+- [ ] Printing the proper UI given the game's current state
+- [ ] Implementing the ability to accept both single letter guesses as well as entire word guesses
+  - [ ] Having the game UI respond appropriately when a player makes a correct / incorrect guess
+- [ ] Adding the ability for the user to exit the game by typing in the proper keyword
 
 ## Rules of Hangman
+
 Just in case you happen to be someone who _doesn't_ know the rules of Hangman, we'll list them here.
 
-The game has you guess a word. You're given 8 strikes. If you guess an incorrect letter (that you haven't already guessed before), or take a stab at guessing the entire word and don't get the correct word, that's one strike. The game keeps track of each letter that you've guessed. You win the game when you guess the correct word. 
-
-
-
-
-
+The game has you guess a word. You're given 8 strikes. If you guess an incorrect letter (that you haven't already guessed before), or take a stab at guessing the entire word and don't get the correct word, that's one strike. The game keeps track of each letter that you've guessed. You win the game when you guess the correct word.
 
 </details><details> <summary>1-projects/Intro-to-C-master/malloc/</summary>
 
 ### [1-projects/Intro-to-C-master/malloc/README.md](1-projects/Intro-to-C-master/malloc/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Dynamic Memory](#dynamic-memory)
   - [Working with Void Pointers Directly](#working-with-void-pointers-directly)
@@ -9834,30 +10030,34 @@ The game has you guess a word. You're given 8 strikes. If you guess an incorrect
 Remember that a few modules ago when we were talking about arrays in C being entirely static? That's a pretty big limitation since we're forced to know up front what kind of data we want to store in the array and how much data there is before we can fit it into an array. We aren't psychics here. How do we get around this?
 
 The answer to that is the `malloc` function. Its signature is this:
+
 ```c
     void *malloc(size_t size);
 ```
+
 A `size_t` type is nothing more than a really large int for representing large sizes. The other thing to note is that the `malloc` function returns a `void` pointer. The `void` type simply means the type could be anything; essentially, we don't know the type up front. So `malloc` returns us a pointer of unspecified type that points to a chunk of memory with the specified size.
 
 Well, if there's this `void` type, what's to stop us from just declaring everything as a `void` type? The drawback to the `void` type is that the compiler then can't infer much of anything about the data that a void pointer points to. It can't determine how much data a `void` pointer is pointing to, plus `void` pointers cannot be dereferenced until they are _cast_ (their type is changed) to a known type. Basically, it won't be able to provide us nearly as many compile-time protections as it can if we have all of our types declared. The moral of the story is that the `void` type should only be used when you actually do not know the type of the data up front. `malloc` returning a `void` pointer is a great use-case for this.
 
 Here are some pretty typical `malloc` calls:
+
 ```c
     int *100_ints = malloc(100 * sizeof(int));
 
     char *50_chars = malloc(51);
 ```
+
 The first `malloc` call allocates enough space for 100 ints. The `malloc` call initially returns a `void` pointer, but it then gets _cast_ to an `int` pointer on the left-hand side. You'll also note that we're using the `sizeof` operator in order to find the size of an individual integer, and then multiplying by the number of integers we're looking to store in order to get the total amount of memory we need. We have to do this because integers are not stored in a single byte, and integer sizes may fluctuate from platform to platform.
 
-With the second `malloc` call, you'll see we don't do that. We're still performing the cast to a `char` pointer, but there's no call to the `sizeof` operator. This is because `char`s each fit within a single byte, so 51 bytes will hold 51 `char`s, which is exactly what we want. Once we have a pointer to the `malloc`'d memory, we can work with it exactly how we've been working with pointers. 
+With the second `malloc` call, you'll see we don't do that. We're still performing the cast to a `char` pointer, but there's no call to the `sizeof` operator. This is because `char`s each fit within a single byte, so 51 bytes will hold 51 `char`s, which is exactly what we want. Once we have a pointer to the `malloc`'d memory, we can work with it exactly how we've been working with pointers.
 
-So, we still need to know how much data we want to fit inside this chunk of `malloc`'d memory, which still isn't all that helpful since that's still a hefty limitation. There exist other library functions, such as `realloc`, which can receive a pointer to `malloc`d memory and then resize that chunk of memory, but for this module we're just going to stick with `malloc`. 
+So, we still need to know how much data we want to fit inside this chunk of `malloc`'d memory, which still isn't all that helpful since that's still a hefty limitation. There exist other library functions, such as `realloc`, which can receive a pointer to `malloc`d memory and then resize that chunk of memory, but for this module we're just going to stick with `malloc`.
 
 We'll talk about one of the main usages of `malloc` in the next module.
 
 ## Working with Void Pointers Directly
 
-Getting a void pointer back from a `malloc` call isn't the only time we'll need to deal with void pointers. Sometimes we'll need to explicitly cast a void pointer that's already referring some data, unlike the chunk of memory we're getting back from `malloc` call, which starts off empty and uninitialized. 
+Getting a void pointer back from a `malloc` call isn't the only time we'll need to deal with void pointers. Sometimes we'll need to explicitly cast a void pointer that's already referring some data, unlike the chunk of memory we're getting back from `malloc` call, which starts off empty and uninitialized.
 
 A common use-case for void pointers is when we want to write a function that is generic over types, i.e., it doesn't care what the types of its inputs are. Let's assume we have the following function signature:
 
@@ -9872,19 +10072,18 @@ char *cast_a = (char *) a;
 char *cast_b = (char *) b;
 ```
 
-Here we cast both void pointers to be char pointers. Note that this doesn't actually transform the data these two pointers point to, we aren't changing the underlying data's type. We just need to temporarily assign a concrete type to these pointers so that we can do something with them inside our `foo` function. 
+Here we cast both void pointers to be char pointers. Note that this doesn't actually transform the data these two pointers point to, we aren't changing the underlying data's type. We just need to temporarily assign a concrete type to these pointers so that we can do something with them inside our `foo` function.
 
-We pick `char *`s here because the `char` type is guaranteed by the C specification to be one byte each. This is desirable because it's the most granular type we can pick. If we're going to be touching some memory and not treating as the type that it actually is, then to avoid any sort of memory corruption, we want to be as granular as possible when handling that underlying data, hence the usage or chars and not some other type. 
-
-
-
+We pick `char *`s here because the `char` type is guaranteed by the C specification to be one byte each. This is desirable because it's the most granular type we can pick. If we're going to be touching some memory and not treating as the type that it actually is, then to avoid any sort of memory corruption, we want to be as granular as possible when handling that underlying data, hence the usage or chars and not some other type.
 
 </details><details> <summary>1-projects/Intro-to-C-master/pointers/</summary>
 
 ### [1-projects/Intro-to-C-master/pointers/README.md](1-projects/Intro-to-C-master/pointers/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Pointers](#pointers)
   - [Differences between arrays and pointers](#differences-between-arrays-and-pointers)
@@ -9896,40 +10095,46 @@ We pick `char *`s here because the `char` type is guaranteed by the C specificat
 
 # Pointers
 
-From the perspective of C, your entire computer is nothing more than a giant array of memory into which values can be written. Given this analogy, when we're dealing with arrays, how do we access some value stored inside of said array? 
+From the perspective of C, your entire computer is nothing more than a giant array of memory into which values can be written. Given this analogy, when we're dealing with arrays, how do we access some value stored inside of said array?
 
-We do it with indices that point to a specific spot in the array. As it turns out, pointers in C are simply just that: indices into the giant array of memory that is your computer. More formally, a pointer is a memory address that tells the program where to go and find some variable value. 
+We do it with indices that point to a specific spot in the array. As it turns out, pointers in C are simply just that: indices into the giant array of memory that is your computer. More formally, a pointer is a memory address that tells the program where to go and find some variable value.
 
 Those funky asterisks you might have seen already indicate a pointer (you might have heard them referred to as _references_ in other languages). Let's look at the function signature we had for the `reverse_string` function you wrote in the `strings` module:
+
 ```c
 char *reverse_string(char s[])
 {
     ...
 }
 ```
+
 The `char *` that is in the spot where the return type of the function usually goes is saying that this function will return a pointer to an array of characters.
 
-It turns out that pointers and arrays in C are very much interconnected, so much so that it's pretty difficult to separate the topic of pointers from arrays. Every pointer points to the first spot of a contiguous portion of memory, and as we've already established, C pretty much just treats your computer as a giant array of memory. 
+It turns out that pointers and arrays in C are very much interconnected, so much so that it's pretty difficult to separate the topic of pointers from arrays. Every pointer points to the first spot of a contiguous portion of memory, and as we've already established, C pretty much just treats your computer as a giant array of memory.
 
 Indeed, there are many similarities between how you work with arrays and how you work with pointers. However, let's first talk about the _differences_ between them.
 
 ## Differences between arrays and pointers
 
 Even though C let's you work with pointers and arrays in many of the same ways, don't think of them as synonomous. C's `sizeof` operator allows us to find the size of something in bytes. Let's say for example we had the following array:
+
 ```c
     int integers[] = { 9, 49, 1, 6, 10, 15 };
 ```
+
 Calling `sizeof(integers)` gets us the total amount of data in the array. Then let's say we had a pointer to the same chunk of data:
+
 ```c
     int *pointer_to_integers = integers;
 ```
+
 So we have an array named `integers` and a pointer called `pointer_to_integers` that points to the same spot in memory where the `integers` array is stored. If we were to call `sizeof(pointer_to_integers)`, we would actually get back the size of the pointer, not the size of the data it's pointing to.
 
-There are a few other such sorts of edge cases, but for the most part they're pretty nuanced. So while, again, you shouldn't be thinking of pointers being arrays and vice versa, you would interface with them in many of the same ways. 
+There are a few other such sorts of edge cases, but for the most part they're pretty nuanced. So while, again, you shouldn't be thinking of pointers being arrays and vice versa, you would interface with them in many of the same ways.
 
-## Declaring pointers 
+## Declaring pointers
 
-As showcased above, declaring a pointer is as simple as putting an asterisk after the type declaration of a variable. This signifies that we have a pointer to the declared type with the specified name. 
+As showcased above, declaring a pointer is as simple as putting an asterisk after the type declaration of a variable. This signifies that we have a pointer to the declared type with the specified name.
 
 ```c
 /* Declaring two ints x and y, and an int array z */
@@ -9942,40 +10147,47 @@ y = *ip;        /* y is now 1 */
 ip = &z[0];     /* ip now points to z[0] */
 ```
 
-There's nothing new going on in the first two lines of this block. Starting at the third line with `ip = &x;`, we see the `&` operator. This means we're grabbing the _address_ of the variable `x`, or in other words, we're asking for the address where the value of `x` (`1` in this case) is being stored. We do this because `ip` is a pointer, which stores an address, not a value. If we did `ip = x;`, that would be saying "store the value of the variable x in the variable `ip`", which would not compile since we've declared `ip` to be an integer pointer, not an integer value. 
+There's nothing new going on in the first two lines of this block. Starting at the third line with `ip = &x;`, we see the `&` operator. This means we're grabbing the _address_ of the variable `x`, or in other words, we're asking for the address where the value of `x` (`1` in this case) is being stored. We do this because `ip` is a pointer, which stores an address, not a value. If we did `ip = x;`, that would be saying "store the value of the variable x in the variable `ip`", which would not compile since we've declared `ip` to be an integer pointer, not an integer value.
 
-In the next line, `y = *ip`, note that when we use the `*` operator not in a declaration, it signifies that we're want to grab the _value_ of the operand. So we're saying "set the variable `y` to be the value of the pointer `ip`". Again, since `ip` is a pointer, it stores an address. When we prepend the `*` operator in front of a pointer, we're asking for the value that that pointer points to. Put another way, we're indexing into the giant array of memory that is our computer and asking for the value at the given index. 
+In the next line, `y = *ip`, note that when we use the `*` operator not in a declaration, it signifies that we're want to grab the _value_ of the operand. So we're saying "set the variable `y` to be the value of the pointer `ip`". Again, since `ip` is a pointer, it stores an address. When we prepend the `*` operator in front of a pointer, we're asking for the value that that pointer points to. Put another way, we're indexing into the giant array of memory that is our computer and asking for the value at the given index.
 
 Next we have `*ip = 0;`. Here we're setting the value that `ip` points at to be 0. Before this, `ip` pointed to whatever `x`'s value was, because of the line `ip = &x;`. So now that we changed the value at some address, any other variables or pointers that also referenced that same address also got changed! If we were to print out the value of the `x` variable now, it would be `0`!
 
-Lastly, we have `ip = &z[0];`, which declaring that `ip` now points to the first element of the `z` array. Again, we use the `&` operator in order to grab the _address_, not the _value_, of `z[0]`, since `ip` is a pointer that stores an address. 
+Lastly, we have `ip = &z[0];`, which declaring that `ip` now points to the first element of the `z` array. Again, we use the `&` operator in order to grab the _address_, not the _value_, of `z[0]`, since `ip` is a pointer that stores an address.
 
 ## Pointer Arithmetic
 
 When we index into arrays in JavaScript, we can do things like:
-```javascript
-    const someArray = [];
 
-    for (let i = 0; i < array.length; i++) {
-        someArray[i] = array[i + 1];
-    }
+```javascript
+const someArray = [];
+
+for (let i = 0; i < array.length; i++) {
+  someArray[i] = array[i + 1];
+}
 ```
+
 We can index into arrays by performing arithmetic on the index. With pointers in C, we can do the exact same thing!
 
 Let's say we have a pointer to a string like so:
+
 ```c
     char *str = "Some string";
 ```
+
 We can loop through the characters in this string by doing this:
+
 ```c
     while (*str != '\0') {
         printf("%c", *str);
         str++;
     }
 ```
-This loop will print out each character in the string. Indeed, this loop is pretty much analogous to iterating through an array. More precisely though, on each iteration of this while loop, we're incrementing the spot the pointer points to by one. At the beginning of the loop, `*str` points to the first character in the string, `S`. Then, on the next iteration, it gets incremented and then prints out `o`. This keeps going until the pointer points to the null character, which terminates the loop. 
+
+This loop will print out each character in the string. Indeed, this loop is pretty much analogous to iterating through an array. More precisely though, on each iteration of this while loop, we're incrementing the spot the pointer points to by one. At the beginning of the loop, `*str` points to the first character in the string, `S`. Then, on the next iteration, it gets incremented and then prints out `o`. This keeps going until the pointer points to the null character, which terminates the loop.
 
 Armed with this knowledge regarding pointers and pointer arithmetic, we can rewrite the `reverse_string` function from the last module to use pointers instead of allocating additional memory for the reversed string. This has the added benefit of performing the reverse in-place.
+
 ```c
     void *reverse_string(char *s)
     {
@@ -9992,38 +10204,37 @@ Armed with this knowledge regarding pointers and pointer arithmetic, we can rewr
 
 ## Use cases of pointers
 
-Lastly, let's talk a bit about why pointers are useful. The number 1 most important reason as to why pointers exists, the motivation for their invention in the first place, is that the C compiler needs every type to have a known size at compile time. This is a pretty big restriction, and it's one that comes with the territory of working in a strongly-typed language. 
+Lastly, let's talk a bit about why pointers are useful. The number 1 most important reason as to why pointers exists, the motivation for their invention in the first place, is that the C compiler needs every type to have a known size at compile time. This is a pretty big restriction, and it's one that comes with the territory of working in a strongly-typed language.
 
-But there's lots of data that we won't know the size of until runtime. What if we need to accept user input? How do we know the size of that input before the user even gives it to us? What if we need to add data to some data structure at runtime? These are all valid questions, and the workaround to them is pointers. 
+But there's lots of data that we won't know the size of until runtime. What if we need to accept user input? How do we know the size of that input before the user even gives it to us? What if we need to add data to some data structure at runtime? These are all valid questions, and the workaround to them is pointers.
 
-We can not tell the compiler the size of certain types upfront, so what we do instead is use something of a known size to refer to things of unknown size. That is exactly what pointers are. They're a type with a known size that tells us how to access something of an unknown size. 
+We can not tell the compiler the size of certain types upfront, so what we do instead is use something of a known size to refer to things of unknown size. That is exactly what pointers are. They're a type with a known size that tells us how to access something of an unknown size.
 
-So whenever we need to hold something like a string or a data structure whose size depends on something that can only be known at runtime, you can bet such structures will be referred to by a pointer. 
+So whenever we need to hold something like a string or a data structure whose size depends on something that can only be known at runtime, you can bet such structures will be referred to by a pointer.
 
-A slightly related use case is passing by reference vs. passing by value when we're talking about passing parameters to functions. You've probably at least heard of these terms used in other languages. Passing by value means that we're passing a _copy_ of the value to a function as a parameter. This results in additional work and memory overhead, but means we have a fresh copy of the data to work with, which is desirable in certain scenarios. 
+A slightly related use case is passing by reference vs. passing by value when we're talking about passing parameters to functions. You've probably at least heard of these terms used in other languages. Passing by value means that we're passing a _copy_ of the value to a function as a parameter. This results in additional work and memory overhead, but means we have a fresh copy of the data to work with, which is desirable in certain scenarios.
 
-On the flip side, passing by reference means we're passing a pointer to the data. In other words, the function doesn't have access to the data itself, but it is able to find that data in memory via the passed-in pointer. There's no need to copy the data, but then that also means the function doesn't have exclusive access to the data either. 
-
-
-
-
+On the flip side, passing by reference means we're passing a pointer to the data. In other words, the function doesn't have access to the data itself, but it is able to find that data in memory via the passed-in pointer. There's no need to copy the data, but then that also means the function doesn't have exclusive access to the data either.
 
 </details><details> <summary>1-projects/Intro-to-C-master/quicksort/</summary>
 
 ### [1-projects/Intro-to-C-master/quicksort/README.md](1-projects/Intro-to-C-master/quicksort/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Quicksort](#quicksort)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Quicksort 
+# Quicksort
 
 For this module, you're going to implement a quicksort function. Feel free to reference prior implementation(s) and simply transpose the code from one language to the other. Typically this is a good way to practice new languages you're trying to learn: by transposing code you've written from one language to another.
 
 In case you haven't seen the quicksort algorithm before, here's a Python implementation that you can use as a reference:
+
 ```python
 def quicksort(alist, begin=0, end=None):
   if end is None:
@@ -10040,24 +10251,24 @@ def partition(alist, begin, end):
     if alist[i] <= alist[begin]:
       pivot += 1
       alist[i], alist[pivot] = alist[pivot], alist[i]
-  
+
   alist[pivot], alist[begin] = alist[begin], alist[pivot]
 
   return pivot
 ```
+
 Keep in mind that since Python is a higher-level language than C, it provides language features and constructs that aren't available in C. For example, the swapping syntax in Python isn't going to work in C without some additional work. The `swap` that you implemented earlier in the sprint has been included in this directory in the `lib.h` header file though, so you can use it here to swap values within an array in-place. Another Python language feature that you can't replicate in C are the default function parameters.
 
-Navigate to the `quicksort.c` file. Implement your quicksort algorithm, then type `make tests` to check if you have all the tests passing. 
-
-
-
+Navigate to the `quicksort.c` file. Implement your quicksort algorithm, then type `make tests` to check if you have all the tests passing.
 
 </details><details> <summary>1-projects/Intro-to-C-master/</summary>
 
 ### [1-projects/Intro-to-C-master/README.md](1-projects/Intro-to-C-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Introduction to the C Programming Language](#introduction-to-the-c-programming-language)
   - [What you'll be doing in this sprint](#what-youll-be-doing-in-this-sprint)
@@ -10086,7 +10297,7 @@ you working directly with the memory on your machine. Higher level languages
 abstract this fact away from you, at the cost of raw performance and control.
 Essentially, you're getting exposed to the nitty-gritty seedy underbelly of your
 computer's inner workings, and being in such a place for extended periods of
-time is not for everybody. 
+time is not for everybody.
 
 That being said, we the instructors do believe that every developer needs to get
 a taste of C in order to really be able to delve into the inner workings of how
@@ -10094,7 +10305,7 @@ exactly software communicates and interfaces with hardware. That's not really
 something JavaScript or Python will expose you to. Additionally, once you get
 acclimated to C, the language provides you with unparalleled control over how
 your code gets executed on your machine. Some people find the sheer amount of
-control that C provides you intoxicating. 
+control that C provides you intoxicating.
 
 But before any of that happens, you've gotta get your feet wet with C. So without further ado, let's get started!
 
@@ -10104,16 +10315,17 @@ If you haven't gotten your C compiler up and running, please do that first. You'
 
 This sprint is structured very much like how your introductory JavaScript sprints are structured. There are independent modules, each with their own set of exercises that you'll be tasked with implementing. There's an associated set of tests for all the exercises in each module, which you'll run against your code to check to see if it behaves and functions correctly. The order in which you should tackle these exercises is this:
 
-  - [ ] fizzbuzz
-  - [ ] strings
-  - [ ] pointers
-  - [ ] malloc
-  - [ ] structs
+- [ ] fizzbuzz
+- [ ] strings
+- [ ] pointers
+- [ ] malloc
+- [ ] structs
 
-  **Stretch Goal Problems**
-  - [ ] queue
-  - [ ] quicksort
-  - [ ] hangman
+**Stretch Goal Problems**
+
+- [ ] queue
+- [ ] quicksort
+- [ ] hangman
 
 Inside a module directory, type `make tests` (just like with the `npm install`
 command needing a `package.json` file, the `make` command requires a
@@ -10132,16 +10344,14 @@ inside that program's `main` function.
 
 For things that go wrong, check out the [troubleshooting](TROUBLESHOOTING.md) doc.
 
-
-
-
-
 </details><details> <summary>1-projects/Intro-to-C-master/strings/</summary>
 
 ### [1-projects/Intro-to-C-master/strings/README.md](1-projects/Intro-to-C-master/strings/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Arrays in C](#arrays-in-c)
 - [Strings in C](#strings-in-c)
@@ -10153,16 +10363,21 @@ For things that go wrong, check out the [troubleshooting](TROUBLESHOOTING.md) do
 In C, arrays are nothing more than contiguous chunks in memory that store a _single_ type of data. Additionally, arrays are static in size, at least in their most basic form. That means that we'll typically need to know the size and/or the amount of data a particular array will be storing when we initialize it. Unlike in higher-level languages, we can't just simply declare an empty array and then start pushing elements onto it willy-nilly.
 
 If we wanted to declare an array of integers, we might do it like so:
+
 ```c
     int int_array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 ```
-Note the syntax here. We need the square brackets after the array's name to indicate that it is an array to the compiler, and when we declare the initial values of the array, we surround them with curly braces, not square brackets. 
+
+Note the syntax here. We need the square brackets after the array's name to indicate that it is an array to the compiler, and when we declare the initial values of the array, we surround them with curly braces, not square brackets.
 
 Another way we might declare an array is the following:
+
 ```c
     int another_int_array[20];
 ```
-With this, we've declared a statically-sized integer array that has space for 20 integers. There's nothing in it initially, but we can now start populating it with integers (and only integers) up to it's specified capacity. 
+
+With this, we've declared a statically-sized integer array that has space for 20 integers. There's nothing in it initially, but we can now start populating it with integers (and only integers) up to it's specified capacity.
+
 ```c
     int n = 20 / sizeof(int);
 
@@ -10170,38 +10385,41 @@ With this, we've declared a statically-sized integer array that has space for 20
         another_int_array[i] = i;
     }
 ```
+
 While we allocated 20 bytes worth of space into the array, keep in mind that a single integer actually takes up more than a single byte of space in memory. To get around this, we can use the `sizeof` operator to find out exactly how many bytes a single `int` occupies on your machine, and then divide the array capacity by that to get the actual number of integers that can fit inside the array.
 
-If we try to add more integers than the array has capacity for, we'll get a segmentation fault error, which means we've tried to access memory we don't have permission to access. That's what happens when we go outside of an array's bounds. 
+If we try to add more integers than the array has capacity for, we'll get a segmentation fault error, which means we've tried to access memory we don't have permission to access. That's what happens when we go outside of an array's bounds.
 
-We'll talk later on about how to handle dynamically-sized data. 
+We'll talk later on about how to handle dynamically-sized data.
 
 # Strings in C
 
 So what do arrays have to do with strings? Everything, as it turns out. Strings in C are actually nothing more than arrays of characters. In fact, when declaring a string, you might do it like this:
+
 ```c
     char[] = "Hello world!";
 ```
+
 Under the hood, this declaration becomes
+
 ```c
     char[] = { 'H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!', '\0' };
 ```
-The `\0` character at the end represents the null character; _every_ C string is terminated with one of these, and in fact, if you wanted to write a function to find the number of characters in a string, you'd basically just loop through the character array and increment a counter until you found the `\0` character. 
 
-IMPORTANT NOTE: So far, every language you've worked in has not differentiated between single and double quotes. In C, these actually make a difference. Single quotes delineate a single character, while double quotes delineate string literals. So for example, `"a"` is a string literal complete with a terminating null character at the end of it, as opposed to `'a'` which is just the individual character. 
+The `\0` character at the end represents the null character; _every_ C string is terminated with one of these, and in fact, if you wanted to write a function to find the number of characters in a string, you'd basically just loop through the character array and increment a counter until you found the `\0` character.
 
-The compiler _will_ yell at you if you try to store multiple characters in single quotes. 
+IMPORTANT NOTE: So far, every language you've worked in has not differentiated between single and double quotes. In C, these actually make a difference. Single quotes delineate a single character, while double quotes delineate string literals. So for example, `"a"` is a string literal complete with a terminating null character at the end of it, as opposed to `'a'` which is just the individual character.
 
-
-
-
+The compiler _will_ yell at you if you try to store multiple characters in single quotes.
 
 </details><details> <summary>1-projects/Intro-to-C-master/structs/</summary>
 
 ### [1-projects/Intro-to-C-master/structs/README.md](1-projects/Intro-to-C-master/structs/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Structs](#structs)
   - [Initializing structs](#initializing-structs)
@@ -10214,7 +10432,7 @@ The compiler _will_ yell at you if you try to store multiple characters in singl
 
 Another limitation that exists in C that we haven't brought up yet is the fact that arrays in C can only hold a single type of data. Being able to stick any type of data all into the same array is a feature that you probably take for granted coming from JavaScript. Well, you can't do that in C!
 
-Enter structs. Structs are basically C's version of a poor man's object. We can store values of different types inside a struct, which is awesome, but we need to declare the types of the fields that the struct can hold up front. That being said, structs are instrumental when it comes to implementing data structures and more complex types in C. 
+Enter structs. Structs are basically C's version of a poor man's object. We can store values of different types inside a struct, which is awesome, but we need to declare the types of the fields that the struct can hold up front. That being said, structs are instrumental when it comes to implementing data structures and more complex types in C.
 
 ## Initializing structs
 
@@ -10227,6 +10445,7 @@ Let's look at a simple struct definition:
         int age;
     };
 ```
+
 This declares the shape of the Cat struct. Now we'll need to create an instance of it if we want to want to actually use it. Well, what actually defines an instance of something?
 
 In this case, an instance of a struct is some chunk of memory that has been initialized with the shape of said struct. So we'll need to allocate memory for our Cat struct. We can do that with this:
@@ -10234,6 +10453,7 @@ In this case, an instance of a struct is some chunk of memory that has been init
 ```c
     struct Cat *a_cat = malloc(sizeof(struct Cat));
 ```
+
 So we're handed a pointer to a chunk of memory that holds exactly the right amount of data for a single instance of a Cat. We take that and cast it to a pointer with the type of `struct Cat` since that's the type that is being held in this chunk of memory. We'll also need to go and initialize the values of our Cat instance like so:
 
 ```c
@@ -10241,16 +10461,18 @@ So we're handed a pointer to a chunk of memory that holds exactly the right amou
     a_cat->color = NULL;
     a_cat->age = 0;
 ```
+
 What's with these funky arrows? Coming from JavaScript, you're used to using dot notation for accessing members of an object. Structs are poor man's objects, so shouldn't dot notation work here?
 
-The answer is that dot notation is a thing in C, but because in this case we have a _pointer_ to a struct, we need to perform a dereference first in order to get to the actual data the struct contains. That's what the arrow syntax does. It performs a dereference first and then accesses the struct member. 
+The answer is that dot notation is a thing in C, but because in this case we have a _pointer_ to a struct, we need to perform a dereference first in order to get to the actual data the struct contains. That's what the arrow syntax does. It performs a dereference first and then accesses the struct member.
 
 Basically, you can think of it like this:
+
 ```c
     a_cat->breed == (*a_cat).breed
 ```
 
-Allocating memory for structs is one of the most important functions that `malloc` serves. Keep in mind though that when we declare a struct, every type in the struct needs to have a known size. Looking at the Cat struct, `char *`s and `int`s all have a known size, so the entire size of the struct can be calculated. However, we don't know the sizes of the data that the `char *`s may be pointing to. 
+Allocating memory for structs is one of the most important functions that `malloc` serves. Keep in mind though that when we declare a struct, every type in the struct needs to have a known size. Looking at the Cat struct, `char *`s and `int`s all have a known size, so the entire size of the struct can be calculated. However, we don't know the sizes of the data that the `char *`s may be pointing to.
 
 Let's say we have a function called `name_cat` that will assign a Cat instance with a given input name. It might look like this:
 
@@ -10263,23 +10485,26 @@ Let's say we have a function called `name_cat` that will assign a Cat instance w
         string_copy(cat->name, name);
     }
 ```
-That's right, we'll need to call `malloc` to allocate the appropriate amount of memory to the `cat->name` field, and then we can call `string_copy` in order to copy each character in the input `name` string to the memory that `cat->name` now points to. 
+
+That's right, we'll need to call `malloc` to allocate the appropriate amount of memory to the `cat->name` field, and then we can call `string_copy` in order to copy each character in the input `name` string to the memory that `cat->name` now points to.
 
 ## Freeing memory
 
-Yet another abstraction that you're used to from higher-level languages is the garbage collector. A garbage collector is typically part of a languages runtime, and its job is to clean up memory that is used up by your programs. 
+Yet another abstraction that you're used to from higher-level languages is the garbage collector. A garbage collector is typically part of a languages runtime, and its job is to clean up memory that is used up by your programs.
 
 For example, after you write some JS program that has a bunch of arrays and objects, what happens to the memory that was needed to order to hold those instances? In a high-level language, a garbage collector goes through and figures out that those arrays and objects are no longer being used. It then deallocates or frees up that memory so that it can be reused by other programs. You the programmer never needs to worry about cleaning up after yourself; it's all handled for you automatically!
 
-C doesn't baby you around like that. It expects _you_ to handle the clean up like the grown up you are. Learning to clean up after yourself can get difficult when you're writing more advanced programs in C. For simple programs though, it can be as simple as calling the function `free` after you're done with some piece of `malloc`'d memory. 
+C doesn't baby you around like that. It expects _you_ to handle the clean up like the grown up you are. Learning to clean up after yourself can get difficult when you're writing more advanced programs in C. For simple programs though, it can be as simple as calling the function `free` after you're done with some piece of `malloc`'d memory.
 
 The `free` function receives a pointer that points to a piece of `malloc`'d memory, and it deallocates it so that that memory may be re-used. As you can imagine, once some `malloc`'d memory has been `free`'d, whatever data was in that chunk of memory is gone, so make sure you're done with the data before `free`ing it!
 
-Let's codify this into a simple heuristic that isn't too hard to memorize: 
+Let's codify this into a simple heuristic that isn't too hard to memorize:
+
 > For every call to `malloc` there should be an accompanying call to `free`.
 
 A couple of common errors that arise when it comes to `free`ing memory are:
-1. Forgetting to call `free` on some `malloc`'d piece of memory. This is a problem because that memory doesn't get cleaned up, and you end up with what's called a 'memory leak'. A single memory leak isn't the end of the world, but if you continually forget to `free` your memory, they'll start to pile up and waste precious memory resources that could be used by other programs that actually need that memory. 
+
+1. Forgetting to call `free` on some `malloc`'d piece of memory. This is a problem because that memory doesn't get cleaned up, and you end up with what's called a 'memory leak'. A single memory leak isn't the end of the world, but if you continually forget to `free` your memory, they'll start to pile up and waste precious memory resources that could be used by other programs that actually need that memory.
 2. Calling `free` on a pointer to memory that has already been `free`'d. This is called a 'double free', and it should be avoided because it may corrupt the state of the memory manager (which is what keeps track of all of the pieces of memory that have been handed out so far), which might cause existing blocks of memory to get corrupted or for future allocations to fail in bizarre ways (for example, the same memory getting handed out on two different successive calls of malloc).
 
 Going back to our Cat struct, we might want to have a `Cat_destroy` function that will handle the cleaning up of a Cat instance for us. It'll free all the memory that was allocated during the Cat instance's lifetime.
@@ -10313,19 +10538,18 @@ In all the previous example code, we've had to prepend every type we created wit
     } Cat;
 ```
 
-We'll add the `typedef` keyword in front of our type definition. Then, after the closing brace of our struct, we specify the aliased type we'd like for this user-created type to have. Here we'll just keep it the same as the name of the struct itself, though you could call it something else if you wanted to. 
+We'll add the `typedef` keyword in front of our type definition. Then, after the closing brace of our struct, we specify the aliased type we'd like for this user-created type to have. Here we'll just keep it the same as the name of the struct itself, though you could call it something else if you wanted to.
 
 Now, whenever we want to use our `Cat` type, we don't need to prepend `struct` in front of it. The compiler now knows that when we just specify `Cat` that we're referring to our `struct Cat` type definition. It's a one-time cost that we pay when we define our types, but it'll save us a lot of keystrokes later on, especially if we're using our types a lot!
-
-
-
 
 </details><details> <summary>1-projects/Intro-to-C-master/</summary>
 
 ### [1-projects/Intro-to-C-master/TROUBLESHOOTING.md](1-projects/Intro-to-C-master/TROUBLESHOOTING.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [`runtests.sh: 4: Syntax error: word unexpected (expecting "do")`](#runtestssh-4-syntax-error-word-unexpected-expecting-do)
 - [Mac: `malformed object` error when running `make tests`](#mac-malformed-object-error-when-running-make-tests)
@@ -10338,37 +10562,37 @@ _Chief. Windows_
 
 If you see this error:
 
-  ```
-  Running unit tests:
-  : not foundtests.sh: 2: ./tests/runtests.sh:
-  ./tests/runtests.sh: 4: ./tests/runtests.sh: Syntax error: word unexpected (expecting "do")
-  ```
+```
+Running unit tests:
+: not foundtests.sh: 2: ./tests/runtests.sh:
+./tests/runtests.sh: 4: ./tests/runtests.sh: Syntax error: word unexpected (expecting "do")
+```
 
-  You have two options:
+You have two options:
 
-  1. Open the file `tests/runtests.sh` in VS Code in whatever subproject folder
-     you're working in, e.g. `fizzbuzz`. Click on the lower right of the screen
-     where it says `CRLF`. Choose `LF`. Save the file. Then the error should go
-     away.
+1. Open the file `tests/runtests.sh` in VS Code in whatever subproject folder
+   you're working in, e.g. `fizzbuzz`. Click on the lower right of the screen
+   where it says `CRLF`. Choose `LF`. Save the file. Then the error should go
+   away.
 
-  2. You can do this from the command line with the `tr` command:
+2. You can do this from the command line with the `tr` command:
 
-  ```
-  cd tests
-  cat runtests.sh | tr -d '\r' > runtests.tmp
-  mv runtests.tmp runtests.sh
-  ```
+```
+cd tests
+cat runtests.sh | tr -d '\r' > runtests.tmp
+mv runtests.tmp runtests.sh
+```
 
-  The root of the problem is a setting in git that causes all newlines (LF) to
-  be converted to carriage-return/newline (CRLF). The script `runtests.sh` is a
-  _bash script_ that bash runs, and bash *hates* `\r` and pukes everywhere.
+The root of the problem is a setting in git that causes all newlines (LF) to
+be converted to carriage-return/newline (CRLF). The script `runtests.sh` is a
+_bash script_ that bash runs, and bash _hates_ `\r` and pukes everywhere.
 
-  To cause git to _not_ do newline conversion for future clones, run the
-  following:
+To cause git to _not_ do newline conversion for future clones, run the
+following:
 
-  ```
-  git config --global core.autocrlf false
-  ```
+```
+git config --global core.autocrlf false
+```
 
 ## Mac: `malformed object` error when running `make tests`
 
@@ -10389,16 +10613,14 @@ sudo brew update
 sudo brew upgrade gcc
 ```
 
-
-
-
-
 </details><details> <summary>1-projects/JavaScript-III-master/</summary>
 
 ### [1-projects/JavaScript-III-master/README.md](1-projects/JavaScript-III-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [JavaScript - III](#javascript---iii)
   - [Set Up The Project With Git](#set-up-the-project-with-git)
@@ -10416,23 +10638,23 @@ This challenge focuses on using the `this` keyword as well as getting comfortabl
 
 **Follow these steps to set up and work on your project:**
 
-* [ ] Create a forked copy of this project.
-* [ ] Add your project manager as collaborator on Github.
-* [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-* [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-* [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-* [ ] Push commits: git push origin `<firstName-lastName>`.
+- [ ] Create a forked copy of this project.
+- [ ] Add your project manager as collaborator on Github.
+- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [ ] Push commits: git push origin `<firstName-lastName>`.
 
 **Follow these steps for completing your project.**
 
-* [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
-* [ ] Add your project manager as a reviewer on the pull-request
-* [ ] Your project manager will count the project as complete by merging the branch back into master.
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
+- [ ] Add your project manager as a reviewer on the pull-request
+- [ ] Your project manager will count the project as complete by merging the branch back into master.
 
 ## Assignment Set Up
 
-* Complete all the exercises as described inside each assignment file.
-* To test your `console.log()` statements, open up the index.html file found in the assignments folder and use the developer tools to view the console.  
+- Complete all the exercises as described inside each assignment file.
+- To test your `console.log()` statements, open up the index.html file found in the assignments folder and use the developer tools to view the console.
 
 ## The `this` keyword
 
@@ -10440,24 +10662,21 @@ Having a solid understanding of how `this` works will give you a huge advantage 
 
 ## Prototype
 
-The prototype challenge will focus on building prototypes for a fantasy themed game that includes mages, swordsmen, and archers.  Follow the [prototypes.js](assignments/this.js) instructions closely to create the beginnings of what could be an awesome JavaScript game.
+The prototype challenge will focus on building prototypes for a fantasy themed game that includes mages, swordsmen, and archers. Follow the [prototypes.js](assignments/this.js) instructions closely to create the beginnings of what could be an awesome JavaScript game.
 
-* Read the instructions found within the file carefully to finish the challenges. 
-* Remember to un-comment the objects and console logs to test your work at the bottom of the page.
-
-
-
-
+- Read the instructions found within the file carefully to finish the challenges.
+- Remember to un-comment the objects and console logs to test your work at the bottom of the page.
 
 </details><details> <summary>1-projects/JS-Exercise-Classes/</summary>
 
 ### [1-projects/JS-Exercise-Classes/README.md](1-projects/JS-Exercise-Classes/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [The _class_ Syntax](#the-_class_-syntax)
-        - [Index](#index)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [The _class_ Syntax](#the-_class_-syntax) - [Index](#index)
   - [Instructions](#instructions)
   - [Get Started](#get-started)
 
@@ -10469,8 +10688,8 @@ This challenge focuses on using the new for ES6 `class` syntax.
 
 ##### Index
 
-* [Instructions](#instructions)
-* [Get Started](#get-started)
+- [Instructions](#instructions)
+- [Get Started](#get-started)
 
 ## Instructions
 
@@ -10480,7 +10699,7 @@ Find the file `index.js` and complete the tasks until all of your tests pass.
 
 **Plan to commit & push every time you get a new test passing!**. Committing often makes it SO much easier to figure out "what broke my code", and helps your TL keep track of how you're doing.
 
-If you run into trouble while coding, fight the good fight for 20 minutes and then get on the help channel. __Remember to formulate your help request in a professional manner__ - like you would at the job - by including error messages, screenshots, and any other pertinent information about the problem, as well as what things you have attempted already while trying to solve it.
+If you run into trouble while coding, fight the good fight for 20 minutes and then get on the help channel. **Remember to formulate your help request in a professional manner** - like you would at the job - by including error messages, screenshots, and any other pertinent information about the problem, as well as what things you have attempted already while trying to solve it.
 
 ## Get Started
 
@@ -10496,23 +10715,17 @@ If you run into trouble while coding, fight the good fight for 20 minutes and th
 
 <img alt='instructions screenshot' src='./instructions.png'>
 
-
-
-
-
 </details><details> <summary>1-projects/LS-Data-Structures-I-Solution-master/</summary>
 
 ### [1-projects/LS-Data-Structures-I-Solution-master/README.md](1-projects/LS-Data-Structures-I-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Data Structures I](#data-structures-i)
-      - [Stacks](#stacks)
-      - [Queues](#queues)
-      - [Linked Lists](#linked-lists)
-      - [Hash Tables](#hash-tables)
-    - [Extra Credit](#extra-credit)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Data Structures I](#data-structures-i) - [Stacks](#stacks) - [Queues](#queues) - [Linked Lists](#linked-lists) - [Hash Tables](#hash-tables)
+  - [Extra Credit](#extra-credit)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -10520,66 +10733,59 @@ If you run into trouble while coding, fight the good fight for 20 minutes and th
 
 Topics:
 
- * Big-O Notation (Complexity analysis)
- * Stacks
- * Queues
- * Linked Lists
- * Hash Tables
-
-
+- Big-O Notation (Complexity analysis)
+- Stacks
+- Queues
+- Linked Lists
+- Hash Tables
 
 #### Stacks
 
- * Should have the methods: `add`, `remove`, and a getter for the property `size`
- * `add` should accept a value and place it on top of the stack.
- * `remove` should remove and return the top value off of the stack.
- * `size` should return how many items are on the stack.
+- Should have the methods: `add`, `remove`, and a getter for the property `size`
+- `add` should accept a value and place it on top of the stack.
+- `remove` should remove and return the top value off of the stack.
+- `size` should return how many items are on the stack.
 
 #### Queues
 
- * Should have the methods: `enqueue`, `dequeue`, and a getter for the property `size`
- * `enqueue` should add an item to the back of the queue.
- * `dequeue` should remove an item from the front of the queue.
- * `size` should return the number of items in the queue.
+- Should have the methods: `enqueue`, `dequeue`, and a getter for the property `size`
+- `enqueue` should add an item to the back of the queue.
+- `dequeue` should remove an item from the front of the queue.
+- `size` should return the number of items in the queue.
 
 #### Linked Lists
 
- * Should have the methods: `addToTail`, `removeHead`, and `contains`.
- * `addToTail` replaces the tail with a new value that is passed in.
- * `removeHead` removes and returns the head node.
- * `contains` should searth through the linked list and return true if a matching value is found.
- * The `head` property is a reference to the first node and the `tail` property is a reference to the last node.  These are the only two properties that you need to keep track of an infinite number of nodes.  Build your nodes with objects.
+- Should have the methods: `addToTail`, `removeHead`, and `contains`.
+- `addToTail` replaces the tail with a new value that is passed in.
+- `removeHead` removes and returns the head node.
+- `contains` should searth through the linked list and return true if a matching value is found.
+- The `head` property is a reference to the first node and the `tail` property is a reference to the last node. These are the only two properties that you need to keep track of an infinite number of nodes. Build your nodes with objects.
 
 #### Hash Tables
 
- * Should have the methods: `insert`, `remove`, and `retrieve`.
- * `insert` should take a key value pair and add the value to the hash table.
- * `retrieve` should return the value associated with a key.
- * `remove` should removed the given key's value from the hash table.
- * Should properly handle collisions.  If two keys map to the same index in the storage table then you should store a 2d array as the value.  Make each key/value pair its own array that is nested inside of the array stored at that index on the table.
+- Should have the methods: `insert`, `remove`, and `retrieve`.
+- `insert` should take a key value pair and add the value to the hash table.
+- `retrieve` should return the value associated with a key.
+- `remove` should removed the given key's value from the hash table.
+- Should properly handle collisions. If two keys map to the same index in the storage table then you should store a 2d array as the value. Make each key/value pair its own array that is nested inside of the array stored at that index on the table.
 
 ### Extra Credit
 
- * Uncomment the final test in `hash-table.test.js` and make the hash-table rebalance.  As a hash table increases in size the associated storage table will typically double in size once it reaches a certain capacity. Change the hash table so that it doubles the size of the storage table once it is 75% full.
- * If you used arrays as your underlying data structure for implementing stacks, queues, and hash table buckets, convert these to use linked lists instead as the underlying data structure. If you started off with linked lists, convert these to use arrays. In order to do this, you'll need to export your linked list implementation by wrapping it inside a `module.exports`. Just comment out your initial implementation; don't delete perfectly good code!
- * Make your linked list implementation a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list).
-
-
-
-
+- Uncomment the final test in `hash-table.test.js` and make the hash-table rebalance. As a hash table increases in size the associated storage table will typically double in size once it reaches a certain capacity. Change the hash table so that it doubles the size of the storage table once it is 75% full.
+- If you used arrays as your underlying data structure for implementing stacks, queues, and hash table buckets, convert these to use linked lists instead as the underlying data structure. If you started off with linked lists, convert these to use arrays. In order to do this, you'll need to export your linked list implementation by wrapping it inside a `module.exports`. Just comment out your initial implementation; don't delete perfectly good code!
+- Make your linked list implementation a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list).
 
 </details><details> <summary>1-projects/LS-Data-Structures-II-Solution-master/</summary>
 
 ### [1-projects/LS-Data-Structures-II-Solution-master/README.md](1-projects/LS-Data-Structures-II-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Data Structures II](#data-structures-ii)
-      - [Trees](#trees)
-      - [Binary Search Tree](#binary-search-tree)
-      - [Graphs](#graphs)
-    - [Extra Credit](#extra-credit)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Data Structures II](#data-structures-ii) - [Trees](#trees) - [Binary Search Tree](#binary-search-tree) - [Graphs](#graphs)
+  - [Extra Credit](#extra-credit)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -10587,55 +10793,51 @@ Topics:
 
 Topics:
 
- * Tree
- * Graph
- * Binary Search Tree
-
+- Tree
+- Graph
+- Binary Search Tree
 
 #### Trees
 
-  * Should have the methods: `addChild`, and `contains`
-  * Each node on the tree should have a `value` property and a `children` array.
-  * `addChild(value)` should accept a value and add it to that node's `children` array.
-  * `contains(value)` should return `true` if the tree or its children the given value.
-  * When you add nodes to the `children` array use `new Tree(value)` to create the node.
-  * You can instantiate the `Tree` class inside of itself.
+- Should have the methods: `addChild`, and `contains`
+- Each node on the tree should have a `value` property and a `children` array.
+- `addChild(value)` should accept a value and add it to that node's `children` array.
+- `contains(value)` should return `true` if the tree or its children the given value.
+- When you add nodes to the `children` array use `new Tree(value)` to create the node.
+- You can instantiate the `Tree` class inside of itself.
 
 #### Binary Search Tree
 
-  * Should have the methods: `insert`, `contains`, `depthFirstForEach`, and `breadthFirstForEach`.
-  * `insert(value)` inserts the new value at the correct location in the tree.
-  * `contains(value)` searches the tree and returns `true` if the the tree contains the specified value.
-  * `depthFirstForEach(cb)` should iterate over the tree using DFS and passes each node of the tree to the given callback function.
-  * `breadthFirstForEach(cb)` should iterate over the tree using BFS and passes each node of the tree to the given callback function (hint: you'll need to either re-implement or import a queue data structure for this).
+- Should have the methods: `insert`, `contains`, `depthFirstForEach`, and `breadthFirstForEach`.
+- `insert(value)` inserts the new value at the correct location in the tree.
+- `contains(value)` searches the tree and returns `true` if the the tree contains the specified value.
+- `depthFirstForEach(cb)` should iterate over the tree using DFS and passes each node of the tree to the given callback function.
+- `breadthFirstForEach(cb)` should iterate over the tree using BFS and passes each node of the tree to the given callback function (hint: you'll need to either re-implement or import a queue data structure for this).
 
 #### Graphs
 
-  * Should have methods named `addNode`, `contains`, `removeNode`, `addEdge`, `getEdge`, and `removeEdge`
-  * `addNode(newNode, toNode)` should add a new item to the graph.  If `toNode` is given then the new node should share an edge with an existing node `toNode`.
-  * `contains(value)` should return true if the graph contains the given value.
-  * `removeNode(value)` should remove the specified value from the graph.
-  * `addEdge(fromNode, toNode)` should add an edge between the two specified nodes.
-  * `getEdge(fromNode, toNode)` should return `true` if an edge exists between the two specified graph nodes.
-  * `removeEdge(fromNode, toNode)` should remove the edge between the two specified nodes.
-
+- Should have methods named `addNode`, `contains`, `removeNode`, `addEdge`, `getEdge`, and `removeEdge`
+- `addNode(newNode, toNode)` should add a new item to the graph. If `toNode` is given then the new node should share an edge with an existing node `toNode`.
+- `contains(value)` should return true if the graph contains the given value.
+- `removeNode(value)` should remove the specified value from the graph.
+- `addEdge(fromNode, toNode)` should add an edge between the two specified nodes.
+- `getEdge(fromNode, toNode)` should return `true` if an edge exists between the two specified graph nodes.
+- `removeEdge(fromNode, toNode)` should remove the edge between the two specified nodes.
 
 ### Extra Credit
 
- * Add a method to the `Graph` class that searches through the graph using edges. Make this search first as a depth first search and then refactor to a breadth first search.
- * Read up on [heaps](https://en.wikipedia.org/wiki/Heap_(data_structure)) here. Then implement one!
- * Read up on [red-black trees](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) here. Then implement one!
-
-
-
-
+- Add a method to the `Graph` class that searches through the graph using edges. Make this search first as a depth first search and then refactor to a breadth first search.
+- Read up on [heaps](<https://en.wikipedia.org/wiki/Heap_(data_structure)>) here. Then implement one!
+- Read up on [red-black trees](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) here. Then implement one!
 
 </details><details> <summary>1-projects/master/</summary>
 
 ### [1-projects/master/README.md](1-projects/master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Git for Web Development Project](#git-for-web-development-project)
   - [Task 1: Set up Project](#task-1-set-up-project)
@@ -10645,11 +10847,13 @@ Topics:
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Git for Web Development Project
+
 In this project you will be using the concepts learned in the Git for Web Development lesson to fork/clone/push/and submit a PR for each project during this sprint.
 
 This project consists of two parts:
 
 ## Task 1: Set up Project
+
 You will need to follow the Lambda School Git Workflow to add a file to this project follow the steps below:
 
 - [ ] Create your own version of this repo - Fork
@@ -10660,44 +10864,39 @@ You will need to follow the Lambda School Git Workflow to add a file to this pro
 - [ ] Create a Pull-Request to submit your work
   - [ ] Use your own student fork as the base (compare across forks, base-fork -> main).
 
-
 ## Task 2: MVP
+
 1. fork this codepen https://codepen.io/BritHemming/pen/eYYEoPa?editors=1100
 2. You will be marking up all of the HTML and styling it to look like this: https://codepen.io/BritHemming/full/jONmxOm using CSS
-* this should be review from yesterday/ extra practice
+
+- this should be review from yesterday/ extra practice
+
 3. After you are finished please copy the review questions into your .txt file and answer them
 4. don't forget to add, commit and push your changes.
 
-
 ## Task 3: Stretch
-Stretch Review questions: 
-    1. What is the difference between an inline element and a block element?
-    2. What happens when an element is positioned absolutely? 
-    3. How do I make an element take up only the amount of space it needs but also have the ability to give it a width? 
-    4. Name 3 elements that are display block by default, 2 elements that are display inline by default, and 1 element that is display inline-block by default
-    5. In your own words, explain the box model. What is the fix for the box model? 
+
+Stretch Review questions: 1. What is the difference between an inline element and a block element? 2. What happens when an element is positioned absolutely? 3. How do I make an element take up only the amount of space it needs but also have the ability to give it a width? 4. Name 3 elements that are display block by default, 2 elements that are display inline by default, and 1 element that is display inline-block by default 5. In your own words, explain the box model. What is the fix for the box model?
 Stretch Git Tasks
+
 - [ ] While the processes learned here will set you up to be successful in most situations, they are just the tip of the iceberg in learning Git. Independently research the following topics to learn more about Git.
+
   - [ ] Research and understand what a `merge conflict` is and how to resolve it.
   - [ ] Research the Git commands `pull`, `rebase`, `merge`. These commands will allow you to bring in changes that other developers push to the main branch.
   - [ ] Research the Git commands `reset `, `revert`, `clean`. These commands will allow you to go back and amends previous commits you have made.
 
-- [ ] Research and set up a Graphical User Interface (GUI) Git console. 
+- [ ] Research and set up a Graphical User Interface (GUI) Git console.
 
-- [ ] Research and setup SSH keys with GitHub, so that you do not need to input your username/password each time you push. 
-
-
-
-
-
-
+- [ ] Research and setup SSH keys with GitHub, so that you do not need to input your username/password each time you push.
 
 </details><details> <summary>1-projects/Mongo-Mini-II-Solution-master/</summary>
 
 ### [1-projects/Mongo-Mini-II-Solution-master/README.md](1-projects/Mongo-Mini-II-Solution-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Mongo II Mini](#mongo-ii-mini)
   - [Topics To Cover](#topics-to-cover)
@@ -10711,56 +10910,59 @@ Stretch Git Tasks
 # Mongo II Mini
 
 ## Topics To Cover
-* Schema Types
-  * [String, Number, Buffer, Date, Boolean, Mixed, ObjectId, Array](http://mongoosejs.com/docs/schematypes.html)
-* [$ne](https://docs.mongodb.com/v3.2/reference/operator/query/ne/)
-* [$and](https://docs.mongodb.com/v3.2/reference/operator/query/and/index.html)
-* [$or](https://docs.mongodb.com/v3.2/reference/operator/query/or/index.html)
-* [$in](https://docs.mongodb.com/v3.2/reference/operator/query/in/#op._S_in)
-* [$gt](https://docs.mongodb.com/v3.2/reference/operator/query/gt/)
-* [$sum](https://docs.mongodb.com/v3.2/reference/operator/aggregation/sum/index.html)
-* [$orderby](https://docs.mongodb.com/v3.2/reference/operator/meta/orderby/index.html)
-* [count](https://docs.mongodb.com/v3.2/reference/command/count/index.html)
 
+- Schema Types
+  - [String, Number, Buffer, Date, Boolean, Mixed, ObjectId, Array](http://mongoosejs.com/docs/schematypes.html)
+- [$ne](https://docs.mongodb.com/v3.2/reference/operator/query/ne/)
+- [$and](https://docs.mongodb.com/v3.2/reference/operator/query/and/index.html)
+- [$or](https://docs.mongodb.com/v3.2/reference/operator/query/or/index.html)
+- [$in](https://docs.mongodb.com/v3.2/reference/operator/query/in/#op._S_in)
+- [$gt](https://docs.mongodb.com/v3.2/reference/operator/query/gt/)
+- [$sum](https://docs.mongodb.com/v3.2/reference/operator/aggregation/sum/index.html)
+- [$orderby](https://docs.mongodb.com/v3.2/reference/operator/meta/orderby/index.html)
+- [count](https://docs.mongodb.com/v3.2/reference/command/count/index.html)
 
 ## Running the Project
 
-* `cd` into your project directory.
-* `npm install` to receive your dependencies.
-* fire up your `mongod` server from your root dir or create a `data` dir in this project to store your documents from mongo there. `mongod --dbpath data`.
+- `cd` into your project directory.
+- `npm install` to receive your dependencies.
+- fire up your `mongod` server from your root dir or create a `data` dir in this project to store your documents from mongo there. `mongod --dbpath data`.
 
 ### Mongoose Schema
-* When you open `models.js` you'll see we've already included your Schema. You're welcome. 
-* You'll also notice that this sprint comes with a `people.json` file, and a `populateDbScript.js`. this script will grab those `people` and add them into your db as long as you have your mongo server up and running. 
-* RUN: `node populateDbScript.js` get receive all your data.
+
+- When you open `models.js` you'll see we've already included your Schema. You're welcome.
+- You'll also notice that this sprint comes with a `people.json` file, and a `populateDbScript.js`. this script will grab those `people` and add them into your db as long as you have your mongo server up and running.
+- RUN: `node populateDbScript.js` get receive all your data.
 
 ### Todos:
-* write a `GET` request to `/users` that simply returns all the people.
-* write a `GET` request to `/users/:direction` that takes the given string and returns back a list of sorted data alphebetically.
-  * hint direction can be `asc` or `desc` so in your `.sort()` method you'll have to conditionally check, and we are going to be sorting by user `firstName`
-* write a `GET` request `/user-get-friends/:id` that returns a single users's friends.
-### Extra Credit: 
-* lastly write a `PUT` that updates a users `firstName` `lastName` 
 
+- write a `GET` request to `/users` that simply returns all the people.
+- write a `GET` request to `/users/:direction` that takes the given string and returns back a list of sorted data alphebetically.
+  - hint direction can be `asc` or `desc` so in your `.sort()` method you'll have to conditionally check, and we are going to be sorting by user `firstName`
+- write a `GET` request `/user-get-friends/:id` that returns a single users's friends.
 
+### Extra Credit:
 
+- lastly write a `PUT` that updates a users `firstName` `lastName`
 
 </details><details> <summary>1-projects/nested-data-exercises-master/</summary>
 
 ### [1-projects/nested-data-exercises-master/README.md](1-projects/nested-data-exercises-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Nested Data Exercises](#nested-data-exercises)
-    - [💪 10+ Practice Challenges: Nested `Objects` & `Arrays`](#-10-practice-challenges-nested-objects--arrays)
-        - [Index](#index)
+  - [💪 10+ Practice Challenges: Nested `Objects` & `Arrays`](#-10-practice-challenges-nested-objects--arrays)
+    - [Index](#index)
   - [Instructions](#instructions)
     - [Stretch](#stretch)
   - [Get Started](#get-started)
   - [Data](#data)
   - [Hints](#hints)
-      - [Helpful tips & reminders 🔎](#helpful-tips--reminders-)
+    - [Helpful tips & reminders 🔎](#helpful-tips--reminders-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -10776,10 +10978,10 @@ Uses [real-world 'inspired' data.](#data)
 
 ##### Index
 
-* [Instructions](#instructions)
-* [Get Started](#get-started)
-* Preview Test [Data](#data)
-* Stuck? Check [Hints](#hints)
+- [Instructions](#instructions)
+- [Get Started](#get-started)
+- Preview Test [Data](#data)
+- Stuck? Check [Hints](#hints)
 
 ## Instructions
 
@@ -10801,22 +11003,20 @@ The difficulty increases as you progress.
 1. `getLargestCargoStarshipModelName(character)` -> `Lambda-class T-4a shuttle`
 1. `getSlowestVehicleOrStarshipName(character)` -> `Imperial Speeder Bike`
 
-
 ### Stretch
 
 <details>
   <summary> 💡 Challenge Yourself! (expand for stretch tips) </summary>
 
-* Research & use different patterns. (Destructuring, move common code into reusable helper methods, functional programming techniques)
-* Trade completed code with a peer:
-  * Pair program: Take turns (30-60 min.) working through a refactor. Talk through & optimize as needed.
-  * Trade code for feedback! (Example format: 3&1, 3 things that you liked and 1 to improve.)
-* Time yourself. See if you can beat your own time *starting over.* **Speed run!**
-* See how many tests you can pass/complete before Googling or asking for help.
-* When you're finished, refactor & improve readability. Write up why it is improved.
+- Research & use different patterns. (Destructuring, move common code into reusable helper methods, functional programming techniques)
+- Trade completed code with a peer:
+  - Pair program: Take turns (30-60 min.) working through a refactor. Talk through & optimize as needed.
+  - Trade code for feedback! (Example format: 3&1, 3 things that you liked and 1 to improve.)
+- Time yourself. See if you can beat your own time _starting over._ **Speed run!**
+- See how many tests you can pass/complete before Googling or asking for help.
+- When you're finished, refactor & improve readability. Write up why it is improved.
 
 </details>
-
 
 ## Get Started
 
@@ -10828,7 +11028,6 @@ The CodeSandbox option is fast & highly recommended.
 
 [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/justsml/nested-data-exercises?previewwindow=tests)
 
-
 <details>
   <summary>2. Local Setup Instructions: From Command Line</summary>
 
@@ -10836,7 +11035,6 @@ The CodeSandbox option is fast & highly recommended.
 1. `cd` into your newly cloned repository
 1. Install using `npm`
 1. Run test command
-
 
 ```sh
 git clone <insert your git clone url here>
@@ -10867,8 +11065,6 @@ npm start
 ```
 
 </details>
-
-
 
 ## Data
 
@@ -10959,32 +11155,27 @@ Example data your code will be tested against.
 }
 ```
 
-
-
 ## Hints
 
 #### Helpful tips & reminders 🔎
 
-* **Critical:** Don't make assumptions about input data types. (Convert/handle `Numbers` & `null`)
-    * Convert **number strings** into **actual numbers** with built-in functions `parseInt`, `parseFloat`, `Number`, etc.
-* Ensure your functions **`return somethingUseful`.**
-* Make sure you understand the requirements. All the words used? Try list the steps in comments first.
-* Don't forget the source data uses `snake_case` naming.
-* Pay close attention to array vs. object syntax (`vehicles[0].name` vs. `character.vehicles`.)
-* Some of the functions include detailed instructions.
-* You might have to infer the desired fields. Carefully read the description and function name (description included above the function.)
-
-
-
-
-
+- **Critical:** Don't make assumptions about input data types. (Convert/handle `Numbers` & `null`)
+  - Convert **number strings** into **actual numbers** with built-in functions `parseInt`, `parseFloat`, `Number`, etc.
+- Ensure your functions **`return somethingUseful`.**
+- Make sure you understand the requirements. All the words used? Try list the steps in comments first.
+- Don't forget the source data uses `snake_case` naming.
+- Pay close attention to array vs. object syntax (`vehicles[0].name` vs. `character.vehicles`.)
+- Some of the functions include detailed instructions.
+- You might have to infer the desired fields. Carefully read the description and function name (description included above the function.)
 
 </details><details> <summary>1-projects/Node-Express-Gmaps-Solution-Day-I-master/</summary>
 
 ### [1-projects/Node-Express-Gmaps-Solution-Day-I-master/README.md](1-projects/Node-Express-Gmaps-Solution-Day-I-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Node-Express-Gmaps](#node-express-gmaps)
   - [Objectives](#objectives)
@@ -10999,45 +11190,51 @@ Example data your code will be tested against.
 # Node-Express-Gmaps
 
 Topics:
- * APIs
- * API Documentation
- * Rate Limits
- * Multiple requests
+
+- APIs
+- API Documentation
+- Rate Limits
+- Multiple requests
 
 ## Objectives
- * Create endpoints
- * Make multpile requests to third-party API
- * Return result
+
+- Create endpoints
+- Make multpile requests to third-party API
+- Return result
 
 ## Beginning Project
- * You will notice there is a config file that is ignored in the .gitignore, which you will be using to store your API key. You will need to import that key into your server file. DO NOT store it anywhere that will get pushed up to your repo.
- * Everything else you will start from scratch.
+
+- You will notice there is a config file that is ignored in the .gitignore, which you will be using to store your API key. You will need to import that key into your server file. DO NOT store it anywhere that will get pushed up to your repo.
+- Everything else you will start from scratch.
 
 ## Project Description
- * You will be using the Google Maps Place API to get details about any place provided by the user of your API. When the user provides you a query (example: `coffee+shops+in+Austin`) you will use that query to make a request to the `Place Search` service, and will specifically be doing a `Text Search Request`. You will use the necessary information from the data returned from that first request, and then do a request to `Place Details` service, returning the detailed information to the user of your API.
+
+- You will be using the Google Maps Place API to get details about any place provided by the user of your API. When the user provides you a query (example: `coffee+shops+in+Austin`) you will use that query to make a request to the `Place Search` service, and will specifically be doing a `Text Search Request`. You will use the necessary information from the data returned from that first request, and then do a request to `Place Details` service, returning the detailed information to the user of your API.
 
 ## Project Requirements
- * Create an endpoint `/place` that, provided a query, returns the detailed information about the first place that is in the array of places returned to you from `Place Search`.
- * You will be using the `node-fetch` library to make your requests to the `Place Search` API. You can use its example code in its github repo as guidance for its use.
+
+- Create an endpoint `/place` that, provided a query, returns the detailed information about the first place that is in the array of places returned to you from `Place Search`.
+- You will be using the `node-fetch` library to make your requests to the `Place Search` API. You can use its example code in its github repo as guidance for its use.
 
 ## Stretch Problem
- * Create an endpoint `/places` that, provided a query returns the detailed information about ALL places returned to you from `Place Search`.
+
+- Create an endpoint `/places` that, provided a query returns the detailed information about ALL places returned to you from `Place Search`.
 
 ## Resources
- * Places API: https://developers.google.com/places/web-service/
- * Place Search: https://developers.google.com/places/web-service/search
- * Place Details: https://developers.google.com/places/web-service/details
- * Request Library: https://github.com/bitinn/node-fetch
 
-
-
+- Places API: https://developers.google.com/places/web-service/
+- Place Search: https://developers.google.com/places/web-service/search
+- Place Details: https://developers.google.com/places/web-service/details
+- Request Library: https://github.com/bitinn/node-fetch
 
 </details><details> <summary>1-projects/Node-Express-Gmaps-Solution-Day-II-master/</summary>
 
 ### [1-projects/Node-Express-Gmaps-Solution-Day-II-master/README.md](1-projects/Node-Express-Gmaps-Solution-Day-II-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Node-Express-Gmaps](#node-express-gmaps)
   - [Objectives](#objectives)
@@ -11058,64 +11255,73 @@ Topics:
 # Node-Express-Gmaps
 
 Topics:
- * APIs
- * API Documentation
- * Rate Limits
- * Multiple requests
+
+- APIs
+- API Documentation
+- Rate Limits
+- Multiple requests
 
 ## Objectives
- * Create endpoints
- * Make multpile requests to third-party API
- * Return result
+
+- Create endpoints
+- Make multpile requests to third-party API
+- Return result
 
 ## Beginning Project
- * You will notice there is a config file that is ignored in the .gitignore, which you will be using to store your API key. You will need to import that key into your server file. DO NOT store it anywhere that will get pushed up to your repo.
- * Everything else you will start from scratch.
+
+- You will notice there is a config file that is ignored in the .gitignore, which you will be using to store your API key. You will need to import that key into your server file. DO NOT store it anywhere that will get pushed up to your repo.
+- Everything else you will start from scratch.
 
 # Day I
 
 ## Project Description
- * You will be using the Google Maps Place API to get details about any place provided by the user of your API. When the user provides you a query (example: `coffee+shops+in+Austin`) you will use that query to make a request to the `Place Search` service, and will specifically be doing a `Text Search Request`. You will use the necessary information from the data returned from that first request, and then do a request to `Place Details` service, returning the detailed information to the user of your API.
+
+- You will be using the Google Maps Place API to get details about any place provided by the user of your API. When the user provides you a query (example: `coffee+shops+in+Austin`) you will use that query to make a request to the `Place Search` service, and will specifically be doing a `Text Search Request`. You will use the necessary information from the data returned from that first request, and then do a request to `Place Details` service, returning the detailed information to the user of your API.
 
 ## Project Requirements
- * Create an endpoint `/place` that, provided a query, returns the detailed information about the first place that is in the array of places returned to you from `Place Search`.
- * You will be using the `node-fetch` library to make your requests to the `Place Search` API. You can use its example code in its github repo as guidance for its use.
+
+- Create an endpoint `/place` that, provided a query, returns the detailed information about the first place that is in the array of places returned to you from `Place Search`.
+- You will be using the `node-fetch` library to make your requests to the `Place Search` API. You can use its example code in its github repo as guidance for its use.
 
 ## Stretch Problem
- * Create an endpoint `/places` that, provided a query returns the detailed information about ALL places returned to you from `Place Search`.
+
+- Create an endpoint `/places` that, provided a query returns the detailed information about ALL places returned to you from `Place Search`.
 
 ## Resources
- * Places API: https://developers.google.com/places/web-service/
- * Place Search: https://developers.google.com/places/web-service/search
- * Place Details: https://developers.google.com/places/web-service/details
- * Request Library: https://github.com/bitinn/node-fetch
+
+- Places API: https://developers.google.com/places/web-service/
+- Place Search: https://developers.google.com/places/web-service/search
+- Place Details: https://developers.google.com/places/web-service/details
+- Request Library: https://github.com/bitinn/node-fetch
 
 # Day II
 
 ## Project Requirements
-* Create an enpoint called `/travel/mode` that returns the quickest method of travel given two locations, as well as the travel time. It should account for driving, walking, bicycling, and transit.
+
+- Create an enpoint called `/travel/mode` that returns the quickest method of travel given two locations, as well as the travel time. It should account for driving, walking, bicycling, and transit.
 
 ## Project Notes
-* You will need a separate key than what you've used for the Places API since it is actually a different API.
-* For best results, try to pick locations that should indeed have transit available.
+
+- You will need a separate key than what you've used for the Places API since it is actually a different API.
+- For best results, try to pick locations that should indeed have transit available.
 
 ## Stretch Problem
-* Include this comparison information in the information your return from `/place`.
+
+- Include this comparison information in the information your return from `/place`.
 
 ## Resources
- * Distance Matrix API: https://developers.google.com/places/web-service/
- * Travel Mode Section: https://developers.google.com/maps/documentation/distance-matrix/intro#travel_modes
 
-
-
-
+- Distance Matrix API: https://developers.google.com/places/web-service/
+- Travel Mode Section: https://developers.google.com/maps/documentation/distance-matrix/intro#travel_modes
 
 </details><details> <summary>1-projects/Python-OOP-Toy-master/</summary>
 
 ### [1-projects/Python-OOP-Toy-master/README.md](1-projects/Python-OOP-Toy-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Overview](#overview)
 - [Python OOP Toy](#python-oop-toy)
@@ -11131,26 +11337,28 @@ Topics:
 **Note for Windows users: WSL won't work for this module!**
 
 # Overview
+
 "Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which may contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods. A feature of objects is that an object's procedures can access and often modify the data fields of the object with which they are associated (objects have a notion of "this" or "self"). In OOP, computer programs are designed by making them out of objects that interact with one another.[1][2]" --Wikipedia
 
-In English, this means that in OOP, code is organized in logical and self contained parts that contain within them everything needed to create, store, and manipulate one very specific element of the program.  When this element is needed, a copy of it is initialized according to the instructions within.  This is called an object.  
+In English, this means that in OOP, code is organized in logical and self contained parts that contain within them everything needed to create, store, and manipulate one very specific element of the program. When this element is needed, a copy of it is initialized according to the instructions within. This is called an object.
 
-As with all things programming, the specific vocabulary varies from language to language, or even programmer to programmer.  Some Python vocabulary:
+As with all things programming, the specific vocabulary varies from language to language, or even programmer to programmer. Some Python vocabulary:
 
-Class:  The top level organization structure in OOP.  This contains all of the instructions and storage for the operations of this part of the program.  A class should be self contained and all variables within the class should only be modified by methods within the class.
+Class: The top level organization structure in OOP. This contains all of the instructions and storage for the operations of this part of the program. A class should be self contained and all variables within the class should only be modified by methods within the class.
 
-Method:  A function that belongs to a specific class.
+Method: A function that belongs to a specific class.
 
-Constructor:  A special method, defined with __init__() that is used to instantiate an object of this class.
+Constructor: A special method, defined with **init**() that is used to instantiate an object of this class.
 
-Inheritance:  Perhaps the most important concept in OOP, a class may inherit from another class.  This gives the child class all of the variables and methods found in the parent class, or classes, automatically.  
+Inheritance: Perhaps the most important concept in OOP, a class may inherit from another class. This gives the child class all of the variables and methods found in the parent class, or classes, automatically.
 
-Override:  If a child class needs to function slightly differently than objects of the parent class, this can be done by giving the child class a method with the same name as one found in the parent.  This method will override the one defined in the parent class.  Often, this is done to add child specific functionality to the method before calling the parent version of the method using super().foo().  This is commonly done with the __init__() method.
+Override: If a child class needs to function slightly differently than objects of the parent class, this can be done by giving the child class a method with the same name as one found in the parent. This method will override the one defined in the parent class. Often, this is done to add child specific functionality to the method before calling the parent version of the method using super().foo(). This is commonly done with the **init**() method.
 
-Self: In Python, a class refers to class-level variables and methods with the keyword `self`.  These have scope across the entire class.  Variables may also be declared normally and will have scope limited to the block of code they are declared within.
+Self: In Python, a class refers to class-level variables and methods with the keyword `self`. These have scope across the entire class. Variables may also be declared normally and will have scope limited to the block of code they are declared within.
 
 # Python OOP Toy
-This project will demonstrate the core concepts of OOP by using a library called pygame to create a toy similar to early screensavers.  
+
+This project will demonstrate the core concepts of OOP by using a library called pygame to create a toy similar to early screensavers.
 
 For initial setup, run:
 
@@ -11162,52 +11370,56 @@ pipenv shell
 Then to run, use: `python src/draw.py`
 
 ## In-class Demo
+
 Your instructor will demonstrate the above concepts by extending the `Block` class
 
 ## Project Work
+
 Fill out the stubs in `ball.py` to extend the functionality of the `ball` class.
 
 ## Stretch Goals
-Implement simple physics to enable balls to bounce off of one another, or off of blocks.  This will be HARD.  If you get it 'sort of working' in any form, consider yourself to have accomplished an impressive feat!
+
+Implement simple physics to enable balls to bounce off of one another, or off of blocks. This will be HARD. If you get it 'sort of working' in any form, consider yourself to have accomplished an impressive feat!
 
 ## Troubleshooting
 
 ### Windows
-* If `pipenv install` is taking forever or erroring with TIMEOUT messages, disable your antivirus software.
-* If `pipenv install` is puking on installing pygame:
-  * Don't use `pipenv` for this project. No `install`, no `shell`.
-  * Download the appropriate `.whl` file from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame).
-    * Python 3.6 use the `cp36` version. Python 3.7 use `cp37`, etc. Use `python --version` to check your version.
-    * Try the `win32` version first. If that doesn't work, the AMD version.
-    * E.g. `pygame‑1.9.3‑cp36‑cp36m‑win32.whl`
-  * Install it with
+
+- If `pipenv install` is taking forever or erroring with TIMEOUT messages, disable your antivirus software.
+- If `pipenv install` is puking on installing pygame:
+  - Don't use `pipenv` for this project. No `install`, no `shell`.
+  - Download the appropriate `.whl` file from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame).
+    - Python 3.6 use the `cp36` version. Python 3.7 use `cp37`, etc. Use `python --version` to check your version.
+    - Try the `win32` version first. If that doesn't work, the AMD version.
+    - E.g. `pygame‑1.9.3‑cp36‑cp36m‑win32.whl`
+  - Install it with
     ```
     pip install pygame-[whatever].whl
     ```
     You'll need to specify the full path, likely.
-  * Once it's installed, run the game from the `src/` directory with
+  - Once it's installed, run the game from the `src/` directory with
     ```
     python draw.py
     ```
+
 ### Mac
-* If you're getting errors about `InvalidMarker`:
-  * Don't use `pipenv` for this project. No `install`, no `shell`.
-  * Run `pip3 install pygame`
-  * Once it's installed, run the game from the `src/` directory with
+
+- If you're getting errors about `InvalidMarker`:
+  - Don't use `pipenv` for this project. No `install`, no `shell`.
+  - Run `pip3 install pygame`
+  - Once it's installed, run the game from the `src/` directory with
     ```
     python3 draw.py
     ```
 
-
-
-
-
 </details><details> <summary>1-projects/React-Todo-Solution-master/</summary>
 
 ### [1-projects/React-Todo-Solution-master/answers.md](1-projects/React-Todo-Solution-master/answers.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [All Answers to Partner Study should be filled out in this file.](#all-answers-to-partner-study-should-be-filled-out-in-this-file)
 
@@ -11233,78 +11445,86 @@ Implement simple physics to enable balls to bounce off of one another, or off of
 
 9. Props and State
 
-
-
-
-
 ### [1-projects/React-Todo-Solution-master/README.md](1-projects/React-Todo-Solution-master/README.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [React-Todo](#react-todo)
-    - [Other Useful Resources](#other-useful-resources)
-    - [Battle Plan](#battle-plan)
-      - [To Get Started](#to-get-started)
-        - [You'll need to make sure you have the following installed.](#youll-need-to-make-sure-you-have-the-following-installed)
-      - [How to Tackle this Project](#how-to-tackle-this-project)
-      - [Tips to Keep in Mind](#tips-to-keep-in-mind)
-      - [Stretch Problems](#stretch-problems)
+  - [Other Useful Resources](#other-useful-resources)
+  - [Battle Plan](#battle-plan)
+    - [To Get Started](#to-get-started)
+      - [You'll need to make sure you have the following installed.](#youll-need-to-make-sure-you-have-the-following-installed)
+    - [How to Tackle this Project](#how-to-tackle-this-project)
+    - [Tips to Keep in Mind](#tips-to-keep-in-mind)
+    - [Stretch Problems](#stretch-problems)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # React-Todo
 
 ### Other Useful Resources
-* [API Documentation](https://reactjs.org/docs/react-api.html)
-* [Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html) on JSX
+
+- [API Documentation](https://reactjs.org/docs/react-api.html)
+- [Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html) on JSX
 
 ### Battle Plan
- * Objective: At this point you have become familiar with the DOM and have built out User Interfaces HTML and CSS and some custom components. Now we're going to dive into modern front-end JavaScript development by learning about ReactJS.
- * You're going to be building a ToDo App (please hold your applause).
- * We know this may seem trivial, but the best part about this assignment is that is shows off some of the strengths of React and you can also take it as far as want so don't hold back on being creative.
 
-  * Tool requirements
-    * [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) - *This is a MUST* you need to install this asap!
-    * We have everything you need for your React Developer environment in this file. We went over this in the lecture video.
+- Objective: At this point you have become familiar with the DOM and have built out User Interfaces HTML and CSS and some custom components. Now we're going to dive into modern front-end JavaScript development by learning about ReactJS.
+- You're going to be building a ToDo App (please hold your applause).
+- We know this may seem trivial, but the best part about this assignment is that is shows off some of the strengths of React and you can also take it as far as want so don't hold back on being creative.
+
+- Tool requirements
+  - [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) - _This is a MUST_ you need to install this asap!
+  - We have everything you need for your React Developer environment in this file. We went over this in the lecture video.
 
 #### To Get Started
+
 ##### You'll need to make sure you have the following installed.
-  * node and npm
-  * `npm install` will pull in all the node_modules you need once you `cd` into the root directory of the project
-  * `npm start` will start a development server on your localhost at port 3000.
-  * `npm test` will run the tests that are included in the the project. Try to get as many of these passing as you can in the allotted time. 
+
+- node and npm
+- `npm install` will pull in all the node_modules you need once you `cd` into the root directory of the project
+- `npm start` will start a development server on your localhost at port 3000.
+- `npm test` will run the tests that are included in the the project. Try to get as many of these passing as you can in the allotted time.
 
 #### How to Tackle this Project
-Your job is to write the components to complete the Todo List application and getting as many of the tests to pass as you can. The tests are expecting that you have a TodoList component that renders a Todo component for each todo item. The requirements for your Todo List app is that it should have an input field that a user can type text into and submit data in the input field in order to create a new todo item. Aside from being able to add todos, you should be able to mark any todo in the list as 'complete'. In other words, a user should be able to click on any of the todos in the list and have a strikethrough go through the individual todo. This behavior should be toggle-able, i.e. a todo item that has a strikethrough through it should still be clickable in order to allow completed items to no longer be marked as 'completed'. Once you've finished your components, you'll need to have the root `App` component render your TodoList component. 
+
+Your job is to write the components to complete the Todo List application and getting as many of the tests to pass as you can. The tests are expecting that you have a TodoList component that renders a Todo component for each todo item. The requirements for your Todo List app is that it should have an input field that a user can type text into and submit data in the input field in order to create a new todo item. Aside from being able to add todos, you should be able to mark any todo in the list as 'complete'. In other words, a user should be able to click on any of the todos in the list and have a strikethrough go through the individual todo. This behavior should be toggle-able, i.e. a todo item that has a strikethrough through it should still be clickable in order to allow completed items to no longer be marked as 'completed'. Once you've finished your components, you'll need to have the root `App` component render your TodoList component.
 
 #### Tips to Keep in Mind
-  * All components you implement should go in the `src/components` directory.
-  * The components should be named `App.js`, `TodoList.js` and `Todo.js` (as those are the files being imported into the tests). 
-  * Think of your application as an Application Tree. App is the parent, which controlls properties/data needed for the child components. This is how modern applications are built. They're modular, separate pieces of code called components that you 'compose' together to make your app. It's awesome!
-  * Be sure to keep your todos in an array on state. Arrays are so awesome to work with.
-  * When you need to iterate over a list and return React components out as elements, you'll need to include a "key" property on the element itself. `<ElementBeingRendered key={someValue} />`. Note: this is what react is doing under the hood, it needs to know how to access each element and they need to be unique so the React engine can do its thing. An example snippet that showcases this may look something like this:
-  ```
-  this.state.todos.map((todo, i) => <AnotherComponent key={i} todo={todo} />);
-  ```
-  Here, we're simply passing the index of each todo item as the key for the individual React component.
-  * Feel free to structure your "todo" data however you'd like. i.e. strings, objects etc. 
-  * React will give you warnings in the console that urge you to squash React Anti-Patterns. But if something is completely off, you'll get stack trace errors that will force your bundle to freeze up. You can look for these in the Chrome console.
+
+- All components you implement should go in the `src/components` directory.
+- The components should be named `App.js`, `TodoList.js` and `Todo.js` (as those are the files being imported into the tests).
+- Think of your application as an Application Tree. App is the parent, which controlls properties/data needed for the child components. This is how modern applications are built. They're modular, separate pieces of code called components that you 'compose' together to make your app. It's awesome!
+- Be sure to keep your todos in an array on state. Arrays are so awesome to work with.
+- When you need to iterate over a list and return React components out as elements, you'll need to include a "key" property on the element itself. `<ElementBeingRendered key={someValue} />`. Note: this is what react is doing under the hood, it needs to know how to access each element and they need to be unique so the React engine can do its thing. An example snippet that showcases this may look something like this:
+
+```
+this.state.todos.map((todo, i) => <AnotherComponent key={i} todo={todo} />);
+```
+
+Here, we're simply passing the index of each todo item as the key for the individual React component.
+
+- Feel free to structure your "todo" data however you'd like. i.e. strings, objects etc.
+- React will give you warnings in the console that urge you to squash React Anti-Patterns. But if something is completely off, you'll get stack trace errors that will force your bundle to freeze up. You can look for these in the Chrome console.
 
 #### Stretch Problems
-  * Refactor each todo to be an object instead of a just a string. For example, `todo: {'text': 'Shop for food, 'completed': false}` and when a user clicks on a todo, switch that completed flag to true. If `completed === true`, this should toggle the strikethrough on the 'completed' todo. The toggling functionality should work the same as when each todo was just a string. 
-  * Add the ability to delete a todo. The way this would work is each todo item should have an 'x' that should be clickable and that, when clicked, should remove the todo item from the state array, which will also remove it from the rendered list of todos. 
-  * Take your App's styles to the next level. Start implementing as much creativity here as you'd like. You can build out your styles on a component-by-component basis eg `App.js` has a file next to it in the directory tree called `App.scss` and you define all your styles in that file. Be sure to @import these styles into the `index.scss` file. 
-  * Persist your data in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh. 
 
+- Refactor each todo to be an object instead of a just a string. For example, `todo: {'text': 'Shop for food, 'completed': false}` and when a user clicks on a todo, switch that completed flag to true. If `completed === true`, this should toggle the strikethrough on the 'completed' todo. The toggling functionality should work the same as when each todo was just a string.
+- Add the ability to delete a todo. The way this would work is each todo item should have an 'x' that should be clickable and that, when clicked, should remove the todo item from the state array, which will also remove it from the rendered list of todos.
+- Take your App's styles to the next level. Start implementing as much creativity here as you'd like. You can build out your styles on a component-by-component basis eg `App.js` has a file next to it in the directory tree called `App.scss` and you define all your styles in that file. Be sure to @import these styles into the `index.scss` file.
+- Persist your data in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh.
 
 </details><details> <summary>1-projects/Relational-Databases-master/</summary>
 
 ### [1-projects/Relational-Databases-master/README.md](1-projects/Relational-Databases-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Relational Databases and PostgreSQL](#relational-databases-and-postgresql)
   - [Contents](#contents)
@@ -11369,36 +11589,34 @@ Your job is to write the components to complete the Todo List application and ge
 
 # Relational Databases and PostgreSQL
 
-
 ## Contents
 
-* [What is a relational database?](#what-is-a-relational-database)
-* [Relational vs NoSQL](#relational-vs-nosql)
-* [PostgreSQL](#postgresql)
-* [SQL, Structured Query Language](#sql-structured-query-language)
-* [Column Data Types](#column-data-types)
-* [ACID and CRUD](#acid-and-crud)
-* [NULL and NOT NULL](#null-and-not-null)
-* [COUNT](#count)
-* [ORDER BY](#order-by)
-* [GROUP BY](#group-by)
-* [Keys: Primary, Foreign, and Composite](#keys-primary-foreign-and-composite)
-* [Auto-increment Columns](#auto-increment-columns)
-* [Joins](#joins)
-* [Indexes](#indexes)
-* [Transactions](#transactions)
-* [The EXPLAIN Command](#the-explain-command)
-* [Quick and Dirty DB Design](#quick-and-dirty-db-design)
-* [Normalization and Normal Forms](#normalization-and-normal-forms)
-* [Node-Postgres](#node-postgres)
-* [Security](#security)
-* [Other Relational Databases](#other-relational-databases)
-* [Assignment: Install PostgreSQL](#assignment-install-postgresql)
-* [Assignment: Create a Table and Use It](#assignment-create-a-table-and-use-it)
-* [Assignment: NodeJS Program to Create and Populate a Table](#assignment-nodejs-program-to-create-and-populate-a-table)
-* [Assignment: Command-line Earthquake Query Tool](#assignment-command-line-earthquake-query-tool)
-* [Assignment: RESTful Earthquake Data Server](#assignment-restful-earthquake-data-server)
-
+- [What is a relational database?](#what-is-a-relational-database)
+- [Relational vs NoSQL](#relational-vs-nosql)
+- [PostgreSQL](#postgresql)
+- [SQL, Structured Query Language](#sql-structured-query-language)
+- [Column Data Types](#column-data-types)
+- [ACID and CRUD](#acid-and-crud)
+- [NULL and NOT NULL](#null-and-not-null)
+- [COUNT](#count)
+- [ORDER BY](#order-by)
+- [GROUP BY](#group-by)
+- [Keys: Primary, Foreign, and Composite](#keys-primary-foreign-and-composite)
+- [Auto-increment Columns](#auto-increment-columns)
+- [Joins](#joins)
+- [Indexes](#indexes)
+- [Transactions](#transactions)
+- [The EXPLAIN Command](#the-explain-command)
+- [Quick and Dirty DB Design](#quick-and-dirty-db-design)
+- [Normalization and Normal Forms](#normalization-and-normal-forms)
+- [Node-Postgres](#node-postgres)
+- [Security](#security)
+- [Other Relational Databases](#other-relational-databases)
+- [Assignment: Install PostgreSQL](#assignment-install-postgresql)
+- [Assignment: Create a Table and Use It](#assignment-create-a-table-and-use-it)
+- [Assignment: NodeJS Program to Create and Populate a Table](#assignment-nodejs-program-to-create-and-populate-a-table)
+- [Assignment: Command-line Earthquake Query Tool](#assignment-command-line-earthquake-query-tool)
+- [Assignment: RESTful Earthquake Data Server](#assignment-restful-earthquake-data-server)
 
 ## What is a relational database?
 
@@ -11425,22 +11643,21 @@ record:
         DepartmentID  DepartmentName
 
 Notice that both `Employee` and `Department` have a `DepartmentID`
-column. This common column *relates* the two tables and can be used to
-*join* them together with a *query*.
+column. This common column _relates_ the two tables and can be used to
+_join_ them together with a _query_.
 
 The structure described by the table definitions is known as the
-*schema*.
+_schema_.
 
 Compare to NoSQL databases that work with key/value pairs or are
 document stores.
 
-* [Relational Database at Wikipedia](https://en.wikipedia.org/wiki/Relational_database)
-* [Non-relational (NoSQL) databases at Wikipedia](https://en.wikipedia.org/wiki/NoSQL)
-
+- [Relational Database at Wikipedia](https://en.wikipedia.org/wiki/Relational_database)
+- [Non-relational (NoSQL) databases at Wikipedia](https://en.wikipedia.org/wiki/NoSQL)
 
 ## Relational vs NoSQL
 
-*NoSQL* is a term that refers to non-relational databases, most usually
+_NoSQL_ is a term that refers to non-relational databases, most usually
 document store databases. (Though it can apply to almost any kind of
 non-relational database.)
 
@@ -11466,7 +11683,6 @@ multiple records simultaneously?) Consider a relational database.
 
 Do you need read-only access to piles of data? Consider NoSQL.
 
-
 ## PostgreSQL
 
 PostgreSQL is a venerable relational database that is freely available
@@ -11474,8 +11690,7 @@ and world-class.
 
 https://www.postgresql.org/
 
-* **Assignment:** [Install PostgreSQL](#assignment-install-postgresql)
-
+- **Assignment:** [Install PostgreSQL](#assignment-install-postgresql)
 
 ## SQL, Structured Query Language
 
@@ -11490,7 +11705,6 @@ SQL in the shell. Be sure to end the command with a semicolon `;`.
 (Note: SQL commands are often capitalized by convention, but can be
 lowercase.)
 
-
     $ psql
     psql (10.1)
     Type "help" for help.
@@ -11503,7 +11717,7 @@ Use the `\dt` command to show which tables exist:
     CREATE TABLE
     dbname=> \dt
             List of relations
-    Schema |   Name   | Type  | Owner 
+    Schema |   Name   | Type  | Owner
     --------+----------+-------+-------
     public | employee | table | beej
     (1 row)
@@ -11512,10 +11726,10 @@ Use the `\d` command to see what columns a table has:
 
     dbname=> \d Employee
                             Table "public.employee"
-        Column    |         Type          | Collation | Nullable | Default 
+        Column    |         Type          | Collation | Nullable | Default
     --------------+-----------------------+-----------+----------+---------
-     id           | integer               |           |          | 
-     lastname     | character varying(20) |           |          | 
+     id           | integer               |           |          |
+     lastname     | character varying(20) |           |          |
 
 ### Create a row with INSERT
 
@@ -11544,7 +11758,7 @@ You can query the table with `SELECT`.
 Query all the rows and columnts:
 
     dbname=> SELECT * FROM Employee;
-     id |  lastname   
+     id |  lastname
     ----+-------------
      10 | Tanngnjostr
      11 | Alice
@@ -11559,7 +11773,7 @@ With `SELECT`, `*` means "all columns".
 You can choose specific columns:
 
     dbname=> SELECT LastName FROM Employee;
-      lastname   
+      lastname
     -------------
      Tanngnjostr
      Alice
@@ -11572,13 +11786,13 @@ You can choose specific columns:
 And you can search for specific rows with the `WHERE` clause:
 
     dbname=> SELECT * FROM Employee WHERE ID=12;
-     id | lastname 
+     id | lastname
     ----+----------
      12 | Bob
     (1 row)
 
     dbname=> SELECT * FROM Employee WHERE ID=14 OR LastName='Bob';
-     id | lastname 
+     id | lastname
     ----+----------
      12 | Bob
      14 | Dave
@@ -11590,8 +11804,8 @@ Finally, you can rename the output columns, if you wish:
 SELECT id AS Employee ID, LastName AS Name
     FROM Employee
     WHERE ID=14 OR LastName='Bob';
-    
- Employee ID | Name 
+
+ Employee ID | Name
 -------------+----------
      12      | Bob
      14      | Dave
@@ -11606,7 +11820,7 @@ are updated with a `WHERE` clause.`
     UPDATE 1
 
     dbname=> SELECT * FROM Employee WHERE ID=10;
-     id | lastname 
+     id | lastname
     ----+----------
      10 | Harvey
     (1 row)
@@ -11615,7 +11829,6 @@ You can update multiple columns at once:
 
     dbname=> UPDATE Employee SET LastName='Octothorpe', ID=99 WHERE ID=14;
     UPDATE 1
-
 
 ### Delete rows with DELETE
 
@@ -11630,7 +11843,7 @@ Delete some rows:
     dbname=> DELETE FROM Employee WHERE ID >= 15;
     DELETE 2
 
-Delete **ALL** rows (*Danger, Will Robinson!*):
+Delete **ALL** rows (_Danger, Will Robinson!_):
 
     dbname=> DELETE FROM Employee;
     DELETE 4
@@ -11645,8 +11858,7 @@ away. Destroyed ...by the Empire.
     dbname=> DROP TABLE Employee;
     DROP TABLE
 
-* **Assignment:** [Create a Table and Use It](#assignment-create-a-table-and-use-it)
-  
+- **Assignment:** [Create a Table and Use It](#assignment-create-a-table-and-use-it)
 
 ## The `WHERE` Clause
 
@@ -11693,7 +11905,6 @@ SELECT * from animal
     WHERE name LIKE 'ab%';
 ```
 
-
 ## Column Data Types
 
 You probably noticed a few data types we specified with `CREATE TABLE`,
@@ -11722,7 +11933,7 @@ These are two common database terms.
 
 ### ACID
 
-Short for *Atomicity*, *Consistency*, *Isolation*, *Durability*. When
+Short for _Atomicity_, _Consistency_, _Isolation_, _Durability_. When
 people mention "ACID-compliance", they're generally talking about the
 ability of the database to accurately record transactions in the case of
 crash or power failure.
@@ -11740,12 +11951,11 @@ despite crashes, power outages, snow, and sleet.
 
 ### CRUD
 
-Short for *Create*, *Read*, *Update*, *Delete*. Describes the four basic
+Short for _Create_, _Read_, _Update_, _Delete_. Describes the four basic
 functions of a data store.
 
 In a relational database, these functions are handled by `INSERT`,
 `SELECT`, `UPDATE`, and `DELETE`.
-
 
 ## NULL and NOT NULL
 
@@ -11760,7 +11970,6 @@ create the columns with the `NOT NULL` constraint:
         ID INT NOT NULL,
         LastName VARCHAR(20));
 
-
 ## COUNT
 
 You can select a count of items in question with the `COUNT` operator.
@@ -11770,13 +11979,12 @@ For example, count the rows filtered by the `WHERE` clause:
 ```sql
 SELECT COUNT(*) FROM Animals WHERE legcount >= 4;
 
- count 
+ count
 -------
      5
 ```
 
 Useful with [`GROUP BY`](#group-by), below.
-
 
 ## ORDER BY
 
@@ -11787,13 +11995,12 @@ reverse order.
 SELECT * FROM Pets
 ORDER BY age DESC;
 
-  name     | age 
+  name     | age
 -----------+-----
  Rover     |   9
  Zaphod    |   4
  Mittens   |   3
 ```
-
 
 ## GROUP BY
 
@@ -11807,19 +12014,18 @@ SELECT COUNT(CustomerID), Country
     FROM Customers
     GROUP BY Country;
 
-  COUNT(CustomerID)   |  Country 
+  COUNT(CustomerID)   |  Country
 ----------------------+-----------
       1123            |    USA
        734            |    Germany
                      etc.
 ```
 
-
 ## Keys: Primary, Foreign, and Composite
 
 ### Primary Key
 
-Rows in a table often have one column that is called the *primary key*.
+Rows in a table often have one column that is called the _primary key_.
 The value in this column applies to all the rest of the data in the
 record. For example, an `EmployeeID` would be a great primary key,
 assuming the rest of the record held employee information.
@@ -11843,11 +12049,11 @@ You can always search quickly by primary key.
 ### Foreign Keys
 
 If a key refers to a primary key in another table, it is called a
-*foreign key* (abbreviated "FK"). You are not allowed to make changes to
+_foreign key_ (abbreviated "FK"). You are not allowed to make changes to
 the database that would cause the foreign key to refer to a non-existent
 record.
 
-The database uses this to maintain *referential integrity*.
+The database uses this to maintain _referential integrity_.
 
 Create a foreign key using the `REFERENCES` constraint. It specifies the
 remote table and column the key refers to.
@@ -11872,7 +12078,7 @@ Also, you cannot delete a row from `Department` if that row's `ID` was a
 
 ### Composite Keys
 
-Keys can also consist of more than one column. *Composite keys* can be
+Keys can also consist of more than one column. _Composite keys_ can be
 created as follows:
 
 ```sql
@@ -11882,7 +12088,6 @@ CREATE TABLE example (
     c INT,
     PRIMARY KEY (a, c));
 ```
-
 
 ## Auto-increment Columns
 
@@ -11911,14 +12116,13 @@ database.
 INSERT INTO Company (Name) VALUES ('My Awesome Company');
 ```
 
-
 ## Joins
 
-*This concept is* extremely important *to understanding how to use
-relational databases!*
+_This concept is_ extremely important _to understanding how to use
+relational databases!_
 
 When you have two (or more) tables with data you wish to retrieve from
-both, you do so by using a *join*. These come in a number of varieties,
+both, you do so by using a _join_. These come in a number of varieties,
 some of which are covered here.
 
 When you're using `SELECT` to make the join between two tables, you can
@@ -11957,7 +12161,6 @@ INSERT INTO Employee VALUES (3, 'Charlie', 99);
 `Employee`, and department ID 99 (Charlie) does not exist in
 `Department`. This is instrumental in the following examples.
 
-
 ### Inner Join, The Most Common Join
 
 This is the most commonly-used join, by far, and is what people mean
@@ -11972,8 +12175,8 @@ neither of them match up to the other table:
     dbname=> SELECT Employee.ID, Employee.Name, Department.Name
                  FROM Employee, Department
                  WHERE Employee.DepartmentID = Department.ID;
-    
-     id | name  |     name      
+
+     id | name  |     name
     ----+-------+---------------
       1 | Alice | Marketing
       2 | Bob   | Entertainment
@@ -11988,7 +12191,7 @@ There is an alternative syntax, below, that is barely ever used.
                  FROM Employee INNER JOIN Department
                  ON Employee.DepartmentID = Department.ID;
 
-     id | name  |     name      
+     id | name  |     name
     ----+-------+---------------
       1 | Alice | Marketing
       2 | Bob   | Entertainment
@@ -11996,7 +12199,7 @@ There is an alternative syntax, below, that is barely ever used.
 
 ### Left Outer Join
 
-This join works like an inner join, but also returns *all* the rows from
+This join works like an inner join, but also returns _all_ the rows from
 the "left" table (the one after the `FROM` clause). It puts `NULL`
 in for the missing values in the "right" table (the one after the
 `LEFT JOIN` clause.)
@@ -12007,19 +12210,18 @@ Example:
                  FROM Employee LEFT JOIN Department
                  ON Employee.DepartmentID = Department.ID;
 
-     id |  name   |     name      
+     id |  name   |     name
     ----+---------+---------------
       1 | Alice   | Marketing
       2 | Bob     | Entertainment
-      3 | Charlie | 
+      3 | Charlie |
     (3 rows)
 
 Notice that even though Charlie's department isn't found in `Department`, his record is still listed with a `NULL` department name.
 
-
 ### Right Outer Join
 
-This join works like an inner join, but also returns *all* the rows from
+This join works like an inner join, but also returns _all_ the rows from
 the "right" table (the one after the `RIGHT JOIN` clause). It puts
 `NULL` in for the missing values in the "right" table (the one after the
 `FROM` clause.)
@@ -12028,7 +12230,7 @@ the "right" table (the one after the `RIGHT JOIN` clause). It puts
                  FROM Employee RIGHT JOIN Department
                  ON Employee.DepartmentID = Department.ID;
 
-     id | name  |     name      
+     id | name  |     name
     ----+-------+---------------
       1 | Alice | Marketing
       2 | Bob   | Entertainment
@@ -12047,28 +12249,27 @@ both tables is selected, with `NULL` filling the gaps where necessary.
                   FROM Employee
                   FULL JOIN Department
                   ON Employee.DepartmentID = Department.ID;
-                
-     id |  name   |     name      
+
+     id |  name   |     name
     ----+---------+---------------
       1 | Alice   | Marketing
       2 | Bob     | Entertainment
-      3 | Charlie | 
+      3 | Charlie |
         |         | Sales
     (4 rows)
 
-* [Join at W3Schools](https://www.w3schools.com/sql/sql_join.asp)
-* [Join at Wikipedia](https://en.wikipedia.org/wiki/Join_(SQL))
-
+- [Join at W3Schools](https://www.w3schools.com/sql/sql_join.asp)
+- [Join at Wikipedia](<https://en.wikipedia.org/wiki/Join_(SQL)>)
 
 ## Indexes
 
 When searching through tables, you use a `WHERE` clause to narrow things
 down. For speed, the columns mentioned in the `WHERE` clause should
-either be a primary key, or a column for which an *index* has been
+either be a primary key, or a column for which an _index_ has been
 built.
 
 Indexes help speed searches. In a large table, searching over an
-unindexed column will be *slow*.
+unindexed column will be _slow_.
 
 Example of creating an index on the Employee table from the
 [Keys](#keys-primary-and-foreign) section:
@@ -12078,25 +12279,24 @@ Example of creating an index on the Employee table from the
 
     dbname=> \d Employee
                             Table "public.employee"
-        Column    |         Type          | Collation | Nullable | Default 
+        Column    |         Type          | Collation | Nullable | Default
     --------------+-----------------------+-----------+----------+---------
-     id           | integer               |           | not null | 
-     lastname     | character varying(20) |           |          | 
-     firstname    | character varying(20) |           |          | 
-     departmentid | integer               |           |          | 
+     id           | integer               |           | not null |
+     lastname     | character varying(20) |           |          |
+     firstname    | character varying(20) |           |          |
+     departmentid | integer               |           |          |
     Indexes:
         "employee_pkey" PRIMARY KEY, btree (id)
         "employee_lastname_idx" btree (lastname)
     Foreign-key constraints:
         "employee_departmentid_fkey" FOREIGN KEY (departmentid) REFERENCES department(id)
 
-* [PostgreSQL CREATE INDEX documentation](https://www.postgresql.org/docs/current/static/sql-createindex.html)
-
+- [PostgreSQL CREATE INDEX documentation](https://www.postgresql.org/docs/current/static/sql-createindex.html)
 
 ## Transactions
 
 In PostgreSQL, you can bundle a series of statements into a
-*transaction*. The transaction is executed *atomically*, which means
+_transaction_. The transaction is executed _atomically_, which means
 either the entire transaction occurs, or none of the transaction occurs.
 There will never be a case where a transaction partially occurs.
 
@@ -12109,8 +12309,8 @@ To execute the transaction ("Let's do it!"), end with a `COMMIT`
 statement.
 
 To abort the transaction and do nothing ("On second thought,
-nevermind!") end with a `ROLLBACK` statement. *This makes it like
-nothing within the transaction ever happened.*
+nevermind!") end with a `ROLLBACK` statement. _This makes it like
+nothing within the transaction ever happened._
 
 Usually transactions happen within a program that checks for sanity and
 either commits or rolls back.
@@ -12127,14 +12327,14 @@ let balance = db("SELECT balance WHERE name = 'Alice'");
 
 // Don't let the balance go below zero:
 if (balance < 0) {
-    db("ROLLBACK"); // Never mind!! Roll it all back.
+  db("ROLLBACK"); // Never mind!! Roll it all back.
 } else {
-    db("COMMIT"); // Plenty of cash
+  db("COMMIT"); // Plenty of cash
 }
 ```
-    
+
 In the above example, the `UPDATE` and `SELECT` must happen at the same
-time (*atomically*) or else another process could sneak in between and
+time (_atomically_) or else another process could sneak in between and
 withdraw too much money. Because it needs to be atomic, it's wrapped in
 a transaction.
 
@@ -12143,7 +12343,6 @@ transaction block, it gets automatically wrapped in a `BEGIN`/`COMMIT`
 block. It is a mini transaction that is `COMMIT`ted immediately.
 
 Not all SQL databases support transactions, but most do.
-
 
 ## The EXPLAIN Command
 
@@ -12154,14 +12353,13 @@ It's a powerful command that can help tell you where you need to add
 indexes, change structure, or rewrite queries.
 
     dbname=> EXPLAIN SELECT * FROM foo;
-    
+
                            QUERY PLAN
     ---------------------------------------------------------
      Seq Scan on foo  (cost=0.00..155.00 rows=10000 width=4)
     (1 row)
 
 For more information, see the [PostgreSQL EXPLAIN documentation](https://www.postgresql.org/docs/current/static/sql-explain.html)
-
 
 ## Quick and Dirty DB Design
 
@@ -12172,54 +12370,52 @@ you should consult with people with strong domain knowledge.
 
 That said, here are a couple pointers.
 
-* In general, all your tables should have a unique `PRIMARY KEY` for each row.
+- In general, all your tables should have a unique `PRIMARY KEY` for each row.
   It's common to use `SERIAL` or `AUTO_INCREMENT` to make this happen.
 
-* Keep an eye out for commonly duplicated data. If you are duplicating text data
+- Keep an eye out for commonly duplicated data. If you are duplicating text data
   across several records, consider that maybe it should be in its own table and
   referred to with a foreign key.
 
-* Watch out for unrelated data in the same record. If it's a record in the
+- Watch out for unrelated data in the same record. If it's a record in the
   `Employee` table but it has `Department_Address` as a column, that probably
   belongs in a `Department` table, referred to by a public key.
 
 But if you really want to design database, read on to the [Normalization and
 Normal Forms](#normalization-and-normal-forms) section.
 
-
 ## Normalization and Normal Forms
 
-*[This topic is very deep and this section cannot do it full justice.]*
+_[This topic is very deep and this section cannot do it full justice.]_
 
-*Normalization* is the process of designing or refactoring your tables
+_Normalization_ is the process of designing or refactoring your tables
 for maximum consistency and minimum redundancy.
 
-With NoSQL databases, we're used to *denormalized* data that is stored
+With NoSQL databases, we're used to _denormalized_ data that is stored
 with speed in mind, and not so much consistency (sometimes NoSQL
-databases talk about *eventual consistency*).
+databases talk about _eventual consistency_).
 
 Non-normalized tables are considered an anti-pattern in relational databases.
 
-There are many *normal forms*. We'll talk about First, Second, and Third
+There are many _normal forms_. We'll talk about First, Second, and Third
 normal forms.
-
 
 ### Anomalies
 
-One of the reasons for normalizing tables is to avoid *anomalies*.
+One of the reasons for normalizing tables is to avoid _anomalies_.
 
-*Insert anomaly*: When we cannot insert a row into the table because
+_Insert anomaly_: When we cannot insert a row into the table because
 some of the dependent information is not yet known. For example, we
 cannot create a new class record in the school database, because the
 record requires at least one student, and none have enrolled yet.
 
-*Update anomaly*: When information is duplicated in the database *and*
+_Update anomaly_: When information is duplicated in the database _and_
 some rows are updated but not others. For example, say a record contains
 a city and a zipcode, but then the post office changes the zipcode. If
 some of the records are updated but not others, some cities will have
 the old zipcodes.
 
-*Delete anomaly*: The opposite of an insert anomaly. When we delete some
+_Delete anomaly_: The opposite of an insert anomaly. When we delete some
 information and other related information must also be deleted against
 our will. For example, deleting the last student from a course causes
 the other course information to be also deleted.
@@ -12247,8 +12443,7 @@ Unnormalized (column titles on separate lines for clarity):
     Animal
         ID  FarmID[FK Farm(ID)]  Name  Breed  ProducesEggs
 
-
-Use a [*join*](#joins) to select all the animals in the farm:
+Use a [_join_](#joins) to select all the animals in the farm:
 
 ```sql
 SELECT Name, Farm.ID FROM Animal, Farm WHERE Farm.ID = Animal.FarmID;
@@ -12276,7 +12471,7 @@ We can fix this by adding a table to link the other two tables together:
     Animal
         ID  Name  Breed  ProducesEggs
 
-Use a [*join*](#joins) to select all the animals in the farms:
+Use a [_join_](#joins) to select all the animals in the farms:
 
 ```sql
 SELECT Name, Farm.ID
@@ -12285,14 +12480,13 @@ SELECT Name, Farm.ID
           Animal.ID = FarmAnimal.AnimalID;
 ```
 
-
 ### Third Normal Form (3NF)
 
 A table in 3NF must already be in 2NF.
 
 Additionally, columns that relate to each other AND to the key need to
-be moved into their own tables. This is known as removing *transitive
-dependencies*.
+be moved into their own tables. This is known as removing _transitive
+dependencies_.
 
 In the Farm example, the columns `Breed` and `ProducesEggs` are related.
 If you know the breed, you automatically know if it produces eggs or
@@ -12312,7 +12506,7 @@ not.
     Animal
         ID  Name  Breed[FK BreedEggs(Breed)]
 
-Use a [*join*](#joins) to select all the animals names that produce eggs
+Use a [_join_](#joins) to select all the animals names that produce eggs
 in the farm:
 
 ```sql
@@ -12324,16 +12518,13 @@ SELECT Name, Farm.ID
           BreedEggs.ProducesEggs = TRUE;
 ```
 
-
 ### More reading:
 
-* [Database Normalization Explained in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
+- [Database Normalization Explained in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
 
-* [Description of the database normalization basics](https://support.microsoft.com/en-us/help/283878/description-of-the-database-normalization-basics)
+- [Description of the database normalization basics](https://support.microsoft.com/en-us/help/283878/description-of-the-database-normalization-basics)
 
-* [Database Normalization, Wikipedia](https://en.wikipedia.org/wiki/Database_normalization) (Dense)
-
-
+- [Database Normalization, Wikipedia](https://en.wikipedia.org/wiki/Database_normalization) (Dense)
 
 ## Node-Postgres
 
@@ -12342,17 +12533,15 @@ NodeJS.
 
 Its [documentation](https://node-postgres.com/) is exceptionally good.
 
-* [Node-Postgres on GitHub](https://github.com/brianc/node-postgres)
-
+- [Node-Postgres on GitHub](https://github.com/brianc/node-postgres)
 
 ### Assignments
 
-* [NodeJS Program to Create and Populate a Table](#assignment-nodejs-program-to-create-and-populate-a-table)
+- [NodeJS Program to Create and Populate a Table](#assignment-nodejs-program-to-create-and-populate-a-table)
 
-* [Command-line Earthquake Query Tool](#assignment-command-line-earthquake-query-tool)
+- [Command-line Earthquake Query Tool](#assignment-command-line-earthquake-query-tool)
 
-* [RESTful Earthquake Data Server](#assignment-restful-earthquake-data-server)
-
+- [RESTful Earthquake Data Server](#assignment-restful-earthquake-data-server)
 
 ## Security
 
@@ -12376,19 +12565,18 @@ manual](https://www.postgresql.org/docs/current/static/client-authentication.htm
 When writing code that accesses databases, there are a few rules you
 should follow to keep things safe.
 
-* Don't store database passwords or other sensitive information in your
+- Don't store database passwords or other sensitive information in your
   code repository. Store dummy credentials instead.
 
-* When building SQL queries in code, use [*parameterized
-  queries*](https://node-postgres.com/features/queries#parameterized-query).
+- When building SQL queries in code, use [_parameterized
+  queries_](https://node-postgres.com/features/queries#parameterized-query).
   You build your query with parameter placeholders for where the query
   arguments will go.
-  
+
   This is your number-one line of defense against [SQL injection
   attacks](https://en.wikipedia.org/wiki/SQL_injection).
 
   **It's a seriously noob move to not use parameterized queries.**
-
 
 ## Other Relational Databases
 
@@ -12396,9 +12584,8 @@ There are tons of them by Microsoft, Oracle, etc. etc.
 
 Other popular open source databases in widespread use are:
 
-* [MySQL](https://www.mysql.com/) Multi-user, industrial class.
-* [SQLite](https://www.sqlite.org/) Single-user, very fast, good for config files.
-
+- [MySQL](https://www.mysql.com/) Multi-user, industrial class.
+- [SQLite](https://www.sqlite.org/) Single-user, very fast, good for config files.
 
 ## Assignment: Install PostgreSQL
 
@@ -12408,8 +12595,8 @@ Google for how to upgrade your installation.
 
 ### Mac with Homebrew
 
-1. Open a terminal
-2. Install PostgreSQL: `brew install postgresql`
+1.  Open a terminal
+2.  Install PostgreSQL: `brew install postgresql`
 
     If you get install errors at this point relating to the link phase
     failing or missing permissions, look back in the output and see
@@ -12425,20 +12612,22 @@ Google for how to upgrade your installation.
 
     Then try to install again.
 
-3. Start the database process
-    * If you want to start it every time you log in, run:
+3.  Start the database process
+
+    - If you want to start it every time you log in, run:
 
           brew services start postgresql
 
-    * If you want to just start it one time right now, run:
+    - If you want to just start it one time right now, run:
 
           pg_ctl -D /usr/local/var/postgres start
 
-4. Create a database named the same as your username: `createdb $(whoami)`
-    * Optionally you can call it anything you want, but the shell
+4.  Create a database named the same as your username: `createdb $(whoami)`
+
+    - Optionally you can call it anything you want, but the shell
       defaults to looking for a database named the same as your user.
 
-   This database will contain tables.
+    This database will contain tables.
 
 Then start a shell by running `psql` and see if it works. You should see
 this prompt:
@@ -12447,7 +12636,7 @@ this prompt:
     psql (10.1)
     Type "help" for help.
 
-    dbname=> 
+    dbname=>
 
 (Use `psql databasename` if you created the database under something
 other than your username.)
@@ -12471,16 +12660,14 @@ Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10)
 and follow the [Ubuntu instructions for installing
 PostgreSQL](https://help.ubuntu.com/community/PostgreSQL).
 
-
 ### Arch Linux
 
 Arch requires a bit more hands-on, but not much more. Check this out if
 you want to see a different Unix-y install procedure (or if you run
 Arch).
 
-* [Installing PostgreSQL on Arch
+- [Installing PostgreSQL on Arch
   Linux](https://wiki.archlinux.org/index.php/PostgreSQL)
-
 
 ## Assignment: Create a Table and Use It
 
@@ -12517,7 +12704,7 @@ Delete Employee #3's record:
 ```sql
 DELETE FROM Employee WHERE ID=3;
 ```
- 
+
 Use `SELECT` to verify the record is deleted.
 
 Update Employee #2's name to be "Foxtrot Foxtrotson":
@@ -12527,7 +12714,6 @@ UPDATE Employee SET FirstName='Foxtrot', LastName='Foxtrotson' WHERE ID=2;
 ```
 
 Use `SELECT` to verify the update.
-
 
 ## Assignment: NodeJS Program to Create and Populate a Table
 
@@ -12545,13 +12731,13 @@ Populate the table with the following data:
 
 ```javascript
 let data = [
-    ["Earthquake 1", 2.2],
-    ["Earthquake 2", 7.0],
-    ["Earthquake 3", 1.8],
-    ["Earthquake 4", 5.2],
-    ["Earthquake 5", 2.9],
-    ["Earthquake 6", 0.6],
-    ["Earthquake 7", 6.6]
+  ["Earthquake 1", 2.2],
+  ["Earthquake 2", 7.0],
+  ["Earthquake 3", 1.8],
+  ["Earthquake 4", 5.2],
+  ["Earthquake 5", 2.9],
+  ["Earthquake 6", 0.6],
+  ["Earthquake 7", 6.6],
 ];
 ```
 
@@ -12561,7 +12747,7 @@ Open a PostgreSQL shell (`psql`) and verify the table exists:
 
     user-> \dt
               List of relations
-     Schema |    Name    | Type  | Owner 
+     Schema |    Name    | Type  | Owner
     --------+------------+-------+-------
      public | earthquake | table | user
     (1 row)
@@ -12569,8 +12755,8 @@ Open a PostgreSQL shell (`psql`) and verify the table exists:
 Also verify it is populated:
 
     user-> SELECT * from Earthquake;
-    
-         name     | magnitude 
+
+         name     | magnitude
     --------------+-----------
      Earthquake 1 |       2.2
      Earthquake 2 |         7
@@ -12582,16 +12768,17 @@ Also verify it is populated:
     (7 rows)
 
 Hints:
-* [CREATE TABLE](#create-a-table-with-create-table)
-* [Connecting to the database](https://node-postgres.com/features/connecting)
-* [Running a query](https://node-postgres.com/features/queries)
+
+- [CREATE TABLE](#create-a-table-with-create-table)
+- [Connecting to the database](https://node-postgres.com/features/connecting)
+- [Running a query](https://node-postgres.com/features/queries)
 
 Extra Credit:
-* Add an ID column to help normalize the database. Make this column
-  `SERIAL` to auto-increment.
-* Add Date, Lat, and Lon columns to record more information about the
-  event.
 
+- Add an ID column to help normalize the database. Make this column
+  `SERIAL` to auto-increment.
+- Add Date, Lat, and Lon columns to record more information about the
+  event.
 
 ## Assignment: Command-line Earthquake Query Tool
 
@@ -12600,7 +12787,7 @@ a given magnitude.
 
     $ node earthquake 2.9
     Earthquakes with magnitudes greater than or equal to 2.9:
-    
+
     Earthquake 2: 7
     Earthquake 7: 6.6
     Earthquake 4: 5.2
@@ -12608,7 +12795,6 @@ a given magnitude.
 
 Use `ORDER BY Magnitude DESC` to order the results in descending order
 by magnitude.
-
 
 ## Assignment: RESTful Earthquake Data Server
 
@@ -12623,7 +12809,9 @@ Example results:
 
 ```html
 <html>
-    <body>Usage: [endpoint info]</body>
+  <body>
+    Usage: [endpoint info]
+  </body>
 </html>
 ```
 
@@ -12635,16 +12823,16 @@ Example results:
 
 ```json
 {
-    "results": [
-        {
-            "name": "Earthquake 2",
-            "magnitude": 7
-        },
-        {
-            "name": "Earthquake 4",
-            "magnitude": 5.2
-        }
-    ]
+  "results": [
+    {
+      "name": "Earthquake 2",
+      "magnitude": 7
+    },
+    {
+      "name": "Earthquake 4",
+      "magnitude": 5.2
+    }
+  ]
 }
 ```
 
@@ -12663,21 +12851,17 @@ or
 { "status": "error", "message": "[error message]" }
 ```
 
-
 `/delete` (DELETE) Delete an earthquake from the database. Use form
 encoding to pass `name`. Return status similar to `/new`, above.
-
-
-
-
-
 
 </details><details> <summary>1-projects/solutions/</summary>
 
 ### [1-projects/solutions/README.md](1-projects/solutions/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Sample Solutions](#sample-solutions)
 
@@ -12690,15 +12874,14 @@ encoding to pass `name`. Return status similar to `/new`, above.
 3. Run `node earthquake 2.9` to see all earthquakes larger than
    magnitude 2.9.
 
-
-
-
 </details><details> <summary>1-projects/Sprint-Challenge--Intro-Python-master/</summary>
 
 ### [1-projects/Sprint-Challenge--Intro-Python-master/README.md](1-projects/Sprint-Challenge--Intro-Python-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Sprint Challenge: Intro to Python](#sprint-challenge-intro-to-python)
   - [Instructions](#instructions)
@@ -12711,11 +12894,12 @@ encoding to pass `name`. Return status similar to `/new`, above.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-#  Sprint Challenge: Intro to Python
+# Sprint Challenge: Intro to Python
 
 In this week's Sprint you explored the Python programming language as well as object-oriented design principles. This Sprint Challenge aims to assess your comfort in both of these areas through exercises similar to the ones you worked on at the beginning of this week in Intro to Python.
 
 ## Instructions
+
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
 This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in the preceding days.
@@ -12732,13 +12916,13 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Complete the programs in the `src/` directory in any order.
 
-* `oop/`
-    * `oop1.py`: class hierarchies
-    * `oop2.py`: subclassing and method overriding
-* `comp/`
-    * `comp.py`: list comprehensions
-* `cityreader/`
-    * `cityreader.py`: modules and CSV file reading
+- `oop/`
+  - `oop1.py`: class hierarchies
+  - `oop2.py`: subclassing and method overriding
+- `comp/`
+  - `comp.py`: list comprehensions
+- `cityreader/`
+  - `cityreader.py`: modules and CSV file reading
 
 ## Testing
 
@@ -12756,28 +12940,27 @@ In your solution, it is essential that you follow best practices and produce cle
 
 ## Stretch Problems
 
-The `cityreader` directory poses an stretch problem that builds upon the functionality you are to implement as part of the non-stretch requirements in the `cityreader` directory. 
+The `cityreader` directory poses an stretch problem that builds upon the functionality you are to implement as part of the non-stretch requirements in the `cityreader` directory.
 
 There's a separate test file `test_stretch.py` for the stretch problem that you can run in order to test your implementation of the stretch problem.
 
 ## Rubric
-| OBJECTIVE | TASK | 1 - DOES NOT MEET Expectations | 2 - MEETS Expectations | 3 - EXCEEDS Expectations | SCORE |
-| ---------- | ----- | ------- | ------- | ------- | -- |
-| _Student can demonstrate applied knowledge of Python basics by producing list comprehensions in `comp.py`_ | List Comprehensions: (1 point per problem, 8 max) | 0-5 points | 6-7 points | 8 points |  |
-| _Student can demonstrate applied knowledge of Object-Oriented Programming by completing `oop1.py` and `oop2.py`_ | OOP: (2 points per file, 4 max) | 0 points | 2 points | 4 points |  |
-| _Student can demonstrate applied research and language learning by completing `cityreader.py`_ | CSV: 6 points for `cityreader()`, 1 point for `cityreader_stretch()` | 0 points | 6 points | 7 points |  |
-| **FINAL SCORE** | | **0-13** | **14-18** | **19** |  |
 
-
-
-
+| OBJECTIVE                                                                                                        | TASK                                                                 | 1 - DOES NOT MEET Expectations | 2 - MEETS Expectations | 3 - EXCEEDS Expectations | SCORE |
+| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------ | ---------------------- | ------------------------ | ----- |
+| _Student can demonstrate applied knowledge of Python basics by producing list comprehensions in `comp.py`_       | List Comprehensions: (1 point per problem, 8 max)                    | 0-5 points                     | 6-7 points             | 8 points                 |       |
+| _Student can demonstrate applied knowledge of Object-Oriented Programming by completing `oop1.py` and `oop2.py`_ | OOP: (2 points per file, 4 max)                                      | 0 points                       | 2 points               | 4 points                 |       |
+| _Student can demonstrate applied research and language learning by completing `cityreader.py`_                   | CSV: 6 points for `cityreader()`, 1 point for `cityreader_stretch()` | 0 points                       | 6 points               | 7 points                 |       |
+| **FINAL SCORE**                                                                                                  |                                                                      | **0-13**                       | **14-18**              | **19**                   |       |
 
 </details><details> <summary>1-projects/web-guided-project-testing-web-apps-solution-main/</summary>
 
 ### [1-projects/web-guided-project-testing-web-apps-solution-main/README.md](1-projects/web-guided-project-testing-web-apps-solution-main/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Sprint 1 - Module 4 : Integration Testing Lesson Plan](#sprint-1---module-4--integration-testing-lesson-plan)
   - [Training Kit](#training-kit)
@@ -12787,10 +12970,10 @@ There's a separate test file `test_stretch.py` for the stretch problem that you 
   - [Guided Project Slack Message](#guided-project-slack-message)
   - [Guided Project Zoom Invitation:](#guided-project-zoom-invitation)
   - [Check for Understanding Questions](#check-for-understanding-questions)
-      - [What kind of function is this - toBeInTheDocument?](#what-kind-of-function-is-this---tobeinthedocument)
-      - [What function allows you to mimic browser events in your tests?](#what-function-allows-you-to-mimic-browser-events-in-your-tests)
-      - [Which of the following would allow you to mimic a user typing into a text input?](#which-of-the-following-would-allow-you-to-mimic-a-user-typing-into-a-text-input)
-      - [Which query functions allow you to "wait" for state to be updated after an event has been fired off?](#which-query-functions-allow-you-to-wait-for-state-to-be-updated-after-an-event-has-been-fired-off)
+    - [What kind of function is this - toBeInTheDocument?](#what-kind-of-function-is-this---tobeinthedocument)
+    - [What function allows you to mimic browser events in your tests?](#what-function-allows-you-to-mimic-browser-events-in-your-tests)
+    - [Which of the following would allow you to mimic a user typing into a text input?](#which-of-the-following-would-allow-you-to-mimic-a-user-typing-into-a-text-input)
+    - [Which query functions allow you to "wait" for state to be updated after an event has been fired off?](#which-query-functions-allow-you-to-wait-for-state-to-be-updated-after-an-event-has-been-fired-off)
   - [Guided Project Outline](#guided-project-outline)
     - [Introduce Module:](#introduce-module)
     - [Discuss Automated Testing:](#discuss-automated-testing)
@@ -12819,26 +13002,29 @@ There's a separate test file `test_stretch.py` for the stretch problem that you 
 
 ### [Previous Lesson Plan](https://github.com/LambdaSchool/web-guided-porject-rtl-i-solution)
 
-----
+---
 
 ## Objectives
 
 By the end of this module, learners should be able to:
-* explain what automated testing is and its importance
-* use react-testing-library for testing react components
-* use react-testing-library to test user interactions with fireEvent
 
-----
+- explain what automated testing is and its importance
+- use react-testing-library for testing react components
+- use react-testing-library to test user interactions with fireEvent
+
+---
 
 ## Instructor Resources
-* 🐙 [Guided Project Starter](https://github.com/LambdaSchool/web-guided-project-testing-web-apps)
-* 🐙 [Guided Project Solution](https://github.com/LambdaSchool/web-guided-project-testing-web-apps-solution)
-* 🐙 [Module Project](https://github.com/LambdaSchool/web-module-project-testing-web-apps)
-* 🐙 [Module Project Solution](https://github.com/LambdaSchool/web-module-project-testing-web-apps-solution)
 
-----
+- 🐙 [Guided Project Starter](https://github.com/LambdaSchool/web-guided-project-testing-web-apps)
+- 🐙 [Guided Project Solution](https://github.com/LambdaSchool/web-guided-project-testing-web-apps-solution)
+- 🐙 [Module Project](https://github.com/LambdaSchool/web-module-project-testing-web-apps)
+- 🐙 [Module Project Solution](https://github.com/LambdaSchool/web-module-project-testing-web-apps-solution)
+
+---
 
 ## Guided Project Slack Message
+
 > **Welcome to Unit 3!**
 >
 > 1. Clone without forking the following repo: https://github.com/LambdaSchool/web-guided-project-testing-web-apps
@@ -12852,11 +13038,14 @@ By the end of this module, learners should be able to:
 >
 > :point_right: Slido event: https://app.sli.do/event/msea4w8q
 
-----
+---
 
 ## Guided Project Zoom Invitation:
+
 > **Unit 3 | Sprint 1 | Module 4: Integration Testing For React**
-> _______________________________________________________
+>
+> ---
+>
 > Zoom Link : https://lambdaschool.zoom.us/j/3076367334
 >
 > Slido: https://app.sli.do/event/msea4w8q
@@ -12865,196 +13054,220 @@ By the end of this module, learners should be able to:
 >
 > Module Project: https://github.com/LambdaSchool/web-module-project-testing-web-apps
 
-----
+---
 
 ## Check for Understanding Questions
 
 These are the questions used internally to check student understanding. Students will be instructed to answer these questions after the guided project. Please make sure to emphasize the concepts behind these answers.
 
 #### What kind of function is this - toBeInTheDocument?
-* Jest function
-* **Assertion function**
-* Describe function
-* Query function
+
+- Jest function
+- **Assertion function**
+- Describe function
+- Query function
 
 #### What function allows you to mimic browser events in your tests?
-* fire
-* eventFire
-* **fireEvent**
-* onClick
+
+- fire
+- eventFire
+- **fireEvent**
+- onClick
 
 #### Which of the following would allow you to mimic a user typing into a text input?
-* fireEvent.click(inputButton)
-* fireEvent.click(firstNameInput, { target: { value: 'Tony' } })
-* fireEvent.type(firstNameInput, { 
-target: { value: 'Tony' } })
-* **fireEvent.change(firstNameInput, { target: { value: 'Tony' } })**
+
+- fireEvent.click(inputButton)
+- fireEvent.click(firstNameInput, { target: { value: 'Tony' } })
+- fireEvent.type(firstNameInput, {
+  target: { value: 'Tony' } })
+- **fireEvent.change(firstNameInput, { target: { value: 'Tony' } })**
 
 #### Which query functions allow you to "wait" for state to be updated after an event has been fired off?
-* getBy*
-* All of the Above
-* **findBy***
-* queryBy
+
+- getBy\*
+- All of the Above
+- **findBy\***
+- queryBy
 
 ## Guided Project Outline
 
 ### Introduce Module:
-* Present that this is the last day of the sprint.
-* Remind that this is also a standalone lesson. 
-* Present that we will be going into integration testing in React.
+
+- Present that this is the last day of the sprint.
+- Remind that this is also a standalone lesson.
+- Present that we will be going into integration testing in React.
 
 ### Discuss Automated Testing:
-* Helps to find bugs early in the process.
-* Helps to document your code.
-* Introduce the idea of Test Driven Development.
-* Also testing is an important part of project deployment.
+
+- Helps to find bugs early in the process.
+- Helps to document your code.
+- Introduce the idea of Test Driven Development.
+- Also testing is an important part of project deployment.
 
 ### Introduce Deployment Process:
-* Testing is a part of a larger deployment pipeline.
-* Testing allows for bugs in new code pushed in multi-developer projects does not break production.
-* This is a part of the DevOpps engineers job.
-* Different types of tests are a part of the deployment project.
-* All are needed.
+
+- Testing is a part of a larger deployment pipeline.
+- Testing allows for bugs in new code pushed in multi-developer projects does not break production.
+- This is a part of the DevOpps engineers job.
+- Different types of tests are a part of the deployment project.
+- All are needed.
 
 ### Types of Testing:
-* End to End - covers application wide paths.
-* Integration - covers component or small component group paths.
-* Unit Tests - covers indivisual functions, components or modules. Digs into implementation of a code.
+
+- End to End - covers application wide paths.
+- Integration - covers component or small component group paths.
+- Unit Tests - covers indivisual functions, components or modules. Digs into implementation of a code.
 
 ### What do integration tests test?
-* If a user does this, this behavoir happens.
-* Sepecific to behavior, not implementation. Styling is not included. How it is coded is not included.
-* Think in very specific terms.
-* Write in full sentences when making your list of tests.
-* Give students a two minutes to create a list of intergration tests for a site.
+
+- If a user does this, this behavoir happens.
+- Sepecific to behavior, not implementation. Styling is not included. How it is coded is not included.
+- Think in very specific terms.
+- Write in full sentences when making your list of tests.
+- Give students a two minutes to create a list of intergration tests for a site.
 
 ### How will we be testing?
-* Arrange - Setup of the component being tested.
-* Act - Execute the behavior we are testing.
-* Assert - Extract response element and see if it is what we expect it to be.
+
+- Arrange - Setup of the component being tested.
+- Act - Execute the behavior we are testing.
+- Assert - Extract response element and see if it is what we expect it to be.
 
 ### BREAK
 
 ### Tour our example application.
-* Point out header element.
-* Point out form element.
-* Test for validation and display.
-* Tour App.js
-* Tour AnimalForm.js
-* Tour package.json
+
+- Point out header element.
+- Point out form element.
+- Test for validation and display.
+- Tour App.js
+- Tour AnimalForm.js
+- Tour package.json
   1. Note that testing library is added by default through create react app
   2. jest-dom holds assertions
   3. react holds virtual dom
   4. user-event holds library for interacting with user events.
   5. Note scripts and point out test script
-* Run npm test.
-* Show moving panel to the right in vs code.
-* Note test runners.
+- Run npm test.
+- Show moving panel to the right in vs code.
+- Note test runners.
 
 ### Creating test suites.
-* Note that our test runner automatically find each test suite in our application, finds test files and runs the test inside of them.
-* Note that tests fail if they don't have tests inside them.
-* Setup App.test.js
+
+- Note that our test runner automatically find each test suite in our application, finds test files and runs the test inside of them.
+- Note that tests fail if they don't have tests inside them.
+- Setup App.test.js
   1. import react
   2. import render from /react.
   3. create tests.
-* Note how it works.
-* Note how describe works.
-* Note that test suites can have .test or .spec formating.
-* Note that for integration tests EACH COMPONENT SHOULD HAVE IT'S OWN TEST SUITE.
+- Note how it works.
+- Note how describe works.
+- Note that test suites can have .test or .spec formating.
+- Note that for integration tests EACH COMPONENT SHOULD HAVE IT'S OWN TEST SUITE.
 
 ### Testing App.js
-* Always test rendering of the component first.
-* Note that the first pass of any test is if there is an error anywhere in the test or code.
-* Setup test for the existance of the header component.
+
+- Always test rendering of the component first.
+- Note that the first pass of any test is if there is an error anywhere in the test or code.
+- Setup test for the existance of the header component.
+
   1. Arrange - Setup the component
-    * render(component)
-    * Note that it returns a value
+
+  - render(component)
+  - Note that it returns a value
+
   2. Act - extract the part of the DOM we want to test.
-    * We need to query a DOM element.
-    * Using screen to query for items.
-    * const header = screen.getByText("Add New Animal");
-    * Note that not finding an element results in a test failing.
-    * Note that there are many ways to query an element. [https://testing-library.com/docs/react-testing-library/cheatsheet/](https://testing-library.com/docs/react-testing-library/cheatsheet/)
-    * Note the differences between get / find and query.
-    * Note the types of query critria.
+
+  - We need to query a DOM element.
+  - Using screen to query for items.
+  - const header = screen.getByText("Add New Animal");
+  - Note that not finding an element results in a test failing.
+  - Note that there are many ways to query an element. [https://testing-library.com/docs/react-testing-library/cheatsheet/](https://testing-library.com/docs/react-testing-library/cheatsheet/)
+  - Note the differences between get / find and query.
+  - Note the types of query critria.
 
   3. Assert - Test the change.
-    * expect() is a means to test an element along with a certain conditional.
-    * Note that there are many ways to test an expect [https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
-    * Note .not
-  
+
+  - expect() is a means to test an element along with a certain conditional.
+  - Note that there are many ways to test an expect [https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
+  - Note .not
+
 ### Testing with case insensitivity.
-* Note that changing case breaks the test.
-* Discuss why this might be a problem.
-* Use regular expressions to add case insensitivity. /add new animal/i
+
+- Note that changing case breaks the test.
+- Discuss why this might be a problem.
+- Use regular expressions to add case insensitivity. /add new animal/i
 
 ### BREAK
 
 ### Create tests for AnimalForm
-* Create new test suite.
-* Add in imports.
-* Add intro render component.
+
+- Create new test suite.
+- Add in imports.
+- Add intro render component.
 
 ### Walk through our submission test
-* Add a value to our text field
-* Submit form.
-* Note the output.
+
+- Add a value to our text field
+- Submit form.
+- Note the output.
 
 ### Start to create test
-* render component
-* Walk through Act steps:
+
+- render component
+- Walk through Act steps:
   1. get access to form fields.
   2. add text to fields
-    * Query for text field using getByLabelText.
-    * Add userEvent for typing in values. userEvent.type();
+  - Query for text field using getByLabelText.
+  - Add userEvent for typing in values. userEvent.type();
   3. get access to and click button.
-    * Query for button by role.
-    * Click button using userEvent.click();
-* Walk through Assert step
+  - Query for button by role.
+  - Click button using userEvent.click();
+- Walk through Assert step
   1. queryByText(/canine/i);
   2. Note the difference between query, get and find.
 
-
 ### Module Project Review
-* [https://github.com/LambdaSchool/web-module-project-custom-hook](https://github.com/LambdaSchool/web-module-project-custom-hook)
+
+- [https://github.com/LambdaSchool/web-module-project-custom-hook](https://github.com/LambdaSchool/web-module-project-custom-hook)
 
 ## Breakout Slack Messages
 
-----
+---
 
 ## After Class Message
+
 Hope you all enjoyed today's guided Lesson!
-A reminder if that office hours are from 2:30 - 3:30 Lambda Time. Don't forget to complete the days Check for Understanding and Pulse Checks! 
+A reminder if that office hours are from 2:30 - 3:30 Lambda Time. Don't forget to complete the days Check for Understanding and Pulse Checks!
 
 Module Project: https://github.com/LambdaSchool/web-module-project-custom-hook
 
 Here is a review of today's material.
 
 Key Terminology:
-* 📝 *RTL querys* - [React Testing Library queries allow uses to select elments from the DOM for testing.](https://testing-library.com/docs/react-testing-library/cheatsheet/)[Also See](https://testing-library.com/docs/queries/about)
-* 📝 *ARIA roles* - [DOM elements that have role attributes automatically assigned to them.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)
-* 📝 *expect* - [expect is a jest method used to test the value of an element](https://jestjs.io/docs/en/expect.html)
-* 📝 *fireEvent / userEvent* - [fireEvent is a react testing library method used to simulate user input. userEvent is a more advanced and simplified version of fireevent.](https://testing-library.com/docs/ecosystem-user-event/)
-* 📝 *regular expressions* - [A regular expression (shortened as regex or regexp) is a sequence of characters that define a search pattern](https://www.youtube.com/watch?v=sXQxhojSdZM)
-* 📝 *async / await* - [A javascript idea that allows for a more streamline processing of promises.](https://javascript.info/async-await)
+
+- 📝 _RTL querys_ - [React Testing Library queries allow uses to select elments from the DOM for testing.](https://testing-library.com/docs/react-testing-library/cheatsheet/)[Also See](https://testing-library.com/docs/queries/about)
+- 📝 _ARIA roles_ - [DOM elements that have role attributes automatically assigned to them.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)
+- 📝 _expect_ - [expect is a jest method used to test the value of an element](https://jestjs.io/docs/en/expect.html)
+- 📝 _fireEvent / userEvent_ - [fireEvent is a react testing library method used to simulate user input. userEvent is a more advanced and simplified version of fireevent.](https://testing-library.com/docs/ecosystem-user-event/)
+- 📝 _regular expressions_ - [A regular expression (shortened as regex or regexp) is a sequence of characters that define a search pattern](https://www.youtube.com/watch?v=sXQxhojSdZM)
+- 📝 _async / await_ - [A javascript idea that allows for a more streamline processing of promises.](https://javascript.info/async-await)
 
 Key Concepts:
-* 📝 *end-to-end tests* - [a testing method that involves testing an application's workflow from beginning to end. This method basically aims to replicate real user scenarios.](https://www.browserstack.com/guide/end-to-end-testing)
-* 📝 *integration tests* - [A method of software testing where individual components or units of code are tested to validate user interactions.](https://www.testingxperts.com/blog/what-is-integration-testing#What%20is%20Integration%20Testing?)
-* 📝 *unit tests* - [A level of software testing where individual units / components of a software are tested. The purpose is to validate that each unit of the software performs as designed.](https://softwaretestingfundamentals.com/unit-testing/)
-* 📝 *react testing library* - [a light-weight solution for testing React components. ](https://testing-library.com/docs/react-testing-library/intro/)
-* 📝 *test driven development* - [A programming methodology that encourages early testing and later ui development](https://www.youtube.com/watch?v=y8TcPr73Bwo)
 
-
-
+- 📝 _end-to-end tests_ - [a testing method that involves testing an application's workflow from beginning to end. This method basically aims to replicate real user scenarios.](https://www.browserstack.com/guide/end-to-end-testing)
+- 📝 _integration tests_ - [A method of software testing where individual components or units of code are tested to validate user interactions.](https://www.testingxperts.com/blog/what-is-integration-testing#What%20is%20Integration%20Testing?)
+- 📝 _unit tests_ - [A level of software testing where individual units / components of a software are tested. The purpose is to validate that each unit of the software performs as designed.](https://softwaretestingfundamentals.com/unit-testing/)
+- 📝 _react testing library_ - [a light-weight solution for testing React components. ](https://testing-library.com/docs/react-testing-library/intro/)
+- 📝 _test driven development_ - [A programming methodology that encourages early testing and later ui development](https://www.youtube.com/watch?v=y8TcPr73Bwo)
 
 </details><details> <summary>1-projects/webapi-ii-challenge-master/</summary>
 
 ### [1-projects/webapi-ii-challenge-master/README.md](1-projects/webapi-ii-challenge-master/README.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Building RESTful APIs with Express](#building-restful-apis-with-express)
   - [Topics](#topics)
@@ -13280,19 +13493,17 @@ Create a new React application and connect it to your server:
 - From the React application connect to the `/api/posts` endpoint in the API and show the list of posts.
 - Style the list of posts however you see fit.
 
-
-
-
-
 </details><details> <summary>2-resources/__CHEAT-SHEETS/All/</summary>
 
-### [2-resources/__CHEAT-SHEETS/All/101.md](2-resources/__CHEAT-SHEETS/All/101.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/101.md](2-resources/__CHEAT-SHEETS/All/101.md)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Usage](#usage)
-  - [Type checking](#type-checking)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Usage](#usage)
+- [Type checking](#type-checking)
 - [Objects](#objects)
   - [Example](#example)
     - [Update](#update)
@@ -13318,19 +13529,21 @@ Create a new React application and connect it to your server:
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: 101
 category: JavaScript libraries
 layout: 2017/sheet
 updated: 2017-09-21
 intro: |
-  [101](https://www.npmjs.com/package/101) is a JavaScript library for dealing with immutable data in a functional manner.
+[101](https://www.npmjs.com/package/101) is a JavaScript library for dealing with immutable data in a functional manner.
+
 ---
 
 ### Usage
 
 ```js
-const isObject = require('101/isObject')
-isObject({}) // → true
+const isObject = require("101/isObject");
+isObject({}); // → true
 ```
 
 Every function is exposed as a module.
@@ -13340,57 +13553,59 @@ See: [101](https://github.com/tjmehta/101)
 ### Type checking
 
 ```js
-isObject({})
-isString('str')
-isRegExp(/regexp/)
-isBoolean(true)
-isEmpty({})
-isfunction(x => x)
-isInteger(10)
-isNumber(10.1)
-instanceOf(obj, 'string')
+isObject({});
+isString("str");
+isRegExp(/regexp/);
+isBoolean(true);
+isEmpty({});
+isfunction((x) => x);
+isInteger(10);
+isNumber(10.1);
+instanceOf(obj, "string");
 ```
 
 ## Objects
+
 {: .-three-column}
 
 ### Example
+
 {: .-prime}
 
 ```js
-let obj = {}
+let obj = {};
 ```
 
 #### Update
 
 ```js
-obj = put(obj, 'user.name', 'John')
+obj = put(obj, "user.name", "John");
 // → { user: { name: 'John' } }
 ```
 
 #### Read
 
 ```js
-pluck(name, 'user.name')
+pluck(name, "user.name");
 // → 'John'
 ```
 
 #### Delete
 
 ```js
-obj = del(obj, 'user')
+obj = del(obj, "user");
 // → { }
 ```
 
 ### Getting
 
 ```js
-pluck(state, 'user.profile.name')
+pluck(state, "user.profile.name");
 ```
 
 ```js
-pick(state, ['user', 'ui'])
-pick(state, /^_/)
+pick(state, ["user", "ui"]);
+pick(state, /^_/);
 ```
 
 `pluck` returns values, `pick` returns subsets of objects.
@@ -13402,7 +13617,7 @@ See:
 ### Setting
 
 ```js
-put(state, 'user.profile.name', 'john')
+put(state, "user.profile.name", "john");
 ```
 
 See:
@@ -13411,8 +13626,8 @@ See:
 ### Deleting
 
 ```js
-del(state, 'user.profile')
-omit(state, ['user', 'data'])
+del(state, "user.profile");
+omit(state, ["user", "data"]);
 ```
 
 `omit` is like `del`, but supports multiple keys to be deleted.
@@ -13424,8 +13639,8 @@ See:
 ### Keypath check
 
 ```js
-hasKeypaths(state, ['user'])
-hasKeypaths(state, { 'user.profile.name': 'john' })
+hasKeypaths(state, ["user"]);
+hasKeypaths(state, { "user.profile.name": "john" });
 ```
 
 See:
@@ -13434,7 +13649,7 @@ See:
 ### Get values
 
 ```js
-values(state)
+values(state);
 ```
 
 ## Functions
@@ -13458,9 +13673,9 @@ See:
 ### Composition
 
 ```js
-compose(f, g)       // x => f(g(x))
-curry(f)            // x => y => f(x, y)
-flip(f)             // f(x, y) --> f(y, x)
+compose(f, g); // x => f(g(x))
+curry(f); // x => y => f(x, y)
+flip(f); // f(x, y) --> f(y, x)
 ```
 
 See:
@@ -13471,8 +13686,8 @@ See:
 ### And/or
 
 ```js
-passAll(f, g)       // x => f(x) && g(x)
-passAny(f, g)       // x => f(x) || g(x)
+passAll(f, g); // x => f(x) && g(x)
+passAny(f, g); // x => f(x) || g(x)
 ```
 
 See:
@@ -13482,7 +13697,7 @@ See:
 ### Converge
 
 ```js
-converge(and, [pluck('a'), pluck('b')])(x)
+converge(and, [pluck("a"), pluck("b")])(x);
 ```
 
 ```js
@@ -13504,14 +13719,14 @@ last(list)
 ```
 
 ```js
-find(list, hasProps('id'))
+find(list, hasProps("id"));
 ```
 
 ### Grouping
 
 ```js
-groupBy(list, 'id')
-indexBy(list, 'id')
+groupBy(list, "id");
+indexBy(list, "id");
 ```
 
 ## Examples
@@ -13519,7 +13734,7 @@ indexBy(list, 'id')
 ### Function composition
 
 ```js
-isFloat = passAll(isNumber, compose(isInteger, not))
+isFloat = passAll(isNumber, compose(isInteger, not));
 // n => isNumber(n) && not(isInteger(n))
 ```
 
@@ -13533,15 +13748,12 @@ doStuffForce = curry(flip(doStuff))({ force: true })
 
 - <https://github.com/tjmehta/101>
 
-
-
-
-
-### [2-resources/__CHEAT-SHEETS/All/absinthe.md](2-resources/__CHEAT-SHEETS/All/absinthe.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/absinthe.md](2-resources/__CHEAT-SHEETS/All/absinthe.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Introduction](#introduction)
   - [Concepts](#concepts)
@@ -13567,13 +13779,15 @@ doStuffForce = curry(flip(doStuff))({ force: true })
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Absinthe
 category: Hidden
 layout: 2017/sheet
 tags: [WIP]
 updated: 2017-10-10
 intro: |
-  [Absinthe](http://absinthe-graphql.org/) allows you to write GraphQL servers in Elixir.
+[Absinthe](http://absinthe-graphql.org/) allows you to write GraphQL servers in Elixir.
+
 ---
 
 ## Introduction
@@ -13596,6 +13810,7 @@ defmodule Blog.Web.Router do
     schema: Blog.Schema
 end
 ```
+
 {: data-line="4,5"}
 
 Absinthe is a Plug, and you pass it one **Schema**.
@@ -13603,6 +13818,7 @@ Absinthe is a Plug, and you pass it one **Schema**.
 See: [Our first query](http://absinthe-graphql.org/tutorial/our-first-query/)
 
 ## Main concepts
+
 {: .-three-column}
 
 ### Schema
@@ -13622,6 +13838,7 @@ defmodule Blog.Schema do
   end
 end
 ```
+
 {: data-line="5,6,7,8,9,10"}
 
 This schema will account for `{ posts { ··· } }`. It returns a **Type** of `:post`, and delegates to a **Resolver**.
@@ -13637,6 +13854,7 @@ defmodule Blog.PostResolver do
   end
 end
 ```
+
 {: data-line="3"}
 
 This is the function that the schema delegated the `posts` query to.
@@ -13657,6 +13875,7 @@ defmodule Blog.Schema.Types do
   end
 end
 ```
+
 {: data-line="4,5,6,7,8,9"}
 
 This defines a type `:post`, which is used by the resolver.
@@ -13681,6 +13900,7 @@ query do
   end
 end
 ```
+
 {: data-line="3"}
 
 #### Resolver
@@ -13690,6 +13910,7 @@ def find(%{id: id} = args, _info) do
   ···
 end
 ```
+
 {: data-line="1"}
 
 See: [Query arguments](http://absinthe-graphql.org/tutorial/query-arguments/)
@@ -13717,21 +13938,22 @@ mutation do
   end
 end
 ```
+
 {: data-line="1"}
 
 See: [Mutations](http://absinthe-graphql.org/tutorial/mutations/)
 
 ## References
 
-  - [Absinthe website](http://absinthe-graphql.org/) _(absinthe-graphql.org)_
-  - [GraphQL cheatsheet](./graphql) _(devhints.io)_
+- [Absinthe website](http://absinthe-graphql.org/) _(absinthe-graphql.org)_
+- [GraphQL cheatsheet](./graphql) _(devhints.io)_
 
-
-### [2-resources/__CHEAT-SHEETS/All/activeadmin.md](2-resources/__CHEAT-SHEETS/All/activeadmin.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/activeadmin.md](2-resources/__CHEAT-SHEETS/All/activeadmin.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Listing scopes](#listing-scopes)
 - [Sidebar filters](#sidebar-filters)
@@ -13746,9 +13968,11 @@ See: [Mutations](http://absinthe-graphql.org/tutorial/mutations/)
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: ActiveAdmin
 category: Ruby
 layout: 2017/sheet
+
 ---
 
 ### Listing scopes
@@ -13843,12 +14067,12 @@ ActiveAdmin.register Post do
 end
 ```
 
-
-### [2-resources/__CHEAT-SHEETS/All/adb.md](2-resources/__CHEAT-SHEETS/All/adb.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/adb.md](2-resources/__CHEAT-SHEETS/All/adb.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Device Basics](#device-basics)
   - [Examples](#examples)
@@ -13861,29 +14085,32 @@ end
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: adb (Android Debug Bridge)
 category: CLI
 layout: 2017/sheet
 weight: -1
 authors:
-  - github: ZackNeyland
-updated: 2018-03-06
+
+- github: ZackNeyland
+  updated: 2018-03-06
+
 ---
 
 ### Device Basics
 
-| Command                           | Description                                 |
-| ---                               | ---                                         |
-| `adb devices`                     | Lists connected devices                     |
-| `adb devices -l`                  | Lists connected devices and kind            |
-| ---                               | ---                                         |
-| `adb root`                        | Restarts adbd with root permissions         |
-| `adb start-server`                | Starts the adb server                       |
-| `adb kill-server`                 | Kills the adb server                        |
-| `adb remount`                     | Remounts file system with read/write access |
-| `adb reboot`                      | Reboots the device                          |
-| `adb reboot bootloader`           | Reboots the device into fastboot            |
-| `adb disable-verity`              | Reboots the device into fastboot            |
+| Command                 | Description                                 |
+| ----------------------- | ------------------------------------------- |
+| `adb devices`           | Lists connected devices                     |
+| `adb devices -l`        | Lists connected devices and kind            |
+| ---                     | ---                                         |
+| `adb root`              | Restarts adbd with root permissions         |
+| `adb start-server`      | Starts the adb server                       |
+| `adb kill-server`       | Kills the adb server                        |
+| `adb remount`           | Remounts file system with read/write access |
+| `adb reboot`            | Reboots the device                          |
+| `adb reboot bootloader` | Reboots the device into fastboot            |
+| `adb disable-verity`    | Reboots the device into fastboot            |
 
 `wait-for-device` can be specified after `adb` to ensure that the command will run once the device is connected.
 
@@ -13904,16 +14131,17 @@ $ adb -s somedevice-1234 root
 
 ### Logcat
 
-| Command                              | Description                            |
-| ---                                  | ---                                    |
-| `adb logcat`                         | Starts printing log messages to stdout |
-| `adb logcat -g`                      | Displays current log buffer sizes      |
-| `adb logcat -G <size>`               | Sets the buffer size (K or M)          |
-| `adb logcat -c`                      | Clears the log buffers                 |
-| `adb logcat *:V`                     | Enables ALL log messages (verbose)     |
-| `adb logcat -f <filename>`           | Dumps to specified file                |
+| Command                    | Description                            |
+| -------------------------- | -------------------------------------- |
+| `adb logcat`               | Starts printing log messages to stdout |
+| `adb logcat -g`            | Displays current log buffer sizes      |
+| `adb logcat -G <size>`     | Sets the buffer size (K or M)          |
+| `adb logcat -c`            | Clears the log buffers                 |
+| `adb logcat *:V`           | Enables ALL log messages (verbose)     |
+| `adb logcat -f <filename>` | Dumps to specified file                |
 
 #### Examples
+
 ```
 $ adb logcat -G 16M
 $ adb logcat *:V > output.log
@@ -13921,8 +14149,8 @@ $ adb logcat *:V > output.log
 
 ### File Management
 
-| Command                              | Description                       |
-| ---                                  | ---                               |
+| Command                     | Description                                |
+| --------------------------- | ------------------------------------------ |
 | `adb push <local> <remote>` | Copies the local to the device at remote   |
 | `adb pull <remote> <local>` | Copies the remote from the device to local |
 
@@ -13936,21 +14164,21 @@ $ adb pull /sdcard/test.txt pulledTest.txt
 
 ### Remote Shell
 
-| Command                                | Description                                                           |
-| ---                                    | ---                                                                   |
-| `adb shell <command>`                  | Runs the specified command on device (most unix commands work here)   |
-| `adb shell wm size`                    | Displays the current screen resolution                                |
-| `adb shell wm size WxH`                | Sets the resolution to WxH                                            |
-| `adb shell pm list packages`           | Lists all installed packages                                          |
-| `adb shell pm list packages -3`        | Lists all installed 3rd-party packages                                |
-| `adb shell monkey -p app.package.name` | Starts the specified package                                          |
+| Command                                | Description                                                         |
+| -------------------------------------- | ------------------------------------------------------------------- |
+| `adb shell <command>`                  | Runs the specified command on device (most unix commands work here) |
+| `adb shell wm size`                    | Displays the current screen resolution                              |
+| `adb shell wm size WxH`                | Sets the resolution to WxH                                          |
+| `adb shell pm list packages`           | Lists all installed packages                                        |
+| `adb shell pm list packages -3`        | Lists all installed 3rd-party packages                              |
+| `adb shell monkey -p app.package.name` | Starts the specified package                                        |
 
-
-### [2-resources/__CHEAT-SHEETS/All/analytics.js.md](2-resources/__CHEAT-SHEETS/All/analytics.js.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/analytics.js.md](2-resources/__CHEAT-SHEETS/All/analytics.js.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Page view](#page-view)
 - [Events](#events)
@@ -13959,54 +14187,56 @@ $ adb pull /sdcard/test.txt pulledTest.txt
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Google Analytics's analytics.js
 category: Analytics
 layout: 2017/sheet
 updated: 2017-10-29
 intro: |
-  Google Analytics's analytics.js is deprecated.
+Google Analytics's analytics.js is deprecated.
+
 ---
 
 ### Page view
 
 ```js
-ga('create', 'UA-XXXX-Y', 'auto')
-ga('create', 'UA-XXXX-Y', { userId: 'USER_ID' })
+ga("create", "UA-XXXX-Y", "auto");
+ga("create", "UA-XXXX-Y", { userId: "USER_ID" });
 ```
 
 ```js
-ga('send', 'pageview')
-ga('send', 'pageview', { 'dimension15': 'My custom dimension' })
+ga("send", "pageview");
+ga("send", "pageview", { dimension15: "My custom dimension" });
 ```
 
 ### Events
 
 ```js
-ga('send', 'event', 'button',  'click', {color: 'red'});
+ga("send", "event", "button", "click", { color: "red" });
 ```
 
 ```js
-ga('send', 'event', 'button',  'click', 'nav buttons',  4);
+ga("send", "event", "button", "click", "nav buttons", 4);
 /*                  ^category  ^action  ^label          ^value */
 ```
 
 ### Exceptions
 
 ```js
-ga('send', 'exception', {
-  exDescription: 'DatabaseError',
+ga("send", "exception", {
+  exDescription: "DatabaseError",
   exFatal: false,
-  appName: 'myapp',
-  appVersion: '0.1.2'
-})
+  appName: "myapp",
+  appVersion: "0.1.2",
+});
 ```
 
-
-### [2-resources/__CHEAT-SHEETS/All/analytics.md](2-resources/__CHEAT-SHEETS/All/analytics.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/analytics.md](2-resources/__CHEAT-SHEETS/All/analytics.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Mixpanel](#mixpanel)
 - [Google Analytics's analytics.js](#google-analyticss-analyticsjs)
@@ -14014,17 +14244,19 @@ ga('send', 'exception', {
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Analytics libraries
 layout: 2017/sheet
 category: Analytics
+
 ---
 
 ### Mixpanel
 
 ```js
-mixpanel.identify('284');
-mixpanel.people.set({ $email: 'hi@gmail.com' });
-mixpanel.register({ age: 28, gender: 'male' }); /* set common properties */
+mixpanel.identify("284");
+mixpanel.people.set({ $email: "hi@gmail.com" });
+mixpanel.register({ age: 28, gender: "male" }); /* set common properties */
 ```
 
 [mixpanel](./mixpanel)
@@ -14033,24 +14265,24 @@ mixpanel.register({ age: 28, gender: 'male' }); /* set common properties */
 ### Google Analytics's analytics.js
 
 ```js
-ga('create', 'UA-XXXX-Y', 'auto');
-ga('create', 'UA-XXXX-Y', { userId: 'USER_ID' });
+ga("create", "UA-XXXX-Y", "auto");
+ga("create", "UA-XXXX-Y", { userId: "USER_ID" });
 ```
 
 ```js
-ga('send', 'pageview');
-ga('send', 'pageview', { 'dimension15': 'My custom dimension' });
+ga("send", "pageview");
+ga("send", "pageview", { dimension15: "My custom dimension" });
 ```
 
 [analytics.js](./analytics.js)
 {: .-crosslink}
 
-
-### [2-resources/__CHEAT-SHEETS/All/angularjs.md](2-resources/__CHEAT-SHEETS/All/angularjs.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/angularjs.md](2-resources/__CHEAT-SHEETS/All/angularjs.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Lists (ng-repeat)](#lists-ng-repeat)
 - [Model (ng-model)](#model-ng-model)
@@ -14063,32 +14295,35 @@ ga('send', 'pageview', { 'dimension15': 'My custom dimension' });
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Angular.js
 category: JavaScript libraries
+
 ---
+
 ```html
-    <html ng-app="nameApp">
+<html ng-app="nameApp"></html>
 ```
 
 ### Lists (ng-repeat)
+
 ```html
-    <ul ng-controller="MyListCtrl">
-      <li ng-repeat="phone in phones">
-        {{phone.name}}
-      </li>
-    </ul>
+<ul ng-controller="MyListCtrl">
+  <li ng-repeat="phone in phones">{{phone.name}}</li>
+</ul>
 ```
 
 ### Model (ng-model)
 
 ```html
-    <select ng-model="orderProp">
-      <option value="name">Alphabetical</option>
-      <option value="age">Newest</option>
-    </select>
+<select ng-model="orderProp">
+  <option value="name">Alphabetical</option>
+  <option value="age">Newest</option>
+</select>
 ```
 
 ### Defining a module
+
 ```js
     App = angular.module('myApp', []);
 
@@ -14098,6 +14333,7 @@ category: JavaScript libraries
 ```
 
 ### Controller with protection from minification
+
 ```js
     App.controller('Name', [
       '$scope',
@@ -14114,55 +14350,58 @@ category: JavaScript libraries
 ```
 
 ### Service
+
 ```js
-    App.service('NameService', function($http){
-      return {
-        get: function(){
-          return $http.get(url);
-        }
-      }
-    });
+App.service("NameService", function ($http) {
+  return {
+    get: function () {
+      return $http.get(url);
+    },
+  };
+});
 ```
+
 In controller you call with parameter and will use promises to return data from server.
 
 ```js
-    App.controller('controllerName',
-    function(NameService){
-      NameService.get()
-      .then(function(){})
-    })
+App.controller("controllerName", function (NameService) {
+  NameService.get().then(function () {});
+});
 ```
 
 ### Directive
+
 ```js
-    App.directive('name', function(){
-      return {
-        template: '<h1>Hello</h1>'
-      }
-    });
+App.directive("name", function () {
+  return {
+    template: "<h1>Hello</h1>",
+  };
+});
 ```
 
 In HTML will use `<name></name>` to render your template `<h1>Hello</h1>`
 
 ### HTTP
+
 ```js
-    App.controller('PhoneListCtrl', function ($scope, $http) {
-        $http.get('/data.json').success(function (data) {
-            $scope.phones = data;
-        })
-    });
+App.controller("PhoneListCtrl", function ($scope, $http) {
+  $http.get("/data.json").success(function (data) {
+    $scope.phones = data;
+  });
+});
 ```
+
 References:
 
- * https://github.com/angular/angular-seed
- * https://angularjs.org/
+- https://github.com/angular/angular-seed
+- https://angularjs.org/
 
-
-### [2-resources/__CHEAT-SHEETS/All/animated_gif.md](2-resources/__CHEAT-SHEETS/All/animated_gif.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/animated_gif.md](2-resources/__CHEAT-SHEETS/All/animated_gif.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Animated GIFs](#animated-gifs)
   - [Convert MP4 to GIF](#convert-mp4-to-gif)
@@ -14171,12 +14410,15 @@ References:
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Animated GIFs
 category: CLI
 layout: 2017/sheet
+
 ---
 
 ## Animated GIFs
+
 {: .-one-column}
 
 ### Convert MP4 to GIF
@@ -14199,12 +14441,12 @@ mplayer -ao null -ss 0:02:06 -endpos 0:05:00 -vo gif89a:outdir=gif videofile.mp4
 
 See `-ss` and `-endpos`.
 
-
-### [2-resources/__CHEAT-SHEETS/All/ansi.md](2-resources/__CHEAT-SHEETS/All/ansi.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/ansi.md](2-resources/__CHEAT-SHEETS/All/ansi.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Format](#format)
 - [ANSI codes](#ansi-codes)
@@ -14214,11 +14456,13 @@ See `-ss` and `-endpos`.
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Ansi codes
 category: CLI
 layout: 2017/sheet
 intro: |
-  Quick reference to ANSI color codes.
+Quick reference to ANSI color codes.
+
 ---
 
 ### Format
@@ -14266,38 +14510,40 @@ hide_cursor() { printf "\e[?25l"; }
 show_cursor() { printf "\e[?25h"; }
 ```
 
-
-### [2-resources/__CHEAT-SHEETS/All/ansible-examples.md](2-resources/__CHEAT-SHEETS/All/ansible-examples.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/ansible-examples.md](2-resources/__CHEAT-SHEETS/All/ansible-examples.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Examples](#examples)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Ansible examples
 category: Ansible
 layout: 2017/sheet
+
 ---
 
 ### Examples
 
- * [Ruby installation](https://github.com/chelsea/ansible-example-ruby/blob/master/roles/webserver/tasks/main.yml) _(github.com)_
- * [Postgres installation](https://github.com/chelsea/ansible-example-ruby/blob/master/roles/db/tasks/main.yml)  _(github.com)_
- * [GitLab installation](https://github.com/tingtun/ansible-playbook-gitlab) _(github.com)_
+- [Ruby installation](https://github.com/chelsea/ansible-example-ruby/blob/master/roles/webserver/tasks/main.yml) _(github.com)_
+- [Postgres installation](https://github.com/chelsea/ansible-example-ruby/blob/master/roles/db/tasks/main.yml) _(github.com)_
+- [GitLab installation](https://github.com/tingtun/ansible-playbook-gitlab) _(github.com)_
 
-
-### [2-resources/__CHEAT-SHEETS/All/ansible-guide.md](2-resources/__CHEAT-SHEETS/All/ansible-guide.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/ansible-guide.md](2-resources/__CHEAT-SHEETS/All/ansible-guide.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Install Ansible](#install-ansible)
-  - [Start your project](#start-your-project)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Install Ansible](#install-ansible)
+- [Start your project](#start-your-project)
 - [Creating your files](#creating-your-files)
   - [Inventory file](#inventory-file)
     - [~/setup/hosts](#setuphosts)
@@ -14311,11 +14557,13 @@ layout: 2017/sheet
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: "Ansible quickstart"
 category: Ansible
 layout: 2017/sheet
 description: |
-  A quick guide to getting started with your first Ansible playbook.
+A quick guide to getting started with your first Ansible playbook.
+
 ---
 
 ### Install Ansible
@@ -14411,17 +14659,17 @@ ok: [127.0.0.1]
 
 ## Read more
 
-* [Getting started with Ansible](http://lowendbox.com/blog/getting-started-with-ansible/) _(lowendbox.com)_
-* [Getting started](http://docs.ansible.com/ansible/latest/intro_getting_started.html) _(docs.ansible.com)_
-* [Intro to Inventory](http://docs.ansible.com/ansible/latest/intro_inventory.html) _(docs.ansible.com)_
-* [Intro to Playbooks](http://docs.ansible.com/ansible/latest/playbooks_intro.html) _(docs.ansible.com)_
+- [Getting started with Ansible](http://lowendbox.com/blog/getting-started-with-ansible/) _(lowendbox.com)_
+- [Getting started](http://docs.ansible.com/ansible/latest/intro_getting_started.html) _(docs.ansible.com)_
+- [Intro to Inventory](http://docs.ansible.com/ansible/latest/intro_inventory.html) _(docs.ansible.com)_
+- [Intro to Playbooks](http://docs.ansible.com/ansible/latest/playbooks_intro.html) _(docs.ansible.com)_
 
-
-### [2-resources/__CHEAT-SHEETS/All/ansible-modules.md](2-resources/__CHEAT-SHEETS/All/ansible-modules.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/ansible-modules.md](2-resources/__CHEAT-SHEETS/All/ansible-modules.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Format](#format)
   - [Basic file](#basic-file)
@@ -14455,11 +14703,13 @@ ok: [127.0.0.1]
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Ansible modules
 category: Ansible
 layout: 2017/sheet
 prism_languages: [yaml]
 updated: 2017-10-03
+
 ---
 
 {% raw %}
@@ -14473,7 +14723,7 @@ updated: 2017-10-03
 - hosts: production
   remote_user: root
   tasks:
-  - ···
+    - ···
 ```
 
 Place your modules inside `tasks`.
@@ -14586,7 +14836,7 @@ See: [user module](http://devdocs.io/ansible/user_module)
 - service:
     name: nginx
     state: started
-    enabled: yes     # optional
+    enabled: yes # optional
 ```
 
 See: [service module](http://devdocs.io/ansible/service_module)
@@ -14604,9 +14854,9 @@ See: [service module](http://devdocs.io/ansible/service_module)
 ```yaml
 - shell: echo hello
   args:
-    creates: /path/file  # skip if this exists
-    removes: /path/file  # skip if this is missing
-    chdir: /path         # cd here before running
+    creates: /path/file # skip if this exists
+    removes: /path/file # skip if this is missing
+    chdir: /path # cd here before running
 ```
 
 #### Multiline example
@@ -14624,9 +14874,9 @@ See: [shell module](http://devdocs.io/ansible/shell_module)
 ```yaml
 - script: /x/y/script.sh
   args:
-    creates: /path/file  # skip if this exists
-    removes: /path/file  # skip if this is missing
-    chdir: /path         # cd here before running
+    creates: /path/file # skip if this exists
+    removes: /path/file # skip if this is missing
+    chdir: /path # cd here before running
 ```
 
 See: [script module](http://devdocs.io/ansible/script_module)
@@ -14644,8 +14894,8 @@ See: [script module](http://devdocs.io/ansible/script_module)
     owner: bin
     group: wheel
     mode: 0644
-    recurse: yes  # mkdir -p
-    force: yes    # ln -nfs
+    recurse: yes # mkdir -p
+    force: yes # ln -nfs
 ```
 
 See: [file module](http://devdocs.io/ansible/file_module)
@@ -14701,13 +14951,12 @@ See: [template module](http://devdocs.io/ansible/template_module)
 See: [debug module](http://devdocs.io/ansible/debug_module)
 {% endraw %}
 
-
-
-### [2-resources/__CHEAT-SHEETS/All/ansible-roles.md](2-resources/__CHEAT-SHEETS/All/ansible-roles.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/ansible-roles.md](2-resources/__CHEAT-SHEETS/All/ansible-roles.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Structure](#structure)
 - [References](#references)
@@ -14715,9 +14964,11 @@ See: [debug module](http://devdocs.io/ansible/debug_module)
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Ansible roles
 category: Ansible
 layout: 2017/sheet
+
 ---
 
 ### Structure
@@ -14735,14 +14986,14 @@ layout: 2017/sheet
 
 ### References
 
- * http://www.ansibleworks.com/docs/playbooks_roles.html
+- http://www.ansibleworks.com/docs/playbooks_roles.html
 
-
-### [2-resources/__CHEAT-SHEETS/All/ansible.md](2-resources/__CHEAT-SHEETS/All/ansible.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/ansible.md](2-resources/__CHEAT-SHEETS/All/ansible.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Getting started](#getting-started)
   - [Hosts](#hosts)
@@ -14759,8 +15010,10 @@ layout: 2017/sheet
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Ansible
 category: Ansible
+
 ---
 
 {% raw %}
@@ -14853,26 +15106,28 @@ category: Ansible
 
 ## References
 
-  * [Intro](http://www.ansibleworks.com/docs/intro_configuration.html)
-  * [Modules](http://www.ansibleworks.com/docs/modules.html)
+- [Intro](http://www.ansibleworks.com/docs/intro_configuration.html)
+- [Modules](http://www.ansibleworks.com/docs/modules.html)
 
 {% endraw %}
 
-
-### [2-resources/__CHEAT-SHEETS/All/appcache.md](2-resources/__CHEAT-SHEETS/All/appcache.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/appcache.md](2-resources/__CHEAT-SHEETS/All/appcache.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Format](#format)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Appcache
 category: HTML
 layout: 2017/sheet
+
 ---
 
 ### Format
@@ -14894,12 +15149,12 @@ Note that Appcache is deprecated!
 
 See: [Using the application cache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache) _(developer.mozilla.org)_
 
-
-### [2-resources/__CHEAT-SHEETS/All/applescript.md](2-resources/__CHEAT-SHEETS/All/applescript.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/applescript.md](2-resources/__CHEAT-SHEETS/All/applescript.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Running](#running)
 - [Comments](#comments)
@@ -14910,11 +15165,13 @@ See: [Using the application cache](https://developer.mozilla.org/en-US/docs/Web/
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: AppleScript
 updated: 2018-12-06
 layout: 2017/sheet
 category: macOS
 prism_languages: [applescript]
+
 ---
 
 ### Running
@@ -14976,12 +15233,12 @@ beep 10
 delay 5
 ```
 
-
-### [2-resources/__CHEAT-SHEETS/All/applinks.md](2-resources/__CHEAT-SHEETS/All/applinks.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/applinks.md](2-resources/__CHEAT-SHEETS/All/applinks.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Device types](#device-types)
 - [Reference](#reference)
@@ -14989,10 +15246,11 @@ delay 5
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Applinks
 category: HTML
----
 
+---
 
     <meta property="al:ios:url" content="applinks://docs" />
     <meta property="al:ios:app_store_id" content="12345" />
@@ -15006,44 +15264,46 @@ category: HTML
 
 ### Device types
 
- * `ios`
- * `ipad`
- * `iphone`
- * `android`
- * `windows_phone`
- * `web`
+- `ios`
+- `ipad`
+- `iphone`
+- `android`
+- `windows_phone`
+- `web`
 
 ### Reference
 
- * [applinks.org](http://applinks.org/documentation/)
+- [applinks.org](http://applinks.org/documentation/)
 
-
-### [2-resources/__CHEAT-SHEETS/All/arel.md](2-resources/__CHEAT-SHEETS/All/arel.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/arel.md](2-resources/__CHEAT-SHEETS/All/arel.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Tables](#tables)
-  - [Fields](#fields)
-  - [`where` (restriction)](#where-restriction)
-  - [`select` (projection)](#select-projection)
-  - [`join`](#join)
-    - [basic join](#basic-join)
-    - [join with conditions](#join-with-conditions)
-    - [advanced join](#advanced-join)
-  - [`limit` / `offset`](#limit--offset)
-  - [Aggregates](#aggregates)
-  - [`order`](#order)
-  - [With ActiveRecord](#with-activerecord)
-  - [Clean code with arel](#clean-code-with-arel)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Tables](#tables)
+- [Fields](#fields)
+- [`where` (restriction)](#where-restriction)
+- [`select` (projection)](#select-projection)
+- [`join`](#join)
+  - [basic join](#basic-join)
+  - [join with conditions](#join-with-conditions)
+  - [advanced join](#advanced-join)
+- [`limit` / `offset`](#limit--offset)
+- [Aggregates](#aggregates)
+- [`order`](#order)
+- [With ActiveRecord](#with-activerecord)
+- [Clean code with arel](#clean-code-with-arel)
 - [Reference](#reference)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Arel
 category: Rails
+
 ---
 
 ### Tables
@@ -15075,25 +15335,31 @@ users.project(users[:id])
 ```
 
 ### `join`
+
 #### basic join
+
 In ActiveRecord (without Arel), if `:photos` is the name of the association, use `joins`
+
 ```rb
 users.joins(:photos)
 ```
 
 In Arel, if `photos` is defined as the Arel table,
+
 ```rb
 photos = Photo.arel_table
-users.join(photos) 
+users.join(photos)
 users.join(photos, Arel::Nodes::OuterJoin).on(users[:id].eq(photos[:user_id]))
 ```
 
 #### join with conditions
+
 ```rb
 users.joins(:photos).merge(Photo.where(published: true))
 ```
 
 If the simpler version doesn't help and you want to add more SQL statements to it:
+
 ```rb
 users.join(
    users.join(photos, Arel::Nodes::OuterJoin)
@@ -15102,7 +15368,9 @@ users.join(
 ```
 
 #### advanced join
+
 multiple `joins` with the same table but different meanings and/or conditions
+
 ```rb
 creators = User.arel_table.alias('creators')
 updaters = User.arel_table.alias('updaters')
@@ -15156,11 +15424,13 @@ User.where(id: 1).arel
 ### Clean code with arel
 
 Most of the clever stuff should be in scopes, e.g. the code above could become:
+
 ```rb
 photos_with_credits = Photo.with_creator.with_editor
 ```
 
 You can store requests in variables then add SQL segments:
+
 ```rb
 all_time      = photos_with_credits.count
 this_month    = photos_with_credits.where(photos[:created_at].gteq(Date.today.beginning_of_month))
@@ -15169,14 +15439,14 @@ recent_photos = photos_with_credits.where(photos[:created_at].gteq(Date.today.be
 
 ## Reference
 
-* <http://github.com/rails/arel>
+- <http://github.com/rails/arel>
 
-
-### [2-resources/__CHEAT-SHEETS/All/atom.md](2-resources/__CHEAT-SHEETS/All/atom.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/atom.md](2-resources/__CHEAT-SHEETS/All/atom.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Shortcuts](#shortcuts)
   - [Tree](#tree)
@@ -15194,13 +15464,16 @@ recent_photos = photos_with_credits.where(photos[:created_at].gteq(Date.today.be
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Atom
 category: Apps
 layout: 2017/sheet
 updated: 2018-06-14
+
 ---
 
 ## Shortcuts
+
 {: .-three-column}
 
 ### Tree
@@ -15209,6 +15482,7 @@ updated: 2018-06-14
 | -------- | ------------------- |
 | `⌘\`     | Toggle tree         |
 | `⌘⇧\`    | Reveal current file |
+
 {: .-shortcuts}
 
 ### Comments
@@ -15216,6 +15490,7 @@ updated: 2018-06-14
 | Shortcut | Description     |
 | -------- | --------------- |
 | `⌘/`     | Toggle comments |
+
 {: .-shortcuts}
 
 ### View
@@ -15228,6 +15503,7 @@ updated: 2018-06-14
 | `⌘⌥-`    | Shrink pane            |
 | ---      | ---                    |
 | `^⇧←`    | Move tab to left       |
+
 {: .-shortcuts}
 
 ### Bracket matcher
@@ -15238,6 +15514,7 @@ updated: 2018-06-14
 | `^]`     | Remove brackets from selection |
 | `^⌘m`    | Select inside brackets         |
 | `⌥⌘.`    | Close tag                      |
+
 {: .-shortcuts}
 
 ### Symbols view
@@ -15246,6 +15523,7 @@ updated: 2018-06-14
 | -------- | -------------------------------- |
 | `^⌥↓`    | Jump to declaration under cursor |
 | `^⇧r`    | Show tags                        |
+
 {: .-shortcuts}
 
 Symbols view enables Ctags support for Atom.
@@ -15273,6 +15551,7 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | ---      | ---            |
 | `⌘⇧k`    | Delete line    |
 | `⌘⇧d`    | Duplicate line |
+
 {: .-shortcuts}
 
 ### Project
@@ -15288,6 +15567,7 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | `⌘f`     | Find in file            |
 | `⌘⇧f`    | Find in project         |
 | `⌘t`     | Search files in project |
+
 {: .-shortcuts}
 
 ## Notes
@@ -15302,18 +15582,18 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 - For Windows and Linux, `⌥` is the `Alt` key.
 - For macOS, it's the `Option` key.
 
-
-### [2-resources/__CHEAT-SHEETS/All/awesome-redux.md](2-resources/__CHEAT-SHEETS/All/awesome-redux.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/awesome-redux.md](2-resources/__CHEAT-SHEETS/All/awesome-redux.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [redux-actions](#redux-actions)
-  - [flux-standard-action](#flux-standard-action)
-  - [redux-multi](#redux-multi)
-  - [reduce-reducers](#reduce-reducers)
-  - [redux-logger](#redux-logger)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [redux-actions](#redux-actions)
+- [flux-standard-action](#flux-standard-action)
+- [redux-multi](#redux-multi)
+- [reduce-reducers](#reduce-reducers)
+- [redux-logger](#redux-logger)
 - [Async](#async)
   - [redux-promise](#redux-promise)
   - [redux-promises](#redux-promises)
@@ -15323,10 +15603,12 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Awesome Redux
 category: React
 layout: 2017/sheet
 updated: 2017-11-19
+
 ---
 
 ### redux-actions
@@ -15335,18 +15617,18 @@ Create action creators in flux standard action format.
 {: .-setup}
 
 ```js
-increment = createAction('INCREMENT', amount => amount)
-increment = createAction('INCREMENT')  // same
+increment = createAction("INCREMENT", (amount) => amount);
+increment = createAction("INCREMENT"); // same
 ```
 
 ```js
-increment(42) === { type: 'INCREMENT', payload: 42 }
+increment(42) === { type: "INCREMENT", payload: 42 };
 ```
 
 ```js
 // Errors are handled for you:
-err = new Error()
-increment(err) === { type: 'INCREMENT', payload: err, error: true }
+err = new Error();
+increment(err) === { type: "INCREMENT", payload: err, error: true };
 ```
 
 [redux-actions](https://www.npmjs.com/package/redux-actions)
@@ -15372,25 +15654,26 @@ Dispatch multiple actions in one action creator.
 
 ```js
 store.dispatch([
-  { type: 'INCREMENT', payload: 2 },
-  { type: 'INCREMENT', payload: 3 }
-])
+  { type: "INCREMENT", payload: 2 },
+  { type: "INCREMENT", payload: 3 },
+]);
 ```
 
 [redux-multi](https://github.com/ashaffer/redux-multi)
 {: .-crosslink}
 
 ### reduce-reducers
-Combines reducers (like *combineReducers()*), but without namespacing magic.
+
+Combines reducers (like _combineReducers()_), but without namespacing magic.
 {: .-setup}
 
 ```js
 re = reduceReducers(
   (state, action) => state + action.number,
   (state, action) => state + action.number
-)
+);
 
-re(10, { number: 2 })  //=> 14
+re(10, { number: 2 }); //=> 14
 ```
 
 [reduce-reducers](https://www.npmjs.com/package/reduce-reducers)
@@ -15408,8 +15691,7 @@ Logs actions to your console.
 [redux-logger](https://github.com/evgenyrodionov/redux-logger)
 {: .-crosslink}
 
-Async
------
+## Async
 
 ### redux-promise
 
@@ -15417,8 +15699,8 @@ Pass promises to actions. Dispatches a flux-standard-action.
 {: .-setup}
 
 ```js
-increment = createAction('INCREMENT')  // redux-actions
-increment(Promise.resolve(42))
+increment = createAction("INCREMENT"); // redux-actions
+increment(Promise.resolve(42));
 ```
 
 [redux-promise](https://github.com/acdlite/redux-promise)
@@ -15426,7 +15708,7 @@ increment(Promise.resolve(42))
 
 ### redux-promises
 
-Sorta like that, too. Works by letting you pass *thunks* (functions) to `dispatch()`. Also has 'idle checking'.
+Sorta like that, too. Works by letting you pass _thunks_ (functions) to `dispatch()`. Also has 'idle checking'.
 {: .-setup}
 
 ```js
@@ -15442,7 +15724,7 @@ store.dispatch(fetchData('/posts'))
 
 ```js
 // That's actually shorthand for:
-fetchData('/posts')(store.dispatch)
+fetchData("/posts")(store.dispatch);
 ```
 
 [redux-promises](https://www.npmjs.com/package/redux-promises)
@@ -15487,32 +15769,32 @@ store.dispatch(fetchData('/posts'))
 
 ```js
 // That's actually shorthand for:
-fetchData('/posts')(store.dispatch, store.getState)
+fetchData("/posts")(store.dispatch, store.getState);
 ```
 
 ```js
 // Optional: since fetchData returns a promise, it can be chained
 // for server-side rendering
 store.dispatch(fetchPosts()).then(() => {
-  ReactDOMServer.renderToString(<MyApp store={store} />)
-})
+  ReactDOMServer.renderToString(<MyApp store={store} />);
+});
 ```
 
 [redux-thunk](https://www.npmjs.com/package/redux-thunk)
 {: .-crosslink}
 
-
-### [2-resources/__CHEAT-SHEETS/All/awscli.md](2-resources/__CHEAT-SHEETS/All/awscli.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/awscli.md](2-resources/__CHEAT-SHEETS/All/awscli.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [EC2](#ec2)
-  - [S3](#s3)
-  - [ECS](#ecs)
-  - [Homebrew](#homebrew)
-  - [Configuration profiles](#configuration-profiles)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [EC2](#ec2)
+- [S3](#s3)
+- [ECS](#ecs)
+- [Homebrew](#homebrew)
+- [Configuration profiles](#configuration-profiles)
 - [Elastic Beanstalk](#elastic-beanstalk)
   - [Configuration](#configuration)
 - [ebextensions](#ebextensions)
@@ -15521,9 +15803,11 @@ store.dispatch(fetchPosts()).then(() => {
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: AWS CLI
 category: Devops
 layout: 2017/sheet
+
 ---
 
 ### EC2
@@ -15571,8 +15855,8 @@ aws configure --profile project2
 
 ### Configuration
 
-* .elasticbeanstalk/config.yml - application config
-* .elasticbeanstalk/dev-env.env.yml - environment config
+- .elasticbeanstalk/config.yml - application config
+- .elasticbeanstalk/dev-env.env.yml - environment config
 
 ```
 eb config
@@ -15582,26 +15866,26 @@ See: <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html
 
 ## ebextensions
 
-* <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
-* <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
+- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
+- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
 
 ## Also see
 
-* [AWS CLI](https://aws.amazon.com/cli/)
-* [Documentation](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
-* [All commands](http://docs.aws.amazon.com/cli/latest/reference/#available-services)
+- [AWS CLI](https://aws.amazon.com/cli/)
+- [Documentation](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+- [All commands](http://docs.aws.amazon.com/cli/latest/reference/#available-services)
 
-
-### [2-resources/__CHEAT-SHEETS/All/backbone.md](2-resources/__CHEAT-SHEETS/All/backbone.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/backbone.md](2-resources/__CHEAT-SHEETS/All/backbone.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Binding events](#binding-events)
-  - [Unbinding events](#unbinding-events)
-  - [Events](#events)
-  - [List of events](#list-of-events)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Binding events](#binding-events)
+- [Unbinding events](#unbinding-events)
+- [Events](#events)
+- [List of events](#list-of-events)
 - [Views](#views)
   - [Defining](#defining)
   - [Instantiating](#instantiating)
@@ -15617,10 +15901,12 @@ See: <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Backbone.js
 layout: 2017/sheet
 updated: 2018-12-06
 category: JavaScript libraries
+
 ---
 
 ### Binding events
@@ -15648,45 +15934,48 @@ category: JavaScript libraries
 ### Unbinding events
 
 ```js
-object.off('change', onChange)    // just the `onChange` callback
-object.off('change')              // all 'change' callbacks
-object.off(null, onChange)        // `onChange` callback for all events
-object.off(null, null, context)   // all callbacks for `context` all events
-object.off()                      // all
+object.off("change", onChange); // just the `onChange` callback
+object.off("change"); // all 'change' callbacks
+object.off(null, onChange); // `onChange` callback for all events
+object.off(null, null, context); // all callbacks for `context` all events
+object.off(); // all
 ```
 
 ### Events
 
 ```js
-object.trigger('event')
+object.trigger("event");
 ```
 
 ```js
-view.listenTo(object, event, callback)
-view.stopListening()
+view.listenTo(object, event, callback);
+view.stopListening();
 ```
 
 ### List of events
 
-  * Collection:
-    * `add` (model, collection, options)
-    * `remove` (model, collection, options)
-    * `reset` (collection, options)
-    * `sort` (collection, options)
+- Collection:
 
-  * Model:
-    * `change` (model, options)
-    * `change:[attr]` (model, value, options)
-    * `destroy` (model, collection, options)
-    * `error` (model, xhr, options)
+  - `add` (model, collection, options)
+  - `remove` (model, collection, options)
+  - `reset` (collection, options)
+  - `sort` (collection, options)
 
-  * Model and collection:
-    * `request` (model, xhr, options)
-    * `sync` (model, resp, options)
+- Model:
 
-  * Router:
-    * `route:[name]` (params)
-    * `route` (router, route, params)
+  - `change` (model, options)
+  - `change:[attr]` (model, value, options)
+  - `destroy` (model, collection, options)
+  - `error` (model, xhr, options)
+
+- Model and collection:
+
+  - `request` (model, xhr, options)
+  - `sync` (model, resp, options)
+
+- Router:
+  - `route:[name]` (params)
+  - `route` (router, route, params)
 
 ## Views
 
@@ -15722,6 +16011,7 @@ var View = Backbone.View.extend({
   render: function() { ··· }
 })
 ```
+
 ### Instantiating
 
 ```js
@@ -15732,17 +16022,17 @@ view = new View({ el: ··· })
 ### Methods
 
 ```js
-view.$el.show()
-view.$('input')
+view.$el.show();
+view.$("input");
 ```
 
 ```js
-view.remove()
+view.remove();
 ```
 
 ```js
-view.delegateEvents()
-view.undelegateEvents()
+view.delegateEvents();
+view.undelegateEvents();
 ```
 
 ## Models
@@ -15763,7 +16053,7 @@ var Model = Backbone.Model.extend({
 ### Instantiating
 
 ```js
-var obj = new Model({ title: 'Lolita', author: 'Nabokov' })
+var obj = new Model({ title: "Lolita", author: "Nabokov" });
 ```
 
 ```js
@@ -15773,79 +16063,84 @@ var obj = new Model({ collection: ··· })
 ### Methods
 
 ```js
-obj.id
-obj.cid   // → 'c38' (client-side ID)
+obj.id;
+obj.cid; // → 'c38' (client-side ID)
 ```
 
 ```js
-obj.clone()
+obj.clone();
 ```
 
 ```js
-obj.hasChanged('title')
-obj.changedAttributes()  // false, or hash
-obj.previousAttributes() // false, or hash
-obj.previous('title')
+obj.hasChanged("title");
+obj.changedAttributes(); // false, or hash
+obj.previousAttributes(); // false, or hash
+obj.previous("title");
 ```
 
 ```js
-obj.isNew()
+obj.isNew();
 ```
 
 ```js
-obj.set({ title: 'A Study in Pink' })
-obj.set({ title: 'A Study in Pink' }, { validate: true, silent: true })
-obj.unset('title')
+obj.set({ title: "A Study in Pink" });
+obj.set({ title: "A Study in Pink" }, { validate: true, silent: true });
+obj.unset("title");
 ```
 
 ```js
-obj.get('title')
-obj.has('title')
-obj.escape('title')     /* Like .get() but HTML-escaped */
+obj.get("title");
+obj.has("title");
+obj.escape("title"); /* Like .get() but HTML-escaped */
 ```
 
 ```js
-obj.clear()
-obj.clear({ silent: true })
+obj.clear();
+obj.clear({ silent: true });
 ```
 
 ```js
-obj.save()
-obj.save({ attributes })
+obj.save();
+obj.save({ attributes });
 obj.save(null, {
-  silent: true, patch: true, wait: true,
-  success: callback, error: callback
-})
+  silent: true,
+  patch: true,
+  wait: true,
+  success: callback,
+  error: callback,
+});
 ```
 
 ```js
-obj.destroy()
+obj.destroy();
 obj.destroy({
   wait: true,
-  success: callback, error: callback
-})
+  success: callback,
+  error: callback,
+});
 ```
 
 ```js
-obj.toJSON()
+obj.toJSON();
 ```
 
 ```js
-obj.fetch()
-obj.fetch({ success: callback, error: callback })
+obj.fetch();
+obj.fetch({ success: callback, error: callback });
 ```
 
 ### Validation
 
 ```js
 var Model = Backbone.Model.extend({
-  validate: function(attrs, options) {
+  validate: function (attrs, options) {
     if (attrs.end < attrs.start) {
-      return "Can't end before it starts"
+      return "Can't end before it starts";
     }
-  }
-})
+  },
+});
 ```
+
 {: data-line="2"}
 
 ```js
@@ -15882,17 +16177,18 @@ var obj = new Model({ urlRoot: ··· })
 ```
 
 ## References
+
 {: .-one-column}
 
 - [Backbone website](http://backbonejs.org/) _(backbonejs.org)_
 - [Backbone patterns](http://ricostacruz.com/backbone-patterns/) _(ricostacruz.com)_
 
-
-### [2-resources/__CHEAT-SHEETS/All/badges.md](2-resources/__CHEAT-SHEETS/All/badges.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/badges.md](2-resources/__CHEAT-SHEETS/All/badges.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Badge markdown](#badge-markdown)
 - [Etc](#etc)
@@ -15904,17 +16200,17 @@ var obj = new Model({ urlRoot: ··· })
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
-title: Code badges
----
+
+## title: Code badges
 
 Here are some badges for open source projects.
 
 ### Badge markdown
 
     Travis
-    [![Status](https://travis-ci.org/rstacruz/REPO.svg?branch=master)](https://travis-ci.org/rstacruz/REPO)  
+    [![Status](https://travis-ci.org/rstacruz/REPO.svg?branch=master)](https://travis-ci.org/rstacruz/REPO)
     CodeClimate (shields.io)
-    [![CodeClimate](http://img.shields.io/codeclimate/github/rstacruz/REPO.svg?style=flat)](https://codeclimate.com/github/rstacruz/REPO 
+    [![CodeClimate](http://img.shields.io/codeclimate/github/rstacruz/REPO.svg?style=flat)](https://codeclimate.com/github/rstacruz/REPO
     "CodeClimate")
 
     Coveralls (shields.io)
@@ -15992,25 +16288,24 @@ Here are some badges for open source projects.
 
 ### Links
 
- * Everything: http://shields.io/
+- Everything: http://shields.io/
 
- * Version badge (gems, npm): http://badge.fury.io/
+- Version badge (gems, npm): http://badge.fury.io/
 
- * Dependencies (ruby): http://gemnasium.com/
+- Dependencies (ruby): http://gemnasium.com/
 
- * CI: http://travis-ci.org/
+- CI: http://travis-ci.org/
 
- * Code quality (ruby): http://codeclimate.com/
+- Code quality (ruby): http://codeclimate.com/
 
- * Test coverage: https://coveralls.io/
+- Test coverage: https://coveralls.io/
 
-
-
-### [2-resources/__CHEAT-SHEETS/All/bash.md](2-resources/__CHEAT-SHEETS/All/bash.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/bash.md](2-resources/__CHEAT-SHEETS/All/bash.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Getting started](#getting-started)
   - [Introduction](#introduction)
@@ -16089,26 +16384,30 @@ Here are some badges for open source projects.
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
 updated: 2020-07-05
 keywords:
-  - Variables
-  - Functions
-  - Interpolation
-  - Brace expansions
-  - Loops
-  - Conditional execution
-  - Command substitution
+
+- Variables
+- Functions
+- Interpolation
+- Brace expansions
+- Loops
+- Conditional execution
+- Command substitution
+
 ---
 
-Getting started
----------------
+## Getting started
+
 {: .-three-column}
 
 ### Introduction
+
 {: .-intro}
 
 This is a quick reference to getting started with Bash scripting.
@@ -16160,6 +16459,7 @@ git commit || echo "Commit failed"
 ```
 
 ### Functions
+
 {: id='functions-example'}
 
 ```bash
@@ -16173,6 +16473,7 @@ echo "You are $(get_name)"
 See: [Functions](#functions)
 
 ### Conditionals
+
 {: id='conditionals-example'}
 
 ```bash
@@ -16208,9 +16509,8 @@ echo {A,B}.js
 
 See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
+## Parameter expansions
 
-Parameter expansions
---------------------
 {: .-three-column}
 
 ### Basics
@@ -16327,8 +16627,8 @@ echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
 
 Omitting the `:` removes the (non)nullity checks, e.g. `${FOO-val}` expands to `val` if unset otherwise `$FOO`.
 
-Loops
------
+## Loops
+
 {: .-three-column}
 
 ### Basic for loop
@@ -16379,8 +16679,8 @@ while true; do
 done
 ```
 
-Functions
----------
+## Functions
+
 {: .-three-column}
 
 ### Defining functions
@@ -16433,21 +16733,21 @@ fi
 
 ### Arguments
 
-| Expression | Description                                      |
-| ---        | ---                                              |
-| `$#`       | Number of arguments                              |
-| `$*`       | All postional arguments  (as a single word)     |
-| `$@`       | All postitional arguments (as separate strings)  |
-| `$1`       | First argument                                   |
-| `$_`       | Last argument of the previous command            |
+| Expression | Description                                     |
+| ---------- | ----------------------------------------------- |
+| `$#`       | Number of arguments                             |
+| `$*`       | All postional arguments (as a single word)      |
+| `$@`       | All postitional arguments (as separate strings) |
+| `$1`       | First argument                                  |
+| `$_`       | Last argument of the previous command           |
 
 **Note**: `$@` and `$*` must be quoted in order to perform as described.
 Otherwise, they do exactly the same thing (arguments as separate strings).
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
-Conditionals
-------------
+## Conditionals
+
 {: .-three-column}
 
 ### Conditions
@@ -16455,7 +16755,7 @@ Conditionals
 Note that `[[` is actually a command/program that returns either `0` (true) or `1` (false). Any program that obeys the same logic (like all base utils, such as `grep(1)` or `ping(1)`) can be used as condition, see examples.
 
 | Condition                | Description           |
-| ---                      | ---                   |
+| ------------------------ | --------------------- |
 | `[[ -z STRING ]]`        | Empty string          |
 | `[[ -n STRING ]]`        | Not empty string      |
 | `[[ STRING == STRING ]]` | Equal                 |
@@ -16475,17 +16775,17 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 #### More conditions
 
 | Condition            | Description              |
-| -------------------- | ------------------------ |
+| -------------------- | ------------------------ | ----- | --- |
 | `[[ -o noclobber ]]` | If OPTIONNAME is enabled |
 | ---                  | ---                      |
 | `[[ ! EXPR ]]`       | Not                      |
 | `[[ X && Y ]]`       | And                      |
-| `[[ X || Y ]]`       | Or                       |
+| `[[ X                |                          | Y ]]` | Or  |
 
 ### File conditions
 
 | Condition               | Description             |
-| ---                     | ---                     |
+| ----------------------- | ----------------------- |
 | `[[ -e FILE ]]`         | Exists                  |
 | `[[ -r FILE ]]`         | Readable                |
 | `[[ -h FILE ]]`         | Symlink                 |
@@ -16541,8 +16841,7 @@ if [[ -e "file.txt" ]]; then
 fi
 ```
 
-Arrays
-------
+## Arrays
 
 ### Defining arrays
 
@@ -16589,8 +16888,8 @@ for i in "${arrayName[@]}"; do
 done
 ```
 
-Dictionaries
-------------
+## Dictionaries
+
 {: .-three-column}
 
 ### Defining
@@ -16636,8 +16935,7 @@ for key in "${!sounds[@]}"; do
 done
 ```
 
-Options
--------
+## Options
 
 ### Options
 
@@ -16661,8 +16959,7 @@ shopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
 
-History
--------
+## History
 
 ### Commands
 
@@ -16705,9 +17002,7 @@ History
 
 `!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
 
-
-Miscellaneous
--------------
+## Miscellaneous
 
 ### Numeric calculations
 
@@ -16880,20 +17175,21 @@ fi
 ```
 
 ## Also see
+
 {: .-one-column}
 
-* [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
-* [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
-* [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
-* [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
-* [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
+- [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
+- [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
+- [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
+- [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+- [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
 
-
-### [2-resources/__CHEAT-SHEETS/All/blessed.md](2-resources/__CHEAT-SHEETS/All/blessed.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/blessed.md](2-resources/__CHEAT-SHEETS/All/blessed.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Screen](#screen)
 - [Element](#element)
@@ -16902,9 +17198,11 @@ fi
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Blessed
 category: JavaScript libraries
 layout: 2017/sheet
+
 ---
 
 ### Screen
@@ -16952,33 +17250,35 @@ box = blessed.box({
 blessed.escape('...')
 ```
 
-
-### [2-resources/__CHEAT-SHEETS/All/bluebird.md](2-resources/__CHEAT-SHEETS/All/bluebird.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/bluebird.md](2-resources/__CHEAT-SHEETS/All/bluebird.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Also see](#also-see)
-  - [Example](#example)
-  - [Multiple return values](#multiple-return-values)
-  - [Multiple promises](#multiple-promises)
-  - [Multiple promises (array)](#multiple-promises-array)
-  - [Object](#object)
-  - [Chain of promises](#chain-of-promises)
-  - [Node-style functions](#node-style-functions)
-  - [Promise-returning methods](#promise-returning-methods)
-  - [Generators](#generators)
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Also see](#also-see)
+- [Example](#example)
+- [Multiple return values](#multiple-return-values)
+- [Multiple promises](#multiple-promises)
+- [Multiple promises (array)](#multiple-promises-array)
+- [Object](#object)
+- [Chain of promises](#chain-of-promises)
+- [Node-style functions](#node-style-functions)
+- [Promise-returning methods](#promise-returning-methods)
+- [Generators](#generators)
 - [Reference](#reference)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: bluebird.js
 category: JavaScript libraries
 layout: 2017/sheet
 weight: -1
 updated: 2017-09-08
+
 ---
 
 ### Also see
@@ -17010,6 +17310,7 @@ Those marked with `*` are non-standard Promise API that only work with Bluebird 
   ···
 })
 ```
+
 {: data-line="4"}
 
 Use [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html)
@@ -17026,6 +17327,7 @@ Promise.join(
   }
 )
 ```
+
 {: data-line="1"}
 
 Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html)
@@ -17039,23 +17341,22 @@ Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html)
 - [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html)([p], fn, options) - supports concurrency
 
 ```js
-Promise.all([ promise1, promise2 ])
-  .then(results => {
-    results[0]
-    results[1]
-  })
+Promise.all([promise1, promise2]).then((results) => {
+  results[0];
+  results[1];
+});
 
 // succeeds if one succeeds first
-Promise.any(promises)
-  .then(results => {
-  })
+Promise.any(promises).then((results) => {});
 ```
+
 {: data-line="1,8"}
 
 ```js
 Promise.map(urls, url => fetch(url))
   .then(···)
 ```
+
 {: data-line="1"}
 
 Use [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html) to "promisify" a list of values.
@@ -17064,14 +17365,14 @@ Use [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html) to "promisify
 
 ```js
 Promise.props({
-  photos: get('photos'),
-  posts: get('posts')
-})
-.then(res => {
-  res.photos
-  res.posts
-})
+  photos: get("photos"),
+  posts: get("posts"),
+}).then((res) => {
+  res.photos;
+  res.posts;
+});
 ```
+
 {: data-line="1"}
 
 Use [Promise.props](http://bluebirdjs.com/docs/api/promise.props.html).
@@ -17088,6 +17389,7 @@ function getPhotos() {
 
 getPhotos().then(···)
 ```
+
 {: data-line="2"}
 
 Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
@@ -17095,9 +17397,10 @@ Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
 ### Node-style functions
 
 ```js
-var readFile = Promise.promisify(fs.readFile)
-var fs = Promise.promisifyAll(require('fs'))
+var readFile = Promise.promisify(fs.readFile);
+var fs = Promise.promisifyAll(require("fs"));
 ```
+
 {: data-line="2"}
 
 See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
@@ -17106,12 +17409,12 @@ See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
 
 ```js
 User.login = Promise.method((email, password) => {
-  if (!valid)
-    throw new Error("Email not valid")
+  if (!valid) throw new Error("Email not valid");
 
-  return /* promise */
-})
+  return; /* promise */
+});
 ```
+
 {: data-line="1"}
 
 See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
@@ -17120,10 +17423,11 @@ See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
 ```js
 User.login = Promise.coroutine(function* (email, password) {
-  let user = yield User.find({email: email}).fetch()
-  return user
-})
+  let user = yield User.find({ email: email }).fetch();
+  return user;
+});
 ```
+
 {: data-line="1"}
 
 See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
@@ -17132,12 +17436,12 @@ See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 
 <http://bluebirdjs.com/docs/api-reference.html>
 
-
-### [2-resources/__CHEAT-SHEETS/All/bolt.md](2-resources/__CHEAT-SHEETS/All/bolt.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/bolt.md](2-resources/__CHEAT-SHEETS/All/bolt.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Install Bolt](#install-bolt)
 - [Create a module with a task](#create-a-module-with-a-task)
@@ -17146,18 +17450,18 @@ See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Bolt Quickstart
 category: Bolt
 layout: 2017/sheet
 updated: 2018-12-25
 authors:
-  - github: lucywyman
-keywords:
-    - Puppet
-    - tasks
-    - modules
-description: |
+
+- github: lucywyman
+  keywords: - Puppet - tasks - modules
+  description: |
   A quick guide to getting started writing Bolt tasks
+
 ---
 
 ### Install Bolt
@@ -17188,12 +17492,12 @@ bolt task run mymodule::myscript -n node1.example.com,node2.example.com --privat
 
 See `bolt task run --help` for more information and command line options.
 
-
-### [2-resources/__CHEAT-SHEETS/All/bookshelf-contrib.md](2-resources/__CHEAT-SHEETS/All/bookshelf-contrib.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/bookshelf-contrib.md](2-resources/__CHEAT-SHEETS/All/bookshelf-contrib.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [bookshelf-contrib.Scopes](#bookshelf-contribscopes)
 - [](#)
@@ -17204,33 +17508,34 @@ See `bolt task run --help` for more information and command line options.
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # bookshelf-contrib.Scopes
+
 #
+
 class Books
-  scopes:
-    published: (q) -> q.where(published: true)
+scopes:
+published: (q) -> q.where(published: true)
 
 Books.published().fetchAll()
 
-
 # bookshelf-contrib.QueryProxy
+
 #
+
 Books.query().where(published: true)
 Books.where(published: true)
 
 # bookshelf-contrib.Migration
+
 class Migration
-  up: ->
-  down: ->
+up: ->
+down: ->
 
-
-
-
-
-### [2-resources/__CHEAT-SHEETS/All/bookshelf.md](2-resources/__CHEAT-SHEETS/All/bookshelf.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/bookshelf.md](2-resources/__CHEAT-SHEETS/All/bookshelf.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Model](#model)
   - [Associations](#associations)
@@ -17239,35 +17544,36 @@ class Migration
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Bookshelf.js
 category: JavaScript libraries
+
 ---
 
-Model
------
+## Model
 
 ```js
 Summary = bookshelf.Model.extend({
-  tableName: 'summaries',
+  tableName: "summaries",
   hasTimestamps: true,
-  hasTimestamps: ['created_at', 'updated_at'],
-})
+  hasTimestamps: ["created_at", "updated_at"],
+});
 ```
 
 ### Associations
 
 ```js
 Summary = bookshelf.Model.extend({
-  book () {
-    return this.belongsTo(Book)
+  book() {
+    return this.belongsTo(Book);
   },
-  author () {
-    return this.hasOne(Author)
-  }
+  author() {
+    return this.hasOne(Author);
+  },
   // belongsToMany
   // hasMany
   // hasMany().through()
-})
+});
 ```
 
 ### CRUD
@@ -17285,12 +17591,12 @@ Book
   .query((q) => q.orderBy('updated_at')
 ```
 
-
-### [2-resources/__CHEAT-SHEETS/All/bootstrap.md](2-resources/__CHEAT-SHEETS/All/bootstrap.md)
+### [2-resources/\_\_CHEAT-SHEETS/All/bootstrap.md](2-resources/__CHEAT-SHEETS/All/bootstrap.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Screen sizes](#screen-sizes)
 - [Columns](#columns)
@@ -17303,13 +17609,15 @@ Book
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
+
 title: Bootstrap
 layout: 2017/sheet
 prism_languages: [scss, haml, html]
 weight: -1
 category: CSS
 description: |
-  .container .row .col-md-6, @screen-sm-min, .form-control, grids, .modal-content, tooltips, and other Bootstrap CSS examples.
+.container .row .col-md-6, @screen-sm-min, .form-control, grids, .modal-content, tooltips, and other Bootstrap CSS examples.
+
 ---
 
 ### Screen sizes
@@ -17325,9 +17633,7 @@ description: |
 Min:
 
 ```scss
-@media (min-width: @screen-sm-min) // >= 768px (small tablet)
-@media (min-width: @screen-md-min) // >= 992px (medium laptop)
-@media (min-width: @screen-lg-min) // >= 1200px (large desktop)
+@media (min-width: @screen-sm-min); // >= 768px (small tablet) @media (min-width: @screen-md-min) // >= 992px (medium laptop) @media (min-width: @screen-lg-min); // >= 1200px (large desktop)
 ```
 
 Max:

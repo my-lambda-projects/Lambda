@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>d1</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1 id="d1">D1</h1>
+    <h1
+      id="objective-01---describe-what-a-graph-is-explain-its-components-provide-examples-of-its-useful-applications-and-draw-each-of-the-different-graph-types"
+    >
+      Objective 01 - Describe what a graph is, explain its components, provide
+      examples of its useful applications, and draw each of the different graph
+      types
+    </h1>
+    <h2 id="overview">Overview</h2>
+    <h3 id="what-are-graphs">What Are Graphs?</h3>
+    <p>
+      Graphs are collections of related data. They’re like trees, except
+      connections can be made from any node to any other node, even forming
+      loops. By this definition, <em
+        >all trees are graphs, but not all graphs are trees.</em
+      >
+    </p>
+    <h3 id="components-of-graphs">Components of Graphs</h3>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/134d2271d2ff5cedb2f05ede63326cb12f8253d2/68747470733a2f2f692e696d6775722e636f6d2f456232536b68482e6a7067"
+        alt="https://camo.githubusercontent.com/134d2271d2ff5cedb2f05ede63326cb12f8253d2/68747470733a2f2f692e696d6775722e636f6d2f456232536b68482e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/134d2271d2ff5cedb2f05ede63326cb12f8253d2/68747470733a2f2f692e696d6775722e636f6d2f456232536b68482e6a7067
+      </figcaption>
+    </figure>
+    <p>
+      We call the nodes in a
+      graph <strong>vertexes</strong> (or <strong>vertices</strong> or <strong>verts</strong>),
+      and we call the connections between the verts <strong>edges</strong>.
+    </p>
+    <p>An edge denotes a relationship or linkage between the two verts.</p>
+    <h3 id="what-graphs-represent">What Graphs Represent</h3>
+    <p>Graphs can represent any multi-way relational data.</p>
+    <p>A graph could show a collection of cities and their linking roads.</p>
+    <p>It could show a collection of computers on a network.</p>
+    <p>
+      It could show a population of people who know each other and <a
+        href="https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon"
+        >Kevin Bacon (Links to an external site.)</a
+      >.
+    </p>
+    <p>It could represent trade relationships between nations.</p>
+    <p>
+      It could represent the money owed in an ongoing poker night amongst
+      friends.
+    </p>
+    <p>And so on.</p>
+    <h3 id="types-of-graphs">Types of Graphs</h3>
+    <h4 id="directed-and-undirected-graphs">Directed and Undirected Graphs</h4>
+    <p>
+      The nature of the relationship that we represent determines if we should
+      use a directed or undirected graph. If we could describe the relationship
+      as “one way”, then a directed graph makes the most sense. For example,
+      representing the owing of money to others (debt) with a directed graph
+      would make sense.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/a17434989386f6f18a16851b5aeb8bbf92a129eb/68747470733a2f2f692e696d6775722e636f6d2f766677527244522e6a7067"
+        alt="https://camo.githubusercontent.com/a17434989386f6f18a16851b5aeb8bbf92a129eb/68747470733a2f2f692e696d6775722e636f6d2f766677527244522e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/a17434989386f6f18a16851b5aeb8bbf92a129eb/68747470733a2f2f692e696d6775722e636f6d2f766677527244522e6a7067
+      </figcaption>
+    </figure>
+    <p>
+      Directed graphs can also be bidirectional. For example, road maps are
+      directed since all roads are one-way; however, most streets consist of
+      lanes in both directions.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/a6113174942b0d66c04a6e12bc67db2a8b8959d5/68747470733a2f2f692e696d6775722e636f6d2f6d386d4133676f2e6a7067"
+        alt="https://camo.githubusercontent.com/a6113174942b0d66c04a6e12bc67db2a8b8959d5/68747470733a2f2f692e696d6775722e636f6d2f6d386d4133676f2e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/a6113174942b0d66c04a6e12bc67db2a8b8959d5/68747470733a2f2f692e696d6775722e636f6d2f6d386d4133676f2e6a7067
+      </figcaption>
+    </figure>
+    <p>
+      If the relationship’s nature is a mutual exchange, then an undirected
+      graph makes the most sense. For example, we could use an undirected graph
+      to represent users who have exchanged money in the past. Since an
+      “exchange” relationship is always mutual,
+      an <strong>undirected</strong> graph makes the most sense here.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/6b782a86e1920d53411b88e1510c7efd0bed2bc2/68747470733a2f2f692e696d6775722e636f6d2f534a4e3036776a2e6a7067"
+        alt="https://camo.githubusercontent.com/6b782a86e1920d53411b88e1510c7efd0bed2bc2/68747470733a2f2f692e696d6775722e636f6d2f534a4e3036776a2e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/6b782a86e1920d53411b88e1510c7efd0bed2bc2/68747470733a2f2f692e696d6775722e636f6d2f534a4e3036776a2e6a7067
+      </figcaption>
+    </figure>
+    <h4 id="cyclic-and-acyclic-graphs">Cyclic and Acyclic Graphs</h4>
+    <p>
+      If you can form a cycle (for example, follow the edges and arrive again at
+      an already-visited vert), the graph is <strong>cyclic</strong>. For
+      instance, in the image below, you can start at B and then follow the edges
+      to C, E, D, and then back to B (which you’ve already visited).
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/e23529f1bd2dfe3227dee64fe174252b0c310d1a/68747470733a2f2f692e696d6775722e636f6d2f58764d44616c302e6a7067"
+        alt="https://camo.githubusercontent.com/e23529f1bd2dfe3227dee64fe174252b0c310d1a/68747470733a2f2f692e696d6775722e636f6d2f58764d44616c302e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/e23529f1bd2dfe3227dee64fe174252b0c310d1a/68747470733a2f2f692e696d6775722e636f6d2f58764d44616c302e6a7067
+      </figcaption>
+    </figure>
+    <p>
+      <em
+        >Note: any undirected graph is automatically cyclic since you can always
+        travel back across the same edge.</em
+      >
+    </p>
+    <p>
+      If you cannot form a cycle (for example, you cannot arrive at an
+      already-visited vert by following the edges), we call the
+      graph <strong>acyclic</strong>. In the example below, no matter which vert
+      you start at, you cannot follow edges in such a way that you can arrive at
+      an already-visited vert.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/321029108b001c2f2c3ea86c775f6a87b8436d6d/68747470733a2f2f692e696d6775722e636f6d2f4c58416d376d762e6a7067"
+        alt="https://camo.githubusercontent.com/321029108b001c2f2c3ea86c775f6a87b8436d6d/68747470733a2f2f692e696d6775722e636f6d2f4c58416d376d762e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/321029108b001c2f2c3ea86c775f6a87b8436d6d/68747470733a2f2f692e696d6775722e636f6d2f4c58416d376d762e6a7067
+      </figcaption>
+    </figure>
+    <h4 id="weighted-graphs">Weighted Graphs</h4>
+    <p>
+      <strong>Weighted graphs</strong> have values associated with the edges. We
+      call the specific values assigned to each edge <strong>weights</strong>.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/405834c88f7cd436bc69aebf9bc3f20072857d3e/68747470733a2f2f692e696d6775722e636f6d2f726a4d6a716b332e6a7067"
+        alt="https://camo.githubusercontent.com/405834c88f7cd436bc69aebf9bc3f20072857d3e/68747470733a2f2f692e696d6775722e636f6d2f726a4d6a716b332e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/405834c88f7cd436bc69aebf9bc3f20072857d3e/68747470733a2f2f692e696d6775722e636f6d2f726a4d6a716b332e6a7067
+      </figcaption>
+    </figure>
+    <p>
+      The weights represent different data in different graphs. In a graph
+      representing road segments, the weights might represent the length of the
+      road. The higher the total weight of a route on the graph, the longer the
+      trip is. The weights can help decide which particular path we should
+      choose when comparing all routes.
+    </p>
+    <p>
+      We can further modify weights. For example, if you were building a graph
+      representing a map for bicycle routes, we could give roads with bad car
+      traffic or very steep inclines unnaturally large weights. That way, a
+      routing algorithm would be unlikely to take them. (This is how Google Maps
+      avoids freeways when you ask it for walking directions.)
+    </p>
+    <p>
+      <em
+        >Note: <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm"
+          >Djikstra’s Algorithm (Links to an external site.)</a
+        > is a graph search variant that accounts for edge weights.</em
+      >
+    </p>
+    <h4 id="directed-acyclic-graphs-dags">Directed Acyclic Graphs (DAGs)</h4>
+    <p>
+      A <strong>directed acyclic graph (DAG)</strong> is a directed graph with
+      no cycles. In other words, we can order a DAG’s vertices linearly in such
+      a way that every edge is directed from earlier to later in the sequence.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/4a276dc53718bd990dd5a8e62e99352f28965f0e/68747470733a2f2f692e696d6775722e636f6d2f6e71684d37757a2e6a7067"
+        alt="https://camo.githubusercontent.com/4a276dc53718bd990dd5a8e62e99352f28965f0e/68747470733a2f2f692e696d6775722e636f6d2f6e71684d37757a2e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/4a276dc53718bd990dd5a8e62e99352f28965f0e/68747470733a2f2f692e696d6775722e636f6d2f6e71684d37757a2e6a7067
+      </figcaption>
+    </figure>
+    <p>
+      A DAG has several applications. DAGs can model many different kinds of
+      information. Below is a small list of possible applications:
+    </p>
+    <ul>
+      <li>
+        A spreadsheet where a vertex represents each cell and an edge for where
+        one cell’s formula uses another cell’s value.
+      </li>
+      <li>
+        The milestones and activities of largescale projects where a topological
+        ordering can help optimize the projects’ schedule to use as little time
+        as possible.
+      </li>
+      <li>
+        Collections of events and their influence on each other like family
+        trees or version histories.
+      </li>
+    </ul>
+    <p>
+      It is also notable that git uses a DAG to represent commits. A commit can
+      have a child commit, or more than one child commit (in a branch). A child
+      could come from one parent commit or two (in the case of a merge). But
+      there’s no way to go back and form a repeating loop in the git commit
+      hierarchy.
+    </p>
+    <h2 id="follow-along">Follow Along</h2>
+    <p>
+      Before you draw graphs on your own, let’s draw some graphs together. For
+      each graph, we will have a description.
+    </p>
+    <h3 id="exercise-1">Exercise 1</h3>
+    <p><em>Draw an undirected graph of 8 verts.</em></p>
+    <p>
+      Remember, from our definitions above that an undirected graph has
+      bidirectional edges. So, we can draw eight verts and then connect them
+      with solid lines (not arrows) anyway we see fit.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/de48eaaa53f7fead48f3d09e394f8b1342f7d226/68747470733a2f2f692e696d6775722e636f6d2f6d6964443358642e6a7067"
+        alt="https://camo.githubusercontent.com/de48eaaa53f7fead48f3d09e394f8b1342f7d226/68747470733a2f2f692e696d6775722e636f6d2f6d6964443358642e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/de48eaaa53f7fead48f3d09e394f8b1342f7d226/68747470733a2f2f692e696d6775722e636f6d2f6d6964443358642e6a7067
+      </figcaption>
+    </figure>
+    <h3 id="exercise-2">Exercise 2</h3>
+    <p><em>Draw a directed graph of 7 verts.</em></p>
+    <p>
+      A directed graph has at least one edge that is <em>not</em> bidirectional.
+      So, again, we can draw our seven verts and then connect them with edges.
+      This time, we need to make sure that one of the edges is an arrow pointing
+      in only one direction.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/53c2b80679e6731818f5bb72fecdf17579dd0f70/68747470733a2f2f692e696d6775722e636f6d2f3870436f6568412e6a7067"
+        alt="https://camo.githubusercontent.com/53c2b80679e6731818f5bb72fecdf17579dd0f70/68747470733a2f2f692e696d6775722e636f6d2f3870436f6568412e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/53c2b80679e6731818f5bb72fecdf17579dd0f70/68747470733a2f2f692e696d6775722e636f6d2f3870436f6568412e6a7067
+      </figcaption>
+    </figure>
+    <h3 id="exercise-3">Exercise 3</h3>
+    <p><em>Draw a cyclic directed graph of 5 verts.</em></p>
+    <p>
+      This drawing will be similar to one for Exercise 2 because it is a
+      directed graph. However, in this graph, we also need to ensure that it has
+      at least one cycle. Remember that a cycle is when you can follow the
+      graph’s edges and arrive at a vertex that you’ve already visited.
+    </p>
+    <p>
+      To draw this graph, we will draw our five verts and then draw our edges,
+      making sure that we create at least one cycle.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/8609287c7507ded66414ab2be7154d68436b82ac/68747470733a2f2f692e696d6775722e636f6d2f4a424f7572506e2e6a7067"
+        alt="https://camo.githubusercontent.com/8609287c7507ded66414ab2be7154d68436b82ac/68747470733a2f2f692e696d6775722e636f6d2f4a424f7572506e2e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/8609287c7507ded66414ab2be7154d68436b82ac/68747470733a2f2f692e696d6775722e636f6d2f4a424f7572506e2e6a7067
+      </figcaption>
+    </figure>
+    <h3 id="exercise-4">Exercise 4</h3>
+    <p><em>Draw a directed acyclic graph (DAG) of 8 verts.</em></p>
+    <p>
+      Again, this graph will be directed. The difference is that it will be
+      acyclic—we can order a DAG’s vertices linearly so that every edge is
+      directed from earlier to later in the sequence.
+    </p>
+    <p>
+      For this graph, we will draw our eight verts in a line from left to right.
+      We will then draw our edges, making sure that the edges always point from
+      left to right (earlier to later in the sequence).
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/f9f74a9565045797142f292f619840371fc04698/68747470733a2f2f692e696d6775722e636f6d2f4d4e4c5a6f6f482e6a7067"
+        alt="https://camo.githubusercontent.com/f9f74a9565045797142f292f619840371fc04698/68747470733a2f2f692e696d6775722e636f6d2f4d4e4c5a6f6f482e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/f9f74a9565045797142f292f619840371fc04698/68747470733a2f2f692e696d6775722e636f6d2f4d4e4c5a6f6f482e6a7067
+      </figcaption>
+    </figure>
+    <h2 id="challenge">Challenge</h2>
+    <p>Draw one graph for each of the descriptions below:</p>
+    <ol type="1">
+      <li>Undirected graph of 4 verts.</li>
+      <li>Directed graph of 5 verts.</li>
+      <li>Cyclic directed graph of 6 verts.</li>
+      <li>DAG of 7 verts.</li>
+    </ol>
+    <h2 id="additional-resources">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://medium.com/basecs/a-gentle-introduction-to-graph-theory-77969829ead8"
+          class="uri"
+          >https://medium.com/basecs/a-gentle-introduction-to-graph-theory-77969829ead8</a
+        >
+      </li>
+    </ul>
+    <h1
+      id="objective-02---represent-a-graph-as-an-adjacency-list-and-an-adjacency-matrix-and-compare-and-contrast-the-respective-representations"
+    >
+      Objective 02 - Represent a graph as an adjacency list and an adjacency
+      matrix and compare and contrast the respective representations
+    </h1>
+    <h2 id="overview-1">Overview</h2>
+    <h3 id="graph-representations">Graph Representations</h3>
+    <p>
+      Two common ways to represent graphs in code are <strong
+        >adjacency lists</strong
+      > and <strong>adjacency matrices</strong>. Both of these options have
+      strengths and weaknesses. When deciding on a graph implementation, it’s
+      essential to understand what type of data you will store and what
+      operations you need to run on the graph.
+    </p>
+    <p>
+      Below is an example of how we would represent a graph with an adjacency
+      matrix and an adjacency list. Notice how we represent the relationship
+      between verts C and D when using each type.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/ff694105bfdaea68ee3a73c75cf604ac8f020e1c/68747470733a2f2f692e696d6775722e636f6d2f7369476d7138582e6a7067"
+        alt="https://camo.githubusercontent.com/ff694105bfdaea68ee3a73c75cf604ac8f020e1c/68747470733a2f2f692e696d6775722e636f6d2f7369476d7138582e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/ff694105bfdaea68ee3a73c75cf604ac8f020e1c/68747470733a2f2f692e696d6775722e636f6d2f7369476d7138582e6a7067
+      </figcaption>
+    </figure>
+    <h4 id="adjacency-list">Adjacency List</h4>
+    <p>
+      In an adjacency list, the graph stores a list of vertices. For each
+      vertex, it holds a list of each connected vertex.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/0e81024228bd0b1dd29f33c47b0896b7a978e911/68747470733a2f2f692e696d6775722e636f6d2f476953746d4e682e6a7067"
+        alt="https://camo.githubusercontent.com/0e81024228bd0b1dd29f33c47b0896b7a978e911/68747470733a2f2f692e696d6775722e636f6d2f476953746d4e682e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/0e81024228bd0b1dd29f33c47b0896b7a978e911/68747470733a2f2f692e696d6775722e636f6d2f476953746d4e682e6a7067
+      </figcaption>
+    </figure>
+    <p>Below is a representation of the graph above in Python:</p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb1-4" title="4">                            <span class="st">&quot;A&quot;</span>: {<span class="st">&quot;B&quot;</span>},</a>
+<a class="sourceLine" id="cb1-5" title="5">                            <span class="st">&quot;B&quot;</span>: {<span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>},</a>
+<a class="sourceLine" id="cb1-6" title="6">                            <span class="st">&quot;C&quot;</span>: {<span class="st">&quot;E&quot;</span>},</a>
+<a class="sourceLine" id="cb1-7" title="7">                            <span class="st">&quot;D&quot;</span>: {<span class="st">&quot;F&quot;</span>, <span class="st">&quot;G&quot;</span>},</a>
+<a class="sourceLine" id="cb1-8" title="8">                            <span class="st">&quot;E&quot;</span>: {<span class="st">&quot;C&quot;</span>},</a>
+<a class="sourceLine" id="cb1-9" title="9">                            <span class="st">&quot;F&quot;</span>: {<span class="st">&quot;C&quot;</span>},</a>
+<a class="sourceLine" id="cb1-10" title="10">                            <span class="st">&quot;G&quot;</span>: {<span class="st">&quot;A&quot;</span>, <span class="st">&quot;F&quot;</span>}</a>
+<a class="sourceLine" id="cb1-11" title="11">                        }</a></code></pre>
+    </div>
+    <p>
+      Notice that this adjacency <em>list</em> doesn’t use any lists.
+      The <code>vertices</code> collection is a <code>dictionary</code> which
+      lets us access each collection of edges in O(1) constant time. Because
+      a <code>set</code> contains the edges, we can check for edges in O(1)
+      constant time.
+    </p>
+    <h4 id="adjacency-matrix">Adjacency Matrix</h4>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/0e81024228bd0b1dd29f33c47b0896b7a978e911/68747470733a2f2f692e696d6775722e636f6d2f476953746d4e682e6a7067"
+        alt="https://camo.githubusercontent.com/0e81024228bd0b1dd29f33c47b0896b7a978e911/68747470733a2f2f692e696d6775722e636f6d2f476953746d4e682e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/0e81024228bd0b1dd29f33c47b0896b7a978e911/68747470733a2f2f692e696d6775722e636f6d2f476953746d4e682e6a7067
+      </figcaption>
+    </figure>
+    <p>Here is the representation of the graph above in an adjacency matrix:</p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb2-3" title="3">        <span class="va">self</span>.edges <span class="op">=</span> [[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-4" title="4">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-5" title="5">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-6" title="6">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb2-7" title="7">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-8" title="8">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-9" title="9">                      [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]]</a></code></pre>
+    </div>
+    <p>
+      We represent this matrix as a two-dimensional array–a list of lists. With
+      this implementation, we get the benefit of built-in edge
+      weights. <code>0</code> denotes no relationship, but any other value
+      represents an edge label or edge weight. The drawback is that we do not
+      have a built-in association between the vertex values and their index.
+    </p>
+    <p>
+      In practice, implementing both the adjacency list and adjacency matrix
+      would contain more information by
+      including <code>Vertex</code> and <code>Edge</code> classes.
+    </p>
+    <h3 id="tradeoffs">Tradeoffs</h3>
+    <p>
+      Adjacency matrices and adjacency lists have strengths and weaknesses.
+      Let’s explore their tradeoffs by comparing their attributes and the
+      efficiency of operations.
+    </p>
+    <p>
+      In all the following examples, we are using the following shorthand to
+      denote the graph’s properties:
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Shorthand</th>
+          <th>Property</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>V</td>
+          <td>Total number of vertices in the graph</td>
+        </tr>
+        <tr class="even">
+          <td>E</td>
+          <td>Total number of edges in the graph</td>
+        </tr>
+        <tr class="odd">
+          <td>e</td>
+          <td>Average number of edges per vertex</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h4 id="space-complexity">Space Complexity</h4>
+    <h5 id="adjacency-matrix-1">Adjacency Matrix</h5>
+    <p><em>Complexity</em>: <code>O(V^2)</code> space</p>
+    <p>
+      Consider a dense graph where each vertex points to each other vertex.
+      Here, the total number of edges will approach V^2. This fact means that
+      regardless of whether you choose an adjacency list or an adjacency matrix,
+      both will have a comparable space complexity. However, dictionaries and
+      sets are less space-efficient than lists. So, for dense graphs (graphs
+      with a high average number of edges per vertex), the adjacency matrix is
+      more efficient because it uses lists instead of dictionaries and sets.
+    </p>
+    <h5 id="adjacency-list-1">Adjacency List</h5>
+    <p><em>Complexity</em>: <code>O(V+E)</code> space</p>
+    <p>
+      Consider a sparse graph with 100 vertices and only one edge. An adjacency
+      list would have to store all 100 vertices but only needs to keep track of
+      that single edge. The adjacency matrix would need to store 100x100=10,000
+      connections, even though all but one would be 0.
+    </p>
+    <p>
+      <em
+        >Takeaway: The worst-case storage of an adjacency list occurs when the
+        graph is dense. The matrix and list representation have the same
+        complexity (<code>O(V^2)</code>). However, for the general case, the
+        list representation is usually more desirable. Also, since finding a
+        vertex’s neighbors is a common task, and adjacency lists make this
+        operation more straightforward, it is most common to use adjacency lists
+        to represent graphs.</em
+      >
+    </p>
+    <hr />
+    <h4 id="add-vertex">Add Vertex</h4>
+    <h5 id="adjacency-matrix-2">Adjacency Matrix</h5>
+    <p><em>Complexity</em>: <code>O(V)</code> time</p>
+    <p>
+      For an adjacency matrix, we would need to add a new value to the end of
+      each existing row and add a new row.
+    </p>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="cf">for</span> v <span class="kw">in</span> <span class="va">self</span>.edges:</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="va">self</span>.edges[v].append(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3">v.append([<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(<span class="va">self</span>.edges <span class="op">+</span> <span class="dv">1</span>))</a></code></pre>
+    </div>
+    <p>
+      for v in self.edges: self.edges[v].append(0)<br />
+      v.append([0] * len(self.edges + 1))
+    </p>
+    <p>
+      Remember that with Python lists, appending to the end of a list
+      is <code>O(1)</code> because of over-allocation of memory but can
+      be <code>O(n)</code> when the over-allocated memory fills up. When this
+      occurs, adding the vertex can be <code>O(V^2)</code>.
+    </p>
+    <h5 id="adjacency-list-2">Adjacency List</h5>
+    <p><em>Complexity</em>: <code>O(1)</code> time</p>
+    <p>Adding a vertex is simple in an adjacency list:</p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="va">self</span>.vertices[<span class="st">&quot;H&quot;</span>] <span class="op">=</span> <span class="bu">set</span>()</a></code></pre>
+    </div>
+    <p>Adding a new key to a dictionary is a constant-time operation.</p>
+    <p>
+      <em
+        >Takeaway: Adding vertices is very inefficient for adjacency matrices
+        but very efficient for adjacency lists.</em
+      >
+    </p>
+    <hr />
+    <h4 id="remove-vertex">Remove Vertex</h4>
+    <h5 id="adjacency-matrix-3">Adjacency Matrix</h5>
+    <p><em>Complexity</em>: <code>O(V^2)</code></p>
+    <p>
+      Removing vertices is inefficient in both representations. In an adjacency
+      matrix, we need to remove the removed vertex’s row and then remove that
+      column from each row. Removing an element from a list requires moving
+      everything after that element over by one slot, which takes an average
+      of <code>V/2</code> operations. Since we need to do that for every single
+      row in our matrix, that results in <code>V^2</code> time complexity. We
+      need to reduce each vertex index after our removed index by one as well,
+      which doesn’t add to our quadratic time complexity but adds extra
+      operations.
+    </p>
+    <h5 id="adjacency-list-3">Adjacency List</h5>
+    <p><em>Complexity</em>: <code>O(V)</code></p>
+    <p>
+      We need to visit each vertex for an adjacency list and remove all edges
+      pointing to our removed vertex. Removing elements from sets and
+      dictionaries is an <code>O(1)</code> operation, resulting in an
+      overall <code>O(V)</code> time complexity.
+    </p>
+    <p>
+      <em
+        >Takeaway: Removing vertices is inefficient in both adjacency matrices
+        and lists but more efficient in lists.</em
+      >
+    </p>
+    <hr />
+    <h4 id="add-edge">Add Edge</h4>
+    <h5 id="adjacency-matrix-4">Adjacency Matrix</h5>
+    <p><em>Complexity</em>: <code>O(1)</code></p>
+    <p>Adding an edge in an adjacency matrix is simple:</p>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="va">self</span>.edges[v1][v2] <span class="op">=</span> <span class="dv">1</span></a></code></pre>
+    </div>
+    <h5 id="adjacency-list-4">Adjacency List</h5>
+    <p><em>Complexity</em>: <code>O(1)</code></p>
+    <p>Adding an edge in an adjacency list is simple:</p>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="va">self</span>.vertices[v1].add(v2)</a></code></pre>
+    </div>
+    <p>Both are constant-time operations.</p>
+    <p>
+      <em
+        >Takeaway: Adding edges to both adjacency matrices and lists is very
+        efficient.</em
+      >
+    </p>
+    <hr />
+    <h4 id="remove-edge">Remove Edge</h4>
+    <h5 id="adjacency-matrix-5">Adjacency Matrix</h5>
+    <p><em>Complexity</em>: <code>O(1)</code></p>
+    <p>Removing an edge from an adjacency matrix is simple:</p>
+    <div class="sourceCode" id="cb7">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="va">self</span>.edges[v1][v2] <span class="op">=</span> <span class="dv">0</span></a></code></pre>
+    </div>
+    <h5 id="adjacency-list-5">Adjacency List</h5>
+    <p><em>Complexity</em>: <code>O(1)</code></p>
+    <p>Removing an edge from an adjacency list is simple:</p>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="va">self</span>.vertices[v1].remove(v2)</a></code></pre>
+    </div>
+    <p>Both are constant-time operations.</p>
+    <p>
+      <em
+        >Takeaway: Removing edges from both adjacency matrices and lists is very
+        efficient.</em
+      >
+    </p>
+    <hr />
+    <h4 id="find-edge">Find Edge</h4>
+    <h5 id="adjacency-matrix-6">Adjacency Matrix</h5>
+    <p><em>Complexity</em>: <code>O(1)</code></p>
+    <p>Finding an edge in an adjacency matrix is simple:</p>
+    <div class="sourceCode" id="cb9">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="cf">return</span> <span class="va">self</span>.edges[v1][v2] <span class="op">&gt;</span> <span class="dv">0</span></a></code></pre>
+    </div>
+    <h5 id="adjacency-list-6">Adjacency List</h5>
+    <p><em>Complexity</em>: <code>O(1)</code></p>
+    <p>Finding an edge in an adjacency list is simple:</p>
+    <div class="sourceCode" id="cb10">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="cf">return</span> v2 <span class="kw">in</span> <span class="va">self</span>.vertices[v1]</a></code></pre>
+    </div>
+    <p>Both are constant-time operations.</p>
+    <p>
+      <em
+        >Takeaway: Finding edges in both adjacency matrices and lists is very
+        efficient.</em
+      >
+    </p>
+    <hr />
+    <h4 id="get-all-edges-from-vertex">Get All Edges from Vertex</h4>
+    <p>
+      You can use several commands if you want to know all the edges originating
+      from a particular vertex.
+    </p>
+    <h5 id="adjacency-matrix-7">Adjacency Matrix</h5>
+    <p><em>Complexity</em>: <code>O(V)</code></p>
+    <p>
+      In an adjacency matrix, this is complicated. You would need to iterate
+      through the entire row and populate a list based on the results:
+    </p>
+    <div class="sourceCode" id="cb11">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1">v_edges <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="cf">for</span> v2 <span class="kw">in</span> <span class="va">self</span>.edges[v]:</a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="cf">if</span> <span class="va">self</span>.edges[v][v2] <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb11-4" title="4">        v_edges.append(v2)</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="cf">return</span> v_edges</a></code></pre>
+    </div>
+    <h5 id="adjacency-list-7">Adjacency List</h5>
+    <p><em>Complexity</em>: <code>O(1)</code></p>
+    <p>
+      With an adjacency list, this is as simple as returning the value from the
+      vertex dictionary:
+    </p>
+    <div class="sourceCode" id="cb12">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="cf">return</span> <span class="va">self</span>.vertex[v]</a></code></pre>
+    </div>
+    <p>
+      <em
+        >Takeaway: Fetching all edges is less efficient in an adjacency matrix
+        than an adjacency list.</em
+      >
+    </p>
+    <hr />
+    <h4 id="summary">Summary</h4>
+    <p>Let’s summarize all this complexity information in a table:</p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>type</th>
+          <th>Space</th>
+          <th>Add Vert</th>
+          <th>Remove Vert</th>
+          <th>Add Edge</th>
+          <th>Remove Edge</th>
+          <th>Find Edge</th>
+          <th>Get All Edges</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>Matrix</td>
+          <td>O(V^2)</td>
+          <td>O(V)</td>
+          <td>O(V^2)</td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+          <td>O(V)</td>
+        </tr>
+        <tr class="even">
+          <td>List</td>
+          <td>O(V+E)</td>
+          <td>O(1)</td>
+          <td>O(V)</td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      In most practical use-cases, an adjacency list will be a better choice for
+      representing a graph. However, it is also crucial that you be familiar
+      with the matrix representation. Why? Because there are some dense graphs
+      or weighted graphs that could have better space efficiency when
+      represented by a matrix.
+    </p>
+    <h2 id="follow-along-1">Follow Along</h2>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/335012587396b095af8f6a8f28e2d2aedb3d84d0/68747470733a2f2f692e696d6775722e636f6d2f796931503441462e6a7067"
+        alt="https://camo.githubusercontent.com/335012587396b095af8f6a8f28e2d2aedb3d84d0/68747470733a2f2f692e696d6775722e636f6d2f796931503441462e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/335012587396b095af8f6a8f28e2d2aedb3d84d0/68747470733a2f2f692e696d6775722e636f6d2f796931503441462e6a7067
+      </figcaption>
+    </figure>
+    <p>
+      Together, we will now use the graph shown in the picture above and
+      represent it in both an adjacency list and an adjacency matrix.
+    </p>
+    <h3 id="adjacency-list-8">Adjacency List</h3>
+    <p>First, the adjacency list:</p>
+    <div class="sourceCode" id="cb13">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb13-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb13-4" title="4">                            <span class="st">&quot;A&quot;</span>: {<span class="st">&quot;B&quot;</span>: <span class="dv">1</span>},</a>
+<a class="sourceLine" id="cb13-5" title="5">                            <span class="st">&quot;B&quot;</span>: {<span class="st">&quot;C&quot;</span>: <span class="dv">3</span>, <span class="st">&quot;D&quot;</span>: <span class="dv">2</span>},</a>
+<a class="sourceLine" id="cb13-6" title="6">                            <span class="st">&quot;C&quot;</span>: {},</a>
+<a class="sourceLine" id="cb13-7" title="7">                            <span class="st">&quot;D&quot;</span>: {},</a>
+<a class="sourceLine" id="cb13-8" title="8">                            <span class="st">&quot;E&quot;</span>: {<span class="st">&quot;D&quot;</span>: <span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb13-9" title="9">                        }</a>
+<a class="sourceLine" id="cb13-10" title="10">}</a></code></pre>
+    </div>
+    <p>
+      The difference between this implementation and the previous adjacency list
+      is that this representation allows our edges to have weights.
+    </p>
+    <h3 id="adjacency-matrix-8">Adjacency Matrix</h3>
+    <p>
+      Now, we need to implement an adjacency matrix. Remember, that one benefit
+      of the matrix is how easy it is to represent edge weights:
+    </p>
+    <div class="sourceCode" id="cb14">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb14-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb14-3" title="3">        <span class="va">self</span>.edges <span class="op">=</span> [[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-4" title="4">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-5" title="5">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-6" title="6">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-7" title="7">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]]</a></code></pre>
+    </div>
+    <h2 id="challenge-1">Challenge</h2>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/b6251eb484344b565ae2753682c645f85283ab28/68747470733a2f2f692e696d6775722e636f6d2f634a366c656b4d2e6a7067"
+        alt="https://camo.githubusercontent.com/b6251eb484344b565ae2753682c645f85283ab28/68747470733a2f2f692e696d6775722e636f6d2f634a366c656b4d2e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/b6251eb484344b565ae2753682c645f85283ab28/68747470733a2f2f692e696d6775722e636f6d2f634a366c656b4d2e6a7067
+      </figcaption>
+    </figure>
+    <ol type="1">
+      <li>
+        Using the graph shown in the picture above, write python code to
+        represent the graph in an adjacency list.
+      </li>
+      <li>
+        Using the same graph you used for the first exercise, write python code
+        to represent the graph in an adjacency matrix.
+      </li>
+      <li>
+        Write a paragraph that compares and contrasts the efficiency of your
+        different representations.
+      </li>
+    </ol>
+    <h2 id="additional-resources-1">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs"
+          class="uri"
+          >https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs</a
+        >
+      </li>
+    </ul>
+    <h1
+      id="objective-03---implement-user-defined-vertex-and-graph-classes-that-allow-basic-operations"
+    >
+      Objective 03 - Implement user-defined Vertex and Graph classes that allow
+      basic operations
+    </h1>
+    <h2 id="overview-2">Overview</h2>
+    <p>
+      We will now use dictionaries to implement the graph abstract data type in
+      Python. We need to have two classes. First, the <code>Graph</code> class
+      that will keep track of the vertices in the graph instance. Second,
+      the <code>Vertex</code> class, which we will use to represent each vertex
+      contained in a graph. Both classes will have methods that allow you to
+      complete the basic operations for interacting with graphs and vertices.
+    </p>
+    <h2 id="follow-along-2">Follow Along</h2>
+    <h3 id="the-vertex-class">The <code>Vertex</code> Class</h3>
+    <p>
+      Let’s start by defining a <code>Vertex</code> class and defining its
+      initialization method (<code>__init__</code>) and
+      its <code>__str__</code> method so we can print out a human-readable
+      string representations of each vertex:
+    </p>
+    <div class="sourceCode" id="cb15">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">class</span> Vertex:</a>
+<a class="sourceLine" id="cb15-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb15-3" title="3">        <span class="va">self</span>.value <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb15-4" title="4">        <span class="va">self</span>.connections <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb15-5" title="5"></a>
+<a class="sourceLine" id="cb15-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb15-7" title="7">        <span class="cf">return</span> <span class="bu">str</span>(<span class="va">self</span>.value) <span class="op">+</span> <span class="st">&#39; connections: &#39;</span> <span class="op">+</span> <span class="bu">str</span>([x.value <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>.connections])</a></code></pre>
+    </div>
+    <p>
+      The next thing we need for our <code>Vertex</code> class is a way to other
+      vertices that are connected and the <code>weight</code> of the connection
+      edge. We will call this method <code>add_connection</code>.
+    </p>
+    <div class="sourceCode" id="cb16">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">class</span> Vertex:</a>
+<a class="sourceLine" id="cb16-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb16-3" title="3">        <span class="va">self</span>.value <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb16-4" title="4">        <span class="va">self</span>.connections <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb16-5" title="5"></a>
+<a class="sourceLine" id="cb16-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb16-7" title="7">        <span class="cf">return</span> <span class="bu">str</span>(<span class="va">self</span>.value) <span class="op">+</span> <span class="st">&#39; connections: &#39;</span> <span class="op">+</span> <span class="bu">str</span>([x.value <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>.connections])</a>
+<a class="sourceLine" id="cb16-8" title="8"></a>
+<a class="sourceLine" id="cb16-9" title="9">    <span class="kw">def</span> add_connection(<span class="va">self</span>, vert, weight <span class="op">=</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb16-10" title="10">        <span class="va">self</span>.connections[vert] <span class="op">=</span> weight</a></code></pre>
+    </div>
+    <p>
+      Let’s now add three methods that allow us to get data out of
+      our <code>Vertex</code> instance objects. These three methods will
+      be <code>get_connections</code> (retrieves all currently connected
+      vertices), <code>get_value</code> (retrieves the value of the vertex
+      instance), and <code>get_weight</code> (gets the edge weight from the
+      vertex to a specified connected vertex).
+    </p>
+    <div class="sourceCode" id="cb17">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">class</span> Vertex:</a>
+<a class="sourceLine" id="cb17-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb17-3" title="3">        <span class="va">self</span>.value <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb17-4" title="4">        <span class="va">self</span>.connections <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb17-5" title="5"></a>
+<a class="sourceLine" id="cb17-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb17-7" title="7">        <span class="cf">return</span> <span class="bu">str</span>(<span class="va">self</span>.value) <span class="op">+</span> <span class="st">&#39; connections: &#39;</span> <span class="op">+</span> <span class="bu">str</span>([x.value <span class="cf">for</span> x <span class="kw">in</span> <span class="va">self</span>.connections])</a>
+<a class="sourceLine" id="cb17-8" title="8"></a>
+<a class="sourceLine" id="cb17-9" title="9">    <span class="kw">def</span> add_connection(<span class="va">self</span>, vert, weight <span class="op">=</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb17-10" title="10">        <span class="va">self</span>.connections[vert] <span class="op">=</span> weight</a>
+<a class="sourceLine" id="cb17-11" title="11"></a>
+<a class="sourceLine" id="cb17-12" title="12">    <span class="kw">def</span> get_connections(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb17-13" title="13">        <span class="cf">return</span> <span class="va">self</span>.connections.keys()</a>
+<a class="sourceLine" id="cb17-14" title="14"></a>
+<a class="sourceLine" id="cb17-15" title="15">    <span class="kw">def</span> get_value(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb17-16" title="16">        <span class="cf">return</span> <span class="va">self</span>.value</a>
+<a class="sourceLine" id="cb17-17" title="17"></a>
+<a class="sourceLine" id="cb17-18" title="18">    <span class="kw">def</span> get_weight(<span class="va">self</span>, vert):</a>
+<a class="sourceLine" id="cb17-19" title="19">        <span class="cf">return</span> <span class="va">self</span>.connections[vert]</a></code></pre>
+    </div>
+    <p>
+      We’ve finished our <code>Vertex</code> class. Now, let’s work on
+      our <code>Graph</code> class.
+    </p>
+    <h3 id="the-graph-class">The <code>Graph</code> Class</h3>
+    <p>
+      Our graph class’s primary purpose is to be a way that we can map vertex
+      names to specific vertex objects. We also want to keep track of the number
+      of vertices that our graph contains using a <code>count</code> property.
+      We will do so using a dictionary. Let’s start by defining an
+      initialization method (<code>__init__</code>).
+    </p>
+    <div class="sourceCode" id="cb18">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb18-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb18-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb18-4" title="4">        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span></a></code></pre>
+    </div>
+    <p>
+      Next, we need a way to add vertices to our graph. Let’s define
+      an <code>add_vertex</code> method.
+    </p>
+    <div class="sourceCode" id="cb19">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb19-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb19-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb19-4" title="4">        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb19-5" title="5"></a>
+<a class="sourceLine" id="cb19-6" title="6">    <span class="kw">def</span> add_vertex(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb19-7" title="7">        <span class="va">self</span>.count <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb19-8" title="8">        new_vert <span class="op">=</span> Vertex(value)</a>
+<a class="sourceLine" id="cb19-9" title="9">        <span class="va">self</span>.vertices[value] <span class="op">=</span> new_vert</a>
+<a class="sourceLine" id="cb19-10" title="10">        <span class="cf">return</span> new_vert</a></code></pre>
+    </div>
+    <p>
+      We also need a way to add an edge to our graph. We need a method that can
+      create a connection between two vertices and specify the edge’s weight.
+      Let’s do so by defined an <code>add_edge</code> method.
+    </p>
+    <div class="sourceCode" id="cb20">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb20-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb20-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb20-4" title="4">        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb20-5" title="5"></a>
+<a class="sourceLine" id="cb20-6" title="6">    <span class="kw">def</span> add_vertex(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb20-7" title="7">        <span class="va">self</span>.count <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb20-8" title="8">        new_vert <span class="op">=</span> Vertex(value)</a>
+<a class="sourceLine" id="cb20-9" title="9">        <span class="va">self</span>.vertices[value] <span class="op">=</span> new_vert</a>
+<a class="sourceLine" id="cb20-10" title="10">        <span class="cf">return</span> new_vert</a>
+<a class="sourceLine" id="cb20-11" title="11"></a>
+<a class="sourceLine" id="cb20-12" title="12">    <span class="kw">def</span> add_edge(<span class="va">self</span>, v1, v2, weight <span class="op">=</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb20-13" title="13">        <span class="cf">if</span> v1 <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.vertices:</a>
+<a class="sourceLine" id="cb20-14" title="14">            <span class="va">self</span>.add_vertex(v1)</a>
+<a class="sourceLine" id="cb20-15" title="15">        <span class="cf">if</span> v2 <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.vertices:</a>
+<a class="sourceLine" id="cb20-16" title="16">            <span class="va">self</span>.add_vertex(v2)</a>
+<a class="sourceLine" id="cb20-17" title="17">        <span class="va">self</span>.vertices[v1].add_connection(<span class="va">self</span>.vertices[v2], weight)</a></code></pre>
+    </div>
+    <p>
+      Next, we need a way to retrieve a list of all the vertices in our graph.
+      We will define a method called <code>get_vertices</code>.
+    </p>
+    <div class="sourceCode" id="cb21">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb21-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb21-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb21-4" title="4">        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb21-5" title="5"></a>
+<a class="sourceLine" id="cb21-6" title="6">    <span class="kw">def</span> add_vertex(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb21-7" title="7">        <span class="va">self</span>.count <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb21-8" title="8">        new_vert <span class="op">=</span> Vertex(value)</a>
+<a class="sourceLine" id="cb21-9" title="9">        <span class="va">self</span>.vertices[value] <span class="op">=</span> new_vert</a>
+<a class="sourceLine" id="cb21-10" title="10">        <span class="cf">return</span> new_vert</a>
+<a class="sourceLine" id="cb21-11" title="11"></a>
+<a class="sourceLine" id="cb21-12" title="12">    <span class="kw">def</span> add_edge(<span class="va">self</span>, v1, v2, weight <span class="op">=</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb21-13" title="13">        <span class="cf">if</span> v1 <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.vertices:</a>
+<a class="sourceLine" id="cb21-14" title="14">            <span class="va">self</span>.add_vertex(v1)</a>
+<a class="sourceLine" id="cb21-15" title="15">        <span class="cf">if</span> v2 <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.vertices:</a>
+<a class="sourceLine" id="cb21-16" title="16">            <span class="va">self</span>.add_vertex(v2)</a>
+<a class="sourceLine" id="cb21-17" title="17">        <span class="va">self</span>.vertices[v1].add_connection(<span class="va">self</span>.vertices[v2], weight)</a>
+<a class="sourceLine" id="cb21-18" title="18"></a>
+<a class="sourceLine" id="cb21-19" title="19">    <span class="kw">def</span> get_vertices(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb21-20" title="20">        <span class="cf">return</span> <span class="va">self</span>.vertices.keys()</a></code></pre>
+    </div>
+    <p>
+      Last, we will override a few built-in methods
+      (<code>__contains__</code> and <code>__iter__</code>) that are available
+      on objects to make sure they work correctly
+      with <code>Graph</code> instance objects.
+    </p>
+    <div class="sourceCode" id="cb22">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb22-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb22-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb22-4" title="4">        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb22-5" title="5"></a>
+<a class="sourceLine" id="cb22-6" title="6">    <span class="kw">def</span> <span class="fu">__contains__</span>(<span class="va">self</span>, vert):</a>
+<a class="sourceLine" id="cb22-7" title="7">        <span class="cf">return</span> vert <span class="kw">in</span> <span class="va">self</span>.vertices</a>
+<a class="sourceLine" id="cb22-8" title="8"></a>
+<a class="sourceLine" id="cb22-9" title="9">    <span class="kw">def</span> <span class="fu">__iter__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb22-10" title="10">        <span class="cf">return</span> <span class="bu">iter</span>(<span class="va">self</span>.vertices.values())</a>
+<a class="sourceLine" id="cb22-11" title="11"></a>
+<a class="sourceLine" id="cb22-12" title="12">    <span class="kw">def</span> add_vertex(<span class="va">self</span>, value):</a>
+<a class="sourceLine" id="cb22-13" title="13">        <span class="va">self</span>.count <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb22-14" title="14">        new_vert <span class="op">=</span> Vertex(value)</a>
+<a class="sourceLine" id="cb22-15" title="15">        <span class="va">self</span>.vertices[value] <span class="op">=</span> new_vert</a>
+<a class="sourceLine" id="cb22-16" title="16">        <span class="cf">return</span> new_vert</a>
+<a class="sourceLine" id="cb22-17" title="17"></a>
+<a class="sourceLine" id="cb22-18" title="18">    <span class="kw">def</span> add_edge(<span class="va">self</span>, v1, v2, weight <span class="op">=</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb22-19" title="19">        <span class="cf">if</span> v1 <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.vertices:</a>
+<a class="sourceLine" id="cb22-20" title="20">            <span class="va">self</span>.add_vertex(v1)</a>
+<a class="sourceLine" id="cb22-21" title="21">        <span class="cf">if</span> v2 <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.vertices:</a>
+<a class="sourceLine" id="cb22-22" title="22">            <span class="va">self</span>.add_vertex(v2)</a>
+<a class="sourceLine" id="cb22-23" title="23">        <span class="va">self</span>.vertices[v1].add_connection(<span class="va">self</span>.vertices[v2], weight)</a>
+<a class="sourceLine" id="cb22-24" title="24"></a>
+<a class="sourceLine" id="cb22-25" title="25">    <span class="kw">def</span> get_vertices(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb22-26" title="26">        <span class="cf">return</span> <span class="va">self</span>.vertices.keys()</a></code></pre>
+    </div>
+    <p>
+      Let’s go ahead and test our class definitions and build up a graph
+      structure in a Python interactive environment.
+    </p>
+    <div class="sourceCode" id="cb23">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb23-1" title="1"><span class="op">&gt;&gt;&gt;</span> g <span class="op">=</span> Graph()</a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</a>
+<a class="sourceLine" id="cb23-3" title="3">...     g.add_vertex(i)</a>
+<a class="sourceLine" id="cb23-4" title="4">...</a>
+<a class="sourceLine" id="cb23-5" title="5"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183f5e0</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-6" title="6"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fdc0</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-7" title="7"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fe20</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-8" title="8"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fb50</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-9" title="9"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fee0</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-10" title="10"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183ff40</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-11" title="11"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183ffd0</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-12" title="12"><span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183ffa0</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-13" title="13"><span class="op">&gt;&gt;&gt;</span> g.vertices</a>
+<a class="sourceLine" id="cb23-14" title="14">{<span class="dv">0</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183f5e0</span><span class="op">&gt;</span>, <span class="dv">1</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fdc0</span><span class="op">&gt;</span>, <span class="dv">2</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fe20</span><span class="op">&gt;</span>, <span class="dv">3</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fb50</span><span class="op">&gt;</span>, <span class="dv">4</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183fee0</span><span class="op">&gt;</span>, <span class="dv">5</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183ff40</span><span class="op">&gt;</span>, <span class="dv">6</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183ffd0</span><span class="op">&gt;</span>, <span class="dv">7</span>: <span class="op">&lt;</span>__main__.Vertex <span class="bu">object</span> at <span class="bn">0x7fd0f183ffa0</span><span class="op">&gt;</span>}</a>
+<a class="sourceLine" id="cb23-15" title="15"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb23-16" title="16"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb23-17" title="17"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb23-18" title="18"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb23-19" title="19"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb23-20" title="20"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb23-21" title="21"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb23-22" title="22"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb23-23" title="23"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb23-24" title="24"><span class="op">&gt;&gt;&gt;</span> g.add_edge(<span class="dv">7</span>,<span class="dv">1</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb23-25" title="25"><span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> v <span class="kw">in</span> g:</a>
+<a class="sourceLine" id="cb23-26" title="26">...     <span class="cf">for</span> w <span class="kw">in</span> v.get_connections():</a>
+<a class="sourceLine" id="cb23-27" title="27">...         <span class="bu">print</span>(<span class="st">&quot;( </span><span class="sc">%s</span><span class="st">, </span><span class="sc">%s</span><span class="st"> )&quot;</span> <span class="op">%</span> (v.get_value(), w.get_value()))</a>
+<a class="sourceLine" id="cb23-28" title="28">...</a>
+<a class="sourceLine" id="cb23-29" title="29">( <span class="dv">0</span>, <span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb23-30" title="30">( <span class="dv">0</span>, <span class="dv">7</span> )</a>
+<a class="sourceLine" id="cb23-31" title="31">( <span class="dv">1</span>, <span class="dv">3</span> )</a>
+<a class="sourceLine" id="cb23-32" title="32">( <span class="dv">2</span>, <span class="dv">2</span> )</a>
+<a class="sourceLine" id="cb23-33" title="33">( <span class="dv">3</span>, <span class="dv">6</span> )</a>
+<a class="sourceLine" id="cb23-34" title="34">( <span class="dv">4</span>, <span class="dv">0</span> )</a>
+<a class="sourceLine" id="cb23-35" title="35">( <span class="dv">5</span>, <span class="dv">2</span> )</a>
+<a class="sourceLine" id="cb23-36" title="36">( <span class="dv">5</span>, <span class="dv">3</span> )</a>
+<a class="sourceLine" id="cb23-37" title="37">( <span class="dv">6</span>, <span class="dv">2</span> )</a>
+<a class="sourceLine" id="cb23-38" title="38">( <span class="dv">7</span>, <span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb23-39" title="39"><span class="op">&gt;&gt;&gt;</span></a></code></pre>
+    </div>
+    <h2 id="challenge-2">Challenge</h2>
+    <p>
+      Load the <code>Vertex</code> class and <code>Graph</code> class into an
+      interactive Python environment and use the classes to create an instance
+      of the graph shown below.
+    </p>
+    <figure>
+      <img
+        src="https://camo.githubusercontent.com/335012587396b095af8f6a8f28e2d2aedb3d84d0/68747470733a2f2f692e696d6775722e636f6d2f796931503441462e6a7067"
+        alt="https://camo.githubusercontent.com/335012587396b095af8f6a8f28e2d2aedb3d84d0/68747470733a2f2f692e696d6775722e636f6d2f796931503441462e6a7067"
+      />
+      <figcaption>
+        https://camo.githubusercontent.com/335012587396b095af8f6a8f28e2d2aedb3d84d0/68747470733a2f2f692e696d6775722e636f6d2f796931503441462e6a7067
+      </figcaption>
+    </figure>
+    <h2 id="additional-resources-2">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/generate-graph-using-dictionary-python/"
+          >https://www.geeksforgeeks.org/generate-graph-using-dictionary-python/ (Links
+          to an external site.)</a
+        >
+      </li>
+    </ul>
+  </body>
+</html>

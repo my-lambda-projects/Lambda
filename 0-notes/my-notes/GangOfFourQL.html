@@ -1,330 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="./prism.css">
-<script async defer src="./prism.js"></script>
-</head>
-<body>;
-<h1 id="gang-of-four-pattern-quick-list">Gang of Four Pattern Quick List</h1>
-<ul>
-<li><a href="https://github.com/evoingram/endorsement/tree/master/notes/GangOfFour.md">Main GO4 Section</a></li>
-<li><a href="https://github.com/evoingram/endorsement/tree/master/notes/GangOfFourGlossary.md">Glossary of Terms</a></li>
-<li><a href="#solid-principles-by-bob-martin">SOLID Principles</a></li>
-<li><a href="#architectural-patterns">Architectural</a></li>
-<li><a href="#creational-patterns">Creational</a></li>
-<li><a href="#structural-patterns">Structural</a></li>
-<li><a href="#behavioral-patterns">Behavioral</a></li>
-</ul>
-<h2 id="solid-principles-by-bob-martin">SOLID Principles by Bob Martin</h2>
-<ul>
-<li><strong>Single-Responsibility Principle</strong>: Do one thing &amp; do it well
-<ul>
-<li>Sometimes, the cost of cleaning up technical debt isn’t worth it.</li>
-<li>A class should only have a single responsibility, that is, only changes to one part of the software’s specification should be able to affect the specification of the class.</li>
-</ul></li>
-<li><strong>Open-Closed Principle</strong>: Derived classes stand in for base classes.
-<ul>
-<li>Software entities…should be open for extension, but closed for modification.</li>
-</ul></li>
-<li><strong>Liskov Substitution Principle</strong>: Make fine-grained interfaces client specific.
-<ul>
-<li>Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.</li>
-</ul></li>
-<li><strong>Interface Segregation Principle</strong>: Many client-specific interfaces are better than one general-purpose interface.</li>
-<li><strong>Dependency Inversion Principle</strong>: Depend on abstractions, not concrete implementations.
-<ul>
-<li>One should "depend upon abstractions, not concretions.</li>
-</ul></li>
-<li><strong>Boy Scout Principle</strong>: Leave code a little cleaner than you found it; chip away at it.</li>
-<li><strong>Separation of Concerns</strong>: Make sure your code does what it’s supposed to do and nothing else.</li>
-</ul>
-<h2 id="architectural-patterns">Architectural Patterns</h2>
-<ul>
-<li>general reusable solution to commonly occuring problem in software architecture within a given context</li>
-<li>similar to software design patterns, but with a broader scope</li>
-</ul>
-<h3 id="layered-used-to-structure-programs-that-can-be-decomposed-into-groups-of-subtasks-each-of-which-is-at-a-particular-level-of-abstraction"><strong>layered</strong>: used to structure programs that can be decomposed into groups of subtasks, each of which is at a particular level of abstraction</h3>
-<ul>
-<li>each layer provides services to the next higher layer</li>
-<li>general desktop apps &amp; ecommerce web apps</li>
-<li>most commonly found four layers of general info system
-<ul>
-<li>presentation layer (UI layer)</li>
-<li>app layer (service layer)</li>
-<li>business logic layer (domain layer)</li>
-<li>data access layer (persistence layer)</li>
-</ul></li>
-</ul>
-<h3 id="client-server-two-parties-server-multiple-clients"><strong>client-server</strong>: two parties: server &amp; multiple clients</h3>
-<ul>
-<li>server provides services to multiple clients &amp; listens for requests</li>
-<li>client requests services from server</li>
-<li>used for online apps like email, doc sharing, banking</li>
-</ul>
-<h3 id="master-slave-master-distributes-work-among-identical-slaves"><strong>master-slave</strong>: master distributes work among identical slaves</h3>
-<ul>
-<li>computes final result from slaves’ return results</li>
-<li>in DB replication, master DB = authoritative and slaves are synced to it</li>
-<li>peripherals connected to bus in computer system</li>
-</ul>
-<h3 id="pipe-filter-can-be-used-to-structure-systems-which-produce-and-process-stream-of-data"><strong>pipe-filter</strong>: can be used to structure systems which produce and process stream of data</h3>
-<ul>
-<li>each processing step enclosed within filter component</li>
-<li>data to be processed passed through pipes</li>
-<li>used in compilers; perform lexical analysis, parsing, semantic analysis, code generation</li>
-<li>used in bioinformatics workflows</li>
-</ul>
-<h3 id="broker-used-to-structure-distributed-systems-with-decoupled-components"><strong>broker</strong>: used to structure distributed systems with decoupled components</h3>
-<ul>
-<li>components interact by remote service invocations</li>
-<li>broker component responsible for comms coordination among components</li>
-<li>servers publish capabilities to broker</li>
-<li>clients request service from broker</li>
-<li>broker redirects clients to service</li>
-<li>used in message broker software; example Apache ActiveMQ/Kafka, RabbitMQ, JBoss Messaging</li>
-</ul>
-<h3 id="peer-to-peer-peers-are-individual-components"><strong>peer-to-peer</strong>: peers are individual components</h3>
-<ul>
-<li>may function as both client and server or both</li>
-<li>can change role dynamically over tiome</li>
-<li>used in file-sharing networks and multimedia protocols (P2P TV &amp; PDTP)</li>
-</ul>
-<h3 id="event-bus-primarily-deals-with-events"><strong>event-bus</strong>: primarily deals with events</h3>
-<ul>
-<li>has four major components: event source, listener, bus, and channel</li>
-<li>sources publish messages to channels on event bus</li>
-<li>listeners subscribe to particular channels</li>
-<li>listeners notified of messages published to previously subscribed channels</li>
-<li>used in Android development &amp; notification services</li>
-</ul>
-<h3 id="model-view-controller-mvc-model-contains-core-functionality-data"><strong>model-view-controller (MVC)</strong>: model contains core functionality &amp; data</h3>
-<ul>
-<li>view displays info to user, can have 2+</li>
-<li>controller handles input from user</li>
-<li>used in www app arch in major programming languages, web frameworks aka Django, rails</li>
-<li>done to separate internal representations of info from ways the info is presented to &amp; accepted by the user</li>
-<li>decouples components &amp; allows efficient code reuse</li>
-</ul>
-<h3 id="blackboard-useful-for-problems-for-which-no-deterministic-solution-strategies-are-known"><strong>blackboard</strong>: useful for problems for which no deterministic solution strategies are known</h3>
-<ul>
-<li>consists of three main components:
-<ul>
-<li>blackboard: structured global memory containing objects ffrom solution space</li>
-<li>knowledge source: specialized modules with their own representation</li>
-<li>control component: selects, configures, &amp; executes modules</li>
-</ul></li>
-<li>all comps have access to blackboard</li>
-<li>comps look for data on blackboard and find by pattern matching with knowledge source</li>
-<li>used in speech recognition, vehicle, ID, &amp; tracking, protein structure ID, sonar signals interpretation</li>
-</ul>
-<h3 id="interpreter-used-for-designing-a-component-that-interprets-programs-written-in-dedicated-language"><strong>interpreter</strong>: used for designing a component that interprets programs written in dedicated language</h3>
-<ul>
-<li>mainly specifies how to evaluate program lines (sentences OR expressions)</li>
-<li>basic idea to have class for each symbol of language</li>
-<li>used in DB query languages like SQL &amp; languages used to describe communication protocols</li>
-</ul>
-<h2 id="creational-patterns">Creational Patterns</h2>
-<p><strong>creational</strong>: different ways to create objects</p>
-<ul>
-<li><strong>Abstract Factory</strong>: provide interface for creating families of related or dependent objects without specifying their concrete classes
-<ul>
-<li>creates an instance of several class families</li>
-</ul></li>
-<li><strong>Builder</strong>: separate construction of a complex object from its representation so the same construction process can create different rperesentations
-<ul>
-<li>separates object construction from its representation</li>
-</ul></li>
-<li><strong>Factory Method</strong>: define an interface for creationg an object, but let subclasses decide which class to instantiate
-<ul>
-<li>lets a class defer instantiation to subclasses</li>
-<li>creates an instance of several derived classes</li>
-</ul></li>
-<li><strong>Prototype</strong>: specify the kinds of objects to create using a prototypical instance &amp; create new objects by copying this prototype
-<ul>
-<li>fully initialized instance to be copied or cloned</li>
-</ul></li>
-<li><strong>Singleton</strong>: ensure a class only has one instance &amp; provide a global point of access to it
-<ul>
-<li>class in which only single instance can exist</li>
-</ul></li>
-</ul>
-<h2 id="structural-patterns">Structural Patterns</h2>
-<p><strong>structural</strong>: relationships between those objects</p>
-<ul>
-<li><strong>Adapter</strong>: convert interface of class to one clients expect
-<ul>
-<li>lets classes work together that couldn’t otherwise due to incompatible interfaces</li>
-<li>matches interfaces of diffferent classes</li>
-</ul></li>
-<li><strong>Bridge</strong>: decouple an abstraction from its implementation so the two can vary independently
-<ul>
-<li>separates an object’s abstraction from its implementation</li>
-</ul></li>
-<li><strong>Composite</strong>: compose objects into tree structures to represent part-whole hierarchies
-<ul>
-<li>lets clients treat individual objects &amp; compositions of objects uniformly</li>
-<li>tree structure of simple &amp; composite objects</li>
-</ul></li>
-<li><strong>Decorator</strong>: attach additional responsibilities to an object dynamically
-<ul>
-<li>provide a flexible alternative to subclassing for extending functionality</li>
-<li>add responsibilities to objects dynamically</li>
-</ul></li>
-<li><strong>Facade</strong>: provide a unified interface to a set of interfaces in a subsystem
-<ul>
-<li>defines a higher-level interface that makes subsystem easier to use</li>
-<li>single class representing an entire subsystem</li>
-</ul></li>
-<li><strong>Flyweight</strong>: use sharing to support large numbers of fine-grained objects efficiently
-<ul>
-<li>fine-grained instance used for efficient sharing</li>
-</ul></li>
-<li><strong>Proxy</strong>: provide a surrogate or placeholder for another object to control access to it
-<ul>
-<li>object representing anotther object</li>
-</ul></li>
-</ul>
-<h2 id="behavioral-patterns">Behavioral Patterns</h2>
-<p><strong>behavioral</strong>: interaction or communication between those objects</p>
-<ul>
-<li><strong>Chain of Responsibility</strong>: avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request
-<ul>
-<li>chain receiving objects &amp; pass request along chain until object handles it</li>
-<li>way of passing a request between chain of objects</li>
-</ul></li>
-<li><strong>Command</strong>: encapsulates a request as an object, letting you parameterize clients with different requests, queue or log requests, &amp; support undoable operations
-<ul>
-<li>encapsulate a command request as an object</li>
-</ul></li>
-<li><strong>Interpreter</strong>: given a language, define a reprsentation for its grammar along with an interpreter that uses the representation to interpret sentences in the language
-<ul>
-<li>way to include language elements in program</li>
-</ul></li>
-<li><strong>Iterator</strong>: provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation
-<ul>
-<li>sequentially access elements of a collection</li>
-</ul></li>
-<li><strong>Mediator</strong>: define an object that encapsulates how a set of objects interact
-<ul>
-<li>promotes loose coupling by keeping objects from referring to each other explicitly</li>
-<li>lets you vary their interaction independently</li>
-<li>defines simplified communication between classes</li>
-</ul></li>
-<li><strong>Memento</strong>: without violating encapsulation, capture &amp; externalize an object’s internal state so object can be restored to this state later
-<ul>
-<li>capture &amp; restore object’s internal state</li>
-</ul></li>
-<li><strong>Observer</strong>: define a one-to-many dependency between objects so that, when one object changes state, all its dependencies are notified
-<ul>
-<li>way of notifying change to number of classes</li>
-</ul></li>
-<li><strong>State</strong>: allow an object to alter its behavior
-<ul>
-<li>when its internal state changes, the object will appear to change its class</li>
-<li>alter object’s behavior when its state changes</li>
-</ul></li>
-<li><strong>Strategy</strong>: define a family of algorithms, encapsulate each, &amp; make interchangeable
-<ul>
-<li>lets algorithm vary independently from clients using it</li>
-<li>encapsulates an algorithm inside a class</li>
-</ul></li>
-<li><strong>Template Method</strong>: define the skeleton of an algorithm in an operation, deferring some steps to subclasses
-<ul>
-<li>lets subclasses redefine certain steps of an algorithm without changing algorithm’s structure</li>
-<li>defer exact steps of an algorithm to a subclass</li>
-</ul></li>
-<li><strong>Visitor</strong>: represent an operation to be performed on elements of an object structure
-<ul>
-<li>lets you define a new operation without changing classes of elements on which it operates</li>
-<li>defines a new operation to a class without change</li>
-</ul></li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">scope</th>
-<th style="text-align: center;">creational</th>
-<th style="text-align: center;">structural</th>
-<th style="text-align: center;">behavioral</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">class</td>
-<td style="text-align: center;">Factory Method</td>
-<td style="text-align: center;">Adapter</td>
-<td style="text-align: center;">Interpreter</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Template</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">object</td>
-<td style="text-align: center;">Abstract Factory</td>
-<td style="text-align: center;">Adapter</td>
-<td style="text-align: center;">Chain of Responsibility</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Builder</td>
-<td style="text-align: center;">Bridge</td>
-<td style="text-align: center;">Command</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Prototype</td>
-<td style="text-align: center;">Composite</td>
-<td style="text-align: center;">Iterator</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Singleton</td>
-<td style="text-align: center;">Decorator</td>
-<td style="text-align: center;">Mediator</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Facade</td>
-<td style="text-align: center;">Memento</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Proxy</td>
-<td style="text-align: center;">Flyweight</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Observer</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">State</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Strategy</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Visitor</td>
-</tr>
-</tbody>
-</table>
-</body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./prism.css" />
+    <script async defer src="./prism.js"></script>
+  </head>
+  <body>
+    ;
+    <h1 id="gang-of-four-pattern-quick-list">
+      Gang of Four Pattern Quick List
+    </h1>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/evoingram/endorsement/tree/master/notes/GangOfFour.md"
+          >Main GO4 Section</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/evoingram/endorsement/tree/master/notes/GangOfFourGlossary.md"
+          >Glossary of Terms</a
+        >
+      </li>
+      <li><a href="#solid-principles-by-bob-martin">SOLID Principles</a></li>
+      <li><a href="#architectural-patterns">Architectural</a></li>
+      <li><a href="#creational-patterns">Creational</a></li>
+      <li><a href="#structural-patterns">Structural</a></li>
+      <li><a href="#behavioral-patterns">Behavioral</a></li>
+    </ul>
+    <h2 id="solid-principles-by-bob-martin">SOLID Principles by Bob Martin</h2>
+    <ul>
+      <li>
+        <strong>Single-Responsibility Principle</strong>: Do one thing &amp; do
+        it well
+        <ul>
+          <li>
+            Sometimes, the cost of cleaning up technical debt isn’t worth it.
+          </li>
+          <li>
+            A class should only have a single responsibility, that is, only
+            changes to one part of the software’s specification should be able
+            to affect the specification of the class.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Open-Closed Principle</strong>: Derived classes stand in for
+        base classes.
+        <ul>
+          <li>
+            Software entities…should be open for extension, but closed for
+            modification.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Liskov Substitution Principle</strong>: Make fine-grained
+        interfaces client specific.
+        <ul>
+          <li>
+            Objects in a program should be replaceable with instances of their
+            subtypes without altering the correctness of that program.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Interface Segregation Principle</strong>: Many client-specific
+        interfaces are better than one general-purpose interface.
+      </li>
+      <li>
+        <strong>Dependency Inversion Principle</strong>: Depend on abstractions,
+        not concrete implementations.
+        <ul>
+          <li>One should "depend upon abstractions, not concretions.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Boy Scout Principle</strong>: Leave code a little cleaner than
+        you found it; chip away at it.
+      </li>
+      <li>
+        <strong>Separation of Concerns</strong>: Make sure your code does what
+        it’s supposed to do and nothing else.
+      </li>
+    </ul>
+    <h2 id="architectural-patterns">Architectural Patterns</h2>
+    <ul>
+      <li>
+        general reusable solution to commonly occuring problem in software
+        architecture within a given context
+      </li>
+      <li>similar to software design patterns, but with a broader scope</li>
+    </ul>
+    <h3
+      id="layered-used-to-structure-programs-that-can-be-decomposed-into-groups-of-subtasks-each-of-which-is-at-a-particular-level-of-abstraction"
+    >
+      <strong>layered</strong>: used to structure programs that can be
+      decomposed into groups of subtasks, each of which is at a particular level
+      of abstraction
+    </h3>
+    <ul>
+      <li>each layer provides services to the next higher layer</li>
+      <li>general desktop apps &amp; ecommerce web apps</li>
+      <li>
+        most commonly found four layers of general info system
+        <ul>
+          <li>presentation layer (UI layer)</li>
+          <li>app layer (service layer)</li>
+          <li>business logic layer (domain layer)</li>
+          <li>data access layer (persistence layer)</li>
+        </ul>
+      </li>
+    </ul>
+    <h3 id="client-server-two-parties-server-multiple-clients">
+      <strong>client-server</strong>: two parties: server &amp; multiple clients
+    </h3>
+    <ul>
+      <li>
+        server provides services to multiple clients &amp; listens for requests
+      </li>
+      <li>client requests services from server</li>
+      <li>used for online apps like email, doc sharing, banking</li>
+    </ul>
+    <h3 id="master-slave-master-distributes-work-among-identical-slaves">
+      <strong>master-slave</strong>: master distributes work among identical
+      slaves
+    </h3>
+    <ul>
+      <li>computes final result from slaves’ return results</li>
+      <li>
+        in DB replication, master DB = authoritative and slaves are synced to it
+      </li>
+      <li>peripherals connected to bus in computer system</li>
+    </ul>
+    <h3
+      id="pipe-filter-can-be-used-to-structure-systems-which-produce-and-process-stream-of-data"
+    >
+      <strong>pipe-filter</strong>: can be used to structure systems which
+      produce and process stream of data
+    </h3>
+    <ul>
+      <li>each processing step enclosed within filter component</li>
+      <li>data to be processed passed through pipes</li>
+      <li>
+        used in compilers; perform lexical analysis, parsing, semantic analysis,
+        code generation
+      </li>
+      <li>used in bioinformatics workflows</li>
+    </ul>
+    <h3
+      id="broker-used-to-structure-distributed-systems-with-decoupled-components"
+    >
+      <strong>broker</strong>: used to structure distributed systems with
+      decoupled components
+    </h3>
+    <ul>
+      <li>components interact by remote service invocations</li>
+      <li>
+        broker component responsible for comms coordination among components
+      </li>
+      <li>servers publish capabilities to broker</li>
+      <li>clients request service from broker</li>
+      <li>broker redirects clients to service</li>
+      <li>
+        used in message broker software; example Apache ActiveMQ/Kafka,
+        RabbitMQ, JBoss Messaging
+      </li>
+    </ul>
+    <h3 id="peer-to-peer-peers-are-individual-components">
+      <strong>peer-to-peer</strong>: peers are individual components
+    </h3>
+    <ul>
+      <li>may function as both client and server or both</li>
+      <li>can change role dynamically over tiome</li>
+      <li>
+        used in file-sharing networks and multimedia protocols (P2P TV &amp;
+        PDTP)
+      </li>
+    </ul>
+    <h3 id="event-bus-primarily-deals-with-events">
+      <strong>event-bus</strong>: primarily deals with events
+    </h3>
+    <ul>
+      <li>
+        has four major components: event source, listener, bus, and channel
+      </li>
+      <li>sources publish messages to channels on event bus</li>
+      <li>listeners subscribe to particular channels</li>
+      <li>
+        listeners notified of messages published to previously subscribed
+        channels
+      </li>
+      <li>used in Android development &amp; notification services</li>
+    </ul>
+    <h3 id="model-view-controller-mvc-model-contains-core-functionality-data">
+      <strong>model-view-controller (MVC)</strong>: model contains core
+      functionality &amp; data
+    </h3>
+    <ul>
+      <li>view displays info to user, can have 2+</li>
+      <li>controller handles input from user</li>
+      <li>
+        used in www app arch in major programming languages, web frameworks aka
+        Django, rails
+      </li>
+      <li>
+        done to separate internal representations of info from ways the info is
+        presented to &amp; accepted by the user
+      </li>
+      <li>decouples components &amp; allows efficient code reuse</li>
+    </ul>
+    <h3
+      id="blackboard-useful-for-problems-for-which-no-deterministic-solution-strategies-are-known"
+    >
+      <strong>blackboard</strong>: useful for problems for which no
+      deterministic solution strategies are known
+    </h3>
+    <ul>
+      <li>
+        consists of three main components:
+        <ul>
+          <li>
+            blackboard: structured global memory containing objects ffrom
+            solution space
+          </li>
+          <li>
+            knowledge source: specialized modules with their own representation
+          </li>
+          <li>
+            control component: selects, configures, &amp; executes modules
+          </li>
+        </ul>
+      </li>
+      <li>all comps have access to blackboard</li>
+      <li>
+        comps look for data on blackboard and find by pattern matching with
+        knowledge source
+      </li>
+      <li>
+        used in speech recognition, vehicle, ID, &amp; tracking, protein
+        structure ID, sonar signals interpretation
+      </li>
+    </ul>
+    <h3
+      id="interpreter-used-for-designing-a-component-that-interprets-programs-written-in-dedicated-language"
+    >
+      <strong>interpreter</strong>: used for designing a component that
+      interprets programs written in dedicated language
+    </h3>
+    <ul>
+      <li>
+        mainly specifies how to evaluate program lines (sentences OR
+        expressions)
+      </li>
+      <li>basic idea to have class for each symbol of language</li>
+      <li>
+        used in DB query languages like SQL &amp; languages used to describe
+        communication protocols
+      </li>
+    </ul>
+    <h2 id="creational-patterns">Creational Patterns</h2>
+    <p><strong>creational</strong>: different ways to create objects</p>
+    <ul>
+      <li>
+        <strong>Abstract Factory</strong>: provide interface for creating
+        families of related or dependent objects without specifying their
+        concrete classes
+        <ul>
+          <li>creates an instance of several class families</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Builder</strong>: separate construction of a complex object from
+        its representation so the same construction process can create different
+        rperesentations
+        <ul>
+          <li>separates object construction from its representation</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Factory Method</strong>: define an interface for creationg an
+        object, but let subclasses decide which class to instantiate
+        <ul>
+          <li>lets a class defer instantiation to subclasses</li>
+          <li>creates an instance of several derived classes</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Prototype</strong>: specify the kinds of objects to create using
+        a prototypical instance &amp; create new objects by copying this
+        prototype
+        <ul>
+          <li>fully initialized instance to be copied or cloned</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Singleton</strong>: ensure a class only has one instance &amp;
+        provide a global point of access to it
+        <ul>
+          <li>class in which only single instance can exist</li>
+        </ul>
+      </li>
+    </ul>
+    <h2 id="structural-patterns">Structural Patterns</h2>
+    <p><strong>structural</strong>: relationships between those objects</p>
+    <ul>
+      <li>
+        <strong>Adapter</strong>: convert interface of class to one clients
+        expect
+        <ul>
+          <li>
+            lets classes work together that couldn’t otherwise due to
+            incompatible interfaces
+          </li>
+          <li>matches interfaces of diffferent classes</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Bridge</strong>: decouple an abstraction from its implementation
+        so the two can vary independently
+        <ul>
+          <li>separates an object’s abstraction from its implementation</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Composite</strong>: compose objects into tree structures to
+        represent part-whole hierarchies
+        <ul>
+          <li>
+            lets clients treat individual objects &amp; compositions of objects
+            uniformly
+          </li>
+          <li>tree structure of simple &amp; composite objects</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Decorator</strong>: attach additional responsibilities to an
+        object dynamically
+        <ul>
+          <li>
+            provide a flexible alternative to subclassing for extending
+            functionality
+          </li>
+          <li>add responsibilities to objects dynamically</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Facade</strong>: provide a unified interface to a set of
+        interfaces in a subsystem
+        <ul>
+          <li>
+            defines a higher-level interface that makes subsystem easier to use
+          </li>
+          <li>single class representing an entire subsystem</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Flyweight</strong>: use sharing to support large numbers of
+        fine-grained objects efficiently
+        <ul>
+          <li>fine-grained instance used for efficient sharing</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Proxy</strong>: provide a surrogate or placeholder for another
+        object to control access to it
+        <ul>
+          <li>object representing anotther object</li>
+        </ul>
+      </li>
+    </ul>
+    <h2 id="behavioral-patterns">Behavioral Patterns</h2>
+    <p>
+      <strong>behavioral</strong>: interaction or communication between those
+      objects
+    </p>
+    <ul>
+      <li>
+        <strong>Chain of Responsibility</strong>: avoid coupling the sender of a
+        request to its receiver by giving more than one object a chance to
+        handle the request
+        <ul>
+          <li>
+            chain receiving objects &amp; pass request along chain until object
+            handles it
+          </li>
+          <li>way of passing a request between chain of objects</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Command</strong>: encapsulates a request as an object, letting
+        you parameterize clients with different requests, queue or log requests,
+        &amp; support undoable operations
+        <ul>
+          <li>encapsulate a command request as an object</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Interpreter</strong>: given a language, define a reprsentation
+        for its grammar along with an interpreter that uses the representation
+        to interpret sentences in the language
+        <ul>
+          <li>way to include language elements in program</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Iterator</strong>: provide a way to access the elements of an
+        aggregate object sequentially without exposing its underlying
+        representation
+        <ul>
+          <li>sequentially access elements of a collection</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Mediator</strong>: define an object that encapsulates how a set
+        of objects interact
+        <ul>
+          <li>
+            promotes loose coupling by keeping objects from referring to each
+            other explicitly
+          </li>
+          <li>lets you vary their interaction independently</li>
+          <li>defines simplified communication between classes</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Memento</strong>: without violating encapsulation, capture &amp;
+        externalize an object’s internal state so object can be restored to this
+        state later
+        <ul>
+          <li>capture &amp; restore object’s internal state</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Observer</strong>: define a one-to-many dependency between
+        objects so that, when one object changes state, all its dependencies are
+        notified
+        <ul>
+          <li>way of notifying change to number of classes</li>
+        </ul>
+      </li>
+      <li>
+        <strong>State</strong>: allow an object to alter its behavior
+        <ul>
+          <li>
+            when its internal state changes, the object will appear to change
+            its class
+          </li>
+          <li>alter object’s behavior when its state changes</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Strategy</strong>: define a family of algorithms, encapsulate
+        each, &amp; make interchangeable
+        <ul>
+          <li>lets algorithm vary independently from clients using it</li>
+          <li>encapsulates an algorithm inside a class</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Template Method</strong>: define the skeleton of an algorithm in
+        an operation, deferring some steps to subclasses
+        <ul>
+          <li>
+            lets subclasses redefine certain steps of an algorithm without
+            changing algorithm’s structure
+          </li>
+          <li>defer exact steps of an algorithm to a subclass</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Visitor</strong>: represent an operation to be performed on
+        elements of an object structure
+        <ul>
+          <li>
+            lets you define a new operation without changing classes of elements
+            on which it operates
+          </li>
+          <li>defines a new operation to a class without change</li>
+        </ul>
+      </li>
+    </ul>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">scope</th>
+          <th style="text-align: center">creational</th>
+          <th style="text-align: center">structural</th>
+          <th style="text-align: center">behavioral</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">class</td>
+          <td style="text-align: center">Factory Method</td>
+          <td style="text-align: center">Adapter</td>
+          <td style="text-align: center">Interpreter</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Template</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">object</td>
+          <td style="text-align: center">Abstract Factory</td>
+          <td style="text-align: center">Adapter</td>
+          <td style="text-align: center">Chain of Responsibility</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Builder</td>
+          <td style="text-align: center">Bridge</td>
+          <td style="text-align: center">Command</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Prototype</td>
+          <td style="text-align: center">Composite</td>
+          <td style="text-align: center">Iterator</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Singleton</td>
+          <td style="text-align: center">Decorator</td>
+          <td style="text-align: center">Mediator</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Facade</td>
+          <td style="text-align: center">Memento</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Proxy</td>
+          <td style="text-align: center">Flyweight</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Observer</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">State</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Strategy</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Visitor</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

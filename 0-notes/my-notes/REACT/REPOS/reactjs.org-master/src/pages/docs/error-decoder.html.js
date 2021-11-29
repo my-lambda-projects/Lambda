@@ -37,7 +37,8 @@ const ErrorPage = ({data, location}: Props) => (
         flex: '1 0 auto',
         position: 'relative',
         zIndex: 0,
-      }}>
+      }}
+    >
       <Container>
         <div css={sharedStyles.articleLayout.container}>
           <Flex
@@ -47,7 +48,8 @@ const ErrorPage = ({data, location}: Props) => (
             halign="stretch"
             css={{
               minHeight: 'calc(100vh - 40px)',
-            }}>
+            }}
+          >
             <MarkdownHeader
               path={data.markdownRemark.fields.path}
               title={data.markdownRemark.frontmatter.title}
@@ -75,7 +77,8 @@ const ErrorPage = ({data, location}: Props) => (
                       color: colors.error,
                     },
                   },
-                ]}>
+                ]}
+              >
                 <ErrorDecoder
                   errorCodesString={data.errorCodesJson.internal.contentDigest}
                   location={location}

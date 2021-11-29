@@ -1,17 +1,17 @@
-
 # os.chdir("E:\\projects\\LambdaSchool\\m6\\63a1\\src\\iterative_sorting\")
 # exec(open("iterative_sorting.py").read())
 
-# SELECTION SORT:  
-    # Always select and move smallest element until all are in order.
-    
+# SELECTION SORT:
+# Always select and move smallest element until all are in order.
+
 # time complexity:  Best O(n^2)   |   Avg O(n^2)   |   Worst O(n^2)
 # space complexity:  O(1)
+
 
 def selection_sort(arr):
     # get array length and array length - 1
     array_length = len(arr)
-    next_to_last = array_length-1
+    next_to_last = array_length - 1
 
     # loop through n-1 elements
     for x in range(0, next_to_last):
@@ -29,9 +29,9 @@ def selection_sort(arr):
             # set smallest item
             smallest_item = arr[smallest_index]
             # compare current and smallest items
-                # if current is smallest, set its index as smallest index
+            # if current is smallest, set its index as smallest index
             if current_item_y < smallest_item:
-                smallest_index = y;
+                smallest_index = y
 
         # swap the minimum element with the current element
         # if smallest index isn't current item

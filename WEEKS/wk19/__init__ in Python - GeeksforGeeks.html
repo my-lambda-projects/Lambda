@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>__init__ in Python - GeeksforGeeks</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="init-in-python---geeksforgeeks">
+      <strong>init</strong> in Python - GeeksforGeeks
+    </h1>
+    <blockquote>
+      <p>
+        A Computer Science portal for geeks. It contains well written, well
+        thought and well explained computer science and programming articles,
+        quizzes and practice/competitive programming/company interview
+        Questions.
+      </p>
+    </blockquote>
+    <p>
+      <strong>Prerequisites –</strong>
+      <a href="https://www.geeksforgeeks.org/python-classes-and-objects/"
+        >Python Class</a
+      >,
+      <a href="https://www.geeksforgeeks.org/python-classes-and-objects/"
+        >Objects</a
+      >, <a href="https://www.geeksforgeeks.org/self-in-python-class/">Self</a>
+    </p>
+    <p>
+      Whenever object oriented programming is done in Python, we mostly come
+      across <code>__init__</code> method which we usually don’t fully
+      understand. This article explains the main concept of
+      <code>__init__</code> but before understanding the
+      <code>__init__</code> some prerequisites are required.
+    </p>
+    <h2 id="init__">__init__</h2>
+    <p>
+      The <code>__init__</code> method is similar to
+      <strong>constructors</strong> in <code>C++</code> and <code>Java</code>.
+      Constructors are used to initialize the object’s state. The task of
+      constructors is to initialize(assign values) to the data members of the
+      class when an object of class is created. Like methods, a constructor also
+      contains collection of statements(i.e. instructions) that are executed at
+      time of Object creation. It is run as soon as an object of a class is
+      instantiated. The method is useful to do any initialization you want to do
+      with your object.
+    </p>
+    <p><strong>Example:</strong></p>
+    <p><code>class</code> <code>Person:</code></p>
+    <p><code>def</code> <code>__init__(``self``, name):</code></p>
+    <p><code>self``.name</code> <code>=</code> <code>name</code></p>
+    <p><code>def</code> <code>say_hi(``self``):</code></p>
+    <p>
+      <code>print``(``'Hello, my name is'``,</code> <code>self``.name)</code>
+    </p>
+    <p><code>p</code> <code>=</code> <code>Person(``'Nikhil'``)</code></p>
+    <p><code>p.say_hi()</code></p>
+    <p><strong>Output:</strong></p>
+    <p>Hello, my name is Nikhil</p>
+    <h4 id="understanding-the-code">Understanding the code</h4>
+    <p>
+      In the above example, a person name Nikhil is created. While creating a
+      person, “Nikhil” is passed as an argument, this argument will be passed to
+      the <code>__init__</code> method to initialize the object. The keyword
+      <code>self</code> represents the instance of a class and binds the
+      attributes with the given arguments. Similarly, many objects of Person
+      class can be created by passing different names as arguments.
+    </p>
+    <p><strong>Example:</strong></p>
+    <p><code>class</code> <code>Person:</code></p>
+    <p><code>def</code> <code>__init__(``self``, name):</code></p>
+    <p><code>self``.name</code> <code>=</code> <code>name</code></p>
+    <p><code>def</code> <code>say_hi(``self``):</code></p>
+    <p>
+      <code>print``(``'Hello, my name is'``,</code> <code>self``.name)</code>
+    </p>
+    <p><code>p1</code> <code>=</code> <code>Person(``'Nikhil'``)</code></p>
+    <p><code>p2</code> <code>=</code> <code>Person(``'Abhinav'``)</code></p>
+    <p><code>p3</code> <code>=</code> <code>Person(``'Anshul'``)</code></p>
+    <p><code>p1.say_hi()</code></p>
+    <p><code>p2.say_hi()</code></p>
+    <p><code>p3.say_hi()</code></p>
+    <p><strong>Output:</strong></p>
+    <p>
+      Hello, my name is Nikhil Hello, my name is Abhinav Hello, my name is
+      Anshul
+    </p>
+    <h4 id="init__-with-inheritance">__init__ with inheritance</h4>
+    <p>
+      <a href="https://www.geeksforgeeks.org/inheritance-in-python/"
+        >Inheritance</a
+      >
+      is the capability of one class to derive or inherit the properties from
+      some other class. Let’s consider the below example to see how __init__
+      works in inheritance.
+    </p>
+    <p><code>class</code> <code>A(``object``):</code></p>
+    <p><code>def</code> <code>__init__(``self``, something):</code></p>
+    <p><code>print``(``"A init called"``)</code></p>
+    <p><code>self``.something</code> <code>=</code> <code>something</code></p>
+    <p><code>class</code> <code>B(A):</code></p>
+    <p><code>def</code> <code>__init__(``self``, something):</code></p>
+    <p><code>A.__init__(``self``, something)</code></p>
+    <p><code>print``(``"B init called"``)</code></p>
+    <p><code>self``.something</code> <code>=</code> <code>something</code></p>
+    <p><code>obj</code> <code>=</code> <code>B(``"Something"``)</code></p>
+    <p><strong>Output:</strong></p>
+    <p>A init called B init called</p>
+    <p>
+      So, the parent class constructor is called first. But in Python, it is not
+      compulsory that parent class constructor will always be called first. The
+      order in which the __init__ method is called for a parent or a child class
+      can be modified. This can simply be done by calling the parent class
+      constructor after the body of child class constructor.
+    </p>
+    <p><strong>Example:</strong></p>
+    <p><code>class</code> <code>A(``object``):</code></p>
+    <p><code>def</code> <code>__init__(``self``, something):</code></p>
+    <p><code>print``(``"A init called"``)</code></p>
+    <p><code>self``.something</code> <code>=</code> <code>something</code></p>
+    <p><code>class</code> <code>B(A):</code></p>
+    <p><code>def</code> <code>__init__(``self``, something):</code></p>
+    <p><code>print``(``"B init called"``)</code></p>
+    <p><code>self``.something</code> <code>=</code> <code>something</code></p>
+    <p><code>A.__init__(``self``, something)</code></p>
+    <p><code>obj</code> <code>=</code> <code>B(``"Something"``)</code></p>
+    <p><strong>Output:</strong></p>
+    <p>B init called A init called</p>
+    <p>
+      <strong>Note:</strong> To know more about inheritance
+      <a href="https://www.geeksforgeeks.org/inheritance-in-python/"
+        >click here</a
+      >.
+    </p>
+    <p>
+       Attention geek! Strengthen your foundations with the
+      <a
+        href="https://practice.geeksforgeeks.org/courses/Python-Foundation?utm_source=geeksforgeeks&amp;utm_medium=article&amp;utm_campaign=GFG_Article_Bottom_Python_Foundation"
+        ><strong>Python Programming Foundation</strong></a
+      >
+      Course and learn the basics.  
+    </p>
+    <p>
+      To begin with, your interview preparations Enhance your Data Structures
+      concepts with the
+      <a
+        href="https://practice.geeksforgeeks.org/courses/Data-Structures-With-Python?utm_source=geeksforgeeks&amp;utm_medium=article&amp;utm_campaign=GFG_Article_Bottom_Python_DS"
+        ><strong>Python DS</strong></a
+      >
+      Course. And to begin with your Machine Learning Journey, join the
+      <strong
+        ><a
+          href="https://practice.geeksforgeeks.org/courses/machine-learning?utm_source=geeksforgeeks&amp;utm_medium=article&amp;utm_campaign=GFG_Article_Bottom_Python_ML"
+          >Machine Learning – Basic Level Course</a
+        ></strong
+      >
+    </p>
+    <p>
+      <a href="https://www.geeksforgeeks.org/__init__-in-python/">Source</a>
+    </p>
+  </body>
+</html>

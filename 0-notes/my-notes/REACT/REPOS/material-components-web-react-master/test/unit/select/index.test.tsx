@@ -353,112 +353,52 @@ test('#adapter.hasOutline returns false if props.outlined is false', () => {
 
 test('renders dropdown icon', () => {
   const wrapper = shallow(<Select label='my label' />);
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(0)
-      .type(),
-    'i'
-  );
+  assert.equal(wrapper.childAt(0).childAt(0).type(), 'i');
 });
 
 test('renders leadingIcon if props.leadingIcon is set', () => {
   const wrapper = shallow(<Select leadingIcon={<i>favorite</i>} />);
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(0)
-      .type(),
-    'i'
-  );
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(1)
-      .type(),
-    'i'
-  );
+  assert.equal(wrapper.childAt(0).childAt(0).type(), 'i');
+  assert.equal(wrapper.childAt(0).childAt(1).type(), 'i');
 });
 
 test('renders notchedOutline if props.outlined is true', () => {
   const wrapper = shallow(<Select label='my label' outlined />);
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .type(),
-    NotchedOutline
-  );
+  assert.equal(wrapper.childAt(0).childAt(2).type(), NotchedOutline);
 });
 
 test('renders lineRipple if props.outlined is false', () => {
   const wrapper = shallow(<Select label='my label' />);
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(3)
-      .type(),
-    LineRipple
-  );
+  assert.equal(wrapper.childAt(0).childAt(3).type(), LineRipple);
 });
 
 test('renders BaseSelect for select', () => {
   const wrapper = shallow(<Select label='my label' />);
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(1)
-      .type(),
-    BaseSelect
-  );
+  assert.equal(wrapper.childAt(0).childAt(1).type(), BaseSelect);
 });
 
 test('does not pass className to BaseSelect', () => {
   const wrapper = shallow(
     <Select label='my label' className='container-class' />
   );
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(1)
-      .prop('className'),
-    ''
-  );
+  assert.equal(wrapper.childAt(0).childAt(1).prop('className'), '');
 });
 
 test('pass selectClassName to BaseSelect', () => {
   const wrapper = shallow(
     <Select label='my label' selectClassName='select-class' />
   );
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(1)
-      .prop('className'),
-    'select-class'
-  );
+  assert.equal(wrapper.childAt(0).childAt(1).prop('className'), 'select-class');
 });
 
 test('renders FloatingLabel after BaseSelect if props.label exists', () => {
   const wrapper = shallow(<Select label='my label' />);
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .type(),
-    FloatingLabel
-  );
+  assert.equal(wrapper.childAt(0).childAt(2).type(), FloatingLabel);
 });
 
 test('renders no FloatingLabel if props.label does not exists', () => {
   const wrapper = shallow(<Select />);
-  assert.notEqual(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .type(),
-    FloatingLabel
-  );
+  assert.notEqual(wrapper.childAt(0).childAt(2).type(), FloatingLabel);
 });
 
 test('passes classNames to NativeSelect through props.selectClassName', () => {
@@ -482,22 +422,12 @@ test('#NativeSelect.value will update with Select.state.value', () => {
   wrapper.setState({value});
 
   assert.equal(wrapper.state().value, value);
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(1)
-      .childAt(0)
-      .props().value,
-    value
-  );
+  assert.equal(wrapper.childAt(0).childAt(1).childAt(0).props().value, value);
 });
 
 test('passes foundation to BaseSelect', () => {
   const wrapper = mount<Select>(<Select label='my label' />);
-  const baseSelect = wrapper
-    .childAt(0)
-    .childAt(1)
-    .props();
+  const baseSelect = wrapper.childAt(0).childAt(1).props();
   assert.equal(baseSelect.foundation, wrapper.state().foundation);
 });
 
@@ -570,23 +500,13 @@ test('passes classNames to FloatingLabel through props.floatingLabelClassName', 
   const wrapper = shallow(
     <Select label='my label' floatingLabelClassName={className} />
   );
-  assert.isTrue(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .hasClass(className)
-  );
+  assert.isTrue(wrapper.childAt(0).childAt(2).hasClass(className));
 });
 
 test('updates float prop with state.labelIsFloated', () => {
   const wrapper = shallow(<Select label='my label' />);
   wrapper.setState({labelIsFloated: true});
-  assert.isTrue(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .props().float
-  );
+  assert.isTrue(wrapper.childAt(0).childAt(2).props().float);
 });
 
 test('#floatingLabel.handleWidthChange updates state.labelWidth', () => {
@@ -600,23 +520,13 @@ test('passes classNames to LineRipple through props.lineRippleClassName', () => 
   const wrapper = shallow(
     <Select label='my label' lineRippleClassName={className} />
   );
-  assert.isTrue(
-    wrapper
-      .childAt(0)
-      .childAt(3)
-      .hasClass(className)
-  );
+  assert.isTrue(wrapper.childAt(0).childAt(3).hasClass(className));
 });
 
 test('updates active prop with state.activeLineRipple', () => {
   const wrapper = shallow(<Select label='my label' />);
   wrapper.setState({activeLineRipple: true});
-  assert.isTrue(
-    wrapper
-      .childAt(0)
-      .childAt(3)
-      .props().active
-  );
+  assert.isTrue(wrapper.childAt(0).childAt(3).props().active);
 });
 
 test('passes classNames to NotchedOutline through props.notchedOutlineClassName', () => {
@@ -624,35 +534,19 @@ test('passes classNames to NotchedOutline through props.notchedOutlineClassName'
   const wrapper = shallow(
     <Select label='my label' outlined notchedOutlineClassName={className} />
   );
-  assert.isTrue(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .hasClass(className)
-  );
+  assert.isTrue(wrapper.childAt(0).childAt(2).hasClass(className));
 });
 
 test('updates notch prop with state.outlineIsNotched', () => {
   const wrapper = shallow(<Select label='my label' outlined />);
   wrapper.setState({outlineIsNotched: true});
-  assert.isTrue(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .props().notch
-  );
+  assert.isTrue(wrapper.childAt(0).childAt(2).props().notch);
 });
 
 test('updates notchWidth prop with state.labelWidth', () => {
   const wrapper = shallow(<Select label='my label' outlined />);
   wrapper.setState({labelWidth: 55});
-  assert.equal(
-    wrapper
-      .childAt(0)
-      .childAt(2)
-      .props().notchWidth,
-    55
-  );
+  assert.equal(wrapper.childAt(0).childAt(2).props().notchWidth, 55);
 });
 
 test('createFoundation instantiates a new foundation', () => {
@@ -687,10 +581,7 @@ test('leadingIcon.props.setIconFoundation() updates state.iconFoundation', () =>
     <Select label='my label' leadingIcon={<SelectIcon />} />
   );
   const foundation = coerceForTesting<MDCSelectIconFoundation>({});
-  wrapper
-    .childAt(0)
-    .childAt(0)
-    .props().setIconFoundation!(foundation);
+  wrapper.childAt(0).childAt(0).props().setIconFoundation!(foundation);
   assert.equal(wrapper.state().iconFoundation, foundation);
 });
 

@@ -1,0 +1,43 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "my resource sharing site",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "lebab": "^3.1.1",
+    "prettier": "^2.3.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.4"
+  },
+  "scripts": {
+    "pretty": "prettier --write \"./**/*.{js,jsx,html,css,py,md}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgoonz/Lambda.git"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css",
+    "react",
+    "python",
+    "blog",
+    "resources",
+    "npm",
+    "package",
+    "web",
+    "development"
+  ],
+  "author": "Bryan Guner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bgoonz/Lambda/issues"
+  },
+  "homepage": "https://github.com/bgoonz/Lambda#readme"
+}

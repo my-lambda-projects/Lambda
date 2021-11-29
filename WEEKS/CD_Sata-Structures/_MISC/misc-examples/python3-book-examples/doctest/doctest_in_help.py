@@ -1,0 +1,9 @@
+# Copyright (c) 2010 Doug Hellmann.  All rights reserved.
+#
+"""Tests for this module are in the external help text.
+"""
+# end_pymotw_header
+def my_function(a, b):
+    """Returns a*b
+    """
+    return a * b

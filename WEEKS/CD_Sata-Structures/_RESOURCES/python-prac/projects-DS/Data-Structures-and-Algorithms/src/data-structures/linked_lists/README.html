@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="linked-lists">Linked Lists</h1>
+    <p><img src="../../../assets/linked-list.svg" /></p>
+    <ul>
+      <li><a href="#singly-linked-list">Singly Linked List</a></li>
+    </ul>
+    <h2 id="description">Description</h2>
+    <p>
+      A linked list is a dynamic linear data structure where each element is a
+      separate object, commonly called a <strong>node</strong>. Each node
+      contains a value and a reference to the next node in the list or null,
+      which signifies the end of the list. The linked list class keeps track of
+      the first node referred to as the <strong>head</strong>; it may also keep
+      track of the <strong>tail</strong> (the end) and the size of the list.
+    </p>
+    <h2 id="advantages">Advantages</h2>
+    <p>
+      Insertion and removal of nodes are O(1) time since only the pointers need
+      to be changed. Linked lists do not need contiguos allocated memory
+      up-front. If there is room in memory for the node, then it can be added to
+      the linked list.
+    </p>
+    <h2 id="disadvantages">Disadvantages</h2>
+    <p>
+      Linked lists are not as cache-friendly because they do not use contiguous
+      memory. Searching a linked list is O(n) time because there is no access to
+      indexing. A search must start at the head (or tail if doubly-linked) and
+      move through the list one node at a time until either the target value is
+      found or is not in the list. This is called sequential access. Another
+      disadvantage when considering space complexity is linked lists use more
+      memory to hold the pointer to the next node.
+    </p>
+    <h2 id="common-operations">Common Operations</h2>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: left">Op/Method</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: left">Insertion</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">Removal</td>
+          <td></td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left">Search</td>
+          <td></td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left">Size</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h4 id="references"><em>References</em></h4>
+    <p>
+      <em
+        ><a
+          href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html"
+          >Linked Lists</a
+        ></em
+      >
+    </p>
+    <p><a href="#Linked-Lists">↑</a></p>
+  </body>
+</html>

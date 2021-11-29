@@ -156,10 +156,7 @@ test('#adapter.elementHasClass should return false when element does not have cl
       <div />
     </Drawer>
   );
-  const element = wrapper
-    .childAt(0)
-    .childAt(0)
-    .getDOMNode();
+  const element = wrapper.childAt(0).childAt(0).getDOMNode();
   const hasClass = getAdapter(wrapper.instance().foundation!).elementHasClass(
     element,
     'test-class'
@@ -189,10 +186,7 @@ test(
     );
     wrapper.instance().previousFocus = focusedElement;
     const drawerButtonElement = coerceForTesting<HTMLElement>(
-      wrapper
-        .childAt(0)
-        .childAt(0)
-        .getDOMNode()
+      wrapper.childAt(0).childAt(0).getDOMNode()
     );
     drawerButtonElement.focus();
     getAdapter(wrapper.instance().foundation!).restoreFocus();

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>How_To_Make_Python_Pattern_Programs_With_Examples.md.md</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a
+        href="https://medium.com/@aayushijohari?source=post_page-----75e1e764a42f--------------------------------"
+        ><img
+          src="https://miro.medium.com/fit/c/96/96/0*qi14KVra23cQqJzE"
+          alt="Aayushi Johari"
+      /></a>
+    </p>
+    <p>
+      <img
+        src="https://miro.medium.com/max/1280/1*xirHnHmmq5w6xXGMl1qrag.png"
+      />
+    </p>
+    <p>Python Pattern Programs — Edureka</p>
+    <p>
+      Python programming language is quite easy to learn. The implementation of
+      various libraries with the ease of syntax makes it stand out, one of the
+      many reasons why it has become the most popular programming language in
+      this decade. While the learning part is easy, the interviewers often seek
+      your approach in building the logic for pattern programs. As tricky as it
+      may sound, with python it is a piece of cake. In this article, we will
+      learn about various pattern programs in python. The following topics are
+      covered in this blog:
+    </p>
+    <ul>
+      <li>Star Pattern Programs</li>
+    </ul>
+    <ol type="1">
+      <li>Pyramid Pattern Program</li>
+      <li>Half-Pyramid Pattern Program</li>
+      <li>Diamond Shaped Pattern Program</li>
+      <li>Start Pattern Program</li>
+      <li>Hourglass Pattern Program</li>
+    </ol>
+    <ul>
+      <li>Number Pattern Programs</li>
+    </ul>
+    <ol type="1">
+      <li>Simple Numbers In A Pyramid</li>
+      <li>Pascal’s Triangle Pattern</li>
+      <li>Diamond Pattern Program</li>
+    </ol>
+    <ul>
+      <li>Characters Patter Programs</li>
+    </ul>
+    <p>
+      The pattern programs incorporate a lot of nested loops. So if you are not
+      familiar with loops in python, make sure to check out the detailed
+      tutorial on loops in python.
+    </p>
+    <p>Following are a few star pattern programs in python.</p>
+    <h2 id="pyramid-pattern-program">Pyramid Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      for i in range(0,n):<br />
+      for j in range(0,k):<br />
+      print(end=" “)<br />
+      k = k - 1<br />
+      for j in range(0, i+1):<br />
+      print(”*“, end=” “)<br />
+      print(”\r")<br />
+      pattern(5)
+    </p>
+    <p><strong>Output:</strong></p>
+    <p>
+      <img src="https://miro.medium.com/max/584/1*DqURUhmc89HbQ1ANcVH3QA.png" />
+    </p>
+    <h2 id="reverse-pyramid-pattern-program">
+      Reverse Pyramid Pattern Program
+    </h2>
+    <p>
+      def pattern(n):<br />
+      k = 2*n -2<br />
+      for i in range(n,-1,-1):<br />
+      for j in range(k,0,-1):<br />
+      print(end=" “)<br />
+      k = k +1<br />
+      for j in range(0, i+1):<br />
+      print(”*“, end=” “)<br />
+      print(”\r")<br />
+      pattern(5)
+    </p>
+    <h2 id="output"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/688/1*3J_03usjsD2lbPpzxtUm6A.png" />
+    </p>
+    <h2 id="right-start-pattern-program">Right Start Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      for i in range(0, n):<br />
+      for j in range(0, i + 1):<br />
+      print(“*”, end="“)<br />
+      print(”\r“)<br />
+      for i in range(n, 0 , -1):<br />
+      for j in range(0, i + 1):<br />
+      print(”* “, end=”“)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-1"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/682/1*C8aPlqjKeJJARtz2rZ5mew.png" />
+    </p>
+    <h2 id="left-start-pattern-program">Left Start Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      for i in range(0, n-1):<br />
+      for j in range(0, k):<br />
+      print(end=" “)<br />
+      k = k - 2<br />
+      for j in range(0, i + 1):<br />
+      print(”* “, end=”“)<br />
+      print(”\r“)<br />
+      k = -1<br />
+      for i in range(n-1,-1,-1):<br />
+      for j in range(k,-1,-1):<br />
+      print(end=” “)<br />
+      k = k + 2<br />
+      for j in range(0, i + 1):<br />
+      print(”* “, end=”“)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-2"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/690/1*xG33Yolx2dygujHv7lT5zA.png" />
+    </p>
+    <h2 id="hourglass-pattern-program">Hourglass Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      k = n - 2<br />
+      for i in range(n, -1 , -1):<br />
+      for j in range(k , 0 , -1):<br />
+      print(end=" “)<br />
+      k = k + 1<br />
+      for j in range(0, i+1):<br />
+      print(”* " , end="“)<br />
+      print(”\r“)<br />
+      k = 2 * n - 2<br />
+      for i in range(0 , n+1):<br />
+      for j in range(0 , k):<br />
+      print(end=”“)<br />
+      k = k - 1<br />
+      for j in range(0, i + 1):<br />
+      print(”* “, end=”“)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-3"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/684/1*IWT8HRQK557amfhUlDn7wA.png" />
+    </p>
+    <h2 id="half-pyramid-pattern-program">Half-Pyramid Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      for i in range(0,n):<br />
+      for j in range(0, i+1):<br />
+      print(“*” , end="“)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-4"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/674/1*zWlHhk9V9XTAcLXKVIExqQ.png" />
+    </p>
+    <h2 id="left-half-pyramid-pattern-program">
+      Left Half-Pyramid Pattern Program
+    </h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      for i in range(0, n):<br />
+      for j in range(0, k):<br />
+      print(end=" “)<br />
+      k = k - 2<br />
+      for j in range(0, i + 1):<br />
+      print(”* “, end=”“)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-5"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/674/1*dUMgURC4GqV8v-O6aQihXw.png" />
+    </p>
+    <h2 id="downward-half-pyramid-pattern-program">
+      Downward Half-Pyramid Pattern Program
+    </h2>
+    <p>
+      def pattern(n):<br />
+      for i in range(n, -1, -1):<br />
+      for j in range(0, i + 1):<br />
+      print(“*”, end="“)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-6"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/678/1*pYM-1MA1SmwYV6LaLT_wig.png" />
+    </p>
+    <h2 id="diamond-shaped-pattern-program">Diamond Shaped Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      for i in range(0, n):<br />
+      for j in range(0 , k):<br />
+      print(end=" “)<br />
+      k = k - 1<br />
+      for j in range(0 , i + 1 ):<br />
+      print(”* “, end=”“)<br />
+      print(”\r“)<br />
+      k = n - 2<br />
+      for i in range(n , -1, -1):<br />
+      for j in range(k , 0 , -1):<br />
+      print(end=” “)<br />
+      k = k + 1<br />
+      for j in range(0 , i + 1):<br />
+      print(”* “, end=”“)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-7"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/678/1*-mg79KFazzs6_xBcEYVu6g.png" />
+    </p>
+    <h2 id="diamond-star-pattern-program">Diamond Star Pattern Program</h2>
+    <p>
+      for i in range(5):<br />
+      for j in range(5):<br />
+      if i + j == 2 or i - j == 2 or i + j == 6 or j - i == 2:<br />
+      print(“*”, end="“)<br />
+      else:<br />
+      print(end=” ")<br />
+      print()
+    </p>
+    <h2 id="output-8"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/676/1*wXxW5Zs8fALUxyQllsFkIQ.png" />
+    </p>
+    <p>Here are a few programs with numeric patterns in java.</p>
+    <h2 id="simple-numbers-program">Simple Numbers Program</h2>
+    <p>
+      def pattern(n):<br />
+      x = 0<br />
+      for i in range(0 , n):<br />
+      x += 1<br />
+      for j in range(0, i + 1):<br />
+      print(x , end=" “)<br />
+      print(”\r")<br />
+      pattern(5)
+    </p>
+    <h2 id="output-9"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/680/1*rwF3z5gqHGQUnABOfS2icQ.png" />
+    </p>
+    <h2 id="pascals-triangle-program">Pascal’s Triangle Program</h2>
+    <p>
+      def pascal(n):<br />
+      for i in range(0, n):<br />
+      for j in range(0, i + 1):<br />
+      print(function(i, j)," “, end=”")<br />
+      print()
+    </p>
+    <p>
+      def function(n, k):<br />
+      res = 1<br />
+      if (k &gt; n - k):<br />
+      k = n - k<br />
+      for i in range(0, k):<br />
+      res = res * (n - i)<br />
+      res = res // (i + 1)
+    </p>
+    <pre><code> return res</code></pre>
+    <p>pascal(7)</p>
+    <h2 id="output-10"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/682/1*DJFqfuqUn-oC3H5Dz6IxOg.png" />
+    </p>
+    <h2 id="half-pyramid-pattern-with-numbers">
+      Half-Pyramid Pattern With Numbers
+    </h2>
+    <p>
+      def pattern(n):<br />
+      for i in range(1, n):<br />
+      for j in range(1, i + 1):<br />
+      print(j, end= " “)<br />
+      print(”\r")<br />
+      pattern(5)
+    </p>
+    <h2 id="output-11"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/678/1*M0o3ligs_2EiwvstD3OtGA.png" />
+    </p>
+    <h2 id="diamond-pattern-with-numbers">Diamond Pattern With Numbers</h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      x = 0<br />
+      for i in range(0, n):<br />
+      x += 1<br />
+      for j in range(0, k):<br />
+      print(end=" “)<br />
+      k = k - 1<br />
+      for j in range(0, i + 1):<br />
+      print(x, end=” “)<br />
+      print(”\r“)<br />
+      k = n - 2<br />
+      x = n + 2<br />
+      for i in range(n, -1, -1):<br />
+      x -= 1<br />
+      for j in range(k, 0, -1):<br />
+      print(end=” “)<br />
+      k = k + 1<br />
+      for j in range(0, i + 1):<br />
+      print(x, end=” “)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-12"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/682/1*s7d9gHEyn4762d-df5WDLQ.png" />
+    </p>
+    <h2 id="descending-order-pattern-program">
+      Descending Order Pattern Program
+    </h2>
+    <p>
+      def pattern(n):<br />
+      for i in range(n, 0, -1):<br />
+      for j in range(1, i + 1):<br />
+      print(j, end=" ")
+    </p>
+    <pre><code>     print(&quot;\\r&quot;)</code></pre>
+    <p>pattern(5)</p>
+    <h2 id="output-13"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/684/1*TJEH6Tv6W6aD5PlFmeb5Ag.png" />
+    </p>
+    <h2 id="binary-numbers-pattern-program">Binary Numbers Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      for i in range(0, n):<br />
+      for j in range(0, k):<br />
+      print(end=" “)<br />
+      k = k - 1<br />
+      for j in range(0, i + 1):<br />
+      print(‘10’, end=”")
+    </p>
+    <pre><code>     print(&quot;\\r&quot;)</code></pre>
+    <p>pattern(5)</p>
+    <h2 id="output-14"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/676/1*2FC_AxVkj9Kat-hpwyEYVA.png" />
+    </p>
+    <p>Here are a few pattern programs in python with characters.</p>
+    <h2 id="right-alphabetical-triangle">Right Alphabetical Triangle</h2>
+    <p>
+      def pattern(n):<br />
+      x = 65<br />
+      for i in range(0, n):<br />
+      ch = chr(x)<br />
+      x += 1<br />
+      for j in range(0, i + 1):<br />
+      print(ch, end=" “)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-15"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/678/1*VxNb7TJ7orHKKN6_XFDZfQ.png" />
+    </p>
+    <h2 id="character-pattern-program">Character Pattern Program</h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      x = 65<br />
+      for i in range(0, n):<br />
+      for j in range(0, k):<br />
+      print(end=" “)<br />
+      k = k - 1<br />
+      for j in range(0, i + 1):<br />
+      ch = chr(x)<br />
+      print(ch, end=” “)<br />
+      x += 1<br />
+      print(”\r")
+    </p>
+    <p>pattern(7)</p>
+    <h2 id="output-16"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/674/1*x4hYWl-qJXCFIjKIQ4f97w.png" />
+    </p>
+    <h2 id="k-shape-character-program">K Shape Character Program</h2>
+    <p>
+      for i in range(7):<br />
+      for j in range(7):<br />
+      if j == 0 or i - j == 3 or i + j == 3:<br />
+      print(“*”, end="“)<br />
+      else:<br />
+      print(end=” ")<br />
+      print()
+    </p>
+    <h2 id="output-17"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/686/1*g2-GY8RrxTQ7cxUCKxLAxg.png" />
+    </p>
+    <h2 id="triangle-character-pattern-program">
+      Triangle Character Pattern Program
+    </h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      x = 65<br />
+      for i in range(0, n):<br />
+      ch = chr(x)<br />
+      x += 1<br />
+      for j in range(0, k):<br />
+      print(end=" “)<br />
+      k = k - 1<br />
+      for j in range(0, i + 1):<br />
+      print(ch, end=” “)<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-18"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/672/1*rbaa5FMt49N-6rbKCaZBtQ.png" />
+    </p>
+    <h2 id="diamond-shaped-character-pattern-program">
+      Diamond Shaped Character Pattern Program
+    </h2>
+    <p>
+      def pattern(n):<br />
+      k = 2 * n - 2<br />
+      for i in range(0, n):<br />
+      for j in range(0, k):<br />
+      print(end=" “)<br />
+      k = k - 1<br />
+      x = 65<br />
+      for j in range(0, i + 1):<br />
+      ch = chr(x)<br />
+      print(ch, end=” “)<br />
+      x += 1<br />
+      print(”\r“)<br />
+      k = n - 2<br />
+      x = 65<br />
+      for i in range(n, -1, -1):<br />
+      for j in range(k, 0, -1):<br />
+      print(end=” “)<br />
+      k = k + 1<br />
+      for j in range(0, i + 1):<br />
+      ch = chr(x)<br />
+      print(ch, end=” “)<br />
+      x += 1<br />
+      print(”\r")
+    </p>
+    <p>pattern(5)</p>
+    <h2 id="output-19"><strong>Output:</strong></h2>
+    <p>
+      <img src="https://miro.medium.com/max/680/1*o2aKiGKCEXWGC-ZbL1nFQA.png" />
+    </p>
+    <p>
+      This brings us to the end of this article where we have learned how we can
+      implement different patterns in python using asterisk, numbers, and
+      characters with the help of loops in python. I hope you are clear with all
+      that has been shared with you in this tutorial.
+    </p>
+    <p>
+      If you wish to check out more articles on the market’s most trending
+      technologies like Artificial Intelligence, DevOps, Ethical Hacking, then
+      you can refer to
+      <a
+        href="https://www.edureka.co/blog/?utm_source=medium&amp;utm_medium=content-link&amp;utm_campaign=python-pattern-programs"
+        >Edureka’s official site.</a
+      >
+    </p>
+    <p>
+      Do look out for other articles in this series which will explain the
+      various other aspects of Python and Data Science.
+    </p>
+    <blockquote>
+      <p>
+        1.
+        <a
+          href="https://medium.com/edureka/machine-learning-classifier-c02fbd8400c9"
+          >Machine Learning Classifier in Python</a
+        >
+      </p>
+      <p>
+        2.
+        <a
+          href="https://medium.com/edureka/python-scikit-learn-cheat-sheet-9786382be9f5"
+          >Python Scikit-Learn Cheat Sheet</a
+        >
+      </p>
+      <p>
+        3.
+        <a
+          href="https://medium.com/edureka/python-libraries-for-data-science-and-machine-learning-1c502744f277"
+          >Machine Learning Tools</a
+        >
+      </p>
+      <p>
+        4.
+        <a
+          href="https://medium.com/edureka/python-libraries-for-data-science-and-machine-learning-1c502744f277"
+          >Python Libraries For Data Science And Machine Learning</a
+        >
+      </p>
+      <p>
+        5.
+        <a
+          href="https://medium.com/edureka/how-to-make-a-chatbot-in-python-b68fd390b219"
+          >Chatbot In Python</a
+        >
+      </p>
+      <p>
+        6.
+        <a href="https://medium.com/edureka/collections-in-python-d0bc0ed8d938"
+          >Python Collections</a
+        >
+      </p>
+      <p>
+        7.
+        <a href="https://medium.com/edureka/python-modules-abb0145a5963"
+          >Python Modules</a
+        >
+      </p>
+      <p>
+        8.
+        <a
+          href="https://medium.com/edureka/python-developer-skills-371583a69be1"
+          >Python developer Skills</a
+        >
+      </p>
+      <p>
+        9.
+        <a
+          href="https://medium.com/edureka/oops-interview-questions-621fc922cdf4"
+          >OOPs Interview Questions and Answers</a
+        >
+      </p>
+      <p>
+        10.
+        <a
+          href="https://medium.com/edureka/python-developer-resume-ded7799b4389"
+          >Resume For A Python Developer</a
+        >
+      </p>
+      <p>
+        11.
+        <a
+          href="https://medium.com/edureka/exploratory-data-analysis-in-python-3ee69362a46e"
+          >Exploratory Data Analysis In Python</a
+        >
+      </p>
+      <p>
+        12.
+        <a href="https://medium.com/edureka/python-turtle-module-361816449390"
+          >Snake Game With Python’s Turtle Module</a
+        >
+      </p>
+      <p>
+        13.
+        <a
+          href="https://medium.com/edureka/python-developer-salary-ba2eff6a502e"
+          >Python Developer Salary</a
+        >
+      </p>
+      <ol start="14" type="1">
+        <li>
+          <a
+            href="https://medium.com/edureka/principal-component-analysis-69d7a4babc96"
+            >Principal Component Analysis</a
+          >
+        </li>
+      </ol>
+      <p>
+        15.
+        <a href="https://medium.com/edureka/python-vs-cpp-c3ffbea01eec"
+          >Python vs C++</a
+        >
+      </p>
+      <p>
+        16.
+        <a href="https://medium.com/edureka/scrapy-tutorial-5584517658fb"
+          >Scrapy Tutorial</a
+        >
+      </p>
+      <p>
+        17.
+        <a href="https://medium.com/edureka/scipy-tutorial-38723361ba4b"
+          >Python SciPy</a
+        >
+      </p>
+      <p>
+        18.
+        <a
+          href="https://medium.com/edureka/least-square-regression-40b59cca8ea7"
+          >Least Squares Regression Method</a
+        >
+      </p>
+      <p>
+        19.
+        <a
+          href="https://medium.com/edureka/jupyter-notebook-cheat-sheet-88f60d1aca7"
+          >Jupyter Notebook Cheat Sheet</a
+        >
+      </p>
+      <p>
+        20.
+        <a href="https://medium.com/edureka/python-basics-f371d7fc0054"
+          >Python Basics</a
+        >
+      </p>
+      <p>
+        21.<a
+          href="https://medium.com/edureka/web-scraping-with-python-d9e6506007bf"
+          >Web Scraping With Python</a
+        >
+      </p>
+      <p>
+        22.
+        <a href="https://medium.com/edureka/generators-in-python-258f21e3d3ff"
+          >Generators in Python</a
+        >
+      </p>
+      <p>
+        23.
+        <a
+          href="https://medium.com/edureka/python-decorator-tutorial-bf7b21278564"
+          >Python Decorator</a
+        >
+      </p>
+      <ol start="24" type="1">
+        <li>
+          <a href="https://medium.com/edureka/spyder-ide-2a91caac4e46"
+            >Python Spyder IDE</a
+          >
+        </li>
+      </ol>
+      <p>
+        25.
+        <a href="https://medium.com/edureka/kivy-tutorial-9a0f02fe53f5"
+          >Mobile Applications Using Kivy In Python</a
+        >
+      </p>
+      <p>
+        26.
+        <a href="https://medium.com/edureka/best-books-for-python-11137561beb7"
+          >Top 10 Best Books To Learn &amp; Practice Python</a
+        >
+      </p>
+      <p>
+        27.
+        <a
+          href="https://medium.com/edureka/robot-framework-tutorial-f8a75ab23cfd"
+          >Robot Framework With Python</a
+        >
+      </p>
+      <p>
+        28.
+        <a href="https://medium.com/edureka/snake-game-with-pygame-497f1683eeaa"
+          >Snake Game in Python using PyGame</a
+        >
+      </p>
+      <p>
+        29.
+        <a
+          href="https://medium.com/edureka/django-interview-questions-a4df7bfeb7e8"
+          >Django Interview Questions and Answers</a
+        >
+      </p>
+      <p>
+        30.
+        <a href="https://medium.com/edureka/python-applications-18b780d64f3b"
+          >Top 10 Python Applications</a
+        >
+      </p>
+      <p>
+        31.
+        <a
+          href="https://medium.com/edureka/hash-tables-and-hashmaps-in-python-3bd7fc1b00b4"
+          >Hash Tables and Hashmaps in Python</a
+        >
+      </p>
+      <p>
+        32.
+        <a href="https://medium.com/edureka/whats-new-python-3-8-7d52cda747b"
+          >Python 3.8</a
+        >
+      </p>
+      <p>
+        33.
+        <a
+          href="https://medium.com/edureka/support-vector-machine-in-python-539dca55c26a"
+          >Support Vector Machine</a
+        >
+      </p>
+      <p>
+        34.
+        <a href="https://medium.com/edureka/python-tutorial-be1b3d015745"
+          >Python Tutorial</a
+        >
+      </p>
+    </blockquote>
+  </body>
+</html>

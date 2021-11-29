@@ -1,0 +1,648 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Code of Conduct</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b11fec77-b768-4118-9d8a-9db5b89d948a" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_3.png" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📔</span></div><h1 class="page-title">Code of Conduct</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bd328674-76da-4809-8e7d-29b4c6c39c4d"><div style="font-size:1.5em"><span class="icon">🌟</span></div><div style="width:100%">The Code of Conduct is set forth to give Learners general notice of academic and non-academic expectations. Here at Lambda School, we are committed to the success of our Learners. That focus drives everything we do. Besides providing a clear framework, the policies and procedures in the Learner Guide are designed to mirror expectations our Learners will see in a professional or workplace environment. Additionally, we want every Learner at Lambda to have as positive a learning environment as possible - something we all play a role in.</div></figure><p id="94607e5d-2f55-468e-b103-fc58332ed331" class="">
+</p><p id="27f07725-af44-4335-97e9-76526dcad75a" class="">The Code of Conduct should be read broadly and is not designed to define misconduct in exhaustive terms. The Code of Conduct is an overarching policy that also includes all published policies and procedures within the Learner Guide. All Learners are expected to know and abide by the Code of Conduct and all published policies and procedures contained within the Learner Guide.</p><p id="9122a5df-feb8-41cc-b32b-4d34ce7ddfbc" class="">
+</p><p id="5516ccf2-bc25-46dc-a1db-2590aa1bb1f3" class="">In addition, we may from time to time publish announcements to Learners about topics related to the Code of Conduct. We will endeavor to ensure that updates are reflected in the Learner Guide, but overall, we expect that Learners abide by guidance provided by staff.</p><p id="aed7e066-1a4b-4913-8298-f0b66ac6bc4a" class="">
+</p><figure id="13b45d0d-dd14-4e9a-8aec-637a67e03e38" class="link-to-page"><a href="Code%20of%20Conduct%20b11fec77b76841189d8a9db5b89d948a/Code%20of%20Conduct%20General%20Information%2013b45d0ddd144e9a8aec637a67e03e38.html"><span class="icon">📖</span>Code of Conduct: General Information</a></figure><p id="9ba79175-9a36-4fe3-9764-f0e74566a0e9" class=""><strong>Contents:</strong></p><ul id="cb261f34-d059-4f4c-a13a-e2501712749d" class="bulleted-list"><li style="list-style-type:disc">Learner Rights and Responsibilities</li></ul><ul id="7eb65a15-4d90-4f32-a9b2-e404ad981dde" class="bulleted-list"><li style="list-style-type:disc">Scope and Application of the Code of Conduct</li></ul><ul id="3d4f26f5-c0c0-48cf-a25e-8446d9c42e3a" class="bulleted-list"><li style="list-style-type:disc">Process When a Violation of the Code of Conduct Occurs</li></ul><p id="9088c51c-767a-4a00-a3d1-dede2b3a34ec" class="">
+</p><figure id="fc7841d3-5ec2-4b82-83d2-0fff9d705f6b" class="link-to-page"><a href="Code%20of%20Conduct%20b11fec77b76841189d8a9db5b89d948a/Code%20of%20Conduct%20Academic%20Standards%20fc7841d35ec24b8283d20fff9d705f6b.html"><span class="icon">🖊️</span>Code of Conduct: Academic Standards</a></figure><p id="4c518b85-2f17-48fd-a2a9-436559857331" class=""><strong>Contents:</strong></p><ul id="f6463e24-4fd1-430d-9f11-9346883cab4b" class="bulleted-list"><li style="list-style-type:disc">Participation and Attendance</li></ul><ul id="f25dd269-fe47-4ebf-9df4-b37da4420e9c" class="bulleted-list"><li style="list-style-type:disc">Coursework and Projects</li></ul><ul id="c00b2749-6d09-4ac7-a8e7-7328c5d4d859" class="bulleted-list"><li style="list-style-type:disc">Owning Your Learning</li></ul><ul id="adb9dd48-f8c4-4613-9d9c-b1bec12bf297" class="bulleted-list"><li style="list-style-type:disc">Academic Integrity</li></ul><p id="e4181721-f77a-46ed-8a5d-a462a6d05f5b" class="">
+</p><figure id="7535d219-ee79-4fcc-8e41-d00937971f11" class="link-to-page"><a href="Code%20of%20Conduct%20b11fec77b76841189d8a9db5b89d948a/Code%20of%20Conduct%20Behavioral%20and%20Community%20Standards%207535d219ee794fcc8e41d00937971f11.html"><span class="icon">🧭</span>Code of Conduct: Behavioral and Community Standards</a></figure><p id="f08feee6-835f-4c3d-847c-1821215e4ae2" class=""><strong>Contents:</strong></p><ul id="484ff666-7572-4bf9-88bd-ba72c2987813" class="bulleted-list"><li style="list-style-type:disc">Professionalism and Respect</li></ul><ul id="77c29cdf-5313-4701-99e3-9e5dd5b3aaf7" class="bulleted-list"><li style="list-style-type:disc">Alcohol and Other Drugs</li></ul><ul id="81f45e38-054e-4e1e-9df2-f427215b8ac7" class="bulleted-list"><li style="list-style-type:disc">Property and Resources</li></ul><ul id="714294fb-5c9a-4e67-9270-c84dad318e8f" class="bulleted-list"><li style="list-style-type:disc">Weapons</li></ul><ul id="bbd40e57-3ed1-4087-9c83-5594f6df17d4" class="bulleted-list"><li style="list-style-type:disc">Discrimination and Harassment</li></ul><ul id="e3d62fe3-21ea-4722-aa40-3075f07b2e8f" class="bulleted-list"><li style="list-style-type:disc">Threatened or Actual Physical or Psychological Harm</li></ul><p id="7a1cf215-77be-405c-b186-c80d31b3ee84" class="">
+</p><figure id="cf8a5d43-4c31-4d34-8f17-99d370631697" class="link-to-page"><a href="Code%20of%20Conduct%20b11fec77b76841189d8a9db5b89d948a/Code%20of%20Conduct%20Digital%20Environment%20Standards%20cf8a5d434c314d348f1799d370631697.html"><span class="icon">💻</span>Code of Conduct: Digital Environment Standards</a></figure><p id="ea48372a-290f-4008-aaea-c7b081187d78" class=""><strong>Contents:</strong></p><ul id="d6ca488a-ff5c-4aa2-938b-09504a3f5bb3" class="bulleted-list"><li style="list-style-type:disc">Communication Guidelines</li></ul><ul id="6381b0e3-c122-4a46-8ab0-eeb197b4be02" class="bulleted-list"><li style="list-style-type:disc">Use of Cameras</li></ul><ul id="083c4f1b-77bb-41c5-a113-f9614a547682" class="bulleted-list"><li style="list-style-type:disc">Conduct on Camera</li></ul><ul id="540a8ddb-09bf-46b8-b544-0da507f945ab" class="bulleted-list"><li style="list-style-type:disc">Account Pictures</li></ul><ul id="b731168b-f5b0-4a80-9f71-70a8266ff5c3" class="bulleted-list"><li style="list-style-type:disc">Names</li></ul><ul id="04e1acdd-979c-49cc-ba0d-be9f289b32dc" class="bulleted-list"><li style="list-style-type:disc">Safety</li></ul><ul id="cd348f07-6c23-4ebf-a55f-2244a0599575" class="bulleted-list"><li style="list-style-type:disc">Recording and Screenshots</li></ul><ul id="b6422593-cb49-4a0b-801d-3a83a3546536" class="bulleted-list"><li style="list-style-type:disc">Feedback</li></ul><p id="2c8b4179-b0a1-4652-9c7e-d99b8c5dfa37" class="">
+</p><h1 id="58da1d52-188b-4018-ae60-7eeabbcfb940" class="">Questions? </h1><p id="3b2f3786-5685-47a1-a27c-d4ce9cddcefe" class="">Contact Learner Success via <code>/frontdesk</code> on Slack.</p><p id="27d71527-c06a-4a16-be55-fae2c60ce1ca" class="">
+</p><p id="de823987-68c4-4757-8e25-d4b8e066263f" class="">
+</p><ul id="275c1610-cd09-4396-a42f-c0eabad68b8f" class="toggle"><li><details open=""><summary>Revision History</summary><p id="30ad1460-2b76-4e14-9d97-479573830879" class="">October 24, 2019, shared with students October 25, 2019</p><p id="7751525d-8e97-4364-bc4f-a31c42bd4464" class="">January 16, 2020, shared with students January 17, 2020</p><p id="39afc2c3-4609-4424-b046-5e4d6bf58956" class="">April 13, 2020, shared with students April 13, 2020</p><p id="7d5afd4e-ff32-4c36-bf44-d6eae89e9a4a" class="">February 10, 2021, shared with students February 10, 2021</p><p id="ec61ebbb-19fa-4265-82b4-4cf728aebe26" class="">
+</p></details></li></ul><p id="3519f52c-3572-4086-b207-dcc36d744cfc" class="">
+</p><p id="bfda6f44-e693-4b86-93ed-7ed1faadf22d" class="">Copyright Lambda School 2021, All Rights Reserved</p><p id="2baf08b8-35d4-489d-b1c7-e882280909c2" class="">
+</p></div></article></body></html>

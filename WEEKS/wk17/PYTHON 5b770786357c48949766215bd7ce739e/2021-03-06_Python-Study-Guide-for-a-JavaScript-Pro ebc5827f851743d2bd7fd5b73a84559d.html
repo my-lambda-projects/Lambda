@@ -1,0 +1,2368 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2021-03-06_Python-Study-Guide-for-a-JavaScript-Programmer-</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type='checkbox'] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+      }
+      .code {
+        font-family: 'SFMono-Regular', Menlo, Consolas, 'PT Mono',
+          'Liberation Mono', Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK JP';
+      }
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK SC';
+      }
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK TC';
+      }
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK KR';
+      }
+      .pdf .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK JP';
+      }
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK SC';
+      }
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK TC';
+      }
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK KR';
+      }
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .highlight-default {
+      }
+      .highlight-gray {
+        color: rgb(155, 154, 151);
+      }
+      .highlight-brown {
+        color: rgb(100, 71, 58);
+      }
+      .highlight-orange {
+        color: rgb(217, 115, 13);
+      }
+      .highlight-yellow {
+        color: rgb(223, 171, 1);
+      }
+      .highlight-teal {
+        color: rgb(15, 123, 108);
+      }
+      .highlight-blue {
+        color: rgb(11, 110, 153);
+      }
+      .highlight-purple {
+        color: rgb(105, 64, 165);
+      }
+      .highlight-pink {
+        color: rgb(173, 26, 114);
+      }
+      .highlight-red {
+        color: rgb(224, 62, 62);
+      }
+      .highlight-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .highlight-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .highlight-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .highlight-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .highlight-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .highlight-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .highlight-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .highlight-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .highlight-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+      }
+      .block-color-brown {
+        color: rgb(100, 71, 58);
+        fill: rgb(100, 71, 58);
+      }
+      .block-color-orange {
+        color: rgb(217, 115, 13);
+        fill: rgb(217, 115, 13);
+      }
+      .block-color-yellow {
+        color: rgb(223, 171, 1);
+        fill: rgb(223, 171, 1);
+      }
+      .block-color-teal {
+        color: rgb(15, 123, 108);
+        fill: rgb(15, 123, 108);
+      }
+      .block-color-blue {
+        color: rgb(11, 110, 153);
+        fill: rgb(11, 110, 153);
+      }
+      .block-color-purple {
+        color: rgb(105, 64, 165);
+        fill: rgb(105, 64, 165);
+      }
+      .block-color-pink {
+        color: rgb(173, 26, 114);
+        fill: rgb(173, 26, 114);
+      }
+      .block-color-red {
+        color: rgb(224, 62, 62);
+        fill: rgb(224, 62, 62);
+      }
+      .block-color-gray_background {
+        background: rgb(235, 236, 237);
+      }
+      .block-color-brown_background {
+        background: rgb(233, 229, 227);
+      }
+      .block-color-orange_background {
+        background: rgb(250, 235, 221);
+      }
+      .block-color-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+      .block-color-teal_background {
+        background: rgb(221, 237, 234);
+      }
+      .block-color-blue_background {
+        background: rgb(221, 235, 241);
+      }
+      .block-color-purple_background {
+        background: rgb(234, 228, 242);
+      }
+      .block-color-pink_background {
+        background: rgb(244, 223, 235);
+      }
+      .block-color-red_background {
+        background: rgb(251, 228, 228);
+      }
+      .select-value-color-default {
+        background-color: rgba(206, 205, 202, 0.5);
+      }
+      .select-value-color-gray {
+        background-color: rgba(155, 154, 151, 0.4);
+      }
+      .select-value-color-brown {
+        background-color: rgba(140, 46, 0, 0.2);
+      }
+      .select-value-color-orange {
+        background-color: rgba(245, 93, 0, 0.2);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(233, 168, 0, 0.2);
+      }
+      .select-value-color-green {
+        background-color: rgba(0, 135, 107, 0.2);
+      }
+      .select-value-color-blue {
+        background-color: rgba(0, 120, 223, 0.2);
+      }
+      .select-value-color-purple {
+        background-color: rgba(103, 36, 222, 0.2);
+      }
+      .select-value-color-pink {
+        background-color: rgba(221, 0, 129, 0.2);
+      }
+      .select-value-color-red {
+        background-color: rgba(255, 0, 26, 0.2);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+
+      .checkbox-off {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+    </style>
+  </head>
+  <body>
+    <article id="ebc5827f-8517-43d2-bd7f-d5b73a84559d" class="page serif">
+      <header>
+        <h1 class="page-title">
+          2021-03-06_Python-Study-Guide-for-a-JavaScript-Programmer-
+        </h1>
+      </header>
+      <div class="page-body">
+        <h1 id="abab1f9b-532e-4c57-b7eb-8ca6d2eb6eaa" class="">
+          Python Study Guide for a JavaScript Programmer
+        </h1>
+        <p id="4adaea69-e0e0-4e35-8808-fcab881ea8cb" class="">
+          A guide to commands in Python from what you know in JavaScript
+        </p>
+        <hr id="af5ac94c-2619-4cf2-8e5a-6118477b896d" />
+        <h3 id="e407fb20-0449-40d6-afc9-15faa44b9782" class="">
+          Python Study Guide for a JavaScript Programmer
+        </h3>
+        <figure id="b02086ed-e7ff-4f47-92e5-d646decc0535" class="image">
+          <a
+            href="https://cdn-images-1.medium.com/max/800/1*3V9VOfPk_hrFdbEAd3j-QQ.png"
+            ><img
+              src="https://cdn-images-1.medium.com/max/800/1*3V9VOfPk_hrFdbEAd3j-QQ.png"
+          /></a>
+        </figure>
+        <h3 id="41859226-7650-48b2-8fc0-b9b82d5cc2d7" class="">
+          Applications of Tutorial &amp; Cheat Sheet Respectivley (At Bottom Of
+          Tutorial):
+        </h3>
+        <h3 id="e05e7b65-c0a9-489a-a1cc-ac8596670cd2" class="">Basics</h3>
+        <ul id="28ae3b17-3cee-4969-84f7-8bc37050f3de" class="bulleted-list">
+          <li>
+            <strong>PEP8</strong> : Python Enhancement Proposals, style-guide
+            for Python.
+          </li>
+        </ul>
+        <ul id="86cbd152-d607-4c85-b02e-9f7ae4e6b247" class="bulleted-list">
+          <li>
+            <code>print</code> is the equivalent of <code>console.log</code>.
+          </li>
+        </ul>
+        <blockquote id="101055ff-db38-451d-8e93-a71a9864bdc3" class="">
+          ‘print() == console.log()’
+        </blockquote>
+        <h3 id="6d58309c-5bec-40e1-a2d0-0deca5652bf6" class="">
+          <code>#</code> is used to make comments in your code.
+        </h3>
+        <pre
+          id="ba2ac6f2-3925-4539-8867-abf58d4c4735"
+          class="code code-wrap"
+        ><code>def foo():
+    &quot;&quot;&quot;
+    The foo function does many amazing things that you
+    should not question. Just accept that it exists and
+    use it with caution.
+    &quot;&quot;&quot;
+    secretThing()</code></pre>
+        <blockquote id="9d41f5b0-8f3e-4b71-8952-109b4802cd19" class="">
+          Python has a built in help function that let’s you see a description
+          of the source code without having to navigate to it… “-SickNasty …
+          Autor Unknown”
+        </blockquote>
+        <hr id="78e22e87-c16b-492e-b3be-33999a29b211" />
+        <h3 id="827dd2b9-2a0a-429d-b5dc-11bae0f35f4b" class="">Numbers</h3>
+        <ul id="c42d9e2c-eea8-42ca-8bae-c6bca747a491" class="bulleted-list">
+          <li>Python has three types of numbers:</li>
+        </ul>
+        <ol
+          type="1"
+          id="abf33fa5-66a7-4ce4-a36b-a16b7b304911"
+          class="numbered-list"
+          start="1"
+        >
+          <li><strong>Integer</strong></li>
+        </ol>
+        <ol
+          type="1"
+          id="703716c9-1bad-4541-8e5e-15eb4c99858c"
+          class="numbered-list"
+          start="2"
+        >
+          <li><strong>Positive and Negative Counting Numbers.</strong></li>
+        </ol>
+        <p id="5008de9f-705c-4760-8930-978287bba252" class="">
+          No Decimal Point
+        </p>
+        <blockquote id="1f08d520-7881-49ab-9ef9-7bdc133dc675" class="">
+          Created by a literal non-decimal point number … or … with the int()
+          constructor.
+        </blockquote>
+        <pre
+          id="f46e4a1a-c869-4451-87fd-148cb316a75f"
+          class="code code-wrap"
+        ><code>print(3) # =&gt; 3
+print(int(19)) # =&gt; 19
+print(int()) # =&gt; 0</code></pre>
+        <p id="c03498e7-c07d-4dec-b367-7ac237dbfb8f" class="">
+          <strong>3. Complex Numbers</strong>
+        </p>
+        <blockquote id="19687437-a9f6-4d7a-ac53-01f28f83d227" class="">
+          Consist of a real part and imaginary part.
+        </blockquote>
+        <h3 id="5f78c137-b3df-4c90-9b07-85096218be48" class="">
+          Boolean is a subtype of integer in Python.🤷‍♂️
+        </h3>
+        <blockquote id="bcd32cf3-4431-4cea-80fd-0d45ab3934db" class="">
+          If you came from a background in JavaScript and learned to accept the
+          premise(s) of the following meme…
+        </blockquote>
+        <figure id="cde9cc9f-eb89-4530-b67e-4e16060bb0e3" class="image">
+          <a
+            href="https://cdn-images-1.medium.com/max/800/0*eC4EvZcv6hhH88jX.png"
+            ><img
+              src="https://cdn-images-1.medium.com/max/800/0*eC4EvZcv6hhH88jX.png"
+          /></a>
+        </figure>
+        <blockquote id="85b88163-f3e7-4e65-b537-6f4a685db32a" class="">
+          Than I am sure you will find the means to suspend your disbelief.
+        </blockquote>
+        <pre
+          id="bf7f6bbc-418b-4036-a3c3-168955677908"
+          class="code code-wrap"
+        ><code>print(2.24) # =&gt; 2.24
+print(2.) # =&gt; 2.0
+print(float()) # =&gt; 0.0
+print(27e-5) # =&gt; 0.00027</code></pre>
+        <h3 id="4b7a41af-fa09-4a1e-b9aa-55258b0bd9c0" class="">
+          KEEP IN MIND:
+        </h3>
+        <blockquote id="82205e11-0d2e-43ec-afec-e42b22471968" class="">
+          The i is switched to a j in programming.
+        </blockquote>
+        <p id="086363e3-ce62-4d3a-aa23-47de39f0378a" class="">
+          T<em
+            >his is because the letter i is common place as the de facto index
+            for any and all enumerable entities so it just makes sense not to
+            compete for name-</em
+          ><em><strong>space</strong></em>
+          <em
+            >when there’s another 25 letters that don’t get used for every loop
+            under the sun. My most medium apologies to Leonhard Euler.</em
+          >
+        </p>
+        <pre
+          id="a86c8189-0e60-4100-a778-2409f747c89a"
+          class="code code-wrap"
+        ><code>print(7j) # =&gt; 7j
+print(5.1+7.7j)) # =&gt; 5.1+7.7j
+print(complex(3, 5)) # =&gt; 3+5j
+print(complex(17)) # =&gt; 17+0j
+print(complex()) # =&gt; 0j</code></pre>
+        <ul id="2552ab7e-aa77-4dff-8b15-f2bfe3e3829a" class="bulleted-list">
+          <li>
+            <strong>Type Casting</strong> : The process of converting one number
+            to another.
+          </li>
+        </ul>
+        <pre
+          id="d0f6e887-fdd7-44e6-9da3-2f32b3a20c6f"
+          class="code code-wrap"
+        ><code># Using Float
+print(17)               # =&gt; 17
+print(float(17))        # =&gt; 17.0</code></pre>
+        <pre
+          id="862cc77f-e7b2-4635-9fb0-184143c6ebb2"
+          class="code code-wrap"
+        ><code># Using Int
+print(17.0)             # =&gt; 17.0
+print(int(17.0))        # =&gt; 17</code></pre>
+        <pre
+          id="2fbeb7a8-9b22-4131-871a-b933a463458b"
+          class="code code-wrap"
+        ><code># Using Str
+print(str(17.0) + &#x27; and &#x27; + str(17))        # =&gt; 17.0 and 17</code></pre>
+        <p id="33d8e39e-eeb9-49d9-9fb7-bcea6f0073ac" class="">
+          <strong
+            >The arithmetic operators are the same between JS and Python, with
+            two additions:</strong
+          >
+        </p>
+        <ul id="8d4db064-15a5-465e-a207-d5ce12335feb" class="bulleted-list">
+          <li><em>“**” : Double asterisk for exponent.</em></li>
+        </ul>
+        <ul id="a2228148-213f-4e16-8501-d4b2c16be5ea" class="bulleted-list">
+          <li><em>“//” : Integer Division.</em></li>
+        </ul>
+        <ul id="1b374b75-9e8b-4cf4-8a68-896d003c5ee6" class="bulleted-list">
+          <li>
+            <strong
+              >There are no spaces between math operations in Python.</strong
+            >
+          </li>
+        </ul>
+        <ul id="381e7528-c901-4a79-81e6-92efc46c84a5" class="bulleted-list">
+          <li>
+            <strong
+              >Integer Division gives the other part of the number from Module;
+              it is a way to do round down numbers replacing</strong
+            >
+            <code>Math.floor()</code> <strong>in JS.</strong>
+          </li>
+        </ul>
+        <ul id="79529bb9-ff95-4eb6-a354-45672dd1ea76" class="bulleted-list">
+          <li>
+            <strong>There are no</strong> <code>++</code> <strong>and</strong>
+            <code>-</code>
+            <strong>in Python, the only shorthand operators are:</strong>
+          </li>
+        </ul>
+        <figure id="b0fdd185-91bf-4db7-81cf-a5ce8b4b7dbf" class="image">
+          <a
+            href="https://cdn-images-1.medium.com/max/600/0*Ez_1PZ93N4FfvkRr.png"
+            ><img
+              src="https://cdn-images-1.medium.com/max/600/0*Ez_1PZ93N4FfvkRr.png"
+          /></a>
+        </figure>
+        <hr id="774bc3ac-4a25-4f12-b46e-f64887095d55" />
+        <h3 id="1afb9245-1954-4b95-9aff-38580a8da89c" class="">Strings</h3>
+        <ul id="1cb6a385-22ca-4d72-8482-06ded1f1741a" class="bulleted-list">
+          <li>Python uses both single and double quotes.</li>
+        </ul>
+        <ul id="1b667132-0d44-4891-9a67-8460b56f1384" class="bulleted-list">
+          <li>
+            You can escape strings like so
+            <code
+              >&#x27;Jodi asked, &quot;What\&#x27;s up, Sam?&quot;&#x27;</code
+            >
+          </li>
+        </ul>
+        <ul id="7dbb94db-f0cb-4205-a50c-7b4c44ac6ed0" class="bulleted-list">
+          <li>Multiline strings use triple quotes.</li>
+        </ul>
+        <pre
+          id="6fa3da2e-6bb6-480a-9251-8377665b4ed5"
+          class="code code-wrap"
+        ><code>print(&#x27;&#x27;&#x27;My instructions are very long so to make them
+more readable in the code I am putting them on
+more than one line. I can even include &quot;quotes&quot;
+of any kind because they won&#x27;t get confused with
+the end of the string!&#x27;&#x27;&#x27;)</code></pre>
+        <p id="3d9dc88b-68d6-44b4-90b7-88f27813067d" class="">
+          <strong>Use the</strong> <code>len()</code>
+          <strong>function to get the length of a string.</strong>
+        </p>
+        <pre
+          id="84aab762-fa57-4194-bf2c-47fd5ea26dbf"
+          class="code code-wrap"
+        ><code>print(len(“Spaghetti”)) # =&gt; 9</code></pre>
+        <h3 id="ad031690-d63d-42d0-a8ee-1ada2233e560" class="">
+          <strong>Python uses</strong> <code>zero-based indexing</code>
+        </h3>
+        <h3 id="cf92a1f3-fa4c-4045-93f6-a33710ca6cc6" class="">
+          Python allows negative indexing (thank god!)
+        </h3>
+        <pre
+          id="faa32191-130c-453d-9345-68c8a388c95f"
+          class="code code-wrap"
+        ><code>print(“Spaghetti”[-1]) # =&gt; i</code></pre>
+        <pre
+          id="a3ccf2a1-9f29-49f1-b4b3-e28bf1bb7e3b"
+          class="code code-wrap"
+        ><code>print(“Spaghetti”[-4]) # =&gt; e</code></pre>
+        <ul id="48c22db9-f347-40bc-ab05-75f32fc11522" class="bulleted-list">
+          <li>Python let’s you use ranges</li>
+        </ul>
+        <p id="6dc34b02-c6df-469c-a7c9-775ea511ecdd" class="">
+          You can think of this as roughly equivalent to the slice method called
+          on a JavaScript object or string…
+          <em
+            >(mind you that in JS … strings are wrapped in an object (under the
+            hood)… upon which the string methods are actually called. As a
+            immutable privative type</em
+          >
+          <em><strong>by textbook definition</strong></em
+          ><em
+            >, a string literal could not hope to invoke most of it’s methods
+            without violating the state it was bound to on initialization if it
+            were not for this bit of syntactic sugar.)</em
+          >
+        </p>
+        <pre
+          id="72784ac0-9cd1-4dd9-b0dc-6cf337129bd0"
+          class="code code-wrap"
+        ><code>print(“Spaghetti”[1:4]) # =&gt; pag
+print(“Spaghetti”[4:-1]) # =&gt; hett
+print(“Spaghetti”[4:4]) # =&gt; (empty string)</code></pre>
+        <ul id="cf6cd231-ba81-4769-bf6c-99b59338a963" class="bulleted-list">
+          <li>
+            The end range is exclusive just like <code>slice</code> in JS.
+          </li>
+        </ul>
+        <pre
+          id="3e1980ca-74ef-4760-80fd-e4144e088669"
+          class="code code-wrap"
+        ><code># Shortcut to get from the beginning of a string to a certain index.
+print(&quot;Spaghetti&quot;[:4])  # =&gt; Spag
+print(&quot;Spaghetti&quot;[:-1])    # =&gt; Spaghett</code></pre>
+        <pre
+          id="3f619d66-aadc-4808-949b-324d34da43c8"
+          class="code code-wrap"
+        ><code># Shortcut to get from a certain index to the end of a string.
+print(&quot;Spaghetti&quot;[1:])  # =&gt; paghetti
+print(&quot;Spaghetti&quot;[-4:])    # =&gt; etti</code></pre>
+        <ul id="911fd985-344a-42bd-a2b8-b9a203c36831" class="bulleted-list">
+          <li>
+            The <code>index</code> string function is the equiv. of
+            <code>indexOf()</code> in JS
+          </li>
+        </ul>
+        <pre
+          id="c0b1eebd-79a6-42db-974b-b643904b7efe"
+          class="code code-wrap"
+        ><code>print(&quot;Spaghetti&quot;.index(&quot;h&quot;))    # =&gt; 4
+print(&quot;Spaghetti&quot;.index(&quot;t&quot;))    # =&gt; 6</code></pre>
+        <ul id="30ecffd0-487d-46d1-891f-91fbcf914c78" class="bulleted-list">
+          <li>
+            The <code>count</code> function finds out how many times a substring
+            appears in a string… pretty nifty for a hard coded feature of the
+            language.
+          </li>
+        </ul>
+        <pre
+          id="2f64cd30-c136-446e-9db6-fc8e32f4c371"
+          class="code code-wrap"
+        ><code>print(&quot;Spaghetti&quot;.count(&quot;h&quot;))    # =&gt; 1
+print(&quot;Spaghetti&quot;.count(&quot;t&quot;))    # =&gt; 2
+print(&quot;Spaghetti&quot;.count(&quot;s&quot;))    # =&gt; 0
+print(&#x27;&#x27;&#x27;We choose to go to the moon in this decade and do the other things,
+not because they are easy, but because they are hard, because that goal will
+serve to organize and measure the best of our energies and skills, because that
+challenge is one that we are willing to accept, one we are unwilling to
+postpone, and one which we intend to win, and the others, too.
+&#x27;&#x27;&#x27;.count(&#x27;the &#x27;))                # =&gt; 4</code></pre>
+        <ul id="65a2314d-f91d-4dec-8459-76300c8e3c94" class="bulleted-list">
+          <li>
+            <strong>You can use</strong> <code>+</code>
+            <strong>to concatenate strings, just like in JS.</strong>
+          </li>
+        </ul>
+        <ul id="0c4c380b-a733-4aa6-a9cd-d0eb049ed22a" class="bulleted-list">
+          <li>
+            <strong
+              >You can also use “*” to repeat strings or multiply
+              strings.</strong
+            >
+          </li>
+        </ul>
+        <ul id="c2a5de1f-76bf-4e5d-96dc-c1a9ed741423" class="bulleted-list">
+          <li>
+            <strong>Use the</strong> <code>format()</code>
+            <strong
+              >function to use placeholders in a string to input values later
+              on.</strong
+            >
+          </li>
+        </ul>
+        <pre
+          id="69f06518-4938-4574-a116-54ed8dfdf180"
+          class="code code-wrap"
+        ><code>first_name = &quot;Billy&quot;
+last_name = &quot;Bob&quot;
+print(&#x27;Your name is {0} {1}&#x27;.format(first_name, last_name))  # =&gt; Your name is Billy Bob</code></pre>
+        <ul id="87d4b889-bab6-4584-840a-a359824e5fc0" class="bulleted-list">
+          <li>
+            <em>Shorthand way to use format function is:</em
+            ><code
+              >print(f&#x27;Your name is {first_name} {last_name}&#x27;)</code
+            >
+          </li>
+        </ul>
+        <h3 id="b5f7523b-c735-4a83-9c63-56b61ceb41fc" class="">
+          Some useful string methods.
+        </h3>
+        <ul id="a1652b3a-e742-463e-8ae6-62655fe73a9a" class="bulleted-list">
+          <li>
+            <strong>Note that in JS</strong> <code>join</code>
+            <strong
+              >is used on an Array, in Python it is used on String.</strong
+            >
+          </li>
+        </ul>
+        <figure id="8a54b5d0-9ac2-44ad-9277-cbbf05b40fa5" class="image">
+          <a
+            href="https://cdn-images-1.medium.com/max/800/0*eE3E5H0AoqkhqK1z.png"
+            ><img
+              src="https://cdn-images-1.medium.com/max/800/0*eE3E5H0AoqkhqK1z.png"
+          /></a>
+        </figure>
+        <ul id="2f3201b7-66d9-43b2-bbcf-4d15c02b080c" class="bulleted-list">
+          <li>There are also many handy testing methods.</li>
+        </ul>
+        <figure id="89c4a58b-bce9-4d67-a3b6-2be030706d88" class="image">
+          <a
+            href="https://cdn-images-1.medium.com/max/800/0*Q0CMqFd4PozLDFPB.png"
+            ><img
+              src="https://cdn-images-1.medium.com/max/800/0*Q0CMqFd4PozLDFPB.png"
+          /></a>
+        </figure>
+        <hr id="6e9a1861-48a3-4c54-b211-f4fdd8b01549" />
+        <h3 id="27997c1d-1590-40e6-86a1-ff971cb3d68f" class="">
+          Variables and Expressions
+        </h3>
+        <ul id="0ed944b6-06f7-4d2b-ae38-82d2f31c5d72" class="bulleted-list">
+          <li>
+            <strong>Duck-Typing</strong> : Programming Style which avoids
+            checking an object’s type to figure out what it can do.
+          </li>
+        </ul>
+        <ul id="161b0617-4de6-4a4e-a35e-cc7195066114" class="bulleted-list">
+          <li>Duck Typing is the fundamental approach of Python.</li>
+        </ul>
+        <ul id="f61faf16-5d34-4e61-b91a-917271b469b0" class="bulleted-list">
+          <li>Assignment of a value automatically declares a variable.</li>
+        </ul>
+        <pre
+          id="316311d8-80b9-4ba2-8c6d-43edc2deadd6"
+          class="code code-wrap"
+        ><code>a = 7
+b = &#x27;Marbles&#x27;
+print(a)         # =&gt; 7
+print(b)         # =&gt; Marbles</code></pre>
+        <ul id="98493e47-565f-4adb-a981-32bbad5e80aa" class="bulleted-list">
+          <li>
+            <em
+              ><strong
+                >You can chain variable assignments to give multiple var names
+                the same value.</strong
+              ></em
+            >
+          </li>
+        </ul>
+        <h3 id="e09dd2ce-127c-45b3-a13e-56c62c435eae" class="">
+          Use with caution as this is highly unreadable
+        </h3>
+        <pre
+          id="ca78d1fd-a3c3-467c-9baf-3bc8011f44a1"
+          class="code code-wrap"
+        ><code>count = max = min = 0
+print(count)           # =&gt; 0
+print(max)             # =&gt; 0
+print(min)             # =&gt; 0</code></pre>
+        <h3 id="24ed3e08-017d-4ac2-958b-9e359f471fee" class="">
+          The value and type of a variable can be re-assigned at any time.
+        </h3>
+        <pre
+          id="5ca1d23b-4928-454a-9aa1-21d89bf91f3c"
+          class="code code-wrap"
+        ><code>a = 17
+print(a)         # =&gt; 17
+a = &#x27;seventeen&#x27;
+print(a)         # =&gt; seventeen</code></pre>
+        <ul id="4491c51c-4ae7-47d0-b9bc-a99606713d7c" class="bulleted-list">
+          <li>
+            <code>NaN</code>
+            <em
+              >does not exist in Python, but you can &#x27;create&#x27; it like
+              so:</em
+            ><code>print(float(&quot;nan&quot;))</code>
+          </li>
+        </ul>
+        <ul id="d1f1b162-3245-42a9-ae7b-04dfa050ee5e" class="bulleted-list">
+          <li>
+            <em>Python replaces</em> <code>null</code> <em>with</em>
+            <code>none</code><em>.</em>
+          </li>
+        </ul>
+        <ul id="28729434-4c39-446d-b5b2-de89d1ec434d" class="bulleted-list">
+          <li>
+            <code>none</code> <em><strong>is an object</strong></em>
+            <em>and can be directly assigned to a variable.</em>
+          </li>
+        </ul>
+        <blockquote id="bea7b908-f382-4066-b52d-679bbc85eb12" class="">
+          Using none is a convenient way to check to see why an action may not
+          be operating correctly in your program.
+        </blockquote>
+        <hr id="534d802c-f296-45c7-ae52-4008aec58973" />
+        <h3 id="9e9a313b-a235-42bd-921e-3b660336b30d" class="">
+          Boolean Data Type
+        </h3>
+        <ul id="7407339d-6a96-4eba-a15e-e40d2b62f692" class="bulleted-list">
+          <li>
+            One of the biggest benefits of Python is that it reads more like
+            English than JS does.
+          </li>
+        </ul>
+        <figure id="d889155a-8bb1-43ef-a22b-24e88560c3bc" class="image">
+          <a
+            href="https://cdn-images-1.medium.com/max/800/0*HQpndNhm1Z_xSoHb.png"
+            ><img
+              src="https://cdn-images-1.medium.com/max/800/0*HQpndNhm1Z_xSoHb.png"
+          /></a>
+        </figure>
+        <pre
+          id="329f97cf-7107-4d53-a921-f0fdb65d345d"
+          class="code code-wrap"
+        ><code># Logical AND
+print(True and True)    # =&gt; True
+print(True and False)   # =&gt; False
+print(False and False)  # =&gt; False</code></pre>
+        <pre
+          id="4d547309-d704-486b-81d7-187302a835b3"
+          class="code code-wrap"
+        ><code># Logical OR
+print(True or True)     # =&gt; True
+print(True or False)    # =&gt; True
+print(False or False)   # =&gt; False</code></pre>
+        <pre
+          id="23778858-5b4f-4569-827e-7a965429dbb1"
+          class="code code-wrap"
+        ><code># Logical NOT
+print(not True)             # =&gt; False
+print(not False and True)   # =&gt; True
+print(not True or False)    # =&gt; False</code></pre>
+        <ul id="f050a8e2-1379-4442-a9ec-e0935a9899fd" class="bulleted-list">
+          <li>
+            By default, Python considers an object to be true UNLESS it is one
+            of the following:
+          </li>
+        </ul>
+        <ul id="1e12d858-b096-4ef4-8a16-355dd32f7363" class="bulleted-list">
+          <li>Constant <code>None</code> or <code>False</code></li>
+        </ul>
+        <ul id="f8db344f-8b1d-4322-ab5e-1c74c0d519eb" class="bulleted-list">
+          <li>Zero of any numeric type.</li>
+        </ul>
+        <ul id="a885e8aa-762f-4077-9c0f-f870cccca35f" class="bulleted-list">
+          <li>Empty Sequence or Collection.</li>
+        </ul>
+        <ul id="f1ddb114-bcf1-40a4-9cf9-451892ea0b5f" class="bulleted-list">
+          <li><code>True</code> and <code>False</code> must be capitalized</li>
+        </ul>
+        <hr id="fb77f900-17e0-4eeb-8547-a086c218e554" />
+        <h3 id="aaff641c-ce3f-494a-b2a1-a4b8723d395a" class="">
+          Comparison Operators
+        </h3>
+        <ul id="896176e4-b9f1-4f7f-8547-6b896eb7129c" class="bulleted-list">
+          <li>Python uses all the same equality operators as JS.</li>
+        </ul>
+        <ul id="9f2ed0e4-a92d-4cb5-8232-5e980e5070f0" class="bulleted-list">
+          <li>
+            In Python, equality operators are processed from left to right.
+          </li>
+        </ul>
+        <ul id="422c77b3-645e-4137-a89c-48ac98d27695" class="bulleted-list">
+          <li>Logical operators are processed in this order:</li>
+        </ul>
+        <ol
+          type="1"
+          id="da3f3da2-824f-4662-9ef8-79ded6e09437"
+          class="numbered-list"
+          start="1"
+        >
+          <li><strong>NOT</strong></li>
+        </ol>
+        <ol
+          type="1"
+          id="b1e27bd5-0e26-47ac-a15d-e29bbf979528"
+          class="numbered-list"
+          start="2"
+        >
+          <li><strong>AND</strong></li>
+        </ol>
+        <ol
+          type="1"
+          id="efd1f775-140d-4cd0-88dd-3ad132957085"
+          class="numbered-list"
+          start="3"
+        >
+          <li><strong>OR</strong></li>
+        </ol>
+        <blockquote id="24bc6d1a-a1a1-4796-a499-c9056ec75151" class="">
+          Just like in JS, you can use parentheses to change the inherent order
+          of operations.
+        </blockquote>
+        <blockquote id="72231abe-5572-49b0-b239-b9d73226e838" class="">
+          Short Circuit : Stopping a program when a true or false has been
+          reached.
+        </blockquote>
+        <figure id="a4b3c26b-22c1-45c3-b679-bb8ac3ba247c" class="image">
+          <a
+            href="https://cdn-images-1.medium.com/max/800/0*qHzGRLTOMTf30miT.png"
+            ><img
+              src="https://cdn-images-1.medium.com/max/800/0*qHzGRLTOMTf30miT.png"
+          /></a>
+        </figure>
+        <hr id="e3e8ff68-3ce8-4e73-b58c-5e7a8f8c429a" />
+        <h3 id="c529a3e8-a131-461f-a053-4e4c46db6f81" class="">
+          Identity vs Equality
+        </h3>
+        <pre
+          id="5a26e4dc-1d54-4bed-b4eb-5dda77aa51df"
+          class="code code-wrap"
+        ><code>print (2 == &#x27;2&#x27;)    # =&gt; False
+print (2 is &#x27;2&#x27;)    # =&gt; False</code></pre>
+        <pre
+          id="bfacf81c-3430-4637-ae6a-a8851b77b0d4"
+          class="code code-wrap"
+        ><code>print (&quot;2&quot; == &#x27;2&#x27;)    # =&gt; True
+print (&quot;2&quot; is &#x27;2&#x27;)    # =&gt; True</code></pre>
+        <pre
+          id="fc8e4044-2f02-4bb4-b573-a379da4ea273"
+          class="code code-wrap"
+        ><code># There is a distinction between the number types.
+print (2 == 2.0)    # =&gt; True
+print (2 is 2.0)    # =&gt; False</code></pre>
+        <ul id="8f2561ad-e510-4f59-aadb-40a89951a864" class="bulleted-list">
+          <li>
+            In the Python community it is better to use <code>is</code> and
+            <code>is not</code> over <code>==</code> or <code>!=</code>
+          </li>
+        </ul>
+        <hr id="b38209e6-bd8f-4b1b-a670-2ffe4c4b4de5" />
+        <p id="7b8148a9-bc56-41b1-b09b-a919119cb156" class="">
+          <strong>If Statements</strong>
+
+          <code
+            >if name == &#x27;Monica&#x27;: print(&#x27;Hi, Monica.&#x27;)</code
+          >
+
+          <code
+            >if name == &#x27;Monica&#x27;: print(&#x27;Hi, Monica.&#x27;) else:
+            print(&#x27;Hello, stranger.&#x27;)</code
+          >
+
+          <code
+            >if name == &#x27;Monica&#x27;: print(&#x27;Hi, Monica.&#x27;) elif
+            age &lt; 12: print(&#x27;You are not Monica, kiddo.&#x27;) elif age
+            &gt; 2000: print(&#x27;Unlike you, Monica is not an undead, immortal
+            vampire.&#x27;) elif age &gt; 100: print(&#x27;You are not Monica,
+            grannie.&#x27;)</code
+          >
+          Remember the order of <code>elif</code> statements matter.
+        </p>
+        <hr id="473a9f0d-9e32-4bb1-8381-1ab1593fc700" />
+        <h3 id="76c09c30-76fa-4da2-ac86-9c511ed82b75" class="">
+          While Statements
+        </h3>
+        <pre
+          id="5e5a8406-f03f-47ce-9f7b-585a146b233c"
+          class="code code-wrap"
+        ><code>spam = 0
+while spam &lt; 5:
+  print(&#x27;Hello, world.&#x27;)
+  spam = spam + 1</code></pre>
+        <ul id="1d2e1479-9df4-4a3e-956e-55c92272e066" class="bulleted-list">
+          <li><code>Break</code> statement also exists in Python.</li>
+        </ul>
+        <pre
+          id="89b30020-418b-4585-bb9f-245c05fcff22"
+          class="code code-wrap"
+        ><code>spam = 0
+while True:
+  print(&#x27;Hello, world.&#x27;)
+  spam = spam + 1
+  if spam &gt;= 5:
+    break</code></pre>
+        <ul id="53d9227f-a418-406c-bef6-c82534de20fc" class="bulleted-list">
+          <li>As are <code>continue</code> statements</li>
+        </ul>
+        <pre
+          id="df932e92-5ec2-4cae-813d-10898f72f485"
+          class="code code-wrap"
+        ><code>spam = 0
+while True:
+  print(&#x27;Hello, world.&#x27;)
+  spam = spam + 1
+  if spam &lt; 5:
+    continue
+  break</code></pre>
+        <hr id="13207e98-22af-4244-8b92-a948ed7145f2" />
+        <h3 id="2ea7d129-5d16-4fdf-b4f9-01b53b78f6e0" class="">
+          Try/Except Statements
+        </h3>
+        <ul id="57769697-b66f-4792-9776-3cdf9f34899f" class="bulleted-list">
+          <li>Python equivalent to <code>try/catch</code></li>
+        </ul>
+        <pre
+          id="900b7bd7-1f4b-482f-900d-f51d72a7614f"
+          class="code code-wrap"
+        ><code>a = 321
+try:
+    print(len(a))
+except:
+    print(&#x27;Silently handle error here&#x27;)</code></pre>
+        <pre
+          id="661df5d8-b92a-43ba-9bca-b75ea5778591"
+          class="code code-wrap"
+        ><code>    # Optionally include a correction to the issue
+    a = str(a)
+    print(len(a)</code></pre>
+        <pre
+          id="1a7201fb-829e-482e-9727-9bfc491e0a90"
+          class="code code-wrap"
+        ><code>a = &#x27;321&#x27;
+try:
+    print(len(a))
+except:
+    print(&#x27;Silently handle error here&#x27;)</code></pre>
+        <pre
+          id="7ee09b81-3492-4834-b2c6-0cc61ab05255"
+          class="code code-wrap"
+        ><code>    # Optionally include a correction to the issue
+    a = str(a)
+    print(len(a))</code></pre>
+        <ul id="2b099bc5-4887-4d2b-a009-03edd422493a" class="bulleted-list">
+          <li>You can name an error to give the output more specificity.</li>
+        </ul>
+        <pre
+          id="e2e10f7a-83df-471f-8241-cc96e5da29c8"
+          class="code code-wrap"
+        ><code>a = 100
+b = 0
+try:
+    c = a / b
+except ZeroDivisionError:
+    c = None
+print(c)</code></pre>
+        <ul id="84b2986b-c4a1-40be-802d-24a437af3f22" class="bulleted-list">
+          <li>
+            You can also use the <code>pass</code> commmand to by pass a certain
+            error.
+          </li>
+        </ul>
+        <pre
+          id="77bf6eb2-bc80-4d8a-adae-7444af20338e"
+          class="code code-wrap"
+        ><code>a = 100
+b = 0
+try:
+    print(a / b)
+except ZeroDivisionError:
+    pass</code></pre>
+        <ul id="88850ca9-ab24-491e-a1f2-4ace316f1738" class="bulleted-list">
+          <li>
+            The <code>pass</code> method won&#x27;t allow you to bypass every
+            single error so you can chain an exception series like so:
+          </li>
+        </ul>
+        <pre
+          id="3f3417d4-7f66-45f5-a86d-9611c1a91353"
+          class="code code-wrap"
+        ><code>a = 100
+# b = &quot;5&quot;
+try:
+    print(a / b)
+except ZeroDivisionError:
+    pass
+except (TypeError, NameError):
+    print(&quot;ERROR!&quot;)</code></pre>
+        <ul id="43356ec0-404a-46bf-a2bc-9c69edc8de86" class="bulleted-list">
+          <li>
+            You can use an <code>else</code> statement to end a chain of
+            <code>except</code> statements.
+          </li>
+        </ul>
+        <pre
+          id="1adcda74-93fc-4fc1-bfbe-63e9cf746454"
+          class="code code-wrap"
+        ><code># tuple of file names
+files = (&#x27;one.txt&#x27;, &#x27;two.txt&#x27;, &#x27;three.txt&#x27;)</code></pre>
+        <pre
+          id="64905889-3ae4-4d50-b531-daea798ac9c1"
+          class="code code-wrap"
+        ><code># simple loop
+for filename in files:
+    try:
+        # open the file in read mode
+        f = open(filename, &#x27;r&#x27;)
+    except OSError:
+        # handle the case where file does not exist or permission is denied
+        print(&#x27;cannot open file&#x27;, filename)
+    else:
+        # do stuff with the file object (f)
+        print(filename, &#x27;opened successfully&#x27;)
+        print(&#x27;found&#x27;, len(f.readlines()), &#x27;lines&#x27;)
+        f.close()</code></pre>
+        <ul id="3bb1d303-aead-42d7-b9c6-833b63942a8d" class="bulleted-list">
+          <li>
+            <code>finally</code> is used at the end to clean up all actions
+            under any circumstance.
+          </li>
+        </ul>
+        <pre
+          id="a428c291-c169-4f5f-97af-a800971d065a"
+          class="code code-wrap"
+        ><code>def divide(x, y):
+    try:
+        result = x / y
+    except ZeroDivisionError:
+        print(&quot;Cannot divide by zero&quot;)
+    else:
+        print(&quot;Result is&quot;, result)
+    finally:
+        print(&quot;Finally...&quot;)</code></pre>
+        <ul id="5f0fd200-946c-4d4d-8fa9-b11899dfbedc" class="bulleted-list">
+          <li>
+            Using duck typing to check to see if some value is able to use a
+            certain method.
+          </li>
+        </ul>
+        <pre
+          id="5cb7ad36-71e2-4dc0-a497-8ee7f9aebeac"
+          class="code code-wrap"
+        ><code># Try a number - nothing will print out
+a = 321
+if hasattr(a, &#x27;__len__&#x27;):
+    print(len(a))</code></pre>
+        <pre
+          id="dcafc84e-17cf-46d8-bb22-3462056cae03"
+          class="code code-wrap"
+        ><code># Try a string - the length will print out (4 in this case)
+b = &quot;5555&quot;
+if hasattr(b, &#x27;__len__&#x27;):
+    print(len(b))</code></pre>
+        <hr id="2bbbdea7-bcbd-425e-bec7-19e4d8501a08" />
+        <h3 id="1d961ebd-beb5-4da2-a432-f829b45ccbae" class="">Pass</h3>
+        <ul id="d5442061-e2f7-4945-8b3c-5a9851e3016a" class="bulleted-list">
+          <li>Pass Keyword is required to write the JS equivalent of :</li>
+        </ul>
+        <pre
+          id="48cd1998-e9e6-4d5d-9188-0bb708b6921a"
+          class="code code-wrap"
+        ><code>if (true) {
+}</code></pre>
+        <pre
+          id="7928eb05-25ca-4a70-b42d-89e0e1329aa9"
+          class="code code-wrap"
+        ><code>while (true) {}</code></pre>
+        <pre
+          id="3640445e-8379-468a-a82e-b8dd5045e56d"
+          class="code code-wrap"
+        ><code>if True:
+  pass</code></pre>
+        <pre
+          id="05d67ef0-c5d7-41ba-ac1b-bc5ea6dd6c3d"
+          class="code code-wrap"
+        ><code>while True:
+  pass</code></pre>
+        <hr id="d17b2454-9603-47a4-a593-ab2fbb5d7d2c" />
+        <h3 id="2347e826-7057-4914-9efd-45b7d5a771fe" class="">Functions</h3>
+        <ul id="e040f623-a12a-452d-98a5-9e72b343474c" class="bulleted-list">
+          <li><strong>Function definition includes:</strong></li>
+        </ul>
+        <ul id="4b9e0511-d188-421c-9af9-701f27ee3017" class="bulleted-list">
+          <li>
+            <strong>The</strong> <code>def</code> <strong>keyword</strong>
+          </li>
+        </ul>
+        <ul id="f5a42e4a-ac6c-4f1a-aabf-259fa1cdbdf2" class="bulleted-list">
+          <li><strong>The name of the function</strong></li>
+        </ul>
+        <ul id="d1d5f2be-7f9b-4f13-a99d-5a5fe34fec14" class="bulleted-list">
+          <li>
+            <strong>A list of parameters enclosed in parentheses.</strong>
+          </li>
+        </ul>
+        <ul id="6f3da5b1-bdff-4877-914d-2110bbc9fb15" class="bulleted-list">
+          <li><strong>A colon at the end of the line.</strong></li>
+        </ul>
+        <ul id="54d98f79-d725-4bbd-9988-9941f18e5ce2" class="bulleted-list">
+          <li><strong>One tab indentation for the code to run.</strong></li>
+        </ul>
+        <ul id="e7bd282a-d82c-4079-bf23-8a4462d99e3c" class="bulleted-list">
+          <li>
+            <strong>You can use default parameters just like in JS</strong>
+          </li>
+        </ul>
+        <pre
+          id="0a41aa3d-ec81-4596-aea9-f1b1bc59f638"
+          class="code code-wrap"
+        ><code>def greeting(name, saying=&quot;Hello&quot;):
+    print(saying, name)</code></pre>
+        <pre
+          id="0b1d8ec4-e51f-4d40-94e6-32149eecf7be"
+          class="code code-wrap"
+        ><code>greeting(&quot;Monica&quot;)
+# Hello Monica</code></pre>
+        <pre
+          id="0c403de4-2764-4c14-8eaa-8d273659a478"
+          class="code code-wrap"
+        ><code>greeting(&quot;Barry&quot;, &quot;Hey&quot;)
+# Hey Barry</code></pre>
+        <h3 id="603fe0c8-d486-441c-8ec3-4efb00c5491b" class="">
+          <strong
+            >Keep in mind, default parameters must always come after regular
+            parameters.</strong
+          >
+        </h3>
+        <pre
+          id="af1c5705-c3aa-4dc3-8e8a-f7e94faabbf4"
+          class="code code-wrap"
+        ><code># THIS IS BAD CODE AND WILL NOT RUN
+def increment(delta=1, value):
+    return delta + value</code></pre>
+        <ul id="1b5b26d1-cced-49b6-b376-ddb5c188117d" class="bulleted-list">
+          <li>
+            <em
+              >You can specify arguments by name without destructuring in
+              Python.</em
+            >
+          </li>
+        </ul>
+        <pre
+          id="f36def1a-e1ce-4f15-b5d4-5aabe038b7ca"
+          class="code code-wrap"
+        ><code>def greeting(name, saying=&quot;Hello&quot;):
+    print(saying, name)</code></pre>
+        <pre
+          id="1783d8cc-fbf3-469c-bbd4-a8e671c53f9e"
+          class="code code-wrap"
+        ><code># name has no default value, so just provide the value
+# saying has a default value, so use a keyword argument
+greeting(&quot;Monica&quot;, saying=&quot;Hi&quot;)</code></pre>
+        <ul id="3543e7eb-5c75-4316-9120-707a9dbfedf0" class="bulleted-list">
+          <li>
+            The <code>lambda</code> keyword is used to create anonymous
+            functions and are supposed to be <code>one-liners</code>.
+          </li>
+        </ul>
+        <p id="f24a1aaa-83f1-4da2-8699-68a0241de230" class="">
+          <code>toUpper = lambda s: s.upper()</code>
+        </p>
+        <hr id="713ec91a-7f54-4e72-aab3-88f8015c95a6" />
+        <h3 id="4d46de37-7d7b-4268-a239-010f6547fd21" class="">Notes</h3>
+        <h3 id="765a0d60-8132-482d-b9f4-6547649a3e43" class="">
+          Formatted Strings
+        </h3>
+        <blockquote id="4fed8e52-e302-460f-b70b-eca0d94077f9" class="">
+          Remember that in Python join() is called on a string with an
+          array/list passed in as the argument. Python has a very powerful
+          formatting engine. format() is also applied directly to strings.
+        </blockquote>
+        <pre
+          id="1b455843-7964-43d5-a170-6b5b767ea731"
+          class="code code-wrap"
+        ><code>shopping_list = [‘bread’,’milk’,’eggs’]
+print(‘,’.join(shopping_list))</code></pre>
+        <h3 id="290f2aac-3324-4d68-8b87-39ff8c0fbd03" class="">
+          Comma Thousands Separator
+        </h3>
+        <pre
+          id="cea509c4-b520-4751-bc68-865cf229b7fb"
+          class="code code-wrap"
+        ><code>print(‘{:,}’.format(1234567890))
+‘1,234,567,890’</code></pre>
+        <h3 id="f0c5a0e2-f8f5-40bc-8028-1ecf8250e8c5" class="">
+          Date and Time
+        </h3>
+        <pre
+          id="224ea0df-4bed-4beb-9f25-e403bbf19df7"
+          class="code code-wrap"
+        ><code>d = datetime.datetime(2020, 7, 4, 12, 15, 58)
+print(‘{:%Y-%m-%d %H:%M:%S}’.format(d))
+‘2020–07–04 12:15:58’</code></pre>
+        <h3 id="94c95d37-d4bd-4dd1-bad0-1383599d9ef1" class="">Percentage</h3>
+        <pre
+          id="532b9c81-56c4-4668-bc8a-6e3cd0258448"
+          class="code code-wrap"
+        ><code>points = 190
+total = 220
+print(‘Correct answers: {:.2%}’.format(points/total))
+Correct answers: 86.36%</code></pre>
+        <h3 id="d3b44e5e-4d6f-4982-9738-63200c6000bb" class="">Data Tables</h3>
+        <pre
+          id="c706fd1c-b8a3-4f53-b254-f5b7c53f66fc"
+          class="code code-wrap"
+        ><code>width=8
+print(‘ decimal hex binary’)
+print(‘-’*27)
+for num in range(1,16):
+for base in ‘dXb’:
+print(‘{0:{width}{base}}’.format(num, base=base, width=width), end=’ ‘)
+print()
+Getting Input from the Command Line
+Python runs synchronously, all programs and processes will stop when listening for a user input.
+The input function shows a prompt to a user and waits for them to type ‘ENTER’.
+Scripts vs Programs
+Programming Script : A set of code that runs in a linear fashion.
+The largest difference between scripts and programs is the level of complexity and purpose. Programs typically have many UI’s.</code></pre>
+        <p id="b487d191-e54b-4ae8-a616-a7eb432ac303" class="">
+          <strong>Python can be used to display html, css, and JS.</strong
+          ><em
+            >It is common to use Python as an API (Application Programming
+            Interface)</em
+          >
+        </p>
+        <h3 id="75bc7bb4-f406-4e13-8f02-638cd9a634f4" class="">
+          Structured Data
+        </h3>
+        <h3 id="08103ce8-3cd8-47ae-afbd-24c53ad9180e" class="">
+          Sequence : The most basic data structure in Python where the index
+          determines the order.
+        </h3>
+        <blockquote id="d6e13054-1721-4220-84a7-1fbd2c9dfef5" class="">
+          List Tuple Range Collections : Unordered data structures, hashable
+          values.
+        </blockquote>
+        <hr id="64ecd3af-d93b-4b81-b36b-cdbcb57194cf" />
+        <p id="c400b61f-b32b-46cb-b969-01b13eddbc86" class="">
+          <strong>Dictionaries</strong><strong> Sets</strong><strong> </strong
+          ><strong
+            >Iterable : Generic name for a sequence or collection; any object
+            that can be iterated through.</strong
+          ><strong> </strong><strong>Can be mutable or immutable.</strong
+          ><strong> Built In Data Types</strong>
+        </p>
+        <hr id="eae7cfc6-c170-49e6-8c38-41cffa7b2225" />
+        <h3 id="1f9013ae-19b3-47c0-a512-ac893035c405" class="">
+          Lists are the python equivalent of arrays.
+        </h3>
+        <pre
+          id="7f13eb4b-0602-4e12-a597-af6394f4b1a9"
+          class="code code-wrap"
+        ><code>empty_list = []
+departments = [‘HR’,’Development’,’Sales’,’Finance’,’IT’,’Customer Support’]</code></pre>
+        <h3 id="24d4aeed-1665-4bfa-9a42-c85232a55646" class="">
+          You can instantiate
+        </h3>
+        <pre
+          id="d082b703-6f9b-4182-a665-f6e1aa550b5d"
+          class="code code-wrap"
+        ><code>specials = list()</code></pre>
+        <h3 id="71235bec-cca7-4f11-b7c5-d2e7e9fd81f2" class="">
+          Test if a value is in a list.
+        </h3>
+        <pre
+          id="0331470a-60e6-44bc-9a1e-5defe2a24e25"
+          class="code code-wrap"
+        ><code>print(1 in [1, 2, 3]) #&gt; True
+print(4 in [1, 2, 3]) #&gt; False
+# Tuples : Very similar to lists, but they are immutable</code></pre>
+        <h3 id="ff87264e-c5e5-4cbb-86aa-48bc3ba9ef74" class="">
+          Instantiated with parentheses
+        </h3>
+        <pre
+          id="5c74c675-6b20-47a5-94b5-f37dbbaa76a4"
+          class="code code-wrap"
+        ><code>time_blocks = (‘AM’,’PM’)</code></pre>
+        <h3 id="73a2d191-4f96-45e5-9029-df9df37f1c2a" class="">
+          Sometimes instantiated without
+        </h3>
+        <pre
+          id="2a91a146-f3aa-43fc-91dc-6d7264c3e67f"
+          class="code code-wrap"
+        ><code>colors = ‘red’,’blue’,’green’
+numbers = 1, 2, 3</code></pre>
+        <h3 id="791b5147-4758-47b1-9689-84e9f0849801" class="">
+          Tuple() built in can be used to convert other data into a tuple
+        </h3>
+        <pre
+          id="c8061eec-2720-4d6e-a3e8-abc7ab9fa122"
+          class="code code-wrap"
+        ><code>tuple(‘abc’) # returns (‘a’, ‘b’, ‘c’)
+tuple([1,2,3]) # returns (1, 2, 3)
+# Think of tuples as constant variables.</code></pre>
+        <h3 id="9e30972e-d75c-4a8f-865c-7d6e9d59a246" class="">
+          Ranges : A list of numbers which can’t be changed; often used with
+          for loops.
+        </h3>
+        <p id="cf8c0a1e-5365-4e0c-bb63-3b94d63f0032" class="">
+          <strong>Declared using one to three parameters</strong>.
+        </p>
+        <blockquote id="7ec6807b-b373-4a19-96a1-38304d5658be" class="">
+          Start : opt. default 0, first # in sequence. Stop : required next
+          number past the last number in the sequence. Step : opt. default 1,
+          difference between each number in the sequence.
+        </blockquote>
+        <pre
+          id="8025c86c-0162-4bbe-9cae-e5c5a29f195d"
+          class="code code-wrap"
+        ><code>range(5) # [0, 1, 2, 3, 4]
+range(1,5) # [1, 2, 3, 4]
+range(0, 25, 5) # [0, 5, 10, 15, 20]
+range(0) # [ ]
+for let (i = 0; i &lt; 5; i++)
+for let (i = 1; i &lt; 5; i++)
+for let (i = 0; i &lt; 25; i+=5)
+for let(i = 0; i = 0; i++)
+# Keep in mind that stop is not included in the range.</code></pre>
+        <h3 id="e1ef7107-8520-4316-9802-eb01a76ae826" class="">
+          Dictionaries : Mappable collection where a hashable value is used as a
+          key to ref. an object stored in the dictionary.
+        </h3>
+        <h3 id="0166a395-f110-4393-8519-390bf3717a9b" class="">Mutable.</h3>
+        <pre
+          id="248631e2-964e-46aa-bad5-f3c960446946"
+          class="code code-wrap"
+        ><code>a = {‘one’:1, ‘two’:2, ‘three’:3}
+b = dict(one=1, two=2, three=3)
+c = dict([(‘two’, 2), (‘one’, 1), (‘three’, 3)])
+# a, b, and c are all equal</code></pre>
+        <p id="428b6490-26ce-4fce-b598-df2ef34f8903" class="">
+          <em
+            ><strong
+              >Declared with curly braces of the built in dict()</strong
+            ></em
+          >
+        </p>
+        <blockquote id="cf6fba8a-23b4-41f5-b58f-338be1912f59" class="">
+          Benefit of dictionaries in Python is that it doesn’t matter how it is
+          defined, if the keys and values are the same the dictionaries are
+          considered equal.
+        </blockquote>
+        <p id="ed844f8e-4348-49f1-a9ad-c010946eb1b2" class="">
+          <strong
+            >Use the in operator to see if a key exists in a dictionary.</strong
+          >
+        </p>
+        <p id="5382f94e-2401-4754-b64f-315fe22d25ae" class="">
+          S<strong
+            >ets : Unordered collection of distinct objects; objects that need
+            to be hashable.</strong
+          >
+        </p>
+        <blockquote id="32d5127b-c48d-4fe8-b383-af875681cd9d" class="">
+          Always be unique, duplicate items are auto dropped from the set.
+        </blockquote>
+        <h3 id="30ffe35f-fc21-46fd-b405-87408af48485" class="">Common Uses:</h3>
+        <blockquote id="42ff665f-0c84-426c-ae5c-c892c6f5689f" class="">
+          Removing Duplicates Membership Testing Mathematical Operators:
+          Intersection, Union, Difference, Symmetric Difference.
+        </blockquote>
+        <p id="e9d85ba6-fba7-472c-abf1-3e9a3f281e81" class="">
+          <strong
+            >Standard Set is mutable, Python has a immutable version called
+            frozenset.</strong
+          ><strong>
+            Sets created by putting comma seperated values inside
+            braces:</strong
+          >
+        </p>
+        <pre
+          id="6820f459-94d4-4415-9f1c-09e55eb5b3c7"
+          class="code code-wrap"
+        ><code>school_bag = {‘book’,’paper’,’pencil’,’pencil’,’book’,’book’,’book’,’eraser’}
+print(school_bag)</code></pre>
+        <h3 id="4cfd0771-33b6-4dc0-af9f-4896633afccd" class="">
+          Also can use set constructor to automatically put it into a set.
+        </h3>
+        <pre
+          id="5e08c99c-3af7-42e9-b39f-094a48a1a8e5"
+          class="code code-wrap"
+        ><code>letters = set(‘abracadabra’)
+print(letters)
+#Built-In Functions
+#Functions using iterables</code></pre>
+        <p id="f907e3d1-4db0-4ce6-b772-809796d64bb5" class="">
+          <strong
+            >filter(function, iterable) : creates new iterable of the same type
+            which includes each item for which the function returns
+            true.</strong
+          >
+        </p>
+        <p id="1219339b-680b-4d0d-a143-bba52c453f76" class="">
+          <strong
+            >map(function, iterable) : creates new iterable of the same type
+            which includes the result of calling the function on every item of
+            the iterable.</strong
+          >
+        </p>
+        <p id="89a8c0ed-8632-4846-b33c-e3f5f1e75cba" class="">
+          <strong
+            >sorted(iterable, key=None, reverse=False) : creates a new sorted
+            list from the items in the iterable.</strong
+          >
+        </p>
+        <p id="5c1c2251-8439-451d-851f-449018ef5eb9" class="">
+          <strong>Output is always a list</strong>
+        </p>
+        <p id="23539c3a-f9a4-4b4a-94ab-434948218e9b" class="">
+          <strong
+            >key: opt function which coverts and item to a value to be
+            compared.</strong
+          >
+        </p>
+        <p id="5c0faa68-8e19-4975-ad74-c1cb623b1214" class="">
+          <strong>reverse: optional boolean.</strong>
+        </p>
+        <p id="c0733db8-8ecb-4237-94f4-b53e157229a1" class="">
+          <strong
+            >enumerate(iterable, start=0) : starts with a sequence and converts
+            it to a series of tuples</strong
+          >
+        </p>
+        <pre
+          id="41d0c3da-b23f-4aac-9484-b60bc070d3b2"
+          class="code code-wrap"
+        ><code>quarters = [‘First’, ‘Second’, ‘Third’, ‘Fourth’]
+print(enumerate(quarters))
+print(enumerate(quarters, start=1))</code></pre>
+        <h3 id="024d71b4-efeb-490b-8df7-206573669a89" class="">
+          (0, ‘First’), (1, ‘Second’), (2, ‘Third’), (3, ‘Fourth’)
+        </h3>
+        <h3 id="059b41ac-e4eb-4fdc-99da-f8360b2f9a26" class="">
+          (1, ‘First’), (2, ‘Second’), (3, ‘Third’), (4, ‘Fourth’)
+        </h3>
+        <blockquote id="17abed07-4b91-4970-8960-bfc666b13006" class="">
+          zip(*iterables) : creates a zip object filled with tuples that combine
+          1 to 1 the items in each provided iterable. Functions that analyze
+          iterable
+        </blockquote>
+        <p id="891dfedb-0422-4037-a834-fc9c68f2413a" class="">
+          <strong
+            >len(iterable) : returns the count of the number of items.</strong
+          >
+        </p>
+        <p id="fb781858-d1fd-45ca-99dd-29d1a60969f4" class="">
+          <strong
+            >max(*args, key=None) : returns the largest of two or more
+            arguments.</strong
+          >
+        </p>
+        <p id="e37278a5-cc2a-4661-a780-a903e9241d46" class="">
+          <strong
+            >max(iterable, key=None) : returns the largest item in the
+            iterable.</strong
+          >
+        </p>
+        <p id="838cdc1c-3e1e-4268-951e-39a7236ced0a" class="">
+          <em
+            >key optional function which converts an item to a value to be
+            compared.</em
+          ><em> min works the same way as max</em>
+        </p>
+        <p id="33f573bc-41e1-4b6c-bbc7-cb362a04540e" class="">
+          <strong
+            >sum(iterable) : used with a list of numbers to generate the
+            total.</strong
+          >
+        </p>
+        <p id="aca26d7a-17ce-43a8-9768-7a042ca33a7c" class="">
+          <em
+            >There is a faster way to concatenate an array of strings into one
+            string, so do not use sum for that.</em
+          >
+        </p>
+        <p id="f8def38f-0c11-4413-b0df-1b8fb54d4e54" class="">
+          <strong
+            >any(iterable) : returns True if any items in the iterable are
+            true.</strong
+          >
+        </p>
+        <p id="c8d2a836-d928-4ec9-8e64-fcea84355325" class="">
+          <strong
+            >all(iterable) : returns True is all items in the iterable are
+            true.</strong
+          >
+        </p>
+        <h3 id="b46b79f5-5c26-4440-bcd2-6e8def14678f" class="">
+          Working with dictionaries
+        </h3>
+        <p id="d2538538-b7b1-4f8f-8f7c-ffe5db34112f" class="">
+          <strong
+            >dir(dictionary) : returns the list of keys in the
+            dictionary.</strong
+          ><strong> Working with sets</strong>
+        </p>
+        <p id="e69d2a65-ece6-4ed7-9f1d-e062e6d3d6dd" class="">
+          <strong
+            >Union : The pipe | operator or union(*sets) function can be used to
+            produce a new set which is a combination of all elements in the
+            provided set.</strong
+          >
+        </p>
+        <pre
+          id="7efb23d7-389f-4280-af9f-a721875552af"
+          class="code code-wrap"
+        ><code>a = {1, 2, 3}
+b = {2, 4, 6}
+print(a | b) # =&gt; {1, 2, 3, 4, 6}</code></pre>
+        <h3 id="a7b64c95-fa0d-4b39-ab8f-03be027307c2" class="">
+          Intersection : The &amp; operator ca be used to produce a new set of
+          only the elements that appear in all sets.
+        </h3>
+        <pre
+          id="195ef9c4-74ee-46dc-bd04-adebbe7588ff"
+          class="code code-wrap"
+        ><code>a = {1, 2, 3}
+b = {2, 4, 6}
+print(a &amp; b) # =&gt; {2}
+Difference : The — operator can be used to produce a new set of only the elements that appear in the first set and NOT the others.</code></pre>
+        <p id="95b63cdc-b2d1-4406-bb92-e20e4b44394c" class="">
+          <strong
+            >Symmetric Difference : The ^ operator can be used to produce a new
+            set of only the elements that appear in exactly one set and not in
+            both.</strong
+          >
+        </p>
+        <pre
+          id="22e6a10f-3a24-4893-bcff-167173b19c77"
+          class="code code-wrap"
+        ><code>a = {1, 2, 3}
+b = {2, 4, 6}
+print(a — b) # =&gt; {1, 3}
+print(b — a) # =&gt; {4, 6}
+print(a ^ b) # =&gt; {1, 3, 4, 6}</code></pre>
+        <hr id="e9894eaf-65b0-45f8-b883-66173a8c3976" />
+        <h3 id="cdf26ada-19d6-4526-bd9d-bf4efafeb66e" class="">
+          <strong>For Statements</strong
+          ><strong> In python, there is only one for loop.</strong>
+        </h3>
+        <p id="5faf00aa-138f-45f9-97b3-f907039af0b6" class="">
+          Always Includes:
+        </p>
+        <blockquote id="1ac09f36-2eae-4166-b0de-20e04ad97427" class="">
+          1. The for keyword 2. A variable name 3. The ‘in’ keyword 4. An
+          iterable of some kid 5. A colon 6. On the next line, an indented block
+          of code called the for clause.
+        </blockquote>
+        <p id="5e4f8747-4415-4986-ad9f-ebc4de6a31a5" class="">
+          <strong
+            >You can use break and continue statements inside for loops as
+            well.</strong
+          >
+        </p>
+        <p id="8e44e616-fc8c-468c-94d5-4f8c625ab70b" class="">
+          <strong
+            >You can use the range function as the iterable for the for
+            loop.</strong
+          >
+        </p>
+        <pre
+          id="c0be0002-a1fa-4006-b2e6-30eb766b3987"
+          class="code code-wrap"
+        ><code>print(‘My name is’)
+for i in range(5):
+print(‘Carlita Cinco (‘ + str(i) + ‘)’)</code></pre>
+        <pre
+          id="11434623-19a0-4b87-9aaf-9231a15b3466"
+          class="code code-wrap"
+        ><code>total = 0
+for num in range(101):
+total += num
+print(total)
+Looping over a list in Python
+for c in [‘a’, ‘b’, ‘c’]:
+print(c)</code></pre>
+        <pre
+          id="4aa17725-939d-4596-a9e0-a365090104d1"
+          class="code code-wrap"
+        ><code>lst = [0, 1, 2, 3]
+for i in lst:
+print(i)</code></pre>
+        <p id="7287829a-97a3-4bd7-aac5-2b6dcbbbfa26" class="">
+          <em
+            ><strong
+              >Common technique is to use the len() on a pre-defined list with a
+              for loop to iterate over the indices of the list.</strong
+            ></em
+          >
+        </p>
+        <pre
+          id="16eeac6b-eeac-40d3-b19c-02c2f3093df5"
+          class="code code-wrap"
+        ><code>supplies = [‘pens’, ‘staplers’, ‘flame-throwers’, ‘binders’]
+for i in range(len(supplies)):
+print(‘Index ‘ + str(i) + ‘ in supplies is: ‘ + supplies[i])
+</code></pre>
+        <p id="6e1984a9-222f-48aa-be14-55642eb55790" class="">
+          <strong>You can loop and destructure at the same time.</strong>
+        </p>
+        <pre
+          id="4a48c942-6dbe-42ae-bbe5-efdc207028a5"
+          class="code code-wrap"
+        ><code>l = 1, 2], [3, 4], [5, 6
+for a, b in l:
+print(a, ‘, ‘, b)</code></pre>
+        <blockquote id="b0af445c-c7d0-4a60-9baf-8a7e7f45a5be" class="">
+          Prints 1, 2
+        </blockquote>
+        <blockquote id="43b655dd-bea8-4f7e-b6b1-7f608a179fd0" class="">
+          Prints 3, 4
+        </blockquote>
+        <blockquote id="3500374c-dc00-4dad-b56a-1386e08976de" class="">
+          Prints 5, 6
+        </blockquote>
+        <p id="2e3eda46-4ebe-4e6c-ad19-38970474ce1b" class="">
+          <strong
+            >You can use values() and keys() to loop over dictionaries.</strong
+          >
+        </p>
+        <pre
+          id="a86869ac-4da5-49b5-8829-2290d9ccba7a"
+          class="code code-wrap"
+        ><code>spam = {‘color’: ‘red’, ‘age’: 42}
+for v in spam.values():
+print(v)</code></pre>
+        <p id="1195ce36-ffc9-42ff-85eb-7d32678ece06" class="">
+          <em>Prints red</em>
+        </p>
+        <p id="d528b715-2b6f-4eb3-a86c-2a8c13c457cb" class="">
+          <em>Prints 42</em>
+        </p>
+        <pre
+          id="b2685405-bfbb-4d3c-9ff4-113e3c674934"
+          class="code code-wrap"
+        ><code>for k in spam.keys():
+print(k)</code></pre>
+        <p id="a40deccc-1590-415e-91f1-42e290f3b9d1" class="">
+          <em>Prints color</em>
+        </p>
+        <p id="e5936acf-e92c-4663-ae9a-23d6e6b17114" class="">
+          <em>Prints age</em>
+        </p>
+        <p id="2816028f-d9eb-48b5-9834-27c9b683d78f" class="">
+          <strong>For loops can also iterate over both keys and values.</strong>
+        </p>
+        <p id="a4e3abf9-9848-4aa8-baea-1145f53f857a" class="">
+          <strong>Getting tuples</strong>
+        </p>
+        <pre
+          id="510dcc46-0f52-4fbb-a3d6-f6ce7505727c"
+          class="code code-wrap"
+        ><code>for i in spam.items():
+print(i)</code></pre>
+        <p id="0c189b8d-5e46-41ce-ad33-5a99ec0021f9" class="">
+          <em>Prints (‘color’, ‘red’)</em>
+        </p>
+        <p id="16af299f-61b1-4243-bd23-7e5e470c2a2f" class="">
+          <em>Prints (‘age’, 42)</em>
+        </p>
+        <p id="b63c32ac-f4ad-4760-9a80-ed952408c09c" class="">
+          <em>Destructuring to values</em>
+        </p>
+        <pre
+          id="0abe7e82-3964-4074-a599-93fb343e10a5"
+          class="code code-wrap"
+        ><code>for k, v in spam.items():
+print(‘Key: ‘ + k + ‘ Value: ‘ + str(v))</code></pre>
+        <p id="33e1f396-f372-4eb3-ae39-0eb284850577" class="">
+          <em>Prints Key: age Value: 42</em>
+        </p>
+        <p id="98d0944e-f44b-427b-a90e-3f00c515eaae" class="">
+          <em>Prints Key: color Value: red</em>
+        </p>
+        <p id="db5bd727-7353-4885-8150-861e1fe9bf72" class="">
+          <strong>Looping over string</strong>
+        </p>
+        <pre
+          id="b7e36ef1-ce41-434a-ace7-9cccd09e0a13"
+          class="code code-wrap"
+        ><code>for c in “abcdefg”:
+print(c)</code></pre>
+        <p id="bf04fae3-4871-4ba9-bea6-b47377443305" class="">
+          <strong
+            >When you order arguments within a function or function call, the
+            args need to occur in a particular order:</strong
+          >
+        </p>
+        <p id="65de9e84-bf0c-471b-8df0-114019c39a5e" class="">
+          <em>formal positional args.</em>
+        </p>
+        <ul id="7b8e0cad-a510-41e5-9d64-e72fd5aa96ac" class="bulleted-list">
+          <li>args</li>
+        </ul>
+        <p id="ecc79d1c-4e3e-4eea-b2f4-9dddf514fd2d" class="">
+          <em>keyword args with default values</em>
+        </p>
+        <ul id="8abcb7cd-d38e-4287-94f7-6ce1c0c7b412" class="bulleted-list">
+          <li>*kwargs</li>
+        </ul>
+        <pre
+          id="c6dc302a-b4fa-4145-8b0a-b65cb226e83f"
+          class="code code-wrap"
+        ><code>def example(arg_1, arg_2, *args, **kwargs):
+pass</code></pre>
+        <pre
+          id="13db4cea-f1e4-42b4-b4b0-a5d045e350a5"
+          class="code code-wrap"
+        ><code>def example2(arg_1, arg_2, *args, kw_1=”shark”, kw_2=”blowfish”, **kwargs):
+pass
+</code></pre>
+        <hr id="9ada64d9-6af0-48d2-bdfa-dbe383633296" />
+        <h3 id="3a518650-e7d0-45d4-abc3-54440add3057" class="">
+          <strong>Importing in Python</strong>
+        </h3>
+        <p id="0e2b2c70-0dea-4ac4-a6bf-74045570f3d8" class="">
+          <strong>Modules are similar to packages in Node.js</strong> Come in
+          different types:
+        </p>
+        <p id="f2d1ad98-33af-47ea-9e67-df191c09190b" class="">Built-In,</p>
+        <p id="93db3749-75a6-428d-8f6f-f248b86d5fdb" class="">Third-Party,</p>
+        <p id="54ecc7a7-ad6f-4240-a24a-cee548391abe" class="">Custom.</p>
+        <p id="c5f14f51-0f7a-435d-8863-725e643a4216" class="">
+          <strong>All loaded using import statements.</strong>
+        </p>
+        <hr id="5a4c117b-4260-4d04-9d3c-a49a3080f576" />
+        <h3 id="90289d7c-d5f2-499f-b3e9-3bc5c38320d4" class="">
+          <strong>Terms</strong>
+        </h3>
+        <blockquote id="469b1de6-7e80-47e5-bf40-83b2204b94fd" class="">
+          module : Python code in a separate file. package : Path to a directory
+          that contains modules.init.py : Default file for a package.
+          submodule : Another file in a module’s folder. function : Function in
+          a module.
+        </blockquote>
+        <p id="56e61edf-3dce-437b-af7a-cc3baec51a98" class="">
+          <strong
+            >A module can be any file but it is usually created by placing a
+            special file init.py into a folder. pic</strong
+          >
+        </p>
+        <p id="283bfc9f-4943-4d20-b3bc-bd0ed80031c9" class="">
+          <em>Try to avoid importing with wildcards in Python.</em>
+        </p>
+        <p id="231ff917-0f31-41bf-9bcf-85819d3ef208" class="">
+          <em>Use multiple lines for clarity when importing.</em>
+        </p>
+        <pre
+          id="25dc0f8f-85b2-4600-b939-434444499ccd"
+          class="code code-wrap"
+        ><code>from urllib.request import (
+HTTPDefaultErrorHandler as ErrorHandler,
+HTTPRedirectHandler as RedirectHandler,
+Request,
+pathname2url,
+url2pathname,
+urlopen,
+)</code></pre>
+        <hr id="a850c4d8-efe8-4bf1-84a4-4f27c1433a4c" />
+        <h3 id="ec8dd2b0-11ad-4c72-98e2-8e645ffb493a" class="">
+          Watching Out for Python 2
+        </h3>
+        <p id="eb423d11-aa80-4caa-a9c9-e823cabbd54e" class="">
+          <strong>Python 3 removed &lt;&gt; and only uses !=</strong>
+        </p>
+        <p id="83eeeaa3-f713-4480-93b3-5eb5081b923b" class="">
+          <strong>format() was introduced with P3</strong>
+        </p>
+        <p id="f3f62c76-983c-4e18-926e-bfb7736599b4" class="">
+          <strong>All strings in P3 are unicode and encoded.</strong
+          ><strong> md5 was removed.</strong>
+        </p>
+        <p id="99e7f348-2f53-42bc-9729-d3b14bf9f3a6" class="">
+          <strong>ConfigParser was renamed to configparser</strong
+          ><strong> sets were killed in favor of set() class.</strong>
+        </p>
+        <h3 id="841917d3-3054-4608-b933-b85bbf956227" class="">
+          <strong>print was a statement in P2, but is a function in P3.</strong>
+        </h3>
+        <h3 id="e1e8e45b-5616-42db-b48d-b52aeefee0e7" class="">
+          Topics revisited (in python syntax)
+        </h3>
+        <h3 id="585a453e-5a4d-4931-86ba-5914a86f7898" class="">Cheat Sheet:</h3>
+        <h3 id="e2dade7e-dc82-4478-a4c9-1e1456804af9" class="">
+          If you found this guide helpful feel free to checkout my github/gists
+          where I host similar content:
+        </h3>
+        <p id="a49ee21b-979d-4f7f-8d42-62cf50d2d5fe" class="">
+          <a href="https://gist.github.com/bgoonz">bgoonz’s gists · GitHub</a>
+        </p>
+        <p id="1fcf4174-0a92-487e-b7b9-34c501c27dd2" class="">
+          <a href="https://github.com/bgoonz"
+            ><strong>bgoonz — Overview</strong></a
+          ><a href="https://github.com/bgoonz"
+            ><em
+              >Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap |
+              Python | React | Node.js | Express | Sequelize…</em
+            ></a
+          ><a href="https://github.com/bgoonz">github.com</a>
+        </p>
+        <p id="6588366b-db98-486b-b381-b84dd0da9a98" class="">
+          Or Checkout my personal Resource Site:
+        </p>
+        <p id="800fd83c-8a92-4229-82b7-ac342250b46a" class="">
+          <a href="https://goofy-euclid-1cd736.netlify.app/"
+            ><strong>a/A-Student-Resources</strong></a
+          ><a href="https://goofy-euclid-1cd736.netlify.app/"
+            ><em>Edit description</em></a
+          ><a href="https://goofy-euclid-1cd736.netlify.app/"
+            >goofy-euclid-1cd736.netlify.app</a
+          >
+        </p>
+        <h3 id="6a348b0c-6c12-4ca2-9c10-4f960b0ae839" class="">
+          Python Cheat Sheet:
+        </h3>
+        <h3 id="b10aa22f-593b-4115-8f68-090eb61a712e" class="">
+          If you found this guide helpful feel free to checkout my GitHub/gists
+          where I host similar content:
+        </h3>
+        <p id="5d834bab-399d-40d2-8165-7458ab525598" class="">
+          <a href="https://gist.github.com/bgoonz"
+            ><strong>bgoonz’s gists</strong></a
+          ><a href="https://gist.github.com/bgoonz"
+            ><em
+              >Instantly share code, notes, and snippets. Web Developer,
+              Electrical Engineer JavaScript | CSS | Bootstrap | Python |…</em
+            ></a
+          ><a href="https://gist.github.com/bgoonz">gist.github.com</a>
+        </p>
+        <p id="e58d5b82-fb3e-427c-864c-193502af5986" class="">
+          <a href="https://github.com/bgoonz"
+            ><strong>bgoonz — Overview</strong></a
+          ><a href="https://github.com/bgoonz"
+            ><em
+              >Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap |
+              Python | React | Node.js | Express | Sequelize…</em
+            ></a
+          ><a href="https://github.com/bgoonz">github.com</a>
+        </p>
+        <h3 id="20a36734-3db9-4299-83a5-610591d0c7b4" class="">
+          Or Checkout my personal Resource Site:
+        </h3>
+        <h3 id="2552ce31-6dac-4da5-ad55-6f18348fbd97" class="">
+          Discover More:
+        </h3>
+        <p id="8edca515-bfc4-4fde-93ed-e2a5ca3289a6" class="">
+          <a href="https://bgoonz-blog.netlify.app/"
+            ><strong>Web-Dev-Hub</strong></a
+          ><a href="https://bgoonz-blog.netlify.app/"
+            ><em
+              >Memoization, Tabulation, and Sorting Algorithms by Example Why is
+              looking at runtime not a reliable method of…</em
+            ></a
+          ><a href="https://bgoonz-blog.netlify.app/"
+            >bgoonz-blog.netlify.app</a
+          >
+        </p>
+        <p id="59da26e0-83d5-4427-864f-58cc808f8334" class="">
+          By <a href="https://medium.com/@bryanguner">Bryan Guner</a> on
+          <a href="https://medium.com/p/5cfdf3d2bdfb">March 6, 2021</a>.
+        </p>
+        <p id="c6587187-35e6-46e8-b6e0-ed6759013a13" class="">
+          <a
+            href="https://medium.com/@bryanguner/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb"
+            >Canonical link</a
+          >
+        </p>
+        <p id="1f258edb-b354-42f1-84d0-34ba87801f82" class="">
+          Exported from <a href="https://medium.com/">Medium</a> on July 29,
+          2021.
+        </p>
+      </div>
+    </article>
+  </body>
+</html>

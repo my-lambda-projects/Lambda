@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-  - "15"
-  - "14"
-  - "12"
-  - "10"
+  - '15'
+  - '14'
+  - '12'
+  - '10'
 cache:
   yarn: true
   directories:
-    - ".eslintcache"
-    - "node_modules"
+    - '.eslintcache'
+    - 'node_modules'
 script:
   - yarn test:ci
   # Build the website in PRs so we make sure that PRs do not break the website
@@ -22,4 +22,4 @@ deploy:
   local_dir: website/dist
   on:
     branch: master
-    node: "12"
+    node: '12'

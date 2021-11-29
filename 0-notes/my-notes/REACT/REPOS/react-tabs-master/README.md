@@ -7,7 +7,7 @@ https://reactcommunity.org/react-tabs/
 > Supports React 16.3.0 or newer
 
 <ins><blockquote class="rich-diff-level-zero"> <p class="rich-diff-level-one">react-tabs was tested on real mobile devices and browsers with<br>
-  <img src="https://reactcommunity.org/react-tabs/2e0bf9a22057e69b716b45a3d5bffbe7.svg" height="50" alt="Browserstack">
+<img src="https://reactcommunity.org/react-tabs/2e0bf9a22057e69b716b45a3d5bffbe7.svg" height="50" alt="Browserstack">
 
 </p> </blockquote></ins>
 
@@ -16,7 +16,9 @@ https://reactcommunity.org/react-tabs/
 ```bash
 yarn add react-tabs
 ```
+
 or
+
 ```bash
 npm install --save react-tabs
 ```
@@ -78,7 +80,7 @@ react-tabs consists of 4 components which all need to be used together.
 
 If you specify additional props on the `<Tabs />` component they will be forwarded to the rendered `<div />`.
 
-#### className: `string | Array<string> | { [string]: boolean }`
+#### className: `string | Array<string> | { [string]: boolean }`
 
 > default: `"react-tabs"`
 
@@ -168,7 +170,7 @@ Provide a custom class name for the active tab panel.
 
 If you specify additional props on the `<TabList />` component they will be forwarded to the rendered `<ul />`.
 
-#### className: `string | Array<string> | { [string]: boolean }`
+#### className: `string | Array<string> | { [string]: boolean }`
 
 > default: `"react-tabs__tab-list"`
 
@@ -180,7 +182,7 @@ Provide a custom class name for the `<ul />`.
 
 If you specify additional props on the `<Tab />` component they will be forwarded to the rendered `<li />`.
 
-#### className: `string | Array<string> | { [string]: boolean }`
+#### className: `string | Array<string> | { [string]: boolean }`
 
 > default: `"react-tabs__tab"`
 
@@ -220,7 +222,7 @@ Overrides the tabIndex to enabled tabbing between tabs.
 
 If you specify additional props on the `<TabPanel />` component they will be forwarded to the rendered `<div />`.
 
-#### className: `string | Array<string> | { [string]: boolean }`
+#### className: `string | Array<string> | { [string]: boolean }`
 
 > default: `"react-tabs__tab-panel"`
 
@@ -255,7 +257,7 @@ This is the default mode of react-tabs and makes the react-tabs components handl
 In this mode you cannot force a tab change during runtime.
 
 ```js
-<Tabs defaultIndex={1} onSelect={index => console.log(index)}>
+<Tabs defaultIndex={1} onSelect={(index) => console.log(index)}>
   <TabList>
     <Tab>Title 1</Tab>
     <Tab>Title 2</Tab>
@@ -278,7 +280,7 @@ const App = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-    <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
+    <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
       <TabList>
         <Tab>Title 1</Tab>
         <Tab>Title 2</Tab>
@@ -330,12 +332,14 @@ When using the UMD version of react-tabs you can easily use the default styles b
 <html>
   <head>
     ...
-    <link rel="stylesheet" href="https://unpkg.com/react-tabs/style/react-tabs.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/react-tabs/style/react-tabs.css"
+    />
   </head>
   ...
 </html>
 ```
-
 
 ### Custom Style
 
@@ -346,11 +350,12 @@ You can also always just simply copy the default style to your own css/scss/less
 In case you want to create your own component wrapping the ones that the library provides, you have to set its `tabsRole`. This value is used inside react-tabs to check the role of a component inside `<Tabs />`.
 
 Possible values for tabsRole are:
- * Tab
- * TabPanel
- * TabList
 
-``` javascript
+- Tab
+- TabPanel
+- TabList
+
+```javascript
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
 const CustomTab = ({ children }) => (
@@ -375,17 +380,16 @@ const App = () => (
 
 This works for custom tabs, but will not suffice for something like a TabPanel. Because of how react-tabs works internally (it uses cloning to opaquely control various parts of the tab state), you need to pass any incoming props to the component you're wrapping. The easiest way to do this is to use the rest and spread operators, e.g.:
 
-``` javascript
+```javascript
 const CustomTabPanel = ({ children, myCustomProp, ...otherProps }) => (
   <TabPanel {...otherProps}>
     <h1>{children}</h1>
     {myCustomProp && `myCustomProp: ${myCustomProp}`}
   </TabPanel>
-)
+);
 
-CustomTabPanel.tabsRole = 'TabPanel'
+CustomTabPanel.tabsRole = 'TabPanel';
 ```
-
 
 ## License
 

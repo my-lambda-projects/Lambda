@@ -226,9 +226,8 @@ test('props.activeIndex updates to different value when not initially set calls 
   const tab0 = coerceForTesting<Tab>({});
   const tab1 = coerceForTesting<Tab>({deactivate: td.func()});
   const wrapper = shallow<TabBar>(<TabBar />);
-  wrapper.instance().foundation.activateTab = td.func<
-    (index: number) => void
-  >();
+  wrapper.instance().foundation.activateTab =
+    td.func<(index: number) => void>();
   wrapper.instance().tabList = [tab0, tab1];
   wrapper.setProps({activeIndex: 1});
   td.verify(wrapper.instance().foundation.activateTab(1), {times: 1});
@@ -238,9 +237,8 @@ test('props.indexInView updates to different value  when not initially set calls
   const tab0 = coerceForTesting<Tab>({});
   const tab1 = coerceForTesting<Tab>({deactivate: td.func()});
   const wrapper = shallow<TabBar>(<TabBar />);
-  wrapper.instance().foundation.scrollIntoView = td.func<
-    (index: number) => void
-  >();
+  wrapper.instance().foundation.scrollIntoView =
+    td.func<(index: number) => void>();
   wrapper.instance().tabList = [tab0, tab1];
   wrapper.setProps({indexInView: 1});
   td.verify(wrapper.instance().foundation.scrollIntoView(1), {times: 1});
@@ -250,9 +248,8 @@ test('props.activeIndex updates to different value with a set value calls founda
   const tab0 = coerceForTesting<Tab>({});
   const tab1 = coerceForTesting<Tab>({deactivate: td.func()});
   const wrapper = shallow<TabBar>(<TabBar activeIndex={1} />);
-  wrapper.instance().foundation.activateTab = td.func<
-    (index: number) => void
-  >();
+  wrapper.instance().foundation.activateTab =
+    td.func<(index: number) => void>();
   wrapper.instance().tabList = [tab0, tab1];
   wrapper.setProps({activeIndex: 0});
   td.verify(wrapper.instance().foundation.activateTab(0), {times: 1});
@@ -262,9 +259,8 @@ test('props.indexInView updates to different value with a set value calls founda
   const tab0 = coerceForTesting<Tab>({});
   const tab1 = coerceForTesting<Tab>({deactivate: td.func()});
   const wrapper = shallow<TabBar>(<TabBar indexInView={1} />);
-  wrapper.instance().foundation.scrollIntoView = td.func<
-    (index: number) => void
-  >();
+  wrapper.instance().foundation.scrollIntoView =
+    td.func<(index: number) => void>();
   wrapper.instance().tabList = [tab0, tab1];
   wrapper.setProps({indexInView: 0});
   td.verify(wrapper.instance().foundation.scrollIntoView(0), {times: 1});

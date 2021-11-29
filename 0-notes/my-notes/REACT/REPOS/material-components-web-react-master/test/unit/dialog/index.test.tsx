@@ -123,9 +123,8 @@ test(
   () => {
     const wrapper = shallow<Dialog>(<Dialog autoStackButtons={false} />);
     assert.isFalse(wrapper.instance().foundation.getAutoStackButtons());
-    wrapper.instance().foundation.setAutoStackButtons = td.func<
-      (autoStack: boolean) => null
-    >();
+    wrapper.instance().foundation.setAutoStackButtons =
+      td.func<(autoStack: boolean) => null>();
     wrapper.setProps({autoStackButtons: true});
     td.verify(wrapper.instance().foundation.setAutoStackButtons(true), {
       times: 1,
@@ -139,9 +138,8 @@ test(
   () => {
     const wrapper = shallow<Dialog>(<Dialog />);
     assert.isTrue(wrapper.instance().foundation.getAutoStackButtons());
-    wrapper.instance().foundation.setAutoStackButtons = td.func<
-      (autoStack: boolean) => null
-    >();
+    wrapper.instance().foundation.setAutoStackButtons =
+      td.func<(autoStack: boolean) => null>();
     wrapper.setProps({autoStackButtons: false});
     td.verify(wrapper.instance().foundation.setAutoStackButtons(false), {
       times: 1,
@@ -153,9 +151,8 @@ test('when props.escapeKeyAction updates #foundation.setEscapeKeyAction is calle
   const wrapper = shallow<Dialog>(<Dialog />);
   const escapeKeyAction: string = 'meow';
 
-  wrapper.instance().foundation.setEscapeKeyAction = td.func<
-    (action: string) => null
-  >();
+  wrapper.instance().foundation.setEscapeKeyAction =
+    td.func<(action: string) => null>();
   wrapper.setProps({escapeKeyAction});
   td.verify(wrapper.instance().foundation.setEscapeKeyAction(escapeKeyAction), {
     times: 1,
@@ -166,9 +163,8 @@ test('when props.scrimClickAction updates #foundation.setScrimClickAction is cal
   const wrapper = shallow<Dialog>(<Dialog />);
   const scrimClickAction: string = 'meow';
 
-  wrapper.instance().foundation.setScrimClickAction = td.func<
-    (action: string) => null
-  >();
+  wrapper.instance().foundation.setScrimClickAction =
+    td.func<(action: string) => null>();
   wrapper.setProps({scrimClickAction});
   td.verify(
     wrapper.instance().foundation.setScrimClickAction(scrimClickAction),
@@ -428,9 +424,8 @@ test(
     '#foundation.handleDocumentKeyDown',
   () => {
     const wrapper = shallow<Dialog>(<Dialog open={false} />);
-    wrapper.instance().foundation.handleDocumentKeydown = td.func<
-      (evt: KeyboardEvent) => null
-    >();
+    wrapper.instance().foundation.handleDocumentKeydown =
+      td.func<(evt: KeyboardEvent) => null>();
 
     const e = new KeyboardEvent('keydown');
 
@@ -617,9 +612,8 @@ test('#events.onKeyDown triggers #foundaiton.handleInteraction', () => {
     </Dialog>
   );
 
-  wrapper.instance().foundation.handleInteraction = td.func<
-    (e: KeyboardEvent) => null
-  >();
+  wrapper.instance().foundation.handleInteraction =
+    td.func<(e: KeyboardEvent) => null>();
   const e = coerceForTesting<React.KeyboardEvent>({
     nativeEvent: {},
   });
@@ -638,9 +632,8 @@ test('#events.onClick triggers #foundaiton.handleInteraction', () => {
     </Dialog>
   );
 
-  wrapper.instance().foundation.handleInteraction = td.func<
-    (e: KeyboardEvent) => null
-  >();
+  wrapper.instance().foundation.handleInteraction =
+    td.func<(e: KeyboardEvent) => null>();
   const e = coerceForTesting<React.KeyboardEvent>({
     nativeEvent: {},
   });

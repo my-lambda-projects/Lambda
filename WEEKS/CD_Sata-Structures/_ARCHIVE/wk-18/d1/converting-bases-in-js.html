@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>converting-bases-in-js</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="converting-binaryhexoctal-to-decimal-numbers-in-javascript">
+      Converting (binary,hex,octal) to decimal numbers in JavaScript
+    </h1>
+    <blockquote>
+      <p>
+        In this tutorial, we are going to learn about how to convert binary,
+        hexadecimal and octal to decimal numbers in JavaScript. parseInt In…
+      </p>
+    </blockquote>
+    <p>
+      In this tutorial, we are going to learn about how to convert binary,
+      hexadecimal and octal to decimal numbers in JavaScript.
+    </p>
+    <h2 id="parseint"><a href="#parseint"></a>parseInt</h2>
+    <p>
+      In JavaScript, we have the <code>parseInt()</code> method by using that we
+      can make conversions.
+    </p>
+    <p>
+      The <strong>parseInt( )</strong> method takes the two arguments, the first
+      argument is <code>string</code> and the second argument is
+      <code>base</code> by using that it returns the decimal number of a
+      specified base.
+    </p>
+    <p>Let’s see the conversions with the help of examples.</p>
+    <h2 id="converting-binary-to-decimal">
+      <a href="#converting-binary-to-decimal"></a>Converting binary to decimal
+    </h2>
+    <p>
+      To convert a binary to decimal we need to pass base <code>2</code> as a
+      second argument to the <code>parseInt</code> method.
+    </p>
+    <pre><code>const binaryNumber = &quot;1100&quot;;
+
+console.log(parseInt(binaryNumber,2));</code></pre>
+    <h2 id="converting-hexadecimal-to-decimal">
+      <a href="#converting-hexadecimal-to-decimal"></a>Converting hexadecimal to
+      decimal
+    </h2>
+    <p>
+      To convert a hexadecimal to decimal we need to pass base
+      <code>16</code> as a second argument to the <code>parseInt</code> method.
+    </p>
+    <pre><code>const hex = &quot;c&quot;;
+
+console.log(parseInt(hex,16));</code></pre>
+    <h2 id="converting-octal-to-decimal">
+      <a href="#converting-octal-to-decimal"></a>Converting octal to decimal
+    </h2>
+    <p>
+      To convert a octal to decimal we need to pass base <code>8</code> as a
+      second argument to the <code>parseInt</code> method.
+    </p>
+    <pre><code>const octal = &quot;14&quot;;
+
+console.log(parseInt(octal,8));</code></pre>
+    <p>
+      You can also learn,
+      <a
+        href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/javascript-convert-decimals/"
+        >how to convert decimal to (binary, hexadecimal, octal) numbers in
+        JavaScript</a
+      >.
+    </p>
+    <p>
+      <a href="https://reactgo.com/javascript-convert-binary-decimals/"
+        >Source</a
+      >
+    </p>
+  </body>
+</html>
