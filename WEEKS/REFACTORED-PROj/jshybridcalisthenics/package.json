@@ -5,7 +5,7 @@
     "discord.js": "^12.5.1",
     "discord.js-menu": "^2.3.1",
     "dotenv": "^8.2.0",
-    "nconf": "^0.11.1",
+    "nconf": "^0.11.4",
     "puppeteer": "^5.5.0",
     "scraper-instagram": "^1.0.16",
     "ytsr": "^3.2.1"
