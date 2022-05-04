@@ -402,7 +402,7 @@ Creating things that change my every day life.
       <td>Successfully completed and delivered a platform to digitize a guitar signal and perform filtering before executing frequency & time domain analysis to track a current performance against prerecorded performance.Implemented the Dynamic Time Warping algorithm in C++ and Python to autonomously activate or adjust guitar effect at multiple pre-designated section of performance.</td>
     </tr>
     <tr>
-      <td><a href="https://trusting-dijkstra-4d3b17.netlify.app/">Data Structures & Algorithms Interactive Learning Site</a></td>
+      <td><a href="https://ds-algo-official.netlify.app/">Data Structures & Algorithms Interactive Learning Site</a></td>
       <td>HTML, CSS, Javascript,  Python,  Java,  jQuery,  Repl.it-Database API</td>
       <td>A interactive and comprehensive guide and learning tool for DataStructures and Algorithms ... concentrated on JS but with some examples in Python,  C++ and Java as well</td>
     </tr>

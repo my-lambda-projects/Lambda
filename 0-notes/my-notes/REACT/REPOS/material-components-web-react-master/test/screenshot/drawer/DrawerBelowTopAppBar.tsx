@@ -28,48 +28,49 @@ interface DrawerScreenshotTestProps {
   renderNavigationIcon: () => React.ReactElement<MaterialIconProps> | undefined;
 }
 
-const DrawerScreenshotTest: React.FunctionComponent<DrawerScreenshotTestProps> =
-  ({
-    onClose,
-    open,
-    title,
-    modal,
-    dismissible,
-    renderLoremIpsum,
-    renderNavigationIcon,
-  }) => {
-    return (
-      <React.Fragment>
-        <TopAppBar>
-          <TopAppBarRow>
-            <TopAppBarSection align='start'>
-              {renderNavigationIcon()}
-              <TopAppBarTitle>{title}</TopAppBarTitle>
-            </TopAppBarSection>
-          </TopAppBarRow>
-        </TopAppBar>
-        <TopAppBarFixedAdjust className='drawer-screenshot-test drawer-screenshot-test--is-below'>
-          <Drawer
-            open={open}
-            onClose={onClose}
-            dismissible={dismissible}
-            modal={modal}
-          >
-            <DrawerHeader>
-              <DrawerTitle>Inbox</DrawerTitle>
-              <DrawerSubtitle>ralph@gmail.com</DrawerSubtitle>
-            </DrawerHeader>
+const DrawerScreenshotTest: React.FunctionComponent<
+  DrawerScreenshotTestProps
+> = ({
+  onClose,
+  open,
+  title,
+  modal,
+  dismissible,
+  renderLoremIpsum,
+  renderNavigationIcon,
+}) => {
+  return (
+    <React.Fragment>
+      <TopAppBar>
+        <TopAppBarRow>
+          <TopAppBarSection align='start'>
+            {renderNavigationIcon()}
+            <TopAppBarTitle>{title}</TopAppBarTitle>
+          </TopAppBarSection>
+        </TopAppBarRow>
+      </TopAppBar>
+      <TopAppBarFixedAdjust className='drawer-screenshot-test drawer-screenshot-test--is-below'>
+        <Drawer
+          open={open}
+          onClose={onClose}
+          dismissible={dismissible}
+          modal={modal}
+        >
+          <DrawerHeader>
+            <DrawerTitle>Inbox</DrawerTitle>
+            <DrawerSubtitle>ralph@gmail.com</DrawerSubtitle>
+          </DrawerHeader>
 
-            <DrawerContent>
-              <List />
-            </DrawerContent>
-          </Drawer>
+          <DrawerContent>
+            <List />
+          </DrawerContent>
+        </Drawer>
 
-          <DrawerAppContent className='drawer-app-content'>
-            {[0, 1, 2, 3, 4, 5].map(renderLoremIpsum)}
-          </DrawerAppContent>
-        </TopAppBarFixedAdjust>
-      </React.Fragment>
-    );
-  };
+        <DrawerAppContent className='drawer-app-content'>
+          {[0, 1, 2, 3, 4, 5].map(renderLoremIpsum)}
+        </DrawerAppContent>
+      </TopAppBarFixedAdjust>
+    </React.Fragment>
+  );
+};
 export default DrawerScreenshotTest;

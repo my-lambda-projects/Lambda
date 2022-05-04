@@ -38,22 +38,23 @@ export interface PrimaryContentBaseProps
   unbounded?: boolean;
 }
 
-export const PrimaryContentBase: React.FunctionComponent<PrimaryContentBaseProps> =
-  ({
-    className = '',
-    initRipple,
-    children,
-    unbounded, // eslint-disable-line @typescript-eslint/no-unused-vars
-    ...otherProps
-  }) => {
-    const classes = classnames(CSS_CLASSES.PRIMARY_ACTION, className);
+export const PrimaryContentBase: React.FunctionComponent<
+  PrimaryContentBaseProps
+> = ({
+  className = '',
+  initRipple,
+  children,
+  unbounded, // eslint-disable-line @typescript-eslint/no-unused-vars
+  ...otherProps
+}) => {
+  const classes = classnames(CSS_CLASSES.PRIMARY_ACTION, className);
 
-    return (
-      <div className={classes} ref={initRipple} {...otherProps}>
-        {children}
-      </div>
-    );
-  };
+  return (
+    <div className={classes} ref={initRipple} {...otherProps}>
+      {children}
+    </div>
+  );
+};
 
 export default withRipple<PrimaryContentBaseProps, HTMLDivElement>(
   PrimaryContentBase
