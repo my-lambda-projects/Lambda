@@ -1,2 +1,0 @@
-def launchSequenceChecker(systemNames, stepNumbers):
-    
